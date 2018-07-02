@@ -1,0 +1,21 @@
+{% extends "look-and-feel/layouts/two_thirds.html" %}
+{% from "look-and-feel/components/header.njk" import header %}
+{% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
+{% from "look-and-feel/components/i18n.njk" import languageSwitch %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{{ phaseBanner(phase, feedbackLink) }}
+{{ languageSwitch(currentLang, availableLangs) }}
+{% endblock %}
+
+{% block two_thirds -%}
+
+{{ header(title, size='xlarge') }}
+{% block guidance %}
+{% endblock %}
+
+{%- endblock %}

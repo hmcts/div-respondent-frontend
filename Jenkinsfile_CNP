@@ -1,0 +1,12 @@
+#!groovy
+
+@Library("Infrastructure")
+
+String product = "div"
+String component = "bfe"
+
+withPipeline("nodejs", product, component) {
+  after('test') {
+    sh 'yarn test:validation'
+  }
+}

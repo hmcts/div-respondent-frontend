@@ -1,0 +1,71 @@
+environment: development
+NODE_ENV: development
+
+node:
+  port: 3000
+  baseUrl: https://localhost:3000
+
+redis:
+
+ssl:
+  hpkp:
+    maxAge: 3600
+    sha256s: AbCdEf123=
+    sha256sBackup: ZyXwVu456=
+
+health:
+  timeout: 5000
+  deadline: 15000
+
+service:
+  name: 'divorce-respondent-frontend'
+
+services:
+  redis:
+    url: redis://127.0.0.1:6379
+    secret: defaultsecret
+    useSSL: false
+    encryptionAtRestKey: encryptionAtRestKey
+  idam:
+    apiHealth: https://localhost:8001/health
+    authenticationHealth: https://localhost:8000/health
+    loginUrl: /idam-login
+  sourceLabs:
+    browser: 'chrome'
+    username: 'username'
+    key: 'privatekey'
+    tunnelId: ''
+  googleAnalytics:
+    id: TBD
+    trackingUrl: https://localhost:3000/
+  applicationInsights:
+    instrumentationKey: 'dummy-key'
+  rateLimiter:
+    total: 3600 # 1 req/s on average per hour
+    expire: 3600000
+    enabled: false
+
+paths:
+  health: /health
+  authenticated: /authenticated
+  index: /
+  protected: /protected
+  end: /end
+  entry: /entry
+  mock:
+    idamLogin: /idam-login
+
+tests:
+  e2e:
+    waitForTimeout: 10000
+    waitForAction: 10000
+    smartWait: 5000
+    proxyServer:
+    proxyByPass:
+    outputDir: ../../functional-output
+    idamTestEmail: test@email.com
+    idamTestPassword: password
+  url: https://localhost:3000
+
+features:
+  idam: false

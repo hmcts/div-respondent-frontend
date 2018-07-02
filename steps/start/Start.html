@@ -1,0 +1,22 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% block guidance %}
+
+<p class="text">{{ content.useThisService }}</p>
+
+<div class="panel panel-border-wide">
+  <p class="text">
+    {{ content.divorces | safe }}
+  </p>
+</div>
+<p class="text">
+  {{ content.4To6Months | safe }}
+</p>
+
+<a class="button button-start" href="/entry" role="button">Start now</a>
+
+{% endblock %}

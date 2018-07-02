@@ -1,0 +1,39 @@
+environment: REFORM_ENVIRONMENT
+NODE_ENV: NODE_ENV
+
+node:
+  port: PORT
+  baseUrl: BASE_URL
+
+tests:
+  e2e:
+    waitForTimeout: E2E_WAIT_FOR_TIMEOUT_VALUE
+    waitForAction: E2E_WAIT_FOR_ACTION_VALUE
+    proxyServer: E2E_PROXY_BYPASS
+    proxyByPass: E2E_PROXY_SERVER
+    outputDir: E2E_OUTPUT_DIR
+  url: TEST_URL
+
+ssl:
+  hpkp:
+    maxAge: HPKP_MAX_AGE
+    sha256s: HPKP_SHAS
+
+services:
+  redis:
+    url: REDISCLOUD_URL
+    secret: SESSION_SECRET
+    useSSL: USE_SSL
+  idam:
+    apiHealth: IDAM_APP_HEALHCHECK_URL
+    authenticationHealth: IDAM_AUTHENTICATION_HEALHCHECK_URL
+    loginUrl: IDAM_LOGIN_URL
+  googleAnalytics:
+    id: GOOGLE_ANALYTICS_ID
+    trackingUrl: GOOGLE_ANALYTICS_TRACKING_URL
+  applicationInsights:
+    instrumentationKey: APPINSIGHTS_INSTRUMENTATIONKEY
+  rateLimiter:
+    total: RATE_LIMITER_TOTAL
+    expire: RATE_LIMITER_EXPIRE
+    enabled: RATE_LIMITER_ENABLED
