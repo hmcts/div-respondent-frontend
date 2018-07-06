@@ -5,7 +5,7 @@ variable "reform_team" {
 }
 
 variable "reform_service_name" {
-  default = "bfe"
+  default = "rfe"
 }
 
 variable "product" {
@@ -169,4 +169,8 @@ variable "rate_limiter_expire" {
 
 variable "rate_limiter_enabled" {
   default = false
+}
+
+variable "common_tags" {
+  type = "map"
 }

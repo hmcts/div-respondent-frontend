@@ -1,0 +1,20 @@
+#!groovy
+//noinspection GroovyUnusedAssignment
+@Library("Infrastructure") _
+
+//noinspection GroovyAssignabilityCheck
+properties([
+		parameters([
+			choice(name: 'ENVIRONMENT', choices: 'sandbox\nsaat\nsprod', description: 'Environment where code should be build and deployed')
+		])
+])
+
+withParameterizedPipeline('nodejs', 'div', 'rfe', params.ENVIRONMENT, 'sandbox') {
+  after('build') {
+    sh 'yarn setup'
+  }
+
+  before('functionalTest:saat') {
+    env.E2E_PROXY_SERVER = ' '
+  }
+}

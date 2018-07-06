@@ -4,7 +4,7 @@ vault_section = "preprod"
 packages_environment = "preprod"
 packages_version = "3.0.0"
 
-additional_host_name = "www.apply-divorce-boilerplate.demo.platform.hmcts.net"
+additional_host_name = "www.apply-divorce-respondent.demo.platform.hmcts.net"
 http_proxy = ""
 
 idam_authentication_web_url = "https://idam.preprod.ccidam.reform.hmcts.net"

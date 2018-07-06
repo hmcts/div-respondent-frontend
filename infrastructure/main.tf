@@ -24,7 +24,7 @@ data "vault_generic_secret" "redis_secret" {
 
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
-  public_hostname = "div-bfe-${var.env}.service.${local.aseName}.internal"
+  public_hostname = "div-rfe-${var.env}.service.${local.aseName}.internal"
 
   local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
 
@@ -52,6 +52,7 @@ module "frontend" {
   additional_host_name = "${var.env != "preview" ? var.additional_host_name : "null"}"
   https_only = "true"
   capacity = "${var.capacity}"
+  common_tags  = "${var.common_tags}"
 
   app_settings = {
 
