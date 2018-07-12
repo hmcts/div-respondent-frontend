@@ -4,7 +4,7 @@ vault_section = "prod"
 packages_environment = "prod"
 packages_version = "3.0.0"
 
-additional_host_name = "www.apply-divorce-respondent.service.gov.uk"
+additional_host_name = "www.apply-div-rfe.service.gov.uk"
 http_proxy = ""
 
 idam_authentication_web_url = "https://hmcts-access.service.gov.uk"
