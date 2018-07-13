@@ -1,4 +1,4 @@
-# Divorce Respondent Frontend
+# Divorce Respondent Frontend Application
 A starting point for all new divorce frontend projects.
 
 It includes common services, middleware and configs
