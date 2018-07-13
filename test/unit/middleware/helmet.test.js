@@ -24,7 +24,12 @@ describe(modulePath, () => {
     sinon.assert.calledWith(contentSecurityPolicyStub, {
       directives: {
         fontSrc: ['\'self\' data:'],
-        scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk'],
+        scriptSrc: [
+          '\'self\'',
+          '\'unsafe-inline\'',
+          'www.google-analytics.com',
+          'hmctspiwik.useconnect.co.uk'
+        ],
         connectSrc: ['\'self\''],
         mediaSrc: ['\'self\''],
         frameSrc: ['\'none\''],
