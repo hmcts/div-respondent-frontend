@@ -25,7 +25,7 @@ data "vault_generic_secret" "redis_secret" {
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "div-rfe-${var.env}.service.${local.aseName}.internal"
-  vaultName = "${var.raw_product}-${var.env}"
+  vaultName = "div-dn-${var.env}"
 }
 
 module "redis-cache" {
