@@ -1,31 +1,9 @@
-provider "vault" {
-  address = "https://vault.reform.hmcts.net:6200"
-}
-
-data "azurerm_key_vault" "div_dn_vault" {
-  name = "${local.vaultName}"
-  resource_group_name = "${local.vaultName}"
-}
-
-data "azurerm_key_vault_secret" "idam_secret" {
-  name = "div-idam-secret"
-  vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
-}
-
-data "azurerm_key_vault_secret" "frontend_secret" {
-  name = "frontend-secret"
-  vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
-}
-
-data "vault_generic_secret" "redis_secret" {
-  name = "redis-secret"
-  vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
-}
-
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "div-rfe-${var.env}.service.${local.aseName}.internal"
-  vaultName = "div-dn-${var.env}"
+  previewVaultName = "${var.raw_product}-aat"
+  nonPreviewVaultName = "${var.raw_product}-${var.env}"
+  vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
 }
 
 module "redis-cache" {
@@ -48,7 +26,7 @@ module "frontend" {
   additional_host_name = "${var.env != "preview" ? var.additional_host_name : "null"}"
   https_only = "true"
   capacity = "${var.capacity}"
-  common_tags  = "${var.common_tags}"
+  common_tags = "${var.common_tags}"
 
   app_settings = {
 
@@ -83,10 +61,7 @@ module "frontend" {
     IDAM_APP_HEALHCHECK_URL ="${var.idam_api_url}${var.health_endpoint}"
     IDAM_LOGIN_URL = "${var.idam_authentication_web_url}${var.idam_authentication_login_endpoint}"
     IDAM_AUTHENTICATION_HEALHCHECK_URL = "${var.idam_authentication_web_url}${var.health_endpoint}"
-
-    // Service Auth
-    SERVICE_AUTH_PROVIDER_URL = "${var.service_auth_provider_url}"
-    SERVICE_AUTH_PROVIDER_HEALTHCHECK_URL = "${var.service_auth_provider_url}${var.health_endpoint}"
+    IDAM_SECRET = "${data.azurerm_key_vault_secret.idam_secret.value}"
 
     // Redis Cloud
     REDISCLOUD_URL = "redis://ignore:${urlencode(module.redis-cache.access_key)}@${module.redis-cache.host_name}:${module.redis-cache.redis_port}?tls=true"
@@ -108,4 +83,24 @@ module "frontend" {
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
   }
+}
+
+data "azurerm_key_vault" "div_key_vault" {
+  name = "${local.vaultName}"
+  resource_group_name = "${local.vaultName}"
+}
+
+data "azurerm_key_vault_secret" "idam_secret" {
+  name = "idam-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "frontend_secret" {
+  name = "frontend-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "redis_secret" {
+  name = "redis-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
 }
