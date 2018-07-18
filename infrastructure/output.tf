@@ -1,3 +1,4 @@
-output "idam_api_url" {
-  value = "${var.idam_api_url}"
+output "vaultUri" {
+  value = "${local.vaultUri}"
+  value = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
 }

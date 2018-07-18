@@ -2,35 +2,30 @@ provider "vault" {
   address = "https://vault.reform.hmcts.net:6200"
 }
 
-data "vault_generic_secret" "frontend_secret" {
-  path = "secret/${var.vault_section}/ccidam/service-auth-provider/api/microservice-keys/divorce-frontend"
+data "azurerm_key_vault" "div_dn_vault" {
+  name = "${local.vaultName}"
+  resource_group_name = "${local.vaultName}"
 }
 
-data "vault_generic_secret" "idam_secret" {
-  path = "secret/${var.vault_section}/ccidam/idam-api/oauth2/client-secrets/divorce"
+data "azurerm_key_vault_secret" "idam_secret" {
+  name = "div-idam-secret"
+  vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
 }
 
-data "vault_generic_secret" "post_code_token" {
-  path = "secret/${var.vault_section}/divorce/postcode/token"
+data "azurerm_key_vault_secret" "frontend_secret" {
+  name = "frontend-secret"
+  vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
 }
 
-data "vault_generic_secret" "session_secret" {
-  path = "secret/${var.vault_section}/divorce/session/secret"
-}
-
-data "vault_generic_secret" "redis_secret" {
-  path = "secret/${var.vault_section}/divorce/session/redis-secret"
+data "azurerm_key_vault_secret" "redis_secret" {
+  name = "redis-secret"
+  vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
 }
 
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "div-rfe-${var.env}.service.${local.aseName}.internal"
-
-  local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
-
-  service_auth_provider_url = "http://rpe-service-auth-provider-${local.local_env}.service.core-compute-${local.local_env}.internal"
-  case_progression_service_url = "http://div-cps-${local.local_env}.service.core-compute-${local.local_env}.internal"
-  evidence_management_client_api_url = "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  vaultName = "div-dn-${var.env}"
 }
 
 module "redis-cache" {
@@ -88,20 +83,17 @@ module "frontend" {
     IDAM_APP_HEALHCHECK_URL ="${var.idam_api_url}${var.health_endpoint}"
     IDAM_LOGIN_URL = "${var.idam_authentication_web_url}${var.idam_authentication_login_endpoint}"
     IDAM_AUTHENTICATION_HEALHCHECK_URL = "${var.idam_authentication_web_url}${var.health_endpoint}"
-    IDAM_SECRET = "${data.vault_generic_secret.idam_secret.data["value"]}"
 
     // Service Auth
     SERVICE_AUTH_PROVIDER_URL = "${var.service_auth_provider_url}"
     SERVICE_AUTH_PROVIDER_HEALTHCHECK_URL = "${var.service_auth_provider_url}${var.health_endpoint}"
-    MICROSERVICE_NAME = "${var.s2s_microservice_name}"
-    MICROSERVICE_KEY = "${data.vault_generic_secret.frontend_secret.data["value"]}"
 
     // Redis Cloud
     REDISCLOUD_URL = "redis://ignore:${urlencode(module.redis-cache.access_key)}@${module.redis-cache.host_name}:${module.redis-cache.redis_port}?tls=true"
-    SESSION_SECRET = "${module.redis-cache.access_key}"
+    REDIS_SECRET = "${data.azurerm_key_vault_secret.redis_secret.value}"
 
     // Encryption secrets
-    SECRET ="${data.vault_generic_secret.session_secret.data["value"]}"
+    SECRET = "${data.azurerm_key_vault_secret.frontend_secret.value}"
 
     // Google Anayltics
     GOOGLE_ANALYTICS_ID           = "${var.google_analytics_tracking_id}"

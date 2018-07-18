@@ -22,7 +22,7 @@ ssl:
 services:
   redis:
     url: REDISCLOUD_URL
-    secret: SESSION_SECRET
+    secret: REDIS_SECRET
     useSSL: USE_SSL
   idam:
     apiHealth: IDAM_APP_HEALHCHECK_URL
