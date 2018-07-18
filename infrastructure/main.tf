@@ -17,7 +17,7 @@ data "azurerm_key_vault_secret" "frontend_secret" {
   vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
 }
 
-data "vault_generic_secret" "redis_secret" {
+data "azurerm_key_vault_secret" "redis_secret" {
   name = "redis-secret"
   vault_uri = "${data.azurerm_key_vault.div_dn_vault.vault_uri}"
 }

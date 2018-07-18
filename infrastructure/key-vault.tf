@@ -1,5 +1,10 @@
+resource "azurerm_resource_group" "rg" {
+  name     = "${var.product}-${var.env}"
+  location = "${var.location}"
+}
+
 module "div-dn-vault" {
-  source = "git@github.com:contino/moj-module-key-vault?ref=master"
+  source = "git@github.com:hmcts/moj-module-key-vault?ref=master"
   name = "div-dn-${var.env}"
   product = "${var.product}"
   env = "${var.env}"
