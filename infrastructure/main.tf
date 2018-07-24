@@ -33,7 +33,6 @@ module "frontend" {
     // Node specific vars
     NODE_ENV = "${var.node_env}"
     NODE_PATH = "${var.node_path}"
-    WEBSITE_NODE_DEFAULT_VERSION = "8.9.4"
 
     BASE_URL = "${var.public_protocol}://${var.deployment_namespace}-${local.public_hostname}"
 
