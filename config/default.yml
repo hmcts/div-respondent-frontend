@@ -5,7 +5,8 @@ node:
   port: 3000
   baseUrl: https://localhost:3000
 
-redis:
+session:
+  secret: sessionSecret
 
 ssl:
   hpkp:
@@ -28,8 +29,11 @@ services:
     encryptionAtRestKey: encryptionAtRestKey
   idam:
     apiHealth: https://localhost:8001/health
-    authenticationHealth: https://localhost:8000/health
-    loginUrl: /idam-login
+    authenticationHealth: https://localhost:3000/health
+    apiUrl: http://localhost:8001
+    secret: '123456'
+    loginUrl: https://localhost:3000/idam-login
+    clientId: 'divorce'
   sourceLabs:
     browser: 'chrome'
     username: 'username'

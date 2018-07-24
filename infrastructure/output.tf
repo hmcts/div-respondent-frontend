@@ -1,5 +1,5 @@
 output "vaultName" {
-  value = "${local.vaultName}"
+    value = "${local.vaultName}"
 }
 
 output "vaultUri" {
