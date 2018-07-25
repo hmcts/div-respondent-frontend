@@ -9,13 +9,12 @@ const setupHelmet = app => {
   // Helmet content security policy (CSP) to allow only assets from same domain.
   app.use(helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ['\'self\''],
       fontSrc: ['\'self\' data:'],
-      scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'www.google-analytics.com'],
+      scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk'],
       connectSrc: ['\'self\''],
       mediaSrc: ['\'self\''],
       frameSrc: ['\'none\''],
-      imgSrc: ['\'self\'', 'www.google-analytics.com']
+      imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk']
     }
   }));
 

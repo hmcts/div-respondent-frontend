@@ -5,6 +5,9 @@ node:
   port: PORT
   baseUrl: BASE_URL
 
+session:
+  secret: SESSION_SECRET
+
 tests:
   e2e:
     waitForTimeout: E2E_WAIT_FOR_TIMEOUT_VALUE
@@ -22,12 +25,15 @@ ssl:
 services:
   redis:
     url: REDISCLOUD_URL
-    secret: SESSION_SECRET
     useSSL: USE_SSL
+    encryptionAtRestKey: REDIS_ENCRYPTION_SECRET
   idam:
     apiHealth: IDAM_APP_HEALHCHECK_URL
     authenticationHealth: IDAM_AUTHENTICATION_HEALHCHECK_URL
+    apiUrl: IDAM_API_URL
+    secret: IDAM_SECRET
     loginUrl: IDAM_LOGIN_URL
+    clientId: IDAM_CLIENT_ID
   googleAnalytics:
     id: GOOGLE_ANALYTICS_ID
     trackingUrl: GOOGLE_ANALYTICS_TRACKING_URL
