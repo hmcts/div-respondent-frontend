@@ -147,7 +147,7 @@ variable "survey_feedback_done_url" {
   default = "http://www.smartsurvey.co.uk/s/8RR1T"
 }
 
-variable "deployment_namespace" {
+variable "component" {
   type = "string"
 }
 

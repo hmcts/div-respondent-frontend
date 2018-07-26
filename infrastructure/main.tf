@@ -1,6 +1,6 @@
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
-  public_hostname = "div-rfe-${var.env}.service.${local.aseName}.internal"
+  public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
   previewVaultName = "${var.raw_product}-aat"
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
@@ -34,7 +34,7 @@ module "frontend" {
     NODE_ENV = "${var.node_env}"
     NODE_PATH = "${var.node_path}"
 
-    BASE_URL = "${var.public_protocol}://${var.deployment_namespace}-${local.public_hostname}"
+    BASE_URL = "${var.public_protocol}://${local.public_hostname}"
 
     UV_THREADPOOL_SIZE = "${var.uv_threadpool_size}"
     NODE_CONFIG_DIR = "${var.node_config_dir}"
