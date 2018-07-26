@@ -64,10 +64,10 @@ module "frontend" {
 
     // Redis Cloud
     REDISCLOUD_URL = "redis://ignore:${urlencode(module.redis-cache.access_key)}@${module.redis-cache.host_name}:${module.redis-cache.redis_port}?tls=true"
-    REDIS_ENCRYPTION_SECRET = "${data.azurerm_key_vault_secret.redis_encryption_secret.value}"
+    REDIS_ENCRYPTION_SECRET = "${data.vault_generic_secret.redis_secret.data["value"]}"
 
     // Encryption secrets
-    SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
+    SESSION_SECRET = "${data.vault_generic_secret.session_secret.data["value"]}"
 
     // Google Anayltics
     GOOGLE_ANALYTICS_ID           = "${var.google_analytics_tracking_id}"
@@ -88,21 +88,14 @@ provider "vault" {
   address = "https://vault.reform.hmcts.net:6200"
 }
 
-data "azurerm_key_vault" "div_key_vault" {
-  name = "${local.vaultName}"
-  resource_group_name = "${local.vaultName}"
-}
-
 data "vault_generic_secret" "idam_secret" {
   path = "secret/${var.vault_section}/ccidam/idam-api/oauth2/client-secrets/divorce"
 }
 
-data "azurerm_key_vault_secret" "session_secret" {
-  name = "session-secret"
-  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+data "vault_generic_secret" "session_secret" {
+  path = "secret/${var.vault_section}/divorce/session/secret"
 }
 
-data "azurerm_key_vault_secret" "redis_encryption_secret" {
-  name = "redis-encryption-secret"
-  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+data "vault_generic_secret" "redis_secret" {
+  path = "secret/${var.vault_section}/divorce/session/redis-secret"
 }
