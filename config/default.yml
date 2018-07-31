@@ -58,6 +58,7 @@ paths:
   entry: /entry
   mock:
     idamLogin: /idam-login
+  respond: /respond
 
 tests:
   e2e:

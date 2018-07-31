@@ -1,0 +1,30 @@
+{
+"en": {
+"title": "Your divorce",
+"referenceNumber": "Reference number",
+"name": "name",
+"continueWithDivorce": "You can continue with your divorce",
+"resondedToApplication": "Your {{ session.divorceWho }} has responded to your application and given their consent to a divorce.",
+"continueWithNextStep": "You can now continue with the next stage and apply for your decree nisi.",
+"readMore": "Read more about the decree nisi",
+"orderForDivorce": "The court order for divorce (known as a decree) is made in 2 stages. You’re only divorced once both stages are complete.",
+"courtAgrees": "The 'decree nisi', which shows that the court agrees that you’re entitled to a divorce.",
+"cannotBeMade6Weeks": "The ‘decree absolute’, which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.",
+"untilTheCecreeAbsolute": "The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
+"continue": "Continue",
+"divorceCenter": "Your divorce centre",
+"email": "Email",
+"phone": "Phone",
+"openTimes": "(Monday to Friday, 8.30am to 5pm)",
+"guidence": "Guidance on GOV.UK",
+"howRespondsLink": "<a href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ session.divorceWho }} responds</a>",
+"decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
+"decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+"childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+"moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
+"youApplied": "You applied",
+"husbandWifeResponded": "Your {{ session.divorceWho }} responded",
+"getDecreeNisi": "Get a decree nisi",
+"madeFinal": "The divorce is made final"
+}
+}

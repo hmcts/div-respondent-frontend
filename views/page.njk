@@ -13,9 +13,10 @@
 {% endblock %}
 
 {% block two_thirds -%}
+  {{ header(title, size='xlarge') }}
+  {% block main_content %}{% endblock %}
+{%- endblock %}
 
-{{ header(title, size='xlarge') }}
-{% block guidance %}
-{% endblock %}
-
+{% block one_third -%}
+  {% block side_content %}{% endblock %}
 {%- endblock %}

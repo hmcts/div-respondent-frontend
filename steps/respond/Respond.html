@@ -1,0 +1,92 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% block main_content %}
+  <p class="font-xsmall">
+    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong><br>
+    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp;
+  </p>
+
+  {% set items = {
+      one: {
+        label: content.youApplied,
+        complete: true
+      },
+      two: {
+        label: content.husbandWifeResponded,
+        complete: true
+      },
+      three: {
+        label: content.getDecreeNisi,
+        current: true
+      },
+      four: {
+        label: content.madeFinal
+      }
+    }
+  %}
+  {% include "reform-progress-list/template.njk" %}
+
+  <h2 class="heading-medium">{{ content.continueWithDivorce }}</h2>
+
+  <p>{{ content.resondedToApplication }}</p>
+  <p>{{ content.continueWithNextStep }}</p>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.readMore }}</span>
+    </summary>
+
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p>{{ content.orderForDivorce }}</p>
+
+      <ol class="list list-number">
+        <li>{{ content.courtAgrees }}</li>
+        <li>{{ content.cannotBeMade6Weeks }}</li>
+      </ol>
+
+      <p>{{ content.untilTheCecreeAbsolute }}</p>
+    </div>
+  </details>
+
+  <br>
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    <input class="button button-start" type="submit" value="{{ content.continue }}">
+  </form>
+{% endblock %}
+
+{% block one_third %}
+  <aside class="govuk-related-items" role="complementary">
+
+    <h3 class="heading-small">{{ content.divorceCenter }}</h3>
+
+    <ul class="font-xsmall">
+      <li></li>
+      <li>
+        <strong class="bold-xsmall">{{ content.email }}</strong><br>
+        <a href="mailto:"></a><br>
+      </li>
+      <li>
+        <strong class="bold-xsmall">{{ content.phone }}</strong><br>
+         {{ content.openTimes }}<br>
+      </li>
+    </ul>
+
+    <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
+
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="font-xsmall">
+        <li>{{ content.howRespondsLink | safe }}</li>
+        <li>{{ content.decreeNisiLink | safe }}</li>
+        <li>{{ content.decreeAbsoluteLink | safe }}</li>
+        <li>{{ content.childrenAndDivorceLink | safe }}</li>
+        <li>{{ content.moneyAndPropertyLinky | safe }}</li>
+     </ul>
+    </nav>
+  </aside>
+{% endblock %}
