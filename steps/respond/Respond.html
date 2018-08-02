@@ -1,27 +1,27 @@
 {% extends "page.njk" %}
 
-{% set title %}
-  {{ content.title }}
-{% endset %}
+  {% set title  %}
+    {% set titleSize = 'xlarge' %}
+      {{ content.title | safe }}
+  {% endset %}
 
 {% block main_content %}
   <p class="font-xsmall">
-    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong><br>
-    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp;
+    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
+    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp; {{ session.respondentName }}
   </p>
 
   {% set items = {
       one: {
-        label: content.youApplied,
+        label: content.husbandWifeApplied,
         complete: true
       },
       two: {
-        label: content.husbandWifeResponded,
-        complete: true
+        label: content.youMustRespond,
+        current: true
       },
       three: {
-        label: content.getDecreeNisi,
-        current: true
+        label: content.getDecreeNisi
       },
       four: {
         label: content.madeFinal
@@ -30,10 +30,9 @@
   %}
   {% include "reform-progress-list/template.njk" %}
 
-  <h2 class="heading-medium">{{ content.continueWithDivorce }}</h2>
+  <h2 class="heading-medium">{{ content.respondToApplication }}</h2>
 
-  <p>{{ content.resondedToApplication }}</p>
-  <p>{{ content.continueWithNextStep }}</p>
+  <p></p>
 
   <details>
     <summary aria-controls="details-content-0" aria-expanded="false">
@@ -63,7 +62,7 @@
 {% block one_third %}
   <aside class="govuk-related-items" role="complementary">
 
-    <h3 class="heading-small">{{ content.divorceCenter }}</h3>
+    <h3 class="heading-small">{{ content.yourCourt }}</h3>
 
     <ul class="font-xsmall">
       <li></li>
@@ -81,7 +80,6 @@
 
     <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="font-xsmall">
-        <li>{{ content.howRespondsLink | safe }}</li>
         <li>{{ content.decreeNisiLink | safe }}</li>
         <li>{{ content.decreeAbsoluteLink | safe }}</li>
         <li>{{ content.childrenAndDivorceLink | safe }}</li>
