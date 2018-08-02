@@ -3,6 +3,8 @@
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
 
+{% set titleSize = titleSize | default('large') %}
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
@@ -13,7 +15,7 @@
 {% endblock %}
 
 {% block two_thirds -%}
-  {{ header(title, size='xlarge') }}
+  {{ header(title, size=titleSize) }}
   {% block main_content %}{% endblock %}
 {%- endblock %}
 

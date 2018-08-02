@@ -12,10 +12,18 @@ tests:
   e2e:
     waitForTimeout: E2E_WAIT_FOR_TIMEOUT_VALUE
     waitForAction: E2E_WAIT_FOR_ACTION_VALUE
-    proxyServer: E2E_PROXY_BYPASS
-    proxyByPass: E2E_PROXY_SERVER
     outputDir: E2E_OUTPUT_DIR
-  url: TEST_URL
+    url: TEST_URL
+    idam:
+      idamTestApiProxy: E2E_IDAM_PROXY
+      idamTestProxyByPass: E2E_IDAM_SERVER
+      idamTestUsername: E2E_IDAM_USERNAME
+      idamTestPassword: E2E_IDAM_PASSWORD
+      idamTestForename: IDAM_TEST_FORENAME
+      idamTestSurname: IDAM_TEST_SURNAME
+      idamTestUserGroup: IDAM_TEST_USER_GROUP
+      idamTestLevelOfAccess: IDAM_TEST_LEVEL_OF_ACCESS
+      idamTestSupportCreateAccountEndpoint: IDAM_TEST_SUPPORT_CREATE_ACCOUNT_ENDPOINT
 
 ssl:
   hpkp:

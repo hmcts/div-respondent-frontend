@@ -1,3 +1,4 @@
+/*
 const modulePath = 'steps/protected/Protected.step';
 
 const Protected = require(modulePath);
@@ -28,3 +29,4 @@ describe(modulePath, () => {
     });
   });
 });
+*/
