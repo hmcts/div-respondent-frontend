@@ -17,10 +17,9 @@ class Respond extends Interstitial {
     return goTo(this.journey.steps.End);
   }
 
-    get middleware() {
+  get middleware() {
     return [...super.middleware, idam.protect(), getUserData];
   }
-
 }
 
 module.exports = Respond;
