@@ -32,31 +32,57 @@
 
   <h2 class="heading-medium">{{ content.respondToApplication }}</h2>
 
-  <p></p>
-
-  <details>
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.readMore }}</span>
-    </summary>
-
-    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p>{{ content.orderForDivorce }}</p>
-
-      <ol class="list list-number">
-        <li>{{ content.courtAgrees }}</li>
-        <li>{{ content.cannotBeMade6Weeks }}</li>
-      </ol>
-
-      <p>{{ content.untilTheCecreeAbsolute }}</p>
-    </div>
-  </details>
-
-  <br>
+  <p>{{ content.readApplication }}</p>
+  <div class="panel panel-border-wide">
+    <p>{{ content.responseAcknowledgement }}</p>
+  </div>
+  <p>{{ content.respond7Days }}</p>
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
     <input class="button button-start" type="submit" value="{{ content.continue }}">
   </form>
+<br>
+<br>
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.seeAvgerageTimes }}</span>
+    </summary>
+
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="font-xsmall">{{ content.seeAvgDivTimesHeading }}</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th class="bold font-xsmall">{{ content.seeAvgDivTimesWhatHappens }}</th>
+            <th class="bold font-xsmall">{{ content.seeAvgDivTimesHowLong }}</th>
+          </tr>
+        </thead>
+        <tbody class="table--borderless">
+          <tr>
+            <td class="font-xsmall">{{ content.seeAvgDivTimesYouHave }}</td>
+            <td class="font-xsmall">{{ content.seeAvgDivTimes3W }}</td>
+          </tr>
+          <tr>
+            <td class="font-xsmall">{{ content.seeAvgDivTimesDecreeNisi }}</td>
+            <td class="font-xsmall">{{ content.seeAvgDivTimes3To4 }}</td>
+          </tr>
+          <tr>
+            <td class="font-xsmall">{{ content.seeAvgDivTimesWaitToApply }}</td>
+            <td class="font-xsmall">{{ content.seeAvgDivTimes6Weeks }}</td>
+          </tr>
+          <tr>
+            <td class="font-xsmall">{{ content.seeAvgDivTimesDivorceGranted }}</td>
+            <td class="font-xsmall">{{ content.seeAvgDivTimes2WorkingDays }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="font-xsmall">{{ content.seeAvgDivTimesCanVary }}</p>
+    </div>
+  </details>
+
 {% endblock %}
 
 {% block one_third %}
@@ -65,14 +91,17 @@
     <h3 class="heading-small">{{ content.yourCourt }}</h3>
 
     <ul class="font-xsmall">
-      <li></li>
+      <li>{{ content.divorceCenterName }}</li>
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        <a href="mailto:"></a><br>
+        {{ content.divorceCenterEmail }}
+        <br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-         {{ content.openTimes }}<br>
+        {{ content.divorceCenterPhone }} {{ content.openTimes }}<br>
+      </li>
+      <li><a href="{{ content.divorceCenterUrl | safe }}" target="_blank">{{ content.moreAboutYourCourt }}</a>
       </li>
     </ul>
 

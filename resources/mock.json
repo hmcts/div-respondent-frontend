@@ -2,8 +2,9 @@
   "divorceWho": "husband",
   "referenceNumber": "DIV 034 233 321",
   "divorceCenterName": "East Midlands Regional Divorce Centre",
-  "divorceCenterEmail": "divorce@justice.gov.uk",
-  "divorceCenterPhone": "0300 303 0642",
+  "divorceCenterEmail": "eastmidlandsdivorce@hmcts.gsi.gov.uk",
+  "divorceCenterPhone": "0115 955 8266",
+  "divorceCenterUrl": "https://courttribunalfinder.service.gov.uk/courts/east-midlands-divorce-unit",
   "respondentName": "Zoe Elizabeth Dante",
   "petitionerName": "John James Dante"
 }

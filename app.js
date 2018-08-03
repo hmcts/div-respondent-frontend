@@ -54,8 +54,8 @@ lookAndFeel.configure(app, {
   },
   nunjucks: {
     globals: {
-      phase: 'ALPHA',
-      feedbackLink: 'https://github.com/hmcts/one-per-page/issues/new',
+      phase: 'BETA',
+      feedbackLink: 'http://www.smartsurvey.co.uk/s/0QIL4/',
       googleAnalyticsId: config.services.googleAnalytics.id
     }
   }
