@@ -16,7 +16,7 @@ exports.config = {
   output: config.tests.e2e.outputDir,
   helpers: {
     Puppeteer: {
-      url: config.tests.url || config.node.baseUrl,
+      url: config.tests.e2e.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
       show: false,
