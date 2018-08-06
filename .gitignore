@@ -1,4 +1,5 @@
 docker-compose.yaml
+docker-compose.yml
 .sass-cache
 .DS_Store
 .start.pid
