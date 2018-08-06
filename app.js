@@ -71,6 +71,7 @@ app.use('/images', (req, res) => {
 });
 
 onePerPage.journey(app, {
+  baseUrl: config.node.baseUrl,
   steps: getSteps(),
   errorPages: {},
   session: {
