@@ -4,19 +4,9 @@
   {{ content.title }}
 {% endset %}
 
-{% block guidance %}
+{% block main_content %}
+  <a class="button button-start" href="/entry" role="button">Start now</a>
+{% endblock %}
 
-<p class="text">{{ content.useThisService }}</p>
-
-<div class="panel panel-border-wide">
-  <p class="text">
-    {{ content.divorces | safe }}
-  </p>
-</div>
-<p class="text">
-  {{ content.4To6Months | safe }}
-</p>
-
-<a class="button button-start" href="/entry" role="button">Start now</a>
-
+{% block side_content %}
 {% endblock %}

@@ -2,10 +2,15 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
+const { getUserData } = require('middleware/ccd');
 
-class Protected extends Interstitial {
+class Respond extends Interstitial {
   static get path() {
-    return config.paths.protected;
+    return config.paths.respond;
+  }
+
+  get session() {
+    return this.req.session;
   }
 
   next() {
@@ -13,8 +18,8 @@ class Protected extends Interstitial {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [...super.middleware, idam.protect(), getUserData];
   }
 }
 
-module.exports = Protected;
+module.exports = Respond;

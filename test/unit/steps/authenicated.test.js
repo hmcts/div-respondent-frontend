@@ -1,7 +1,7 @@
 const modulePath = 'steps/authenticated/Authenticated.step';
 
 const Authenticated = require(modulePath);
-const Protected = require('steps/protected/Protected.step');
+const Respond = require('steps/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
 
@@ -19,8 +19,8 @@ describe(modulePath, () => {
       idam.landingPage.restore();
     });
 
-    it('to protected page', () => {
-      return redirect.navigatesToNext(Authenticated, Protected);
+    it('to respond page', () => {
+      return redirect.navigatesToNext(Authenticated, Respond);
     });
   });
 });

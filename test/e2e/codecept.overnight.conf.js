@@ -1,16 +1,28 @@
-/* eslint-disable no-magic-numbers */
+/* eslint-disable no-magic-numbers, no-process-env, no-console */
 const config = require('config');
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 
-const waitForTimeout = config.tests.e2e.waitForTimeout;
+const waitForTimeout = config.services.saucelabs.waitForTimeout;
 const smartWait = config.tests.e2e.smartWait;
-const browser = config.services.sourceLabs.browser;
+const browser = process.env.SAUCE_BROWSER || config.services.saucelabs.browser;
+const tunnelName = process.env.SAUCE_TUNNEL_IDENTIFIER || config.services.saucelabs.tunnelId;
 
-const getDesiredCapabilities = () => {
-  const desiredCapability = supportedBrowsers[browser];
-  desiredCapability.tunnelIdentifier = config.services.sourceLabs.tunnelId;
-  desiredCapability.tags = ['divorce'];
-  return desiredCapability;
+const getBrowserConfig = () => {
+  const browserConfig = [];
+  for (const candidateBrowser in supportedBrowsers) {
+    if (candidateBrowser) {
+      const desiredCapability = supportedBrowsers[candidateBrowser];
+      desiredCapability.tunnelIdentifier = tunnelName;
+      desiredCapability.tags = ['divorce'];
+      browserConfig.push({
+        browser: desiredCapability.browserName,
+        desiredCapabilities: desiredCapability
+      });
+    } else {
+      console.error('ERROR: supportedBrowsers.js is empty or incorrectly defined');
+    }
+  }
+  return browserConfig;
 };
 
 const setupConfig = {
@@ -18,25 +30,20 @@ const setupConfig = {
   output: config.tests.e2e.outputDir,
   helpers: {
     WebDriverIO: {
-      url: config.node.baseUrl,
-      browser: supportedBrowsers[browser].browserName,
+      url: config.tests.e2e.url || config.node.baseUrl,
+      browser,
       waitForTimeout,
       smartWait,
       cssSelectorsEnabled: 'true',
-      windowSize: '1600x900',
-      timeouts: {
-        script: 60000,
-        'page load': 60000,
-        implicit: 20000
-      },
       host: 'ondemand.saucelabs.com',
       port: 80,
-      user: config.services.sourceLabs.username,
-      key: config.services.sourceLabs.key,
-      desiredCapabilities: getDesiredCapabilities()
+      user: process.env.SAUCE_USERNAME || config.services.saucelabs.username,
+      key: process.env.SAUCE_ACCESS_KEY || config.services.saucelabs.key,
+      desiredCapabilities: {}
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
-    JSWait: { require: './helpers/JSWait.js' }
+    JSWait: { require: './helpers/JSWait.js' },
+    SauceLabsReportingHelper: { require: './helpers/SauceLabsReportingHelper.js' }
   },
   include: { I: './pages/steps.js' },
   mocha: {
@@ -57,6 +64,11 @@ const setupConfig = {
           inlineAssets: true
         }
       }
+    }
+  },
+  multiple: {
+    saucelabs: {
+      browsers: getBrowserConfig()
     }
   },
   name: 'Frontend Tests'

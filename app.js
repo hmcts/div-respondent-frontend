@@ -11,6 +11,7 @@ const setupHealthChecks = require('middleware/healthcheck');
 const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const app = express();
 
@@ -31,22 +32,38 @@ lookAndFeel.configure(app, {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
       path.resolve(__dirname, 'steps'),
-      path.resolve(__dirname, 'views')
+      path.resolve(__dirname, 'views'),
+      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/views/macros')
     ]
   },
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
-      path.resolve(__dirname, 'assets/scss/main.scss')
+      path.resolve(__dirname, 'assets/scss/main.scss'),
+      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/sass/main.scss')
+    ],
+    plugins: [
+      new CopyWebpackPlugin(
+        [
+          {
+            from: path.resolve(__dirname, 'node_modules/reform-pattern-library/app/images'),
+            to: 'images'
+          }
+        ])
     ]
   },
   nunjucks: {
     globals: {
-      phase: 'ALPHA',
-      feedbackLink: 'https://github.com/hmcts/one-per-page/issues/new',
+      phase: 'BETA',
+      feedbackLink: 'http://www.smartsurvey.co.uk/s/0QIL4/',
       googleAnalyticsId: config.services.googleAnalytics.id
     }
   }
+});
+
+// redirect assets from reform-pattern-library for styles
+app.use('/public', (req, res) => {
+  res.redirect(req.path, '301');
 });
 
 onePerPage.journey(app, {
@@ -55,7 +72,6 @@ onePerPage.journey(app, {
   errorPages: {},
   session: {
     redis: { url: config.services.redis.url },
-    cookie: { secure: config.services.redis.useSSL === 'true' },
     secret: config.session.secret,
     sessionEncryption: req => {
       let key = config.services.redis.encryptionAtRestKey;

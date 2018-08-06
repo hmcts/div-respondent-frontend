@@ -3,6 +3,7 @@ const idamExpressMiddlewareMock = require('mocks/services/idam');
 const config = require('config');
 
 const redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
+
 const idamArgs = {
   redirectUri,
   indexUrl: config.paths.index,
@@ -13,11 +14,19 @@ const idamArgs = {
 };
 
 let middleware = idamExpressMiddleware;
-if (['testing', 'development'].includes(config.environment)) {
+if (['development'].includes(config.environment)) {
   middleware = idamExpressMiddlewareMock;
 }
 
 const methods = {
+  getIdamArgs: () => {
+    return idamArgs;
+  },
+  setRedirectUri: (req, res, next) => {
+    idamArgs.hostName = req.get('host').split(':')[0];
+    idamArgs.redirectUri = `https://${req.get('host')}${config.paths.authenticated}`;
+    next();
+  },
   authenticate: (...args) => {
     return middleware.authenticate(idamArgs, ...args);
   },

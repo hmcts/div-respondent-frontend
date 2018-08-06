@@ -1,12 +1,10 @@
+require('./services/app-insights')();
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 const app = require('./app');
 const config = require('config');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
-const appInsights = require('./services/app-insights');
-
-appInsights();
 
 let http = {};
 

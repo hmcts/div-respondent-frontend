@@ -2,3 +2,19 @@
 @import 'look-and-feel/check-your-answers';
 @import 'look-and-feel/add-another';
 @import 'look-and-feel/language-switch';
+
+.govuk-related-items {
+  margin-top: 30px;
+  border-top: 10px solid #005ea5;
+  padding-top: 5px;
+}
+
+.govuk-related-items .heading-medium {
+  margin-top: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+.govuk-related-items li {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
