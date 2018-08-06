@@ -2,11 +2,11 @@ const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 const waitForAction = config.tests.e2e.waitForAction;
-const proxyServer = config.tests.e2e.proxyServer;
-const proxyByPass = config.tests.e2e.proxyByPass;
 const chromeArgs = [ '--no-sandbox' ];
 
 if (config.environment !== 'development') {
+  const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
+  const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
