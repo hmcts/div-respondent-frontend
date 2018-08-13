@@ -2,11 +2,16 @@
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
+{% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
 
-{% set titleSize = titleSize | default('large') %}
+{% set titleSize = titleSize | default('xlarge') %}
 
 {% block head %}
   {% include "includes/head.html" %}
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation.html" %}
 {% endblock %}
 
 {% block breadcrumbs %}

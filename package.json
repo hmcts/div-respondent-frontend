@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#6.0.0",
-    "@hmcts/look-and-feel": "^1.13.2",
+    "@hmcts/look-and-feel": "^1.18.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
     "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page#f7f1b4827bb18701c21fac128b8b884c0d32e3c2",

@@ -18,3 +18,48 @@
   margin-bottom: 10px;
   list-style-type: none;
 }
+
+
+#global-header .header-wrapper .header-proposition {
+  clear: none;
+  width: 67%;
+  float: left;
+}
+
+#global-header .header-wrapper .header-proposition .content {
+  margin: 0 18px;
+}
+
+#global-header .header-wrapper .header-global {
+  float: left;
+  width: 33%;
+}
+
+#global-header .header-wrapper .header-global .header-logo {
+  width: 100%;
+}
+
+#global-header .header-logo #logo {
+position: relative;
+  top: -1px;
+  background-size: 35px 31px;
+}
+
+#account-details {
+  float: right;
+  display: inline;
+}
+
+#account-details #name a {
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
+#account-details #name a:hover {
+  text-decoration: underline;
+}
+
+#account-details span {
+  padding-right: 22px;
+}

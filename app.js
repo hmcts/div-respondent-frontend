@@ -65,6 +65,10 @@ lookAndFeel.configure(app, {
 app.use('/public', (req, res) => {
   res.redirect(req.path, '301');
 });
+// redirect images from reform-pattern-library
+app.use('/images', (req, res) => {
+  res.redirect(`/assets/images${req.path}`, '301');
+});
 
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
