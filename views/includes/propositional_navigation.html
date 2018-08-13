@@ -4,7 +4,7 @@
       <a href="/" id="proposition-name">
             {{ content.serviceName }}
       </a>
-    {% if (session.isLoggedIn == "yes") %}
+    {% if isLoggedIn %}
       <div id="account-details" style="margin-top: 0;">
           <span id="name"><a href="/save-return/goodbye/{{ path }}">Sign out</a></span>
       </div>

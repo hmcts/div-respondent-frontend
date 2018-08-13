@@ -12,6 +12,7 @@ const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const setLocals = require('middleware/setLocalsMiddleware');
 
 const app = express();
 
@@ -25,6 +26,8 @@ app.use(cookieParser());
 
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());
+
+app.use(setLocals.idamLoggedin);
 
 lookAndFeel.configure(app, {
   baseUrl: config.node.baseUrl,
