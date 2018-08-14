@@ -10,6 +10,7 @@ describe(modulePath, () => {
     };
     const req = { idam: {} };
     idamLoggedin(req, res, next);
+    expect(res.locals.isLoggedIn).to.eql(true);
     expect(next.calledOnce).to.eql(true);
   });
   it('checks if user is NOT logged in', () => {
