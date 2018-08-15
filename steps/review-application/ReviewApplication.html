@@ -1,0 +1,46 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  <p class="text">{{ content.applicationForDivorce | safe }}</p>
+
+  <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
+
+  <h3 class="heading-small">{{ content.applicant }}</h3>
+  <p class="text">{{ session.petitionerName }}</p>
+
+  <h3 class="heading-small">{{ content.respondent }}</h3>
+  <p class="text">{{ session.respondentName }}</p>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.divorceRoleExplain }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.aboutTheMarriage }}</h2>
+
+  <h3 class="heading-small">{{ content.whereTheMarriage }}</h3>
+  <p class="text">{{ session.whereTheMarriagePlace }}</p>
+
+
+
+
+
+  <br>
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    <input class="button" type="submit" value="{{ content.continue }}">
+  </form>
+{% endblock %}
+
+{% block one_third %}
+
+{% endblock %}

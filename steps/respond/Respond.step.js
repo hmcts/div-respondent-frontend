@@ -14,7 +14,7 @@ class Respond extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.End);
+    return goTo(this.journey.steps.ReviewApplication);
   }
 
   get middleware() {

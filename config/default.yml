@@ -54,6 +54,7 @@ paths:
   authenticated: /authenticated
   index: /
   respond: /respond
+  reviewApplication: /review-application
   end: /end
   entry: /entry
   mock:
