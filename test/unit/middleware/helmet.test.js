@@ -7,7 +7,7 @@ const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 
 const app = {};
 
-describe.only(modulePath, () => {
+describe(modulePath, () => {
   beforeEach(() => {
     app.use = sinon.stub();
   });
