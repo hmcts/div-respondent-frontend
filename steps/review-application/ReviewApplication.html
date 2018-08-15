@@ -26,8 +26,81 @@
 
   <h2 class="heading-medium">{{ content.aboutTheMarriage }}</h2>
 
+  <h3 class="heading-small">{{ content.whoTheMarriage }}</h3>
+  <p class="text">{{ session.whoTheMarriageNames }}</p>
+
   <h3 class="heading-small">{{ content.whereTheMarriage }}</h3>
-  <p class="text">{{ session.whereTheMarriagePlace }}</p>
+  <p class="text">{{ session.placeOfMarriage }}</p>
+
+  <h3 class="heading-small">{{ content.dateOfMarriage }}</h3>
+  <p class="text">{{ session.marriageDate }}</p>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.marriageDetailsExplained }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.whyTheCourtHeading }}</h2>
+
+  <p class="text">{{ content.whyTheCourtText1}}</p>
+  <p class="text">{{ content.whyTheCourtText2 }}</p>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.theCourtsofEngland }}</p>
+      <p class="text">{{ content.eachLegalStatement }}</p>
+      <h3 class="heading-small">{{ content.habitualResidence }}</h3>
+      <p class="text">{{ content.habitualResidencePar1 }}</p>
+      <p class="text">{{ content.habitualResidencePar2 }}</p>
+      <p class="text">{{ content.habitualResidencePar3 }}</p>
+      <h3 class="heading-small">{{ content.domicile }}</h3>
+      <p class="text">{{ content.domicilePar1 }}</p>
+      <p class="text">{{ content.domicilePar2 }}</p>
+      <p class="text">{{ content.domicilePar3 | safe }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.domicileList1 }}</li>
+        <li>{{ content.domicileList2 }}</li>
+      </ul>
+      <p class="text">{{ content.domicilePar4 | safe }}</p>
+      <p class="text">{{ content.domicilePar5 }}</p>
+      <h3 class="heading-small">{{ content.residualJurisdiction }}</h3>
+      <p class="text">{{ content.residualJurisdictionPar1 }}</p>
+      <p class="text">{{ content.residualJurisdictionPar2 }}</p>
+      <h3 class="heading-small">{{ content.otherCourtCases }}</h3>
+      <p class="text">{{ content. otherCourtCasesPar1 }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.reasonForDivorcePar1 }}</p>
+      <p class="text">{{ content.reasonForDivorcePar2 }}</p>
+      <h3 class="heading-small">{{ content.behaviour }}</h3>
+      <p class="text">{{ content.behaviourParagraph }}</p>
+      <h3 class="heading-small">{{ content.adultery }}</h3>
+      <p class="text">{{ content.adulteryParagraph }}</p>
+      <h3 class="heading-small">{{ content.separatedFor2Years }}</h3>
+      <p class="text">{{ content.separatedFor2YearsParagraph }}</p>
+      <h3 class="heading-small">{{ content.separatedFor5Years }}</h3>
+      <p class="text">{{ content.separatedFor5YearsParagraph }}</p>
+      <h3 class="heading-small">{{ content.desertion }}</h3>
+      <p class="text">{{ content. }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.additionalApplications }}</h2>
 
 
 
