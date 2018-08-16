@@ -96,17 +96,91 @@
       <h3 class="heading-small">{{ content.separatedFor5Years }}</h3>
       <p class="text">{{ content.separatedFor5YearsParagraph }}</p>
       <h3 class="heading-small">{{ content.desertion }}</h3>
-      <p class="text">{{ content. }}</p>
+      <p class="text">{{ content.desertionParagraph }}</p>
     </div>
   </details>
 
   <h2 class="heading-medium">{{ content.additionalApplications }}</h2>
+  <h3 class="heading-small">{{ content.costOrder }}</h3>
+  <p class="text">{{ content.costOrderParagraph }}</p>
 
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.helpWithCostOrders }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <h3 class="heading-small">{{ content.claimingCosts }}</h3>
+      <p class="text">{{ content.claimingCostsPar1 }}</p>
+      <p class="text">{{ content.claimingCostsPar2 }}</p>
+    </div>
+  </details>
 
+  <h3 class="heading-small">{{ content.financialOrders }}</h3>
+  <p class="text">{{ content.financialOrdersParagraph }}</p>
 
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.helpWithFinancialOrders }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.helpWithFinancialOrdersPar1 }}</p>
+      <p class="text">{{ content.helpWithFinancialOrdersPar2 }}</p>
+      <p class="text">{{ content.helpWithFinancialOrdersPar3 }}</p>
+      <p class="text">{{ content.helpWithFinancialOrdersPar4 }}</p>
+      <h3 class="heading-small">{{ content.consentOrders }}</h3>
+      <p class="text">{{ content.consentOrdersPar1 }}</p>
+      <p class="text">{{ content.consentOrdersPar2 }}</p>
+      <p class="text">{{ content.consentOrdersPar3 }}</p>
+      <h3 class="heading-small">{{ content.ordersForChildMaintenance }}</h3>
+      <p class="text">{{ content.ordersForChildMaintenancePar }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.petitionerCorrespondenceAddressHeading }}</h2>
+  <ul class="list">
+    29 Newham Road<br>
+    Doncaster<br>
+    UK<br>
+    DN9 4EX<br>
+  </ul>
+
+  <h2 class="heading-medium">{{ content.respondentCorrespondenceAddressHeading }}</h2>
+  <ul class="list">
+    35 King St<br>
+    Doncaster<br>
+    UK<br>
+    DN3 2HG<br>
+  </ul>
+
+  <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
+  <p class="text">{{ content.statementOfTruthParagraph }}</p>
+
+  <h2 class="heading-medium">{{ content.acknowledgement }}</h2>
+
+  <div class="notice">
+    <i class="icon icon-important">
+      <span class="visuallyhidden">{{ content.hiddenWarning }}</span>
+    </i>
+    <strong class="text">
+      {{ content.youWillBeAbleToRespond }}
+    </strong>
+  </div>
 
 
   <br>
+
+  <div class="check-your-answers">
+    <div class="form-group confirmation-container">
+      <div class="multiple-choice">
+        <input id="confirm" type="checkbox" name="confirm">
+        <label for="confirm">{{ content.readConfirmation }}
+            <br/>
+
+        </label>
+      </div>
+    </div>
+  </div>
+
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
