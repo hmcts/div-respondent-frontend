@@ -12,6 +12,7 @@ const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const setLocals = require('middleware/setLocalsMiddleware');
 
 const app = express();
 
@@ -25,6 +26,8 @@ app.use(cookieParser());
 
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());
+
+app.use(setLocals.idamLoggedin);
 
 lookAndFeel.configure(app, {
   baseUrl: config.node.baseUrl,
@@ -64,6 +67,10 @@ lookAndFeel.configure(app, {
 // redirect assets from reform-pattern-library for styles
 app.use('/public', (req, res) => {
   res.redirect(req.path, '301');
+});
+// redirect images from reform-pattern-library
+app.use('/images', (req, res) => {
+  res.redirect(`/assets/images${req.path}`, '301');
 });
 
 onePerPage.journey(app, {
