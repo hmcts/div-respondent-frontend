@@ -7,8 +7,6 @@
 {% block main_content %}
   <p class="text">{{ content.applicationForDivorce | safe }}</p>
 
-  <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
-
   <h3 class="heading-small">{{ content.applicant }}</h3>
   <p class="text">{{ session.petitionerName }}</p>
 
@@ -27,7 +25,7 @@
   <h2 class="heading-medium">{{ content.aboutTheMarriage }}</h2>
 
   <h3 class="heading-small">{{ content.whoTheMarriage }}</h3>
-  <p class="text">{{ session.whoTheMarriageNames }}</p>
+  <p class="text">{{ content.whoTheMarriageNames }}</p>
 
   <h3 class="heading-small">{{ content.whereTheMarriage }}</h3>
   <p class="text">{{ session.placeOfMarriage }}</p>

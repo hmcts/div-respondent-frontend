@@ -36,6 +36,7 @@
     "otherCourtCasesPar1": "The court needs to know if there any other court cases which might affect the jurisdiction of the court, and its decision to grant a divorce.",
     "reasonForDivorce": "Reason for the divorce",
     "reasonForDivorcePar1": "The only legal ground for divorce in England and Wales is if the marriage has broken down irretrievably.",
+    "reasonForDivorcePar2": "The applicant had to choose a reason for the breakdown of the marriage (legally known as the 'fact') from the following list.",
     "behaviour": "Behaviour",
     "behaviourParagraph": "The respondent has behaved in such a way that the applicant can't reasonably be expected to live with them any more.",
     "adultery": "Adultery",
