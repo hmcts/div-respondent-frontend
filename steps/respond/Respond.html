@@ -1,5 +1,10 @@
 {% extends "page.njk" %}
 
+{% block breadcrumbs %}
+  {{ phaseBanner(phase, feedbackLink) }}
+  {{ languageSwitch(currentLang, availableLangs) }}
+{% endblock %}
+
   {% set title  %}
       {{ content.title | safe }}
   {% endset %}

@@ -14,14 +14,6 @@
   {% include "includes/propositional_navigation.html" %}
 {% endblock %}
 
-{% block breadcrumbs %}
-  {{ phaseBanner(phase, feedbackLink) }}
-  {% block back %}
-    <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
-  {% endblock %}
-  {{ languageSwitch(currentLang, availableLangs) }}
-{% endblock %}
-
 {% block two_thirds -%}
   {{ header(title, size=titleSize) }}
   {% block main_content %}{% endblock %}
