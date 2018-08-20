@@ -63,3 +63,31 @@ position: relative;
 #account-details span {
   padding-right: 22px;
 }
+
+div.check-your-answers {
+  display: block;
+}
+
+.form-group .multiple-choice [type=checkbox] + label::before {
+    background-color: #fff;
+}
+
+.check-your-answers .confirmation-container {
+  background: #dee0e2;
+  padding: 25px;
+  width: 100%;
+}
+
+@media (min-width: 641px) {
+h1.heading-large {
+    margin-top: 0.4em;
+  }
+}
+
+.report-error {
+  display: inline-block;
+  clear: both;
+  margin: 2em 0 1.5em 0;
+
+}
+

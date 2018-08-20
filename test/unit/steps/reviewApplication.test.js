@@ -1,11 +1,10 @@
-const modulePath = 'steps/respond/Respond.step';
+const modulePath = 'steps/review-application/ReviewApplication.step';
 
-const Respond = require(modulePath);
-const ReviewApplication = require('steps/review-application/ReviewApplication.step');
+const ReviewApplication = require(modulePath);
+const End = require('steps/end/End.step.js');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const { getUserData } = require('middleware/ccd');
-const getSteps = require('steps');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -17,14 +16,14 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Respond, [ idam.protect(), getUserData ]);
+    return middleware.hasMiddleware(ReviewApplication, [ idam.protect(), getUserData ]);
   });
 
   it('redirects to next page', () => {
-    return interstitial.navigatesToNext(Respond, ReviewApplication, getSteps());
+    return interstitial.navigatesToNext(ReviewApplication, End);
   });
 
   it('renders the content', () => {
-    return content(Respond);
+    return content(ReviewApplication);
   });
 });
