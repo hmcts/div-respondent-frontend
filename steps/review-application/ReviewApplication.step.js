@@ -4,9 +4,9 @@ const config = require('config');
 const idam = require('services/idam');
 const { getUserData } = require('middleware/ccd');
 
-class Respond extends Interstitial {
+class ReviewApplication extends Interstitial {
   static get path() {
-    return config.paths.respond;
+    return config.paths.reviewApplication;
   }
 
   get session() {
@@ -14,7 +14,7 @@ class Respond extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.ReviewApplication);
+    return goTo(this.journey.steps.End);
   }
 
   get middleware() {
@@ -22,4 +22,4 @@ class Respond extends Interstitial {
   }
 }
 
-module.exports = Respond;
+module.exports = ReviewApplication;

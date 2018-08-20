@@ -1,0 +1,197 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {% set titleSize = titleSize | default('large') %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  <p class="text">{{ content.applicationForDivorce | safe }}</p>
+
+  <h3 class="heading-small">{{ content.applicant }}</h3>
+  <p class="text">{{ session.petitionerName }}</p>
+
+  <h3 class="heading-small">{{ content.respondent }}</h3>
+  <p class="text">{{ session.respondentName }}</p>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.divorceRoleExplain }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.aboutTheMarriage }}</h2>
+
+  <h3 class="heading-small">{{ content.whoTheMarriage }}</h3>
+  <p class="text">{{ content.whoTheMarriageNames }}</p>
+
+  <h3 class="heading-small">{{ content.whereTheMarriage }}</h3>
+  <p class="text">{{ session.placeOfMarriage }}</p>
+
+  <h3 class="heading-small">{{ content.dateOfMarriage }}</h3>
+  <p class="text">{{ session.marriageDate }}</p>
+
+  <details>
+    <summary aria-controls="details-content-1" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+      <p class="text">{{ content.marriageDetailsExplained }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.whyTheCourtHeading }}</h2>
+
+  <p class="text">{{ content.whyTheCourtText1}}</p>
+  <p class="text">{{ content.whyTheCourtText2 }}</p>
+
+  <details>
+    <summary aria-controls="details-content-2" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
+      <p class="text">{{ content.theCourtsofEngland }}</p>
+      <p class="text">{{ content.eachLegalStatement }}</p>
+      <h3 class="heading-small">{{ content.habitualResidence }}</h3>
+      <p class="text">{{ content.habitualResidencePar1 }}</p>
+      <p class="text">{{ content.habitualResidencePar2 }}</p>
+      <p class="text">{{ content.habitualResidencePar3 }}</p>
+      <h3 class="heading-small">{{ content.domicile }}</h3>
+      <p class="text">{{ content.domicilePar1 }}</p>
+      <p class="text">{{ content.domicilePar2 }}</p>
+      <p class="text">{{ content.domicilePar3 | safe }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.domicileList1 }}</li>
+        <li>{{ content.domicileList2 }}</li>
+      </ul>
+      <p class="text">{{ content.domicilePar4 | safe }}</p>
+      <p class="text">{{ content.domicilePar5 }}</p>
+      <h3 class="heading-small">{{ content.residualJurisdiction }}</h3>
+      <p class="text">{{ content.residualJurisdictionPar1 }}</p>
+      <p class="text">{{ content.residualJurisdictionPar2 }}</p>
+      <h3 class="heading-small">{{ content.otherCourtCases }}</h3>
+      <p class="text">{{ content. otherCourtCasesPar1 }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
+
+  <details>
+    <summary aria-controls="details-content-3" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-3" aria-hidden="true">
+      <p class="text">{{ content.reasonForDivorcePar1 }}</p>
+      <p class="text">{{ content.reasonForDivorcePar2 }}</p>
+      <h3 class="heading-small">{{ content.behaviour }}</h3>
+      <p class="text">{{ content.behaviourParagraph }}</p>
+      <h3 class="heading-small">{{ content.adultery }}</h3>
+      <p class="text">{{ content.adulteryParagraph }}</p>
+      <h3 class="heading-small">{{ content.separatedFor2Years }}</h3>
+      <p class="text">{{ content.separatedFor2YearsParagraph }}</p>
+      <h3 class="heading-small">{{ content.separatedFor5Years }}</h3>
+      <p class="text">{{ content.separatedFor5YearsParagraph }}</p>
+      <h3 class="heading-small">{{ content.desertion }}</h3>
+      <p class="text">{{ content.desertionParagraph }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.additionalApplications }}</h2>
+  <h3 class="heading-small">{{ content.costOrder }}</h3>
+  <p class="text">{{ content.costOrderParagraph }}</p>
+
+  <details>
+    <summary aria-controls="details-content-4" aria-expanded="false">
+      <span class="summary">{{ content.helpWithCostOrders }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-4" aria-hidden="true">
+      <h3 class="heading-small">{{ content.claimingCosts }}</h3>
+      <p class="text">{{ content.claimingCostsPar1 }}</p>
+      <p class="text">{{ content.claimingCostsPar2 }}</p>
+    </div>
+  </details>
+
+  <h3 class="heading-small">{{ content.financialOrders }}</h3>
+  <p class="text">{{ content.financialOrdersParagraph }}</p>
+
+  <details>
+    <summary aria-controls="details-content-5" aria-expanded="false">
+      <span class="summary">{{ content.helpWithFinancialOrders }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-5" aria-hidden="true">
+      <p class="text">{{ content.helpWithFinancialOrdersPar1 }}</p>
+      <p class="text">{{ content.helpWithFinancialOrdersPar2 }}</p>
+      <p class="text">{{ content.helpWithFinancialOrdersPar3 }}</p>
+      <p class="text">{{ content.helpWithFinancialOrdersPar4 }}</p>
+      <h3 class="heading-small">{{ content.consentOrders }}</h3>
+      <p class="text">{{ content.consentOrdersPar1 }}</p>
+      <p class="text">{{ content.consentOrdersPar2 }}</p>
+      <p class="text">{{ content.consentOrdersPar3 }}</p>
+      <h3 class="heading-small">{{ content.ordersForChildMaintenance }}</h3>
+      <p class="text">{{ content.ordersForChildMaintenancePar }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.petitionerCorrespondenceAddressHeading }}</h2>
+   <p class="text">
+    29 Newham Road<br>
+    Doncaster<br>
+    UK<br>
+    DN9 4EX<br>
+  </p>
+
+  <h2 class="heading-medium">{{ content.respondentCorrespondenceAddressHeading }}</h2>
+   <p class="text">
+    35 King St<br>
+    Doncaster<br>
+    UK<br>
+    DN3 2HG<br>
+  </p>
+
+  <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
+  <p class="text">{{ content.statementOfTruthParagraph }}</p>
+
+  <h2 class="heading-medium">{{ content.acknowledgement }}</h2>
+
+  <div class="notice">
+    <i class="icon icon-important">
+      <span class="visuallyhidden">{{ content.hiddenWarning }}</span>
+    </i>
+    <strong class="text">
+      {{ content.youWillBeAbleToRespond }}
+    </strong>
+  </div>
+
+
+  <br>
+
+  <div class="check-your-answers">
+    <div class="form-group confirmation-container">
+      <div class="multiple-choice">
+        <input id="confirm" type="checkbox" name="confirm">
+        <label for="confirm">{{ content.readConfirmation }}
+            <br/>
+
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    <input class="button" type="submit" value="{{ content.continue }}">
+  </form>
+
+  {% block problem_with_this_page %}
+    {% include "includes/problem_with_this_page.html" %}
+  {% endblock %}
+
+{% endblock %}
+
+{% block one_third %}
+
+{% endblock %}

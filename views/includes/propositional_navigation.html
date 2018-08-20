@@ -1,0 +1,14 @@
+<div class="header-proposition">
+  <div class="content">
+    <nav id="proposition-menu">
+      <a href="/" id="proposition-name">
+            {{ content.serviceName }}
+      </a>
+    {% if isLoggedIn %}
+      <div id="account-details" style="margin-top: 0;">
+          <span id="name"><a href="/end">Sign out</a></span>
+      </div>
+    {% endif %}
+    </nav>
+  </div>
+</div>
