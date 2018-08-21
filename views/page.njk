@@ -4,6 +4,14 @@
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
 {% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
 
+{% block breadcrumbs %}
+  {{ phaseBanner(phase, feedbackLink) }}
+  {% block back %}
+    <a class="link-back" href="#" onclick="history.go(-1); return false;">{{ content.backLink }}</a>
+  {% endblock %}
+  {{ languageSwitch(currentLang, availableLangs) }}
+{% endblock %}
+
 {% set titleSize = titleSize | default('xlarge') %}
 
 {% block head %}

@@ -1,13 +1,5 @@
 {% extends "page.njk" %}
 
-{% block breadcrumbs %}
-  {{ phaseBanner(phase, feedbackLink) }}
-  {% block back %}
-    <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
-  {% endblock %}
-  {{ languageSwitch(currentLang, availableLangs) }}
-{% endblock %}
-
 {% set title %}
   {% set titleSize = titleSize | default('large') %}
   {{ content.title | safe }}

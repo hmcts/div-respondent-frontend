@@ -1,13 +1,11 @@
 {% extends "page.njk" %}
 
-{% block breadcrumbs %}
-  {{ phaseBanner(phase, feedbackLink) }}
-  {{ languageSwitch(currentLang, availableLangs) }}
+{% block back %}
 {% endblock %}
 
-  {% set title  %}
-      {{ content.title | safe }}
-  {% endset %}
+{% set title  %}
+  {{ content.title | safe }}
+{% endset %}
 
 {% block main_content %}
   <p class="font-xsmall">
