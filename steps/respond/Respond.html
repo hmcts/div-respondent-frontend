@@ -1,8 +1,11 @@
 {% extends "page.njk" %}
 
-  {% set title  %}
-      {{ content.title | safe }}
-  {% endset %}
+{% block back %}
+{% endblock %}
+
+{% set title  %}
+  {{ content.title | safe }}
+{% endset %}
 
 {% block main_content %}
   <p class="font-xsmall">
