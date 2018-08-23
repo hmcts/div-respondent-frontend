@@ -13,8 +13,6 @@
     "dateOfMarriage": "Date of marriage",
     "marriageDetailsExplained": "These details are copied exactly from the marriage certificate, or a translation of the certificate if it's not in English. The names on the certificate are the names that the applicant and respondent used before the marriage.",
     "whyTheCourtHeading": "Why the court can deal with the case (jurisdiction)",
-    "whyTheCourtText1": "{{ session.petitionerName }} and {{ session.respondentName }} are both ‘habitually resident’ in England and Wales.",
-    "whyTheCourtText2": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
     "theCourtsofEngland": "The courts of England and Wales must have the jurisdiction (the legal power) to be able to grant a divorce. The applicant confirmed that the legal statement, or statements, given in the application apply to either, or both the applicant and respondent.",
     "eachLegalStatement": "Each legal statement includes some or all of the following legal connections to England and Wales.",
     "habitualResidence": "Habitual residence",
@@ -49,13 +47,11 @@
     "desertionParagraph": "The respondent abandoned the applicant (left without their agreement) more than 2 years ago.",
     "additionalApplications": "Additional applications",
     "costOrder": "Costs order",
-    "costOrderParagraph": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }}.",
     "helpWithCostOrders": "Help with costs orders",
     "claimingCosts": "Claiming costs",
     "claimingCostsPar1": "The applicant was asked if they want the court to order the respondent (and the co-respondent if applicable) to pay some or all of the divorce costs.",
     "claimingCostsPar2": "This could include all the fees during the divorce, such as the £550 application fee, solicitor fees, and any extra court fees.",
     "financialOrders": "Financial orders",
-    "financialOrdersParagraph": "{{ session.petitionerName }} is also applying to the court for a financial order in which the court decides on the financial matters of {{ session.petitionerName }} and {{ session.respondentName }}.",
     "helpWithFinancialOrders": "Help with financial orders",
     "helpWithFinancialOrdersPar1": "The applicant was asked if they want the court to decide how your property, money, pensions and other assets will be split.",
     "helpWithFinancialOrdersPar2": "These decisions are called 'financial orders'. Financial orders can be made for the applicant and for any children you may have.",
@@ -74,6 +70,62 @@
     "acknowledgement": "Acknowledgement",
     "hiddenWarning": "Warning",
     "youWillBeAbleToRespond": "You will be able to respond to this application on the next page",
-    "readConfirmation": "I have read the application for divorce."
+    "readConfirmation": "I have read the application for divorce.",
+
+    "costsPetitionerPayedByRespondentAndCorrispondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, to order {{ session.respondentName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
+    "costsPetitionerPayedByCorrespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
+    "costsPetitionerPayedByRespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, to order {{ session.respondentName }} to pay some or all of the divorce costs, and for financial orders.",
+    "costsPetitionerDivorceCostsdByRespondentAndCorespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and to order {{ session.respondentName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs.",
+    "costsPetitionerDivorceCostsdByCorespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs.",
+    "costsPetitionerDivorceCostsdByRespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and to order {{ session.respondentName }} to pay some or all of the divorce costs.",
+    "costsPetitionerDivorceCostsdByFinantialOrder": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and for financial orders.",
+    "costsPetitionerDivorceNoCosts": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}.",
+
+    "coRespondent": "Co-respondent",
+
+    "jurisdictionConnectionBothResident": "{{ session.petitionerName }} and {{ session.respondentName }} are both ‘habitually resident’ in England and Wales.",
+    "jurisdictionConnectionBothDomiciled": "{{ session.petitionerName }} and {{ session.respondentName }} are both domiciled in England and Wales.",
+    "jurisdictionConnectionOneResides": "{{ session.petitionerName }} and {{ session.respondentName }} were last habitually resident in England and Wales and one of them still resides there.",
+    "jurisdictionConnectionPetitioner": "{{ session.petitionerName }} is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the application.",
+    "jurisdictionConnectionRespondent": "{{ session.respondentName }} is habitually resident in England and Wales",
+    "jurisdictionConnectionPetitionerSixMonths": "{{ session.petitionerName }} is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the application.",
+    "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction, meaning either: no other court in any EU Member State has jurisdiction and either {{ session.petitionerName }} or {{ session.respondentName }} is domiciled in England and Wales; or (for same sex couples only) {{ session.petitionerName }} or {{ session.respondentName }} married each other in England and Wales, no other court in any EU Member State has jurisdiction, and it would be in the interests of justice for the court to assume jurisdiction in this case.",
+
+    "otherCourtCases": "Other court cases that could affect jurisdiction",
+    "onGoingCasesNo": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
+    "onGoingCasesYes": "{{ session.petitionerName }} has given the following court cases which are related to the marriage, property or children.",
+
+    "reasonForDivorce": "Reason for the divorce",
+    "reasonForDivorceAdultery": "Reason for the divorce",
+    "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that {{ session.respondentName }} committed adultery with the co-respondent, and {{ session.petitionerName }} finds it intolerable (unbearable) to live with {{ session.respondentName }}.",
+    "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that {{ session.respondentName }} committed adultery, and {{ session.petitionerName }} finds it intolerable (unbearable) to live with {{ session.respondentName }}.",
+    "reasonForDivorceAdulteryWhere": "Where the adultery took place",
+    "reasonForDivorceAdulteryWhen": "When the adultery took place",
+    "reasonForDivorceUnreasonableBehaviourBrokenDown": "The marriage has broken down irretrievably, based on the fact that {{ session.respondentName }} has behaved in such a way that {{ session.petitionerName }} cannot reasonably be expected to live with {{ session.respondentName }}.",
+    "reasonForDivorceUnreasonableBehaviourStatment": "This is supported by the following statement from {{ session.petitionerName }}.",
+    "reasonForDivorceUnreasonableBehaviourDescription": "Description of the behaviour",
+    "reasonForDivorceSeperationTwoYears": "{{ session.petitionerName }} has given the separation date as {{ session.originalPetition.reasonForDivorceSeperationDate }}.",
+    "reasonForDivorceSeperationTwoYearsBrokendDown": "The marriage has broken down irretrievably, based on the fact that the parties to the marriage have lived apart for a continuous period of at least two years immediately preceding the presentation of the application and {{ session.respondentName }} consents to a decree being granted.",
+    "reasonForDivorceSeperationFiveYears": "{{ session.petitionerName }} has given the separation date as {{ session.originalPetition.reasonForDivorceSeperationDate }}.",
+    "reasonForDivorceSeperationFiveYearsBrokendDown": "The marriage has broken down irretrievably, based on the fact that the parties to the marriage have lived apart for a continuous period of at least five years immediately preceding the presentation of the application.",
+    "reasonForDivorceDesertion": "{{ session.petitionerName }} has given the date of desertion as {{ session.originalPetition.reasonForDivorceDesertionDate }}.",
+    "reasonForDivorceDesertionBrokendDown": "The marriage has broken down irretrievably, based on the fact that {{ session.respondentName }} has deserted {{ session.petitionerName }} for a continuous period of at least two years immediately preceding the presentation of the application.",
+    "reasonForDivorceDesertionStatment": "This is supported by the following statement from {{ session.petitionerName }}.",
+
+    "notClaimingForDivorce": "{{ session.petitionerName }} is not claiming the costs of the divorce.",
+    "claimingCostsFromRespondentCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }} and the co-respondent",
+    "claimingCostsFromCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from the co-respondent.",
+    "claimingCostsFromRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }}.",
+
+    "financialOrdersPropertyMoneyPensionsChildren": "{{ session.petitionerName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared, for themselves and your children.",
+    "financialOrdersChildren": "{{ session.petitionerName }} is applying to the court for financial orders for their children.",
+    "financialOrdersPropertyMoneyPensions": "{{ session.petitionerName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared.",
+    "financialOrdersNone": "{{ session.petitionerName }} is not applying for a financial order.",
+
+    "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address"
+
+
+
+
   }
 }
