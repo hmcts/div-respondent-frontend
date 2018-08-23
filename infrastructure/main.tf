@@ -84,6 +84,10 @@ module "frontend" {
   }
 }
 
+provider "vault" {
+  address = "https://vault.reform.hmcts.net:6200"
+}
+
 data "azurerm_key_vault" "div_key_vault" {
   name                = "${local.vaultName}"
   resource_group_name = "${local.vaultName}"
