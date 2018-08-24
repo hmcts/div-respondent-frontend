@@ -25,7 +25,7 @@ describe(modulePath, () => {
     return question.navigatesToNext(ReviewApplication, End);
   });
 
-  describe.only('values', () => {
+  describe('values', () => {
     it('displays petitioner and respondent names', () => {
       const session = {
         petitionerName: 'petitioner name',
@@ -150,6 +150,4 @@ describe(modulePath, () => {
       );
     });
   });
-
-
 });
