@@ -1,7 +1,6 @@
 {
 "en": {
     "title": "Application for divorce",
-    "applicationForDivorce": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, and for an order that {{ session.respondentName }} pay some or all of the divorce costs.", 
     "applicant": "Applicant",
     "respondent": "Respondent",
     "whatThisMeans": "What this means",
@@ -72,14 +71,14 @@
     "youWillBeAbleToRespond": "You will be able to respond to this application on the next page",
     "readConfirmation": "I have read the application for divorce.",
 
-    "costsPetitionerPayedByRespondentAndCorrispondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, to order {{ session.respondentName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
-    "costsPetitionerPayedByCorrespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
-    "costsPetitionerPayedByRespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, to order {{ session.respondentName }} to pay some or all of the divorce costs, and for financial orders.",
-    "costsPetitionerDivorceCostsdByRespondentAndCorespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and to order {{ session.respondentName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs.",
-    "costsPetitionerDivorceCostsdByCorespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs.",
-    "costsPetitionerDivorceCostsdByRespondent": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and to order {{ session.respondentName }} to pay some or all of the divorce costs.",
-    "costsPetitionerDivorceCostsdByFinantialOrder": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}, and for financial orders.",
-    "costsPetitionerDivorceNoCosts": "{{ session.petitionerName }} is applying to the court for a decree of divorce from {{ session.respondentName }}.",
+    "costsPetitionerPayedByRespondentAndCorrispondent": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, to order {{ session.respondentName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
+    "costsPetitionerPayedByCorrespondent": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
+    "costsPetitionerPayedByRespondent": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, to order {{ session.respondentName }} to pay some or all of the divorce costs, and for financial orders.",
+    "costsPetitionerDivorceCostsdByRespondentAndCorespondent": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, and for an order that {{ session.respondentName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs.",
+    "costsPetitionerDivorceCostsdByCorespondent": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, and for an order that {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs.",
+    "costsPetitionerDivorceCostsdByRespondent": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, and for an order that {{ session.respondentName }} to pay some or all of the divorce costs.",
+    "costsPetitionerDivorceCostsdByFinantialOrder": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}, and for financial orders.",
+    "costsPetitionerDivorceNoCosts": "{{ session.petitionerName }} is applying for a decree of divorce from {{ session.respondentName }}.",
 
     "coRespondent": "Co-respondent",
 
@@ -122,10 +121,18 @@
     "financialOrdersPropertyMoneyPensions": "{{ session.petitionerName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared.",
     "financialOrdersNone": "{{ session.petitionerName }} is not applying for a financial order.",
 
-    "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address"
+    "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address",
+    "statementOfTruth": "Statement of Truth",
 
+    "errors": {
+      "required": "Please confirm that you have read the application for divorce"
+    },
 
-
+    "fields": {
+      "statementOfTruth": {
+        "yes": "I have read the application for divorce."
+      }
+    }
 
   }
 }

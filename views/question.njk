@@ -6,11 +6,13 @@
 
 {% block proposition_header %}
   {% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
-  <a href="/" id="proposition-name">
-    'Apply for Divorce'
-  </a>
 {% endblock %}
 
 {% block header_class %}
   with-proposition
 {% endblock %}
+
+
+{% block after_form -%}
+    {% include "includes/problem_with_this_page.html" %}
+{%- endblock %}

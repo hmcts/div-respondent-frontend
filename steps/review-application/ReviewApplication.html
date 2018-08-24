@@ -1,14 +1,15 @@
-{% extends "page.njk" %}
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
 
 {% set title %}
   {% set titleSize = titleSize | default('large') %}
   {{ content.title | safe }}
 {% endset %}
 
-{% block main_content %}
+{% block fields %}
 
   <!-- Application for divorce -->
-  <p class="text">{{ content.applicationForDivorce | safe }}</p>
 
   <p class="text">
     {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrderFor == "Yes" %}
@@ -385,21 +386,28 @@
 
   <!-- EOF Petitioner Address -->
 
-
-   <p class="text">
-    29 Newham Road<br>
-    Doncaster<br>
-    UK<br>
-    DN9 4EX<br>
-  </p>
+  <!-- Respondent Address -->
 
   <h2 class="heading-medium">{{ content.respondentCorrespondenceAddressHeading }}</h2>
-   <p class="text">
-    35 King St<br>
-    Doncaster<br>
-    UK<br>
-    DN3 2HG<br>
-  </p>
+  {% if not session.originalPetition.respondentSolicitorAddress|length %}
+    <p class="text">{{ session.originalPetition.respondentSolicitorName }}</p>
+    <p class="text">{{ session.originalPetition.respondentSolicitorCompany }}</p>
+    <p class="text">{{ session.originalPetition.respondentSolicitorAddress.address | address | safe }}</p>
+  {% else %}
+    <p class="text">{{ session.originalPetition.respondentCorrespondenceAddress.address | address | safe }}</p>
+  {% endif %}
+
+  <!-- EOF Respondent Address -->
+
+  <!-- CoRespondent Address -->
+
+  {% if session.originalPetition.reasonForDivorceAdultery3rdAddress|length %}
+    <h2 class="heading-medium">{{ content.coRespondentsCorrespondenceAddress }}</h2>
+    <p class="text">{{ session.originalPetition.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
+  {% endif %}
+
+  <!-- EOF CoRespondent Address -->
+
 
   <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
   <p class="text">{{ content.statementOfTruthParagraph }}</p>
@@ -418,30 +426,22 @@
 
   <br>
 
-  <div class="check-your-answers">
-    <div class="form-group confirmation-container">
-      <div class="multiple-choice">
-        <input id="confirm" type="checkbox" name="confirm">
-        <label for="confirm">{{ content.readConfirmation }}
-            <br/>
-
-        </label>
-      </div>
-    </div>
-  </div>
-
-
-  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-
-    <input class="button" type="submit" value="{{ content.continue }}">
-  </form>
-
-  {% block problem_with_this_page %}
-    {% include "includes/problem_with_this_page.html" %}
-  {% endblock %}
+  {% call formSection() %}
+    {{
+      selectionButtons(
+        fields.statementOfTruth,
+        content.statementOfTruth,
+        options = [
+          { label: content.fields.statementOfTruth.yes, value: "yes" }
+        ],
+        hint=false,
+        hideQuestion=true,
+        inline=false,
+        type='checkbox',
+        class='confirmation-container'
+      )
+    }}
+  {% endcall %}
 
 {% endblock %}
 
-{% block one_third %}
-
-{% endblock %}
