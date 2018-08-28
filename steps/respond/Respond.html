@@ -103,8 +103,7 @@
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
         {{ content.divorceCenterPhone }} {{ content.openTimes }}<br>
       </li>
-      <li><a href="{{ content.divorceCenterUrl | safe }}" target="_blank">{{ content.moreAboutYourCourt }}</a>
-      </li>
+      <li>{{ content.moreAboutYourCourt | safe }}</li>
     </ul>
 
     <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
