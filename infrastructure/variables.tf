@@ -123,6 +123,10 @@ variable "service_auth_provider_url" {
   type = "string"
 }
 
+variable "get_petition_url" {
+  type = "string"
+}
+
 variable "frontend_service_name" {
   default = "divorce-respondent-frontend"
 }

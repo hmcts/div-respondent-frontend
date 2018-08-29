@@ -10,7 +10,8 @@ describe(modulePath, () => {
       'isThereAProblemWithThisPage',
       'isThereAProblemWithThisPageParagraph',
       'isThereAProblemWithThisPagePhone',
-      'isThereAProblemWithThisPageEmail'
+      'isThereAProblemWithThisPageEmail',
+      'backLink'
     ] });
   });
 });

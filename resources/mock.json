@@ -10,6 +10,10 @@
   "petitionerFormerly": "John James Dante Jones",
   "placeOfMarriage": "At the Holy Trinity Church, in the Parish of Normanton by Derby, in the County of Derby",
   "marriageDate" : "10 October 2005",
+  "getminipetiion": {
+    "testKey" : "not from server"
+  },
+
   "originalPetition": {
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",

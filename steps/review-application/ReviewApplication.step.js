@@ -5,6 +5,7 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const ccd = require('middleware/ccd');
+const loadMiniPetition = require('middleware/loadMiniPetition');
 
 class ReviewApplication extends Question {
   static get path() {
@@ -32,7 +33,12 @@ class ReviewApplication extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), ccd.getUserData];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      ccd.getUserData,
+      loadMiniPetition
+    ];
   }
 }
 

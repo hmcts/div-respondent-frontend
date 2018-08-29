@@ -48,7 +48,8 @@ services:
     total: 3600 # 1 req/s on average per hour
     expire: 3600000
     enabled: false
-
+  caseOrchestration:
+      getPetitionUrl: someurl
 paths:
   health: /health
   authenticated: /authenticated
