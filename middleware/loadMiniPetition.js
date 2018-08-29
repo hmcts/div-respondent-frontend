@@ -1,7 +1,8 @@
 const request = require('request-promise-native');
+const CONF = require('config');
 
 const loadMiniPetition = (req, res, next) => {
-  const uri = 'CONF.services.caseOrchestration.getPetitionUrl';
+  const uri = CONF.services.caseOrchestration.getPetitionUrl;
   const headers = {
     Authorization: 'asdasdas',
     'Content-Type': 'application/json'
