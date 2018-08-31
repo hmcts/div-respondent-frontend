@@ -1,5 +1,6 @@
 const request = require('request-promise-native');
 const CONF = require('config');
+const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 
 const loadMiniPetition = (req, res, next) => {
   const uri = CONF.services.caseOrchestration.getPetitionUrl;
@@ -14,7 +15,7 @@ const loadMiniPetition = (req, res, next) => {
       next();
     })
     .catch(error => {
-      console.log(error); // eslint-disable-line no-console
+      logger.error(`Trying to connect to Case orchestartion service error: ${error}`);
       next();
     });
 };

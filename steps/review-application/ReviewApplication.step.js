@@ -7,6 +7,16 @@ const Joi = require('joi');
 const ccd = require('middleware/ccd');
 const loadMiniPetition = require('middleware/loadMiniPetition');
 
+const CONF = require('config');
+
+let insertSessionData; // eslint-disable-line init-declarations
+
+if (CONF.environment === 'development') {
+  insertSessionData = ccd.getUserData;
+} else {
+  insertSessionData = loadMiniPetition;
+}
+
 class ReviewApplication extends Question {
   static get path() {
     return config.paths.reviewApplication;
@@ -36,8 +46,7 @@ class ReviewApplication extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      ccd.getUserData,
-      loadMiniPetition
+      insertSessionData
     ];
   }
 }
