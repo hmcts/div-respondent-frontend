@@ -11,7 +11,25 @@ const loadMiniPetition = (req, res, next) => {
 
   request.get({ uri, headers, json: true })
     .then(response => {
-      req.session.getminipetiion = response;
+      req.session.referenceNumber = response.caseId;
+      req.session.originalPetition = response.data;
+      /* eslint-disable */
+      if (req.session.originalPetition.marriageIsSameSexCouple !== 'Yes') {
+        req.session.divorceWho = req.session.originalPetition.divorceWho === 'husband'
+              ? 'wife'
+              : 'husband';
+      } else {
+        req.session.divorceWho =  req.session.originalPetition.divorceWho;
+      }
+
+      const divorceCenter = req.session.originalPetition.courts;
+
+      req.session.divorceCenterName = req.session.originalPetition.court[divorceCenter].divorceCentre;
+      req.session.divorceCenterEmail = req.session.originalPetition.court[divorceCenter].email;
+      req.session.divorceCenterPhone = req.session.originalPetition.court[divorceCenter].phoneNumber;
+      req.session.divorceCenterOpenTimes = req.session.originalPetition.court[divorceCenter].openingHours;
+      req.session.divorceCenterUrl = 'https://courttribunalfinder.service.gov.uk/courts/east-midlands-divorce-unit';
+      /* eslint-enable */
       next();
     })
     .catch(error => {

@@ -49,7 +49,7 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-      getPetitionUrl: someurl
+      getPetitionUrl: http://localhost:1111
 paths:
   health: /health
   authenticated: /authenticated

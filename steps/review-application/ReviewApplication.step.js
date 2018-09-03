@@ -4,9 +4,6 @@ const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const ccd = require('middleware/ccd');
-const loadMiniPetition = require('middleware/loadMiniPetition');
-const CONF = require('config');
 
 class ReviewApplication extends Question {
   static get path() {
@@ -36,8 +33,7 @@ class ReviewApplication extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      (CONF.environment === 'development') ? ccd.getUserData : loadMiniPetition
+      idam.protect()
     ];
   }
 }
