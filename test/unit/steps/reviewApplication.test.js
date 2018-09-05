@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* eslint max-lines: 0 */
 
 const modulePath = 'steps/review-application/ReviewApplication.step';
@@ -10,7 +9,7 @@ const { middleware, question, sinon, content } = require('@hmcts/one-per-page-te
 const ccd = require('middleware/ccd');
 const CONF = require('config');
 
-describe.only(modulePath, () => {
+describe(modulePath, () => {
   const defaultEnvironment = CONF.environment;
   beforeEach(() => {
     CONF.environment = 'development';
@@ -45,7 +44,7 @@ describe.only(modulePath, () => {
   describe('values', () => {
     it('displays petitioner and respondent names', () => {
       const session = {
-        originalPetition: { 
+        originalPetition: {
           connections: {},
           marriagePetitionerName: 'petitioner name',
           marriageRespondentName: 'respondent name'
@@ -228,8 +227,9 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            financialOrderFor: 'Yes',
-            divorceClaimFrom: ['respondent', 'correspondent']
+            financialOrder: 'Yes',
+            financialOrderFor: [],
+            claimsCostsFrom: ['respondent', 'correspondent']
           }
         };
         return content(
@@ -243,8 +243,9 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            financialOrderFor: 'Yes',
-            divorceClaimFrom: ['correspondent']
+            financialOrder: 'Yes',
+            financialOrderFor: [],
+            claimsCostsFrom: ['correspondent']
           }
         };
         return content(ReviewApplication, session, {
@@ -257,8 +258,9 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            financialOrderFor: 'Yes',
-            divorceClaimFrom: []
+            financialOrder: 'Yes',
+            financialOrderFor: [],
+            claimsCostsFrom: []
           }
         };
         return content(
@@ -274,8 +276,8 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            financialOrderFor: 'No',
-            divorceClaimFrom: ['respondent', 'correspondent']
+            financialOrder: 'No',
+            claimsCostsFrom: ['respondent', 'correspondent']
           }
         };
         return content(
@@ -289,8 +291,8 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            financialOrderFor: 'No',
-            divorceClaimFrom: ['correspondent']
+            financialOrder: 'No',
+            claimsCostsFrom: ['correspondent']
           }
         };
         return content(
@@ -304,8 +306,8 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            financialOrderFor: 'No',
-            divorceClaimFrom: []
+            financialOrder: 'No',
+            claimsCostsFrom: []
           }
         };
         return content(
@@ -315,13 +317,14 @@ describe.only(modulePath, () => {
       });
     });
 
-    it.only('financialOrderFor only from neither respondent or co-respondent', () => {
+    it('financialOrderFor only', () => {
       const session = {
         originalPetition: {
           connections: {},
           claimsCosts: 'No',
-          financialOrderFor: 'Yes',
-          divorceClaimFrom: []
+          financialOrder: 'Yes',
+          financialOrderFor: 'petitioner',
+          claimsCostsFrom: []
         }
       };
       return content(
@@ -335,8 +338,8 @@ describe.only(modulePath, () => {
         originalPetition: {
           connections: {},
           claimsCosts: 'No',
-          financialOrderFor: 'No',
-          divorceClaimFrom: []
+          financialOrder: 'No',
+          claimsCostsFrom: []
         }
       };
       return content(
@@ -612,7 +615,7 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['respondent', 'correspondent']
+            claimsCostsFrom: ['respondent', 'correspondent']
           }
         };
         return content(
@@ -625,7 +628,7 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['correspondent']
+            claimsCostsFrom: ['correspondent']
           }
         };
         return content(
@@ -639,7 +642,7 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'Yes',
-            divorceClaimFrom: []
+            claimsCostsFrom: []
           }
         };
         return content(
@@ -653,7 +656,7 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             claimsCosts: 'No',
-            divorceClaimFrom: []
+            claimsCostsFrom: []
           }
         };
         return content(
@@ -711,7 +714,7 @@ describe.only(modulePath, () => {
           originalPetition: {
             connections: {},
             financialOrder: 'No',
-            divorceClaimFrom: []
+            claimsCostsFrom: []
           }
         };
         return content(

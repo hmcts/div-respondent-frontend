@@ -1,4 +1,3 @@
-/* eslint-disable */
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo } = require('@hmcts/one-per-page/flow');
@@ -12,7 +11,7 @@ class ReviewApplication extends Question {
   }
 
   get session() {
- //   console.log(this.req.session);
+    //   console.log(this.req.session);
     return this.req.session;
   }
 
