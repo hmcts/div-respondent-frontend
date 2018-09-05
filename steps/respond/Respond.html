@@ -96,14 +96,13 @@
       <li>{{ session.divorceCenterName }}</li>
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        {{ session.divorceCenterEmail }}
+        {{ content.emailAddressDivorceService }}
         <br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ session.divorceCenterPhone }} {{ session.divorceCenterOpenTimes }}<br>
-      </li>
-      <li><a href="{{ session.divorceCenterUrl | safe }}" target="_blank" aria-label="{{ content.linkInANewTabText }}">{{ content.moreAboutYourCourt | safe }}</a>
+        {{ content.divorceCenterPhone }}<br>
+        {{ content.divorceCenterHours }}<br>
       </li>
     </ul>
 

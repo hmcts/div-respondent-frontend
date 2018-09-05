@@ -23,12 +23,7 @@ const loadMiniPetition = (req, res, next) => {
       }
 
       const divorceCenter = req.session.originalPetition.courts;
-
       req.session.divorceCenterName = req.session.originalPetition.court[divorceCenter].divorceCentre;
-      req.session.divorceCenterEmail = req.session.originalPetition.court[divorceCenter].email;
-      req.session.divorceCenterPhone = req.session.originalPetition.court[divorceCenter].phoneNumber;
-      req.session.divorceCenterOpenTimes = req.session.originalPetition.court[divorceCenter].openingHours;
-      req.session.divorceCenterUrl = 'https://courttribunalfinder.service.gov.uk/courts/east-midlands-divorce-unit';
       /* eslint-enable */
       next();
     })

@@ -1,4 +1,6 @@
+/* eslint-disable */
 /* eslint max-lines: 0 */
+
 const modulePath = 'steps/review-application/ReviewApplication.step';
 
 const ReviewApplication = require(modulePath);
@@ -8,7 +10,7 @@ const { middleware, question, sinon, content } = require('@hmcts/one-per-page-te
 const ccd = require('middleware/ccd');
 const CONF = require('config');
 
-describe(modulePath, () => {
+describe.only(modulePath, () => {
   const defaultEnvironment = CONF.environment;
   beforeEach(() => {
     CONF.environment = 'development';
@@ -43,17 +45,19 @@ describe(modulePath, () => {
   describe('values', () => {
     it('displays petitioner and respondent names', () => {
       const session = {
-        petitionerName: 'petitioner name',
-        respondentName: 'respondent name',
-        originalPetition: { connections: {} }
+        originalPetition: { 
+          connections: {},
+          marriagePetitionerName: 'petitioner name',
+          marriageRespondentName: 'respondent name'
+        }
       };
       return content(
         ReviewApplication,
         session,
         {
           specificValues: [
-            session.petitionerName,
-            session.respondentName
+            session.originalPetition.marriagePetitionerName,
+            session.originalPetition.marriageRespondentName
           ]
         }
       );
@@ -212,7 +216,8 @@ describe(modulePath, () => {
         'jurisdictionConnectionPetitionerSixMonths',
         'jurisdictionConnectionOther',
         'onGoingCasesNo',
-        'petitionerCorrespondenceAddressHeading'
+        'petitionerCorrespondenceAddressHeading',
+        'whereTheMarriage'
       ];
       return content(ReviewApplication, session, { ignoreContent });
     });
@@ -310,7 +315,7 @@ describe(modulePath, () => {
       });
     });
 
-    it('financialOrderFor only from neither respondent or co-respondent', () => {
+    it.only('financialOrderFor only from neither respondent or co-respondent', () => {
       const session = {
         originalPetition: {
           connections: {},

@@ -12,23 +12,23 @@
   <!-- Application for divorce -->
 
   <p class="text">
-    {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrderFor == "Yes" %}
-      {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom  %}
+    {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrder == "Yes" %}
+      {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
         {{ content.costsPetitionerPayedByRespondentAndCorrispondent }}
-      {% elseif "correspondent" in session.originalPetition.divorceClaimFrom  %}
+      {% elseif "correspondent" in session.originalPetition.claimsCostsFrom  %}
         {{ content.costsPetitionerPayedByCorrespondent }}
       {% else %}
         {{ content.costsPetitionerPayedByRespondent }}
       {% endif %}
     {% elseif session.originalPetition.claimsCosts == "Yes" %}
-      {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom %}
+      {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
         {{ content.costsPetitionerDivorceCostsdByRespondentAndCorespondent }}
-      {% elseif "correspondent" in session.originalPetition.divorceClaimFrom %}
+      {% elseif "correspondent" in session.originalPetition.claimsCostsFrom %}
         {{ content.costsPetitionerDivorceCostsdByCorespondent }}
       {% else %}
         {{ content.costsPetitionerDivorceCostsdByRespondent }}
       {% endif %}
-    {% elseif session.originalPetition.financialOrderFor == "Yes" %}
+    {% elseif session.originalPetition.financialOrder == "Yes" %}
       {{ content.costsPetitionerDivorceCostsdByFinantialOrder }}
     {% else %}
       {{ content.costsPetitionerDivorceNoCosts }}
@@ -36,10 +36,10 @@
   </p>
 
   <h3 class="heading-small">{{ content.applicant }}</h3>
-  <p class="text">{{ session.petitionerName }}</p>
+  <p class="text">{{ session.originalPetition.marriagePetitionerName }}</p>
 
   <h3 class="heading-small">{{ content.respondent }}</h3>
-  <p class="text">{{ session.respondentName }}</p>
+  <p class="text">{{ session.originalPetition.marriageRespondentName }}</p>
 
   <details>
     <summary aria-controls="details-content-0" aria-expanded="false">
@@ -68,8 +68,11 @@
   <h3 class="heading-small">{{ content.whoTheMarriage }}</h3>
   <p class="text">{{ content.whoTheMarriageNames }}</p>
 
-  <h3 class="heading-small">{{ content.whereTheMarriage }}</h3>
-  <p class="text">{{ session.placeOfMarriage }}</p>
+  {% if session.originalPetition.placeOfMarriage %}
+    <h3 class="heading-small">{{ content.whereTheMarriage }}</h3>
+    <p class="text">{{ session.originalPetition.placeOfMarriage }}</p>
+  {% endif %}
+
 
   <h3 class="heading-small">{{ content.dateOfMarriage }}</h3>
   <p class="text">{{ session.originalPetition.marriageDate | date }}</p>
@@ -308,9 +311,9 @@
 
   <h3 class="heading-small">{{ content.costOrder }}</h3>
   {% if session.originalPetition.claimsCosts == "Yes" %}
-    {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom %}
+    {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
       <p class="text">{{ content.claimingCostsFromRespondentCoRespondent }}</p>
-    {% elseif "correspondent" in session.originalPetition.divorceClaimFrom %}
+    {% elseif "correspondent" in session.originalPetition.claimsCostsFrom %}
       <p class="text">{{ content.claimingCostsFromCoRespondent }}</p>
     {% else %}
       <p class="text">{{ content.claimingCostsFromRespondent }}</p>
@@ -389,7 +392,7 @@
   <!-- Respondent Address -->
 
   <h2 class="heading-medium">{{ content.respondentCorrespondenceAddressHeading }}</h2>
-  {% if not session.originalPetition.respondentSolicitorAddress|length %}
+  {% if session.originalPetition.respondentSolicitorAddress|length %}
     <p class="text">{{ session.originalPetition.respondentSolicitorName }}</p>
     <p class="text">{{ session.originalPetition.respondentSolicitorCompany }}</p>
     <p class="text">{{ session.originalPetition.respondentSolicitorAddress.address | address | safe }}</p>
@@ -422,8 +425,6 @@
       {{ content.youWillBeAbleToRespond }}
     </strong>
   </div>
-  <p class="text">{{ session.referenceNumber }}</p>
-
   <br>
 
   {% call formSection() %}
