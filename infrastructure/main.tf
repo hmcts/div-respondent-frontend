@@ -63,14 +63,14 @@ module "frontend" {
     IDAM_APP_HEALHCHECK_URL ="${var.idam_api_url}${var.health_endpoint}"
     IDAM_LOGIN_URL = "${var.idam_authentication_web_url}${var.idam_authentication_login_endpoint}"
     IDAM_AUTHENTICATION_HEALHCHECK_URL = "${var.idam_authentication_web_url}${var.health_endpoint}"
-    IDAM_SECRET = "${data.vault_generic_secret.idam_secret.data["value"]}"
+    IDAM_SECRET = "${data.azurerm_key_vault_secret.idam_secret.value}"
 
     // Redis Cloud
     REDISCLOUD_URL = "redis://ignore:${urlencode(module.redis-cache.access_key)}@${module.redis-cache.host_name}:${module.redis-cache.redis_port}?tls=true"
-    REDIS_ENCRYPTION_SECRET = "${data.vault_generic_secret.redis_secret.data["value"]}"
+    REDIS_ENCRYPTION_SECRET = "${data.azurerm_key_vault_secret.redis_secret.value}"
 
     // Encryption secrets
-    SESSION_SECRET = "${data.vault_generic_secret.session_secret.data["value"]}"
+    SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
 
     // Google Anayltics
     GOOGLE_ANALYTICS_ID           = "${var.google_analytics_tracking_id}"
@@ -93,14 +93,22 @@ provider "vault" {
   address = "https://vault.reform.hmcts.net:6200"
 }
 
-data "vault_generic_secret" "idam_secret" {
-  path = "secret/${var.vault_section}/ccidam/idam-api/oauth2/client-secrets/divorce"
+data "azurerm_key_vault" "div_key_vault" {
+  name                = "${local.vaultName}"
+  resource_group_name = "${local.vaultName}"
 }
 
-data "vault_generic_secret" "session_secret" {
-  path = "secret/${var.vault_section}/divorce/session/secret"
+data "azurerm_key_vault_secret" "idam_secret" {
+  name      = "idam-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
 }
 
-data "vault_generic_secret" "redis_secret" {
-  path = "secret/${var.vault_section}/divorce/session/redis-secret"
+data "azurerm_key_vault_secret" "session_secret" {
+  name      = "session-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "redis_secret" {
+  name      = "redis-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
 }
