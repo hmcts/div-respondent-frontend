@@ -1,0 +1,41 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+    <div id="choose-a-response">
+
+        <p>{{ content.action | safe }}</p>
+
+        <details>
+            <summary>
+                <span class="summary">{{ content.info.heading | safe }}</span>
+            </summary>
+            <div class="panel panel-border-narrow">
+                <h2 class="heading-small">{{ content.info.options.proceed.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.proceed.summary | safe }}</p>
+
+                <h2 class="heading-small">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
+
+                <h2 class="heading-small">{{ content.info.options.disagree.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.disagree.summary | safe }}</p>
+            </div>
+        </details>
+
+    </div>
+
+    {% call formSection() %}
+        {{ selectionButtons(fields.success, content.title,
+            options = [
+                { label: content.fields.success.proceed.heading, value: "proceed" },
+                { label: content.fields.success.disagree.heading, value: "disagree" }
+            ]
+        ) }}
+    {% endcall %}
+{% endblock %}

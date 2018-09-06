@@ -14,7 +14,7 @@ class ReviewApplication extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.End);
+    return goTo(this.journey.steps.ChooseAResponse);
   }
 
   get middleware() {
