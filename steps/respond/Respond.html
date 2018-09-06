@@ -10,7 +10,8 @@
 {% block main_content %}
   <p class="font-xsmall">
     <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
-    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp; {{ session.originalPetition.marriageRespondentName }}
+    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;
+    {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
   </p>
 
   {% set items = {

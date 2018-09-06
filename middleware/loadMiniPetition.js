@@ -3,11 +3,9 @@ const CONF = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 
 const loadMiniPetition = (req, res, next) => {
-  const uri = CONF.services.caseOrchestration.getPetitionUrl;
-  const headers = {
-    Authorization: 'asdasdas',
-    'Content-Type': 'application/json'
-  };
+  const uri = `${CONF.services.caseOrchestration.getPetitionUrl}?checkCcd=true`;
+  const authTokenString = '__auth-token';
+  const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
 
   request.get({ uri, headers, json: true })
     .then(response => {

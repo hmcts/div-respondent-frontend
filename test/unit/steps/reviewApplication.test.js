@@ -46,8 +46,10 @@ describe(modulePath, () => {
       const session = {
         originalPetition: {
           connections: {},
-          marriagePetitionerName: 'petitioner name',
-          marriageRespondentName: 'respondent name'
+          petitionerFirstName: 'petitioner first name',
+          petitionerLastName: 'petitioner last name',
+          respondentFirstName: 'respondent first lastname',
+          respondentLastName: 'respondent last name'
         }
       };
       return content(
@@ -55,8 +57,10 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.originalPetition.marriagePetitionerName,
-            session.originalPetition.marriageRespondentName
+            session.originalPetition.petitionerFirstName,
+            session.originalPetition.petitionerLastName,
+            session.originalPetition.respondentFirstName,
+            session.originalPetition.respondentLastName
           ]
         }
       );

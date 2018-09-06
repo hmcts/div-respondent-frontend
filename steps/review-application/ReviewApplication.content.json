@@ -7,7 +7,7 @@
     "divorceRoleExplain": "The applicant is the person who has applied for a divorce (legally known as the petitioner). The respondent is their husband or wife.",
     "aboutTheMarriage": "About the marriage",
     "whoTheMarriage": "Who the marriage is between",
-    "whoTheMarriageNames": "{{ session.originalPetition.marriagePetitionerName }} (formerly {{ session.petitionerFormerly }}) and {{ session.originalPetition.marriageRespondentName }}",
+    "whoTheMarriageNames": "{{ session.originalPetition.marriagePetitionerName }} and {{ session.originalPetition.marriageRespondentName }} as shown on the marriage certificate",
     "whereTheMarriage": "Where the marriage took place",
     "dateOfMarriage": "Date of marriage",
     "marriageDetailsExplained": "These details are copied exactly from the marriage certificate, or a translation of the certificate if it's not in English. The names on the certificate are the names that the applicant and respondent used before the marriage.",

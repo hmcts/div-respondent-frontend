@@ -59,7 +59,7 @@ paths:
   end: /end
   entry: /entry
   mock:
-    idamLogin: /idam-login
+    idamLogin: /idam-mock-login
 
 tests:
   e2e:

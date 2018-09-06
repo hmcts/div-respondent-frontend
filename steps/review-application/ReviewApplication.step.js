@@ -11,7 +11,6 @@ class ReviewApplication extends Question {
   }
 
   get session() {
-    //   console.log(this.req.session);
     return this.req.session;
   }
 
