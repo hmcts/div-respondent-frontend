@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -63,4 +63,8 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block after_form %}
+    {% include "includes/problem_with_this_page.html" %}
 {% endblock %}
