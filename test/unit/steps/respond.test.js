@@ -6,14 +6,18 @@ const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const ccd = require('middleware/ccd');
 const getSteps = require('steps');
+const CONF = require('config');
 
 describe(modulePath, () => {
+  const defaultEnvironment = CONF.environment;
   beforeEach(() => {
+    CONF.environment = 'development';
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
     sinon.stub(ccd, 'getUserData').callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
+    CONF.environment = defaultEnvironment;
     idam.protect.restore();
     ccd.getUserData.restore();
   });
