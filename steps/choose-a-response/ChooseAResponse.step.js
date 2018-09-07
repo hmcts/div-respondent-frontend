@@ -21,9 +21,9 @@ class ChooseAResponse extends Question {
       .valid(answers)
       .required();
 
-    const success = text.joi(this.content.errors.required, validAnswers);
+    const response = text.joi(this.content.errors.required, validAnswers);
 
-    return form({ success });
+    return form({ response });
   }
 
   get middleware() {

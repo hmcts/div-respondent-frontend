@@ -23,15 +23,13 @@
       "required": "Select the an option"
     },
     "fields": {
-      "success": {
-        "proceed": {
-          "heading": "I will let the divorce proceed",
-          "summary": "Choose this option if you don't want to try to prevent the divorce (you don't intend to 'defend' it)."
-        },
-        "disagree": {
-          "heading": "I disagree with the application for divorce",
-          "summary": "Choose this option if you want to try to prevent the divorce or want to make your own application for divorce (you intend to 'defend' it)"
-        }
+      "proceed": {
+        "heading": "I will let the divorce proceed",
+        "summary": "Choose this option if you don't want to try to prevent the divorce (you don't intend to 'defend' it)."
+      },
+      "disagree": {
+        "heading": "I disagree with the application for divorce",
+        "summary": "Choose this option if you want to try to prevent the divorce or want to make your own application for divorce (you intend to 'defend' it)"
       }
     }
   }
