@@ -201,13 +201,13 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#9edfcfe9323570bf8d4cb12f4810728693a089e7":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#299b662f1d396b20c566d311c69a348b82494839":
   version "0.0.3"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#9edfcfe9323570bf8d4cb12f4810728693a089e7"
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#299b662f1d396b20c566d311c69a348b82494839"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"
-    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#6bb0d8f042c3a223a94316141bae630a9cc79bb1"
+    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
     chai-as-promised "^7.1.1"
@@ -230,36 +230,9 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#6bb0d8f042c3a223a94316141bae630a9cc79bb1":
-  version "3.5.2"
-  resolved "https://github.com/hmcts/one-per-page#6bb0d8f042c3a223a94316141bae630a9cc79bb1"
-  dependencies:
-    "@log4js-node/log4js-api" "^1.0.0"
-    body-parser "^1.18.2"
-    callsites "^2.0.0"
-    colors "^1.1.2"
-    config "^1.28.1"
-    connect-redis "^3.3.2"
-    cookie-parser "^1.4.3"
-    debug "^3.1.0"
-    deepmerge "2.0.1"
-    express "^4.16.2"
-    express-nunjucks "^2.2.3"
-    express-session "^1.15.6"
-    glob "^7.1.2"
-    http-status-codes "^1.3.0"
-    i18next "^10.2.1"
-    joi "^13.0.2"
-    js-yaml "^3.10.0"
-    nunjucks "^3.0.1"
-    option "^0.2.4"
-    router "^1.3.2"
-    slug "^0.9.1"
-    url-parse "^1.2.0"
-
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#aee994009d66efd2341a3bc5ddb0b5748e52cbf8":
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854":
   version "3.6.1"
-  resolved "https://github.com/hmcts/one-per-page#aee994009d66efd2341a3bc5ddb0b5748e52cbf8"
+  resolved "https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"

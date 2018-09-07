@@ -30,7 +30,7 @@
     "@hmcts/look-and-feel": "^1.18.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
-    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page#aee994009d66efd2341a3bc5ddb0b5748e52cbf8",
+    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#9edfcfe9323570bf8d4cb12f4810728693a089e7",
+    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#299b662f1d396b20c566d311c69a348b82494839",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
