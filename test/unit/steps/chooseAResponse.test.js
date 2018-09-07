@@ -20,7 +20,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to next page on success', () => {
-    const fields = { success: 'proceed' };
+    const fields = { response: 'proceed' };
     return question.redirectWithField(ChooseAResponse, fields, End);
   });
 
