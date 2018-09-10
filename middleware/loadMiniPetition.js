@@ -20,8 +20,7 @@ const loadMiniPetition = (req, res, next) => {
         req.session.divorceWho =  req.session.originalPetition.divorceWho;
       }
 
-      const divorceCenter = req.session.originalPetition.courts;
-      req.session.divorceCenterName = req.session.originalPetition.court[divorceCenter].divorceCentre;
+      req.session.divorceCenterName = req.session.originalPetition.courtDetails.divorceCentre;
       /* eslint-enable */
       next();
     })
