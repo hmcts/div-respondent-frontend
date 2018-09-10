@@ -84,7 +84,7 @@ module "frontend" {
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
 
-    GET_PETITION_URL = "${local.div_cos_url}"
+    GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
   }
 }
 
