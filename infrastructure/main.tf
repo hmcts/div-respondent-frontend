@@ -5,8 +5,7 @@ locals {
   previewVaultName = "${var.raw_product}-aat"
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
-#  div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
-  div_cos_url              = "http://pr-17-div-cos-preview.service.core-compute-preview.internal"
+  div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
 }
 
 module "redis-cache" {
