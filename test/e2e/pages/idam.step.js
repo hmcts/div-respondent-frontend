@@ -1,11 +1,9 @@
-const IdamLoginPage = require('mocks/steps/idamLogin/IdamLogin.step');
 const commonContent = require('common/content');
 const content = require('mocks/steps/idamLogin/IdamLogin.content');
 
 function seeIdamLoginPage() {
   const I = this;
 
-  I.seeCurrentUrlEquals(IdamLoginPage.path);
   I.see(content.en.title);
 }
 
