@@ -264,17 +264,17 @@
 
   {% if session.originalPetition.reasonForDivorce == "separation-2-years" %}
     <p class="text">{{ content.reasonForDivorceSeperationTwoYearsBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceSeperationTwoYears }}</p>
+    <p class="text">{{ content.reasonForDivorceSeperationTwoYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-5-years" %}
     <p class="text">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceSeperationFiveYears }}</p>
+    <p class="text">{{ content.reasonForDivorceSeperationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "desertion" %}
     <p class="text">{{ content.reasonForDivorceDesertionBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceDesertion }}</p>
+    <p class="text">{{ content.reasonForDivorceDesertion }} {{ session.originalPetition.reasonForDivorceDesertionDate | date }}.</p>
     <p class="text">{{ content.reasonForDivorceDesertionStatment }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
