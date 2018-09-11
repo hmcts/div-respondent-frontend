@@ -12,4 +12,3 @@ idam_api_url = "https://preprod-idamapi.reform.hmcts.net:3511"
 service_auth_provider_url = "https://preprod-s2s-api.reform.hmcts.net:3511"
 google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
-get_petition_url = "http://pr-8-div-cos-preview-staging.service.core-compute-preview.internal/retrieve-aos-case?checkCcd=true"
