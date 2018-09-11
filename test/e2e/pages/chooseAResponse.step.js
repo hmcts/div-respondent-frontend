@@ -1,14 +1,15 @@
 const ChooseAResponsePage = require('steps/choose-a-response/ChooseAResponse.step');
+const content = require('steps/choose-a-response/ChooseAResponse.content');
 
 function seeChooseAResponsePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ChooseAResponsePage.path);
-  I.see('How do you want to respond?');
+  I.see(content.en.title);
 }
 
 function chooseToProceedWithDivorce() {
-  this.click('I will let the divorce proceed');
+  this.click(content.en.fields.proceed.heading);
 }
 
 module.exports = {
