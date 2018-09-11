@@ -30,11 +30,15 @@ describe(modulePath, () => {
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'Yes',
           divorceWho: 'husband',
-          courtDetails: {
-            divorceCentre: 'East Midlands Regional Divorce Centre'
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
           }
         }
-      });
+      }
+      );
 
     const next = () => {
       expect(req.session.divorceWho)
@@ -59,8 +63,11 @@ describe(modulePath, () => {
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
           divorceWho: 'husband',
-          courtDetails: {
-            divorceCentre: 'East Midlands Regional Divorce Centre'
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
           }
         }
       }
@@ -88,8 +95,11 @@ describe(modulePath, () => {
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
           divorceWho: 'husband',
-          courtDetails: {
-            divorceCentre: 'East Midlands Regional Divorce Centre'
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
           }
         }
       }
