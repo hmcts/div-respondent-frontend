@@ -17,7 +17,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Respond, [ idam.protect(), getUserData ]);
+    return middleware.hasMiddleware(Respond, [idam.protect(), getUserData]);
   });
 
   it('redirects to next page', () => {
@@ -25,6 +25,11 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(Respond);
+    return content(Respond, {}, {
+      ignoreContent: [
+        'backLink',
+        'divorceCenterUrl'
+      ]
+    });
   });
 });

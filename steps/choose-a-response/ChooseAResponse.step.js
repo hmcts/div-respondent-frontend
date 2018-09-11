@@ -11,10 +11,6 @@ class ChooseAResponse extends Question {
     return config.paths.chooseAResponse;
   }
 
-  get session() {
-    return this.req.session;
-  }
-
   get form() {
     const answers = ['proceed', 'disagree'];
     const validAnswers = Joi.string()

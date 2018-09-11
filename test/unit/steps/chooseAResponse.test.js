@@ -15,7 +15,7 @@ describe(modulePath, () => {
     idam.protect.restore();
   });
 
-  it('has idam.protect middleware', () => {
+  it('has idam.protect and userData middleware', () => {
     return middleware.hasMiddleware(ChooseAResponse, [idam.protect(), getUserData]);
   });
 
@@ -24,11 +24,11 @@ describe(modulePath, () => {
     return question.redirectWithField(ChooseAResponse, fields, End);
   });
 
-  it('does not proceed when answer is not provided', () => {
-    return question.redirectWithField(ChooseAResponse, {}, ChooseAResponse);
+  it('shows error if question is not answered', () => {
+    return question.testErrors(ChooseAResponse);
   });
 
   it('renders the content', () => {
-    return content(ChooseAResponse);
+    return content(ChooseAResponse, {}, { ignoreContent: ['info'] });
   });
 });

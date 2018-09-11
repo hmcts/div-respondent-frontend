@@ -20,7 +20,7 @@
       }
     },
     "errors": {
-      "required": "Select the an option"
+      "required": "Select ‘I will let the divorce proceed’ if you do not want to defend the divorce"
     },
     "fields": {
       "proceed": {

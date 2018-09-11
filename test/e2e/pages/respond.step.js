@@ -1,10 +1,11 @@
 const RespondPage = require('steps/respond/Respond.step');
+const content = require('steps/respond/Respond.content');
 
 function seeRespondPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(RespondPage.path);
-  I.see('Your divorce');
+  I.see(content.en.title);
 }
 
 module.exports = { seeRespondPage };
