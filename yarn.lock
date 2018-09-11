@@ -144,8 +144,8 @@
     webpack-dev-middleware "^2.0.4"
 
 "@hmcts/look-and-feel@^1.18.2":
-  version "1.18.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.18.2.tgz#87ad9d7124ad909de6ef0af75eb7e85b47fba9b5"
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.1.tgz#b5129dfc59925f925df59557cc25b83a4094816d"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -201,13 +201,13 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#63b20cc545cca88209ff77334d3369f12f8d1b4d":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#299b662f1d396b20c566d311c69a348b82494839":
   version "0.0.3"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#63b20cc545cca88209ff77334d3369f12f8d1b4d"
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#299b662f1d396b20c566d311c69a348b82494839"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"
-    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a"
+    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
     chai-as-promised "^7.1.1"
@@ -219,6 +219,7 @@
     eslint-plugin-mocha "^5.0.0"
     express "^4.16.3"
     express-nunjucks "^2.2.3"
+    html-entities "^1.2.1"
     jquery "^3.2.1"
     mocha "^4.0.1"
     nyc "^11.1.0"
@@ -229,9 +230,9 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a":
-  version "3.3.6"
-  resolved "https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a"
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854":
+  version "3.6.1"
+  resolved "https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -240,33 +241,7 @@
     config "^1.28.1"
     connect-redis "^3.3.2"
     cookie-parser "^1.4.3"
-    debug "^3.1.0"
-    deepmerge "2.0.1"
-    express "^4.16.2"
-    express-nunjucks "^2.2.3"
-    express-session "^1.15.6"
-    glob "^7.1.2"
-    http-status-codes "^1.3.0"
-    i18next "^10.2.1"
-    joi "^13.0.2"
-    js-yaml "^3.10.0"
-    nunjucks "^3.0.1"
-    option "^0.2.4"
-    router "^1.3.2"
-    slug "^0.9.1"
-    url-parse "^1.2.0"
-
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#f7f1b4827bb18701c21fac128b8b884c0d32e3c2":
-  version "3.5.1"
-  resolved "https://github.com/hmcts/one-per-page#f7f1b4827bb18701c21fac128b8b884c0d32e3c2"
-  dependencies:
-    "@log4js-node/log4js-api" "^1.0.0"
-    body-parser "^1.18.2"
-    callsites "^2.0.0"
-    colors "^1.1.2"
-    config "^1.28.1"
-    connect-redis "^3.3.2"
-    cookie-parser "^1.4.3"
+    csurf "^1.9.0"
     debug "^3.1.0"
     deepmerge "2.0.1"
     express "^4.16.2"
@@ -2569,6 +2544,14 @@ crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
 
+csrf@~3.0.3:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/csrf/-/csrf-3.0.6.tgz#b61120ddceeafc91e76ed5313bb5c0b2667b710a"
+  dependencies:
+    rndm "1.2.0"
+    tsscmp "1.0.5"
+    uid-safe "2.1.4"
+
 css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -2673,6 +2656,15 @@ csso@~2.3.1:
   dependencies:
     clap "^1.0.9"
     source-map "^0.5.3"
+
+csurf@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/csurf/-/csurf-1.9.0.tgz#49d2c6925ffcec7b7de559597c153fa533364133"
+  dependencies:
+    cookie "0.3.1"
+    cookie-signature "1.0.6"
+    csrf "~3.0.3"
+    http-errors "~1.5.0"
 
 cucumber-expressions@^6.0.1:
   version "6.0.1"
@@ -5028,6 +5020,10 @@ html-comment-regex@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.1.tgz#668b93776eaae55ebde8f3ad464b307a4963625e"
 
+html-entities@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
+
 http-errors@1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.2.tgz#0a002cc85707192a7e7946ceedc11155f60ec736"
@@ -5045,6 +5041,14 @@ http-errors@1.6.3, http-errors@~1.6.2, http-errors@~1.6.3:
     inherits "2.0.3"
     setprototypeof "1.1.0"
     statuses ">= 1.4.0 < 2"
+
+http-errors@~1.5.0:
+  version "1.5.1"
+  resolved "http://registry.npmjs.org/http-errors/-/http-errors-1.5.1.tgz#788c0d2c1de2c81b9e6e8c01843b6b97eb920750"
+  dependencies:
+    inherits "2.0.3"
+    setprototypeof "1.0.2"
+    statuses ">= 1.3.1 < 2"
 
 http-proxy-agent@^2.1.0:
   version "2.1.0"
@@ -9203,6 +9207,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rndm@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/rndm/-/rndm-1.2.0.tgz#f33fe9cfb52bbfd520aa18323bc65db110a1b76c"
+
 router@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/router/-/router-1.3.2.tgz#bfaa16888a5283d5ee40d999da7a9fa15296a60c"
@@ -9450,6 +9458,10 @@ set-value@^2.0.0:
 setimmediate@^1.0.4, setimmediate@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
+
+setprototypeof@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.0.2.tgz#81a552141ec104b88e89ce383103ad5c66564d08"
 
 setprototypeof@1.0.3:
   version "1.0.3"
@@ -10449,7 +10461,7 @@ try-json-parse@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/try-json-parse/-/try-json-parse-0.1.1.tgz#8db01622e877e51b83140caee7c80864ad390c82"
 
-tsscmp@~1.0.0:
+tsscmp@1.0.5, tsscmp@~1.0.0:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/tsscmp/-/tsscmp-1.0.5.tgz#7dc4a33af71581ab4337da91d85ca5427ebd9a97"
 
@@ -10527,6 +10539,12 @@ uglifyjs-webpack-plugin@^0.4.6:
     source-map "^0.5.6"
     uglify-js "^2.8.29"
     webpack-sources "^1.0.1"
+
+uid-safe@2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/uid-safe/-/uid-safe-2.1.4.tgz#3ad6f38368c6d4c8c75ec17623fb79aa1d071d81"
+  dependencies:
+    random-bytes "~1.0.0"
 
 uid-safe@~2.1.5:
   version "2.1.5"
