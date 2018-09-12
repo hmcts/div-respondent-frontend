@@ -81,6 +81,9 @@ module "frontend" {
     RATE_LIMITER_TOTAL  = "${var.rate_limiter_total}"
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
+
+    // Feature toggling through config
+    FEATURE_IDAM                               = "${var.feature_idam}"
   }
 }
 
