@@ -34,7 +34,8 @@ describe(modulePath, () => {
       'isThereAProblemWithThisPageParagraph',
       'isThereAProblemWithThisPagePhone',
       'isThereAProblemWithThisPageEmail',
-      'backLink'
+      'backLink',
+      'divorceCenterUrl'
     ] });
   });
 });

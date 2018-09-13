@@ -16,9 +16,11 @@ describe(modulePath, () => {
       'backLink'
     ] });
   });
+
   it('ignores pa11y warnings', () => {
     expect(Start.ignorePa11yWarnings).to.include('WCAG2AA.Principle1.Guideline1_3.1_3_1.H48');
   });
+
   it('has idam.authenticate middleware', () => {
     return middleware.hasMiddleware(Start, [ idam.setRedirectUri ]);
   });

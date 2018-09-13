@@ -28,7 +28,11 @@
 
 {% block two_thirds -%}
   {{ header(title, size=titleSize) }}
-  {% block main_content %}{% endblock %}
+  {% block main_content %}
+  {% endblock %}
+  <div>
+  {% include "includes/problem_with_this_page.html" %}
+  </div>
 {%- endblock %}
 
 {% block one_third -%}

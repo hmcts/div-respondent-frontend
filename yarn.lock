@@ -144,8 +144,8 @@
     webpack-dev-middleware "^2.0.4"
 
 "@hmcts/look-and-feel@^1.18.2":
-  version "1.18.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.18.2.tgz#87ad9d7124ad909de6ef0af75eb7e85b47fba9b5"
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.1.tgz#b5129dfc59925f925df59557cc25b83a4094816d"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"

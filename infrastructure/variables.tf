@@ -107,6 +107,10 @@ variable "health_endpoint" {
   default = "/health"
 }
 
+variable "feature_idam" {
+  default = true
+}
+
 variable "idam_authentication_web_url" {
   type = "string"
 }

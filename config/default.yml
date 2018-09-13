@@ -56,6 +56,7 @@ paths:
   index: /
   respond: /respond
   reviewApplication: /review-application
+  chooseAResponse: /choose-a-response
   end: /end
   entry: /entry
   mock:

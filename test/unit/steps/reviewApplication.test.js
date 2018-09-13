@@ -3,7 +3,7 @@
 const modulePath = 'steps/review-application/ReviewApplication.step';
 
 const ReviewApplication = require(modulePath);
-const End = require('steps/end/End.step.js');
+const ChooseAResponse = require('steps/choose-a-response/ChooseAResponse.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const ccd = require('middleware/ccd');
@@ -32,9 +32,9 @@ describe(modulePath, () => {
     return question.testErrors(ReviewApplication, session);
   });
 
-  it('redirects to End statement of truth answered', () => {
+  it('redirects to choose a response page when answered', () => {
     const fields = { statementOfTruth: 'yes' };
-    return question.redirectWithField(ReviewApplication, fields, End);
+    return question.redirectWithField(ReviewApplication, fields, ChooseAResponse);
   });
 
   describe('values', () => {

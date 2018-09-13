@@ -262,7 +262,7 @@
     <p class="text">"
     {% for item in session.originalPetition.reasonForDivorceBehaviourDetails %}
       {{ item }}
-      {% if not loop.last %}    
+      {% if not loop.last %}
        <br>
       {% endif %}
     {% endfor %}
@@ -452,4 +452,3 @@
   {% endcall %}
 
 {% endblock %}
-
