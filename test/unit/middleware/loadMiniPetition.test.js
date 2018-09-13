@@ -17,39 +17,6 @@ describe(modulePath, () => {
     request.get.restore();
   });
 
-  it('sets the same divorceWho if same sex couple', done => {
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
-
-    sinon.stub(request, 'get')
-      .resolves({
-        caseId: 1234,
-        data: { // eslint-disable-line id-blacklist
-          marriageIsSameSexCouple: 'Yes',
-          divorceWho: 'husband',
-          courts: 'eastMidlands',
-          court: {
-            eastMidlands: {
-              divorceCentre: 'East Midlands Regional Divorce Centre'
-            }
-          }
-        }
-      }
-      );
-
-    const next = () => {
-      expect(req.session.divorceWho)
-        .to
-        .eql('husband');
-      done();
-    };
-
-    loadMiniPetition(req, {}, next);
-  });
-
   it('sets the oposite divorceWho if NOT same sex couple', done => {
     const req = {
       cookies: { '__auth-token': 'test' },
@@ -108,7 +75,7 @@ describe(modulePath, () => {
     const next = () => {
       expect(req.session.referenceNumber)
         .to
-        .eql(1234);
+        .eql(324234342342);
       expect(req.session.divorceCenterName)
         .to
         .eql('East Midlands Regional Divorce Centre');

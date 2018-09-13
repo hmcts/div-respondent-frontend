@@ -390,7 +390,7 @@
       <p class="text">{{ petitionersSolicitorFirm }}</p>
       <p class="text">{{ petitionersSolicitorAddress }}</p>
     {% else %}
-      <p class="text">{{ session.originalPetition.petitionerHomeAddress.address | address | safe }}</p>
+      <p class="text">{{ session.originalPetition.petitionerCorrespondenceAddress.address | address | safe }}</p>
     {% endif %}
   {% endif %}
 
