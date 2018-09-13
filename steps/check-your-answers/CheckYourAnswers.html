@@ -1,0 +1,57 @@
+{% extends "look-and-feel/layouts/check_your_answers.html" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% block head %}
+    {% include "includes/head.html" %}
+{% endblock %}
+
+{% set pageContent = {
+    title: content.title,
+    sendApplication: content.submit
+} %}
+
+{% block statement_of_truth_content %}
+{{ header(content.confirm, size='medium') }}
+<p>{{ content.statementOfTruth | safe }}</p>
+{% endblock %}
+
+{% block statement_of_truth_fields %}
+    <div id="cya-confirmation-container">
+        {% call formSection() %}
+            {{ selectionButtons(
+                fields.statementOfTruth,
+                content.fields.statementOfTruth.yes,
+                options = [
+                    { label: content.fields.statementOfTruth.yes, value: "yes" }
+                ],
+                hint=false,
+                hideQuestion=true,
+                inline=false,
+                type='checkbox'
+            ) }}
+        {% endcall %}
+
+        <ul class="list-bullet">
+            <li>{{ content.respondentConfirmation | safe }}</li>
+            <li>{{ content.facts | safe }}</li>
+        </uL>
+
+        <br>
+
+        <details>
+            <summary aria-controls="details-content-0" aria-expanded="false">
+                <span class="summary">{{ content.whatTheseStatements | safe }}</span>
+            </summary>
+            <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+                <p class="text">{{ content.statementsExplanation | safe }}</p>
+            </div>
+        </details>
+    </div>
+
+    <br>
+{%- endblock %}
+
+{% block after_form %}
+    {% include "includes/problem_with_this_page.html" %}
+{% endblock %}
