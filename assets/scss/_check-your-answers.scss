@@ -3,14 +3,18 @@
   padding: 25px;
 
   .list-bullet {
-    padding-left: 88px;
+    padding-left: 70px;
   }
 
   details {
-    padding-left: 72px;
+    padding-left: 54px;
   }
 
   .form-section {
     margin-bottom: 25px;
   }
+}
+
+.govuk-check-your-answers .cya-question {
+  font-weight: normal;
 }
