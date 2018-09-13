@@ -1,13 +1,8 @@
-const request = require('request-promise-native');
-const CONF = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const getCcdData = require('services/getCcdData');
 
 const loadMiniPetition = (req, res, next) => {
-  const uri = `${CONF.services.caseOrchestration.getPetitionUrl}?checkCcd=true`;
-  const authTokenString = '__auth-token';
-  const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
-
-  request.get({ uri, headers, json: true })
+  getCcdData(req)
     .then(response => {
       req.session.referenceNumber = response.caseId;
       req.session.originalPetition = response.data;
@@ -26,9 +21,10 @@ const loadMiniPetition = (req, res, next) => {
       next();
     })
     .catch(error => {
-      logger.error(`Trying to connect to Case orchestartion service error: ${error}`);
-      next();
+      logger.error(`Unable to load minipetition: ${error}`);
+      next(error);
     });
 };
+
 
 module.exports = loadMiniPetition;

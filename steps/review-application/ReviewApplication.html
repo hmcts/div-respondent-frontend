@@ -259,7 +259,14 @@
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
-    <p class="text">"{{ session.originalPetition.reasonForDivorceBehaviourDetails }}"</p>
+    <p class="text">"
+    {% for item in session.originalPetition.reasonForDivorceBehaviourDetails %}
+      {{ item }}
+      {% if not loop.last %}    
+       <br>
+      {% endif %}
+    {% endfor %}
+    "</p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-2-years" %}
