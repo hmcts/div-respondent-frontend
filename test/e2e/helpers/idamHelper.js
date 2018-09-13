@@ -18,7 +18,7 @@ const idamArgs = {
 
 class IdamHelper extends Helper {
   _before() {
-    if (config.environment !== 'development') {
+    if (config.features.idam) {
       const randomString = randomstring.generate({
         length: 16,
         charset: 'numeric'
@@ -44,7 +44,7 @@ class IdamHelper extends Helper {
   }
 
   _after() {
-    if (config.environment !== 'development') {
+    if (config.features.idam) {
       idamExpressTestHarness.removeUser(idamArgs)
         .then(() => {
           logger.info(`Removed IDAM test user: ${idamArgs.testEmail}`);

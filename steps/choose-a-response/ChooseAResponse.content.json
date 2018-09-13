@@ -1,0 +1,36 @@
+{
+  "en": {
+    "title": "How do you want to respond?",
+    "action": "Choose one of the following options.",
+    "info": {
+      "heading": "Read more about your options",
+      "options": {
+        "proceed": {
+          "heading": "Proceeding with the divorce",
+          "summary": "If you proceed with the divorce, you and your husband/wife won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+        },
+        "proceedButDisagree": {
+          "heading": "Proceeding, but not accepting the allegations",
+          "summary": "If you don't agree with what your husband/wife has said in their divorce application, but you don't want to try to prevent the divorce (you don't want to defend it) you can choose this option. The outcome of the divorce won't be affected if you choose this option.<br/><br/>You won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+        },
+        "disagree": {
+          "heading": "Disagreeing with the application (defending)",
+          "summary": "If you choose to defend the divorce you will have to pay a fee of £245. You may have to both attend a hearing where a judge will decide if the divorce should be granted. Defending usually only delays a divorce rather than prevents it."
+        }
+      }
+    },
+    "errors": {
+      "required": "Select ‘I will let the divorce proceed’ if you do not want to defend the divorce"
+    },
+    "fields": {
+      "proceed": {
+        "heading": "I will let the divorce proceed",
+        "summary": "Choose this option if you don't want to try to prevent the divorce (you don't intend to 'defend' it)."
+      },
+      "disagree": {
+        "heading": "I disagree with the application for divorce",
+        "summary": "Choose this option if you want to try to prevent the divorce or want to make your own application for divorce (you intend to 'defend' it)"
+      }
+    }
+  }
+}

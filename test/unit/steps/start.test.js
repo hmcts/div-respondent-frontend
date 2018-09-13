@@ -5,6 +5,11 @@ const { content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   it('renders the page on GET', () => {
-    return content(example);
+    return content(example, {}, {
+      ignoreContent: [
+        'continue',
+        'backLink'
+      ]
+    });
   });
 });
