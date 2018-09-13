@@ -1,10 +1,13 @@
 const w3cjs = require('w3cjs');
 const steps = require('steps')();
-const { custom, expect } = require('@hmcts/one-per-page-test-suite');
+const { sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
 const fs = require('fs');
 const path = require('path');
+
+const request = require('request-promise-native');
+const rawResponse = require('resources/raw-response-mock.json');
 
 // Get the mocked session from file
 const filePath = path.join(__dirname, '../../resources/mock.json');
@@ -75,6 +78,9 @@ steps
       let warnings = [];
 
       before(() => {
+        sinon.stub(request, 'get')
+          .resolves(rawResponse);
+
         return stepHtml(step)
           .then(html => w3cjsValidate(html))
           .then(results => {
@@ -84,6 +90,10 @@ steps
           .catch(error => {
             expect(error).to.eql(false, `Error with WC3 module: ${error}`);
           });
+      });
+
+      after(() => {
+        request.get.restore();
       });
 
       it('should not have any html errors', () => {
