@@ -117,7 +117,7 @@
     "claimingCostsFromRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is also applying to the court to claim the costs of the divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}.",
 
     "financialOrdersPropertyMoneyPensionsChildren": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared, for themselves and your children.",
-    "financialOrdersChildren": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for financial orders for their children.",
+    "financialOrdersChildren": "The applicant is also applying to the court for financial orders for children of the applicant and the respondent.",
     "financialOrdersPropertyMoneyPensions": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared.",
     "financialOrdersNone": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is not applying for a financial order.",
 
