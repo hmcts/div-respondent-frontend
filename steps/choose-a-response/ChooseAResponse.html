@@ -28,24 +28,17 @@
             </div>
         </details>
 
-        {% call selectionButtons(fields.response,
-        "How do you want to be contacted?",
-        hideQuestion = true,
-        inline = false
-        ) %}
-        <div class="choice">
-            {{ selectionButton(fields.response, { label: "Email", target: "email-address" }) }}
-            <div class="answer-summary">
-                {{ content.fields.disagree.summary | safe }}
-            </div>
-        </div>
-        <br/>
-        <div class="choice">
-            {{ selectionButton(fields.response, { label: "Email", target: "email-address" }) }}
-            <div class="answer-summary">
-                {{ content.fields.disagree.summary | safe }}
-            </div>
-        </div>
+        {% call formSection() %}
+            {{ selectionButtons(fields.response, content.title,
+                options = [
+                    { label: content.fields.proceed.heading, value: "proceed", description: content.fields.proceed.summary },
+                    { label: content.fields.disagree.heading, value: "disagree", description: content.fields.disagree.summary }
+                ],
+                hint=false,
+                hideQuestion=true,
+                inline=false,
+                type='radio'
+            ) }}
         {% endcall %}
     </div>
 
