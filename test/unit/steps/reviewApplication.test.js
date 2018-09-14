@@ -26,7 +26,7 @@ describe(modulePath, () => {
   it('shows error if statement of truth not answered', () => {
     const session = {
       originalPetition: {
-        connections: {}
+        jurisdictionConnection: {}
       }
     };
     return question.testErrors(ReviewApplication, session);
@@ -41,7 +41,7 @@ describe(modulePath, () => {
     it('displays petitioner and respondent names', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           petitionerFirstName: 'petitioner first name',
           petitionerLastName: 'petitioner last name',
           respondentFirstName: 'respondent first lastname',
@@ -65,9 +65,9 @@ describe(modulePath, () => {
     it('displays coorespondent names', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           reasonForDivorce: 'adultery',
-          reasonForDivorceAdulteryIsNamed: 'Yes',
+          reasonForDivorceAdulteryWishToName: 'Yes',
           reasonForDivorceAdultery3rdPartyFirstName: 'corespondent firstname',
           reasonForDivorceAdultery3rdPartyLastName: 'corespondent lastname'
         }
@@ -87,7 +87,7 @@ describe(modulePath, () => {
     it('displays marriage date formatted', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           marriageDate: '2001-02-02T00:00:00.000Z'
         }
       };
@@ -101,7 +101,7 @@ describe(modulePath, () => {
     it('displays legal proceedings details', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           legalProceedings: 'Yes',
           legalProceedingsDetails: 'The legal proceeding details'
         }
@@ -116,7 +116,7 @@ describe(modulePath, () => {
     it('displays reason for divorce adultery details', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           reasonForDivorce: 'adultery',
           reasonForDivorceAdulteryKnowWhere: 'Yes',
           reasonForDivorceAdulteryKnowWhen: 'Yes',
@@ -141,7 +141,7 @@ describe(modulePath, () => {
     it('displays reason for divorce unreasonable behaviour details', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           reasonForDivorce: 'unreasonable-behaviour',
           reasonForDivorceBehaviourDetails: [ 'My wife is lazy' ]
         }
@@ -156,7 +156,7 @@ describe(modulePath, () => {
     it('displays reason for divorce desertion details', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           reasonForDivorce: 'desertion',
           reasonForDivorceDesertionDetails: 'I was deserted'
         }
@@ -173,7 +173,7 @@ describe(modulePath, () => {
     it('all', () => {
       const session = {
         originalPetition: {
-          connections: {}
+          jurisdictionConnection: {}
         }
       };
       const ignoreContent = [
@@ -225,7 +225,7 @@ describe(modulePath, () => {
       it('from respondent and co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             financialOrder: 'Yes',
             financialOrderFor: [],
@@ -241,7 +241,7 @@ describe(modulePath, () => {
       it('from co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             financialOrder: 'Yes',
             financialOrderFor: [],
@@ -256,7 +256,7 @@ describe(modulePath, () => {
       it('from neither respondent or co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             financialOrder: 'Yes',
             financialOrderFor: [],
@@ -274,7 +274,7 @@ describe(modulePath, () => {
       it('from respondent and co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             financialOrder: 'No',
             claimsCostsFrom: ['respondent', 'correspondent']
@@ -289,7 +289,7 @@ describe(modulePath, () => {
       it('from co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             financialOrder: 'No',
             claimsCostsFrom: ['correspondent']
@@ -304,7 +304,7 @@ describe(modulePath, () => {
       it('from neither respondent or co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             financialOrder: 'No',
             claimsCostsFrom: []
@@ -320,7 +320,7 @@ describe(modulePath, () => {
     it('financialOrderFor only', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           claimsCosts: 'No',
           financialOrder: 'Yes',
           financialOrderFor: 'petitioner',
@@ -336,7 +336,7 @@ describe(modulePath, () => {
     it('not claiming costs or applying for financial Order', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           claimsCosts: 'No',
           financialOrder: 'No',
           claimsCostsFrom: []
@@ -351,9 +351,9 @@ describe(modulePath, () => {
     it('shows details for co-respondent', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           reasonForDivorce: 'adultery',
-          reasonForDivorceAdulteryIsNamed: 'Yes',
+          reasonForDivorceAdulteryWishToName: 'Yes',
           reasonForDivorceAdultery3rdPartyFirstName: 'first name',
           reasonForDivorceAdultery3rdPartyLastName: 'last name'
         }
@@ -367,9 +367,9 @@ describe(modulePath, () => {
     it('shows name for co-respondent', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           reasonForDivorce: 'adultery',
-          reasonForDivorceAdulteryIsNamed: 'Yes',
+          reasonForDivorceAdulteryWishToName: 'Yes',
           reasonForDivorceAdultery3rdPartyFirstName: 'first name',
           reasonForDivorceAdultery3rdPartyLastName: 'last name'
         }
@@ -384,7 +384,7 @@ describe(modulePath, () => {
       it('for both resident', () => {
         const session = {
           originalPetition: {
-            connections: { A: '' },
+            jurisdictionConnection: { A: '' },
             reasonForDivorce: 'adultery'
           }
         };
@@ -396,7 +396,7 @@ describe(modulePath, () => {
       it('for one resides', () => {
         const session = {
           originalPetition: {
-            connections: { B: '' },
+            jurisdictionConnection: { B: '' },
             reasonForDivorce: 'adultery'
           }
         };
@@ -408,7 +408,7 @@ describe(modulePath, () => {
       it('respondent', () => {
         const session = {
           originalPetition: {
-            connections: { C: '' },
+            jurisdictionConnection: { C: '' },
             reasonForDivorce: 'adultery'
           }
         };
@@ -420,7 +420,7 @@ describe(modulePath, () => {
       it('petitioner', () => {
         const session = {
           originalPetition: {
-            connections: { D: '' },
+            jurisdictionConnection: { D: '' },
             reasonForDivorce: 'adultery'
           }
         };
@@ -432,7 +432,7 @@ describe(modulePath, () => {
       it('petitioner six months', () => {
         const session = {
           originalPetition: {
-            connections: { E: '' },
+            jurisdictionConnection: { E: '' },
             reasonForDivorce: 'adultery'
           }
         };
@@ -444,7 +444,7 @@ describe(modulePath, () => {
       it('both domiciled', () => {
         const session = {
           originalPetition: {
-            connections: { F: '' },
+            jurisdictionConnection: { F: '' },
             reasonForDivorce: 'adultery'
           }
         };
@@ -456,7 +456,7 @@ describe(modulePath, () => {
       it('both domiciled', () => {
         const session = {
           originalPetition: {
-            connections: { G: '' },
+            jurisdictionConnection: { G: '' },
             reasonForDivorce: 'adultery'
           }
         };
@@ -471,7 +471,7 @@ describe(modulePath, () => {
       it('no', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             legalProceedings: 'No'
           }
         };
@@ -483,7 +483,7 @@ describe(modulePath, () => {
       it('Yes', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             legalProceedings: 'Yes'
           }
         };
@@ -499,7 +499,7 @@ describe(modulePath, () => {
         it('base content', () => {
           const session = {
             originalPetition: {
-              connections: {},
+              jurisdictionConnection: {},
               reasonForDivorce: 'adultery'
             }
           };
@@ -511,7 +511,7 @@ describe(modulePath, () => {
         it('co-respondent is named', () => {
           const session = {
             originalPetition: {
-              connections: {},
+              jurisdictionConnection: {},
               reasonForDivorce: 'adultery',
               reasonForDivorceAdulteryIsNamed: 'Yes'
             }
@@ -524,7 +524,7 @@ describe(modulePath, () => {
         it('knows where', () => {
           const session = {
             originalPetition: {
-              connections: {},
+              jurisdictionConnection: {},
               reasonForDivorce: 'adultery',
               reasonForDivorceAdulteryKnowWhere: 'Yes'
             }
@@ -537,7 +537,7 @@ describe(modulePath, () => {
         it('knows when', () => {
           const session = {
             originalPetition: {
-              connections: {},
+              jurisdictionConnection: {},
               reasonForDivorce: 'adultery',
               reasonForDivorceAdulteryKnowWhen: 'Yes'
             }
@@ -552,7 +552,7 @@ describe(modulePath, () => {
       it('unreasonable behaviour', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             reasonForDivorce: 'unreasonable-behaviour'
           }
         };
@@ -568,7 +568,7 @@ describe(modulePath, () => {
       it('separation 2 years', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             reasonForDivorce: 'separation-2-years'
           }
         };
@@ -582,7 +582,7 @@ describe(modulePath, () => {
       it('separation 5 years', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             reasonForDivorce: 'separation-5-years'
           }
         };
@@ -596,7 +596,7 @@ describe(modulePath, () => {
       it('desertion', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             reasonForDivorce: 'desertion'
           }
         };
@@ -613,7 +613,7 @@ describe(modulePath, () => {
       it('from respondent and co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             claimsCostsFrom: ['respondent', 'correspondent']
           }
@@ -626,7 +626,7 @@ describe(modulePath, () => {
       it('from co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             claimsCostsFrom: ['correspondent']
           }
@@ -640,7 +640,7 @@ describe(modulePath, () => {
       it('from neither respondent or co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'Yes',
             claimsCostsFrom: []
           }
@@ -654,7 +654,7 @@ describe(modulePath, () => {
       it('not claiming', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             claimsCosts: 'No',
             claimsCostsFrom: []
           }
@@ -670,7 +670,7 @@ describe(modulePath, () => {
       it('for children and petitioner', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             financialOrder: 'Yes',
             financialOrderFor: ['children', 'petitioner']
           }
@@ -684,7 +684,7 @@ describe(modulePath, () => {
       it('for children', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             financialOrder: 'Yes',
             financialOrderFor: ['children']
           }
@@ -698,7 +698,7 @@ describe(modulePath, () => {
       it('from neither respondent or co-respondent', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             financialOrder: 'Yes',
             financialOrderFor: []
           }
@@ -712,7 +712,7 @@ describe(modulePath, () => {
       it('not claiming', () => {
         const session = {
           originalPetition: {
-            connections: {},
+            jurisdictionConnection: {},
             financialOrder: 'No',
             claimsCostsFrom: []
           }
@@ -727,7 +727,7 @@ describe(modulePath, () => {
     it('Petitioner Address if not confidential', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           petitionerContactDetailsConfidential: 'share'
         }
       };
@@ -741,7 +741,7 @@ describe(modulePath, () => {
     it('CoRespondent Address', () => {
       const session = {
         originalPetition: {
-          connections: {},
+          jurisdictionConnection: {},
           reasonForDivorceAdultery3rdAddress: ['line1', 'line2', 'postcode']
         }
       };
