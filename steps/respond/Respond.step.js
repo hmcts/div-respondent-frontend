@@ -2,7 +2,7 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
-const { getUserData } = require('middleware/ccd');
+const loadMiniPetition = require('middleware/loadMiniPetition');
 
 class Respond extends Interstitial {
   static get path() {
@@ -18,7 +18,11 @@ class Respond extends Interstitial {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      loadMiniPetition
+    ];
   }
 }
 

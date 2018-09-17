@@ -6,7 +6,7 @@ const { question, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   it('renders the page on GET', () => {
-    return content(IdamLogin);
+    return content(IdamLogin, {}, { ignoreContent: ['serviceName'] });
   });
 
   it('redirects to Authenticated if answer is no', () => {

@@ -13,6 +13,7 @@ const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const setLocals = require('middleware/setLocalsMiddleware');
+const getFilters = require('views/filters');
 
 const app = express();
 
@@ -57,6 +58,7 @@ lookAndFeel.configure(app, {
     ]
   },
   nunjucks: {
+    filters: getFilters(),
     globals: {
       phase: 'BETA',
       feedbackLink: 'http://www.smartsurvey.co.uk/s/0QIL4/',

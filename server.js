@@ -15,7 +15,6 @@ if (['development'].includes(config.environment)) {
     key: fs.readFileSync(path.join(sslDirectory, 'localhost.key')),
     cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt'))
   };
-
   const server = https.createServer(sslOptions, app);
 
   http = server.listen(config.node.port);

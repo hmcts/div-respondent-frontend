@@ -2,7 +2,7 @@ const IdamLoginPage = require('mocks/steps/idamLogin/IdamLogin.step');
 const commonContent = require('common/content');
 const content = require('mocks/steps/idamLogin/IdamLogin.content');
 const config = require('config');
-const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
+// const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 
 function seeIdamLoginPage() {
   const I = this;
@@ -14,8 +14,8 @@ function login() {
 
   if (config.features.idam) {
     I.seeInCurrentUrl('/login?');
-    I.fillField('username', idamConfigHelper.getTestEmail());
-    I.fillField('password', idamConfigHelper.getTestPassword());
+    I.fillField('username', 'vivdivred@mailinator.com');
+    I.fillField('password', 'Password21');
     I.navByClick('Sign in');
     I.wait(2);
   } else {

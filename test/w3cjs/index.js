@@ -3,6 +3,13 @@ const steps = require('steps')();
 const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
+const fs = require('fs');
+const path = require('path');
+
+// Get the mocked session from file
+const filePath = path.join(__dirname, '../../resources/mock.json');
+const rawdata = fs.readFileSync(filePath, 'utf8'); // eslint-disable-line no-sync
+const mockedSession = JSON.parse(rawdata);
 
 // Ignored warnings
 const excludedWarnings = [
@@ -33,7 +40,7 @@ const userDetails = {
 
 const stepHtml = step => {
   return custom(step)
-    .withSession()
+    .withSession(mockedSession)
     .withCookie('mockIdamUserDetails', JSON.stringify(userDetails))
     .get()
     .expect(httpStatus.OK)
