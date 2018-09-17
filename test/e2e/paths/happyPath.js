@@ -17,6 +17,6 @@ Scenario('Proceed with divorce', I => {
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
   I.seeCheckYourAnswersPage();
-  I.submit();
+  I.submitApplication();
   I.amOnLoadedPage('/end');
 });

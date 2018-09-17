@@ -8,11 +8,11 @@ function seeCheckYourAnswersPage() {
   I.see(content.en.title);
 }
 
-function submit() {
+function submitApplication() {
   this.click(content.en.submit);
 }
 
 module.exports = {
   seeCheckYourAnswersPage,
-  submit
+  submitApplication
 };
