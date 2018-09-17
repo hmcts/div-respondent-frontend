@@ -1,13 +1,15 @@
 locals {
+  local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
   previewVaultName = "${var.raw_product}-aat"
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
+  div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
 }
 
 module "redis-cache" {
-  source   = "git@github.com:contino/moj-module-redis?ref=master"
+  source   = "git@github.com:hmcts/moj-module-redis?ref=master"
   product  = "${var.env != "preview" ? "${var.product}-redis" : "${var.product}-${var.reform_service_name}-redis"}"
   location = "${var.location}"
   env      = "${var.env}"
@@ -81,6 +83,8 @@ module "frontend" {
     RATE_LIMITER_TOTAL  = "${var.rate_limiter_total}"
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
+
+    GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
 
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"

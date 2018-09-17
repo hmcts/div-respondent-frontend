@@ -64,7 +64,8 @@ position: relative;
   padding-right: 22px;
 }
 
-div.check-your-answers {
+div.form-section,
+input.button {
   display: block;
 }
 
@@ -72,7 +73,7 @@ div.check-your-answers {
     background-color: #fff;
 }
 
-.check-your-answers .confirmation-container {
+.form-section .form-group  {
   background: #dee0e2;
   padding: 25px;
   width: 100%;

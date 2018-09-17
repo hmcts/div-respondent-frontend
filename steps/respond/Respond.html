@@ -10,7 +10,8 @@
 {% block main_content %}
   <p class="font-xsmall">
     <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
-    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp; {{ session.respondentName }}
+    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;
+    {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
   </p>
 
   {% set items = {
@@ -93,17 +94,16 @@
     <h3 class="heading-small">{{ content.yourCourt }}</h3>
 
     <ul class="font-xsmall">
-      <li>{{ content.divorceCenterName }}</li>
+      <li>{{ session.divorceCenterName }}</li>
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        {{ content.divorceCenterEmail }}
+        {{ content.emailAddressDivorceService }}
         <br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ content.divorceCenterPhone }} {{ content.openTimes }}<br>
-      </li>
-      <li><a href="{{ content.divorceCenterUrl | safe }}" target="_blank">{{ content.moreAboutYourCourt }}</a>
+        {{ content.divorceCenterPhone }}<br>
+        {{ content.divorceCenterHours }}<br>
       </li>
     </ul>
 

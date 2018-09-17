@@ -51,6 +51,8 @@ services:
     total: RATE_LIMITER_TOTAL
     expire: RATE_LIMITER_EXPIRE
     enabled: RATE_LIMITER_ENABLED
+  caseOrchestration:
+    getPetitionUrl: GET_PETITION_URL
 
 features:
   idam: FEATURE_IDAM

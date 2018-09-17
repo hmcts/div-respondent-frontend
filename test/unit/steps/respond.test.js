@@ -4,20 +4,24 @@ const Respond = require(modulePath);
 const ReviewApplication = require('steps/review-application/ReviewApplication.step');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const { getUserData } = require('middleware/ccd');
 const getSteps = require('steps');
+const request = require('request-promise-native');
+const rawResponse = require('resources/raw-response-mock.json');
 
 describe(modulePath, () => {
   beforeEach(() => {
+    sinon.stub(request, 'get')
+      .resolves(rawResponse);
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
+    request.get.restore();
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Respond, [idam.protect(), getUserData]);
+    return middleware.hasMiddleware(Respond, [ idam.protect() ]);
   });
 
   it('redirects to next page', () => {
@@ -25,11 +29,13 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(Respond, {}, {
-      ignoreContent: [
-        'backLink',
-        'divorceCenterUrl'
-      ]
-    });
+    return content(Respond, {}, { ignoreContent: [
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'backLink',
+      'divorceCenterUrl'
+    ] });
   });
 });
