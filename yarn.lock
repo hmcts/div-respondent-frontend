@@ -112,9 +112,9 @@
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@hmcts/eslint-config/-/eslint-config-1.4.0.tgz#e713457cee3758a43394c2974913885aaae8a41b"
 
-"@hmcts/look-and-feel@^1.13.3", "@hmcts/look-and-feel@^1.8.0-3":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.15.1.tgz#0422c15a631ca5717254857a764ff199e17af127"
+"@hmcts/look-and-feel@1.19.2":
+  version "1.19.2"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.2.tgz#fa847b916c68bbab4c9f5464e19245e4fbfea716"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -143,9 +143,9 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel#6a4d5cd7f4710f4e0cb53905aa782c458862afc9":
-  version "1.19.2"
-  resolved "https://github.com/hmcts/look-and-feel#6a4d5cd7f4710f4e0cb53905aa782c458862afc9"
+"@hmcts/look-and-feel@^1.13.3", "@hmcts/look-and-feel@^1.8.0-3":
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.15.1.tgz#0422c15a631ca5717254857a764ff199e17af127"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
