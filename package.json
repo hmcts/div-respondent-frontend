@@ -6,7 +6,7 @@
     "node": ">=8.9.4 <9.0.0"
   },
   "scripts": {
-    "start": "NODE_PATH=. node server.js",
+    "start": "node server.js",
     "setup": "NODE_PATH=.",
     "dev": "NODE_PATH=. node-dev server.js",
     "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/*.test.js'",
