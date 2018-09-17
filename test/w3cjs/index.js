@@ -10,7 +10,6 @@ const path = require('path');
 const filePath = path.join(__dirname, '../../resources/mock.json');
 const rawdata = fs.readFileSync(filePath, 'utf8'); // eslint-disable-line no-sync
 const mockedSession = JSON.parse(rawdata);
-mockedSession.entryPoint = 'entry';
 
 // Ignored warnings
 const excludedWarnings = [
@@ -41,7 +40,7 @@ const userDetails = {
 
 const stepHtml = step => {
   return custom(step)
-    .withSession(mockedSession)
+    .withSession(Object.assign({ entryPoint: step.name }, mockedSession))
     .withCookie('mockIdamUserDetails', JSON.stringify(userDetails))
     .get()
     .expect(httpStatus.OK)
