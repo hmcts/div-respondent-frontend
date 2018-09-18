@@ -84,15 +84,15 @@
 
     "jurisdictionConnectionBothResident": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} and {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} are both ‘habitually resident’ in England and Wales.",
     "jurisdictionConnectionBothDomiciled": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} and {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} are both domiciled in England and Wales.",
-    "jurisdictionConnectionOneResides": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} and {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} were last habitually resident in England and Wales and one of them still resides there.",
-    "jurisdictionConnectionPetitioner": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the application.",
-    "jurisdictionConnectionRespondent": "{{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} is habitually resident in England and Wales",
-    "jurisdictionConnectionPetitionerSixMonths": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the application.",
+    "jurisdictionConnectionOneResides": "The applicant and respondent were last habitually resident in England and Wales and one of them still resides there.",
+    "jurisdictionConnectionPetitioner": "The applicant is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the application.",
+    "jurisdictionConnectionRespondent": "The respondent is habitually resident in England and Wales",
+    "jurisdictionConnectionPetitionerSixMonths": "The applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the application.",
     "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction, meaning either: no other court in any EU Member State has jurisdiction and either {{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} or {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} is domiciled in England and Wales; or (for same sex couples only) {{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} or {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} married each other in England and Wales, no other court in any EU Member State has jurisdiction, and it would be in the interests of justice for the court to assume jurisdiction in this case.",
 
     "otherCourtCases": "Other court cases that could affect jurisdiction",
     "onGoingCasesNo": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
-    "onGoingCasesYes": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} has given the following court cases which are related to the marriage, property or children.",
+    "onGoingCasesYes": "The applicant has given the following court cases which are related to the marriage, property or children.",
 
     "reasonForDivorce": "Reason for the divorce",
     "reasonForDivorceAdultery": "Reason for the divorce",
@@ -113,7 +113,7 @@
 
     "notClaimingForDivorce": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is not claiming the costs of the divorce.",
     "claimingCostsFromRespondentCoRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is also applying to the court to claim the costs of the divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} and the co-respondent",
-    "claimingCostsFromCoRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is also applying to the court to claim the costs of the divorce from the co-respondent.",
+    "claimingCostsFromCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the co-respondent.",
     "claimingCostsFromRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is also applying to the court to claim the costs of the divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}.",
 
     "financialOrdersPropertyMoneyPensionsChildren": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared, for themselves and your children.",
