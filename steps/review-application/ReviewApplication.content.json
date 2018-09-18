@@ -62,7 +62,7 @@
     "ordersForChildMaintenancePar": "The court can only make financial orders for children under certain circumstances. You'll usually either need to come to an agreement with your {{ session.divorceWho }} (which you can then make legally binding with a consent order) or use the Child Maintenance Service.",
     "petitionerCorrespondenceAddressHeading": "Applicant's correspondence address",
     "respondentCorrespondenceAddressHeading": "Respondent's correspondence address",
-    "statementOfTruthParagraph": "I believe that the facts stated in this application are true.",
+    "statementOfTruthParagraph": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} believes that the facts stated in this application are true.",
     "acknowledgement": "Acknowledgement",
     "hiddenWarning": "Warning",
     "youWillBeAbleToRespond": "You will be able to respond to this application on the next page",
