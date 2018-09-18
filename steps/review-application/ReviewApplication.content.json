@@ -79,8 +79,8 @@
 
     "coRespondent": "Co-respondent",
 
-    "jurisdictionConnectionBothResident": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} and {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} are both ‘habitually resident’ in England and Wales.",
-    "jurisdictionConnectionBothDomiciled": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} and {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} are both domiciled in England and Wales.",
+    "jurisdictionConnectionBothResident": "The applicant and respondent are both ‘habitually resident’ in England and Wales.",
+    "jurisdictionConnectionBothDomiciled": "The applicant and respondent are both domiciled in England and Wales.",
     "jurisdictionConnectionOneResides": "The applicant and respondent were last habitually resident in England and Wales and one of them still resides there.",
     "jurisdictionConnectionPetitioner": "The applicant is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the application.",
     "jurisdictionConnectionRespondent": "The respondent is habitually resident in England and Wales",
@@ -113,10 +113,10 @@
     "claimingCostsFromCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the co-respondent.",
     "claimingCostsFromRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is also applying to the court to claim the costs of the divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}.",
 
-    "financialOrdersPropertyMoneyPensionsChildren": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared, for themselves and your children.",
+    "financialOrdersPropertyMoneyPensionsChildren": "The applicant is also applying to the court for financial orders for the applicant, and for the children of the applicant and the respondent",
     "financialOrdersChildren": "The applicant is also applying to the court for financial orders for children of the applicant and the respondent.",
-    "financialOrdersPropertyMoneyPensions": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for financial orders about how any property, money, pensions or other assets which you each have should be shared.",
-    "financialOrdersNone": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is not applying for a financial order.",
+    "financialOrdersPropertyMoneyPensions": "The applicant is also applying to the court for financial orders for the applicant.",
+    "financialOrdersNone": "The applicant is not applying for a financial order.",
 
     "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address",
     "statementOfTruth": "Statement of Truth",
