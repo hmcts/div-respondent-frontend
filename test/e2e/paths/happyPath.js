@@ -19,4 +19,4 @@ Scenario('Proceed with divorce', I => {
   I.seeCheckYourAnswersPage();
   I.submitApplication();
   I.amOnLoadedPage('/end');
-});
+}).retry(2);
