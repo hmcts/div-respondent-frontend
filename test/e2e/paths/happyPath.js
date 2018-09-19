@@ -3,9 +3,7 @@ const content = require('common/content');
 Feature('Happy path');
 
 Scenario('Proceed with divorce', I => {
-  I.amOnPage('/');
-  I.seeExamplePage();
-  I.navByClick('Start now');
+  I.amOnPage('/entry');
   I.seeIdamLoginPage();
   I.login();
   I.seeRespondPage();
