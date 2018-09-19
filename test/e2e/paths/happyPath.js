@@ -5,7 +5,7 @@ Feature('Happy path');
 Scenario('Proceed with divorce', I => {
   I.amOnPage('/');
   I.seeExamplePage();
-  I.amOnPage('/entry');
+  I.navByClick('Start now');
   I.seeIdamLoginPage();
   I.login();
   I.seeRespondPage();
