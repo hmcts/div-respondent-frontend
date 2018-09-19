@@ -6,7 +6,7 @@ const config = require('config');
 
 function seeIdamLoginPage() {
   const I = this;
-  I.waitForText(content.en.title);
+  I.waitForText(content.en.title, 3);
 }
 
 function login() {
