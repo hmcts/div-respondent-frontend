@@ -3,9 +3,9 @@ const content = require('common/content');
 Feature('Happy path');
 
 Scenario('Proceed with divorce', I => {
-  I.amOnLoadedPage('/');
-  I.see('Start now');
-  I.navByClick('a.button.button-start');
+  I.amOnPage('/');
+  I.seeExamplePage();
+  I.click('Start now');
   I.seeIdamLoginPage();
   I.login();
   I.seeRespondPage();
@@ -17,4 +17,4 @@ Scenario('Proceed with divorce', I => {
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
   I.amOnLoadedPage('/end');
-}).retry(2);
+});
