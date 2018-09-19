@@ -14,7 +14,7 @@
   <p class="text">
     {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrder == "Yes" %}
       {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
-        {{ content.costsPetitionerPayedByRespondentAndCorrispondent }}
+        {{ content.costsPetitionerPayedByRespondentAndCorrespondent }}
       {% elseif "correspondent" in session.originalPetition.claimsCostsFrom  %}
         {{ content.costsPetitionerPayedByCorrespondent }}
       {% else %}
@@ -22,14 +22,14 @@
       {% endif %}
     {% elseif session.originalPetition.claimsCosts == "Yes" %}
       {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
-        {{ content.costsPetitionerDivorceCostsdByRespondentAndCorespondent }}
+        {{ content.costsPetitionerDivorceCostsByRespondentAndCorespondent }}
       {% elseif "correspondent" in session.originalPetition.claimsCostsFrom %}
-        {{ content.costsPetitionerDivorceCostsdByCorespondent }}
+        {{ content.costsPetitionerDivorceCostsByCorespondent }}
       {% else %}
-        {{ content.costsPetitionerDivorceCostsdByRespondent }}
+        {{ content.costsPetitionerDivorceCostsByRespondent }}
       {% endif %}
     {% elseif session.originalPetition.financialOrder == "Yes" %}
-      {{ content.costsPetitionerDivorceCostsdByFinantialOrder }}
+      {{ content.costsPetitionerDivorceCostsByFinancialOrder }}
     {% else %}
       {{ content.costsPetitionerDivorceNoCosts }}
     {% endif %}
@@ -201,7 +201,7 @@
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
     <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
-      <p class="text">{{ content.theCourtsofEngland }}</p>
+      <p class="text">{{ content.theCourtsOfEngland }}</p>
       <p class="text">{{ content.eachLegalStatement }}</p>
       <h3 class="heading-small">{{ content.habitualResidence }}</h3>
       <p class="text">{{ content.habitualResidencePar1 }}</p>
@@ -257,7 +257,7 @@
 
   {% if session.originalPetition.reasonForDivorce == "unreasonable-behaviour" %}
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
-    <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
+    <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatement }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
     <p class="text">"
     {% for item in session.originalPetition.reasonForDivorceBehaviourDetails %}
@@ -270,19 +270,19 @@
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-2-years" %}
-    <p class="text">{{ content.reasonForDivorceSeperationTwoYearsBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceSeperationTwoYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
+    <p class="text">{{ content.reasonForDivorceSeparationTwoYearsBrokenDown }}
+    <p class="text">{{ content.reasonForDivorceSeparationTwoYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-5-years" %}
-    <p class="text">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceSeperationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
+    <p class="text">{{ content.reasonForDivorceSeparationFiveYearsBrokenDown }}
+    <p class="text">{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "desertion" %}
-    <p class="text">{{ content.reasonForDivorceDesertionBrokendDown }}
+    <p class="text">{{ content.reasonForDivorceDesertionBrokenDown }}
     <p class="text">{{ content.reasonForDivorceDesertion }} {{ session.originalPetition.reasonForDivorceDesertionDate | date }}.</p>
-    <p class="text">{{ content.reasonForDivorceDesertionStatment }}</p>
+    <p class="text">{{ content.reasonForDivorceDesertionStatement }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
 

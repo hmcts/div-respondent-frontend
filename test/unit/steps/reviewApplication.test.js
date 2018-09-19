@@ -184,15 +184,15 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
-        'reasonForDivorceUnreasonableBehaviourStatment',
+        'reasonForDivorceUnreasonableBehaviourStatement',
         'reasonForDivorceUnreasonableBehaviourDescription',
-        'reasonForDivorceSeperationTwoYears',
-        'reasonForDivorceSeperationTwoYearsBrokendDown',
-        'reasonForDivorceSeperationFiveYears',
-        'reasonForDivorceSeperationFiveYearsBrokendDown',
+        'reasonForDivorceSeparationTwoYears',
+        'reasonForDivorceSeparationTwoYearsBrokenDown',
+        'reasonForDivorceSeparationFiveYears',
+        'reasonForDivorceSeparationFiveYearsBrokenDown',
         'reasonForDivorceDesertion',
-        'reasonForDivorceDesertionBrokendDown',
-        'reasonForDivorceDesertionStatment',
+        'reasonForDivorceDesertionBrokenDown',
+        'reasonForDivorceDesertionStatement',
         'claimingCostsFromRespondentCoRespondent',
         'claimingCostsFromCoRespondent',
         'claimingCostsFromRespondent',
@@ -200,13 +200,13 @@ describe(modulePath, () => {
         'financialOrdersChildren',
         'financialOrdersPropertyMoneyPensions',
         'applicantsCorrespondenceAddress',
-        'costsPetitionerPayedByRespondentAndCorrispondent',
+        'costsPetitionerPayedByRespondentAndCorrespondent',
         'costsPetitionerPayedByCorrespondent',
         'costsPetitionerPayedByRespondent',
-        'costsPetitionerDivorceCostsdByRespondentAndCorespondent',
-        'costsPetitionerDivorceCostsdByCorespondent',
-        'costsPetitionerDivorceCostsdByRespondent',
-        'costsPetitionerDivorceCostsdByFinantialOrder',
+        'costsPetitionerDivorceCostsByRespondentAndCorespondent',
+        'costsPetitionerDivorceCostsByCorespondent',
+        'costsPetitionerDivorceCostsByRespondent',
+        'costsPetitionerDivorceCostsByFinancialOrder',
         'jurisdictionConnectionBothResident',
         'jurisdictionConnectionBothDomiciled',
         'jurisdictionConnectionOneResides',
@@ -235,7 +235,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: ['costsPetitionerPayedByRespondentAndCorrispondent'] }
+          { specificContent: ['costsPetitionerPayedByRespondentAndCorrespondent'] }
         );
       });
       it('from co-respondent', () => {
@@ -283,7 +283,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsdByRespondentAndCorespondent'] }
+          { specificContent: [ 'costsPetitionerDivorceCostsByRespondentAndCorespondent'] }
         );
       });
       it('from co-respondent', () => {
@@ -298,7 +298,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsdByCorespondent' ] });
+          { specificContent: [ 'costsPetitionerDivorceCostsByCorespondent' ] });
       });
 
       it('from neither respondent or co-respondent', () => {
@@ -313,7 +313,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsdByRespondent' ] });
+          { specificContent: [ 'costsPetitionerDivorceCostsByRespondent' ] });
       });
     });
 
@@ -330,7 +330,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificContent: [ 'costsPetitionerDivorceCostsdByFinantialOrder' ] });
+        { specificContent: [ 'costsPetitionerDivorceCostsByFinancialOrder' ] });
     });
 
     it('not claiming costs or applying for financial Order', () => {
@@ -558,7 +558,7 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
-          'reasonForDivorceUnreasonableBehaviourStatment',
+          'reasonForDivorceUnreasonableBehaviourStatement',
           'reasonForDivorceUnreasonableBehaviourDescription',
           'reasonForDivorceBehaviourDetails'
         ];
@@ -573,8 +573,8 @@ describe(modulePath, () => {
           }
         };
         const specificContent = [
-          'reasonForDivorceSeperationTwoYearsBrokendDown',
-          'reasonForDivorceSeperationTwoYears'
+          'reasonForDivorceSeparationTwoYearsBrokenDown',
+          'reasonForDivorceSeparationTwoYears'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
@@ -587,8 +587,8 @@ describe(modulePath, () => {
           }
         };
         const specificContent = [
-          'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears'
+          'reasonForDivorceSeparationFiveYearsBrokenDown',
+          'reasonForDivorceSeparationFiveYears'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
@@ -601,9 +601,9 @@ describe(modulePath, () => {
           }
         };
         const specificContent = [
-          'reasonForDivorceDesertionBrokendDown',
+          'reasonForDivorceDesertionBrokenDown',
           'reasonForDivorceDesertion',
-          'reasonForDivorceDesertionStatment'
+          'reasonForDivorceDesertionStatement'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
