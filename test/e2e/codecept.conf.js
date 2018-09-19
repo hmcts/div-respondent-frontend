@@ -49,5 +49,19 @@ exports.config = {
       }
     }
   },
+  plugins: {
+    stepByStepReport: {
+      enabled: true,
+      fullPageScreenshots: true
+    },
+    screenshotOnFail: {
+      enabled: true,
+      fullPageScreenshots: true
+    },
+    retryFailedStep: {
+      enabled: true,
+      retries: 2
+    }
+  },
   name: 'Frontend Tests'
 };
