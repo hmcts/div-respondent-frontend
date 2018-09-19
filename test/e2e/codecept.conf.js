@@ -49,5 +49,11 @@ exports.config = {
       }
     }
   },
-  name: 'Frontend Tests'
+  plugins: {
+    screenshotOnFail: {
+      enabled: true,
+      fullPageScreenshots: true
+    }
+  },
+  name: 'Respondent Frontend Tests'
 };
