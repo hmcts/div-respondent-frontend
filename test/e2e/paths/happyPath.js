@@ -4,8 +4,8 @@ Feature('Happy path');
 
 Scenario('Proceed with divorce', I => {
   I.amOnLoadedPage('/');
-  I.seeExamplePage();
-  I.click('Start now');
+  I.see('Start now');
+  I.navByClick('Start now');
   I.seeIdamLoginPage();
   I.login();
   I.seeRespondPage();
@@ -16,7 +16,5 @@ Scenario('Proceed with divorce', I => {
   I.seeChooseAResponsePage();
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
-  I.seeCheckYourAnswersPage();
-  I.submitApplication();
   I.amOnLoadedPage('/end');
 }).retry(2);
