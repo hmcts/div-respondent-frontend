@@ -6,6 +6,9 @@ locals {
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  
+  asp_name = "${var.env == "prod" ? "div-rfe-prod" : "${var.product}-${var.env}"}"
+  asp_rg = "${var.env == "prod" ? "div-rfe-prod" : "${var.product}-shared-infrastructure-${var.env}"}"
 }
 
 module "redis-cache" {
@@ -18,17 +21,19 @@ module "redis-cache" {
 }
 
 module "frontend" {
-  source = "git@github.com:hmcts/moj-module-webapp.git?ref=master"
-  product = "${var.product}-${var.reform_service_name}"
-  location = "${var.location}"
-  env = "${var.env}"
-  ilbIp = "${var.ilbIp}"
-  is_frontend  = "${var.env != "preview" ? 1: 0}"
-  subscription = "${var.subscription}"
-  additional_host_name = "${var.env != "preview" ? var.additional_host_name : "null"}"
-  https_only = "true"
-  capacity = "${var.capacity}"
-  common_tags = "${var.common_tags}"
+  source                        = "git@github.com:hmcts/moj-module-webapp.git?ref=master"
+  product                       = "${var.product}-${var.reform_service_name}"
+  location                      = "${var.location}"
+  env                           = "${var.env}"
+  ilbIp                         = "${var.ilbIp}"
+  is_frontend                   = "${var.env != "preview" ? 1: 0}"
+  subscription                  = "${var.subscription}"
+  additional_host_name          = "${var.env != "preview" ? var.additional_host_name : "null"}"
+  https_only                    = "true"
+  capacity                      = "${var.capacity}"
+  common_tags                   = "${var.common_tags}"
+  asp_name                      = "${local.asp_name}"
+  asp_rg                        = "${local.asp_rg}"
 
   app_settings = {
 
