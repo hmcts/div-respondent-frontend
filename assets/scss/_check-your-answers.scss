@@ -1,20 +1,23 @@
-.confirmation-container {
-  background: #dee0e2;
-  padding: 25px;
+#divorce-check-your-answers {
 
-  .list-bullet {
-    padding-left: 70px;
+  .column-two-thirds {
+    width: 100%;
   }
 
-  details {
-    padding-left: 54px;
-  }
+  .confirmation-container {
+    background: #dee0e2;
+    padding: 25px;
 
-  .form-section {
-    margin-bottom: 25px;
-  }
-}
+    .list-bullet {
+      padding-left: 70px;
+    }
 
-.govuk-check-your-answers .cya-question {
-  font-weight: normal;
+    details {
+      padding-left: 54px;
+    }
+
+    .form-section {
+      margin-bottom: 25px;
+    }
+  }
 }

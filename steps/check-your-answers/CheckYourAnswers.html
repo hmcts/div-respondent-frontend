@@ -16,6 +16,12 @@
 <p>{{ content.statementOfTruth | safe }}</p>
 {% endblock %}
 
+{% block full_width %}
+    <div id="divorce-check-your-answers">
+        {{ super() }}
+    </div>
+{% endblock %}
+
 {% block statement_of_truth_fields %}
     <div class="confirmation-container">
         {% call formSection() %}
