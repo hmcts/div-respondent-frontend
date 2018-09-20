@@ -56,3 +56,6 @@ services:
 
 features:
   idam: FEATURE_IDAM
+
+journey:
+  timeoutDelay: JOURNEY_TIMEOUT_DELAY
