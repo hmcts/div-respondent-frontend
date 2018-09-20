@@ -3,6 +3,7 @@
     "courts" : "eastMidlands",
     "state"  : "AwaitingAos",
     "data" : {
+        "caseReference": "LV17D80100",
         "expires": 0,
         "screenHasMarriageBroken": "Yes",
         "screenHasRespondentAddress": "Yes",

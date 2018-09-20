@@ -9,8 +9,8 @@
     "start": "NODE_PATH=. node server.js",
     "setup": "NODE_PATH=.",
     "dev": "NODE_PATH=. node-dev server.js",
-    "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/*.test.js'",
-    "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/unit/**/*.js'",
+    "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/*.test.js' --timeout 15000",
+    "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/unit/**/*.js' --timeout 15000",
     "test:e2e": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.conf.js --steps --invert",
     "test:smoke": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.smoke.conf.js --steps --invert",
     "test:overnight": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run-multiple saucelabs -c test/e2e/codecept.overnight.conf.js --steps",
@@ -19,7 +19,7 @@
     "test:nsp": "nsp check",
     "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
     "test:functional": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.conf.js --steps --invert",
-    "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/w3cjs",
+    "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/w3cjs --timeout 15000",
     "lint": "eslint ."
   },
   "pre-commit": [
