@@ -10,7 +10,7 @@
     "setup": "NODE_PATH=.",
     "dev": "NODE_PATH=. node-dev server.js",
     "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/*.test.js'",
-    "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/unit/**/*.js'",
+    "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/unit/**/*.js' --timeout 15000",
     "test:e2e": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.conf.js --steps --invert",
     "test:smoke": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.smoke.conf.js --steps --invert",
     "test:overnight": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run-multiple saucelabs -c test/e2e/codecept.overnight.conf.js --steps",

@@ -38,6 +38,22 @@ describe(modulePath, () => {
   });
 
   describe('values', () => {
+    it('displays case reference number', () => {
+      const session = {
+        originalPetition: {
+          caseReference: 'some-ref-number',
+          jurisdictionConnection: {}
+        }
+      };
+      return content(
+        ReviewApplication,
+        session,
+        {
+          specificValues: [ session.caseReference ]
+        }
+      );
+    });
+
     it('displays petitioner and respondent names', () => {
       const session = {
         originalPetition: {
