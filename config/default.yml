@@ -81,3 +81,6 @@ tests:
 
 features:
   idam: false
+
+journey:
+  timeoutDelay: 300
