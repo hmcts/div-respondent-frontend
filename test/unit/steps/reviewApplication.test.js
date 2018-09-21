@@ -529,13 +529,13 @@ describe(modulePath, () => {
             originalPetition: {
               jurisdictionConnection: {},
               reasonForDivorce: 'adultery',
-              reasonForDivorceAdulteryIsNamed: 'Yes'
+              reasonForDivorceAdulteryWishToName: 'Yes'
             }
           };
           return content(
             ReviewApplication,
             session,
-            { specificContent: [ 'reasonForDivorceAdultery' ] });
+            { specificContent: [ 'reasonForDivorceAdulteryCorrespondentNamed' ] });
         });
         it('knows where', () => {
           const session = {
