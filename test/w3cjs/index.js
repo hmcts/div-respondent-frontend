@@ -40,7 +40,7 @@ const userDetails = {
 
 const stepHtml = step => {
   return custom(step)
-    .withSession(mockedSession)
+    .withSession(Object.assign({ entryPoint: step.name }, mockedSession))
     .withCookie('mockIdamUserDetails', JSON.stringify(userDetails))
     .get()
     .expect(httpStatus.OK)

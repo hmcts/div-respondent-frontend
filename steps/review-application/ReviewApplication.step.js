@@ -1,9 +1,13 @@
 const { Question } = require('@hmcts/one-per-page/steps');
+const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
+const content = require('./ReviewApplication.content').en;
+
+const yes = 'yes';
 
 class ReviewApplication extends Question {
   static get path() {
@@ -15,7 +19,7 @@ class ReviewApplication extends Question {
   }
 
   get form() {
-    const answers = ['yes'];
+    const answers = [yes];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
@@ -28,6 +32,14 @@ class ReviewApplication extends Question {
 
   next() {
     return goTo(this.journey.steps.ChooseAResponse);
+  }
+
+  answers() {
+    const question = content.readConfirmationQuestion;
+    return answer(this, {
+      question,
+      answer: this.fields.statementOfTruth.value === yes ? content.readConfirmationYes : content.readConfirmationNo
+    });
   }
 
   get middleware() {

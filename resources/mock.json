@@ -1,9 +1,9 @@
 {
-  "caseReference": "LV17D80100",
   "divorceWho": "husband",
   "divorceCenterName": "East Midlands Regional Divorce Centre",
   "referenceNumber": 5555555555555555,
   "originalPetition": {
+    "caseReference": "LV17D80100",
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",
     "screenHasMarriageCert": "Yes",

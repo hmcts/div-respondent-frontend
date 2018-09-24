@@ -64,16 +64,11 @@ position: relative;
   padding-right: 22px;
 }
 
-div.form-section,
-input.button {
-  display: block;
-}
-
 .form-group .multiple-choice [type=checkbox] + label::before {
     background-color: #fff;
 }
 
-.form-section .form-group  {
+.read-confirmation .form-group  {
   background: #dee0e2;
   padding: 25px;
   width: 100%;

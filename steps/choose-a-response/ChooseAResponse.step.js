@@ -1,10 +1,15 @@
 const { Question } = require('@hmcts/one-per-page/steps');
+const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { getUserData } = require('middleware/ccd');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const content = require('./ChooseAResponse.content');
+
+const proceed = 'proceed';
+const disagree = 'disagree';
 
 class ChooseAResponse extends Question {
   static get path() {
@@ -12,7 +17,7 @@ class ChooseAResponse extends Question {
   }
 
   get form() {
-    const answers = ['proceed', 'disagree'];
+    const answers = [proceed, disagree];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
@@ -22,12 +27,20 @@ class ChooseAResponse extends Question {
     return form({ response });
   }
 
+  answers() {
+    const question = content.en.title;
+    return answer(this, {
+      question,
+      answer: this.fields.response.value === proceed ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
+    });
+  }
+
   get middleware() {
     return [...super.middleware, idam.protect(), getUserData];
   }
 
   next() {
-    return goTo(this.journey.steps.End);
+    return goTo(this.journey.steps.CheckYourAnswers);
   }
 }
 
