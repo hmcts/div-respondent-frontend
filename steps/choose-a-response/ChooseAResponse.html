@@ -1,64 +1,45 @@
 {% extends "question.njk" %}
 
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, selectionButton %}
+
 {% set title %}
-{{ content.title | safe }}
+    {{ content.title | safe }}
 {% endset %}
 
 {% block fields %}
 
-<div id="choose-a-response">
+    <div id="choose-a-response">
 
-    <p>{{ content.action | safe }}</p>
+        <p>{{ content.action | safe }}</p>
 
-    <details>
-        <summary>
-            <span class="summary">{{ content.info.heading | safe }}</span>
-        </summary>
-        <div class="panel panel-border-narrow">
-            <h2 class="heading-small">{{ content.info.options.proceed.heading | safe }}</h2>
-            <p class="text">{{ content.info.options.proceed.summary | safe }}</p>
+        <details>
+            <summary>
+                <span class="summary">{{ content.info.heading | safe }}</span>
+            </summary>
+            <div class="panel panel-border-narrow">
+                <h2 class="heading-small">{{ content.info.options.proceed.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.proceed.summary | safe }}</p>
 
-            <h2 class="heading-small">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
-            <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
+                <h2 class="heading-small">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
 
-            <h2 class="heading-small">{{ content.info.options.disagree.heading | safe }}</h2>
-            <p class="text">{{ content.info.options.disagree.summary | safe }}</p>
-        </div>
-    </details>
-
-    <div class="form-group">
-        <fieldset id="response">
-            <legend>
-                <h2 class="visually-hidden heading-medium">{{ content.title | safe }}</h2>
-            </legend>
-            <div class="multiple-choice">
-                <input id="response-proceed"
-                       type="radio"
-                       name="response"
-                       value="proceed">
-
-                <label class="form-label-bold" for="response-proceed">
-                    {{ content.fields.proceed.heading | safe }}<br>
-                    <span class="font-small">
-                    {{ content.fields.proceed.summary | safe }}
-                </span>
-                </label>
+                <h2 class="heading-small">{{ content.info.options.disagree.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.disagree.summary | safe }}</p>
             </div>
+        </details>
 
-            <div class="multiple-choice">
-                <input id="response-disagree"
-                       type="radio"
-                       name="response"
-                       value="disagree">
-                <label class="form-label-bold" for="response-disagree">
-                    {{ content.fields.disagree.heading | safe }}<br>
-                    <span class="font-small">
-                    {{ content.fields.disagree.summary | safe }}
-                </span>
-                </label>
-            </div>
-        </fieldset>
+        {% call formSection() %}
+            {{ selectionButtons(fields.response, content.title,
+                options = [
+                    { label: content.fields.proceed.heading, value: "proceed", description: content.fields.proceed.summary },
+                    { label: content.fields.disagree.heading, value: "disagree", description: content.fields.disagree.summary }
+                ],
+                hint=false,
+                hideQuestion=true,
+                inline=false,
+                type='radio'
+            ) }}
+        {% endcall %}
     </div>
-</div>
 
 {% endblock %}

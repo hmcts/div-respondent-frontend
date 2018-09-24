@@ -232,7 +232,10 @@ describe(modulePath, () => {
         'jurisdictionConnectionOther',
         'onGoingCasesNo',
         'petitionerCorrespondenceAddressHeading',
-        'whereTheMarriage'
+        'whereTheMarriage',
+        'readConfirmationQuestion',
+        'readConfirmationYes',
+        'readConfirmationNo'
       ];
       return content(ReviewApplication, session, { ignoreContent });
     });

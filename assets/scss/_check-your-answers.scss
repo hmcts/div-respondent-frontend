@@ -1,0 +1,27 @@
+#divorce-check-your-answers {
+
+  .column-two-thirds {
+    width: 100%;
+  }
+
+  .confirmation-container {
+    background: #dee0e2;
+    padding: 25px;
+
+    .list-bullet {
+      padding-left: 70px;
+    }
+
+    details {
+      padding-left: 54px;
+    }
+
+    .form-section {
+      margin-bottom: 25px;
+    }
+  }
+
+  .govuk-check-your-answers .cya-question {
+    font-weight: normal;
+  }
+}

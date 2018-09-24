@@ -13,6 +13,11 @@ class Respond extends Interstitial {
     return this.req.session;
   }
 
+  handler(req, res) {
+    req.session.entryPoint = this.name;
+    super.handler(req, res);
+  }
+
   next() {
     return goTo(this.journey.steps.ReviewApplication);
   }

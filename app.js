@@ -45,6 +45,7 @@ lookAndFeel.configure(app, {
       path.resolve(__dirname, 'assets/js/main.js'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
       path.resolve(__dirname, 'assets/scss/_choose-a-response.scss'),
+      path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
       path.resolve(__dirname, 'node_modules/reform-pattern-library/app/sass/main.scss')
     ],
     plugins: [
