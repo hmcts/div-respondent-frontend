@@ -54,6 +54,7 @@ paths:
   health: /health
   authenticated: /authenticated
   index: /
+  respondWithPin: /respond-with-pin
   respond: /respond
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response

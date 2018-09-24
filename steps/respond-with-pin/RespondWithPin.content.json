@@ -1,0 +1,13 @@
+{
+  "en": {
+    "title": "Enter these details from the letter",
+    "instructions": "Enter the reference number and security access code from the letter the court sent you.",
+    "referenceNumber": "Reference number",
+    "referenceNumberLabel": "This is a 16 digit number",
+    "securityAccessCode": "Security access code",
+    "securityAccessCodeLabel": "Your code is 6 characters long",
+    "errors": {
+      "required": "Invalid input"
+    }
+  }
+}

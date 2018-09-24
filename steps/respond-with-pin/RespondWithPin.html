@@ -1,0 +1,15 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, textbox %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+    <p>{{ content.instructions }}</p>
+    {% call formSection() %}
+        {{ textbox(fields.referenceNumber, content.referenceNumber, content.referenceNumberLabel) }}
+        {{ textbox(fields.securityAccessCode, content.securityAccessCode, content.securityAccessCodeLabel) }}
+    {% endcall %}
+{% endblock %}
