@@ -8,4 +8,11 @@ function seeRespondWithPinPage() {
   I.see(content.en.title);
 }
 
-module.exports = { seeRespondWithPinPage };
+function fillInReferenceNumberAndPinCode(referenceNumber, pinCode) {
+  const I = this;
+
+  I.fillField('referenceNumber', referenceNumber);
+  I.fillField('securityAccessCode', pinCode);
+}
+
+module.exports = { seeRespondWithPinPage, fillInReferenceNumberAndPinCode };

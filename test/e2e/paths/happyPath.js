@@ -9,6 +9,7 @@ Scenario('Proceed with divorce', I => {
   I.seeIdamLoginPage();
   I.login();
   I.seeRespondWithPinPage();
+  I.fillInReferenceNumberAndPinCode('1234567890123456', '1234');
   I.click(content.en.continue);
   I.seeRespondPage();
   I.click(content.en.continue);

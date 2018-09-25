@@ -1,7 +1,7 @@
 const modulePath = 'steps/authenticated/Authenticated.step';
 
 const Authenticated = require(modulePath);
-const Respond = require('steps/respond/Respond.step');
+const RespondWithPin = require('steps/respond-with-pin/RespondWithPin.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
 
@@ -20,7 +20,7 @@ describe(modulePath, () => {
     });
 
     it('to respond page', () => {
-      return redirect.navigatesToNext(Authenticated, Respond);
+      return redirect.navigatesToNext(Authenticated, RespondWithPin);
     });
   });
 });
