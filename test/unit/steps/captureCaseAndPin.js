@@ -1,6 +1,6 @@
-const modulePath = 'steps/respond-with-pin/RespondWithPin.step';
+const modulePath = 'steps/capture-case-and-pin/CaptureCaseAndPin.step';
 
-const RespondWithPin = require(modulePath);
+const CaptureCaseAndPin = require(modulePath);
 const Respond = require('steps/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -24,7 +24,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(RespondWithPin, [idam.protect()]);
+    return middleware.hasMiddleware(CaptureCaseAndPin, [idam.protect()]);
   });
 
   it('redirects to next page', () => {
@@ -32,7 +32,7 @@ describe(modulePath, () => {
       referenceNumber: validReferenceNumber,
       securityAccessCode: validSecurityAccessCode
     };
-    return question.redirectWithField(RespondWithPin, answers, Respond);
+    return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
   });
 
   describe('validate reference number shows error if', () => {
@@ -41,7 +41,7 @@ describe(modulePath, () => {
         securityAccessCode: validSecurityAccessCode
       };
       const onlyErrors = ['referenceNumberRequired'];
-      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
     it('is less than 16 digits', () => {
       const answers = {
@@ -49,7 +49,7 @@ describe(modulePath, () => {
         securityAccessCode: validSecurityAccessCode
       };
       const onlyErrors = ['referenceNumberRequired'];
-      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
     it('contains a non-digit character', () => {
       const answers = {
@@ -57,7 +57,7 @@ describe(modulePath, () => {
         securityAccessCode: validSecurityAccessCode
       };
       const onlyErrors = ['referenceNumberDigitsOnly'];
-      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
   });
 
@@ -67,7 +67,7 @@ describe(modulePath, () => {
         referenceNumber: validReferenceNumber
       };
       const onlyErrors = ['securityAccessCodeRequired'];
-      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
     it('contains a non-digit character', () => {
       const answers = {
@@ -75,12 +75,12 @@ describe(modulePath, () => {
         securityAccessCode: '1234567A'
       };
       const onlyErrors = ['securityAccessCodeDigitsOnly'];
-      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
   });
 
   it('renders the content', () => {
-    return content(RespondWithPin, {}, {
+    return content(CaptureCaseAndPin, {}, {
       ignoreContent: [
         'continue',
         'backLink'

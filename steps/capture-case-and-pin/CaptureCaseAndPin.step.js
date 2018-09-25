@@ -7,9 +7,9 @@ const idam = require('services/idam');
 
 const referenceNumberMinLength = 16;
 
-class RespondWithPin extends Question {
+class CaptureCaseAndPin extends Question {
   static get path() {
-    return config.paths.respondWithPin;
+    return config.paths.captureCaseAndPin;
   }
 
   get form() {
@@ -49,4 +49,4 @@ class RespondWithPin extends Question {
   }
 }
 
-module.exports = RespondWithPin;
+module.exports = CaptureCaseAndPin;
