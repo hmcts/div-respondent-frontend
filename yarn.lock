@@ -171,9 +171,9 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-1.0.6.tgz#c750ee4a328d4f6db1260e17491d6a3a51fe9ddd"
+"@hmcts/one-per-page-test-suite@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-2.0.1.tgz#1376844b7ae95f7550247eaf31a9739a045137ae"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"
@@ -203,6 +203,34 @@
 "@hmcts/one-per-page@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.2.tgz#c37b1b07da357e2821bcbde3a1752f7b1a43c792"
+  dependencies:
+    "@log4js-node/log4js-api" "^1.0.0"
+    body-parser "^1.18.2"
+    callsites "^2.0.0"
+    colors "^1.1.2"
+    config "^1.28.1"
+    connect-redis "^3.3.2"
+    cookie-parser "^1.4.3"
+    csurf "^1.9.0"
+    debug "^3.1.0"
+    deepmerge "2.0.1"
+    express "^4.16.2"
+    express-nunjucks "^2.2.3"
+    express-session "^1.15.6"
+    glob "^7.1.2"
+    http-status-codes "^1.3.0"
+    i18next "^10.2.1"
+    joi "^13.0.2"
+    js-yaml "^3.10.0"
+    nunjucks "^3.0.1"
+    option "^0.2.4"
+    router "^1.3.2"
+    slug "^0.9.1"
+    url-parse "^1.2.0"
+
+"@hmcts/one-per-page@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.3.tgz#fa97dbfa838491e9da8fd2548602d91c3fb9de4e"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"

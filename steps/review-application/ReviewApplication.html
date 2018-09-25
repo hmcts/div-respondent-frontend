@@ -14,24 +14,24 @@
   <p class="text">
     {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrder == "Yes" %}
       {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
-        {{ content.costsPetitionerPayedByRespondentAndCorrespondent }}
+        {{ content.costsPetitionerPayedByRespondentAndCorrespondent | safe }}
       {% elseif "correspondent" in session.originalPetition.claimsCostsFrom  %}
-        {{ content.costsPetitionerPayedByCorrespondent }}
+        {{ content.costsPetitionerPayedByCorrespondent | safe }}
       {% else %}
-        {{ content.costsPetitionerPayedByRespondent }}
+        {{ content.costsPetitionerPayedByRespondent | safe }}
       {% endif %}
     {% elseif session.originalPetition.claimsCosts == "Yes" %}
       {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
-        {{ content.costsPetitionerDivorceCostsByRespondentAndCorespondent }}
+        {{ content.costsPetitionerDivorceCostsByRespondentAndCorespondent | safe }}
       {% elseif "correspondent" in session.originalPetition.claimsCostsFrom %}
-        {{ content.costsPetitionerDivorceCostsByCorespondent }}
+        {{ content.costsPetitionerDivorceCostsByCorespondent | safe }}
       {% else %}
-        {{ content.costsPetitionerDivorceCostsByRespondent }}
+        {{ content.costsPetitionerDivorceCostsByRespondent | safe }}
       {% endif %}
     {% elseif session.originalPetition.financialOrder == "Yes" %}
-      {{ content.costsPetitionerDivorceCostsByFinancialOrder }}
+      {{ content.costsPetitionerDivorceCostsByFinancialOrder | safe }}
     {% else %}
-      {{ content.costsPetitionerDivorceNoCosts }}
+      {{ content.costsPetitionerDivorceNoCosts | safe }}
     {% endif %}
   </p>
 
@@ -69,7 +69,7 @@
   <h2 class="heading-medium">{{ content.aboutTheMarriage }}</h2>
 
   <h3 class="heading-small">{{ content.whoTheMarriage }}</h3>
-  <p class="text">{{ content.whoTheMarriageNames }}</p>
+  <p class="text">{{ content.whoTheMarriageNames | safe }}</p>
 
   {% if session.originalPetition.placeOfMarriage %}
     <h3 class="heading-small">{{ content.whereTheMarriage }}</h3>
@@ -387,7 +387,7 @@
   {% if session.originalPetition.petitionerContactDetailsConfidential == "share" %}
     <h2 class="heading-medium">{{ content.petitionerCorrespondenceAddressHeading }}</h2>
 
-    {% if session.originalPetition.respondentSolicitorName != "" and not(session.originalPetition.petitionerHomeAddress|length) %}
+    {% if session.originalPetition.respondentSolicitorName and session.originalPetition.respondentSolicitorName !== '' and not(session.originalPetition.petitionerHomeAddress|length) %}
       <p class="text">{{ petitionersSolicitorName }}</p>
       <p class="text">{{ petitionersSolicitorFirm }}</p>
       <p class="text">{{ petitionersSolicitorAddress }}</p>
@@ -422,7 +422,7 @@
 
 
   <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
-  <p class="text">{{ content.statementOfTruthParagraph }}</p>
+  <p class="text">{{ content.statementOfTruthParagraph | safe }}</p>
 
   <h2 class="heading-medium">{{ content.acknowledgement }}</h2>
 

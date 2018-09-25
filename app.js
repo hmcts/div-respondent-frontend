@@ -92,7 +92,8 @@ onePerPage.journey(app, {
       return key;
     }
   },
-  timeoutDelay: config.journey.timeoutDelay
+  timeoutDelay: config.journey.timeoutDelay,
+  i18n: { filters: getFilters() }
 });
 
 app.use(logging.Express.accessLogger());
