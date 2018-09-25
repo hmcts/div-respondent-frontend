@@ -1,8 +1,11 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
+const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
+
+const referenceNumberMinLength = 16;
 
 class RespondWithPin extends Question {
   static get path() {
@@ -11,8 +14,26 @@ class RespondWithPin extends Question {
 
   get form() {
     return form({
-      referenceNumber: text,
-      securityAccessCode: text
+      referenceNumber: text
+        .joi(
+          this.content.errors.referenceNumberRequired,
+          Joi.string()
+            .min(referenceNumberMinLength)
+            .required())
+        .joi(
+          this.content.errors.referenceNumberDigitsOnly,
+          Joi.number()
+            .integer()
+        ),
+      securityAccessCode: text.joi(
+        this.content.errors.securityAccessCodeRequired,
+        Joi.string()
+          .required())
+        .joi(
+          this.content.errors.securityAccessCodeDigitsOnly,
+          Joi.number()
+            .integer()
+        )
     });
   }
 

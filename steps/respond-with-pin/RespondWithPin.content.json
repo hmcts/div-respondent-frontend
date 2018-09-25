@@ -7,7 +7,10 @@
     "securityAccessCode": "Security access code",
     "securityAccessCodeLabel": "Your code is 6 characters long",
     "errors": {
-      "required": "Invalid input"
+      "referenceNumberRequired": "Enter the 16-digit case ID to continue",
+      "referenceNumberDigitsOnly": "The case id is 16 digits and can only contain the numbers 1 to 9",
+      "securityAccessCodeRequired": "Enter the security access code to continue",
+      "securityAccessCodeDigitsOnly": "The PIN number cannot contain special characters"
     }
   }
 }

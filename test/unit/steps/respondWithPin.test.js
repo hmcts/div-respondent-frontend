@@ -7,6 +7,9 @@ const { middleware, question, sinon, content } = require('@hmcts/one-per-page-te
 const request = require('request-promise-native');
 const rawResponse = require('resources/raw-response-mock.json');
 
+const validReferenceNumber = '1234567890123456';
+const validSecurityAccessCode = '1234';
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(request, 'get')
@@ -25,11 +28,55 @@ describe(modulePath, () => {
   });
 
   it('redirects to next page', () => {
-    return question.redirectWithField(RespondWithPin, {}, Respond);
+    const answers = {
+      referenceNumber: validReferenceNumber,
+      securityAccessCode: validSecurityAccessCode
+    };
+    return question.redirectWithField(RespondWithPin, answers, Respond);
   });
 
-  it('shows error if question is not answered', () => {
-    return question.testErrors(RespondWithPin);
+  describe('validate reference number shows error if', () => {
+    it('is not provided', () => {
+      const answers = {
+        securityAccessCode: validSecurityAccessCode
+      };
+      const onlyErrors = ['referenceNumberRequired'];
+      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+    });
+    it('is less than 16 digits', () => {
+      const answers = {
+        referenceNumber: '1234',
+        securityAccessCode: validSecurityAccessCode
+      };
+      const onlyErrors = ['referenceNumberRequired'];
+      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+    });
+    it('contains a non-digit character', () => {
+      const answers = {
+        referenceNumber: '123456789012345A',
+        securityAccessCode: validSecurityAccessCode
+      };
+      const onlyErrors = ['referenceNumberDigitsOnly'];
+      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+    });
+  });
+
+  describe('validate security access code shows error if', () => {
+    it('is not provided', () => {
+      const answers = {
+        referenceNumber: validReferenceNumber
+      };
+      const onlyErrors = ['securityAccessCodeRequired'];
+      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+    });
+    it('contains a non-digit character', () => {
+      const answers = {
+        referenceNumber: validReferenceNumber,
+        securityAccessCode: '1234567A'
+      };
+      const onlyErrors = ['securityAccessCodeDigitsOnly'];
+      return question.testErrors(RespondWithPin, {}, answers, { onlyErrors });
+    });
   });
 
   it('renders the content', () => {
