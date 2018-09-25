@@ -387,7 +387,7 @@
   {% if session.originalPetition.petitionerContactDetailsConfidential == "share" %}
     <h2 class="heading-medium">{{ content.petitionerCorrespondenceAddressHeading }}</h2>
 
-    {% if session.originalPetition.respondentSolicitorName != "" and not(session.originalPetition.petitionerHomeAddress|length) %}
+    {% if session.originalPetition.respondentSolicitorName and session.originalPetition.respondentSolicitorName !== '' and not(session.originalPetition.petitionerHomeAddress|length) %}
       <p class="text">{{ petitionersSolicitorName }}</p>
       <p class="text">{{ petitionersSolicitorFirm }}</p>
       <p class="text">{{ petitionersSolicitorAddress }}</p>
