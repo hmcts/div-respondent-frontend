@@ -268,7 +268,7 @@ describe(modulePath, () => {
           }
         };
         return content(ReviewApplication, session, {
-          specificContent: ['costsPetitionerPayedByCorrispondent']
+          specificContent: ['costsPetitionerPayedByCorrespondent']
         });
       });
 
@@ -515,18 +515,6 @@ describe(modulePath, () => {
 
     context('reasons for divorce', () => {
       context('adultery', () => {
-        it('base content', () => {
-          const session = {
-            originalPetition: {
-              jurisdictionConnection: {},
-              reasonForDivorce: 'adultery'
-            }
-          };
-          return content(
-            ReviewApplication,
-            session,
-            { specificContent: [ 'reasonForDivorceAdultery' ] });
-        });
         it('co-respondent is named', () => {
           const session = {
             originalPetition: {
@@ -578,8 +566,7 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
           'reasonForDivorceUnreasonableBehaviourStatement',
-          'reasonForDivorceUnreasonableBehaviourDescription',
-          'reasonForDivorceBehaviourDetails'
+          'reasonForDivorceUnreasonableBehaviourDescription'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
@@ -747,13 +734,16 @@ describe(modulePath, () => {
       const session = {
         originalPetition: {
           jurisdictionConnection: {},
-          petitionerContactDetailsConfidential: 'share'
+          petitionerContactDetailsConfidential: 'share',
+          petitionerCorrespondenceAddress: {
+            address: '129 king road'
+          }
         }
       };
       return content(
         ReviewApplication,
         session,
-        { specificContent: [ 'applicantsCorrespondenceAddress' ] });
+        { specificValues: [ session.originalPetition.petitionerCorrespondenceAddress.address] });
     });
 
 
