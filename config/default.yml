@@ -49,7 +49,7 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-      getPetitionUrl: http://localhost:1111/retrieve-aos-case
+      getPetitionUrl: https://localhost:3001/retrieve-aos-case
 paths:
   health: /health
   authenticated: /authenticated

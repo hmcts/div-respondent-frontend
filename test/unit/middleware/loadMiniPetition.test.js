@@ -75,7 +75,7 @@ describe(modulePath, () => {
     const next = () => {
       expect(req.session.referenceNumber)
         .to
-        .eql(324234342342);
+        .eql(1234);
       expect(req.session.divorceCenterName)
         .to
         .eql('East Midlands Regional Divorce Centre');

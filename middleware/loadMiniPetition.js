@@ -1,16 +1,8 @@
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 const getCcdData = require('services/getCcdData');
-const getCcdDataMock = require('mocks/services/getCcdDataMock');
-const config = require('config');
-
-let service = getCcdData;
-if (['development', 'testing'].includes(config.environment)) {
-  service = getCcdDataMock;
-}
-
 
 const loadMiniPetition = (req, res, next) => {
-  service(req)
+  getCcdData(req)
     .then(response => {
       req.session.referenceNumber = response.caseId;
       req.session.originalPetition = response.data;

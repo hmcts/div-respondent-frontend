@@ -9,6 +9,8 @@ const fs = require('fs');
 let http = {};
 
 if (['development'].includes(config.environment)) {
+  // ignore certificate errors locally for mocks
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
   const sslDirectory = path.join(__dirname, 'resources', 'localhost-ssl');
 
   const sslOptions = {
