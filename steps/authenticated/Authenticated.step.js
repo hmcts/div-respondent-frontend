@@ -2,6 +2,7 @@ const { Redirect } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
+const middleware = require('middleware/authenticated');
 
 class Authenticated extends Redirect {
   static get path() {
@@ -13,7 +14,11 @@ class Authenticated extends Redirect {
   }
 
   get middleware() {
-    return [...super.middleware, idam.landingPage()];
+    return [
+      ...super.middleware,
+      idam.landingPage(),
+      middleware.captureCaseAndPin
+    ];
   }
 }
 
