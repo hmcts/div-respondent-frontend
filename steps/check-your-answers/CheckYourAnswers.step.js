@@ -1,8 +1,8 @@
 const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
 const { goTo } = require('@hmcts/one-per-page/flow');
-const { getUserData } = require('middleware/ccd');
 const idam = require('services/idam');
 const config = require('config');
+const aosSendData = require('middleware/aosSendData');
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -10,7 +10,13 @@ class CheckYourAnswers extends CYA {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
+  }
+
+  store() {
+    super.store();
+    aosSendData(this.req, this.res, this.next);
+    return this;
   }
 
   next() {

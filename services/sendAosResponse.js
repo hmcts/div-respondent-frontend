@@ -2,7 +2,7 @@ const request = require('request-promise-native');
 const CONF = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 
-const submitAos = (req, body) => {
+const sendAosResponse = (req, body) => {
   const referenceNumber = req.session.referenceNumber;
   const uri = `${CONF.services.caseOrchestration.submitAosUrl}/${referenceNumber}`;
   const authTokenString = '__auth-token';
@@ -15,4 +15,4 @@ const submitAos = (req, body) => {
     });
 };
 
-module.exports = submitAos;
+module.exports = sendAosResponse;
