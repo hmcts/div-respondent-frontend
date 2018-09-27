@@ -25,4 +25,25 @@ const getPetition = req => {
     });
 };
 
-module.exports = { getPetition };
+const linkCase = req => {
+  const caseId = req.body.referenceNumber;
+  const pin = req.body.securityAccessCode;
+  const uri = `${CONF.services.caseOrchestration.linkRespondentUrl}/${caseId}/${pin}`;
+  const authTokenString = '__auth-token';
+  const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
+
+  const options = {
+    uri,
+    headers
+  };
+  return request.post(options)
+    .catch(error => {
+      logger.error(`Error linking petition to user: ${error}`);
+      throw error;
+    });
+};
+
+module.exports = {
+  getPetition,
+  linkCase
+};

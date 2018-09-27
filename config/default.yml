@@ -50,6 +50,7 @@ services:
     enabled: false
   caseOrchestration:
       getPetitionUrl: https://localhost:3001/retrieve-aos-case
+      linkRespondentUrl: https://localhost:3001/link-respondent
 paths:
   health: /health
   authenticated: /authenticated

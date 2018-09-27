@@ -1,6 +1,7 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
+const middleware = require('middleware/captureCaseAndPin');
 const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
@@ -44,7 +45,8 @@ class CaptureCaseAndPin extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect()
+      idam.protect(),
+      middleware.linkCaseOnSubmit
     ];
   }
 }

@@ -1,6 +1,7 @@
 const modulePath = 'steps/capture-case-and-pin/CaptureCaseAndPin.step';
 
 const CaptureCaseAndPin = require(modulePath);
+const captureCaseAndPinMiddleware = require('middleware/captureCaseAndPin');
 const Respond = require('steps/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -16,15 +17,21 @@ describe(modulePath, () => {
       .resolves(rawResponse);
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
+    sinon.stub(captureCaseAndPinMiddleware, 'linkCaseOnSubmit')
+      .callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
     request.get.restore();
+    captureCaseAndPinMiddleware.linkCaseOnSubmit.restore();
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(CaptureCaseAndPin, [idam.protect()]);
+    return middleware.hasMiddleware(CaptureCaseAndPin, [
+      idam.protect(),
+      captureCaseAndPinMiddleware.linkCaseOnSubmit
+    ]);
   });
 
   it('redirects to next page', () => {
