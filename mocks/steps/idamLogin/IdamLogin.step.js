@@ -12,9 +12,9 @@ class IdamLogin extends Question {
 
   get form() {
     const answers = [
-      'yesCaseAwaitingResponse',
       'yesCaseStarted',
       'yesCaseNotLinked',
+      'yesCaseCompleted',
       'no'
     ];
     const validAnswers = Joi.string()

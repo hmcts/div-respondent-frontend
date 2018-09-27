@@ -60,6 +60,7 @@ paths:
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
   checkYourAnswers: /check-your-answers
+  invalidCaseState: /invalid-case-state
   end: /end
   entry: /entry
   mock:

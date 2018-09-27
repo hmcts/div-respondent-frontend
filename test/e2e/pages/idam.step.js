@@ -19,7 +19,7 @@ function login() {
     I.wait(2);
   } else {
     I.seeCurrentUrlEquals(IdamLoginPage.path);
-    I.click(content.en.fields.success.yesCaseAwaitingResponse);
+    I.click(content.en.fields.success.yesCaseStarted);
     I.click(commonContent.en.continue);
   }
 }
@@ -31,8 +31,16 @@ function loginAsANonLinkedUser() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsCaseCompletedUser() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseCompleted);
+  I.click(commonContent.en.continue);
+}
+
 module.exports = {
   seeIdamLoginPage,
   login,
-  loginAsANonLinkedUser
+  loginAsANonLinkedUser,
+  loginAsCaseCompletedUser
 };

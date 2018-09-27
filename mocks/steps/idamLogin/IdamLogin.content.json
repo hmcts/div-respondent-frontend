@@ -6,9 +6,9 @@
     },
     "fields": {
       "success": {
-        "yesCaseAwaitingResponse": "Yes - case awaiting response",
         "yesCaseStarted": "Yes - case started",
         "yesCaseNotLinked": "Yes - case not linked",
+        "yesCaseCompleted": "Yes - case completed response",
         "no": "No"
       }
     }

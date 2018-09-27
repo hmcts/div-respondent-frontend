@@ -18,7 +18,10 @@ describe(modulePath, () => {
 
       sinon.stub(caseOrchestration, 'getPetition')
         .resolves({
-          statusCode: 200
+          statusCode: 200,
+          body: {
+            state: 'AosStarted'
+          }
         });
 
       // when
@@ -48,6 +51,55 @@ describe(modulePath, () => {
         .then(() => {
           expect(caseOrchestration.getPetition.calledOnce).to.be.true;
           expect(res.redirect.calledOnce).to.be.true;
+        })
+        .then(done, done);
+    });
+
+    it('redirects to invalid case state page if case state is not AosStarted', done => {
+      // given
+      const req = sinon.stub();
+      const res = {
+        redirect: sinon.stub()
+      };
+      const next = sinon.stub();
+
+      sinon.stub(caseOrchestration, 'getPetition')
+        .resolves({
+          statusCode: 200,
+          body: {
+            state: 'AosCompleted'
+          }
+        });
+
+      // when
+      middleware.captureCaseAndPin(req, res, next)
+        .then(() => {
+          expect(caseOrchestration.getPetition.calledOnce).to.be.true;
+          expect(res.redirect.calledOnce).to.be.true;
+        })
+        .then(done, done);
+    });
+
+    it('throws an error on unexepcted response', done => {
+      // given
+      const req = sinon.stub();
+      const res = sinon.stub();
+      const next = sinon.stub();
+
+      sinon.stub(caseOrchestration, 'getPetition')
+        .resolves({
+          statusCode: 500
+        });
+
+      // when
+      middleware.captureCaseAndPin(req, res, next)
+        .then(() => {
+          expect(caseOrchestration.getPetition.calledOnce).to.be.true;
+          expect(next.calledOnce).to.be.true;
+          expect(next.getCall(0).args[0])
+            .to
+            .be
+            .an('Error');
         })
         .then(done, done);
     });

@@ -1,0 +1,6 @@
+{
+  "en": {
+    "title": "Invalid case state",
+    "message": "A response to this case has already been submitted."
+  }
+}
