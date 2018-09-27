@@ -6,16 +6,16 @@
       "reason": "Why don't you agree that the court has jurisdiction?",
       "country": "In which country is your life mainly based?"
     },
-    "summary": "Your husband/wife has stated that the court has jurisdiction (the legal power) to grant you a divorce because:",
+    "summary": "Your {{ session.divorceWho }} has stated that the court has jurisdiction (the legal power) to grant you a divorce because:",
     "question": "Just one of these gives the court jurisdiction.",
 
     "jurisdictionConnectionBothResident": "both you and your {{ session.divorceWho }} are habitually resident",
-    "jurisdictionConnectionBothDomiciled": "you and your {{divorceWho}} were both last habitually resident and one of you still lives here",
-    "jurisdictionConnectionOneResides": "You were both last habitually resident in England and Wales and one of them still resides there.",
-    "jurisdictionConnectionPetitioner": "Your {{ session.divorceWho }} is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the application.",
-    "jurisdictionConnectionRespondent": "You are habitually resident in England and Wales.",
-    "jurisdictionConnectionPetitionerSixMonths": "The Your {{ session.divorceWho }} is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the application.",
-    "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction, meaning either: no other court in any EU Member State has jurisdiction and either the applicant or the respondent is domiciled in England and Wales; or (for same sex couples only) the applicant or the respondent married each other in England and Wales, no other court in any EU Member State has jurisdiction, and it would be in the interests of justice for the court to assume jurisdiction in this case.",
+    "jurisdictionConnectionOneResides": "you and your {{ session.divorceWho }} were both last habitually resident and one of you still lives here",
+    "jurisdictionConnectionRespondent": "your {{ session.divorceWho }} is habitually resident",
+    "jurisdictionConnectionPetitioner": "you’re habitually resident and have lived here for at least 12 months",
+    "jurisdictionConnectionPetitionerSixMonths": "you’re domiciled and habitually resident and have lived here for at least 6 months",
+    "jurisdictionConnectionBothDomiciled": "both you and your {{ session.divorceWho }} are domiciled",
+    "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction, meaning either: no other court in any EU Member State has jurisdiction and either the applicant or the respondent is domiciled in England and Wales; or (for same sex couples only) the applicant or the respondent married each other in England and Wales, no other court in any EU Member State has jurisdiction, and it would be in the interests of justice for the court to assume jurisdiction in this case",
 
     "info": {
       "heading": "What this means",

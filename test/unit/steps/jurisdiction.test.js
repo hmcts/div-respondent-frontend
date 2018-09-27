@@ -79,4 +79,19 @@ describe(modulePath, () => {
         'jurisdictionConnectionOther'
       ] });
   });
+
+  it('does not render connection C when all connections are selected ', () => {
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+      }
+    };
+
+    return content(Jurisdiction, session,
+      { ignoreContent: [
+        'info',
+        'cya',
+        'jurisdictionConnectionRespondent'
+      ] });
+  });
 });
