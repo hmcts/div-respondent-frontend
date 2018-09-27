@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { getUserData } = require('middleware/ccd');
 const Joi = require('joi');
@@ -8,8 +8,8 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 
-const proceed = 'proceed';
-const disagree = 'disagree';
+const confirm = 'confirm';
+const changeResponse = 'changeResponse';
 
 class ConfirmDefence extends Question {
   static get path() {
@@ -17,7 +17,7 @@ class ConfirmDefence extends Question {
   }
 
   get form() {
-    const answers = [proceed, disagree];
+    const answers = [confirm, changeResponse];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
@@ -29,9 +29,11 @@ class ConfirmDefence extends Question {
 
   answers() {
     const question = content.en.title;
+    const answerValue = this.fields.response.value === confirm ? content.en.fields.confirm.answer : content.en.fields.changeResponse.answer;
     return answer(this, {
       question,
-      answer: this.fields.response.value === proceed ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
+      answer: answerValue,
+      hide: true
     });
   }
 
@@ -40,7 +42,8 @@ class ConfirmDefence extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.CheckYourAnswers);
+    const nextStep = this.fields.response.value === confirm ? this.journey.steps.CheckYourAnswers : this.journey.steps.ChooseAResponse;
+    return redirectTo(nextStep);
   }
 }
 

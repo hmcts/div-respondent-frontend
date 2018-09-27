@@ -24,6 +24,9 @@
       "changeResponse": {
         "heading": "I want to change my response"
       }
+    },
+    "errors": {
+      "required": "Confirm if you intend to defend the divorce"
     }
   }
 }

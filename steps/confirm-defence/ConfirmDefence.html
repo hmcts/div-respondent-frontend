@@ -13,6 +13,15 @@
         <p>{{ content.defenceFeeDetails | safe }}</p>
         <p>{{ content.defenceCondition | safe }}</p>
 
+        <div class="notice">
+            <i class="icon icon-important">
+                <span class="visually-hidden">Warning</span>
+            </i>
+            <strong class="bold-small">
+                {{ content.legalAdviceWarn }}
+            </strong>
+        </div>
+
         <details>
             <summary>
                 <span class="summary">{{ content.info.readMore | safe }}</span>
