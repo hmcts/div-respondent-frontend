@@ -8,53 +8,162 @@
 
 {% block fields %}
 
-<div id="legal-proceedings">
-
+<div id="jurisdiction">
   <p>{{ content.summary | safe }}</p>
 
-  <ul class="bullet list-bullet">
-    <li>{{ content.info.options.relatedToMarriage | safe }}</li>
-    <li>{{ content.info.options.affectsValidity | safe }}</li>
-  </ul>
+  {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+  <ul class="list-bullet">
+    {% endif %}
 
+    {% if "A" in session.originalPetition.jurisdictionConnection %}
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    <li>
+      {% endif %}
+
+      {{ content.jurisdictionConnectionBothResident }}
+
+      {% if session.originalPetition.jurisdictionConnection|length > 1  and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    </li>
+    {% endif %}
+    {% endif %}
+
+    {% if "B" in session.originalPetition.jurisdictionConnection %}
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    <li>
+      {% endif %}
+
+      {{ content.jurisdictionConnectionOneResides }}
+
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    </li>
+    {% endif %}
+    {% endif %}
+
+    {% if "C" in session.originalPetition.jurisdictionConnection and (not ("A" in session.originalPetition.jurisdictionConnection)) %}
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    <li>
+      {% endif %}
+
+      {{ content.jurisdictionConnectionRespondent }}
+
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    </li>
+    {% endif %}
+    {% endif %}
+
+    {% if "D" in session.originalPetition.jurisdictionConnection %}
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    <li>
+      {% endif %}
+
+      {{ content.jurisdictionConnectionPetitioner }}
+
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    </li>
+    {% endif %}
+    {% endif %}
+
+    {% if "E" in session.originalPetition.jurisdictionConnection %}
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    <li>
+      {% endif %}
+
+      {{ content.jurisdictionConnectionPetitionerSixMonths }}
+
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    </li>
+    {% endif %}
+    {% endif %}
+
+    {% if "F" in session.originalPetition.jurisdictionConnection %}
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    <li>
+      {% endif %}
+
+      {{ content.jurisdictionConnectionBothDomiciled }}
+
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    </li>
+    {% endif %}
+    {% endif %}
+
+    {% if "G" in session.originalPetition.jurisdictionConnection %}
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    <li>
+      {% endif %}
+
+      {{ content.jurisdictionConnectionOther }}
+
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+    </li>
+    {% endif %}
+    {% endif %}
+
+    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+  </ul>
+  {% endif %}
+
+  <br/>
+
+  <details>
+    <summary>
+      <span class="summary">{{ content.info.heading | safe }}</span>
+    </summary>
+    <div class="panel panel-border-narrow">
+      <h2 class="heading-small">{{ content.info.options.habitualResidence.heading | safe }}</h2>
+      <p class="text">{{ content.info.options.habitualResidence.summary1 | safe }}</p>
+      <p class="text">{{ content.info.options.habitualResidence.summary2 | safe }}</p>
+      <p class="text">{{ content.info.options.habitualResidence.summary3 | safe }}</p>
+
+      <h2 class="heading-small">{{ content.info.options.domicile.heading | safe }}</h2>
+      <p class="text">{{ content.info.options.domicile.summary1 | safe }}</p>
+      <p class="text">{{ content.info.options.domicile.summary2 | safe }}</p>
+      <p class="text">{{ content.info.options.domicile.summary3Part1 | safe }}<b>{{ content.info.options.domicile.summary3Part2 | safe }}</b>{{ content.info.options.domicile.summary3Part3 | safe }}</p>
+
+      <ul class="list-bullet">
+        <li>{{ content.info.options.domicile.summary3SubText1 | safe }}</li>
+        <li>{{ content.info.options.domicile.summary3SubText2 | safe }}</li>
+      </ul>
+
+      <br/>
+
+      <p class="text">{{ content.info.options.domicile.summary4Part1 | safe }}<b>{{ content.info.options.domicile.summary4Part2 | safe }}</b></p>
+      <p class="text">{{ content.info.options.domicile.summary5 | safe }}</p>
+
+      <h2 class="heading-small">{{ content.info.options.residualJurisdiction.heading | safe }}</h2>
+      <p class="text">{{ content.info.options.residualJurisdiction.summary1 | safe }}</p>
+      <p class="text">{{ content.info.options.residualJurisdiction.summary2 | safe }}</p>
+
+    </div>
+  </details>
+
+  <p>{{ content.question | safe }}</p>
   {% call formSection() %}
-    {{ selectionButtons(fields.legalProceedings.exists, content.question,
+    {{ selectionButtons(fields.jurisdiction.agree, content.question,
         options = [
-        { label: content.fields.yes.heading, value: "yes", target: "case-details" },
-        { label: content.fields.no.heading, value: "no" }
+        { label: content.fields.agree.heading, value: "yes" },
+        { label: content.fields.disagree.heading, value: "no", target: "jurisdiction-no" }
         ],
-        hideQuestion=false,
-        inline=true,
+        hideQuestion=true,
+        inline=false,
         type='radio'
       )
     }}
+    <div id="jurisdiction-no" class="form-group panel js-hidden">
 
-    <div id="case-details" class="panel js-hidden">
+      <label class="form-label-bold" for="{{ fields.jurisdiction.reason.id }}">{{ content.fields.disagree.reason | safe }}</label>
+      {{ errorsFor(fields.jurisdiction.reason) }}
+      <textarea class="form-control" id="{{ fields.jurisdiction.reason.id }}" rows="4"
+                name="{{ fields.jurisdiction.reason.id }}" style="width: 100%">{{ fields.jurisdiction.reason.value | default('') }}</textarea>
 
-      <h4 class="heading-small">{{ content.fields.yes.details.title | safe }}</h4>
-
-      <p class="text">
-        {{ content.fields.yes.details.summary | safe }}
-      </p>
-
-      <ul class="list list-bullet">
-        <li>{{ content.fields.yes.details.includes.caseNumbers | safe }}</li>
-        <li>{{ content.fields.yes.details.includes.aboutWhat | safe }}</li>
-        <li>{{ content.fields.yes.details.includes.namesInvolved | safe }}</li>
-        <li>{{ content.fields.yes.details.includes.courtDetails | safe }}</li>
-        <li>{{ content.fields.yes.details.includes.country | safe }}</li>
-        <li>{{ content.fields.yes.details.includes.dates | safe }}</li>
-        <li>{{ content.fields.yes.details.includes.others | safe }}</li>
-      </ul>
-
-      <label class="form-label-bold" for="{{ fields.legalProceedings.details.id }}" >
-        {{ content.fields.yes.details.caseDetails | safe }}
-      </label>
-      {{ errorsFor(fields.legalProceedings.details) }}
-      <textarea class="form-control" id="{{ fields.legalProceedings.details.id }}" rows="4" name="{{ fields.legalProceedings.details.name }}" style="width: 100%">{{ fields.legalProceedings.details.value | default('') }}</textarea>
+      <br>
+      <fieldset class="form-group">
+        <label class="form-label-bold" for="{{ fields.jurisdiction.country.id }}">{{ content.fields.disagree.country | safe }}</label>
+        {{ errorsFor(fields.jurisdiction.country) }}
+        <input class="form-control" id="{{ fields.jurisdiction.country.id }}" name="{{ fields.jurisdiction.country.id }}" type="text" value="{{ fields.jurisdiction.country.value | default('') }}">
+      </fieldset>
 
     </div>
   {% endcall %}
 </div>
-
 {% endblock %}
