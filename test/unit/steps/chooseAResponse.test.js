@@ -1,6 +1,7 @@
 const modulePath = 'steps/choose-a-response/ChooseAResponse.step';
 const ChooseAResponse = require(modulePath);
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
+const ConfirmDefence = require('steps/confirm-defence/ConfirmDefence.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const { getUserData } = require('middleware/ccd');
@@ -19,9 +20,14 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(ChooseAResponse, [idam.protect(), getUserData]);
   });
 
-  it('redirects to next page on success', () => {
+  it('redirects to check your answers page when proceeding with divorce', () => {
     const fields = { response: 'proceed' };
     return question.redirectWithField(ChooseAResponse, fields, CheckYourAnswers);
+  });
+
+  it('redirects to confirm defence page when disagreeing with divorce', () => {
+    const fields = { response: 'disagree' };
+    return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence);
   });
 
   it('shows error if question is not answered', () => {
