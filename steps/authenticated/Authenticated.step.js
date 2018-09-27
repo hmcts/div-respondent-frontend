@@ -10,7 +10,7 @@ class Authenticated extends Redirect {
   }
 
   next() {
-    return redirectTo(this.journey.steps.CaptureCaseAndPin);
+    return redirectTo(this.journey.steps.Respond);
   }
 
   get middleware() {

@@ -2,7 +2,7 @@ const modulePath = 'steps/authenticated/Authenticated.step';
 
 const Authenticated = require(modulePath);
 const authenticatedMiddleware = require('middleware/authenticated');
-const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
+const Respond = require('steps/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
 
@@ -19,7 +19,7 @@ describe(modulePath, () => {
     authenticatedMiddleware.captureCaseAndPin.restore();
   });
 
-  it('has idam.landingPage middleware', () => {
+  it('has idam.landingPage and captureCaseAndPin middleware', () => {
     return middleware.hasMiddleware(Authenticated, [
       idam.landingPage(),
       authenticatedMiddleware.captureCaseAndPin
@@ -28,7 +28,7 @@ describe(modulePath, () => {
 
   context('navigation', () => {
     it('to respond page', () => {
-      return redirect.navigatesToNext(Authenticated, CaptureCaseAndPin);
+      return redirect.navigatesToNext(Authenticated, Respond);
     });
   });
 });

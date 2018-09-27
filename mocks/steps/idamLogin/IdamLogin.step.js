@@ -1,3 +1,4 @@
+const Cookies = require('cookies');
 const { Question } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/src/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
@@ -10,7 +11,12 @@ class IdamLogin extends Question {
   }
 
   get form() {
-    const answers = ['yes', 'no'];
+    const answers = [
+      'yesCaseAwaitingResponse',
+      'yesCaseStarted',
+      'yesCaseNotLinked',
+      'no'
+    ];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
@@ -21,6 +27,8 @@ class IdamLogin extends Question {
   }
 
   next() {
+    const cookies = new Cookies(this.req, this.res);
+    cookies.set('__auth-token', this.fields.success.value);
     return redirectTo(this.journey.steps.Authenticated);
   }
 }

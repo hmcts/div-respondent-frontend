@@ -20,7 +20,7 @@ const divIdamExpressMiddleware = {
   landingPage: idamArgs => {
     return (req, res, next) => {
       const cookies = new Cookies(req, res);
-      const mockIdamAuthenticated = req.session.hasOwnProperty('IdamLogin') && req.session.IdamLogin.success === 'yes';
+      const mockIdamAuthenticated = req.session.hasOwnProperty('IdamLogin') && req.session.IdamLogin.success !== 'no';
       delete req.session.IdamLogin;
 
       if (mockIdamAuthenticated) {

@@ -2,7 +2,6 @@ const IdamLoginPage = require('mocks/steps/idamLogin/IdamLogin.step');
 const commonContent = require('common/content');
 const content = require('mocks/steps/idamLogin/IdamLogin.content');
 const config = require('config');
-// const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 
 function seeIdamLoginPage() {
   const I = this;
@@ -20,12 +19,20 @@ function login() {
     I.wait(2);
   } else {
     I.seeCurrentUrlEquals(IdamLoginPage.path);
-    I.click(content.en.fields.success.yes);
+    I.click(content.en.fields.success.yesCaseAwaitingResponse);
     I.click(commonContent.en.continue);
   }
 }
 
+function loginAsANonLinkedUser() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseNotLinked);
+  I.click(commonContent.en.continue);
+}
+
 module.exports = {
   seeIdamLoginPage,
-  login
+  login,
+  loginAsANonLinkedUser
 };

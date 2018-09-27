@@ -11,9 +11,14 @@ const getPetition = req => {
 
   const options = {
     uri,
-    headers
+    headers,
+    method: 'GET',
+    json: true,
+    resolveWithFullResponse: true,
+    simple: false
   };
-  return request.get(options)
+
+  return request(options)
     .catch(error => {
       logger.error(`Trying to connect to Case orchestration service error: ${error}`);
       throw error;
