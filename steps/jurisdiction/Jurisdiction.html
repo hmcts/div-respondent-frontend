@@ -154,7 +154,7 @@
       <label class="form-label-bold" for="{{ fields.jurisdiction.reason.id }}">{{ content.fields.disagree.reason | safe }}</label>
       {{ errorsFor(fields.jurisdiction.reason) }}
       <textarea class="form-control" id="{{ fields.jurisdiction.reason.id }}" rows="4"
-                name="{{ fields.jurisdiction.reason.id }}" style="width: 100%">{{ fields.jurisdiction.reason.value | default('') }}</textarea>
+                name="{{ fields.jurisdiction.reason.id }}">{{ fields.jurisdiction.reason.value | default('') }}</textarea>
 
       <br>
       <fieldset class="form-group">
