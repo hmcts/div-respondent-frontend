@@ -44,11 +44,21 @@ class LegalProceedings extends Question {
   }
 
   answers() {
-    const question = content.en.cya.question;
-    return answer(this, {
-      question,
-      answer: this.fields.legalProceedings.exists.value === yes ? this.fields.legalProceedings.details.value : content.en.fields.no.answer
-    });
+    const answers = [];
+
+    answers.push(answer(this, {
+      question: content.en.cya.question,
+      answer: this.fields.legalProceedings.exists.value === yes ? content.en.fields.no.answer : content.en.fields.no.answer
+    }));
+
+    if (this.fields.legalProceedings.exists.value === yes) {
+      answers.push(answer(this, {
+        question: content.en.cya.details,
+        answer: this.fields.legalProceedings.details.value
+      }));
+    }
+
+    return answers;
   }
 
   get middleware() {
