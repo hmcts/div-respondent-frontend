@@ -14,7 +14,7 @@ describe(modulePath, () => {
     idam.protect.restore();
   });
 
-  it('has idam.protect and userData middleware', () => {
+  it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(LegalProceedings, [idam.protect()]);
   });
 

@@ -51,7 +51,8 @@
         {{ content.fields.yes.details.caseDetails | safe }}
       </label>
       {{ errorsFor(fields.legalProceedings.details) }}
-      <textarea class="form-control" id="{{ fields.legalProceedings.details.id }}" rows="4" name="{{ fields.legalProceedings.details.name }}" style="width: 100%">{{ fields.legalProceedings.details.value | default('') }}</textarea>
+      <textarea class="form-control case-details" id="{{ fields.legalProceedings.details.id }}" rows="4"
+                name="{{ fields.legalProceedings.details.name }}">{{ fields.legalProceedings.details.value | default('') }}</textarea>
 
     </div>
   {% endcall %}
