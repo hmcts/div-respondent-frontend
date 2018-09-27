@@ -2,7 +2,6 @@ const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
-const { getUserData } = require('middleware/ccd');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
@@ -53,7 +52,7 @@ class LegalProceedings extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 
   next() {

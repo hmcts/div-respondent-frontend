@@ -3,7 +3,6 @@ const LegalProceedings = require(modulePath);
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const { getUserData } = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -16,7 +15,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect and userData middleware', () => {
-    return middleware.hasMiddleware(LegalProceedings, [idam.protect(), getUserData]);
+    return middleware.hasMiddleware(LegalProceedings, [idam.protect()]);
   });
 
   it('shows error when legal proceedings is yes and case details not supplied', () => {
