@@ -1,12 +1,12 @@
 const w3cjs = require('w3cjs');
 const steps = require('steps')();
-const request = require('request-promise-native');
-const { sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
+const { sinon, custom, expect, middleware } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
 const fs = require('fs');
 const path = require('path');
-const rawResponse = require('resources/raw-response-mock.json');
+const loadMiniPetition = require('middleware/loadMiniPetition');
+const caseOrchestration = require('services/caseOrchestration');
 
 // Get the mocked session from file
 const filePath = path.join(__dirname, '../../resources/mock.json');
@@ -77,8 +77,10 @@ steps
       let warnings = [];
 
       before(() => {
-        sinon.stub(request, 'get')
-          .resolves(rawResponse);
+        sinon.stub(loadMiniPetition, 'loadMiniPetition')
+          .callsFake(middleware.nextMock);
+        sinon.stub(caseOrchestration, 'getPetition')
+          .resolves(middleware.nextMock);
         return stepHtml(step)
           .then(html => w3cjsValidate(html))
           .then(results => {
@@ -90,7 +92,8 @@ steps
           });
       });
       after(() => {
-        request.get.restore();
+        caseOrchestration.getPetition.restore();
+        loadMiniPetition.loadMiniPetition.restore();
       });
 
       it('should not have any html errors', () => {

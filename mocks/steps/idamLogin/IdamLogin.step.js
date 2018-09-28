@@ -14,6 +14,7 @@ class IdamLogin extends Question {
     const answers = [
       'yesCaseStarted',
       'yesCaseNotLinked',
+      'yesCaseNotLinkedAndInvalidPin',
       'yesCaseCompleted',
       'no'
     ];

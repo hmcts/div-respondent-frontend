@@ -21,6 +21,7 @@ const captureCaseAndPin = (req, res, next) => {
       } else if (response.statusCode >= ERROR_RESPONSE) {
         return next(new Error(`Unexpected response code ${response.statusCode}`));
       }
+      req.session.petition = response.body;
       return next();
     });
 };

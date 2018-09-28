@@ -21,7 +21,6 @@ const divIdamExpressMiddleware = {
     return (req, res, next) => {
       const cookies = new Cookies(req, res);
       const mockIdamAuthenticated = req.session.hasOwnProperty('IdamLogin') && req.session.IdamLogin.success !== 'no';
-      delete req.session.IdamLogin;
 
       if (mockIdamAuthenticated) {
         const token = crypto.randomBytes(randomStringLength).toString('hex');
@@ -46,6 +45,14 @@ const divIdamExpressMiddleware = {
       const userDetails = cookies.get('mockIdamUserDetails');
       if (userDetails) {
         req.idam = { userDetails: JSON.parse(userDetails) };
+        const stepName = req.currentStep.name;
+        const idamLogin = req.session.IdamLogin;
+        if (stepName === 'CaptureCaseAndPin' && idamLogin) {
+          if (idamLogin.success === 'yesCaseNotLinked') {
+            // simulate case being linked after entering case ID/pin
+            cookies.set('__auth-token', 'yesCaseStarted');
+          }
+        }
         next();
       } else {
         res.redirect(idamArgs.indexUrl);

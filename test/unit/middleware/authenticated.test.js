@@ -10,25 +10,29 @@ describe(modulePath, () => {
   });
 
   describe('captureCaseAndPin', () => {
-    it('calls next if case is found', done => {
+    it('calls next if case is found and stores it in session', done => {
       // given
-      const req = sinon.stub();
+      const req = {
+        session: {}
+      };
       const res = sinon.stub();
       const next = sinon.stub();
 
+      const response = {
+        statusCode: 200,
+        body: {
+          state: 'AosStarted'
+        }
+      };
       sinon.stub(caseOrchestration, 'getPetition')
-        .resolves({
-          statusCode: 200,
-          body: {
-            state: 'AosStarted'
-          }
-        });
+        .resolves(response);
 
       // when
       middleware.captureCaseAndPin(req, res, next)
         .then(() => {
           expect(caseOrchestration.getPetition.calledOnce).to.be.true;
           expect(next.calledOnce).to.be.true;
+          expect(req.session.petition).to.eq(response.body);
         })
         .then(done, done);
     });
