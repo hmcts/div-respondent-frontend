@@ -1,7 +1,7 @@
 const { Question } = require('@hmcts/one-per-page/steps');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { goTo, action } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const middleware = require('middleware/captureCaseAndPin');
+const caseOrchestration = require('services/caseOrchestration');
 const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
@@ -39,14 +39,15 @@ class CaptureCaseAndPin extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.Respond);
+    return action(caseOrchestration.linkCase)
+      .then(goTo(this.journey.steps.Respond))
+      .onFailure();
   }
 
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      middleware.linkCaseOnSubmit
+      idam.protect()
     ];
   }
 }
