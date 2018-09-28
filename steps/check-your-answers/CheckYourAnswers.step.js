@@ -1,26 +1,43 @@
 const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { goTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
-const aosSendData = require('middleware/aosSendData');
+const sendAosResponse = require('services/sendAosResponse');
+const { form, text } = require('@hmcts/one-per-page/forms');
+const Joi = require('joi');
 
 class CheckYourAnswers extends CYA {
   static get path() {
     return config.paths.checkYourAnswers;
   }
 
+  constructor(...args) {
+    super(...args);
+    this.sendToAPI = this.sendToAPI.bind(this);
+  }
+
   get middleware() {
     return [...super.middleware, idam.protect()];
   }
 
-  store() {
-    super.store();
-    aosSendData(this.req, this.res, this.next);
-    return this;
+  get form() {
+    return form({
+      respStatementOfTruth: text.joi(
+        this.errorMessage,
+        Joi.required().valid('yes')
+      )
+    });
+  }
+
+  sendToAPI(req, res) { // eslint-disable-line no-unused-vars
+    const json = this.journey.values;
+    return sendAosResponse(req, json);
   }
 
   next() {
-    return goTo(this.journey.steps.End);
+    return action(this.sendToAPI)
+      .then(goTo(this.journey.steps.End))
+      .onFailure();
   }
 }
 

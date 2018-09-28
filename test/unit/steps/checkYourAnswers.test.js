@@ -3,7 +3,6 @@ const CheckYourAnswers = require(modulePath);
 const End = require('steps/end/End.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const { getUserData } = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -17,11 +16,11 @@ describe(modulePath, () => {
 
   it('has idam.protect and user data middleware', () => {
     CheckYourAnswers.journey = { collectSteps: {} };
-    return middleware.hasMiddleware(CheckYourAnswers, [idam.protect(), getUserData]);
+    return middleware.hasMiddleware(CheckYourAnswers, [idam.protect()]);
   });
 
   it('redirects to next page if statement of true answered', () => {
-    const fields = { statementOfTruth: 'yes' };
+    const fields = { respStatementOfTruth: 'yes' };
     return question.redirectWithField(CheckYourAnswers, fields, End);
   });
 

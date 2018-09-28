@@ -7,30 +7,28 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ChooseAResponse.content');
 
-const proceed = 'proceed';
-const disagree = 'disagree';
-
 class ChooseAResponse extends Question {
   static get path() {
     return config.paths.chooseAResponse;
   }
 
   get form() {
-    const answers = [proceed, disagree];
+    const answers = ['yes', 'no'];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const response = text.joi(this.content.errors.required, validAnswers);
+    const respDefendsDivorce = text
+      .joi(this.content.errors.required, validAnswers);
 
-    return form({ response });
+    return form({ respDefendsDivorce });
   }
 
   answers() {
     const question = content.en.title;
     return answer(this, {
       question,
-      answer: this.fields.response.value === proceed ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
+      answer: this.fields.respDefendsDivorce.value === 'yes' ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
     });
   }
 
