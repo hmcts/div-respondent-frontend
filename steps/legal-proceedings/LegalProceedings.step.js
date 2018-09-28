@@ -43,6 +43,19 @@ class LegalProceedings extends Question {
     return form({ legalProceedings });
   }
 
+  values() {
+    const exists = this.fields.legalProceedings.exists.value;
+    const details = this.fields.legalProceedings.details.value;
+
+    const values = { respLegalProceedingsExist: exists };
+
+    if (exists === yes) {
+      values.respLegalProceedingsDescription = details;
+    }
+
+    return values;
+  }
+
   answers() {
     const answers = [];
 
