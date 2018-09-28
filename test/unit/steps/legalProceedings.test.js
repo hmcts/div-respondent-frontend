@@ -2,7 +2,7 @@ const modulePath = 'steps/legal-proceedings/LegalProceedings.step';
 const LegalProceedings = require(modulePath);
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -33,6 +33,59 @@ describe(modulePath, () => {
     };
 
     return question.redirectWithField(LegalProceedings, fields, CheckYourAnswers);
+  });
+
+  it('legal proceedings is yes value should contain details', () => {
+    const legalProceedingsExists = 'yes';
+    const respLegalProceedingsDescription = 'Legal Proceedings';
+
+    const fields = {
+      legalProceedings: {
+        exists: legalProceedingsExists,
+        details: respLegalProceedingsDescription
+      }
+    };
+
+    const req = {
+      journey: {},
+      session: { LegalProceedings: fields }
+    };
+
+    const res = {};
+    const step = new LegalProceedings(req, res);
+    step.retrieve().validate();
+
+    const _values = step.values();
+    expect(_values).to.be.an('object');
+    expect(_values).to.have.property('respLegalProceedingsExist', legalProceedingsExists);
+    expect(_values).to.have.property('respLegalProceedingsDescription',
+      respLegalProceedingsDescription);
+  });
+
+  it('legal proceedings is yes value should contain details', () => {
+    const legalProceedingsExists = 'no';
+    const respLegalProceedingsDescription = 'Legal Proceedings';
+
+    const fields = {
+      legalProceedings: {
+        exists: legalProceedingsExists,
+        details: respLegalProceedingsDescription
+      }
+    };
+
+    const req = {
+      journey: {},
+      session: { LegalProceedings: fields }
+    };
+
+    const res = {};
+    const step = new LegalProceedings(req, res);
+    step.retrieve().validate();
+
+    const _values = step.values();
+    expect(_values).to.be.an('object');
+    expect(_values).to.have.property('respLegalProceedingsExist', legalProceedingsExists);
+    expect(_values).to.not.have.property('respLegalProceedingsDescription');
   });
 
   it('redirects to next page on legal proceedings is no', () => {
