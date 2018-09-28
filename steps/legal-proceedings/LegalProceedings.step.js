@@ -61,7 +61,7 @@ class LegalProceedings extends Question {
 
     answers.push(answer(this, {
       question: content.en.cya.question,
-      answer: this.fields.legalProceedings.exists.value === yes ? content.en.fields.no.answer : content.en.fields.no.answer
+      answer: this.fields.legalProceedings.exists.value === yes ? content.en.fields.yes.answer : content.en.fields.no.answer
     }));
 
     if (this.fields.legalProceedings.exists.value === yes) {
