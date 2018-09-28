@@ -83,11 +83,22 @@ describe(modulePath, () => {
     });
   });
 
+  it('renders auth error from link case API call', () => {
+    return content(CaptureCaseAndPin, { authError: false }, {
+      specificContent: [
+        'thereWasAProblem',
+        'referenceNumberOrPinDoNotMatch'
+      ]
+    });
+  });
+
   it('renders the content', () => {
     return content(CaptureCaseAndPin, {}, {
       ignoreContent: [
         'continue',
-        'backLink'
+        'backLink',
+        'thereWasAProblem',
+        'referenceNumberOrPinDoNotMatch'
       ]
     });
   });

@@ -41,7 +41,7 @@ class CaptureCaseAndPin extends Question {
   next() {
     return action(caseOrchestration.linkCase)
       .then(goTo(this.journey.steps.Respond))
-      .onFailure();
+      .onFailure(goTo(this));
   }
 
   get middleware() {

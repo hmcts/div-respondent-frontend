@@ -38,9 +38,18 @@ function loginAsCaseCompletedUser() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsInvalidPinUser() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseNotLinkedAndInvalidPin);
+  I.click(commonContent.en.continue);
+}
+
+
 module.exports = {
   seeIdamLoginPage,
   login,
   loginAsANonLinkedUser,
-  loginAsCaseCompletedUser
+  loginAsCaseCompletedUser,
+  loginAsInvalidPinUser
 };

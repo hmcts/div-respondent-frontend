@@ -4,6 +4,8 @@ const logger = require('@hmcts/nodejs-logging')
   .Logger
   .getLogger(__filename);
 
+const FORBIDDEN = 403;
+
 const getPetition = req => {
   const uri = `${CONF.services.caseOrchestration.getPetitionUrl}?checkCcd=true`;
   const authTokenString = '__auth-token';
@@ -32,12 +34,17 @@ const linkCase = req => {
   const authTokenString = '__auth-token';
   const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
 
+  delete req.session.authError;
+
   const options = {
     uri,
     headers
   };
   return request.post(options)
     .catch(error => {
+      if (error.statusCode === FORBIDDEN) {
+        req.session.authError = true;
+      }
       logger.error(`Error linking petition to user: ${error}`);
       throw error;
     });

@@ -6,6 +6,8 @@
     "referenceNumberLabel": "This is a 16 digit number",
     "securityAccessCode": "Security access code",
     "securityAccessCodeLabel": "Your code is 6 characters long",
+    "thereWasAProblem": "There was a problem",
+    "referenceNumberOrPinDoNotMatch": "The Case ID and/or PIN was not recognised. Please re-enter. If the situation persists, please contact the court",
     "errors": {
       "referenceNumberRequired": "Enter the 16-digit case ID to continue",
       "referenceNumberDigitsOnly": "The case id is 16 digits and can only contain the numbers 1 to 9",
