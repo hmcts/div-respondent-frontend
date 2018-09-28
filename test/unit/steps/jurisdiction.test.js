@@ -2,7 +2,7 @@ const modulePath = 'steps/jurisdiction/Jurisdiction.step';
 const Jurisdiction = require(modulePath);
 const LegalProceedings = require('steps/legal-proceedings/LegalProceedings.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
 const defaultSession = {
   originalPetition: {
@@ -65,6 +65,66 @@ describe(modulePath, () => {
   it('redirects to next page on jurisdiction is yes', () => {
     const fields = { 'jurisdiction-agree': 'yes' };
     return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
+  });
+
+  it('jurisdiction is no, value should contain reason and country', () => {
+    const respJurisdictionAgree = 'no';
+    const respJurisdictionDisagreeReason = 'Disagree Proceedings';
+    const respJurisdictionRespCountryOfResidence = 'Country';
+
+    const fields = {
+      jurisdiction: {
+        agree: respJurisdictionAgree,
+        reason: respJurisdictionDisagreeReason,
+        country: respJurisdictionRespCountryOfResidence
+      }
+    };
+
+    const req = {
+      journey: {},
+      session: { Jurisdiction: fields }
+    };
+
+    const res = {};
+    const step = new Jurisdiction(req, res);
+    step.retrieve().validate();
+
+    const _values = step.values();
+    expect(_values).to.be.an('object');
+    expect(_values).to.have.property('respJurisdictionAgree', respJurisdictionAgree);
+    expect(_values).to.have.property('respJurisdictionDisagreeReason',
+      respJurisdictionDisagreeReason);
+    expect(_values).to.have.property('respJurisdictionRespCountryOfResidence',
+      respJurisdictionRespCountryOfResidence);
+  });
+
+  it('jurisdiction is yes, value should contain reason and country', () => {
+    const respJurisdictionAgree = 'yes';
+    const respJurisdictionDisagreeReason = 'Disagree Proceedings';
+    const respJurisdictionRespCountryOfResidence = 'Country';
+
+    const fields = {
+      jurisdiction: {
+        agree: respJurisdictionAgree,
+        reason: respJurisdictionDisagreeReason,
+        country: respJurisdictionRespCountryOfResidence
+      }
+    };
+
+    const req = {
+      journey: {},
+      session: { Jurisdiction: fields }
+    };
+
+    const res = {};
+    const step = new Jurisdiction(req, res);
+    step.retrieve().validate();
+
+    const _values = step.values();
+    expect(_values).to.be.an('object');
+    expect(_values).to.have.property('respJurisdictionAgree', respJurisdictionAgree);
+    expect(_values).to.not.have.property('respJurisdictionDisagreeReason');
+    expect(_values).to.not.have.property('respJurisdictionRespCountryOfResidence');
   });
 
   it('renders the content', () => {

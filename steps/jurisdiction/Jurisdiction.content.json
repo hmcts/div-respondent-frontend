@@ -11,9 +11,9 @@
 
     "jurisdictionConnectionBothResident": "both you and your {{ session.divorceWho }} are habitually resident",
     "jurisdictionConnectionOneResides": "you and your {{ session.divorceWho }} were both last habitually resident and one of you still lives here",
-    "jurisdictionConnectionRespondent": "your {{ session.divorceWho }} is habitually resident",
-    "jurisdictionConnectionPetitioner": "you’re habitually resident and have lived here for at least 12 months",
-    "jurisdictionConnectionPetitionerSixMonths": "you’re domiciled and habitually resident and have lived here for at least 6 months",
+    "jurisdictionConnectionRespondent": "you are habitually resident",
+    "jurisdictionConnectionPetitioner": "your {{ session.divorceWho }}  is habitually resident and has lived here for at least 12 months",
+    "jurisdictionConnectionPetitionerSixMonths": "your {{ session.divorceWho }} is domiciled and habitually resident and has lived here for at least 6 months",
     "jurisdictionConnectionBothDomiciled": "both you and your {{ session.divorceWho }} are domiciled",
     "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction, meaning either: no other court in any EU Member State has jurisdiction and either the applicant or the respondent is domiciled in England and Wales; or (for same sex couples only) the applicant or the respondent married each other in England and Wales, no other court in any EU Member State has jurisdiction, and it would be in the interests of justice for the court to assume jurisdiction in this case",
 
@@ -60,8 +60,8 @@
     },
     "errors": {
       "required": "Select ‘Yes’ if you agree to the jurisdiction",
-      "reasonRequired": "Enter the reason for not agreeing to Jurisdiction",
-      "countryRequired": "Enter the country you mainly live in"
+      "reasonRequired": "Provide a reason for why you don’t agree that the court has jurisdiction",
+      "countryRequired": "Enter the country which you mainly live in"
     }
   }
 }

@@ -60,6 +60,22 @@ class Jurisdiction extends Question {
     return form({ jurisdiction });
   }
 
+  values() {
+    const agree = this.fields.jurisdiction.agree.value;
+    const reason = this.fields.jurisdiction.reason.value;
+    const country = this.fields.jurisdiction.country.value;
+
+    const values = {};
+    values.respJurisdictionAgree = agree;
+
+    if (agree === no) {
+      values.respJurisdictionDisagreeReason = reason;
+      values.respJurisdictionRespCountryOfResidence = country;
+    }
+
+    return values;
+  }
+
   answers() {
     const answers = [];
 
