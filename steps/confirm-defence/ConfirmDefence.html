@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, selectionButton %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
 
 {% set title %}
     {{ content.title | safe }}
@@ -11,7 +11,6 @@
     <div id="confirm-defence">
 
         <p>{{ content.defenceFeeDetails | safe }}</p>
-        <p>{{ content.defenceCondition | safe }}</p>
 
         <div class="notice">
             <i class="icon icon-important">
@@ -38,8 +37,8 @@
         {% call formSection() %}
             {{ selectionButtons(fields.response, content.title,
                 options = [
-                    { label: content.fields.confirm.heading, value: "confirm" },
-                    { label: content.fields.changeResponse.heading, value: "changeResponse" }
+                    { label: content.fields.confirm.heading, value: content.fields.confirm.value },
+                    { label: content.fields.changeResponse.heading, value: content.fields.changeResponse.value }
                 ],
                 hint=false,
                 hideQuestion=true,

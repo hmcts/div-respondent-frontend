@@ -58,6 +58,7 @@ paths:
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
   confirmDefence: /confirm-defence
+  legalProceedings: /legal-proceedings
   checkYourAnswers: /check-your-answers
   end: /end
   entry: /entry

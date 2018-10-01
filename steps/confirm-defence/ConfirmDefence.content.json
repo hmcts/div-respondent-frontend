@@ -2,7 +2,6 @@
   "en": {
     "title": "Confirm that you intend to defend the divorce",
     "defenceFeeDetails": "You'l have to pay a fee and complete another form to defend the divorce. You both may have to attend a hearing where a judge will decide if the divorce should be granted.",
-    "defenceCondition": "Defending usually only delays a divorce rather than prevents it.",
     "legalAdviceWarn": "You should get legal advice if you're not sure.",
     "info": {
       "readMore": "Read more about defending",
@@ -19,10 +18,12 @@
     },
     "fields": {
       "confirm": {
-        "heading": "I confirm that I intend to defend the divorce"
+        "heading": "I confirm that I intend to defend the divorce",
+        "value": "confirm"
       },
       "changeResponse": {
-        "heading": "I want to change my response"
+        "heading": "I want to change my response",
+        "value": "changeResponse"
       }
     },
     "errors": {

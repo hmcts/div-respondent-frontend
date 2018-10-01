@@ -1,10 +1,10 @@
 const modulePath = 'steps/confirm-defence/ConfirmDefence.step.js';
 const ConfirmDefence = require(modulePath);
-const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
+const LegalProceedings = require('steps/legal-proceedings/LegalProceedings.step');
 const ChooseAResponse = require('steps/choose-a-response/ChooseAResponse.step');
+const confirmDefenceContent = require('steps/confirm-defence/ConfirmDefence.content');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const { getUserData } = require('middleware/ccd');
+const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -16,13 +16,13 @@ describe(modulePath, () => {
     idam.protect.restore();
   });
 
-  it('has idam.protect and userData middleware', () => {
-    return middleware.hasMiddleware(ConfirmDefence, [idam.protect(), getUserData]);
+  it('has idam.protect middleware', () => {
+    return middleware.hasMiddleware(ConfirmDefence, [idam.protect()]);
   });
 
   it('redirects to the check your answers page on confirmation', () => {
     const fields = { response: 'confirm' };
-    return question.redirectWithField(ConfirmDefence, fields, CheckYourAnswers);
+    return question.redirectWithField(ConfirmDefence, fields, LegalProceedings);
   });
 
   it('redirects to back to choose a response page on changing response', () => {
@@ -32,6 +32,25 @@ describe(modulePath, () => {
 
   it('shows error if question is not answered', () => {
     return question.testErrors(ConfirmDefence);
+  });
+
+  it('should have the answer object set correctly if user confirms', () => {
+    const req = {
+      journey: {},
+      session: {
+        ConfirmDefence: {
+          response: confirmDefenceContent.en.fields.confirm.value
+        }
+      }
+    };
+    const step = new ConfirmDefence(req, {});
+    step.retrieve()
+      .validate();
+
+    const answer = step.answers();
+    expect(answer.answer).to.equal(confirmDefenceContent.en.fields.confirm.heading);
+    expect(answer.question).to.equal(confirmDefenceContent.en.title);
+    expect(answer.hide).to.equal(true);
   });
 
   it('renders the content', () => {
