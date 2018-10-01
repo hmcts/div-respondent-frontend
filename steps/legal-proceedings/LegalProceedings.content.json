@@ -1,0 +1,45 @@
+{
+  "en": {
+    "title": "Other legal proceedings outside of England and Wales",
+    "cya": {
+      "question": "Have you ever been involved in any court cases relating to your marriage, property or children?",
+      "details": "Details of the court cases"
+    },
+    "summary": "The court needs to know if there are currently any legal proceedings in a court, tribunal or other authority which are either:",
+    "info": {
+      "options" : {
+        "relatedToMarriage" : "related to the marriage",
+        "affectsValidity": "may affect its validity (how legally binding the marriage is)"
+      }
+    },
+    "question": "Are there any other legal proceedings the court needs to know about?",
+    "fields": {
+      "yes": {
+        "heading": "Yes",
+        "answer": "Yes",
+        "details" : {
+          "title" : "Provide further details",
+          "summary" : "You should try to include:",
+          "includes" : {
+            "caseNumbers": "case numbers",
+            "aboutWhat": "what they are about",
+            "namesInvolved": "names of those involved",
+            "courtDetails": "name of the court, the tribunal, and/or the authority",
+            "country": "the country it's in",
+            "dates": "date that the proceedings began and of any future hearings",
+            "others": "anything else that might affect the application for divorce"
+          },
+          "caseDetails": "Details of the court cases"
+        }
+      },
+      "no": {
+        "heading": "No",
+        "answer": "No"
+      }
+    },
+    "errors": {
+      "required": "Select ‘No’ if there aren’t any legal proceedings the court needs to know about.",
+      "requireCaseDetails": "Enter details about the court cases"
+    }
+  }
+}
