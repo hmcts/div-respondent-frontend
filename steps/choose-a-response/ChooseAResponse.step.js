@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { getUserData } = require('middleware/ccd');
 const Joi = require('joi');
@@ -40,8 +40,11 @@ class ChooseAResponse extends Question {
   }
 
   next() {
-    const nextStep = this.fields.response.value === proceed ? this.journey.steps.CheckYourAnswers : this.journey.steps.ConfirmDefence;
-    return redirectTo(nextStep);
+    const proceedWithDivorce = this.fields.response.value === proceed;
+    return branch(
+      redirectTo(this.journey.steps.CheckYourAnswers).if(proceedWithDivorce),
+      redirectTo(this.journey.steps.ConfirmDefence)
+    );
   }
 }
 

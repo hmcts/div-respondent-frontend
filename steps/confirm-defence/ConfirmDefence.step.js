@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { getUserData } = require('middleware/ccd');
 const Joi = require('joi');
@@ -42,8 +42,11 @@ class ConfirmDefence extends Question {
   }
 
   next() {
-    const nextStep = this.fields.response.value === confirm ? this.journey.steps.CheckYourAnswers : this.journey.steps.ChooseAResponse;
-    return redirectTo(nextStep);
+    const isConfirmed = this.fields.response.value === confirm;
+    return branch(
+      redirectTo(this.journey.steps.CheckYourAnswers).if(isConfirmed),
+      redirectTo(this.journey.steps.ChooseAResponse)
+    );
   }
 }
 
