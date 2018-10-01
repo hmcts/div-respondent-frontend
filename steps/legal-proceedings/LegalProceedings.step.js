@@ -22,7 +22,7 @@ class LegalProceedings extends Question {
       .required();
 
     const validateCaseDetails = ({ exists = '', details = '' }) => {
-      if (exists === 'yes' && !details.trim().length) {
+      if (exists === yes && !details.trim().length) {
         return false;
       }
 
