@@ -36,7 +36,7 @@ const loadMiniPetition = (req, res, next) => {
       } else if (response.statusCode === NOT_FOUND) {
         return res.redirect(CaptureCaseAndPin.path);
       } else if (response.statusCode >= ERROR_RESPONSE) {
-        return next(new Error(`Unexpected response code ${response.statusCode}`));
+        return next(new Error(`Unexpected response code while retrieving case: ${response.statusCode}`));
       }
       storePetitionInSession(req, response);
       return next();
