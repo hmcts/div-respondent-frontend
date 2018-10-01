@@ -1,0 +1,61 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorsFor %}
+
+{% set title %}
+{{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+<div id="legal-proceedings">
+
+  <p>{{ content.summary | safe }}</p>
+
+  <ul class="bullet list-bullet">
+    <li>{{ content.info.options.relatedToMarriage | safe }}</li>
+    <li>{{ content.info.options.affectsValidity | safe }}</li>
+  </ul>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.legalProceedings.exists, content.question,
+        options = [
+        { label: content.fields.yes.heading, value: "yes", target: "case-details" },
+        { label: content.fields.no.heading, value: "no" }
+        ],
+        hideQuestion=false,
+        inline=true,
+        type='radio'
+      )
+    }}
+
+    <div id="case-details" class="panel js-hidden">
+
+      <h4 class="heading-small">{{ content.fields.yes.details.title | safe }}</h4>
+
+      <p class="text">
+        {{ content.fields.yes.details.summary | safe }}
+      </p>
+
+      <ul class="list list-bullet">
+        <li>{{ content.fields.yes.details.includes.caseNumbers | safe }}</li>
+        <li>{{ content.fields.yes.details.includes.aboutWhat | safe }}</li>
+        <li>{{ content.fields.yes.details.includes.namesInvolved | safe }}</li>
+        <li>{{ content.fields.yes.details.includes.courtDetails | safe }}</li>
+        <li>{{ content.fields.yes.details.includes.country | safe }}</li>
+        <li>{{ content.fields.yes.details.includes.dates | safe }}</li>
+        <li>{{ content.fields.yes.details.includes.others | safe }}</li>
+      </ul>
+
+      <label class="form-label-bold" for="{{ fields.legalProceedings.details.id }}" >
+        {{ content.fields.yes.details.caseDetails | safe }}
+      </label>
+      {{ errorsFor(fields.legalProceedings.details) }}
+      <textarea class="form-control case-details" id="{{ fields.legalProceedings.details.id }}" rows="4"
+                name="{{ fields.legalProceedings.details.name }}">{{ fields.legalProceedings.details.value | default('') }}</textarea>
+
+    </div>
+  {% endcall %}
+</div>
+
+{% endblock %}

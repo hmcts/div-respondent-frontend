@@ -40,7 +40,7 @@ class ChooseAResponse extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.CheckYourAnswers);
+    return goTo(this.journey.steps.LegalProceedings);
   }
 }
 
