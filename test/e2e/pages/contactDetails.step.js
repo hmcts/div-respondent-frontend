@@ -1,5 +1,5 @@
-const ContactDetails = require('steps/contact-details/AgreeToPayCosts.step');
-const content = require('steps/agree-to-pay-costs/AgreeToPayCosts.content');
+const ContactDetails = require('steps/contact-details/ContactDetails.step');
+const content = require('steps/contact-details/ContactDetails.content');
 
 function seeContactDetailsPage() {
   const I = this;
@@ -9,15 +9,15 @@ function seeContactDetailsPage() {
 }
 
 function enterPhoneNumber() {
-  this.fillField(content.en.fields.content.heading, '07557277522');
+  this.fillField('#contentDetails-phoneNo', '07557277522');
 }
 
-function consentToSendNotifications() {
+function consentToSendingNotifications() {
   this.click(content.en.fields.agree.heading);
 }
 
 module.exports = {
   seeContactDetailsPage,
   enterPhoneNumber,
-  consentToSendNotifications
+  consentToSendingNotifications
 };

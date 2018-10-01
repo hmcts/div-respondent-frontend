@@ -26,8 +26,8 @@
       }
     },
     "errors": {
-      "requireValidPhoneNo": "Please enter a valid phone number",
-      "requireConsent": "Select ‘Yes’ to give consent to receive notifications."
+      "requireValidPhoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
+      "requireConsent": "You must agree to receive notifications and court documents by email to use this service."
     }
   }
 }

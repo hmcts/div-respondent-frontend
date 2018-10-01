@@ -1,8 +1,9 @@
 const modulePath = 'steps/agree-to-pay-costs/AgreeToPayCosts.step';
 const AgreeToPayCosts = require(modulePath);
-const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
+const ContactDetails = require('steps/contact-details/ContactDetails.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
+const AgreeToPayCostsContent = require('steps/agree-to-pay-costs/AgreeToPayCosts.content');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -99,6 +100,65 @@ describe(modulePath, () => {
     expect(_values).to.have.property('respCostsReason', respCostsReason);
   });
 
+  it('returns correct answers if answered yes', () => {
+    const expectedContent = [
+      AgreeToPayCostsContent.en.cya.agree,
+      AgreeToPayCostsContent.en.fields.agree.answer
+    ];
+
+    const stepData = {
+      agreeToPayCosts: {
+        agree: 'yes'
+      }
+    };
+
+    return question.answers(AgreeToPayCosts, stepData, expectedContent, {});
+  });
+
+  it('returns correct answers if answered no', () => {
+    const noReason = 'noReason';
+
+    const expectedContent = [
+      AgreeToPayCostsContent.en.cya.agree,
+      AgreeToPayCostsContent.en.fields.disagree.answer,
+      AgreeToPayCostsContent.en.cya.noReason,
+      noReason
+    ];
+
+    const stepData = {
+      agreeToPayCosts: {
+        agree: 'no',
+        noReason
+      }
+    };
+
+    return question.answers(AgreeToPayCosts, stepData, expectedContent, {});
+  });
+
+  it('returns correct answers if answered no', () => {
+    const newAmount = 'New Amount';
+    const newAmountReason = 'New Amount Reason';
+
+    const expectedContent = [
+      AgreeToPayCostsContent.en.cya.agree,
+      AgreeToPayCostsContent.en.fields.differentAmount.answer,
+      AgreeToPayCostsContent.en.cya.newAmount,
+      newAmount,
+      AgreeToPayCostsContent.en.cya.newAmountReason,
+      newAmountReason
+    ];
+
+    const stepData = {
+      agreeToPayCosts: {
+        agree: 'differentAmount',
+        newAmount,
+        newAmountReason
+      }
+    };
+
+    return question.answers(AgreeToPayCosts, stepData, expectedContent, {});
+  });
+
   it('shows error when does not agree to cost and reason not supplied', () => {
     const fields = { 'agreeToPayCosts-agree': 'no' };
 
@@ -154,7 +214,7 @@ describe(modulePath, () => {
       'agreeToPayCosts-agree': 'yes'
     };
 
-    return question.redirectWithField(AgreeToPayCosts, fields, CheckYourAnswers);
+    return question.redirectWithField(AgreeToPayCosts, fields, ContactDetails);
   });
 
   it('redirects to next page when not agreed to pay costs and reason supplied', () => {
@@ -163,7 +223,7 @@ describe(modulePath, () => {
       'agreeToPayCosts-noReason': 'Reason'
     };
 
-    return question.redirectWithField(AgreeToPayCosts, fields, CheckYourAnswers);
+    return question.redirectWithField(AgreeToPayCosts, fields, ContactDetails);
   });
 
   it('redirects to next page when agreed to pay new Amount and details supplied', () => {
@@ -173,7 +233,7 @@ describe(modulePath, () => {
       'agreeToPayCosts-newAmountReason': 'Reason'
     };
 
-    return question.redirectWithField(AgreeToPayCosts, fields, CheckYourAnswers);
+    return question.redirectWithField(AgreeToPayCosts, fields, ContactDetails);
   });
 
   it('renders the content', () => {
