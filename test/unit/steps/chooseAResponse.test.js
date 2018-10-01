@@ -1,6 +1,6 @@
 const modulePath = 'steps/choose-a-response/ChooseAResponse.step';
 const ChooseAResponse = require(modulePath);
-const LegalProceedings = require('steps/legal-proceedings/LegalProceedings.step');
+const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const { getUserData } = require('middleware/ccd');
@@ -21,7 +21,7 @@ describe(modulePath, () => {
 
   it('redirects to next page on success', () => {
     const fields = { response: 'proceed' };
-    return question.redirectWithField(ChooseAResponse, fields, LegalProceedings);
+    return question.redirectWithField(ChooseAResponse, fields, Jurisdiction);
   });
 
   it('shows error if question is not answered', () => {
