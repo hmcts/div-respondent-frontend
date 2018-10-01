@@ -5,7 +5,7 @@ const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTempl
 const httpStatus = require('http-status-codes');
 const fs = require('fs');
 const path = require('path');
-const loadMiniPetition = require('middleware/loadMiniPetition');
+const petitionMiddleware = require('middleware/petitionMiddleware');
 const caseOrchestration = require('services/caseOrchestration');
 
 // Get the mocked session from file
@@ -77,7 +77,7 @@ steps
       let warnings = [];
 
       before(() => {
-        sinon.stub(loadMiniPetition, 'loadMiniPetition')
+        sinon.stub(petitionMiddleware, 'loadMiniPetition')
           .callsFake(middleware.nextMock);
         sinon.stub(caseOrchestration, 'getPetition')
           .resolves(middleware.nextMock);
@@ -93,7 +93,7 @@ steps
       });
       after(() => {
         caseOrchestration.getPetition.restore();
-        loadMiniPetition.loadMiniPetition.restore();
+        petitionMiddleware.loadMiniPetition.restore();
       });
 
       it('should not have any html errors', () => {

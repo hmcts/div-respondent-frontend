@@ -1,6 +1,6 @@
-const modulePath = 'middleware/loadMiniPetition';
+const modulePath = 'middleware/petitionMiddleware';
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
-const { loadMiniPetition } = require(modulePath);
+const { loadMiniPetition: petitionMiddleware } = require(modulePath);
 const caseOrchestration = require('services/caseOrchestration');
 
 describe(modulePath, () => {
@@ -22,7 +22,7 @@ describe(modulePath, () => {
       });
 
     // when
-    loadMiniPetition(req, res, next)
+    petitionMiddleware(req, res, next)
       .then(() => {
         expect(caseOrchestration.getPetition.calledOnce).to.be.true;
         expect(res.redirect.calledOnce).to.be.true;
@@ -47,7 +47,7 @@ describe(modulePath, () => {
       });
 
     // when
-    loadMiniPetition(req, res, next)
+    petitionMiddleware(req, res, next)
       .then(() => {
         expect(caseOrchestration.getPetition.calledOnce).to.be.true;
         expect(res.redirect.calledOnce).to.be.true;
@@ -67,7 +67,7 @@ describe(modulePath, () => {
       });
 
     // when
-    loadMiniPetition(req, res, next)
+    petitionMiddleware(req, res, next)
       .then(() => {
         expect(caseOrchestration.getPetition.calledOnce).to.be.true;
         expect(next.calledOnce).to.be.true;
@@ -113,7 +113,7 @@ describe(modulePath, () => {
       done();
     };
 
-    loadMiniPetition(req, {}, next);
+    petitionMiddleware(req, {}, next);
   });
   it('sets the case id and court name', done => {
     const req = {
@@ -152,6 +152,6 @@ describe(modulePath, () => {
       done();
     };
 
-    loadMiniPetition(req, {}, next);
+    petitionMiddleware(req, {}, next);
   });
 });
