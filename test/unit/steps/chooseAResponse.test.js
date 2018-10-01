@@ -21,7 +21,6 @@ describe(modulePath, () => {
   it('redirects to next page on success', () => {
     const fields = { respDefendsDivorce: 'yes' };
     return question.redirectWithField(ChooseAResponse, fields, Jurisdiction);
-
   });
 
   it('shows error if question is not answered', () => {
