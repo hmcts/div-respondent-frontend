@@ -1,3 +1,5 @@
+/* eslint-disable no-process-env */
+
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
@@ -31,22 +33,9 @@ exports.config = {
   include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
-      'codeceptjs-cli-reporter': {
-        stdout: '-',
-        options: { steps: true }
-      },
-      'mocha-junit-reporter': {
-        stdout: '-',
-        options: { mochaFile: `${config.tests.e2e.outputDir}/result.xml` }
-      },
-      mochawesome: {
-        stdout: `${config.tests.e2e.outputDir}/console.log`,
-        options: {
-          reportDir: config.tests.e2e.outputDir,
-          reportName: 'index',
-          inlineAssets: true
-        }
-      }
+      reportDir: process.env.E2E_OUTPUT_DIR || './functional-output',
+      reportName: 'RespondentFrontendTests',
+      inlineAssets: true
     }
   },
   plugins: {
