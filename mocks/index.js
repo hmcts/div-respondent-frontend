@@ -12,8 +12,10 @@ const sslOptions = {
 mockserver.headers = ['Authorization'];
 
 function startCaseOrchestrationMock() {
+  // This is a file-based mock server for local development/local E2E tests
   const port = 3001;
-  https.createServer(sslOptions, mockserver('mocks/services/orchestration', true))
+  const mocksPath = 'mocks/services/case-orchestration';
+  https.createServer(sslOptions, mockserver(mocksPath, true))
     .listen(port);
 }
 
