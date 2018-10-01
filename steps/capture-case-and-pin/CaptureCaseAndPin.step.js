@@ -15,27 +15,37 @@ class CaptureCaseAndPin extends Question {
 
   get form() {
     return form({
-      referenceNumber: text
-        .joi(
-          this.content.errors.referenceNumberRequired,
-          Joi.string()
-            .min(referenceNumberMinLength)
-            .required())
-        .joi(
-          this.content.errors.referenceNumberDigitsOnly,
-          Joi.number()
-            .integer()
-        ),
-      securityAccessCode: text.joi(
-        this.content.errors.securityAccessCodeRequired,
-        Joi.string()
-          .required())
-        .joi(
-          this.content.errors.securityAccessCodeDigitsOnly,
-          Joi.number()
-            .integer()
-        )
+      referenceNumber: this.buildReferenceNumberValidation(),
+      securityAccessCode: this.buildSecurityAccessCodeValidation()
     });
+  }
+
+  buildReferenceNumberValidation() {
+    const errors = this.content.errors;
+    return text
+      .joi(
+        errors.referenceNumberRequired,
+        Joi.string()
+          .min(referenceNumberMinLength)
+          .required())
+      .joi(
+        errors.referenceNumberDigitsOnly,
+        Joi.number()
+          .integer()
+      );
+  }
+
+  buildSecurityAccessCodeValidation() {
+    const errors = this.content.errors;
+    return text.joi(
+      errors.securityAccessCodeRequired,
+      Joi.string()
+        .required())
+      .joi(
+        errors.securityAccessCodeDigitsOnly,
+        Joi.number()
+          .integer()
+      );
   }
 
   next() {
