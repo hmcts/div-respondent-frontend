@@ -20,6 +20,9 @@ Scenario('Proceed with divorce', I => {
   I.seeLegalProceedingPage();
   I.chooseNoLegalProceedings();
   I.click(content.en.continue);
+  I.seeAgreeToPayCostsPage();
+  I.chooseAgreeToPay();
+  I.click(content.en.continue);
   I.seeCheckYourAnswersPage();
   I.submitApplication();
   I.amOnLoadedPage('/end');

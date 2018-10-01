@@ -1,0 +1,98 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorsFor %}
+
+{% set title %}
+{{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+<div id="agree-to-pay-costs">
+  <p>{{ content.summary1 | safe }}</p>
+  <p>{{ content.summary2 | safe }}</p>
+
+  <div class="notice">
+    <i class="icon icon-important">
+      <span class="visually-hidden">Warning</span>
+    </i>
+    <strong class="bold-small">
+      {{ content.notice | safe }}
+    </strong>
+  </div>
+
+  <br/>
+
+  <details>
+    <summary>
+      <span class="summary">{{ content.info.heading | safe }}</span>
+    </summary>
+
+    <div class="panel panel-border-narrow">
+      <h2 class="heading-small">{{ content.info.options.amountToPay.heading | safe }}</h2>
+      <p class="text">{{ content.info.options.amountToPay.summary | safe }}</p>
+
+      <h2 class="heading-small">{{ content.info.options.whatNow.heading | safe }}</h2>
+      <p class="text">{{ content.info.options.whatNow.summary1 | safe }}</p>
+      <p class="text">{{ content.info.options.whatNow.summary2 | safe }}</p>
+      <p class="text">{{ content.info.options.whatNow.summary3 | safe }}</p>
+
+      <h2 class="heading-small">{{ content.info.options.doNotAcceptCost.heading | safe }}</h2>
+      <p class="text">{{ content.info.options.doNotAcceptCost.summary | safe }}</p>
+    </div>
+  </details>
+
+  <h2 class="heading-medium">{{ content.question | safe }}</h2>
+  {% call formSection() %}
+
+    {{ selectionButton(fields.agreeToPayCosts.agree,
+        option =
+          { label: content.fields.agree.heading, value: "yes" },
+        type='radio'
+      )
+    }}
+
+    {{ selectionButton(fields.agreeToPayCosts.agree,
+        option =
+          { label: content.fields.differentAmount.heading, value: "differentAmount", target: "different-amount" },
+        type='radio'
+      )
+    }}
+
+    <div id="different-amount" class="form-group panel js-hidden">
+      <div class="form-group">
+        <label class="form-label-bold" for="{{ fields.agreeToPayCosts.newAmount.id }}">{{ content.fields.differentAmount.newAmount | safe }}</label>
+        {{ errorsFor(fields.agreeToPayCosts.newAmount) }}
+        <span id="currency-symbol">{{ content.poundSymbol }}</span><input class="form-control" id="{{ fields.agreeToPayCosts.newAmount.id }}" name="{{ fields.agreeToPayCosts.newAmount.id }}" type="text" value="{{ fields.agreeToPayCosts.newAmount.value | default('') }}" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-bold" for="{{ fields.agreeToPayCosts.newAmountReason.id }}" >
+          {{ content.fields.differentAmount.reason | safe }}
+        </label>
+        {{ errorsFor(fields.agreeToPayCosts.newAmountReason) }}
+        <textarea class="form-control" id="{{ fields.agreeToPayCosts.newAmountReason.id }}" rows="4"
+                  name="{{ fields.agreeToPayCosts.newAmountReason.name }}">{{ fields.agreeToPayCosts.newAmountReason.value | default('') }}</textarea>
+
+      </div>
+    </div>
+
+    {{ selectionButton(fields.agreeToPayCosts.agree,
+        option =
+          { label: content.fields.disagree.heading, value: "no", target: "do-not-accept" },
+        type='radio'
+      )
+    }}
+
+    <div id="do-not-accept" class="form-group panel js-hidden">
+
+      <label class="form-label-bold" for="{{ fields.agreeToPayCosts.noReason.id }}" >
+        {{ content.fields.disagree.reason | safe }}
+      </label>
+      {{ errorsFor(fields.agreeToPayCosts.noReason) }}
+      <textarea class="form-control" id="{{ fields.agreeToPayCosts.noReason.id }}" rows="4"
+                name="{{ fields.agreeToPayCosts.noReason.name }}">{{ fields.agreeToPayCosts.noReason.value | default('') }}</textarea>
+    </div>
+  {% endcall %}
+</div>
+{% endblock %}

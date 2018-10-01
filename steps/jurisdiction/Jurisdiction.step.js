@@ -26,7 +26,7 @@ class Jurisdiction extends Question {
       .required();
 
     const validateDisagreeReason = ({ agree = '', reason = '' }) => {
-      if (agree === 'no' && !reason.trim().length) {
+      if (agree === no && !reason.trim().length) {
         return false;
       }
 
@@ -34,7 +34,7 @@ class Jurisdiction extends Question {
     };
 
     const validateCountry = ({ agree = '', country = '' }) => {
-      if (agree === 'no' && !country.trim().length) {
+      if (agree === no && !country.trim().length) {
         return false;
       }
 
