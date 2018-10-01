@@ -2,7 +2,6 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
-const authenticated = require('middleware/authenticated');
 const loadMiniPetition = require('middleware/loadMiniPetition');
 
 class Respond extends Interstitial {
@@ -27,7 +26,6 @@ class Respond extends Interstitial {
     return [
       ...super.middleware,
       idam.protect(),
-      authenticated.captureCaseAndPin,
       loadMiniPetition.loadMiniPetition
     ];
   }

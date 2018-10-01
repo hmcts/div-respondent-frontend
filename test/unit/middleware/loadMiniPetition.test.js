@@ -1,28 +1,110 @@
 const modulePath = 'middleware/loadMiniPetition';
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition } = require(modulePath);
+const caseOrchestration = require('services/caseOrchestration');
 
 describe(modulePath, () => {
-  it('sets the oposite divorceWho if NOT same sex couple', done => {
+  afterEach(() => {
+    caseOrchestration.getPetition.restore();
+  });
+
+  it('redirects to capture case and pin if no case is found', done => {
+    // given
+    const req = sinon.stub();
+    const res = {
+      redirect: sinon.stub()
+    };
+    const next = sinon.stub();
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves({
+        statusCode: 404
+      });
+
+    // when
+    loadMiniPetition(req, res, next)
+      .then(() => {
+        expect(caseOrchestration.getPetition.calledOnce).to.be.true;
+        expect(res.redirect.calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
+  it('redirects to invalid case state page if case state is not AosStarted', done => {
+    // given
+    const req = sinon.stub();
+    const res = {
+      redirect: sinon.stub()
+    };
+    const next = sinon.stub();
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves({
+        statusCode: 200,
+        body: {
+          state: 'AosCompleted'
+        }
+      });
+
+    // when
+    loadMiniPetition(req, res, next)
+      .then(() => {
+        expect(caseOrchestration.getPetition.calledOnce).to.be.true;
+        expect(res.redirect.calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
+  it('throws an error on unexpected response', done => {
+    // given
+    const req = sinon.stub();
+    const res = sinon.stub();
+    const next = sinon.stub();
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves({
+        statusCode: 500
+      });
+
+    // when
+    loadMiniPetition(req, res, next)
+      .then(() => {
+        expect(caseOrchestration.getPetition.calledOnce).to.be.true;
+        expect(next.calledOnce).to.be.true;
+        expect(next.getCall(0).args[0])
+          .to
+          .be
+          .an('Error');
+      })
+      .then(done, done);
+  });
+
+  it('sets the opposite divorceWho if NOT same sex couple', done => {
     const req = {
       cookies: { '__auth-token': 'test' },
       get: sinon.stub(),
-      session: {
-        petition: {
-          caseId: 1234,
-          data: { // eslint-disable-line id-blacklist
-            marriageIsSameSexCouple: 'No',
-            divorceWho: 'husband',
-            courts: 'eastMidlands',
-            court: {
-              eastMidlands: {
-                divorceCentre: 'East Midlands Regional Divorce Centre'
-              }
+      session: {}
+    };
+
+    const response = {
+      statusCode: 200,
+      body: {
+        state: 'AosStarted',
+        caseId: 1234,
+        data: { // eslint-disable-line id-blacklist
+          marriageIsSameSexCouple: 'No',
+          divorceWho: 'husband',
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
             }
           }
         }
       }
     };
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves(response);
 
     const next = () => {
       expect(req.session.divorceWho)
@@ -37,22 +119,28 @@ describe(modulePath, () => {
     const req = {
       cookies: { '__auth-token': 'test' },
       get: sinon.stub(),
-      session: {
-        petition: {
-          caseId: 1234,
-          data: { // eslint-disable-line id-blacklist
-            marriageIsSameSexCouple: 'No',
-            divorceWho: 'husband',
-            courts: 'eastMidlands',
-            court: {
-              eastMidlands: {
-                divorceCentre: 'East Midlands Regional Divorce Centre'
-              }
+      session: {}
+    };
+
+    const response = {
+      statusCode: 200,
+      body: {
+        state: 'AosStarted',
+        caseId: 1234,
+        data: { // eslint-disable-line id-blacklist
+          marriageIsSameSexCouple: 'No',
+          divorceWho: 'husband',
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
             }
           }
         }
       }
     };
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves(response);
 
     const next = () => {
       expect(req.session.referenceNumber)
