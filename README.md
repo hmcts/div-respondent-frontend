@@ -26,6 +26,8 @@ Start application and required mocks:
 
 `yarn dev`
 
+`yarn mocks`
+
 Running tests:
 
 * Unit
