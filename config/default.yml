@@ -49,8 +49,8 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-      getPetitionUrl: https://localhost:3001/retrieve-aos-case
-      linkRespondentUrl: https://localhost:3001/link-respondent
+    getPetitionUrl: http://localhost:3001/retrieve-aos-case
+    linkRespondentUrl: http://localhost:3001/link-respondent
 paths:
   health: /health
   authenticated: /authenticated
