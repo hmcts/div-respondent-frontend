@@ -3,6 +3,7 @@ const Jurisdiction = require(modulePath);
 const LegalProceedings = require('steps/legal-proceedings/LegalProceedings.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
+const JurisdictionContent = require('steps/jurisdiction/Jurisdiction.content');
 
 const defaultSession = {
   originalPetition: {
@@ -81,6 +82,45 @@ describe(modulePath, () => {
     expect(_values).to.have.property('respJurisdictionAgree', respJurisdictionAgree);
     expect(_values).to.not.have.property('respJurisdictionDisagreeReason');
     expect(_values).to.not.have.property('respJurisdictionRespCountryOfResidence');
+  });
+
+  it('returns correct answers if answered yes', () => {
+    const expectedContent = [
+      JurisdictionContent.en.cya.agree,
+      JurisdictionContent.en.fields.agree.answer
+    ];
+
+    const stepData = {
+      jurisdiction: {
+        agree: 'yes'
+      }
+    };
+
+    return question.answers(Jurisdiction, stepData, expectedContent, defaultSession);
+  });
+
+  it('returns correct answers if answered no', () => {
+    const reason = 'reason';
+    const country = 'country';
+
+    const expectedContent = [
+      JurisdictionContent.en.cya.agree,
+      JurisdictionContent.en.fields.disagree.answer,
+      JurisdictionContent.en.cya.reason,
+      reason,
+      JurisdictionContent.en.cya.country,
+      country
+    ];
+
+    const stepData = {
+      jurisdiction: {
+        agree: 'no',
+        reason,
+        country
+      }
+    };
+
+    return question.answers(Jurisdiction, stepData, expectedContent, defaultSession);
   });
 
   it('shows error if question is not answered', () => {

@@ -3,6 +3,7 @@ const LegalProceedings = require(modulePath);
 const AgreeToPayCosts = require('steps/agree-to-pay-costs/AgreeToPayCosts.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
+const LegalProceedingsContent = require('steps/legal-proceedings/LegalProceedings.content');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -69,6 +70,41 @@ describe(modulePath, () => {
     expect(_values).to.be.an('object');
     expect(_values).to.have.property('respLegalProceedingsExist', legalProceedingsExists);
     expect(_values).to.not.have.property('respLegalProceedingsDescription');
+  });
+
+  it('returns correct answers if answered no', () => {
+    const expectedContent = [
+      LegalProceedingsContent.en.cya.question,
+      LegalProceedingsContent.en.fields.no.answer
+    ];
+
+    const stepData = {
+      legalProceedings: {
+        exists: 'no'
+      }
+    };
+
+    return question.answers(LegalProceedings, stepData, expectedContent, {});
+  });
+
+  it('returns correct answers if answered yes', () => {
+    const details = 'Details';
+
+    const expectedContent = [
+      LegalProceedingsContent.en.cya.question,
+      LegalProceedingsContent.en.fields.yes.answer,
+      LegalProceedingsContent.en.cya.details,
+      details
+    ];
+
+    const stepData = {
+      legalProceedings: {
+        exists: 'yes',
+        details
+      }
+    };
+
+    return question.answers(LegalProceedings, stepData, expectedContent, {});
   });
 
   it('shows error when legal proceedings is yes and case details not supplied', () => {
