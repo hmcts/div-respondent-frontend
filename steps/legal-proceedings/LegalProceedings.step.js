@@ -79,7 +79,13 @@ class LegalProceedings extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.CheckYourAnswers);
+    const costClaim = this.req.session.originalPetition.claimsCostsFrom;
+
+    if (costClaim && costClaim.includes('respondent')) {
+      return goTo(this.journey.steps.AgreeToPayCosts);
+    }
+
+    return goTo(this.journey.steps.ContactDetails);
   }
 }
 

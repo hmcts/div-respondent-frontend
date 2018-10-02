@@ -63,6 +63,8 @@ paths:
   chooseAResponse: /choose-a-response
   jurisdiction: /jurisdiction
   legalProceedings: /legal-proceedings
+  agreeToPayCosts: /agree-to-pay-costs
+  contactDetails: /contact-details
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
   end: /end
