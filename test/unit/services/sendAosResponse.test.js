@@ -10,9 +10,7 @@ const defaultEnv = CONF.environment;
 describe(modulePath, () => {
   const userToken = 'test';
   beforeEach(() => {
-    const superagentStub = {};
-    superagentStub.catch = () => {}; // eslint-disable-line no-empty-function
-    sinon.stub(request, 'post').returns(superagentStub);
+    sinon.stub(request, 'post').resolves({});
     CONF.environment = 'unittest';
   });
 
