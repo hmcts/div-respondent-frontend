@@ -29,7 +29,7 @@ class CheckYourAnswers extends CYA {
     });
   }
 
-  sendToAPI(req, res) { // eslint-disable-line no-unused-vars
+  sendToAPI(req) {
     const json = this.journey.values;
     return sendAosResponse(req, json);
   }
