@@ -29,10 +29,10 @@
         </details>
 
         {% call formSection() %}
-            {{ selectionButtons(fields.response, content.title,
+            {{ selectionButtons(fields.respDefendsDivorce, content.title,
                 options = [
-                    { label: content.fields.proceed.heading, value: "proceed", description: content.fields.proceed.summary },
-                    { label: content.fields.disagree.heading, value: "disagree", description: content.fields.disagree.summary }
+                    { label: content.fields.proceed.heading, value: "yes", description: content.fields.proceed.summary },
+                    { label: content.fields.disagree.heading, value: "no", description: content.fields.disagree.summary }
                 ],
                 hint=false,
                 hideQuestion=true,

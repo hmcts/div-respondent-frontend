@@ -24,10 +24,10 @@ class ReviewApplication extends Question {
       .valid(answers)
       .required();
 
-    const statementOfTruth = text
+    const respConfirmReadPetition = text
       .joi(this.content.errors.required, validAnswers);
 
-    return form({ statementOfTruth });
+    return form({ respConfirmReadPetition });
   }
 
   next() {
@@ -38,7 +38,7 @@ class ReviewApplication extends Question {
     const question = content.readConfirmationQuestion;
     return answer(this, {
       question,
-      answer: this.fields.statementOfTruth.value === yes ? content.readConfirmationYes : content.readConfirmationNo
+      answer: this.fields.respConfirmReadPetition.value === yes ? content.readConfirmationYes : content.readConfirmationNo
     });
   }
 
