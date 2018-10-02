@@ -42,7 +42,7 @@ class ChooseAResponse extends Question {
   next() {
     const proceedWithDivorce = this.fields.response.value === proceed;
     return branch(
-      redirectTo(this.journey.steps.LegalProceedings).if(proceedWithDivorce),
+      redirectTo(this.journey.steps.Jurisdiction).if(proceedWithDivorce),
       redirectTo(this.journey.steps.ConfirmDefence)
     );
   }

@@ -58,6 +58,7 @@ paths:
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
   confirmDefence: /confirm-defence
+  jurisdiction: /jurisdiction
   legalProceedings: /legal-proceedings
   checkYourAnswers: /check-your-answers
   end: /end
@@ -68,7 +69,7 @@ paths:
 tests:
   e2e:
     waitForTimeout: 10000
-    waitForAction: 1000
+    waitForAction: 10000
     smartWait: 5000
     outputDir: ../../functional-output
     idam:

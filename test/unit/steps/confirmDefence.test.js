@@ -1,6 +1,6 @@
 const modulePath = 'steps/confirm-defence/ConfirmDefence.step.js';
 const ConfirmDefence = require(modulePath);
-const LegalProceedings = require('steps/legal-proceedings/LegalProceedings.step');
+const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const ChooseAResponse = require('steps/choose-a-response/ChooseAResponse.step');
 const confirmDefenceContent = require('steps/confirm-defence/ConfirmDefence.content');
 const idam = require('services/idam');
@@ -22,7 +22,7 @@ describe(modulePath, () => {
 
   it('redirects to the check your answers page on confirmation', () => {
     const fields = { response: 'confirm' };
-    return question.redirectWithField(ConfirmDefence, fields, LegalProceedings);
+    return question.redirectWithField(ConfirmDefence, fields, Jurisdiction);
   });
 
   it('redirects to back to choose a response page on changing response', () => {

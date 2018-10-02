@@ -46,7 +46,7 @@ class ConfirmDefence extends Question {
   next() {
     const isConfirmed = this.fields.response.value === confirm;
     return branch(
-      redirectTo(this.journey.steps.LegalProceedings).if(isConfirmed),
+      redirectTo(this.journey.steps.Jurisdiction).if(isConfirmed),
       redirectTo(this.journey.steps.ChooseAResponse)
     );
   }

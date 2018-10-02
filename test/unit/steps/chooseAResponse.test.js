@@ -1,6 +1,6 @@
 const modulePath = 'steps/choose-a-response/ChooseAResponse.step';
 const ChooseAResponse = require(modulePath);
-const LegalProceedings = require('steps/legal-proceedings/LegalProceedings.step');
+const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const ConfirmDefence = require('steps/confirm-defence/ConfirmDefence.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -22,7 +22,7 @@ describe(modulePath, () => {
 
   it('redirects to check your answers page when proceeding with divorce', () => {
     const fields = { response: 'proceed' };
-    return question.redirectWithField(ChooseAResponse, fields, LegalProceedings);
+    return question.redirectWithField(ChooseAResponse, fields, Jurisdiction);
   });
 
   it('redirects to confirm defence page when disagreeing with divorce', () => {
