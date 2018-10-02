@@ -55,6 +55,15 @@ describe(modulePath, () => {
       const onlyErrors = ['referenceNumberRequired'];
       return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
+
+    it('is more than 16 digits', () => {
+      const answers = {
+        referenceNumber: `${validReferenceNumber}1`,
+        securityAccessCode: validSecurityAccessCode
+      };
+      const onlyErrors = ['referenceNumberRequired'];
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
+    });
     it('contains a non-digit character', () => {
       const answers = {
         referenceNumber: '123456789012345A',

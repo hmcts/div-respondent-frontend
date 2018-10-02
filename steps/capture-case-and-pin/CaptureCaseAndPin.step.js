@@ -26,7 +26,7 @@ class CaptureCaseAndPin extends Question {
       .joi(
         errors.referenceNumberRequired,
         Joi.string()
-          .min(referenceNumberMinLength)
+          .length(referenceNumberMinLength)
           .required())
       .joi(
         errors.referenceNumberDigitsOnly,
