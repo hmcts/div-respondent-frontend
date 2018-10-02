@@ -8,12 +8,12 @@ function seeContactDetailsPage() {
   I.see(content.en.title);
 }
 
-function enterPhoneNumber() {
-  this.fillField('#contentDetails-phoneNo', '07557277522');
+function enterPhoneNumber(phoneNo = '07557277522') {
+  this.fillField('#contactDetails-phoneNo', phoneNo);
 }
 
 function consentToSendingNotifications() {
-  this.click(content.en.fields.agree.heading);
+  this.click(content.en.fields.consent.heading);
 }
 
 module.exports = {
