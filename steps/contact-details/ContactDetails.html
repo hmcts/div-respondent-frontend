@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textbox %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -18,11 +18,7 @@
       <input class="form-control" id="emailAddress" name="emailAddress" disabled type="text" value="{{ session.originalPetition.respondentEmailAddress }}" />
     </div>
 
-    <div class="form-group">
-      {{ errorsFor(fields.contactDetails.phoneNo) }}
-      <label class="form-label-bold" for="{{ fields.contactDetails.phoneNo.id }}">{{ content.fields.enterPhoneNo.label | safe }}</label>
-      <input class="form-control" id="{{ fields.contactDetails.phoneNo.id }}" name="{{ fields.contactDetails.phoneNo.id }}" type="text" value="{{ fields.contactDetails.phoneNo.value | default('') }}" />
-    </div>
+    {{ textbox(fields.contactDetails.phoneNo, content.fields.enterPhoneNo.label) }}
 
     <div class="confirmation-block">
       {{

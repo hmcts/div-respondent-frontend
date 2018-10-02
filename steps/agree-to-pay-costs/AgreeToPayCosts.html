@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorsFor, textarea %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -66,15 +66,7 @@
         <span id="currency-symbol">{{ content.poundSymbol }}</span><input class="form-control" id="{{ fields.agreeToPayCosts.newAmount.id }}" name="{{ fields.agreeToPayCosts.newAmount.id }}" type="text" value="{{ fields.agreeToPayCosts.newAmount.value | default('') }}" />
       </div>
 
-      <div class="form-group">
-        <label class="form-label-bold" for="{{ fields.agreeToPayCosts.newAmountReason.id }}" >
-          {{ content.fields.differentAmount.reason | safe }}
-        </label>
-        {{ errorsFor(fields.agreeToPayCosts.newAmountReason) }}
-        <textarea class="form-control" id="{{ fields.agreeToPayCosts.newAmountReason.id }}" rows="4"
-                  name="{{ fields.agreeToPayCosts.newAmountReason.name }}">{{ fields.agreeToPayCosts.newAmountReason.value | default('') }}</textarea>
-
-      </div>
+      {{ textarea(fields.agreeToPayCosts.newAmountReason, content.fields.differentAmount.reason) }}
     </div>
 
     {{ selectionButton(fields.agreeToPayCosts.agree,
@@ -85,13 +77,7 @@
     }}
 
     <div id="do-not-accept" class="form-group panel js-hidden">
-
-      <label class="form-label-bold" for="{{ fields.agreeToPayCosts.noReason.id }}" >
-        {{ content.fields.disagree.reason | safe }}
-      </label>
-      {{ errorsFor(fields.agreeToPayCosts.noReason) }}
-      <textarea class="form-control" id="{{ fields.agreeToPayCosts.noReason.id }}" rows="4"
-                name="{{ fields.agreeToPayCosts.noReason.name }}">{{ fields.agreeToPayCosts.noReason.value | default('') }}</textarea>
+      {{ textarea(fields.agreeToPayCosts.noReason, content.fields.disagree.reason) }}
     </div>
   {% endcall %}
 </div>
