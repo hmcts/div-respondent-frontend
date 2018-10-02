@@ -53,6 +53,7 @@ services:
     enabled: RATE_LIMITER_ENABLED
   caseOrchestration:
     getPetitionUrl: GET_PETITION_URL
+    linkRespondentUrl: LINK_RESPONDENT_URL
     submitAosUrl: SUBMIT_AOS_URL
 
 features:

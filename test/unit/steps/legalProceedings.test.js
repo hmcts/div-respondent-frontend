@@ -1,9 +1,28 @@
 const modulePath = 'steps/legal-proceedings/LegalProceedings.step';
 const LegalProceedings = require(modulePath);
-const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
+const AgreeToPayCosts = require('steps/agree-to-pay-costs/AgreeToPayCosts.step');
+const ContactDetails = require('steps/contact-details/ContactDetails.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const LegalProceedingsContent = require('steps/legal-proceedings/LegalProceedings.content');
+const { testStep } = require('@hmcts/one-per-page-test-suite/utils/supertest');
+const httpStatus = require('http-status-codes');
+
+const redirectsToPageWithSession = (fields, sessionData, nextStep) => {
+  const postRequest = testStep(LegalProceedings)
+    .withSetup(req => {
+      req.session.generate();
+      Object.assign(req.session, sessionData);
+    });
+
+  Object.assign(postRequest.body, fields);
+
+  return postRequest
+    .withSteps(nextStep)
+    .post()
+    .expect('Location', nextStep.path)
+    .expect(httpStatus.MOVED_TEMPORARILY);
+};
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -17,23 +36,6 @@ describe(modulePath, () => {
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(LegalProceedings, [idam.protect()]);
-  });
-
-  it('shows error when legal proceedings is yes and case details not supplied', () => {
-    const fields = { 'legalProceedings-exists': 'yes' };
-
-    const onlyErrors = ['requireCaseDetails'];
-
-    return question.testErrors(LegalProceedings, {}, fields, { onlyErrors });
-  });
-
-  it('redirects to next page on legal proceedings is yes and case details supplied', () => {
-    const fields = {
-      'legalProceedings-exists': 'yes',
-      'legalProceedings-details': 'Legal Proceedings'
-    };
-
-    return question.redirectWithField(LegalProceedings, fields, CheckYourAnswers);
   });
 
   it('legal proceedings is yes value should contain details', () => {
@@ -124,14 +126,80 @@ describe(modulePath, () => {
     return question.answers(LegalProceedings, stepData, expectedContent, {});
   });
 
-  it('redirects to next page on legal proceedings is no', () => {
-    const fields = { 'legalProceedings-exists': 'no' };
-    return question.redirectWithField(LegalProceedings, fields, CheckYourAnswers);
-  });
-
   it('shows error if question is not answered', () => {
     const onlyErrors = ['required'];
     return question.testErrors(LegalProceedings, {}, {}, { onlyErrors });
+  });
+
+  it('shows error when legal proceedings is yes and case details not supplied', () => {
+    const fields = { 'legalProceedings-exists': 'yes' };
+
+    const onlyErrors = ['requireCaseDetails'];
+
+    return question.testErrors(LegalProceedings, {}, fields, { onlyErrors });
+  });
+
+  it('shows error when legal proceedings is yes and case details not supplied', () => {
+    const fields = { 'legalProceedings-exists': 'yes' };
+
+    const onlyErrors = ['requireCaseDetails'];
+
+    return question.testErrors(LegalProceedings, {}, fields, { onlyErrors });
+  });
+
+  it('costClaim=respondent, legalProceedings = yes, caseDetails != null -> AgreeToPayCosts', () => {
+    const fields = {
+      'legalProceedings-exists': 'yes',
+      'legalProceedings-details': 'Legal Proceedings'
+    };
+
+    const sessionData = {
+      originalPetition: {
+        claimsCostsFrom: ['respondent']
+      }
+    };
+
+    return redirectsToPageWithSession(fields, sessionData, AgreeToPayCosts);
+  });
+
+  it('costClaim=respondent, legalProceedings = no -> AgreeToPayCosts', () => {
+    const fields = {
+      'legalProceedings-exists': 'no'
+    };
+
+    const sessionData = {
+      originalPetition: {
+        claimsCostsFrom: ['respondent']
+      }
+    };
+
+    return redirectsToPageWithSession(fields, sessionData, AgreeToPayCosts);
+  });
+
+  it('costClaim=null, legalProceedings = no -> contactDetails', () => {
+    const fields = {
+      'legalProceedings-exists': 'no'
+    };
+
+    const sessionData = {
+      originalPetition: {}
+    };
+
+    return redirectsToPageWithSession(fields, sessionData, ContactDetails);
+  });
+
+  it('costClaim != respondent, legalProceedings = no -> contactDetails', () => {
+    const fields = {
+      'legalProceedings-exists': 'no'
+    };
+
+    const sessionData = {
+      originalPetition: {
+        claimsCostsFrom: ['correspondent']
+      }
+    };
+
+    return redirectsToPageWithSession(fields, sessionData, ContactDetails);
   });
 
   it('renders the content', () => {

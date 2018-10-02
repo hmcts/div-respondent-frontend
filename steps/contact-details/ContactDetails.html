@@ -1,0 +1,41 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textbox %}
+
+{% set title %}
+{{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+<div id="contact-details">
+
+  <p>{{ content.summary | safe }}</p>
+
+  {% call formSection() %}
+    <div class="form-group">
+      <label class="form-label-bold" for="emailAddress">{{ content.fields.enterEmail.label | safe }}</label>
+      <input class="form-control" id="emailAddress" name="emailAddress" disabled type="text" value="{{ session.originalPetition.respondentEmailAddress }}" />
+    </div>
+
+    {{ textbox(fields.contactDetails.phoneNo, content.fields.enterPhoneNo.label) }}
+
+    <div class="confirmation-block">
+      {{
+        selectionButtons(
+          fields.contactDetails.consent,
+          content.fields.consent.heading,
+          options = [
+            { label: content.fields.consent.heading, value: "yes" }
+          ],
+          hint=false,
+          hideQuestion=true,
+          inline=false,
+          type='checkbox'
+        )
+      }}
+    </div>
+  {% endcall %}
+</div>
+
+{% endblock %}

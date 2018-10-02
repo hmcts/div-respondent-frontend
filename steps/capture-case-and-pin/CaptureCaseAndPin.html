@@ -1,0 +1,25 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, textbox %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+    {% if session.authError %}
+        <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
+            <h1 class="heading-medium error-summary-heading" id="error-summary-heading">
+                {{ content.thereWasAProblem }}
+            </h1>
+            <ul class="error-summary-list">
+                <li>{{ content.referenceNumberOrPinDoNotMatch }}</li>
+            </ul>
+        </div>
+    {% endif %}
+    <p>{{ content.instructions }}</p>
+    {% call formSection() %}
+        {{ textbox(fields.referenceNumber, content.referenceNumber, content.referenceNumberLabel) }}
+        {{ textbox(fields.securityAccessCode, content.securityAccessCode, content.securityAccessCodeLabel) }}
+    {% endcall %}
+{% endblock %}

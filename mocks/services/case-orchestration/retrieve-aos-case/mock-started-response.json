@@ -1,0 +1,229 @@
+{
+  "caseId": 324234342342,
+  "courts": "eastMidlands",
+  "state": "AosStarted",
+  "data": {
+    "caseReference": "LV17D80100",
+    "expires": 0,
+    "screenHasMarriageBroken": "Yes",
+    "screenHasRespondentAddress": "Yes",
+    "screenHasMarriageCert": "Yes",
+    "screenHasPrinter": "Yes",
+    "helpWithFeesNeedHelp": "Yes",
+    "helpWithFeesAppliedForFees": "Yes",
+    "helpWithFeesReferenceNumber": "HWF-123-456",
+    "divorceWho": "husband",
+    "marriageIsSameSexCouple": "No",
+    "marriageDateDay": 2,
+    "marriageDateMonth": 2,
+    "marriageDateYear": 2001,
+    "marriageDate": "2001-02-02T00:00:00.000Z",
+    "marriageCanDivorce": true,
+    "marriageDateIsFuture": false,
+    "marriageDateMoreThan100": false,
+    "marriedInUk": "Yes",
+    "jurisdictionConnection": [
+      "A",
+      "C"
+    ],
+    "connections": {
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
+      "C": "The Respondent is habitually resident in England and Wales"
+    },
+    "jurisdictionPetitionerResidence": "Yes",
+    "jurisdictionRespondentResidence": "Yes",
+    "jurisdictionConfidentLegal": "Yes",
+    "petitionerContactDetailsConfidential": "share",
+    "petitionerFirstName": "John",
+    "petitionerLastName": "Smith",
+    "respondentFirstName": "Jane",
+    "respondentLastName": "Jamed",
+    "marriagePetitionerName": "John Doe",
+    "marriageRespondentName": "Jenny Benny",
+    "petitionerNameDifferentToMarriageCertificate": "Yes",
+    "petitionerNameChangedHow": [
+      "marriageCertificate"
+    ],
+    "petitionerEmail": "simulate-delivered@notifications.service.gov.uk",
+    "petitionerPhoneNumber": "01234567890",
+    "petitionerHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "address": [
+        "82 Landor Road",
+        "London",
+        "SW9 9PE"
+      ],
+      "addressConfirmed": "true",
+      "validPostcode": true,
+      "postcodeError": "false",
+      "formattedAddress": {
+        "whereabouts": [
+          null
+        ],
+        "postcode": "SW9 9PE"
+      }
+    },
+    "petitionerCorrespondenceUseHomeAddress": "Yes",
+    "petitionerCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "address": [
+        "82 Landor Road",
+        "London",
+        "SW9 9PE"
+      ],
+      "addressConfirmed": "true",
+      "validPostcode": true,
+      "postcodeError": "false",
+      "formattedAddress": {
+        "whereabouts": [
+          null
+        ],
+        "postcode": "SW9 9PE"
+      }
+    },
+    "livingArrangementsLiveTogether": "Yes",
+    "respondentHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "address": [
+        "82 Landor Road",
+        "London",
+        "SW9 9PE"
+      ],
+      "addressConfirmed": "true",
+      "validPostcode": true,
+      "postcodeError": "false",
+      "formattedAddress": {
+        "whereabouts": [
+          null
+        ],
+        "postcode": "SW9 9PE"
+      }
+    },
+    "respondentCorrespondenceUseHomeAddress": "No",
+    "respondentCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "address": [
+        "82 Landor Road",
+        "London",
+        "SW9 9PE"
+      ],
+      "addressConfirmed": "true",
+      "validPostcode": true,
+      "postcodeError": "false",
+      "formattedAddress": {
+        "whereabouts": [
+          null
+        ],
+        "postcode": "SW9 9PE"
+      }
+    },
+    "reasonForDivorce": "unreasonable-behaviour",
+    "reasonForDivorceHasMarriageDate": true,
+    "reasonForDivorceShowAdultery": true,
+    "reasonForDivorceShowUnreasonableBehaviour": true,
+    "reasonForDivorceShowTwoYearsSeparation": true,
+    "reasonForDivorceShowFiveYearsSeparation": true,
+    "reasonForDivorceShowDesertion": true,
+    "reasonForDivorceLimitReasons": false,
+    "reasonForDivorceEnableAdultery": true,
+    "reasonForDivorceBehaviourDetails": [
+      "My husband is temperamental ",
+      "My husband is unpredictable",
+      "My husband is having affair",
+      "My husband is suspicious on me"
+    ],
+    "legalProceedings": "Yes",
+    "legalProceedingsRelated": [
+      "children"
+    ],
+    "legalProceedingsDetails": "The legal proceeding details",
+    "financialOrder": "Yes",
+    "financialOrderFor": [
+      "petitioner",
+      "children"
+    ],
+    "claimsCosts": "Yes",
+    "reasonForDivorceAdulteryIsNamed": "No",
+    "claimsCostsFrom": [
+      "respondent"
+    ],
+    "claimsCostsAppliedForFees": true,
+    "reasonForDivorceClaiming5YearSeparation": false,
+    "reasonForDivorceClaimingAdultery": false,
+    "court": {
+      "eastMidlands": {
+        "phone": "0115 955 8266",
+        "divorceCentre": "East Midlands Regional Divorce Centre",
+        "courtCity": "Nottingham",
+        "poBox": "PO Box 10447",
+        "postCode": "NG2 9QN",
+        "openingHours": "Telephone Enquiries from: 8am to 4pm",
+        "email": "eastmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0115 955 8186",
+        "siteId": "AA01"
+      },
+      "westMidlands": {
+        "divorceCentre": "West Midlands Regional Divorce Centre",
+        "courtCity": "Stoke-on-Trent",
+        "poBox": "PO Box 3650",
+        "postCode": "ST4 9NH",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "westmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 123 5577",
+        "siteId": "AA02"
+      },
+      "southWest": {
+        "divorceCentre": "South West Regional Divorce Centre",
+        "courtCity": "Southampton",
+        "poBox": "PO Box 1792",
+        "postCode": "SO15 9GG",
+        "openingHours": "Telephone Enquiries from: 8am to 4pm",
+        "email": "sw-region-divorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "023 8038 4200",
+        "siteId": "AA03"
+      },
+      "northWest": {
+        "divorceCentre": "North West Regional Divorce Centre",
+        "divorceCentreAddressName": "Liverpool Civil & Family Court",
+        "courtCity": "Liverpool",
+        "street": "35 Vernon Street",
+        "postCode": "L2 2BX",
+        "openingHours": "Telephone Enquiries from: 10am to 4pm",
+        "email": "family@liverpool.countycourt.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA04"
+      }
+    },
+    "courts": "eastMidlands",
+    "confirmPrayer": "Yes",
+    "payment": {
+      "PaymentChannel": "card",
+      "PaymentTransactionId": "123456789",
+      "PaymentReference": "DIV1$$$012345a-ffff-42e9-951d-afe599e5o5o5$$$AA00$$$X0168",
+      "PaymentDate": "02022001",
+      "PaymentAmount": "12000",
+      "PaymentStatus": "success",
+      "PaymentFeeId": "X0168",
+      "PaymentSiteId": "AA00"
+    },
+    "existingPayments": [
+      {
+        "id": "123456789",
+        "value": {
+          "PaymentChannel": "card",
+          "PaymentTransactionId": "111222333",
+          "PaymentReference": "DIV1$$$12345a-ffff-eeee-dddd-afe599e2d4d2$$$AA00$$$X0165",
+          "PaymentDate": "2001-02-02",
+          "PaymentAmount": "55000",
+          "PaymentStatus": "success",
+          "PaymentFeeId": "X0165",
+          "PaymentSiteId": "AA00"
+        }
+      }
+    ]
+  }
+}
