@@ -223,6 +223,6 @@
                 "PaymentSiteId" : "AA00"
             }
         }],
-        "respondentEmailAddress" : "respondent@email.address"
+        "respEmailAddress" : "respondent@email.address"
     }
 }
