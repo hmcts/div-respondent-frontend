@@ -73,14 +73,6 @@ describe(modulePath, () => {
       const onlyErrors = ['securityAccessCodeRequired'];
       return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
-    it('contains a non-digit character', () => {
-      const answers = {
-        referenceNumber: validReferenceNumber,
-        securityAccessCode: '1234567A'
-      };
-      const onlyErrors = ['securityAccessCodeDigitsOnly'];
-      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
-    });
   });
 
   it('renders auth error from link case API call', () => {
