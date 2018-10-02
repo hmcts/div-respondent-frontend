@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorsFor, textarea %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorsFor, textarea, errorClass %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -60,7 +60,7 @@
     }}
 
     <div id="different-amount" class="form-group panel js-hidden">
-      <div class="form-group">
+      <div class="form-group {{ errorClass(fields.agreeToPayCosts.newAmount) }}">
         <label class="form-label-bold" for="{{ fields.agreeToPayCosts.newAmount.id }}">{{ content.fields.differentAmount.newAmount | safe }}</label>
         {{ errorsFor(fields.agreeToPayCosts.newAmount) }}
         <span id="currency-symbol">{{ content.poundSymbol }}</span><input class="form-control" id="{{ fields.agreeToPayCosts.newAmount.id }}" name="{{ fields.agreeToPayCosts.newAmount.id }}" type="text" value="{{ fields.agreeToPayCosts.newAmount.value | default('') }}" />
