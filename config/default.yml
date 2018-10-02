@@ -51,6 +51,8 @@ services:
   caseOrchestration:
     getPetitionUrl: http://localhost:3001/retrieve-aos-case
     linkRespondentUrl: http://localhost:3001/link-respondent
+    submitAosUrl: http://localhost:1111
+
 paths:
   health: /health
   authenticated: /authenticated

@@ -91,6 +91,7 @@ module "frontend" {
 
     GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
     LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
+    SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
 
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"
