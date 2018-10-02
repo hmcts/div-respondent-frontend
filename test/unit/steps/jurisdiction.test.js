@@ -24,6 +24,50 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(Jurisdiction, [idam.protect()]);
   });
 
+  it('shows error if question is not answered', () => {
+    const onlyErrors = ['required'];
+    return question.testErrors(Jurisdiction, defaultSession, {}, { onlyErrors });
+  });
+
+  it('shows errors when no jurisdiction and when both reason and country are not supplied', () => {
+    const fields = { 'jurisdiction-agree': 'no' };
+
+    const onlyErrors = ['reasonRequired', 'countryRequired' ];
+
+    return question.testErrors(Jurisdiction, defaultSession, fields, { onlyErrors });
+  });
+
+  it('shows error when no jurisdiction and reason not supplied', () => {
+    const fields = { 'jurisdiction-agree': 'no', 'jurisdiction-country': 'country' };
+
+    const onlyErrors = ['reasonRequired'];
+
+    return question.testErrors(Jurisdiction, defaultSession, fields, { onlyErrors });
+  });
+
+  it('shows error when no jurisdiction and country not supplied', () => {
+    const fields = { 'jurisdiction-agree': 'no', 'jurisdiction-reason': 'reason' };
+
+    const onlyErrors = ['countryRequired'];
+
+    return question.testErrors(Jurisdiction, defaultSession, fields, { onlyErrors });
+  });
+
+  it('redirects to next page on jurisdiction is no and details are supplied', () => {
+    const fields = {
+      'jurisdiction-agree': 'no',
+      'jurisdiction-reason': 'reason',
+      'jurisdiction-country': 'country'
+    };
+
+    return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
+  });
+
+  it('redirects to next page on jurisdiction is yes', () => {
+    const fields = { 'jurisdiction-agree': 'yes' };
+    return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
+  });
+
   it('jurisdiction is no, value should contain reason and country', () => {
     const respJurisdictionAgree = 'no';
     const respJurisdictionDisagreeReason = 'Disagree Proceedings';

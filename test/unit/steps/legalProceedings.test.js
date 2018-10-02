@@ -126,6 +126,19 @@ describe(modulePath, () => {
     return question.answers(LegalProceedings, stepData, expectedContent, {});
   });
 
+  it('shows error if question is not answered', () => {
+    const onlyErrors = ['required'];
+    return question.testErrors(LegalProceedings, {}, {}, { onlyErrors });
+  });
+
+  it('shows error when legal proceedings is yes and case details not supplied', () => {
+    const fields = { 'legalProceedings-exists': 'yes' };
+
+    const onlyErrors = ['requireCaseDetails'];
+
+    return question.testErrors(LegalProceedings, {}, fields, { onlyErrors });
+  });
+
   it('shows error when legal proceedings is yes and case details not supplied', () => {
     const fields = { 'legalProceedings-exists': 'yes' };
 
@@ -187,11 +200,6 @@ describe(modulePath, () => {
     };
 
     return redirectsToPageWithSession(fields, sessionData, ContactDetails);
-  });
-
-  it('shows error if question is not answered', () => {
-    const onlyErrors = ['required'];
-    return question.testErrors(LegalProceedings, {}, {}, { onlyErrors });
   });
 
   it('renders the content', () => {

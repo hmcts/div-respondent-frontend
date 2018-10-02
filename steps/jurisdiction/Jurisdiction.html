@@ -156,11 +156,12 @@
       <textarea class="form-control" id="{{ fields.jurisdiction.reason.id }}" rows="4"
                 name="{{ fields.jurisdiction.reason.id }}">{{ fields.jurisdiction.reason.value | default('') }}</textarea>
 
-      <br/>
-
-      <label class="form-label-bold" for="{{ fields.jurisdiction.country.id }}">{{ content.fields.disagree.country | safe }}</label>
-      {{ errorsFor(fields.jurisdiction.country) }}
-      <input class="form-control" id="{{ fields.jurisdiction.country.id }}" name="{{ fields.jurisdiction.country.id }}" type="text" value="{{ fields.jurisdiction.country.value | default('') }}">
+      <br>
+      <fieldset class="form-group">
+        <label class="form-label-bold" for="{{ fields.jurisdiction.country.id }}">{{ content.fields.disagree.country | safe }}</label>
+        {{ errorsFor(fields.jurisdiction.country) }}
+        <input class="form-control" id="{{ fields.jurisdiction.country.id }}" name="{{ fields.jurisdiction.country.id }}" type="text" value="{{ fields.jurisdiction.country.value | default('') }}">
+      </fieldset>
 
     </div>
   {% endcall %}
