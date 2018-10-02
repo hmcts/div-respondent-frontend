@@ -3,9 +3,7 @@ const content = require('common/content');
 Feature('Happy path');
 
 Scenario('@Integration First time new user', I => {
-  I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+  I.amOnPage('/entry');
   I.seeIdamLoginPage();
   I.loginAsANewUser();
   I.seeCaptureCaseAndPinPage();
