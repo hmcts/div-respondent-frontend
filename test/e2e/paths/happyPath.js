@@ -23,6 +23,9 @@ Scenario('Proceed with divorce with linked user', I => {
   I.seeChooseAResponsePage();
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
+  I.seeJurisdictionPage();
+  I.chooseAgreeToJurisdiction();
+  I.click(content.en.continue);
   I.seeLegalProceedingPage();
   I.chooseNoLegalProceedings();
   I.click(content.en.continue);

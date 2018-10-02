@@ -59,6 +59,7 @@ paths:
   respond: /respond
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
+  jurisdiction: /jurisdiction
   legalProceedings: /legal-proceedings
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
