@@ -9,6 +9,7 @@
         "yesCaseStarted": "Yes - case started",
         "yesCaseNotLinked": "Yes - case not linked",
         "yesCaseNotLinkedAndInvalidPin": "Yes - case not linked and invalid pin",
+        "yesCaseNotLinkedAndServerError": "Yes - case not linked and server error",
         "yesCaseCompleted": "Yes - case completed",
         "no": "No"
       }

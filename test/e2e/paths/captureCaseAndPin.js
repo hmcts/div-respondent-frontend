@@ -27,3 +27,16 @@ Scenario('Should see an error page if PIN code is invalid', I => {
   I.seeCaptureCaseAndPinPage();
   I.see(content.en.referenceNumberOrPinDoNotMatch);
 }).retry(2);
+
+Scenario('Should see a generic error page if link case fails', I => {
+  I.amOnPage('/');
+  I.seeExamplePage('/');
+  I.click('Start now');
+  I.seeIdamLoginPage();
+  I.loginAsNonLinkedUserAndServerError();
+  I.seeCaptureCaseAndPinPage();
+  I.fillInReferenceNumberAndPinCode('1234567890123456', '12345678');
+  I.click(commonContent.en.continue);
+  I.seeCaptureCaseAndPinPage();
+  I.see(content.en.errorLinkingCase);
+}).retry(2);

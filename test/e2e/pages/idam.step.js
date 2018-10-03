@@ -53,6 +53,13 @@ function loginAsInvalidPinUser() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsNonLinkedUserAndServerError() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseNotLinkedAndServerError);
+  I.click(commonContent.en.continue);
+}
+
 
 module.exports = {
   seeIdamLoginPage,
@@ -60,5 +67,6 @@ module.exports = {
   loginAsANonLinkedUser,
   loginAsCaseCompletedUser,
   loginAsInvalidPinUser,
-  loginAsALinkedUser
+  loginAsALinkedUser,
+  loginAsNonLinkedUserAndServerError
 };
