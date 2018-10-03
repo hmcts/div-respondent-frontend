@@ -33,7 +33,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to choose a response page when answered', () => {
-    const fields = { statementOfTruth: 'yes' };
+    const fields = { respConfirmReadPetition: 'yes' };
     return question.redirectWithField(ReviewApplication, fields, ChooseAResponse);
   });
 

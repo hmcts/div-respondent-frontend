@@ -40,12 +40,7 @@ class CaptureCaseAndPin extends Question {
     return text.joi(
       errors.securityAccessCodeRequired,
       Joi.string()
-        .required())
-      .joi(
-        errors.securityAccessCodeDigitsOnly,
-        Joi.number()
-          .integer()
-      );
+        .required());
   }
 
   next() {
