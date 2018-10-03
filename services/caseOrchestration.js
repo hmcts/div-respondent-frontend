@@ -34,16 +34,15 @@ const linkCase = req => {
   const authTokenString = '__auth-token';
   const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
 
-  delete req.session.authError;
-
   const options = {
     uri,
     headers
   };
   return request.post(options)
     .catch(error => {
+      req.session.temp.linkCaseError = true;
       if (error.statusCode === FORBIDDEN) {
-        req.session.authError = true;
+        req.session.temp.linkCaseAuthError = true;
       }
       logger.error(`Error linking petition to user: ${error}`);
       throw error;

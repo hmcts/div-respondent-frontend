@@ -1,5 +1,5 @@
 const modulePath = 'steps/capture-case-and-pin/CaptureCaseAndPin.step';
-
+const stepContent = require('steps/capture-case-and-pin/CaptureCaseAndPin.content');
 const CaptureCaseAndPin = require(modulePath);
 const caseOrchestration = require('services/caseOrchestration');
 const Respond = require('steps/respond/Respond.step');
@@ -93,11 +93,19 @@ describe(modulePath, () => {
   });
 
   it('renders auth error from link case API call', () => {
-    return content(CaptureCaseAndPin, { authError: false }, {
-      specificContent: [
-        'thereWasAProblem',
-        'referenceNumberOrPinDoNotMatch'
-      ]
+    return content(CaptureCaseAndPin, {
+      temp: {
+        linkCaseError: true,
+        linkCaseAuthError: true
+      }
+    }, {
+      specificValues: [stepContent.en.referenceNumberOrPinDoNotMatch]
+    });
+  });
+
+  it('renders generic error if link case API call fails', () => {
+    return content(CaptureCaseAndPin, { temp: { linkCaseError: true } }, {
+      specificValues: [stepContent.en.errorLinkingCase]
     });
   });
 
@@ -107,7 +115,8 @@ describe(modulePath, () => {
         'continue',
         'backLink',
         'thereWasAProblem',
-        'referenceNumberOrPinDoNotMatch'
+        'referenceNumberOrPinDoNotMatch',
+        'errorLinkingCase'
       ]
     });
   });

@@ -7,13 +7,17 @@
 {% endset %}
 
 {% block fields %}
-    {% if session.authError %}
+    {% if session.temp.linkCaseError %}
         <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
             <h1 class="heading-medium error-summary-heading" id="error-summary-heading">
                 {{ content.thereWasAProblem }}
             </h1>
             <ul class="error-summary-list">
-                <li>{{ content.referenceNumberOrPinDoNotMatch }}</li>
+                {% if session.temp.linkCaseAuthError %}
+                    <li>{{ content.referenceNumberOrPinDoNotMatch }}</li>
+                {% else %}
+                    <li>{{ content.errorLinkingCase }}</li>
+                {% endif %}
             </ul>
         </div>
     {% endif %}
