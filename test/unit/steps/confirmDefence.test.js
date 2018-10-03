@@ -6,6 +6,8 @@ const confirmDefenceContent = require('steps/confirm-defence/ConfirmDefence.cont
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
+const confirm = 'confirm';
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
@@ -34,12 +36,12 @@ describe(modulePath, () => {
     return question.testErrors(ConfirmDefence);
   });
 
-  it('should have the answer object set correctly if user confirms', () => {
+  it('should have the answer object set correctly', () => {
     const req = {
       journey: {},
       session: {
         ConfirmDefence: {
-          response: confirmDefenceContent.en.fields.confirm.value
+          response: confirm
         }
       }
     };

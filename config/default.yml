@@ -50,6 +50,7 @@ services:
     enabled: false
   caseOrchestration:
       getPetitionUrl: http://localhost:1111/retrieve-aos-case
+      submitAosUrl: http://localhost:1111
 paths:
   health: /health
   authenticated: /authenticated
@@ -57,7 +58,7 @@ paths:
   respond: /respond
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
-  confirmDefence: /confirm-defence
+  confirmDefence: /defend-are-you-sure
   jurisdiction: /jurisdiction
   legalProceedings: /legal-proceedings
   checkYourAnswers: /check-your-answers

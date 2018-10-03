@@ -7,8 +7,8 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 
-const confirm = content.en.fields.confirm.value;
-const changeResponse = content.en.fields.changeResponse.value;
+const confirm = 'confirm';
+const changeResponse = 'changeResponse';
 
 class ConfirmDefence extends Question {
   static get path() {

@@ -18,12 +18,10 @@
     },
     "fields": {
       "confirm": {
-        "heading": "I confirm that I intend to defend the divorce",
-        "value": "confirm"
+        "heading": "I confirm that I intend to defend the divorce"
       },
       "changeResponse": {
-        "heading": "I want to change my response",
-        "value": "changeResponse"
+        "heading": "I want to change my response"
       }
     },
     "errors": {
