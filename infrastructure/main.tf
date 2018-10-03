@@ -90,6 +90,7 @@ module "frontend" {
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
 
     GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
+    SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
 
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"
