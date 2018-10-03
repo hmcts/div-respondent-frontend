@@ -57,7 +57,7 @@ paths:
   health: /health
   authenticated: /authenticated
   index: /
-  captureCaseAndPin: /capture-case-and-pin
+  captureCaseAndPin: /respond-with-pin
   respond: /respond
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
@@ -73,7 +73,7 @@ paths:
 tests:
   e2e:
     waitForTimeout: 10000
-    waitForAction: 10000
+    waitForAction: 500
     smartWait: 5000
     outputDir: ../../functional-output
     idam:
