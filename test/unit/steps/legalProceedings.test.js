@@ -5,24 +5,6 @@ const ContactDetails = require('steps/contact-details/ContactDetails.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const LegalProceedingsContent = require('steps/legal-proceedings/LegalProceedings.content');
-const { testStep } = require('@hmcts/one-per-page-test-suite/utils/supertest');
-const httpStatus = require('http-status-codes');
-
-const redirectsToPageWithSession = (fields, sessionData, nextStep) => {
-  const postRequest = testStep(LegalProceedings)
-    .withSetup(req => {
-      req.session.generate();
-      Object.assign(req.session, sessionData);
-    });
-
-  Object.assign(postRequest.body, fields);
-
-  return postRequest
-    .withSteps(nextStep)
-    .post()
-    .expect('Location', nextStep.path)
-    .expect(httpStatus.MOVED_TEMPORARILY);
-};
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -159,7 +141,7 @@ describe(modulePath, () => {
       }
     };
 
-    return redirectsToPageWithSession(fields, sessionData, AgreeToPayCosts);
+    return question.redirectWithField(LegalProceedings, fields, AgreeToPayCosts, sessionData);
   });
 
   it('costClaim=respondent, legalProceedings = no -> AgreeToPayCosts', () => {
@@ -173,7 +155,7 @@ describe(modulePath, () => {
       }
     };
 
-    return redirectsToPageWithSession(fields, sessionData, AgreeToPayCosts);
+    return question.redirectWithField(LegalProceedings, fields, AgreeToPayCosts, sessionData);
   });
 
   it('costClaim=null, legalProceedings = no -> contactDetails', () => {
@@ -185,7 +167,7 @@ describe(modulePath, () => {
       originalPetition: {}
     };
 
-    return redirectsToPageWithSession(fields, sessionData, ContactDetails);
+    return question.redirectWithField(LegalProceedings, fields, ContactDetails, sessionData);
   });
 
   it('costClaim != respondent, legalProceedings = no -> contactDetails', () => {
@@ -199,7 +181,7 @@ describe(modulePath, () => {
       }
     };
 
-    return redirectsToPageWithSession(fields, sessionData, ContactDetails);
+    return question.redirectWithField(LegalProceedings, fields, ContactDetails, sessionData);
   });
 
   it('renders the content', () => {
