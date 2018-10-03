@@ -6,7 +6,8 @@ const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
 
-const referenceNumberMinLength = 16;
+const referenceNumberLength = 16;
+const securityAccessCode = 8;
 
 class CaptureCaseAndPin extends Question {
   static get path() {
@@ -26,7 +27,7 @@ class CaptureCaseAndPin extends Question {
       .joi(
         errors.referenceNumberRequired,
         Joi.string()
-          .length(referenceNumberMinLength)
+          .length(referenceNumberLength)
           .required())
       .joi(
         errors.referenceNumberDigitsOnly,
@@ -40,7 +41,12 @@ class CaptureCaseAndPin extends Question {
     return text.joi(
       errors.securityAccessCodeRequired,
       Joi.string()
-        .required());
+        .length(securityAccessCode)
+        .required())
+      .joi(
+        errors.securityAccessCodeAlphanumericOnly,
+        Joi.string()
+          .regex(/^[a-zA-Z0-9]+$/));
   }
 
   next() {

@@ -9,7 +9,7 @@ const request = require('request-promise-native');
 const rawResponse = require('resources/raw-response-mock.json');
 
 const validReferenceNumber = '1234567890123456';
-const validSecurityAccessCode = '1234';
+const validSecurityAccessCode = '1A3b5678';
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -80,6 +80,31 @@ describe(modulePath, () => {
         referenceNumber: validReferenceNumber
       };
       const onlyErrors = ['securityAccessCodeRequired'];
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
+    });
+
+    it('it is 7 digits long', () => {
+      const answers = {
+        referenceNumber: validReferenceNumber,
+        securityAccessCode: '1234567'
+      };
+      const onlyErrors = ['securityAccessCodeRequired'];
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
+    });
+    it('it is 9 digits long', () => {
+      const answers = {
+        referenceNumber: validReferenceNumber,
+        securityAccessCode: '123456789'
+      };
+      const onlyErrors = ['securityAccessCodeRequired'];
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
+    });
+    it('it contains special chars', () => {
+      const answers = {
+        referenceNumber: validReferenceNumber,
+        securityAccessCode: '1234567#'
+      };
+      const onlyErrors = ['securityAccessCodeAlphanumericOnly'];
       return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
   });

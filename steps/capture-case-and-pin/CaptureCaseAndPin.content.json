@@ -5,7 +5,7 @@
     "referenceNumber": "Reference number",
     "referenceNumberLabel": "This is a 16 digit number",
     "securityAccessCode": "Security access code",
-    "securityAccessCodeLabel": "Your code is 6 characters long",
+    "securityAccessCodeLabel": "Your code is 8 characters long",
     "thereWasAProblem": "There was a problem",
     "referenceNumberOrPinDoNotMatch": "The Case ID and/or PIN was not recognised. Please re-enter. If the situation persists, please contact the court",
     "errorLinkingCase": "An error has occurred. Please re-enter. If the situation persists, please contact the court",
@@ -13,7 +13,7 @@
       "referenceNumberRequired": "Enter the 16-digit Case ID to continue",
       "referenceNumberDigitsOnly": "The Case ID is 16 digits and can only contain the numbers 1 to 9",
       "securityAccessCodeRequired": "Enter the security access code to continue",
-      "securityAccessCodeDigitsOnly": "The PIN number cannot contain special characters"
+      "securityAccessCodeAlphanumericOnly": "The PIN number cannot contain special characters"
     }
   }
 }

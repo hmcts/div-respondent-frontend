@@ -10,7 +10,7 @@ Scenario('Can link case using case ID/PIN code', I => {
   I.seeIdamLoginPage();
   I.loginAsANonLinkedUser();
   I.seeCaptureCaseAndPinPage();
-  I.fillInReferenceNumberAndPinCode('1234567890123456', '1234');
+  I.fillInReferenceNumberAndPinCode('1234567890123456', '12345678');
   I.click(commonContent.en.continue);
   I.seeRespondPage();
 }).retry(2);
@@ -22,7 +22,7 @@ Scenario('Should see an error page if PIN code is invalid', I => {
   I.seeIdamLoginPage();
   I.loginAsInvalidPinUser();
   I.seeCaptureCaseAndPinPage();
-  I.fillInReferenceNumberAndPinCode('1234567890123456', '1234');
+  I.fillInReferenceNumberAndPinCode('1234567890123456', '12345678');
   I.click(commonContent.en.continue);
   I.seeCaptureCaseAndPinPage();
   I.see(content.en.referenceNumberOrPinDoNotMatch);
