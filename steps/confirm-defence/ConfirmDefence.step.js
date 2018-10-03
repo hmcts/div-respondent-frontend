@@ -7,18 +7,23 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 
-const confirm = 'confirm';
-const changeResponse = 'changeResponse';
-
 class ConfirmDefence extends Question {
   static get path() {
     return config.paths.confirmDefence;
   }
 
+  get confirm() {
+    return 'confirm';
+  }
+
+  get changeResponse() {
+    return 'changeResponse';
+  }
+
   get form() {
     const answers = [
-      confirm,
-      changeResponse
+      this.confirm,
+      this.changeResponse
     ];
     const validAnswers = Joi.string()
       .valid(answers)
@@ -31,7 +36,7 @@ class ConfirmDefence extends Question {
 
   answers() {
     const question = content.en.title;
-    const answerValue = this.fields.response.value === confirm ? content.en.fields.confirm.heading : content.en.fields.changeResponse.heading;
+    const answerValue = this.fields.response.value === this.confirm ? content.en.fields.confirm.heading : content.en.fields.changeResponse.heading;
     return answer(this, {
       question,
       answer: answerValue,
@@ -44,7 +49,7 @@ class ConfirmDefence extends Question {
   }
 
   next() {
-    const isConfirmed = this.fields.response.value === confirm;
+    const isConfirmed = this.fields.response.value === this.confirm;
     return branch(
       redirectTo(this.journey.steps.Jurisdiction).if(isConfirmed),
       redirectTo(this.journey.steps.ChooseAResponse)

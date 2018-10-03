@@ -37,8 +37,8 @@
         {% call formSection() %}
             {{ selectionButtons(fields.response, content.title,
                 options = [
-                    { label: content.fields.confirm.heading, value: 'confirm' },
-                    { label: content.fields.changeResponse.heading, value: 'changeResponse' }
+                    { label: content.fields.confirm.heading, value: confirm },
+                    { label: content.fields.changeResponse.heading, value: changeResponse }
                 ],
                 hint=false,
                 hideQuestion=true,
