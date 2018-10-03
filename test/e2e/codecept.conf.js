@@ -3,7 +3,7 @@
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
-const waitForAction = config.tests.e2e.waitForAction;
+let waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
 if (config.environment !== 'development') {
@@ -11,6 +11,10 @@ if (config.environment !== 'development') {
   const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
+}
+
+if (config.environment === 'development') {
+  waitForAction = 1000;
 }
 
 exports.config = {
