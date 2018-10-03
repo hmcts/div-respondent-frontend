@@ -58,6 +58,7 @@ paths:
   respond: /respond
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
+  confirmDefence: /defend-are-you-sure
   jurisdiction: /jurisdiction
   legalProceedings: /legal-proceedings
   checkYourAnswers: /check-your-answers

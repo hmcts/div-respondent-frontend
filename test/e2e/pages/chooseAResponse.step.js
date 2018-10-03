@@ -12,7 +12,12 @@ function chooseToProceedWithDivorce() {
   this.click(content.en.fields.proceed.heading);
 }
 
+function chooseToDefendAgainstDivorce() {
+  this.click(content.en.fields.disagree.heading);
+}
+
 module.exports = {
   seeChooseAResponsePage,
-  chooseToProceedWithDivorce
+  chooseToProceedWithDivorce,
+  chooseToDefendAgainstDivorce
 };

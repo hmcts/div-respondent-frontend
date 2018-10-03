@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
@@ -37,7 +37,11 @@ class ChooseAResponse extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.Jurisdiction);
+    const proceedWithDivorce = this.fields.respDefendsDivorce.value === 'yes';
+    return branch(
+      redirectTo(this.journey.steps.Jurisdiction).if(proceedWithDivorce),
+      redirectTo(this.journey.steps.ConfirmDefence)
+    );
   }
 }
 
