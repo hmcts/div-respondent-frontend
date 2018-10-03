@@ -24,7 +24,6 @@ Scenario('Proceed with divorce', I => {
   I.chooseAgreeToPay();
   I.click(content.en.continue);
   I.seeContactDetailsPage();
-  I.enterPhoneNumber();
   I.consentToSendingNotifications();
   I.click(content.en.continue);
   I.seeCheckYourAnswersPage();

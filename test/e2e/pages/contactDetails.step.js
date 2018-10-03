@@ -8,16 +8,11 @@ function seeContactDetailsPage() {
   I.see(content.en.title);
 }
 
-function enterPhoneNumber(phoneNo = '07557277522') {
-  this.fillField('#contactDetails-phoneNo', phoneNo);
-}
-
 function consentToSendingNotifications() {
   this.click(content.en.fields.consent.heading);
 }
 
 module.exports = {
   seeContactDetailsPage,
-  enterPhoneNumber,
   consentToSendingNotifications
 };

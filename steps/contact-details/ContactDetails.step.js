@@ -25,8 +25,7 @@ class ContactDetails extends Question {
       .required();
 
     const validatePhoneNumber = Joi.string()
-      .regex(/^[0-9 +().-]{9,}$/)
-      .required();
+      .regex(/^[0-9 +().-]{9,}$/);
 
     const fields = {
       phoneNo: text.joi(this.content.errors.requireValidPhoneNo,
@@ -40,19 +39,28 @@ class ContactDetails extends Question {
   }
 
   values() {
-    return {
-      respondentConsentToEmail: yes,
-      respondentPhoneNumber: this.fields.contactDetails.phoneNo.value
-    };
+    const phoneNo = this.fields.contactDetails.phoneNo.value;
+
+    const values = { respConsentToEmail: yes };
+
+    if (phoneNo && phoneNo.trim().length) {
+      values.respPhoneNumber = phoneNo;
+    }
+
+    return values;
   }
 
   answers() {
+    const phoneNo = this.fields.contactDetails.phoneNo.value;
+
     const answers = [];
 
-    answers.push(answer(this, {
-      question: content.en.cya.phoneNumber,
-      answer: this.fields.contactDetails.phoneNo.value
-    }));
+    if (phoneNo && phoneNo.trim().length) {
+      answers.push(answer(this, {
+        question: content.en.cya.phoneNumber,
+        answer: this.fields.contactDetails.phoneNo.value
+      }));
+    }
 
     answers.push(answer(this, {
       question: content.en.cya.emailConsent,
