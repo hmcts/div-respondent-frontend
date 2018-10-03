@@ -11,7 +11,10 @@
   {% call formSection() %}
     {{ selectionButtons(fields.success, content.title,
       options = [
-        { label: content.fields.success.yes, value: "yes" },
+        { label: content.fields.success.yesCaseStarted, value: "yesCaseStarted" },
+        { label: content.fields.success.yesCaseNotLinked, value: "yesCaseNotLinked" },
+        { label: content.fields.success.yesCaseNotLinkedAndInvalidPin, value: "yesCaseNotLinkedAndInvalidPin" },
+        { label: content.fields.success.yesCaseCompleted, value: "yesCaseCompleted" },
         { label: content.fields.success.no, value: "no" }
       ]
     ) }}

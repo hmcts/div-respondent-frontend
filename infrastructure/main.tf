@@ -6,7 +6,7 @@ locals {
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
-  
+
   asp_name = "${var.env == "prod" ? "div-rfe-prod" : "${var.product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-rfe-prod" : "${var.product}-${var.env}"}"
 }
@@ -90,6 +90,7 @@ module "frontend" {
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
 
     GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
+    LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
     SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
 
     // Feature toggling through config
