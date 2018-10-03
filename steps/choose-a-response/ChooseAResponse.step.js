@@ -28,7 +28,7 @@ class ChooseAResponse extends Question {
     const question = content.en.title;
     return answer(this, {
       question,
-      answer: this.fields.respDefendsDivorce.value === 'yes' ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
+      answer: this.fields.respDefendsDivorce.value === 'no' ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
     });
   }
 
