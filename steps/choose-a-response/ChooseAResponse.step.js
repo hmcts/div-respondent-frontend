@@ -7,20 +7,22 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ChooseAResponse.content');
 
+const consts = {
+  proceed: 'proceed',
+  proceedButDisagree: 'proceedButDisagree',
+  defend: 'defend',
+  yes: 'yes',
+  no: 'no',
+  behavior: 'unreasonable-behaviour'
+};
+
 class ChooseAResponse extends Question {
   static get path() {
     return config.paths.chooseAResponse;
   }
 
   get consts() {
-    return {
-      proceed: 'proceed',
-      proceedButDisagree: 'proceedButDisagree',
-      defend: 'defend',
-      yes: 'yes',
-      no: 'no',
-      behavior: 'unreasonable-behaviour'
-    };
+    return consts;
   }
 
   get session() {
@@ -29,11 +31,11 @@ class ChooseAResponse extends Question {
 
   get isBehaviour() {
     const reasonForDivorce = this.session.originalPetition.reasonForDivorce;
-    return reasonForDivorce === this.consts.behavior;
+    return reasonForDivorce === consts.behavior;
   }
 
   get form() {
-    const constants = this.consts;
+    const constants = consts;
     const answers = [
       constants.proceed,
       constants.proceedButDisagree,
@@ -51,7 +53,6 @@ class ChooseAResponse extends Question {
   }
 
   values() {
-    const consts = this.consts;
     const response = this.fields.response.value;
 
     if (this.isBehaviour) {
@@ -100,7 +101,7 @@ class ChooseAResponse extends Question {
 
   next() {
     const response = this.fields.response;
-    const proceed = response.value === this.consts.proceed;
+    const proceed = response.value === consts.proceed;
     return branch(redirectTo(this.journey.steps.Jurisdiction).if(proceed),
       redirectTo(this.journey.steps.ConfirmDefence)
     );
