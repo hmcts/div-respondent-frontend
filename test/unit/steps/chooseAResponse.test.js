@@ -29,7 +29,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to confirm defence page when disagreeing with divorce', () => {
-    const fields = { respDefendsDivorce: 'yes' };
+    const fields = { response: 'defend' };
     return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence);
   });
 

@@ -90,9 +90,9 @@ class ChooseAResponse extends Question {
   }
 
   next() {
-    const proceedWithDivorce = this.fields.respDefendsDivorce.value === 'no';
-    return branch(
-      redirectTo(this.journey.steps.Jurisdiction).if(proceedWithDivorce),
+    const response = this.fields.response;
+    const proceed = response.value === this.consts.proceed;
+    return branch(redirectTo(this.journey.steps.Jurisdiction).if(proceed),
       redirectTo(this.journey.steps.ConfirmDefence)
     );
   }
