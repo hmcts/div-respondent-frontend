@@ -141,13 +141,14 @@ describe(modulePath, () => {
       return content(
         ChooseAResponse,
         {
+          divorceWho: 'wife',
           originalPetition: {
             reasonForDivorce: 'unreasonable-behaviour'
           }
         }, {
           specificValues: [
             stepContent.en.fields.proceed.heading,
-            stepContent.en.fields.proceedButDisagree.heading,
+            'I will let the divorce proceed, but I don\'t admit to what my wife said about me',
             stepContent.en.fields.defend.heading
           ]
         });
