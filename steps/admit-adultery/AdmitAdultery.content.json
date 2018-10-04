@@ -1,0 +1,10 @@
+{
+  "en": {
+    "title": "Do you admit to committing the adultery?",
+    "detailsText": "Your {{ session.divorceWho }} provided the following details.",
+    "whereAdultery": {
+      "header": "Where the adultery took place",
+      "summary": "{{ session.originalPetition.reasonForDivorceAdulteryWhereDetails }}"
+    }
+  }
+}
