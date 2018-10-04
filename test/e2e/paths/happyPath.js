@@ -44,7 +44,7 @@ Scenario('Proceed with divorce with linked user', I => {
 Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.amOnPage('/entry');
   I.seeIdamLoginPage();
-  I.login();
+  I.loginAsALinkedUser();
 
   I.seeRespondPage();
   I.click(content.en.continue);
@@ -78,7 +78,7 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
 Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
   I.amOnPage('/entry');
   I.seeIdamLoginPage();
-  I.login();
+  I.loginAsALinkedUser();
 
   I.seeRespondPage();
   I.click(content.en.continue);
