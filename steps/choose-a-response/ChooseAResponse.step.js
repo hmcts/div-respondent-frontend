@@ -52,8 +52,8 @@ class ChooseAResponse extends Question {
 
   values() {
     const consts = this.consts;
-
     const response = this.fields.response.value;
+
     if (this.isBehaviour) {
       switch (response) {
       case consts.proceed:
@@ -85,7 +85,6 @@ class ChooseAResponse extends Question {
 
     if (response) {
       const question = content.en.title;
-
       const cyaContent = content.en.fields[response].answer;
       return answer(this, {
         question,

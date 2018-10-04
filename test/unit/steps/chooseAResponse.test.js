@@ -207,5 +207,20 @@ describe(modulePath, () => {
       expect(values).to.have.property('respDefendsDivorce', 'no');
       expect(values).to.have.property('respAdmitOrConsentToFact', 'no');
     });
+
+    it('throws error for unknown response', () => {
+      // given
+      session.ChooseAResponse = {
+        response: 'blah'
+      };
+
+      // when
+      const step = new ChooseAResponse({ session });
+      step.retrieve()
+        .validate();
+
+      // then
+      expect(step.values.bind(step)).to.throw('Unknown response to behavior: \'blah\'');
+    });
   });
 });
