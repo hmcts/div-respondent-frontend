@@ -20,12 +20,12 @@ describe(modulePath, () => {
   });
 
   it('redirects to jurisdiction page when proceeding with divorce', () => {
-    const fields = { respDefendsDivorce: 'yes' };
+    const fields = { respDefendsDivorce: 'no' };
     return question.redirectWithField(ChooseAResponse, fields, Jurisdiction);
   });
 
   it('redirects to confirm defence page when disagreeing with divorce', () => {
-    const fields = { respDefendsDivorce: 'no' };
+    const fields = { respDefendsDivorce: 'yes' };
     return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence);
   });
 

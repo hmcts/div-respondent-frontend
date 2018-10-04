@@ -31,8 +31,8 @@
         {% call formSection() %}
             {{ selectionButtons(fields.respDefendsDivorce, content.title,
                 options = [
-                    { label: content.fields.proceed.heading, value: "yes", description: content.fields.proceed.summary },
-                    { label: content.fields.disagree.heading, value: "no", description: content.fields.disagree.summary }
+                    { label: content.fields.proceed.heading, value: "no", description: content.fields.proceed.summary },
+                    { label: content.fields.disagree.heading, value: "yes", description: content.fields.disagree.summary }
                 ],
                 hint=false,
                 hideQuestion=true,
