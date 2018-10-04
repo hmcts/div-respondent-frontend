@@ -12,16 +12,16 @@
   <p>{{ content.summary1 | safe }}</p>
   <p>{{ content.summary2 | safe }}</p>
 
-  <div class="notice">
-    <i class="icon icon-important">
-      <span class="visually-hidden">Warning</span>
-    </i>
-    <strong class="bold-small">
-      {{ content.notice | safe }}
-    </strong>
+  <div class="notice-padding">
+    <div class="notice">
+      <i class="icon icon-important">
+        <span class="visually-hidden">Warning</span>
+      </i>
+      <strong class="bold-small">
+        {{ content.notice | safe }}
+      </strong>
+    </div>
   </div>
-
-  <br/>
 
   <details>
     <summary>
