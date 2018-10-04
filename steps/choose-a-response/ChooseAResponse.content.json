@@ -31,7 +31,7 @@
       "proceedButDisagree": {
         "heading": "I will let the divorce proceed, but I don't admit to what my {{ session.divorceWho }} said about me",
         "summary": "Choose this option if you don't accept the allegations made in the application, but you don't want to try to prevent the divorce (you don't intend to 'defend' it).",
-        "answer": "I will let the divorce proceed, but I don't admit to what my {{ session.divorceWho }} said about me"
+        "answer": "I will let the divorce proceed, but I don't admit to what was said about me"
       },
       "defend": {
         "heading": "I disagree with the application for divorce",
