@@ -9,13 +9,13 @@
 {% if isBehaviour %}
     {% set responseOptions = [
         { label: content.fields.proceed.heading, value: consts.proceed, description: content.fields.proceed.summary },
-        { label: content.fields.proceedButDisagree.heading, value: consts.proceedButDoNotAdmit, description: content.fields.proceedButDisagree.summary },
-        { label: content.fields.disagree.heading, value: consts.defend, description: content.fields.disagree.summary }
+        { label: content.fields.proceedButDisagree.heading, value: consts.proceedButDisagree, description: content.fields.proceedButDisagree.summary },
+        { label: content.fields.defend.heading, value: consts.defend, description: content.fields.defend.summary }
     ] %}
 {% else %}
     {% set responseOptions = [
         { label: content.fields.proceed.heading, value: consts.proceed, description: content.fields.proceed.summary },
-        { label: content.fields.disagree.heading, value: consts.defend, description: content.fields.disagree.summary }
+        { label: content.fields.defend.heading, value: consts.defend, description: content.fields.defend.summary }
     ] %}
 {% endif %}
 
@@ -38,8 +38,8 @@
                     <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
                 {% endif %}
 
-                <h2 class="heading-small">{{ content.info.options.disagree.heading | safe }}</h2>
-                <p class="text">{{ content.info.options.disagree.summary | safe }}</p>
+                <h2 class="heading-small">{{ content.info.options.defend.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.defend.summary | safe }}</p>
             </div>
         </details>
 

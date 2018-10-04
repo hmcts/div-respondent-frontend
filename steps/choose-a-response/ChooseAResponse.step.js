@@ -15,7 +15,7 @@ class ChooseAResponse extends Question {
   get consts() {
     return {
       proceed: 'proceed',
-      proceedButDoNotAdmit: 'proceedButDoNotAdmit',
+      proceedButDisagree: 'proceedButDisagree',
       defend: 'defend',
       yes: 'yes',
       no: 'no'
@@ -34,7 +34,7 @@ class ChooseAResponse extends Question {
     const constants = this.consts;
     const answers = [
       constants.proceed,
-      constants.proceedButDoNotAdmit,
+      constants.proceedButDisagree,
       constants.defend
     ];
 
@@ -59,7 +59,7 @@ class ChooseAResponse extends Question {
           respDefendsDivorce: consts.yes,
           respAdmitOrConsentToFact: consts.yes
         };
-      case consts.proceedButDoNotAdmit:
+      case consts.proceedButDisagree:
         return {
           respDefendsDivorce: consts.yes,
           respAdmitOrConsentToFact: consts.no
@@ -69,7 +69,8 @@ class ChooseAResponse extends Question {
           respDefendsDivorce: consts.no,
           respAdmitOrConsentToFact: consts.no
         };
-        // no default
+      default:
+        throw new Error(`Unknown response to behavior: '${response}'`);
       }
     }
 
@@ -78,11 +79,18 @@ class ChooseAResponse extends Question {
   }
 
   answers() {
-    const question = content.en.title;
-    return answer(this, {
-      question,
-      answer: this.fields.response.value === 'yes' ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
-    });
+    const response = this.fields.response.value;
+
+    if (response) {
+      const question = content.en.title;
+
+      const cyaContent = content.en.fields[response].answer;
+      return answer(this, {
+        question,
+        answer: cyaContent
+      });
+    }
+    return super.answers();
   }
 
   get middleware() {

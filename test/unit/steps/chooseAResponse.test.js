@@ -7,7 +7,13 @@ const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
-  const session = {};
+  const session = {
+    fields: {
+      response: {
+        value: 'proceed'
+      }
+    }
+  };
 
   beforeEach(() => {
     session.originalPetition = {};
@@ -61,6 +67,56 @@ describe(modulePath, () => {
     });
   });
 
+  describe('returns correct answer based on response', () => {
+    it('returns correct answer for proceed', () => {
+      // given
+      session.ChooseAResponse = {
+        response: 'proceed'
+      };
+
+      // when
+      const step = new ChooseAResponse({ session });
+      step.retrieve().validate();
+
+      // then
+      const values = step.answers();
+      expect(values).to.be.an('object');
+      expect(values).to.have.property('answer', stepContent.en.fields.proceed.answer);
+    });
+
+    it('returns correct answer for proceedButDisagree', () => {
+      // given
+      session.ChooseAResponse = {
+        response: 'proceedButDisagree'
+      };
+
+      // when
+      const step = new ChooseAResponse({ session });
+      step.retrieve().validate();
+
+      // then
+      const values = step.answers();
+      expect(values).to.be.an('object');
+      expect(values).to.have.property('answer', stepContent.en.fields.proceedButDisagree.answer);
+    });
+
+    it('returns correct answer for defend', () => {
+      // given
+      session.ChooseAResponse = {
+        response: 'defend'
+      };
+
+      // when
+      const step = new ChooseAResponse({ session });
+      step.retrieve().validate();
+
+      // then
+      const answers = step.answers();
+      expect(answers).to.be.an('object');
+      expect(answers).to.have.property('answer', stepContent.en.fields.defend.answer);
+    });
+  });
+
   describe('when reason for divorce is unreasonable behaviour', () => {
     beforeEach(() => {
       session.originalPetition = {
@@ -92,7 +148,7 @@ describe(modulePath, () => {
           specificValues: [
             stepContent.en.fields.proceed.heading,
             stepContent.en.fields.proceedButDisagree.heading,
-            stepContent.en.fields.disagree.heading
+            stepContent.en.fields.defend.heading
           ]
         });
     });
@@ -102,13 +158,9 @@ describe(modulePath, () => {
       session.ChooseAResponse = {
         response: 'proceed'
       };
-      const req = {
-        journey: {},
-        session
-      };
 
       // when
-      const step = new ChooseAResponse(req);
+      const step = new ChooseAResponse({ session });
       step.retrieve()
         .validate();
 
@@ -119,18 +171,14 @@ describe(modulePath, () => {
       expect(values).to.have.property('respAdmitOrConsentToFact', 'yes');
     });
 
-    it('sets respAdmitOrConsentToFact to no if response is proceedButDoNotAdmit', () => {
+    it('sets respAdmitOrConsentToFact to no if response is proceedButDisagree', () => {
       // given
       session.ChooseAResponse = {
-        response: 'proceedButDoNotAdmit'
-      };
-      const req = {
-        journey: {},
-        session
+        response: 'proceedButDisagree'
       };
 
       // when
-      const step = new ChooseAResponse(req);
+      const step = new ChooseAResponse({ session });
       step.retrieve()
         .validate();
 
@@ -146,13 +194,9 @@ describe(modulePath, () => {
       session.ChooseAResponse = {
         response: 'defend'
       };
-      const req = {
-        journey: {},
-        session
-      };
 
       // when
-      const step = new ChooseAResponse(req);
+      const step = new ChooseAResponse({ session });
       step.retrieve()
         .validate();
 
