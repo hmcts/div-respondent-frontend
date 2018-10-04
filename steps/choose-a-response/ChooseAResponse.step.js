@@ -18,7 +18,8 @@ class ChooseAResponse extends Question {
       proceedButDisagree: 'proceedButDisagree',
       defend: 'defend',
       yes: 'yes',
-      no: 'no'
+      no: 'no',
+      behavior: 'unreasonable-behaviour'
     };
   }
 
@@ -27,7 +28,8 @@ class ChooseAResponse extends Question {
   }
 
   get isBehaviour() {
-    return this.session.originalPetition.reasonForDivorce === 'unreasonable-behaviour';
+    const reasonForDivorce = this.session.originalPetition.reasonForDivorce;
+    return reasonForDivorce === this.consts.behavior;
   }
 
   get form() {
