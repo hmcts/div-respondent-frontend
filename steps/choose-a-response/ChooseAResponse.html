@@ -11,12 +11,12 @@
 {% if isBehaviour %}
     {% set responseOptions = [
         { label: content.fields.proceed.heading, value: "yes", description: content.fields.proceed.summary },
+        { label: content.fields.proceedButDisagree.heading, value: "proceedButDisagree", description: content.fields.proceedButDisagree.summary },
         { label: content.fields.disagree.heading, value: "no", description: content.fields.disagree.summary }
     ] %}
 {% else %}
     {% set responseOptions = [
         { label: content.fields.proceed.heading, value: "yes", description: content.fields.proceed.summary },
-        { label: content.fields.proceedButDisagree.heading, value: "proceedButDisagree", description: content.fields.proceedButDisagree.summary },
         { label: content.fields.disagree.heading, value: "no", description: content.fields.disagree.summary }
     ] %}
 {% endif %}

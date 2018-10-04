@@ -80,11 +80,8 @@ describe(modulePath, () => {
         }, {
           specificValues: [
             stepContent.en.fields.proceed.heading,
-            stepContent.en.fields.proceed.summary,
             stepContent.en.fields.proceedButDisagree.heading,
-            stepContent.en.fields.proceedButDisagree.summary,
-            stepContent.en.fields.disagree.heading,
-            stepContent.en.fields.disagree.summary
+            stepContent.en.fields.disagree.heading
           ]
         });
     });
