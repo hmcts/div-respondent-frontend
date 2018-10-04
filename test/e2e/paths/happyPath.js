@@ -2,10 +2,19 @@ const content = require('common/content');
 
 Feature('Happy path');
 
-Scenario('Proceed with divorce', I => {
+Scenario('@Integration First time new user', I => {
   I.amOnPage('/entry');
   I.seeIdamLoginPage();
-  I.login();
+  I.loginAsANewUser();
+  I.seeCaptureCaseAndPinPage();
+}).retry(2);
+
+Scenario('Proceed with divorce with linked user', I => {
+  I.amOnPage('/');
+  I.seeExamplePage('/');
+  I.click('Start now');
+  I.seeIdamLoginPage();
+  I.loginAsALinkedUser();
 
   I.seeRespondPage();
   I.click(content.en.continue);
@@ -32,11 +41,10 @@ Scenario('Proceed with divorce', I => {
   I.amOnLoadedPage('/end');
 }).retry(2);
 
-
-xScenario('Disagree with divorce', I => { // eslint-disable-line
+Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.amOnPage('/entry');
   I.seeIdamLoginPage();
-  I.login();
+  I.loginAsALinkedUser();
 
   I.seeRespondPage();
   I.click(content.en.continue);
@@ -67,10 +75,10 @@ xScenario('Disagree with divorce', I => { // eslint-disable-line
   I.amOnLoadedPage('/end');
 });
 
-xScenario('Disagree with divorce but change response', I => { // eslint-disable-line
+Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
   I.amOnPage('/entry');
   I.seeIdamLoginPage();
-  I.login();
+  I.loginAsALinkedUser();
 
   I.seeRespondPage();
   I.click(content.en.continue);

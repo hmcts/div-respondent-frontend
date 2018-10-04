@@ -22,6 +22,31 @@ Start database:
 
 `docker-compose up`
 
-Start application:
+Start application and required mocks:
 
 `yarn dev`
+
+`yarn mocks`
+
+Running tests:
+
+* Unit
+
+```
+yarn test:unit
+```
+
+* Validation
+
+```
+yarn test:validation
+```
+
+* E2E
+
+Run the following, each in a separate terminal window
+```
+yarn dev
+yarn mocks
+yarn test:e2e
+```
