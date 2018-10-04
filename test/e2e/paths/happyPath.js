@@ -68,6 +68,14 @@ xScenario('Disagree with divorce', I => { // eslint-disable-line
   I.chooseNoLegalProceedings();
   I.click(content.en.continue);
 
+  I.seeAgreeToPayCostsPage();
+  I.chooseAgreeToPay();
+  I.click(content.en.continue);
+
+  I.seeContactDetailsPage();
+  I.consentToSendingNotifications();
+  I.click(content.en.continue);
+
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
@@ -105,6 +113,17 @@ xScenario('Disagree with divorce but change response', I => { // eslint-disable-
   I.seeLegalProceedingPage();
   I.chooseNoLegalProceedings();
   I.click(content.en.continue);
+
+  I.seeAgreeToPayCostsPage();
+  I.chooseAgreeToPay();
+  I.click(content.en.continue);
+
+  I.seeContactDetailsPage();
+  I.consentToSendingNotifications();
+  I.click(content.en.continue);
+
+  I.seeCheckYourAnswersPage();
+  I.submitApplication();
 
   I.amOnLoadedPage('/end');
 });

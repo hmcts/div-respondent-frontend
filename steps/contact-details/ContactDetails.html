@@ -15,7 +15,7 @@
   {% call formSection() %}
     <div class="form-group">
       <label class="form-label-bold" for="emailAddress">{{ content.fields.enterEmail.label | safe }}</label>
-      <input class="form-control" id="emailAddress" name="emailAddress" disabled type="text" value="{{ session.originalPetition.respEmailAddress }}" />
+      <input class="form-control" id="emailAddress" name="emailAddress" disabled type="text" value="{{ session.originalPetition.respEmailAddress | safe }}" />
     </div>
 
     {{ textbox(fields.contactDetails.phoneNo, content.fields.enterPhoneNo.label) }}
