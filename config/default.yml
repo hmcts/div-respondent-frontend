@@ -49,12 +49,15 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-      getPetitionUrl: http://localhost:1111/retrieve-aos-case
-      submitAosUrl: http://localhost:1111
+    getPetitionUrl: http://localhost:3001/retrieve-aos-case
+    linkRespondentUrl: http://localhost:3001/link-respondent
+    submitAosUrl: http://localhost:1111
+
 paths:
   health: /health
   authenticated: /authenticated
   index: /
+  captureCaseAndPin: /respond-with-pin
   respond: /respond
   reviewApplication: /review-application
   chooseAResponse: /choose-a-response
@@ -64,6 +67,7 @@ paths:
   agreeToPayCosts: /agree-to-pay-costs
   contactDetails: /contact-details
   checkYourAnswers: /check-your-answers
+  invalidCaseState: /invalid-case-state
   end: /end
   entry: /entry
   mock:
@@ -72,7 +76,7 @@ paths:
 tests:
   e2e:
     waitForTimeout: 10000
-    waitForAction: 10000
+    waitForAction: 500
     smartWait: 5000
     outputDir: ../../functional-output
     idam:
