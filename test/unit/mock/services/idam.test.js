@@ -70,6 +70,9 @@ describe(modulePath, () => {
   describe('#protect', () => {
     it('runs next and adds idam object if authenticated', () => {
       req.headers.cookie = `mockIdamUserDetails=${JSON.stringify(userDetails)};`;
+      req.currentStep = {
+        name: 'SomeStep'
+      };
       const middleware = idam.protect(idamArgs);
       middleware(req, res, next);
       sinon.assert.calledOnce(next);

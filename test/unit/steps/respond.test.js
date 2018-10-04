@@ -5,23 +5,23 @@ const ReviewApplication = require('steps/review-application/ReviewApplication.st
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const getSteps = require('steps');
-const request = require('request-promise-native');
-const rawResponse = require('resources/raw-response-mock.json');
+const petitionMiddleware = require('middleware/petitionMiddleware');
 
 describe(modulePath, () => {
   beforeEach(() => {
-    sinon.stub(request, 'get')
-      .resolves(rawResponse);
-    sinon.stub(idam, 'protect').returns(middleware.nextMock);
+    sinon.stub(idam, 'protect')
+      .returns(middleware.nextMock);
+    sinon.stub(petitionMiddleware, 'loadMiniPetition')
+      .callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
-    request.get.restore();
+    petitionMiddleware.loadMiniPetition.restore();
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Respond, [ idam.protect() ]);
+    return middleware.hasMiddleware(Respond, [idam.protect()]);
   });
 
   it('redirects to next page', () => {

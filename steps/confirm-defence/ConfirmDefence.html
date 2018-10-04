@@ -1,0 +1,51 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+    <div id="confirm-defence">
+
+        <p>{{ content.defenceFeeDetails | safe }}</p>
+
+        <div class="notice">
+            <i class="icon icon-important">
+                <span class="visually-hidden">Warning</span>
+            </i>
+            <strong class="bold-small">
+                {{ content.legalAdviceWarn }}
+            </strong>
+        </div>
+
+        <details>
+            <summary>
+                <span class="summary">{{ content.info.readMore | safe }}</span>
+            </summary>
+            <div class="panel panel-border-narrow">
+                <h2 class="heading-small">{{ content.info.sections.intendToPrevent.heading | safe }}</h2>
+                <p class="text">{{ content.info.sections.intendToPrevent.summary | safe }}</p>
+
+                <h2 class="heading-small">{{ content.info.sections.makeOwnApplication.heading | safe }}</h2>
+                <p class="text">{{ content.info.sections.makeOwnApplication.summary | safe }}</p>
+            </div>
+        </details>
+
+        {% call formSection() %}
+            {{ selectionButtons(fields.response, content.title,
+                options = [
+                    { label: content.fields.confirm.heading, value: confirm },
+                    { label: content.fields.changeResponse.heading, value: changeResponse }
+                ],
+                hint=false,
+                hideQuestion=true,
+                inline=false,
+                type='radio'
+            ) }}
+        {% endcall %}
+    </div>
+
+{% endblock %}
