@@ -132,9 +132,9 @@
         "reasonForDivorceEnableAdultery": true,
         "reasonForDivorceBehaviourDetails": [
             "My husband is temperamental ",
-      "My husband is unpredictable",
-      "My husband is having affair",
-      "My husband is suspicious on me"
+            "My husband is unpredictable",
+            "My husband is having affair",
+            "My husband is suspicious on me"
         ],
         "legalProceedings": "Yes",
         "legalProceedingsRelated": [
@@ -222,6 +222,7 @@
                 "PaymentFeeId" : "X0165",
                 "PaymentSiteId" : "AA00"
             }
-        }]
+        }],
+        "respEmailAddress" : "respondent@email.address"
     }
 }

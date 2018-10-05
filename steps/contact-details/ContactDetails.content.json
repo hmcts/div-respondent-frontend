@@ -1,0 +1,33 @@
+{
+  "en": {
+    "title": "Your contact details",
+    "cya": {
+      "phoneNumber": "Your phone number",
+      "emailConsent": "I agree to receive emails from the court updating me on the divorce."
+    },
+    "summary": "The court needs to contact you about the divorce and keep you updated on its progress.",
+    "info": {
+      "options" : {
+        "relatedToMarriage" : "related to the marriage",
+        "affectsValidity": "may affect its validity (how legally binding the marriage is)"
+      }
+    },
+    "question": "Are there any other legal proceedings the court needs to know about?",
+    "fields": {
+      "enterEmail": {
+        "label": "Enter your email address"
+      },
+      "enterPhoneNo": {
+        "label": "Enter your phone number"
+      },
+      "consent": {
+        "heading": "I consent to receiving emails from the court updating me on the divorce.",
+        "answer": "Yes"
+      }
+    },
+    "errors": {
+      "requireValidPhoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
+      "requireConsent": "You must agree to receive notifications and court documents by email to use this service."
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textarea, textbox %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -151,17 +151,9 @@
     }}
     <div id="jurisdiction-no" class="form-group panel js-hidden">
 
-      <label class="form-label-bold" for="{{ fields.jurisdiction.reason.id }}">{{ content.fields.disagree.reason | safe }}</label>
-      {{ errorsFor(fields.jurisdiction.reason) }}
-      <textarea class="form-control" id="{{ fields.jurisdiction.reason.id }}" rows="4"
-                name="{{ fields.jurisdiction.reason.id }}">{{ fields.jurisdiction.reason.value | default('') }}</textarea>
+      {{ textarea(fields.jurisdiction.reason, content.fields.disagree.reason) }}
 
-      <br>
-      <fieldset class="form-group">
-        <label class="form-label-bold" for="{{ fields.jurisdiction.country.id }}">{{ content.fields.disagree.country | safe }}</label>
-        {{ errorsFor(fields.jurisdiction.country) }}
-        <input class="form-control" id="{{ fields.jurisdiction.country.id }}" name="{{ fields.jurisdiction.country.id }}" type="text" value="{{ fields.jurisdiction.country.value | default('') }}">
-      </fieldset>
+      {{ textbox(fields.jurisdiction.country, content.fields.disagree.country) }}
 
     </div>
   {% endcall %}

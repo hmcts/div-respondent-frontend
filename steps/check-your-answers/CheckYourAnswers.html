@@ -6,6 +6,10 @@
     {% include "includes/head.html" %}
 {% endblock %}
 
+{% block proposition_header %}
+    {% include "includes/propositional_navigation.html" %}
+{% endblock %}
+
 {% set pageContent = {
     title: content.title,
     sendApplication: content.submit

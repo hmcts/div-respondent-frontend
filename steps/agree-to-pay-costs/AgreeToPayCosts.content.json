@@ -1,0 +1,60 @@
+{
+  "en": {
+    "title": "Paying for the divorce",
+    "poundSymbol": "£",
+    "cya": {
+      "agree" : "Do you agree to pay the suggested costs?",
+      "noReason": "Why don't you agree to pay the suggested costs?",
+      "newAmount": "Suggested New Amount",
+      "newAmountReason": "Why don't you agree to pay the suggested costs?"
+    },
+    "summary1": "Your {{ session.divorceWho }} asked the court that you pay the costs of the divorce.",
+    "summary2": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ session.divorceWho }} make.",
+
+    "question": "Do you agree to pay the costs?",
+    "notice": "A costs order will only cover the divorce costs, and won't include any costs related to financial settlements or child maintenance.",
+
+    "info": {
+      "heading": "Read more about costs orders",
+      "options": {
+        "amountToPay": {
+          "heading": "How much you may have to pay",
+          "summary": "The applicant's costs usually include the £550 fee. They could also include other court fees and costs. The costs could be much higher if your {{ session.divorceWho }} has legal fees (eg a solicitor) and these are also included."
+        },
+        "whatNow": {
+          "heading": "What happens now",
+          "summary1": "Your husband/wife will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
+          "summary2": "The court will then make its decision on whether you should pay any costs. It will take all your circumstances into account, including your conduct, and your {{ session.divorceWho }}'s conduct, before and during the divorce.",
+          "summary3": "You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
+        },
+        "doNotAcceptCost": {
+          "heading": "Objecting to the costs order",
+          "summary": "You can dispute the costs order if you don't think that you should pay it. You'll need to send a letter to the court stating why you don't think you should pay at least 14 days before the hearing."
+        }
+      }
+    },
+    "fields": {
+      "agree": {
+        "heading": "I agree to pay the suggested costs",
+        "answer": "I agree to pay the suggested costs"
+      },
+      "differentAmount": {
+        "heading": "I suggest I pay a different amount",
+        "answer": "I suggest I pay a different amount",
+        "newAmount": "Enter amount",
+        "reason": "Provide brief details of why you want to pay this much"
+      },
+      "disagree": {
+        "heading": "I should not pay any costs, and will give my reasons",
+        "answer": "I should not pay any costs, and will give my reasons",
+        "reason": "Provide a brief explanation of why you should not pay"
+      }
+    },
+    "errors": {
+      "required": "Select ‘I agree to pay the suggested costs’ if you agree to pay all or some of the divorce costs.",
+      "noReasonRequired": "Enter a reason why you should not pay the costs.",
+      "newAmountRequired": "Enter an amount that you want to pay.",
+      "newAmountReasonRequired": "Enter a reason for why you should pay a different amount."
+    }
+  }
+}
