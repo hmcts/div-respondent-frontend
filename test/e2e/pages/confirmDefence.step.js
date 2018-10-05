@@ -9,11 +9,11 @@ function seeConfirmDefencePage() {
 }
 
 function clickToConfirmDefenceAgainstDivorce() {
-  this.click(content.en.fields.confirm.heading);
+  this.click(content.en.fields.confirm.label);
 }
 
 function clickToChangeResponse() {
-  this.click(content.en.fields.changeResponse.heading);
+  this.click(content.en.fields.changeResponse.label);
 }
 
 module.exports = {
