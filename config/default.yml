@@ -67,6 +67,7 @@ paths:
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
   end: /end
+  done: /done
   entry: /entry
   mock:
     idamLogin: /idam-mock-login

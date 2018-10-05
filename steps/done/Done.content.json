@@ -1,0 +1,21 @@
+{
+  "en": {
+    "responseSent": "Response sent",
+    "referenceNumber": "Your reference number is",
+    "husbandWifeApplied": "Your {{ session.divorceWho }} applied",
+    "youMustRespond": "You responded",
+    "getDecreeNisi": "Your {{ session.divorceWho }} applies for a decree nisi",
+    "madeFinal": "The divorce is made final",
+    "yourCourt": "Your divorce centre",
+    "email": "Email",
+    "emailAddressDivorceService": "divorce@justice.gov.uk",
+    "phone": "Phone",
+    "divorceCenterPhone": "0300 303 0642",
+    "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
+    "guidence": "Guidance on GOV.UK",
+    "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
+    "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+    "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+    "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+  }
+}
