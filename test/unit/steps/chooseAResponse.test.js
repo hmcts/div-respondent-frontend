@@ -124,6 +124,11 @@ describe(modulePath, () => {
       };
     });
 
+    it('redirects to jurisdiction page when proceed but do not admit with divorce', () => {
+      const fields = { response: 'proceedButDisagree' };
+      return question.redirectWithField(ChooseAResponse, fields, Jurisdiction);
+    });
+
     it('renders specific behaviour info', () => {
       return content(
         ChooseAResponse,

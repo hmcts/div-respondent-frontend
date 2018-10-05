@@ -101,9 +101,9 @@ class ChooseAResponse extends Question {
 
   next() {
     const response = this.fields.response;
-    const proceed = response.value === consts.proceed;
-    return branch(redirectTo(this.journey.steps.Jurisdiction).if(proceed),
-      redirectTo(this.journey.steps.ConfirmDefence)
+    const isDefend = response.value === consts.defend;
+    return branch(redirectTo(this.journey.steps.ConfirmDefence).if(isDefend),
+      redirectTo(this.journey.steps.Jurisdiction)
     );
   }
 }
