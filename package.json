@@ -8,6 +8,7 @@
   "scripts": {
     "start": "NODE_PATH=. node server.js",
     "setup": "NODE_PATH=.",
+    "devMocks": "NODE_PATH=.; yarn mocks | yarn dev",
     "dev": "NODE_PATH=. node-dev server.js",
     "mocks": "NODE_PATH=. node-dev mocks/index.js",
     "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/*.test.js' --timeout 15000",

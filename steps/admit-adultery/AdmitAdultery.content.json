@@ -3,8 +3,24 @@
     "title": "Do you admit to committing the adultery?",
     "detailsText": "Your {{ session.divorceWho }} provided the following details.",
     "whereAdultery": {
-      "header": "Where the adultery took place",
-      "summary": "{{ session.originalPetition.reasonForDivorceAdulteryWhereDetails }}"
+      "heading": "Where the adultery took place"
+    },
+    "whenAdultery": {
+      "heading": "When the adultery took place"
+    },
+    "details": {
+      "heading": "Description of the adultery"
+    },
+    "fields": {
+      "admit": {
+        "label": "Yes, I admit to committing the adultery"
+      },
+      "doNotAdmit": {
+        "label": "No, I do not admit to committing the adultery"
+      }
+    },
+    "errors": {
+      "required": "Select yes if you admit to committing the adultery"
     }
   }
 }
