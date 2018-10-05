@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textarea %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -47,12 +47,7 @@
         <li>{{ content.fields.yes.details.includes.others | safe }}</li>
       </ul>
 
-      <label class="form-label-bold" for="{{ fields.legalProceedings.details.id }}" >
-        {{ content.fields.yes.details.caseDetails | safe }}
-      </label>
-      {{ errorsFor(fields.legalProceedings.details) }}
-      <textarea class="form-control" id="{{ fields.legalProceedings.details.id }}" rows="4"
-                name="{{ fields.legalProceedings.details.name }}">{{ fields.legalProceedings.details.value | default('') }}</textarea>
+      {{ textarea(fields.legalProceedings.details, content.fields.yes.details.caseDetails) }}
 
     </div>
   {% endcall %}

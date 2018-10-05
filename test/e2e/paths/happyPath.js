@@ -35,11 +35,20 @@ Scenario('Proceed with divorce with linked user', I => {
   I.chooseNoLegalProceedings();
   I.click(content.en.continue);
 
+  I.seeAgreeToPayCostsPage();
+  I.chooseAgreeToPay();
+  I.click(content.en.continue);
+
+  I.seeContactDetailsPage();
+  I.consentToSendingNotifications();
+  I.click(content.en.continue);
+
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
   I.amOnLoadedPage('/end');
 }).retry(2);
+
 
 Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.amOnPage('/entry');
@@ -67,6 +76,14 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
 
   I.seeLegalProceedingPage();
   I.chooseNoLegalProceedings();
+  I.click(content.en.continue);
+
+  I.seeAgreeToPayCostsPage();
+  I.chooseAgreeToPay();
+  I.click(content.en.continue);
+
+  I.seeContactDetailsPage();
+  I.consentToSendingNotifications();
   I.click(content.en.continue);
 
   I.seeCheckYourAnswersPage();
@@ -106,6 +123,17 @@ Scenario('Disagree with divorce but change response', I => { // eslint-disable-l
   I.seeLegalProceedingPage();
   I.chooseNoLegalProceedings();
   I.click(content.en.continue);
+
+  I.seeAgreeToPayCostsPage();
+  I.chooseAgreeToPay();
+  I.click(content.en.continue);
+
+  I.seeContactDetailsPage();
+  I.consentToSendingNotifications();
+  I.click(content.en.continue);
+
+  I.seeCheckYourAnswersPage();
+  I.submitApplication();
 
   I.amOnLoadedPage('/end');
 });
