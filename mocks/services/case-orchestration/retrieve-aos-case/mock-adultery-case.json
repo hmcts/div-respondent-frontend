@@ -1,235 +1,182 @@
 {
-  "caseId" : 324234342342,
-  "courts" : "eastMidlands",
-  "state"  : "AosStarted",
-  "data" : {
-    "caseReference": "LV17D80100",
-    "expires": 1507916719323,
+  "caseId": "1539017559370699",
+  "courts": "northWest",
+  "state": "AosStarted",
+  "data": {
+    "expires": 0,
+    "caseReference": "LV17D80999",
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",
     "screenHasMarriageCert": "Yes",
-    "screenHasPrinter": "Yes",
     "helpWithFeesNeedHelp": "Yes",
     "helpWithFeesAppliedForFees": "Yes",
     "helpWithFeesReferenceNumber": "HWF-123-456",
-    "divorceWho": "husband",
+    "divorceWho": "wife",
     "marriageIsSameSexCouple": "No",
-    "marriageDateDay": 2,
-    "marriageDateMonth": 2,
-    "marriageDateYear": 2001,
-    "marriageDate": "2001-02-02T00:00:00.000Z",
-    "marriageCanDivorce": true,
-    "marriageDateIsFuture": false,
-    "marriageDateMoreThan100": false,
-    "marriageWhereMarried": "england",
-    "jurisdictionPath": [
-      "JurisdictionHabitualResidence",
-      "JurisdictionInterstitial"
-    ],
+    "marriageDateDay": 1,
+    "marriageDateMonth": 1,
+    "marriageDateYear": 2000,
+    "marriageDate": "2000-01-01T00:00:00.000+0000",
+    "marriageCanDivorce": "true",
+    "marriedInUk": "Yes",
     "jurisdictionConnection": [
       "A",
       "C"
     ],
     "connections": {
       "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
-      "C": "The Respondent is habitually resident in England and Wales"
+      "B": null,
+      "C": "The Respondent is habitually resident in England and Wales",
+      "D": null,
+      "E": null,
+      "F": null,
+      "G": null
     },
     "jurisdictionPetitionerResidence": "Yes",
     "jurisdictionRespondentResidence": "Yes",
     "jurisdictionConfidentLegal": "Yes",
-    "jurisdictionConnectionFirst": "A",
     "petitionerContactDetailsConfidential": "share",
-    "petitionerFirstName": "John",
-    "petitionerLastName": "Smith",
-    "respondentFirstName": "Jane",
-    "respondentLastName": "Jamed",
-    "marriagePetitionerName": "John Doe",
-    "marriageRespondentName": "Jenny Benny",
-    "petitionerNameDifferentToMarriageCertificate": "Yes",
-    "petitionerNameChangedHow": [
-      "marriageCertificate"
-    ],
-    "petitionerEmail": "simulate-delivered@notifications.service.gov.uk",
-    "petitionerPhoneNumber": "01234567890",
+    "petitionerFirstName": "BANANA",
+    "petitionerLastName": "ban",
+    "respondentFirstName": "Apple",
+    "respondentLastName": "App",
+    "marriagePetitionerName": "Ban",
+    "marriageRespondentName": "App",
+    "petitionerNameDifferentToMarriageCertificate": "No",
+    "petitionerEmail": "vivdivred@mailinator.com",
     "petitionerHomeAddress": {
       "addressType": "postcode",
-      "postcode": "SW9 9PE",
-      "address": [
-        "82 Landor Road",
-        "London",
-        "SW9 9PE"
-      ],
-      "addressConfirmed": "true",
+      "postcode": "SW10 0AB",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": true,
+      "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": "false",
-      "addressBaseUK": {
-        "addressLine1": "82 Landor Road",
-        "addressLine2": "",
-        "addressLine3": "",
-        "postCode": "SW9 9PE",
-        "postTown": "London",
-        "county": "",
-        "country": "UK"
-      },
-      "url": "/petitioner-respondent/address",
-      "formattedAddress": {
-        "whereabouts": [
-          "82 Landor Road",
-          "London"
-        ],
-        "postcode": "SW9 9PE"
-      }
+      "postcodeError": false,
+      "url": null,
+      "address": [
+        "Chelsea Academy",
+        "Lots Road",
+        "London",
+        "SW10 0AB"
+      ]
     },
     "petitionerCorrespondenceUseHomeAddress": "Yes",
     "petitionerCorrespondenceAddress": {
       "addressType": "postcode",
-      "postcode": "SW9 9PE",
-      "address": [
-        "82 Landor Road",
-        "London",
-        "SW9 9PE"
-      ],
-      "addressConfirmed": "true",
+      "postcode": "SW10 0AB",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": true,
+      "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": "false",
-      "addressBaseUK": {
-        "addressLine1": "82 Landor Road",
-        "addressLine2": "",
-        "addressLine3": "",
-        "postCode": "SW9 9PE",
-        "postTown": "London",
-        "county": "",
-        "country": "UK"
-      },
-      "url": "/petitioner-respondent/address",
-      "formattedAddress": {
-        "whereabouts": [
-          "82 Landor Road",
-          "London"
-        ],
-        "postcode": "SW9 9PE"
-      }
+      "postcodeError": false,
+      "url": null,
+      "address": [
+        "Chelsea Academy",
+        "Lots Road",
+        "London",
+        "SW10 0AB"
+      ]
     },
     "livingArrangementsLiveTogether": "Yes",
     "respondentHomeAddress": {
       "addressType": "postcode",
-      "postcode": "SW9 9PE",
-      "address": [
-        "82 Landor Road",
-        "London",
-        "SW9 9PE"
-      ],
-      "addressConfirmed": "true",
+      "postcode": "SW10 0AB",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": true,
+      "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": "false",
-      "addressBaseUK": {
-        "addressLine1": "82 Landor Road",
-        "addressLine2": "",
-        "addressLine3": "",
-        "postCode": "SW9 9PE",
-        "postTown": "London",
-        "county": "",
-        "country": "UK"
-      },
-      "url": "/petitioner-respondent/address",
-      "formattedAddress": {
-        "whereabouts": [
-          "82 Landor Road",
-          "London"
-        ],
-        "postcode": "SW9 9PE"
-      }
+      "postcodeError": false,
+      "url": null,
+      "address": [
+        "Chelsea Academy",
+        "Lots Road",
+        "London",
+        "SW10 0AB"
+      ]
     },
-    "respondentCorrespondenceUseHomeAddress": "No",
+    "respondentCorrespondenceUseHomeAddress": "Yes",
     "respondentCorrespondenceAddress": {
       "addressType": "postcode",
-      "postcode": "SW9 9PE",
-      "address": [
-        "82 Landor Road",
-        "London",
-        "SW9 9PE"
-      ],
-      "addressConfirmed": "true",
+      "postcode": "SW10 0AB",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": true,
+      "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": "false",
-      "addressBaseUK": {
-        "addressLine1": "82 Landor Road",
-        "addressLine2": "",
-        "addressLine3": "",
-        "postCode": "SW9 9PE",
-        "postTown": "London",
-        "county": "",
-        "country": "UK"
-      },
-      "url": "/petitioner-respondent/respondent-correspondence-address",
-      "formattedAddress": {
-        "whereabouts": [
-          "82 Landor Road",
-          "London"
-        ],
-        "postcode": "SW9 9PE"
-      }
+      "postcodeError": false,
+      "url": null,
+      "address": [
+        "Chelsea Academy",
+        "Lots Road",
+        "London",
+        "SW10 0AB"
+      ]
     },
     "reasonForDivorce": "adultery",
-    "reasonForDivorceHasMarriageDate": true,
-    "reasonForDivorceShowAdultery": true,
-    "reasonForDivorceShowUnreasonableBehaviour": true,
-    "reasonForDivorceShowTwoYearsSeparation": true,
-    "reasonForDivorceShowFiveYearsSeparation": true,
-    "reasonForDivorceShowDesertion": true,
-    "reasonForDivorceLimitReasons": false,
-    "reasonForDivorceEnableAdultery": true,
+    "reasonForDivorceHasMarriageDate": "true",
+    "reasonForDivorceShowAdultery": "true",
+    "reasonForDivorceShowUnreasonableBehaviour": "true",
+    "reasonForDivorceShowTwoYearsSeparation": "true",
+    "reasonForDivorceShowFiveYearsSeparation": "true",
+    "reasonForDivorceShowDesertion": "true",
+    "reasonForDivorceLimitReasons": "false",
+    "reasonForDivorceEnableAdultery": "true",
+    "reasonForDivorceAdulteryWishToName": "Yes",
+    "reasonForDivorceAdultery3rdPartyFirstName": "Orange",
+    "reasonForDivorceAdultery3rdPartyLastName": "Orange",
+    "reasonForDivorceAdultery3rdAddress": {
+      "addressType": "postcode",
+      "postcode": "SW10 0AA",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": true,
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": false,
+      "url": null,
+      "address": [
+        "Apartment 2.1",
+        "1 Waterfront Drive",
+        "London",
+        "SW10 0AA"
+      ]
+    },
+    "reasonForDivorceAdulteryKnowWhere": "Yes",
+    "reasonForDivorceAdulteryKnowWhen": "Yes",
+    "reasonForDivorceAdulteryDetails": "I received several messages that night from Orange  boasting that she was with my husband and that they were having an affair. I confronted him about it the next day and he confessed and moved out of the house. We haven’t spoken since that day. I can provide text messages from both my Husband and Orange confessing to the adultery.",
+    "reasonForDivorceAdulteryWhenDetails": "New years eve 2018, At midnight.",
+    "reasonForDivorceAdulteryWhereDetails": "At a travelodge in Westminster  street, near central London.",
     "legalProceedings": "Yes",
     "legalProceedingsRelated": [
-      "children"
+      "marriage",
+      "property"
     ],
-    "legalProceedingsDetails": "The legal proceeding details",
-    "financialOrder": "Yes",
-    "financialOrderFor": [
-      "petitioner",
-      "children"
-    ],
-    "claimsCosts": "Yes",
-    "reasonForDivorceAdulteryIsNamed": "Yes",
-    "claimsCostsFrom": [
-      "respondent",
-      "correspondent"
-    ],
-    "claimsCostsAppliedForFees": true,
-    "reasonForDivorceClaiming5YearSeparation": false,
-    "reasonForDivorceClaimingAdultery": true,
-    "marriageCertificateFiles": [
-      {
-        "createdBy" : 12661,
-        "createdOn" : "2017-12-11",
-        "lastModifiedBy" : 12661,
-        "modifiedOn" : "2017-12-11",
-        "fileName" : "govuklogo.png",
-        "fileUrl" : "https://api-gateway.test.dm.reform.hmcts.net/documents/7f63ca9b-c361-49ab-aa8c-8fbdb6bc2936",
-        "mimeType" : "image/png",
-        "status" : "OK"
-      },
-      {
-        "createdBy" : 12661,
-        "createdOn" : "2017-12-11",
-        "lastModifiedBy" : 12661,
-        "modifiedOn" : "2017-12-11",
-        "fileName" : "d8-eng.pdf",
-        "fileUrl" : "https://api-gateway.test.dm.reform.hmcts.net/documents/560f4bd1-fcf2-4dc5-80d1-d7e00d861683",
-        "mimeType" : "application/pdf",
-        "status" : "OK"
-      }
-    ],
+    "legalProceedingsDetails": "Mr text change\r\nmobile\r\n099889900990m is the mobile from where the messages sent .",
+    "financialOrder": "No",
+    "claimsCosts": "No",
     "court": {
       "eastMidlands": {
-        "phone": "0115 955 8266",
         "divorceCentre": "East Midlands Regional Divorce Centre",
         "courtCity": "Nottingham",
         "poBox": "PO Box 10447",
         "postCode": "NG2 9QN",
-        "openingHours": "Telephone Enquiries from: 8am to 4pm",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
         "email": "eastmidlandsdivorce@hmcts.gsi.gov.uk",
-        "phoneNumber": "0115 955 8186"
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA01"
       },
       "westMidlands": {
         "divorceCentre": "West Midlands Regional Divorce Centre",
@@ -237,36 +184,57 @@
         "poBox": "PO Box 3650",
         "postCode": "ST4 9NH",
         "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
-        "phoneNumber": "0300 123 5577"
+        "email": "westmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA02"
       },
       "southWest": {
         "divorceCentre": "South West Regional Divorce Centre",
         "courtCity": "Southampton",
         "poBox": "PO Box 1792",
         "postCode": "SO15 9GG",
-        "openingHours": "Telephone Enquiries from: 8am to 4pm",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
         "email": "sw-region-divorce@hmcts.gsi.gov.uk",
-        "phoneNumber": "023 8038 4200"
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA03"
+      },
+      "northWest": {
+        "divorceCentre": "North West Regional Divorce Centre",
+        "divorceCentreAddressName": "Liverpool Civil & Family Court",
+        "courtCity": "Liverpool",
+        "street": "35 Vernon Street",
+        "postCode": "L2 2BX",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "family@liverpool.countycourt.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA04"
       }
     },
-    "courts": "westMidlands",
-    "reasonForDivorceAdulteryWishToName": "Yes",
-    "reasonForDivorceAdultery3rdPartyFirstName": "Jennifer",
-    "reasonForDivorceAdultery3rdPartyLastName": "Smith",
-    "postcodeLookup": {},
-    "reasonForDivorceAdultery3rdAddress": {
-      "addressType": "abroad",
-      "address": [
-        "Headquarters 1120 N Street Sacramento 916-654-5266\t",
-        "P.O. Box 942873 Sacramento, CA 94273-0001"
-      ],
-      "addressConfirmed": "true",
-      "url": "/about-divorce/reason-for-divorce/adultery/co-respondent-address"
-    },
-    "reasonForDivorceAdulteryKnowWhere": "Yes",
-    "reasonForDivorceAdulteryKnowWhen": "Yes",
-    "reasonForDivorceAdulteryDetails": "They met online and started seeing each other a year ago.",
-    "reasonForDivorceAdulteryWhenDetails": "One year ago.",
-    "reasonForDivorceAdulteryWhereDetails": "In a nearby hotel."
+    "courts": "northWest",
+    "confirmPrayer": "Yes",
+    "marriageCertificateFiles": [],
+    "respEmailAddress": "divdemores@mailinator.com",
+    "d8": [
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "d8petition1539017559370699",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/430b333a-de02-4b16-8868-e6b1130aab2b",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "aosinvitation1539017559370699",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/a060ba13-d5da-45b0-a181-1c2ace891904",
+        "mimeType": null,
+        "status": null
+      }
+    ]
   }
 }

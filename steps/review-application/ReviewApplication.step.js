@@ -46,8 +46,8 @@ class ReviewApplication extends Question {
   }
 
   next() {
-    const originalPetition = this.session.originalPetition;
-    const isAdulteryCase = originalPetition.reasonForDivorceClaimingAdultery;
+    const petition = this.session.originalPetition;
+    const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
     return branch(
       goTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
       goTo(this.journey.steps.ChooseAResponse)

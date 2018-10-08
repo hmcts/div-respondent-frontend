@@ -6,7 +6,7 @@
     },
     "fields": {
       "success": {
-        "yesCaseStarted": "Yes - case started",
+        "yesCaseStarted": "Yes - case started - unreasonable behaviour",
         "yesCaseNotLinked": "Yes - case not linked",
         "yesCaseNotLinkedAndInvalidPin": "Yes - case not linked and invalid pin",
         "yesCaseNotLinkedAndServerError": "Yes - case not linked and server error",
