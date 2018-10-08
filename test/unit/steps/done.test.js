@@ -21,13 +21,7 @@ describe(modulePath, () => {
     const session = {
       ChooseAResponse: {
         respDefendsDivorce: 'no'
-      },
-      divorceWho: 'wife',
-      referenceNumber: '1234567891234567',
-      divorceCenterName: 'East Midlands Regional Divorce Centre',
-      divorceCenterPoBox: 'PO Box 10447',
-      divorceCenterCourtCity: 'Nottingham',
-      divorceCenterPostCode: 'NG2 9QN'
+      }
     };
     const ignoreContent = [
       'continue',
@@ -52,13 +46,7 @@ describe(modulePath, () => {
     const session = {
       ChooseAResponse: {
         respDefendsDivorce: 'yes'
-      },
-      divorceWho: 'wife',
-      referenceNumber: '1234567891234567',
-      divorceCenterName: 'East Midlands Regional Divorce Centre',
-      divorceCenterPoBox: 'PO Box 10447',
-      divorceCenterCourtCity: 'Nottingham',
-      divorceCenterPostCode: 'NG2 9QN'
+      }
     };
     const ignoreContent = [
       'continue',
@@ -78,5 +66,45 @@ describe(modulePath, () => {
     ];
 
     return content(doneStep, session, { ignoreContent });
+  });
+
+  describe('values', () => {
+    it('displays reference number', () => {
+      const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 4567';
+      const session = {
+        referenceNumber: referenceNumber.replace(/ ‐ /g, '')
+      };
+      return content(
+        doneStep,
+        session,
+        {
+          specificValues: [ referenceNumber ]
+        }
+      );
+    });
+
+    it('displays divorce center name, po box, city, post code', () => {
+      const session = {
+        ChooseAResponse: {
+          respDefendsDivorce: 'yes'
+        },
+        divorceCenterName: 'East Midlands Regional Divorce Centre',
+        divorceCenterPoBox: 'PO Box 10447',
+        divorceCenterCourtCity: 'Nottingham',
+        divorceCenterPostCode: 'NG2 9QN'
+      };
+      return content(
+        doneStep,
+        session,
+        {
+          specificValues: [
+            session.divorceCenterName,
+            session.divorceCenterPoBox,
+            session.divorceCenterCourtCity,
+            session.divorceCenterPostCode
+          ]
+        }
+      );
+    });
   });
 });
