@@ -65,6 +65,8 @@ paths:
   confirmDefence: /defend-are-you-sure
   jurisdiction: /jurisdiction
   legalProceedings: /legal-proceedings
+  agreeToPayCosts: /agree-to-pay-costs
+  contactDetails: /contact-details
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
   end: /end
