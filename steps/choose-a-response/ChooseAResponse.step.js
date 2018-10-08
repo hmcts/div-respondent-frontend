@@ -77,7 +77,7 @@ class ChooseAResponse extends Question {
       }
     }
 
-    const respDefendsDivorce = response === consts.proceed ? consts.yes : consts.no;
+    const respDefendsDivorce = response === consts.proceed ? consts.no : consts.yes;
     return { respDefendsDivorce };
   }
 

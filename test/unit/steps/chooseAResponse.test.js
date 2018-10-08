@@ -67,6 +67,40 @@ describe(modulePath, () => {
     });
   });
 
+  it('sets respDefendsDivorce to no if response is proceed', () => {
+    // given
+    session.ChooseAResponse = {
+      response: 'proceed'
+    };
+
+    // when
+    const step = new ChooseAResponse({ session });
+    step.retrieve()
+      .validate();
+
+    // then
+    const values = step.values();
+    expect(values).to.be.an('object');
+    expect(values).to.have.property('respDefendsDivorce', 'no');
+  });
+
+  it('sets respDefendsDivorce to yes if response is defend', () => {
+    // given
+    session.ChooseAResponse = {
+      response: 'defend'
+    };
+
+    // when
+    const step = new ChooseAResponse({ session });
+    step.retrieve()
+      .validate();
+
+    // then
+    const values = step.values();
+    expect(values).to.be.an('object');
+    expect(values).to.have.property('respDefendsDivorce', 'yes');
+  });
+
   describe('returns correct answer based on response', () => {
     it('returns correct answer for proceed', () => {
       // given
