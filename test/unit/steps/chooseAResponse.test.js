@@ -173,7 +173,7 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'yes');
+      expect(values).to.have.property('respDefendsDivorce', 'no');
       expect(values).to.have.property('respAdmitOrConsentToFact', 'yes');
     });
 
@@ -191,7 +191,7 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'yes');
+      expect(values).to.have.property('respDefendsDivorce', 'no');
       expect(values).to.have.property('respAdmitOrConsentToFact', 'no');
     });
 
@@ -209,7 +209,7 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'no');
+      expect(values).to.have.property('respDefendsDivorce', 'yes');
       expect(values).to.have.property('respAdmitOrConsentToFact', 'no');
     });
 

@@ -59,17 +59,17 @@ class ChooseAResponse extends Question {
       switch (response) {
       case consts.proceed:
         return {
-          respDefendsDivorce: consts.yes,
+          respDefendsDivorce: consts.no,
           respAdmitOrConsentToFact: consts.yes
         };
       case consts.proceedButDisagree:
         return {
-          respDefendsDivorce: consts.yes,
+          respDefendsDivorce: consts.no,
           respAdmitOrConsentToFact: consts.no
         };
       case consts.defend:
         return {
-          respDefendsDivorce: consts.no,
+          respDefendsDivorce: consts.yes,
           respAdmitOrConsentToFact: consts.no
         };
       default:
