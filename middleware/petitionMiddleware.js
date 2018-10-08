@@ -22,6 +22,9 @@ function storePetitionInSession(req, response) {
 
   const divorceCenter = req.session.originalPetition.courts;
   req.session.divorceCenterName = req.session.originalPetition.court[divorceCenter].divorceCentre;
+  req.session.divorceCenterPoBox = req.session.originalPetition.court[divorceCenter].poBox;
+  req.session.divorceCenterCourtCity = req.session.originalPetition.court[divorceCenter].courtCity;
+  req.session.divorceCenterPostCode = req.session.originalPetition.court[divorceCenter].postCode;
   /* eslint-enable */
 }
 
