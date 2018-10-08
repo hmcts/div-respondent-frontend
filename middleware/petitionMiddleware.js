@@ -4,7 +4,6 @@ const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.
 const InvalidCaseState = require('steps/invalid-case-state/InvalidCaseState.step');
 
 const AOS_STARTED = 'AosStarted';
-const AOS_AWAITING = 'AosAwaiting';
 const SUCCESS = 200;
 const NOT_FOUND = 404;
 const ERROR_RESPONSE = 400;
@@ -31,7 +30,7 @@ const loadMiniPetition = (req, res, next) => {
     .then(response => {
       if (response.statusCode === SUCCESS) {
         const caseState = response.body.state;
-        if (caseState !== AOS_STARTED && caseState !== AOS_AWAITING) {
+        if (caseState !== AOS_STARTED) {
           return res.redirect(InvalidCaseState.path);
         }
       } else if (response.statusCode === NOT_FOUND) {

@@ -1,7 +1,7 @@
 {
   "caseId" : 324234342342,
   "courts" : "eastMidlands",
-  "state"  : "AosAwaiting",
+  "state"  : "AosStarted",
   "data" : {
     "caseReference": "LV17D80100",
     "expires": 1507916719323,

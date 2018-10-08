@@ -7,6 +7,8 @@ const ChooseAResponse = require('steps/choose-a-response/ChooseAResponse.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const ccd = require('middleware/ccd');
+// eslint-disable-next-line
+const adulteryCase = require('mocks/services/case-orchestration/retrieve-aos-case/mock-adultery-case');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -34,7 +36,10 @@ describe(modulePath, () => {
 
   it('redirects to choose a response page when answered', () => {
     const fields = { respConfirmReadPetition: 'yes' };
-    return question.redirectWithField(ReviewApplication, fields, ChooseAResponse);
+    const session = {
+      originalPetition: adulteryCase
+    };
+    return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
   });
 
   describe('values', () => {
