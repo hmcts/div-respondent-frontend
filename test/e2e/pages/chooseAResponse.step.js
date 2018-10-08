@@ -13,7 +13,7 @@ function chooseToProceedWithDivorce() {
 }
 
 function chooseToDefendAgainstDivorce() {
-  this.click(content.en.fields.disagree.heading);
+  this.click(content.en.fields.defend.heading);
 }
 
 module.exports = {
