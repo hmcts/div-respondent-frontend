@@ -7,11 +7,11 @@
       "options": {
         "proceed": {
           "heading": "Proceeding with the divorce",
-          "summary": "If you proceed with the divorce, you and your husband/wife won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+          "summary": "If you proceed with the divorce, you and your {{ session.divorceWho }} won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
         },
         "proceedButDisagree": {
           "heading": "Proceeding, but not accepting the allegations",
-          "summary": "If you don't agree with what your husband/wife has said in their divorce application, but you don't want to try to prevent the divorce (you don't want to defend it) you can choose this option. The outcome of the divorce won't be affected if you choose this option.<br/><br/>You won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+          "summary": "If you don't agree with what your {{ session.divorceWho }} has said in their divorce application, but you don't want to try to prevent the divorce (you don't want to defend it) you can choose this option. The outcome of the divorce won't be affected if you choose this option.<br/><br/>You won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
         },
         "defend": {
           "heading": "Disagreeing with the application (defending)",
