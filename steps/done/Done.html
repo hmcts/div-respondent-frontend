@@ -24,7 +24,7 @@
     </p>
   </div>
 
-  <p class="text">{{ content.emailConfirmation }} <span class="bold-small">zoe1971@gmail.com</span>
+  <p class="text">{{ content.emailConfirmation }} <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
   </p>
 
   {% set items = {

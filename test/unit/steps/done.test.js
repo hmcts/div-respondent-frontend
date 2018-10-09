@@ -83,7 +83,7 @@ describe(modulePath, () => {
       );
     });
 
-    it('displays divorce center name, po box, city, post code', () => {
+    it('displays divorce center name, po box, city, post code petitioner email address', () => {
       const session = {
         ChooseAResponse: {
           respDefendsDivorce: 'yes'
@@ -91,7 +91,10 @@ describe(modulePath, () => {
         divorceCenterName: 'East Midlands Regional Divorce Centre',
         divorceCenterPoBox: 'PO Box 10447',
         divorceCenterCourtCity: 'Nottingham',
-        divorceCenterPostCode: 'NG2 9QN'
+        divorceCenterPostCode: 'NG2 9QN',
+        originalPetition: {
+          respEmailAddress: 'test@test.com'
+        }
       };
       return content(
         doneStep,
@@ -101,7 +104,8 @@ describe(modulePath, () => {
             session.divorceCenterName,
             session.divorceCenterPoBox,
             session.divorceCenterCourtCity,
-            session.divorceCenterPostCode
+            session.divorceCenterPostCode,
+            session.originalPetition.respEmailAddress
           ]
         }
       );
