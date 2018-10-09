@@ -35,11 +35,11 @@
     {% endif %}
   </p>
 
-  <h3 class="heading-small">{{ content.caseReference }}</h3>
-  <p class="text">{{ session.originalPetition.caseReference }}</p>
-
   <h3 class="heading-small">{{ content.issued }}</h3>
   <p class="text">{{ session.originalPetition.issueDate | date }}</p>
+
+  <h3 class="heading-small">{{ content.caseReference }}</h3>
+  <p class="text">{{ session.originalPetition.caseReference }}</p>
 
   <h3 class="heading-small">{{ content.applicant }}</h3>
   <p class="text">{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }}</p>
