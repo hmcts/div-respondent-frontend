@@ -60,6 +60,7 @@ paths:
   captureCaseAndPin: /respond-with-pin
   respond: /respond
   reviewApplication: /review-application
+  admitAdultery: /admit-the-adultery
   chooseAResponse: /choose-a-response
   confirmDefence: /defend-are-you-sure
   jurisdiction: /jurisdiction

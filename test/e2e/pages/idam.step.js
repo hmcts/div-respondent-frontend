@@ -60,6 +60,13 @@ function loginAsNonLinkedUserAndServerError() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsAdulteryCase() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesAdultery);
+  I.click(commonContent.en.continue);
+}
+
 
 module.exports = {
   seeIdamLoginPage,
@@ -68,5 +75,6 @@ module.exports = {
   loginAsCaseCompletedUser,
   loginAsInvalidPinUser,
   loginAsALinkedUser,
-  loginAsNonLinkedUserAndServerError
+  loginAsNonLinkedUserAndServerError,
+  loginAsAdulteryCase
 };

@@ -50,7 +50,7 @@ describe(modulePath, () => {
       .validate();
 
     const answer = step.answers();
-    expect(answer.answer).to.equal(confirmDefenceContent.en.fields.confirm.heading);
+    expect(answer.answer).to.equal(confirmDefenceContent.en.fields.confirm.label);
     expect(answer.question).to.equal(confirmDefenceContent.en.title);
     expect(answer.hide).to.equal(true);
   });

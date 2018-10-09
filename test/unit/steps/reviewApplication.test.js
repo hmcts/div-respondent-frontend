@@ -34,7 +34,12 @@ describe(modulePath, () => {
 
   it('redirects to choose a response page when answered', () => {
     const fields = { respConfirmReadPetition: 'yes' };
-    return question.redirectWithField(ReviewApplication, fields, ChooseAResponse);
+    const session = {
+      originalPetition: {
+        reasonForDivorceClaimingAdultery: false
+      }
+    };
+    return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
   });
 
   describe('values', () => {

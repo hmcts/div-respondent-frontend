@@ -11,6 +11,7 @@
         "yesCaseNotLinkedAndInvalidPin": "Yes - case not linked and invalid pin",
         "yesCaseNotLinkedAndServerError": "Yes - case not linked and server error",
         "yesCaseCompleted": "Yes - case completed",
+        "yesAdultery": "Yes - Adultery case",
         "no": "No"
       }
     }
