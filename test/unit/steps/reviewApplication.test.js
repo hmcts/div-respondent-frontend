@@ -59,6 +59,22 @@ describe(modulePath, () => {
       );
     });
 
+    it('displays issue date', () => {
+      const session = {
+        originalPetition: {
+          issueDate: '2006-02-02T00:00:00.000+0000',
+          jurisdictionConnection: {}
+        }
+      };
+      return content(
+        ReviewApplication,
+        session,
+        {
+          specificValues: [ '02 February 2006' ]
+        }
+      );
+    });
+
     it('displays petitioner and respondent names', () => {
       const session = {
         originalPetition: {

@@ -3,6 +3,7 @@
   "divorceCenterName": "East Midlands Regional Divorce Centre",
   "referenceNumber": 5555555555555555,
   "originalPetition": {
+    "issueDate" : "2006-02-02T00:00:00.000+0000",
     "caseReference": "LV17D80100",
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",
