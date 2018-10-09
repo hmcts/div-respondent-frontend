@@ -7,23 +7,33 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 
+const values = {
+  confirm: 'confirm',
+  changeResponse: 'changeResponse'
+};
+
 class ConfirmDefence extends Question {
   static get path() {
     return config.paths.confirmDefence;
   }
 
-  get confirm() {
-    return 'confirm';
+  get const() {
+    return values;
   }
 
-  get changeResponse() {
-    return 'changeResponse';
+  get session() {
+    return this.req.session;
+  }
+
+  values() {
+    // override here and return empty object to avoid sending this step to backend
+    return {};
   }
 
   get form() {
     const answers = [
-      this.confirm,
-      this.changeResponse
+      this.const.confirm,
+      this.const.changeResponse
     ];
     const validAnswers = Joi.string()
       .valid(answers)
@@ -36,7 +46,8 @@ class ConfirmDefence extends Question {
 
   answers() {
     const question = content.en.title;
-    const answerValue = this.fields.response.value === this.confirm ? content.en.fields.confirm.heading : content.en.fields.changeResponse.heading;
+    const doesConfirm = this.fields.response.value === this.const.confirm;
+    const answerValue = doesConfirm ? content.en.fields.confirm.label : content.en.fields.changeResponse.label;
     return answer(this, {
       question,
       answer: answerValue,
@@ -49,9 +60,9 @@ class ConfirmDefence extends Question {
   }
 
   next() {
-    const isConfirmed = this.fields.response.value === this.confirm;
+    const doesConfirm = this.fields.response.value === this.const.confirm;
     return branch(
-      redirectTo(this.journey.steps.Jurisdiction).if(isConfirmed),
+      redirectTo(this.journey.steps.Jurisdiction).if(doesConfirm),
       redirectTo(this.journey.steps.ChooseAResponse)
     );
   }
