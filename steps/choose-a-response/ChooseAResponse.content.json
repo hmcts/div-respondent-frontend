@@ -7,7 +7,7 @@
       "options": {
         "proceed": {
           "heading": "Proceeding with the divorce",
-          "summary": "If you proceed with the divorce, you and your {{ session.divorceWho }} won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+          "summary": "If you proceed with the divorce, you won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
         },
         "proceedButDisagree": {
           "heading": "Proceeding, but not accepting the allegations",
@@ -15,7 +15,7 @@
         },
         "defend": {
           "heading": "Disagreeing with the application (defending)",
-          "summary": "If you choose to defend the divorce you will have to pay a fee of £245. You may have to both attend a hearing where a judge will decide if the divorce should be granted. Defending usually only delays a divorce rather than prevents it."
+          "summary": "If you choose to defend the divorce you will have to pay a fee of £245. You may have to both attend a hearing where a judge will decide if the divorce should be granted."
         }
       }
     },
@@ -26,17 +26,17 @@
       "proceed": {
         "heading": "I will let the divorce proceed",
         "summary": "Choose this option if you don't want to try to prevent the divorce (you don't intend to 'defend' it).",
-        "answer": "I agree with what the applicant said, and won't try to prevent the divorce"
+        "answer": "I will let the divorce proceed and won't try to prevent it (I don't intend to 'defend' it)."
       },
       "proceedButDisagree": {
         "heading": "I will let the divorce proceed, but I don't admit to what my {{ session.divorceWho }} said about me",
         "summary": "Choose this option if you don't accept the allegations made in the application, but you don't want to try to prevent the divorce (you don't intend to 'defend' it).",
-        "answer": "I will let the divorce proceed, but I don't admit to what was said about me"
+        "answer": "I will let the divorce proceed (I don’t intend to defend it), but I don’t accept the allegations made in the application."
       },
       "defend": {
         "heading": "I disagree with the application for divorce",
         "summary": "Choose this option if you want to try to prevent the divorce or want to make your own application for divorce (you intend to 'defend' it)",
-        "answer": "I disagree with what the applicant said"
+        "answer": "I will try to prevent the divorce based on this application (I intend to 'defend' it)"
       }
     }
   }
