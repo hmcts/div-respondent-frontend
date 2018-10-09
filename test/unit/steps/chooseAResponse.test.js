@@ -168,10 +168,7 @@ describe(modulePath, () => {
         ChooseAResponse,
         session,
         {
-          specificValues: [
-            stepContent.en.info.options.proceedButDisagree.heading,
-            stepContent.en.info.options.proceedButDisagree.summary
-          ]
+          specificValues: [stepContent.en.info.options.proceedButDisagree.heading]
         }
       );
     });
