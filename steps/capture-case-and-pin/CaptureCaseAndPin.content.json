@@ -1,19 +1,19 @@
 {
   "en": {
     "title": "Enter these details from the letter",
-    "instructions": "Enter the reference number and security access code from the letter the court sent you.",
-    "referenceNumber": "Reference number",
-    "referenceNumberLabel": "This is a 16 digit number",
-    "securityAccessCode": "Security access code",
+    "instructions": "Enter the case number and access code from the letter the court sent you.",
+    "referenceNumber": "Case number",
+    "referenceNumberLabel": "This is a 16-digit number",
+    "securityAccessCode": "Access code",
     "securityAccessCodeLabel": "Your code is 8 characters long",
     "thereWasAProblem": "There was a problem",
-    "referenceNumberOrPinDoNotMatch": "The Case ID and/or PIN was not recognised. Please re-enter. If the situation persists, please contact the court",
-    "errorLinkingCase": "An error has occurred. Please re-enter. If the situation persists, please contact the court",
+    "referenceNumberOrPinDoNotMatch": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
+    "errorLinkingCase": "Try entering these details again. Contact the divorce centre if you need help.",
     "errors": {
-      "referenceNumberRequired": "Enter the 16-digit Case ID to continue",
-      "referenceNumberDigitsOnly": "The Case ID is 16 digits and can only contain the numbers 1 to 9",
-      "securityAccessCodeRequired": "Enter the security access code to continue",
-      "securityAccessCodeAlphanumericOnly": "The PIN number cannot contain special characters"
+      "referenceNumberRequired": "Enter the 16-digit case number to continue",
+      "referenceNumberDigitsOnly": "The case number is 16 digits and can only contain the numbers 1 to 9",
+      "securityAccessCodeRequired": "Enter the access code to continue",
+      "securityAccessCodeAlphanumericOnly": "The access code cannot contain special characters"
     }
   }
 }
