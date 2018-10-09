@@ -41,14 +41,13 @@
         },
         "residualJurisdiction": {
           "heading": "Residual Jurisdiction",
-        "intro1": "The court may have residual jurisdiction if:",
-        "bullet1": "none of the other connections apply",
-        "bullet2": "either the applicant (petitioner) or the respondent is domiciled in England or Wales and",
-        "bullet3": "neither the applicant nor the respondent is able to apply (on the basis of their nationality or residence) for a divorce in another member state of the EU",
-        "intro2": "In addition, if the marriage is between a same-sex couple, the court may have residual jurisdiction if the following apply:",
-        "bullet4": "the applicant and the respondent married each other in England or Wales and",
-        "bullet5": "neither the applicant nor the respondent is able to apply for a divorce in any other country and",
-        "bullet6": "it would be in the interests of justice for the court to consider the application (for example, this may apply if the applicant’s or respondent’s home country doesn’t allow divorce between same-sex couples)."
+        "intro1": "The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:",
+        "bullet1": "either you or your {{ session.divorceWho }} is domiciled in England or Wales",
+        "bullet2": "neither you nor your {{ session.divorceWho }} is able to apply (on the basis of your nationality or residence) for a divorce in another member state of the EU",
+        "intro2": "In addition, if you're married to a person of the same sex, the court may have residual jurisdiction if all the following apply:",
+        "bullet3": "you and your {{ session.divorceWho }} married each other in England or Wales",
+        "bullet4": "neither you nor your {{ session.divorceWho }} is able to apply for a divorce in any other country",
+        "bullet5": "it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ session.divorceWho }}'s home country doesn’t allow divorce between same-sex couples)."
     
 
 
