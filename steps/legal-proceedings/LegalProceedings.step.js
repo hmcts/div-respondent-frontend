@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
@@ -79,7 +79,14 @@ class LegalProceedings extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.CheckYourAnswers);
+    const costClaim = this.req.session.originalPetition.claimsCostsFrom;
+
+    const condition = costClaim && costClaim.includes('respondent');
+
+    return branch(
+      redirectTo(this.journey.steps.AgreeToPayCosts).if(condition),
+      redirectTo(this.journey.steps.ContactDetails)
+    );
   }
 }
 

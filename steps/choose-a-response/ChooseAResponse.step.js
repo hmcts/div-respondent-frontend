@@ -7,29 +7,92 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ChooseAResponse.content');
 
+const consts = {
+  proceed: 'proceed',
+  proceedButDisagree: 'proceedButDisagree',
+  defend: 'defend',
+  yes: 'yes',
+  no: 'no',
+  behavior: 'unreasonable-behaviour'
+};
+
 class ChooseAResponse extends Question {
   static get path() {
     return config.paths.chooseAResponse;
   }
 
+  get consts() {
+    return consts;
+  }
+
+  get session() {
+    return this.req.session;
+  }
+
+  get isBehaviour() {
+    const reasonForDivorce = this.session.originalPetition.reasonForDivorce;
+    return reasonForDivorce === consts.behavior;
+  }
+
   get form() {
-    const answers = ['yes', 'no'];
+    const constants = consts;
+    const answers = [
+      constants.proceed,
+      constants.proceedButDisagree,
+      constants.defend
+    ];
+
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const respDefendsDivorce = text
+    const response = text
       .joi(this.content.errors.required, validAnswers);
 
-    return form({ respDefendsDivorce });
+    return form({ response });
+  }
+
+  values() {
+    const response = this.fields.response.value;
+
+    if (this.isBehaviour) {
+      switch (response) {
+      case consts.proceed:
+        return {
+          respDefendsDivorce: consts.no,
+          respAdmitOrConsentToFact: consts.yes
+        };
+      case consts.proceedButDisagree:
+        return {
+          respDefendsDivorce: consts.no,
+          respAdmitOrConsentToFact: consts.no
+        };
+      case consts.defend:
+        return {
+          respDefendsDivorce: consts.yes,
+          respAdmitOrConsentToFact: consts.no
+        };
+      default:
+        throw new Error(`Unknown response to behavior: '${response}'`);
+      }
+    }
+
+    const respDefendsDivorce = response === consts.proceed ? consts.no : consts.yes;
+    return { respDefendsDivorce };
   }
 
   answers() {
-    const question = content.en.title;
-    return answer(this, {
-      question,
-      answer: this.fields.respDefendsDivorce.value === 'no' ? content.en.fields.proceed.answer : content.en.fields.disagree.answer
-    });
+    const response = this.fields.response.value;
+
+    if (response) {
+      const question = content.en.title;
+      const cyaContent = content.en.fields[response].answer;
+      return answer(this, {
+        question,
+        answer: cyaContent
+      });
+    }
+    return super.answers();
   }
 
   get middleware() {
@@ -37,10 +100,10 @@ class ChooseAResponse extends Question {
   }
 
   next() {
-    const proceedWithDivorce = this.fields.respDefendsDivorce.value === 'no';
-    return branch(
-      redirectTo(this.journey.steps.Jurisdiction).if(proceedWithDivorce),
-      redirectTo(this.journey.steps.ConfirmDefence)
+    const response = this.fields.response;
+    const isDefend = response.value === consts.defend;
+    return branch(redirectTo(this.journey.steps.ConfirmDefence).if(isDefend),
+      redirectTo(this.journey.steps.Jurisdiction)
     );
   }
 }

@@ -6,6 +6,19 @@
     {{ content.title | safe }}
 {% endset %}
 
+{% if isBehaviour %}
+    {% set responseOptions = [
+        { label: content.fields.proceed.heading, value: consts.proceed, description: content.fields.proceed.summary },
+        { label: content.fields.proceedButDisagree.heading, value: consts.proceedButDisagree, description: content.fields.proceedButDisagree.summary },
+        { label: content.fields.defend.heading, value: consts.defend, description: content.fields.defend.summary }
+    ] %}
+{% else %}
+    {% set responseOptions = [
+        { label: content.fields.proceed.heading, value: consts.proceed, description: content.fields.proceed.summary },
+        { label: content.fields.defend.heading, value: consts.defend, description: content.fields.defend.summary }
+    ] %}
+{% endif %}
+
 {% block fields %}
 
     <div id="choose-a-response">
@@ -20,20 +33,19 @@
                 <h2 class="heading-small">{{ content.info.options.proceed.heading | safe }}</h2>
                 <p class="text">{{ content.info.options.proceed.summary | safe }}</p>
 
-                <h2 class="heading-small">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
-                <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
+                {% if isBehaviour %}
+                    <h2 class="heading-small">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
+                    <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
+                {% endif %}
 
-                <h2 class="heading-small">{{ content.info.options.disagree.heading | safe }}</h2>
-                <p class="text">{{ content.info.options.disagree.summary | safe }}</p>
+                <h2 class="heading-small">{{ content.info.options.defend.heading | safe }}</h2>
+                <p class="text">{{ content.info.options.defend.summary | safe }}</p>
             </div>
         </details>
 
         {% call formSection() %}
-            {{ selectionButtons(fields.respDefendsDivorce, content.title,
-                options = [
-                    { label: content.fields.proceed.heading, value: "no", description: content.fields.proceed.summary },
-                    { label: content.fields.disagree.heading, value: "yes", description: content.fields.disagree.summary }
-                ],
+            {{ selectionButtons(fields.response, content.title,
+                options = responseOptions,
                 hint=false,
                 hideQuestion=true,
                 inline=false,
