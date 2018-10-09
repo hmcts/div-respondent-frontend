@@ -1,17 +1,24 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const content = require('./ReviewApplication.content').en;
 
-const yes = 'yes';
+const values = {
+  yes: 'yes',
+  adultery: 'adultery'
+};
 
 class ReviewApplication extends Question {
   static get path() {
     return config.paths.reviewApplication;
+  }
+
+  get const() {
+    return values;
   }
 
   get session() {
@@ -19,7 +26,7 @@ class ReviewApplication extends Question {
   }
 
   get form() {
-    const answers = [yes];
+    const answers = [this.const.yes];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
@@ -30,16 +37,21 @@ class ReviewApplication extends Question {
     return form({ respConfirmReadPetition });
   }
 
-  next() {
-    return goTo(this.journey.steps.ChooseAResponse);
-  }
-
   answers() {
     const question = content.readConfirmationQuestion;
     return answer(this, {
       question,
-      answer: this.fields.respConfirmReadPetition.value === yes ? content.readConfirmationYes : content.readConfirmationNo
+      answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content.readConfirmationYes : content.readConfirmationNo
     });
+  }
+
+  next() {
+    const petition = this.session.originalPetition;
+    const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
+    return branch(
+      goTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
+      goTo(this.journey.steps.ChooseAResponse)
+    );
   }
 
   get middleware() {
