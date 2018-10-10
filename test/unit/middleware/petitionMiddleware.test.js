@@ -115,7 +115,7 @@ describe(modulePath, () => {
 
     petitionMiddleware(req, {}, next);
   });
-  it('sets the case id, court name, po box, city, post code', done => {
+  it('sets the case id, court name, po box, city, post code and street', done => {
     const req = {
       cookies: { '__auth-token': 'test' },
       get: sinon.stub(),
@@ -136,7 +136,8 @@ describe(modulePath, () => {
               divorceCentre: 'East Midlands Regional Divorce Centre',
               poBox: 'PO Box 10447',
               courtCity: 'Nottingham',
-              postCode: 'NG2 9QN'
+              postCode: 'NG2 9QN',
+              street: '21 Jump Street'
             }
           }
         }
@@ -161,6 +162,9 @@ describe(modulePath, () => {
       expect(req.session.divorceCenterPostCode)
         .to
         .eql('NG2 9QN');
+      expect(req.session.divorceCenterStreet)
+        .to
+        .eql('21 Jump Street');
       done();
     };
 

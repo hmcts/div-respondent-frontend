@@ -92,6 +92,7 @@ describe(modulePath, () => {
         divorceCenterPoBox: 'PO Box 10447',
         divorceCenterCourtCity: 'Nottingham',
         divorceCenterPostCode: 'NG2 9QN',
+        divorceCenterStreet: '21 Jump Street',
         originalPetition: {
           respEmailAddress: 'test@test.com'
         }
@@ -105,6 +106,7 @@ describe(modulePath, () => {
             session.divorceCenterPoBox,
             session.divorceCenterCourtCity,
             session.divorceCenterPostCode,
+            session.divorceCenterStreet,
             session.originalPetition.respEmailAddress
           ]
         }

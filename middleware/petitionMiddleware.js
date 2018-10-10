@@ -22,9 +22,16 @@ function storePetitionInSession(req, response) {
 
   const divorceCenter = req.session.originalPetition.courts;
   req.session.divorceCenterName = req.session.originalPetition.court[divorceCenter].divorceCentre;
-  req.session.divorceCenterPoBox = req.session.originalPetition.court[divorceCenter].poBox;
   req.session.divorceCenterCourtCity = req.session.originalPetition.court[divorceCenter].courtCity;
   req.session.divorceCenterPostCode = req.session.originalPetition.court[divorceCenter].postCode;
+
+  if (req.session.originalPetition.court[divorceCenter].poBox) {
+    req.session.divorceCenterPoBox = req.session.originalPetition.court[divorceCenter].poBox;
+  }
+
+  if (req.session.originalPetition.court[divorceCenter].street) {
+    req.session.divorceCenterStreet = req.session.originalPetition.court[divorceCenter].street;
+  }
   /* eslint-enable */
 }
 
