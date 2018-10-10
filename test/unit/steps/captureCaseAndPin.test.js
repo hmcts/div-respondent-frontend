@@ -5,16 +5,12 @@ const caseOrchestration = require('services/caseOrchestration');
 const Respond = require('steps/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const request = require('request-promise-native');
-const rawResponse = require('resources/raw-response-mock.json');
 
 const validReferenceNumber = '1234567890123456';
 const validSecurityAccessCode = '1A3b5678';
 
 describe(modulePath, () => {
   beforeEach(() => {
-    sinon.stub(request, 'get')
-      .resolves(rawResponse);
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
     sinon.stub(caseOrchestration, 'linkCase')
@@ -23,7 +19,6 @@ describe(modulePath, () => {
 
   afterEach(() => {
     idam.protect.restore();
-    request.get.restore();
     caseOrchestration.linkCase.restore();
   });
 
