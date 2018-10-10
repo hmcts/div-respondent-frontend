@@ -53,7 +53,7 @@
     "costOrder": "Costs order",
     "helpWithCostOrders": "Help with costs orders",
     "claimingCosts": "Claiming costs",
-    "claimingCostsPar1": "Your {{ session.divorceWho }} was asked if they want the court to order you (and the co-respondent if you're using adultery and have chosen to name them) to pay some or all of the divorce costs.",
+    "claimingCostsPar1": "Your {{ session.divorceWho }} was asked if they want the court to order you to pay some or all of the divorce costs. If your {{ session.divorceWho }} is using adultery as the reason for divorce and has chosen to name the co-respondent, they can also be asked to pay for some of the costs.",
     "claimingCostsPar2": "This could include all the fees during the divorce, such as the £550 application fee, solicitor fees, and any extra court fees.",
     "financialOrders": "Financial orders",
     "helpWithFinancialOrders": "Help with financial orders",
