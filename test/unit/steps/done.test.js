@@ -20,7 +20,7 @@ describe(modulePath, () => {
   it('renders the content if the divorce is not defended', () => {
     const session = {
       ChooseAResponse: {
-        respDefendsDivorce: 'no'
+        response: 'proceed'
       }
     };
     const ignoreContent = [
@@ -45,7 +45,7 @@ describe(modulePath, () => {
   it('renders the content if the divorce is defended', () => {
     const session = {
       ChooseAResponse: {
-        respDefendsDivorce: 'yes'
+        response: 'defend'
       }
     };
     const ignoreContent = [
@@ -86,7 +86,7 @@ describe(modulePath, () => {
     it('displays divorce center name, po box, city, post code petitioner email address', () => {
       const session = {
         ChooseAResponse: {
-          respDefendsDivorce: 'yes'
+          response: 'defend'
         },
         divorceCenterName: 'East Midlands Regional Divorce Centre',
         divorceCenterPoBox: 'PO Box 10447',

@@ -47,7 +47,7 @@
   %}
   {% include "reform-progress-list/template.njk" %}
 
-  {% if session.ChooseAResponse.respDefendsDivorce == "no" %}
+  {% if session.ChooseAResponse.response == "proceed" %}
     <h2 class="heading-medium">{{ content.notDefendedHeading }}</h2>
     <p class"text">{{ content.notDefendedText1 }}</p>
     <p class"text">{{ content.notDefendedText2 }}</p>
@@ -60,7 +60,7 @@
     <p class="text">{{ content.notDefendedText5 }}</p>
   {% endif %}
 
-  {% if session.ChooseAResponse.respDefendsDivorce == "yes" %}
+  {% if session.ChooseAResponse.response == "defend" %}
     <h2 class="heading-medium">{{ content.defendedHeading }}</h2>
     <p class"text">{{ content.defendedText1 | safe }}</p>
     <p class"text">{{ content.defendedText2 }}</p>
