@@ -3,39 +3,51 @@
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textbox %}
 
 {% set title %}
-{{ content.title | safe }}
+    {{ content.title | safe }}
 {% endset %}
 
 {% block fields %}
 
-<div id="contact-details">
+    <div id="contact-details">
 
-  <p>{{ content.summary | safe }}</p>
+        <section class="email">
+            <h2 class="heading-medium">{{ content.contactMethods.email.heading }}</h2>
+            <p class="text">
+                {{ content.contactMethods.email.intro | safe }} <strong>{{ session.originalPetition.respEmailAddress }}</strong>.
+            </p>
 
-  {% call formSection() %}
-    <div class="form-group">
-      <label class="form-label-bold" for="emailAddress">{{ content.fields.enterEmail.label | safe }}</label>
-      <input class="form-control" id="emailAddress" name="emailAddress" disabled type="text" value="{{ session.originalPetition.respEmailAddress | safe }}" />
+            {% call formSection() %}
+                {{ selectionButtons(
+                    fields.contactDetails.consent,
+                    content.title,
+                    options = [{
+                        label: content.fields.email.label,
+                        value: 'yes'
+                    }],
+                    type='checkbox'
+                ) }}
+            {% endcall %}
+        </section>
+
+        <section class="telephone">
+            <h2 class="heading-medium">{{ content.contactMethods.telephone.heading }}</h2>
+
+            <p class="text">{{ content.contactMethods.telephone.intro | safe }}</p>
+
+            {% call formSection() %}
+                {{ textbox(
+                    fields.contactDetails.telephone,
+                    content.fields.telephone.label,
+                    hint=content.fields.telephone.hint) }}
+            {% endcall %}
+        </section>
+
+        <section class="post">
+            <h2 class="heading-medium">{{ content.contactMethods.post.heading }}</h2>
+            <p class="text">
+                {{ content.contactMethods.post.intro | safe }}
+            </p>
+        </section>
     </div>
-
-    {{ textbox(fields.contactDetails.phoneNo, content.fields.enterPhoneNo.label) }}
-
-    <div class="confirmation-block">
-      {{
-        selectionButtons(
-          fields.contactDetails.consent,
-          content.fields.consent.heading,
-          options = [
-            { label: content.fields.consent.heading, value: "yes" }
-          ],
-          hint=false,
-          hideQuestion=true,
-          inline=false,
-          type='checkbox'
-        )
-      }}
-    </div>
-  {% endcall %}
-</div>
 
 {% endblock %}
