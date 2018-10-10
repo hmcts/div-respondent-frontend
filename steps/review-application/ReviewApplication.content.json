@@ -74,8 +74,8 @@
     "youWillBeAbleToRespond": "You will be able to respond to this application on the next page",
     "readConfirmation": "I have read the application for divorce.",
     "readConfirmationQuestion": "Confirm that you have read your husband/wife's application",
-    "readConfirmationYes": "I confirm that I've read it",
-    "readConfirmationNo": "I've not read it",
+    "readConfirmationYes": "I have read the divorce application.",
+    "readConfirmationNo": "I have not read the divorce application.",
 
     "costsPetitionerPayedByRespondentAndCorrespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
     "costsPetitionerPayedByCorrespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
