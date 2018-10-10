@@ -2,7 +2,7 @@
   "en": {
     "title": "Do you agree that the courts of England and Wales have jurisdiction?",
     "cya": {
-      "agree" : "Do you agree with your connections to England and Wales?",
+      "agree" : "Do you agree that the courts of England and Wales have jurisdiction?",
       "reason": "Why don't you agree that the court has jurisdiction?",
       "country": "In which country is your life mainly based?"
     },
@@ -15,7 +15,7 @@
     "jurisdictionConnectionPetitioner": "your {{ session.divorceWho }}  is habitually resident and has lived here for at least 12 months",
     "jurisdictionConnectionPetitionerSixMonths": "your {{ session.divorceWho }} is domiciled and habitually resident and has lived here for at least 6 months",
     "jurisdictionConnectionBothDomiciled": "both you and your {{ session.divorceWho }} are domiciled",
-    "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction, meaning either: no other court in any EU Member State has jurisdiction and either the applicant or the respondent is domiciled in England and Wales; or (for same sex couples only) the applicant or the respondent married each other in England and Wales, no other court in any EU Member State has jurisdiction, and it would be in the interests of justice for the court to assume jurisdiction in this case",
+    "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction",
 
     "info": {
       "heading": "What this means",
@@ -41,8 +41,20 @@
         },
         "residualJurisdiction": {
           "heading": "Residual Jurisdiction",
-          "summary1": "Usually, to be eligible for residual jurisdiction, you or your husband/wife must be domiciled in England or Wales, and neither of you must be nationals of, or habitually resident in, another country in the EU (except Denmark).",
-          "summary2": "However, residual jurisdiction can be more complex. If you’re not sure if this might apply to you, you should seek legal advice."
+        "intro1": "The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:",
+        "bullet1": "either you or your {{ session.divorceWho }} are domiciled in England or Wales",
+        "bullet2": "neither you nor your {{ session.divorceWho }} are able to apply (on the basis of your nationality or residence) for a divorce in another member state of the EU",
+        "intro2": "In addition, if you're married to a person of the same sex, the court may have residual jurisdiction if all the following apply:",
+        "bullet3": "you and your {{ session.divorceWho }} married each other in England or Wales",
+        "bullet4": "neither you nor your {{ session.divorceWho }} are able to apply for a divorce in any other country",
+        "bullet5": "it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ session.divorceWho }}'s home country doesn’t allow divorce between same-sex couples)."
+    
+
+
+
+
+
+
         }
       }
     },
