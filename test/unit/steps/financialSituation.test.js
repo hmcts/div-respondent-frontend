@@ -2,7 +2,17 @@ const modulePath = 'steps/financial-situation/FinancialSituation.step';
 const FinancialSituation = require(modulePath);
 const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content, itParam } = require('@hmcts/one-per-page-test-suite');
+const {
+  middleware,
+  question,
+  sinon,
+  content,
+  itParam,
+  stepAsInstance,
+  expect
+} = require('@hmcts/one-per-page-test-suite');
+
+const answers = ['yes', 'no'];
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -18,7 +28,7 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(FinancialSituation, [idam.protect()]);
   });
 
-  itParam('redirects to jurisdiction page when answer is ${value}', ['yes', 'no'], answer => {
+  itParam('redirects to jurisdiction page when answer is ${value}', answers, answer => {
     const fields = { respConsiderFinancialSituation: answer };
     return question.redirectWithField(FinancialSituation, fields, Jurisdiction);
   });
@@ -29,5 +39,22 @@ describe(modulePath, () => {
 
   it('renders the content', () => {
     return content(FinancialSituation);
+  });
+
+  itParam('sets respConsiderFinancialSituation to answer', answers, answer => {
+    // given
+    const step = stepAsInstance(FinancialSituation, {
+      FinancialSituation: {
+        respConsiderFinancialSituation: answer
+      }
+    });
+
+    // when
+    step.retrieve().validate();
+
+    // then
+    const values = step.values();
+    expect(values).to.be.an('object');
+    expect(values).to.have.property('respConsiderFinancialSituation', answer);
   });
 });
