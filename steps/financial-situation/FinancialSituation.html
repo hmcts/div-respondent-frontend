@@ -25,16 +25,21 @@
         </div>
     </details>
 
-    {% call formSection() %}
-        {{ selectionButtons(fields.respConsiderFinancialSituation, '',
-            options = [
-                { label: content.fields.respConsiderFinancialSituation.yes, value: consts.yes },
-                { label: content.fields.respConsiderFinancialSituation.no, value: consts.no }
-            ],
-            hint=false,
-            hideQuestion=false,
-            inline=true,
-            type='radio'
-        ) }}
-    {% endcall %}
+    <div class="padded-container">
+        {% call formSection() %}
+            {{ selectionButtons(fields.respConsiderFinancialSituation, content.title,
+                options = [
+                    { label: content.fields.respConsiderFinancialSituation.yes, value: consts.yes, target: "consider-yes" },
+                    { label: content.fields.respConsiderFinancialSituation.no, value: consts.no }
+                ],
+                hint=false,
+                hideQuestion=true,
+                inline=true,
+                type='radio'
+            ) }}
+            <div class="panel panel-border-wide js-hidden" id="consider-yes">
+                <p class="text">{{ content.formB }}</p>
+            </div>
+        {% endcall %}
+    </div>
 {% endblock %}
