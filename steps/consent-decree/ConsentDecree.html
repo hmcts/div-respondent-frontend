@@ -22,17 +22,32 @@
         </details>
 
         {% call formSection() %}
-            {{ selectionButtons(fields.response, content.title,
+            {{ selectionButtons(fields.response.consentDecree, content.fields.consentDecree.header,
                 options = [
-                    { label: content.fields.confirm.label, value: const.confirm },
-                    { label: content.fields.changeResponse.label, value: const.changeResponse }
+                    { label: content.fields.consentDecree.labelYes, value: const.yes },
+                    { label: content.fields.consentDecree.labelNo, value: const.no, target: 'choose-defend' }
                 ],
                 hint=false,
-                hideQuestion=true,
+                hideQuestion=false,
                 inline=false,
                 type='radio'
             ) }}
         {% endcall %}
+
+        <div id="choose-defend" class="form-group panel js-hidden">
+            {% call formSection() %}
+                {{ selectionButtons(fields.response.willDefend, content.fields.willDefend.header,
+                    options = [
+                        { label: content.fields.willDefend.labelYes, value: const.yes },
+                        { label: content.fields.willDefend.labelNo, value: const.no }
+                    ],
+                    hint=false,
+                    hideQuestion=false,
+                    inline=false,
+                    type='radio'
+                ) }}
+            {% endcall %}
+        </div>
     </div>
 
 {% endblock %}

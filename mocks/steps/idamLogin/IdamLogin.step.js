@@ -13,11 +13,12 @@ class IdamLogin extends Question {
   get form() {
     const answers = [
       'yesCaseStarted',
+      'yesAdultery',
+      'yes2yrSeparation',
       'yesCaseNotLinked',
       'yesCaseNotLinkedAndInvalidPin',
       'yesCaseNotLinkedAndServerError',
       'yesCaseCompleted',
-      'yesAdultery',
       'no'
     ];
     const validAnswers = Joi.string()

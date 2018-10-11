@@ -7,16 +7,20 @@
       "content": "If you don't agree, then the divorce won't be able to continue based on 2 years separation with consent.<br/><br/>The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.<br/><br/>Your {{ session.divorceWho }} will have to pay £95 to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs."
     },
     "fields": {
-      "consent": {
+      "consentDecree": {
         "header": "Do you consent to a divorce?",
         "labelYes": "Yes, I give my consent",
         "labelNo": "No, I don't give my consent"
       },
-      "defend": {
+      "willDefend": {
         "header": "Do you want to defend the divorce?",
-        "labelYes": "Yes, I give my consent",
-        "labelNo": "No, I don't give my consent"
+        "labelYes": "Yes, I want to defend",
+        "labelNo": "No, I don't want to defend"
       }
+    },
+    "errors": {
+      "consentRequired": "Select if you consent to a divorce or not",
+      "defenceRequired": "Select if you want to defend or not"
     }
   }
 }
