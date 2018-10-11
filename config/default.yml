@@ -58,6 +58,7 @@ paths:
   authenticated: /authenticated
   index: /
   captureCaseAndPin: /respond-with-pin
+  financialSituation: /delay-the-decree
   respond: /respond
   reviewApplication: /review-application
   admitAdultery: /admit-the-adultery

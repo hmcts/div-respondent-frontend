@@ -1,0 +1,40 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+    <p>{{ content.description | safe }}</p>
+    <p>{{ content.theCourtMayDelay | safe }}</p>
+
+    <details>
+        <summary>
+            <span class="summary">{{ content.readMore | safe }}</span>
+        </summary>
+        <div class="panel panel-border-narrow">
+            <p class="text">{{ content.readMoreParagraph1 | safe }}</p>
+            <ul class="list list-bullet">
+                <li>{{ content.readMoreParagraph2 | safe }}</li>
+                <li>{{ content.readMoreParagraph3 | safe }}</li>
+            </ul>
+            <p class="text">{{ content.readMoreParagraph4 | safe }}</p>
+            <p class="text">{{ content.readMoreParagraph5 | safe }}</p>
+        </div>
+    </details>
+
+    {% call formSection() %}
+        {{ selectionButtons(fields.respConsiderFinancialSituation, '',
+            options = [
+                { label: content.fields.respConsiderFinancialSituation.yes, value: consts.yes },
+                { label: content.fields.respConsiderFinancialSituation.no, value: consts.no }
+            ],
+            hint=false,
+            hideQuestion=false,
+            inline=true,
+            type='radio'
+        ) }}
+    {% endcall %}
+{% endblock %}

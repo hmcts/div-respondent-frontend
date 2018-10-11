@@ -1,0 +1,22 @@
+{
+  "en": {
+    "title": "Do you want the court to consider your financial situation after the divorce?",
+    "description": "As your wife used separation as the reason for divorce, you can ask the court to consider what your financial position will be afterwards.",
+    "theCourtMayDelay": "The court may then decide to delay the final stage of the divorce (the decree absolute) until it is satisfied with the future financial arrangements between you and your wife.",
+    "readMore": "Read more about this",
+    "readMoreParagraph1": "If you ask the court to do this, it won't make the decree absolute unless it's satisfied that your wife either:",
+    "readMoreParagraph2": "has made or will make financial provision for you that is reasonable and fair or the best that can they can do under the circumstances",
+    "readMoreParagraph3": "shouldn't have to provide for you financially",
+    "readMoreParagraph4": "When making its decision the court will take into account both of your individual circumstances (for example your ages, health, conduct, and earning capacities) and your financial position should your wife die first.",
+    "readMoreParagraph5": "The court may decide not to delay the divorce if there are circumstances under which it shouldn't be delayed and the court is satisfied that your wife will make appropriate financial provision for you.",
+    "fields": {
+      "respConsiderFinancialSituation": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "errors": {
+      "required": "Please select a response"
+    }
+  }
+}
