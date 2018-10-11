@@ -63,6 +63,7 @@ paths:
   admitAdultery: /admit-the-adultery
   chooseAResponse: /choose-a-response
   confirmDefence: /defend-are-you-sure
+  defendFinancialHardship: /defend-financial-hardship
   jurisdiction: /jurisdiction
   legalProceedings: /legal-proceedings
   agreeToPayCosts: /agree-to-pay-costs
