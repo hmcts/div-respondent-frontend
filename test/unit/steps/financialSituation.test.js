@@ -1,5 +1,6 @@
 const modulePath = 'steps/financial-situation/FinancialSituation.step';
 const FinancialSituation = require(modulePath);
+const financialSituContent = require('steps/financial-situation/FinancialSituation.content');
 const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const idam = require('services/idam');
 const {
@@ -56,5 +57,22 @@ describe(modulePath, () => {
     const values = step.values();
     expect(values).to.be.an('object');
     expect(values).to.have.property('respConsiderFinancialSituation', answer);
+  });
+
+  it('applies the correct question and answer object', () => {
+    const req = {
+      journey: {},
+      session: {
+        FinancialSituation: {
+          respConsiderFinancialSituation: 'yes'
+        }
+      }
+    };
+    const step = new FinancialSituation(req, {});
+    step.retrieve().validate();
+    const answerObj = step.answers();
+    const expectedAnswer = 'Yes';
+    expect(answerObj.answer).to.equal(expectedAnswer);
+    expect(answerObj.question).to.equal(financialSituContent.en.title);
   });
 });

@@ -27,7 +27,7 @@ class ConsentDecree extends Question {
 
   values() {
     const respAdmitOrConsentToFact = this.fields.response.consentDecree.value;
-    const respDefendsDivorce = this.fields.response.willDefend.value;
+    const respDefendsDivorce = this.fields.response.willDefend.value === 'yes' ? 'yes' : 'no';
     return {
       respAdmitOrConsentToFact,
       respDefendsDivorce
@@ -96,7 +96,7 @@ class ConsentDecree extends Question {
     const isDefending = this.fields.response.willDefend.value === this.const.yes;
     return branch(
       redirectTo(this.journey.steps.ConfirmDefence).if(!doesConsent && isDefending),
-      redirectTo(this.journey.steps.Jurisdiction)
+      redirectTo(this.journey.steps.FinancialSituation)
     );
   }
 }

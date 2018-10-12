@@ -7,21 +7,21 @@
 {% endset %}
 
 {% block fields %}
-    <p>{{ content.description | safe }}</p>
-    <p>{{ content.theCourtMayDelay | safe }}</p>
+    <p>{{ content.description }}</p>
+    <p>{{ content.theCourtMayDelay }}</p>
 
     <details>
         <summary>
-            <span class="summary">{{ content.readMore | safe }}</span>
+            <span class="summary">{{ content.readMore }}</span>
         </summary>
         <div class="panel panel-border-narrow">
-            <p class="text">{{ content.readMoreParagraph1 | safe }}</p>
+            <p class="text">{{ content.readMoreParagraph1 }}</p>
             <ul class="list list-bullet">
-                <li>{{ content.readMoreParagraph2 | safe }}</li>
-                <li>{{ content.readMoreParagraph3 | safe }}</li>
+                <li>{{ content.readMoreParagraph2 }}</li>
+                <li>{{ content.readMoreParagraph3 }}</li>
             </ul>
-            <p class="text">{{ content.readMoreParagraph4 | safe }}</p>
-            <p class="text">{{ content.readMoreParagraph5 | safe }}</p>
+            <p class="text">{{ content.readMoreParagraph4 }}</p>
+            <p class="text">{{ content.readMoreParagraph5 }}</p>
         </div>
     </details>
 
@@ -29,17 +29,17 @@
         {% call formSection() %}
             {{ selectionButtons(fields.respConsiderFinancialSituation, content.title,
                 options = [
-                    { label: content.fields.respConsiderFinancialSituation.yes, value: consts.yes, target: "consider-yes" },
-                    { label: content.fields.respConsiderFinancialSituation.no, value: consts.no }
+                    { label: content.fields.respConsiderFinancialSituation.yes, value: const.yes, target: 'consider-yes' },
+                    { label: content.fields.respConsiderFinancialSituation.no, value: const.no }
                 ],
                 hint=false,
                 hideQuestion=true,
                 inline=true,
                 type='radio'
             ) }}
-            <div class="panel panel-border-wide js-hidden" id="consider-yes">
-                <p class="text">{{ content.formB }}</p>
-            </div>
         {% endcall %}
+        <div class="panel panel-border-wide js-hidden" id="consider-yes">
+            <p class="text">{{ content.formB }}</p>
+        </div>
     </div>
 {% endblock %}
