@@ -60,10 +60,13 @@ class ConfirmDefence extends Question {
   }
 
   next() {
+    const petition = this.session.originalPetition;
     const doesConfirm = this.fields.response.value === this.const.confirm;
+    const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
     return branch(
       redirectTo(this.journey.steps.Jurisdiction).if(doesConfirm),
-      redirectTo(this.journey.steps.ChooseAResponse)
+      redirectTo(this.journey.steps.ChooseAResponse).if(!doesConfirm && !twoYrSep),
+      redirectTo(this.journey.steps.ConsentDecree).if(!doesConfirm && twoYrSep)
     );
   }
 }

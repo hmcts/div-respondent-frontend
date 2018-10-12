@@ -21,20 +21,23 @@
             </div>
         </details>
 
-        {% call formSection() %}
-            {{ selectionButtons(fields.response.consentDecree, content.fields.consentDecree.header,
-                options = [
-                    { label: content.fields.consentDecree.labelYes, value: const.yes },
-                    { label: content.fields.consentDecree.labelNo, value: const.no, target: 'choose-defend' }
-                ],
-                hint=false,
-                hideQuestion=false,
-                inline=false,
-                type='radio'
-            ) }}
-        {% endcall %}
+        <div class="default-margin">
+            {% call formSection() %}
+                {{ selectionButtons(fields.response.consentDecree, content.fields.consentDecree.header,
+                    options = [
+                        { label: content.fields.consentDecree.labelYes, value: const.yes },
+                        { label: content.fields.consentDecree.labelNo, value: const.no, target: 'choose-defend' }
+                    ],
+                    hint=false,
+                    hideQuestion=false,
+                    inline=false,
+                    type='radio'
+                ) }}
+            {% endcall %}
+        </div>
 
-        <div id="choose-defend" class="form-group panel js-hidden">
+
+        <div id="choose-defend" class="js-hidden default-margin heading-subsection">
             {% call formSection() %}
                 {{ selectionButtons(fields.response.willDefend, content.fields.willDefend.header,
                     options = [

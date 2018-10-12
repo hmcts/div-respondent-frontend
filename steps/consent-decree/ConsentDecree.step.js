@@ -26,8 +26,12 @@ class ConsentDecree extends Question {
   }
 
   values() {
-    // override here and return empty object to avoid sending this step to backend
-    return {};
+    const respAdmitOrConsentToFact = this.fields.response.consentDecree.value;
+    const respDefendsDivorce = this.fields.response.willDefend.value;
+    return {
+      respAdmitOrConsentToFact,
+      respDefendsDivorce
+    };
   }
 
   get form() {
@@ -47,13 +51,13 @@ class ConsentDecree extends Question {
       willDefend: text
     };
 
-    const validateDefence = ({ consentDecree = '', willDefend = '' }) => {
-      return !(consentDecree === this.const.yes && !willDefend);
+    const validateDefence = ({ consentDecree = '', willDefend = null }) => {
+      return !(consentDecree === this.const.no && willDefend === null);
     };
 
     const response = object(fields)
       .check(
-        errorFor('willDefend', this.content.errors.defendRequired),
+        errorFor('willDefend', this.content.errors.defenceRequired),
         validateDefence
       );
 
@@ -62,21 +66,20 @@ class ConsentDecree extends Question {
 
   answers() {
     const answers = [];
-
-    const questionConsent = this.content.fields.consent.header;
-    const doesConsent = this.fields.consentDecree.value === this.const.yes;
+    const questionConsent = content.en.fields.consentDecree.header;
+    const doesConsent = this.fields.response.consentDecree.value === this.const.yes;
     const consentAnswerValue = doesConsent ? content.en.fields.consentDecree.labelYes : content.en.fields.consentDecree.labelNo;
     answers.push(answer(this, {
-      questionConsent,
+      question: questionConsent,
       answer: consentAnswerValue
     }));
 
     if (!doesConsent) {
-      const questionDefend = this.content.fields.defend.header;
-      const willDefend = this.fields.willDefend.value === this.const.yes;
+      const questionDefend = content.en.fields.willDefend.header;
+      const willDefend = this.fields.response.willDefend.value === this.const.yes;
       const defendValue = willDefend ? content.en.fields.willDefend.labelYes : content.en.fields.willDefend.labelNo;
       answers.push(answer(this, {
-        questionDefend,
+        question: questionDefend,
         answer: defendValue
       }));
     }
@@ -89,10 +92,11 @@ class ConsentDecree extends Question {
   }
 
   next() {
-    const doesConfirm = this.fields.response.value === this.const.confirm;
+    const doesConsent = this.fields.response.consentDecree.value === this.const.yes;
+    const isDefending = this.fields.response.willDefend.value === this.const.yes;
     return branch(
-      redirectTo(this.journey.steps.Jurisdiction).if(doesConfirm),
-      redirectTo(this.journey.steps.ChooseAResponse)
+      redirectTo(this.journey.steps.ConfirmDefence).if(!doesConsent && isDefending),
+      redirectTo(this.journey.steps.Jurisdiction)
     );
   }
 }
