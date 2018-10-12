@@ -20,12 +20,12 @@ describe(modulePath, () => {
   });
 
   it('when phone number is not supplied return correct value', () => {
-    const phoneNo = ' ';
+    const telephone = ' ';
     const consent = 'yes';
 
     const fields = {
       contactDetails: {
-        phoneNo,
+        telephone,
         consent
       }
     };
@@ -46,12 +46,12 @@ describe(modulePath, () => {
   });
 
   it('when all details are supplied return correct value', () => {
-    const phoneNo = 'Phone Number';
+    const telephone = 'Phone Number';
     const consent = 'yes';
 
     const fields = {
       contactDetails: {
-        phoneNo,
+        telephone,
         consent
       }
     };
@@ -67,19 +67,19 @@ describe(modulePath, () => {
 
     const _values = step.values();
     expect(_values).to.be.an('object');
-    expect(_values).to.have.property('respPhoneNumber', phoneNo);
+    expect(_values).to.have.property('respPhoneNumber', telephone);
     expect(_values).to.have.property('respConsentToEmail', consent);
   });
 
   it('when phone number is not supplied returns correct answers', () => {
     const expectedContent = [
-      ContactDetailsContent.en.cya.emailConsent,
-      ContactDetailsContent.en.fields.consent.answer
+      ContactDetailsContent.en.contactMethods.email.heading,
+      ContactDetailsContent.en.fields.email.label
     ];
 
     const stepData = {
       contactDetails: {
-        consent: ContactDetailsContent.en.fields.consent.answer
+        consent: ContactDetailsContent.en.fields.email.label
       }
     };
 
@@ -87,17 +87,17 @@ describe(modulePath, () => {
   });
 
   it('when phone number is empty returns correct answers', () => {
-    const phoneNo = ' ';
+    const telephone = ' ';
 
     const expectedContent = [
-      ContactDetailsContent.en.cya.emailConsent,
-      ContactDetailsContent.en.fields.consent.answer
+      ContactDetailsContent.en.contactMethods.email.heading,
+      ContactDetailsContent.en.fields.email.label
     ];
 
     const stepData = {
       contactDetails: {
-        phoneNo,
-        consent: ContactDetailsContent.en.fields.consent.answer
+        telephone,
+        consent: ContactDetailsContent.en.fields.email.label
       }
     };
 
@@ -105,19 +105,19 @@ describe(modulePath, () => {
   });
 
   it('when all details are supplied returns correct answers', () => {
-    const phoneNo = 'Phone Number';
+    const telephone = 'Phone Number';
 
     const expectedContent = [
-      ContactDetailsContent.en.cya.phoneNumber,
-      phoneNo,
-      ContactDetailsContent.en.cya.emailConsent,
-      ContactDetailsContent.en.fields.consent.answer
+      ContactDetailsContent.en.contactMethods.telephone.heading,
+      telephone,
+      ContactDetailsContent.en.contactMethods.email.heading,
+      ContactDetailsContent.en.fields.email.label
     ];
 
     const stepData = {
       contactDetails: {
-        phoneNo,
-        consent: ContactDetailsContent.en.fields.consent.answer
+        telephone,
+        consent: ContactDetailsContent.en.fields.email.label
       }
     };
 
@@ -134,7 +134,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when no consent supplied', () => {
-    const fields = { 'contactDetails-phoneNo': '08647177782' };
+    const fields = { 'contactDetails-telephone': '08647177782' };
 
     const onlyErrors = ['requireConsent'];
 
@@ -143,7 +143,7 @@ describe(modulePath, () => {
 
   it('shows error when consent is not yes', () => {
     const fields = {
-      'contactDetails-phoneNo': '08647177782',
+      'contactDetails-telephone': '08647177782',
       'contactDetails-consent': 'no'
     };
 
@@ -154,11 +154,11 @@ describe(modulePath, () => {
 
   it('shows error when invalid phone number supplied', () => {
     const fields = {
-      'contactDetails-phoneNo': '0',
+      'contactDetails-telephone': '0',
       'contactDetails-consent': 'yes'
     };
 
-    const onlyErrors = ['requireValidPhoneNo'];
+    const onlyErrors = ['requireValidTelephoneNo'];
 
     return question.testErrors(ContactDetails, {}, fields, { onlyErrors });
   });
@@ -173,7 +173,7 @@ describe(modulePath, () => {
 
   it('redirects to next page when all details are supplied', () => {
     const fields = {
-      'contactDetails-phoneNo': '08647177782',
+      'contactDetails-telephone': '08647177782',
       'contactDetails-consent': 'yes'
     };
 
@@ -181,6 +181,6 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ContactDetails, {}, { ignoreContent: ['info', 'cya', 'question'] });
+    return content(ContactDetails, {}, { ignoreContent: ['info', 'contactMethods', 'question'] });
   });
 });

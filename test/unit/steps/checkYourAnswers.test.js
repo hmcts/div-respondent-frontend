@@ -1,6 +1,6 @@
 const modulePath = 'steps/check-your-answers/CheckYourAnswers.step';
 const CheckYourAnswers = require(modulePath);
-const End = require('steps/end/End.step');
+const doneStep = require('steps/done/Done.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -21,7 +21,7 @@ describe(modulePath, () => {
 
   it('redirects to next page if statement of true answered', () => {
     const fields = { respStatementOfTruth: 'yes' };
-    return question.redirectWithField(CheckYourAnswers, fields, End);
+    return question.redirectWithField(CheckYourAnswers, fields, doneStep);
   });
 
   it('shows error if does not answer question', () => {
