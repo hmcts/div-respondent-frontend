@@ -219,7 +219,6 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
         'reasonForDivorceUnreasonableBehaviourStatement',
-        'reasonForDivorceUnreasonableBehaviourDescription',
         'reasonForDivorceSeparationTwoYears',
         'reasonForDivorceSeparationTwoYearsBrokenDown',
         'reasonForDivorceSeparationFiveYears',
@@ -583,8 +582,7 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
-          'reasonForDivorceUnreasonableBehaviourStatement',
-          'reasonForDivorceUnreasonableBehaviourDescription'
+          'reasonForDivorceUnreasonableBehaviourStatement'
         ];
         return content(ReviewApplication, session, { specificContent });
       });

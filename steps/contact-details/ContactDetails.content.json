@@ -1,32 +1,31 @@
 {
   "en": {
-    "title": "Your contact details",
-    "cya": {
-      "phoneNumber": "Your phone number",
-      "emailConsent": "I agree to receive emails from the court updating me on the divorce."
-    },
-    "summary": "The court needs to contact you about the divorce and keep you updated on its progress.",
-    "info": {
-      "options" : {
-        "relatedToMarriage" : "related to the marriage",
-        "affectsValidity": "may affect its validity (how legally binding the marriage is)"
+    "title": "How the court will contact you",
+    "contactMethods": {
+      "email": {
+        "heading": "By email",
+        "intro": "You need to receive emails about the divorce to use the online service. Your email address will never be shared with anyone.<br/><br/>Your emails will be sent to: "
+      },
+      "telephone": {
+        "heading": "By phone",
+        "intro": "Provide a phone number to let court staff contact you more quickly. Your phone number will never be shared with anyone."
+      },
+      "post": {
+        "heading": "By post",
+        "intro": "You may need to receive some correspondence by post. This will be sent to the address your husband/wife provided.<br/><br/>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You'll be given the divorce centre's contact details when you submit your response."
       }
     },
-    "question": "Are there any other legal proceedings the court needs to know about?",
     "fields": {
-      "enterEmail": {
-        "label": "Enter your email address"
+      "email": {
+        "label": "I agree that the divorce centre can send me notifications and deliver (serve) court documents to me by email."
       },
-      "enterPhoneNo": {
-        "label": "Enter your phone number"
-      },
-      "consent": {
-        "heading": "I consent to receiving emails from the court updating me on the divorce.",
-        "answer": "Yes"
+      "telephone": {
+        "label": "Enter your phone number",
+        "hint": "(Optional)"
       }
     },
     "errors": {
-      "requireValidPhoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
+      "requireValidTelephoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
       "requireConsent": "You must agree to receive notifications and court documents by email to use this service."
     }
   }

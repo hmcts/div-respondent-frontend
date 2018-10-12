@@ -1,5 +1,5 @@
 {
-  "caseId": 324234342342,
+  "caseId": 3242343423421111,
   "courts": "eastMidlands",
   "state": "AosStarted",
   "data": {
@@ -200,7 +200,9 @@
       }
     },
     "courts": "eastMidlands",
+    "respEmailAddress": "divdemores@mailinator.com",
     "confirmPrayer": "Yes",
+    "respEmailAddress": "divdemores@mailinator.com",
     "payment": {
       "PaymentChannel": "card",
       "PaymentTransactionId": "123456789",

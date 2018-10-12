@@ -9,7 +9,7 @@ function seeContactDetailsPage() {
 }
 
 function consentToSendingNotifications() {
-  this.click(content.en.fields.consent.heading);
+  this.click(content.en.fields.email.label);
 }
 
 module.exports = {

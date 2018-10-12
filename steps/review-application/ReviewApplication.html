@@ -225,7 +225,17 @@
       <p class="text">{{ content.domicilePar5 }}</p>
       <h3 class="heading-small">{{ content.residualJurisdiction }}</h3>
       <p class="text">{{ content.residualJurisdictionPar1 }}</p>
-      <p class="text">{{ content.residualJurisdictionPar2 }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.residualJurisdictionList1 }}</li>
+        <li>{{ content.residualJurisdictionList2 }}</li>
+        <li>{{ content.residualJurisdictionList3 }}</li>
+      </ul>
+    <p class="text">{{ content.residualJurisdictionPar2 }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.residualJurisdictionList4 }}</li>
+        <li>{{ content.residualJurisdictionList5 }}</li>
+        <li>{{ content.residualJurisdictionList6 }}</li>
+      </ul>
       <h3 class="heading-small">{{ content.otherCourtCases }}</h3>
       <p class="text">{{ content. otherCourtCasesPar1 }}</p>
     </div>
@@ -263,7 +273,6 @@
   {% if session.originalPetition.reasonForDivorce == "unreasonable-behaviour" %}
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatement }}</p>
-    <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
     <p class="text">"
     {% for item in session.originalPetition.reasonForDivorceBehaviourDetails %}
       {{ item }}
@@ -371,7 +380,6 @@
       <p class="text">{{ content.helpWithFinancialOrdersPar1 }}</p>
       <p class="text">{{ content.helpWithFinancialOrdersPar2 }}</p>
       <p class="text">{{ content.helpWithFinancialOrdersPar3 }}</p>
-      <p class="text">{{ content.helpWithFinancialOrdersPar4 }}</p>
       <h3 class="heading-small">{{ content.consentOrders }}</h3>
       <p class="text">{{ content.consentOrdersPar1 }}</p>
       <p class="text">{{ content.consentOrdersPar2 }}</p>
@@ -446,7 +454,7 @@
         fields.respConfirmReadPetition,
         content.statementOfTruth,
         options = [
-          { label: content.fields.statementOfTruth.yes, value: const.yes }
+          { label: content.fields.statementOfTruth.yes, value: "yes" }
         ],
         hint=false,
         hideQuestion=true,

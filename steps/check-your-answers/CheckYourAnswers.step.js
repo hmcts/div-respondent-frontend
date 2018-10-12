@@ -5,6 +5,7 @@ const config = require('config');
 const sendAosResponse = require('services/sendAosResponse');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
+const content = require('./CheckYourAnswers.content');
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -29,6 +30,10 @@ class CheckYourAnswers extends CYA {
     });
   }
 
+  get errorMessage() {
+    return content.en.errors.required;
+  }
+
   sendToAPI(req) {
     const json = this.journey.values;
     return sendAosResponse(req, json);
@@ -36,7 +41,7 @@ class CheckYourAnswers extends CYA {
 
   next() {
     return action(this.sendToAPI)
-      .then(goTo(this.journey.steps.End))
+      .then(goTo(this.journey.steps.Done))
       .onFailure();
   }
 }

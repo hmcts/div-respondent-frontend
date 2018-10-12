@@ -10,7 +10,7 @@
     "submit": "Submit",
     "statementOfTruth": "You could be fined or imprisoned for contempt of court if you deliberately submit false information.",
     "errors": {
-      "required": "Confirm that you agree to the statement of truth"
+      "required": "You need to confirm that the information you've given is true"
     },
     "fields": {
       "statementOfTruth": {
