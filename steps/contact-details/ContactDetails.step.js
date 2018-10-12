@@ -28,7 +28,7 @@ class ContactDetails extends Question {
       .regex(/^[0-9 +().-]{9,}$/);
 
     const fields = {
-      phoneNo: text.joi(this.content.errors.requireValidPhoneNo,
+      telephone: text.joi(this.content.errors.requireValidTelephoneNo,
         validatePhoneNumber),
       consent: text.joi(this.content.errors.requireConsent, validAnswers)
     };
@@ -39,7 +39,7 @@ class ContactDetails extends Question {
   }
 
   values() {
-    const phoneNo = this.fields.contactDetails.phoneNo.value;
+    const phoneNo = this.fields.contactDetails.telephone.value;
 
     const values = { respConsentToEmail: yes };
 
@@ -51,20 +51,20 @@ class ContactDetails extends Question {
   }
 
   answers() {
-    const phoneNo = this.fields.contactDetails.phoneNo.value;
+    const phoneNo = this.fields.contactDetails.telephone.value;
 
     const answers = [];
 
     if (phoneNo && phoneNo.trim().length) {
       answers.push(answer(this, {
-        question: content.en.cya.phoneNumber,
-        answer: this.fields.contactDetails.phoneNo.value
+        question: content.en.contactMethods.telephone.heading,
+        answer: this.fields.contactDetails.telephone.value
       }));
     }
 
     answers.push(answer(this, {
-      question: content.en.cya.emailConsent,
-      answer: content.en.fields.consent.answer
+      question: content.en.contactMethods.email.heading,
+      answer: content.en.fields.email.label
     }));
 
     return answers;

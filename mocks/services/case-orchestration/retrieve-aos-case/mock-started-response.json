@@ -201,6 +201,7 @@
     "courts": "eastMidlands",
     "respEmailAddress": "divdemores@mailinator.com",
     "confirmPrayer": "Yes",
+    "respEmailAddress": "divdemores@mailinator.com",
     "payment": {
       "PaymentChannel": "card",
       "PaymentTransactionId": "123456789",
