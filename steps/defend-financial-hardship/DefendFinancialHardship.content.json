@@ -1,9 +1,9 @@
 {
   "en": {
-    "title": "Are you defending on the basis that it will cause you severe hardship?",
+    "title": "Are you defending the divorce as it would cause you severe hardship?",
     "cya": {
-      "question": "CYA question",
-      "details": "CYA answer"
+      "question": "Are you defending the divorce as it would cause you severe hardship?",
+      "details": "How will the divorce cause you severe hardship?"
     },
     "text1": "As your {{ session.divorceWho }} used 5 years separation as the reason for divorce, you can defend it on the basis that it will cause you severe hardship.",
     "text2": "The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).",
@@ -28,7 +28,7 @@
       }
     },
     "errors": {
-      "required": "The field is required, select an answer",
+      "required": "Select 'Yes' if you are defending on the basis that it will cause you severe hardship",
       "requireDetails": "Enter the details"
     }
   }
