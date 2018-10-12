@@ -36,7 +36,7 @@ class CheckYourAnswers extends CYA {
 
   next() {
     return action(this.sendToAPI)
-      .then(goTo(this.journey.steps.End))
+      .then(goTo(this.journey.steps.Done))
       .onFailure();
   }
 }

@@ -58,6 +58,7 @@ paths:
   authenticated: /authenticated
   index: /
   captureCaseAndPin: /respond-with-pin
+  financialSituation: /delay-the-decree
   respond: /respond
   reviewApplication: /review-application
   consentDecree: /consent-to-the-decree
@@ -70,7 +71,7 @@ paths:
   contactDetails: /contact-details
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
-  end: /end
+  done: /done
   entry: /entry
   mock:
     idamLogin: /idam-mock-login
