@@ -9,7 +9,6 @@ const {
   question,
   sinon,
   content,
-  stepAsInstance,
   expect
 } = require('@hmcts/one-per-page-test-suite');
 
@@ -56,67 +55,146 @@ describe(modulePath, () => {
     return question.redirectWithField(ConsentDecree, fields, ConfirmDefence);
   });
 
-  it('shows error if questions are not answered', () => {
+  it('shows consent required error if consent not answered', () => {
     const fields = { 'response-consentDecree': '' };
-    return question.testErrors(ConsentDecree, {}, fields);
+    const onlyErrors = ['consentRequired'];
+    return question.testErrors(ConsentDecree, {}, fields, { onlyErrors });
+  });
+
+  it('shows defence required error if not consenting', () => {
+    const fields = { 'response-consentDecree': 'no' };
+    const onlyErrors = ['defenceRequired'];
+    return question.testErrors(ConsentDecree, {}, fields, { onlyErrors });
   });
 
   it('renders the content', () => {
-    return content(ConsentDecree);
+    return content(ConsentDecree, {}, { ignoreContent: [ 'expandingPanel' ] });
   });
 
   it('sets value for consent based on form fields', () => {
-    const step = stepAsInstance(ConsentDecree, {
-      ConsentDecree: {
-        response: {
-          consentDecree: answers.yes
-        }
-      }
-    });
-
-    step.retrieve().validate();
-
-    const values = step.values();
-    expect(values).to.be.an('object');
-    expect(values).to.have.property('respAdmitOrConsentToFact', answers.yes);
-    expect(values).to.have.property('respDefendsDivorce', answers.no);
-  });
-
-  it('sets value for consent and defence based on form fields', () => {
-    const step = stepAsInstance(ConsentDecree, {
-      ConsentDecree: {
-        response: {
-          consentDecree: answers.no,
-          willDefend: answers.yes
-        }
-      }
-    });
-
-    step.retrieve().validate();
-
-    const values = step.values();
-    expect(values).to.be.an('object');
-    expect(values).to.have.property('respAdmitOrConsentToFact', answers.no);
-    expect(values).to.have.property('respDefendsDivorce', answers.yes);
-  });
-
-  it('applies the correct question and answer object', () => {
     const req = {
-      journey: {},
       session: {
         ConsentDecree: {
-          respAdmitOrConsentToFact: 'yes'
+          response: {
+            consentDecree: answers.yes
+          }
         }
       }
     };
     const step = new ConsentDecree(req, {});
-    step.retrieve().validate();
+
+    step.retrieve()
+      .validate();
+
+    const values = step.values();
+    expect(values)
+      .to
+      .be
+      .an('object');
+    expect(values)
+      .to
+      .have
+      .property('respAdmitOrConsentToFact', answers.yes);
+    expect(values)
+      .to
+      .have
+      .property('respDefendsDivorce', answers.no);
+  });
+
+  it('sets value for consent and defence based on form fields', () => {
+    const req = {
+      session: {
+        ConsentDecree: {
+          response: {
+            consentDecree: answers.no,
+            willDefend: answers.yes
+          }
+        }
+      }
+    };
+    const step = new ConsentDecree(req, {});
+
+    step.retrieve()
+      .validate();
+
+    const values = step.values();
+    expect(values)
+      .to
+      .be
+      .an('object');
+    expect(values)
+      .to
+      .have
+      .property('respAdmitOrConsentToFact', answers.no);
+    expect(values)
+      .to
+      .have
+      .property('respDefendsDivorce', answers.yes);
+  });
+
+  it('applies the correct answer object given consent', () => {
+    const req = {
+      session: {
+        ConsentDecree: {
+          response: {
+            consentDecree: answers.yes
+          }
+        }
+      }
+    };
+    const step = new ConsentDecree(req, {});
+    step.retrieve()
+      .validate();
     const answersArr = step.answers();
 
-    expect(answersArr).to.be.an('array');
-    expect(answersArr[0].question).to.equal(contentFile.en.fields.consentDecree.header);
-    expect(answersArr[0].answer).to.equal('Yes');
-    expect(answersArr[1].question).to.equal(contentFile.en.fields.willDefend.header);
-    expect(answersArr[1].answer).to.equal('No');
+    expect(answersArr)
+      .to
+      .be
+      .an('array');
+
+    expect(answersArr[0].question)
+      .to
+      .equal(contentFile.en.fields.consentDecree.header);
+
+    expect(answersArr[0].answer)
+      .to
+      .equal(contentFile.en.fields.consentDecree.labelYes);
+  });
+
+  it('applies the correct answer object given no consent and not defending', () => {
+    const req = {
+      session: {
+        ConsentDecree: {
+          response: {
+            consentDecree: answers.no,
+            willDefend: answers.no
+          }
+        }
+      }
+    };
+    const step = new ConsentDecree(req, {});
+    step.retrieve()
+      .validate();
+    const answersArr = step.answers();
+
+    expect(answersArr)
+      .to
+      .be
+      .an('array');
+
+    expect(answersArr[0].question)
+      .to
+      .equal(contentFile.en.fields.consentDecree.header);
+
+    expect(answersArr[0].answer)
+      .to
+      .equal(contentFile.en.fields.consentDecree.labelNo);
+
+    expect(answersArr[1].question)
+      .to
+      .equal(contentFile.en.fields.willDefend.header);
+    expect(answersArr[1].answer)
+      .to
+      .equal(contentFile.en.fields.willDefend.labelNo);
   });
 });

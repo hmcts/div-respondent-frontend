@@ -9,7 +9,8 @@ const content = require('./ConfirmDefence.content');
 
 const values = {
   confirm: 'confirm',
-  changeResponse: 'changeResponse'
+  changeResponse: 'changeResponse',
+  twoYearSeparation: 'separation-2-years'
 };
 
 class ConfirmDefence extends Question {
@@ -62,11 +63,11 @@ class ConfirmDefence extends Question {
   next() {
     const petition = this.session.originalPetition;
     const doesConfirm = this.fields.response.value === this.const.confirm;
-    const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
+    const twoYrSep = petition && petition.reasonForDivorce === this.const.twoYearSeparation;
     return branch(
       redirectTo(this.journey.steps.Jurisdiction).if(doesConfirm),
-      redirectTo(this.journey.steps.ChooseAResponse).if(!doesConfirm && !twoYrSep),
-      redirectTo(this.journey.steps.ConsentDecree).if(!doesConfirm && twoYrSep)
+      redirectTo(this.journey.steps.ConsentDecree).if(!doesConfirm && twoYrSep),
+      redirectTo(this.journey.steps.ChooseAResponse)
     );
   }
 }
