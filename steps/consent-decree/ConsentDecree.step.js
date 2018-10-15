@@ -27,7 +27,7 @@ class ConsentDecree extends Question {
 
   values() {
     const respAdmitOrConsentToFact = this.fields.response.consentDecree.value;
-    const respDefendsDivorce = this.fields.response.willDefend.value === 'yes' ? 'yes' : 'no';
+    const respDefendsDivorce = this.fields.response.willDefend.value === this.const.yes ? this.const.yes : this.const.no;
     return {
       respAdmitOrConsentToFact,
       respDefendsDivorce
