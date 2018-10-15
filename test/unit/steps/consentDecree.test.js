@@ -3,6 +3,7 @@ const ConsentDecree = require(modulePath);
 const contentFile = require('steps/consent-decree/ConsentDecree.content');
 const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
 const ConfirmDefence = require('steps/confirm-defence/ConfirmDefence.step');
+const NoConsentAreYouSure = require('steps/no-consent-are-you-sure/NoConsentAreYouSure.step');
 const idam = require('services/idam');
 const {
   middleware,
@@ -39,12 +40,12 @@ describe(modulePath, () => {
     return question.redirectWithField(ConsentDecree, fields, FinancialSituation);
   });
 
-  it('redirects to financial page when user does not consent but will not defend', () => {
+  it('redirects to check consent answer page when user does not consent but will not defend', () => { // eslint-disable-line
     const fields = {
       'response-consentDecree': 'no',
       'response-willDefend': 'no'
     };
-    return question.redirectWithField(ConsentDecree, fields, FinancialSituation);
+    return question.redirectWithField(ConsentDecree, fields, NoConsentAreYouSure);
   });
 
   it('redirects to confirm defence page when user does not consent and will defend', () => {
@@ -87,6 +88,7 @@ describe(modulePath, () => {
       .validate();
 
     const values = step.values();
+
     expect(values)
       .to
       .be

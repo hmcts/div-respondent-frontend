@@ -67,6 +67,13 @@ function loginAsAdulteryCase() {
   I.click(commonContent.en.continue);
 }
 
+function loginAs2yrSeparationCase() {
+  const I = this;
+
+  I.click(content.en.fields.success.yes2yrSeparation);
+  I.click(commonContent.en.continue);
+}
+
 
 module.exports = {
   seeIdamLoginPage,
@@ -76,5 +83,6 @@ module.exports = {
   loginAsInvalidPinUser,
   loginAsALinkedUser,
   loginAsNonLinkedUserAndServerError,
-  loginAsAdulteryCase
+  loginAsAdulteryCase,
+  loginAs2yrSeparationCase
 };
