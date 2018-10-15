@@ -3,6 +3,7 @@
   "courts": "eastMidlands",
   "state": "AosStarted",
   "data": {
+    "issueDate": "2006-02-02T00:00:00.000+0000",
     "caseReference": "LV17D80100",
     "expires": 0,
     "screenHasMarriageBroken": "Yes",
@@ -201,6 +202,7 @@
     "courts": "eastMidlands",
     "respEmailAddress": "divdemores@mailinator.com",
     "confirmPrayer": "Yes",
+    "respEmailAddress": "divdemores@mailinator.com",
     "payment": {
       "PaymentChannel": "card",
       "PaymentTransactionId": "123456789",

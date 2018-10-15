@@ -6,17 +6,14 @@ const ReviewApplication = require(modulePath);
 const ChooseAResponse = require('steps/choose-a-response/ChooseAResponse.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const ccd = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
-    sinon.stub(ccd, 'getUserData').callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
-    ccd.getUserData.restore();
   });
 
   it('has idam.protect middleware', () => {
@@ -55,6 +52,22 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [ session.caseReference ]
+        }
+      );
+    });
+
+    it('displays issue date', () => {
+      const session = {
+        originalPetition: {
+          issueDate: '2006-02-02T00:00:00.000+0000',
+          jurisdictionConnection: {}
+        }
+      };
+      return content(
+        ReviewApplication,
+        session,
+        {
+          specificValues: [ '02 February 2006' ]
         }
       );
     });
@@ -206,7 +219,6 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
         'reasonForDivorceUnreasonableBehaviourStatement',
-        'reasonForDivorceUnreasonableBehaviourDescription',
         'reasonForDivorceSeparationTwoYears',
         'reasonForDivorceSeparationTwoYearsBrokenDown',
         'reasonForDivorceSeparationFiveYears',
@@ -570,8 +582,7 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
-          'reasonForDivorceUnreasonableBehaviourStatement',
-          'reasonForDivorceUnreasonableBehaviourDescription'
+          'reasonForDivorceUnreasonableBehaviourStatement'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
