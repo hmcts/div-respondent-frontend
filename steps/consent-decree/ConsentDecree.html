@@ -1,0 +1,59 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+    <div id="confirm-defence">
+
+        <p>{{ content.infoPara1 }}</p>
+        <p>{{ content.infoPara2 }}</p>
+
+        <details>
+            <summary>
+                <span class="summary">{{ content.expandingPanel.heading }}</span>
+            </summary>
+            <div class="panel panel-border-narrow">
+                <p class="text">{{ content.expandingPanel.contentPara1 }}</p>
+                <p class="text">{{ content.expandingPanel.contentPara2 }}</p>
+                <p class="text">{{ content.expandingPanel.contentPara3 }}</p>
+            </div>
+        </details>
+
+        <div class="default-margin">
+            {% call formSection() %}
+                {{ selectionButtons(fields.response.consentDecree, content.fields.consentDecree.header,
+                    options = [
+                        { label: content.fields.consentDecree.labelYes, value: const.yes },
+                        { label: content.fields.consentDecree.labelNo, value: const.no, target: 'choose-defend' }
+                    ],
+                    hint=false,
+                    hideQuestion=false,
+                    inline=false,
+                    type='radio'
+                ) }}
+            {% endcall %}
+        </div>
+
+
+        <div id="choose-defend" class="js-hidden default-margin heading-subsection">
+            {% call formSection() %}
+                {{ selectionButtons(fields.response.willDefend, content.fields.willDefend.header,
+                    options = [
+                        { label: content.fields.willDefend.labelYes, value: const.yes },
+                        { label: content.fields.willDefend.labelNo, value: const.no }
+                    ],
+                    hint=false,
+                    hideQuestion=false,
+                    inline=false,
+                    type='radio'
+                ) }}
+            {% endcall %}
+        </div>
+    </div>
+
+{% endblock %}

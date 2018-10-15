@@ -7,11 +7,12 @@
     "fields": {
       "success": {
         "yesCaseStarted": "Yes - case started - unreasonable behaviour",
+        "yesAdultery": "Yes - case started - adultery",
+        "yes2yrSeparation": "Yes - case started - two year separation",
         "yesCaseNotLinked": "Yes - case not linked",
         "yesCaseNotLinkedAndInvalidPin": "Yes - case not linked and invalid pin",
         "yesCaseNotLinkedAndServerError": "Yes - case not linked and server error",
         "yesCaseCompleted": "Yes - case completed",
-        "yesAdultery": "Yes - Adultery case",
         "no": "No"
       }
     }

@@ -32,9 +32,9 @@
         "indent": ["error", 2],
         "mocha/no-exclusive-tests": "error",
         "max-len": [
-            "error", 
-            { 
-                "code": 80,
+            "error",
+            {
+                "code": 120,
                 "ignoreStrings": true,
                 "ignoreTemplateLiterals": true,
                 "ignoreComments": true,
@@ -46,8 +46,8 @@
         "arrow-body-style": ["error", "always"],
         "no-process-env": "off",
         "no-magic-numbers": [
-            "error", 
-            { 
+            "error",
+            {
                 "ignoreArrayIndexes": true,
                 "enforceConst" : true,
                 "ignore": [
