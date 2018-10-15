@@ -8,7 +8,7 @@
     },
     "fields": {
       "consentDecree": {
-        "header": "Do you consent to the divorce?",
+        "header": "Do you consent to a divorce?",
         "labelYes": "Yes, I give my consent",
         "labelNo": "No, I don't give my consent"
       },
