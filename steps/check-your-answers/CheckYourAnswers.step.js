@@ -5,6 +5,7 @@ const config = require('config');
 const sendAosResponse = require('services/sendAosResponse');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
+const content = require('./CheckYourAnswers.content');
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -27,6 +28,10 @@ class CheckYourAnswers extends CYA {
         Joi.required().valid('yes')
       )
     });
+  }
+
+  get errorMessage() {
+    return content.en.errors.required;
   }
 
   sendToAPI(req) {
