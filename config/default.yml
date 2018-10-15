@@ -58,8 +58,10 @@ paths:
   authenticated: /authenticated
   index: /
   captureCaseAndPin: /respond-with-pin
+  financialSituation: /delay-the-decree
   respond: /respond
   reviewApplication: /review-application
+  consentDecree: /consent-to-the-decree
   admitAdultery: /admit-the-adultery
   chooseAResponse: /choose-a-response
   confirmDefence: /defend-are-you-sure
@@ -69,6 +71,7 @@ paths:
   contactDetails: /contact-details
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
+  noConsentAreYouSure: /no-consent-are-you-sure
   done: /done
   entry: /entry
   mock:

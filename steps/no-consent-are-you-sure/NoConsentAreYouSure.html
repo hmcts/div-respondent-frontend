@@ -1,0 +1,43 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+<div id="no-consent-are-you-sure">
+    <p>{{ content.detailsText.para1 | safe }}</p>
+    <p>{{ content.detailsText.para2 | safe }}</p>
+    <p>{{ content.detailsText.para3 | safe }}</p>
+
+    <div class="notice-padding">
+        <div class="notice">
+            <i class="icon icon-important">
+                <span class="visually-hidden">Warning</span>
+            </i>
+            <strong class="bold-small">
+                {{ content.notice | safe }}
+            </strong>
+        </div>
+    </div>
+
+    {% call formSection() %}
+        {{ selectionButtons(fields.response, content.title,
+            options = [
+                { label: content.fields.confirm.label, value: const.yes },
+                { label: content.fields.doNotConfirm.label, value: const.no }
+            ],
+            hint=false,
+            hideQuestion=true,
+            inline=false,
+            type='radio'
+          )
+        }}
+    {% endcall %}
+
+</div>
+
+{% endblock %}

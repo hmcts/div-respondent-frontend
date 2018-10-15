@@ -9,7 +9,8 @@ const content = require('./ReviewApplication.content').en;
 
 const values = {
   yes: 'yes',
-  adultery: 'adultery'
+  adultery: 'adultery',
+  twoYearSeparation: 'separation-2-years'
 };
 
 class ReviewApplication extends Question {
@@ -48,8 +49,10 @@ class ReviewApplication extends Question {
   next() {
     const petition = this.session.originalPetition;
     const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
+    const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
     return branch(
       goTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
+      goTo(this.journey.steps.ConsentDecree).if(twoYrSep),
       goTo(this.journey.steps.ChooseAResponse)
     );
   }

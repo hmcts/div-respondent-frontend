@@ -2,6 +2,7 @@ const modulePath = 'steps/confirm-defence/ConfirmDefence.step.js';
 const ConfirmDefence = require(modulePath);
 const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const ChooseAResponse = require('steps/choose-a-response/ChooseAResponse.step');
+const ConsentDecree = require('steps/consent-decree/ConsentDecree.step');
 const confirmDefenceContent = require('steps/confirm-defence/ConfirmDefence.content');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
@@ -22,14 +23,24 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(ConfirmDefence, [idam.protect()]);
   });
 
-  it('redirects to the check your answers page on confirmation', () => {
+  it('redirects to the jurisdiction page on confirmation', () => {
     const fields = { response: 'confirm' };
     return question.redirectWithField(ConfirmDefence, fields, Jurisdiction);
   });
 
-  it('redirects to back to choose a response page on changing response', () => {
+  it('redirects back to choose a response page on changing response', () => {
     const fields = { response: 'changeResponse' };
     return question.redirectWithField(ConfirmDefence, fields, ChooseAResponse);
+  });
+
+  it('redirects back to consent decree page if original petition is 2yr separation', () => {
+    const fields = { response: 'changeResponse' };
+    const session = {
+      originalPetition: {
+        reasonForDivorce: 'separation-2-years'
+      }
+    };
+    return question.redirectWithField(ConfirmDefence, fields, ConsentDecree, session);
   });
 
   it('shows error if question is not answered', () => {
