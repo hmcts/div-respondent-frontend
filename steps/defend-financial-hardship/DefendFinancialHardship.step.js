@@ -15,6 +15,10 @@ class DefendFinancialHardship extends Question {
     return config.paths.defendFinancialHardship;
   }
 
+  get session() {
+    return this.req.session;
+  }
+
   get form() {
     const answers = [yes, no];
     const validAnswers = Joi.string()
