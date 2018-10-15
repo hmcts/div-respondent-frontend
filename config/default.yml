@@ -71,6 +71,7 @@ paths:
   contactDetails: /contact-details
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
+  noConsentAreYouSure: /no-consent-are-you-sure
   done: /done
   entry: /entry
   mock:

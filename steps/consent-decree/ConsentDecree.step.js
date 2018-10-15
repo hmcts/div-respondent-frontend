@@ -96,6 +96,7 @@ class ConsentDecree extends Question {
     const isDefending = this.fields.response.willDefend.value === this.const.yes;
     return branch(
       redirectTo(this.journey.steps.ConfirmDefence).if(!doesConsent && isDefending),
+      redirectTo(this.journey.steps.NoConsentAreYouSure).if(!doesConsent && !isDefending),
       redirectTo(this.journey.steps.FinancialSituation)
     );
   }
