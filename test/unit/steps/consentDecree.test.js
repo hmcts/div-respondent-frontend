@@ -197,6 +197,6 @@ describe(modulePath, () => {
       .equal(contentFile.en.fields.willDefend.header);
     expect(answersArr[1].answer)
       .to
-      .equal(contentFile.en.fields.willDefend.labelNo);
+      .equal(contentFile.en.fields.willDefend.answerNo);
   });
 });

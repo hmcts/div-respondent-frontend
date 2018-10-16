@@ -77,7 +77,7 @@ class ConsentDecree extends Question {
     if (!doesConsent) {
       const questionDefend = content.en.fields.willDefend.header;
       const willDefend = this.fields.response.willDefend.value === this.const.yes;
-      const defendValue = willDefend ? content.en.fields.willDefend.labelYes : content.en.fields.willDefend.labelNo;
+      const defendValue = willDefend ? content.en.fields.willDefend.answerYes : content.en.fields.willDefend.answerNo;
       answers.push(answer(this, {
         question: questionDefend,
         answer: defendValue

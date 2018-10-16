@@ -18,7 +18,9 @@
       "willDefend": {
         "header": "Do you want to defend the divorce?",
         "labelYes": "Yes, I want to defend",
-        "labelNo": "No, I don't want to defend"
+        "labelNo": "No, I don't want to defend",
+        "answerNo": "I will let the divorce proceed and won't try to prevent it (I don't intend to 'defend' it).",
+        "answerYes": "I will try to prevent the divorce based on this application (I intend to 'defend' it)"
       }
     },
     "errors": {
