@@ -1,0 +1,35 @@
+{
+  "en": {
+    "title": "Are you defending the divorce as it would cause you severe hardship?",
+    "cya": {
+      "question": "Are you defending the divorce as it would cause you severe hardship?",
+      "details": "How will the divorce cause you severe hardship?"
+    },
+    "text1": "As your {{ session.divorceWho }} used 5 years separation as the reason for divorce, you can defend it on the basis that it will cause you severe hardship.",
+    "text2": "The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).",
+    "info": {
+      "heading": "Read more about hardship",
+      "summary1": "You'll need to convince the court that the hardship will be severe.",
+      "summary2": "The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
+      "summary3": "Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.",
+      "summary4": "You'll need to make your case for hardship in another form (called the 'answer') within 21 days. You'll also have to pay another £245 fee."
+    },
+    "fields": {
+      "yes": {
+        "heading": "Yes",
+        "answer": "Yes",
+        "details" : {
+          "title" : "How will the divorce cause you severe hardship?"
+        }
+      },
+      "no": {
+        "heading": "No",
+        "answer": "No"
+      }
+    },
+    "errors": {
+      "required": "Select 'Yes' if you are defending on the basis that it will cause you severe hardship",
+      "requireDetails": "Enter the details"
+    }
+  }
+}

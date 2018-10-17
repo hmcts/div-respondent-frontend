@@ -121,14 +121,6 @@ describe(modulePath, () => {
     return question.testErrors(LegalProceedings, {}, fields, { onlyErrors });
   });
 
-  it('shows error when legal proceedings is yes and case details not supplied', () => {
-    const fields = { 'legalProceedings-exists': 'yes' };
-
-    const onlyErrors = ['requireCaseDetails'];
-
-    return question.testErrors(LegalProceedings, {}, fields, { onlyErrors });
-  });
-
   it('costClaim=respondent, legalProceedings = yes, caseDetails != null -> AgreeToPayCosts', () => {
     const fields = {
       'legalProceedings-exists': 'yes',
