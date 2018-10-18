@@ -103,6 +103,10 @@ metadata:
 spec:
   clusterServiceClassExternalName: azure-rediscache
   clusterServicePlanExternalName: basic
+  parameters:
+    location: uksouth
+    resourceGroup: cnp-aks-rg
+
 #
 # Redis binding
 #
