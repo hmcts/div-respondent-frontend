@@ -104,8 +104,14 @@ class ChooseAResponse extends Question {
     const isDefend = response.value === consts.defend;
     const isProceed = response.value === consts.proceed;
     const fiveYearSeparation = this.session.originalPetition.reasonForDivorce === 'separation-5-years';
-    return branch(redirectTo(this.journey.steps.ConfirmDefence).if(isDefend),
-      redirectTo(this.journey.steps.FinancialSituation).if(fiveYearSeparation && isProceed),
+
+    return branch(
+      redirectTo(this.journey.steps.DefendFinancialHardship)
+        .if(isDefend && fiveYearSeparation),
+      redirectTo(this.journey.steps.FinancialSituation)
+        .if(isProceed && fiveYearSeparation),
+      redirectTo(this.journey.steps.ConfirmDefence)
+        .if(isDefend),
       redirectTo(this.journey.steps.Jurisdiction)
     );
   }

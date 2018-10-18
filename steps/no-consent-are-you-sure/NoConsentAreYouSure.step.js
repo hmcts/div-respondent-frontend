@@ -1,4 +1,5 @@
 const { Question } = require('@hmcts/one-per-page/steps');
+const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
@@ -39,8 +40,10 @@ class NoConsentAreYouSure extends Question {
   }
 
   answers() {
-    // overridden to not to display any answer on CYA
-    return {};
+    return answer(this, {
+      answer: this.fields.response.value,
+      hide: true
+    });
   }
 
   values() {

@@ -43,6 +43,10 @@ Scenario('Do not show financial separation for 5 year separation and defend', I 
   I.chooseToDefendAgainstDivorce();
   I.click(content.en.continue);
 
+  I.seeDefendFinancialHardShipPage();
+  I.clickNoToHardShipQuestion();
+  I.click(content.en.continue);
+
   I.seeConfirmDefencePage();
   I.clickToConfirmDefenceAgainstDivorce();
   I.click(content.en.continue);

@@ -27,7 +27,7 @@ class ConsentDecree extends Question {
 
   values() {
     const respAdmitOrConsentToFact = this.fields.response.consentDecree.value;
-    const respDefendsDivorce = this.fields.response.willDefend.value === 'yes' ? 'yes' : 'no';
+    const respDefendsDivorce = this.fields.response.willDefend.value === this.const.yes ? this.const.yes : this.const.no;
     return {
       respAdmitOrConsentToFact,
       respDefendsDivorce
@@ -77,7 +77,7 @@ class ConsentDecree extends Question {
     if (!doesConsent) {
       const questionDefend = content.en.fields.willDefend.header;
       const willDefend = this.fields.response.willDefend.value === this.const.yes;
-      const defendValue = willDefend ? content.en.fields.willDefend.labelYes : content.en.fields.willDefend.labelNo;
+      const defendValue = willDefend ? content.en.fields.willDefend.answerYes : content.en.fields.willDefend.answerNo;
       answers.push(answer(this, {
         question: questionDefend,
         answer: defendValue

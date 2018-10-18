@@ -1,0 +1,50 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textarea %}
+
+{% set title %}
+{{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+<div>
+
+  <p class="text">{{ content.text1 | safe }}</p>
+  <p class="text">{{ content.text2 | safe }}</p>
+  <details>
+    <summary>
+      <span class="summary">{{ content.info.heading | safe }}</span>
+    </summary>
+    <div class="panel panel-border-narrow">
+      <p class="text">{{ content.info.summary1 | safe }}</p>
+      <p class="text">{{ content.info.summary2 | safe }}</p>
+      <p class="text">{{ content.info.summary3 | safe }}</p>
+      <p class="text">{{ content.info.summary4 | safe }}</p>
+    </div> 
+  </details>
+  <br>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.financialHardship.exists, content.title,
+        options = [
+        { label: content.fields.yes.heading, value: "yes", target: "hardship-details" },
+        { label: content.fields.no.heading, value: "no" }
+        ],
+        hideQuestion=true,
+        inline=true,
+        type='radio'
+      )
+    }}
+
+    <div id="hardship-details" class="panel js-hidden">
+
+      <h4 class="heading-small">{{ content.fields.yes.details.title | safe }}</h4>
+
+      {{ textarea(fields.financialHardship.details, content.fields.yes.details.title, hideLabel=true) }}
+
+    </div>
+  {% endcall %}
+</div>
+
+{% endblock %}

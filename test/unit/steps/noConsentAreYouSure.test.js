@@ -39,7 +39,8 @@ describe(modulePath, () => {
     step.retrieve().validate();
 
     const answer = step.answers();
-    expect(answer).to.eql({});
+    expect(answer.answer).to.eql(yes);
+    expect(answer.hide).to.eql(true);
   });
 
   it('when answer is no then the answer should be empty', () => {
@@ -55,7 +56,8 @@ describe(modulePath, () => {
     step.retrieve().validate();
 
     const answer = step.answers();
-    expect(answer).to.eql({});
+    expect(answer.answer).to.eql(no);
+    expect(answer.hide).to.eql(true);
   });
 
   it('returns the correct values object, with yes for conform consent', () => {

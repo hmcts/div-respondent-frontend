@@ -4,6 +4,8 @@ const ChooseAResponse = require(modulePath);
 const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const ConfirmDefence = require('steps/confirm-defence/ConfirmDefence.step');
 const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
+const DefendFinancialHardship = require('steps/defend-financial-hardship/DefendFinancialHardship.step.js'); // eslint-disable-line max-len
+
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
@@ -44,6 +46,12 @@ describe(modulePath, () => {
     const fields = { response: 'proceed' };
     session.originalPetition = { reasonForDivorce: 'separation-5-years' };
     return question.redirectWithField(ChooseAResponse, fields, FinancialSituation, session);
+  });
+
+  it('redirects to defend financial hardship page when disagreeing with divorce and reason is 5 year separatinon', () => { // eslint-disable-line max-len
+    const fields = { response: 'defend' };
+    session.originalPetition.reasonForDivorce = 'separation-5-years';
+    return question.redirectWithField(ChooseAResponse, fields, DefendFinancialHardship, session);
   });
 
   it('shows error if question is not answered', () => {
