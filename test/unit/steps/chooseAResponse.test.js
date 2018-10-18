@@ -3,6 +3,7 @@ const stepContent = require('steps/choose-a-response/ChooseAResponse.content');
 const ChooseAResponse = require(modulePath);
 const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const ConfirmDefence = require('steps/confirm-defence/ConfirmDefence.step');
+const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
@@ -16,7 +17,7 @@ describe(modulePath, () => {
   };
 
   beforeEach(() => {
-    session.originalPetition = {};
+    session.originalPetition = { reasonForDivorce: 'adultery' };
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
   });
@@ -31,12 +32,18 @@ describe(modulePath, () => {
 
   it('redirects to jurisdiction page when proceeding with divorce', () => {
     const fields = { response: 'proceed' };
-    return question.redirectWithField(ChooseAResponse, fields, Jurisdiction);
+    return question.redirectWithField(ChooseAResponse, fields, Jurisdiction, session);
   });
 
   it('redirects to confirm defence page when disagreeing with divorce', () => {
     const fields = { response: 'defend' };
-    return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence);
+    return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence, session);
+  });
+
+  it('redirects to financial situation when 5 year separation and not defended', () => {
+    const fields = { response: 'proceed' };
+    session.originalPetition = { reasonForDivorce: 'separation-5-years' };
+    return question.redirectWithField(ChooseAResponse, fields, FinancialSituation, session);
   });
 
   it('shows error if question is not answered', () => {
@@ -160,7 +167,7 @@ describe(modulePath, () => {
 
     it('redirects to jurisdiction page when proceed but do not admit with divorce', () => {
       const fields = { response: 'proceedButDisagree' };
-      return question.redirectWithField(ChooseAResponse, fields, Jurisdiction);
+      return question.redirectWithField(ChooseAResponse, fields, Jurisdiction, session);
     });
 
     it('renders specific behaviour info', () => {
