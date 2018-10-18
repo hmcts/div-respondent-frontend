@@ -102,7 +102,7 @@ metadata:
   namespace: ${NAMESPACE}
 spec:
   clusterServiceClassExternalName: azure-rediscache
-  clusterServicePlanExternalName: general-purpose
+  clusterServicePlanExternalName: basic
   parameters:
     location: uksouth
     cores: 2
