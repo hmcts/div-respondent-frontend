@@ -15,6 +15,7 @@ class IdamLogin extends Question {
       'yesCaseStarted',
       'yesAdultery',
       'yes2yrSeparation',
+      'yes5yrSeparation',
       'yesCaseNotLinked',
       'yesCaseNotLinkedAndInvalidPin',
       'yesCaseNotLinkedAndServerError',
