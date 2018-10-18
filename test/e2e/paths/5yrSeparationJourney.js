@@ -2,7 +2,7 @@ const content = require('common/content');
 
 Feature('5 year Separation journey');
 
-Scenario('Proceed to financial separation for 5 year separation and proceed', I => {
+Scenario('Proceed to financial situation for 5 year separation and proceed', I => {
   I.amOnPage('/');
   I.seeExamplePage('/');
   I.click('Start now');
@@ -25,7 +25,7 @@ Scenario('Proceed to financial separation for 5 year separation and proceed', I 
   I.click(content.en.continue);
 }).retry(2);
 
-Scenario('Do not show financial separation for 5 year separation and defend', I => {
+Scenario('Do not show financial situation for 5 year separation and defend', I => {
   I.amOnPage('/');
   I.seeExamplePage('/');
   I.click('Start now');
