@@ -96,7 +96,7 @@ spec:
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: ${SERVICE_NAME}
+  name: ${SERVICE_NAME}-redis
   namespace: ${NAMESPACE}
 spec:
   clusterServiceClassExternalName: azure-rediscache
@@ -105,3 +105,15 @@ spec:
     location: uksouth
     cores: 2
     storage: 10
+#
+# Redis binding
+#
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: ${SERVICE_NAME}-binding
+  namespace: ${NAMESPACE}
+spec:
+  instanceRef:
+    name: ${SERVICE_NAME}-redis
