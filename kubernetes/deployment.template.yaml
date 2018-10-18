@@ -105,7 +105,7 @@ spec:
   clusterServicePlanExternalName: basic
   parameters:
     location: uksouth
-    resourceGroup: cnp-aks-rg
+    resourceGroup: ${NAMESPACE}
 
 #
 # Redis binding
