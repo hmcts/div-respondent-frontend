@@ -47,7 +47,7 @@
   %}
   {% include "reform-progress-list/template.njk" %}
 
-  {% if session.ChooseAResponse.response == "proceed" or session.ChooseAResponse.response == "proceedButDisagree" %}
+  {% if session.ChooseAResponse.response == "proceed" or session.ChooseAResponse.response == "proceedButDisagree" or session.ConsentDecree.response.consentDecree == "yes" %}
 
     <h2 class="heading-medium">{{ content.notDefendedHeading }}</h2>
 

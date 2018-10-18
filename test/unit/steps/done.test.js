@@ -53,6 +53,44 @@ describe(modulePath, () => {
     return content(doneStep, session, { ignoreContent });
   });
 
+  it('renders the content if the divorce is not defended and the reason is 2 years separation-2-years', () => {
+    const session = {
+      ConsentDecree: {
+        response: {
+          consentDecree: 'yes'
+        }
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'defendedHeading',
+      'defendedText1',
+      'defendedText2',
+      'defendedText3',
+      'defendedText4',
+      'defendedText5',
+      'defendedText6',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
+
   it('renders the content if the divorce is not defended you do not accept the allegations made in the application', () => {
     const session = {
       ChooseAResponse: {
