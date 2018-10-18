@@ -103,10 +103,6 @@ metadata:
 spec:
   clusterServiceClassExternalName: azure-rediscache
   clusterServicePlanExternalName: basic
-  parameters:
-    location: uksouth
-    cores: 2
-    storage: 10
 #
 # Redis binding
 #
