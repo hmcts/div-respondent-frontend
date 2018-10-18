@@ -31,12 +31,10 @@ spec:
       containers:
       - image: ${IMAGE_NAME}
         name: ${SERVICE_NAME}
-        env:
-        - name: REDISCLOUD_URL
-            valueFrom:
-              secretKeyRef:
-                name: redis-secret
-                key: uri
+        envFrom:
+        - configMapRef:
+            name: ${SERVICE_NAME}-config
+
         # These may be adjusted, but be mindful please
         resources:
           requests:
