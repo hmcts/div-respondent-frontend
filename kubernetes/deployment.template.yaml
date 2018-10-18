@@ -35,7 +35,7 @@ spec:
         - name: REDISCLOUD_URL
           valueFrom:
             secretKeyRef:
-              name: redis-secret
+              name: ${SERVICE_NAME}-redis-secret
               key: uri
         # These may be adjusted, but be mindful please
         resources:
@@ -98,7 +98,7 @@ spec:
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: ${SERVICE_NAME}-redis
+  name: ${SERVICE_NAME}-redis-instance
   namespace: ${NAMESPACE}
 spec:
   clusterServiceClassExternalName: azure-rediscache
@@ -114,9 +114,9 @@ spec:
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
 metadata:
-  name: ${SERVICE_NAME}-binding
+  name: ${SERVICE_NAME}-redis-binding
   namespace: ${NAMESPACE}
 spec:
   instanceRef:
-    name: ${SERVICE_NAME}-redis
-  secretName: redis-secret
+    name: ${SERVICE_NAME}-redis-instance
+  secretName: ${SERVICE_NAME}-redis-secret
