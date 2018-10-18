@@ -77,7 +77,7 @@
 
   {% endif %}
 
-  {% if session.ChooseAResponse.response == "defend" %}
+  {% if session.ChooseAResponse.response == "defend" or  session.ConsentDecree.response.willDefend == "yes" %}
     <h2 class="heading-medium">{{ content.defendedHeading }}</h2>
     <p class"text">{{ content.defendedText1 | safe }}</p>
     <p class"text">{{ content.defendedText2 }}</p>

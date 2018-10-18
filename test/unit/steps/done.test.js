@@ -247,6 +247,44 @@ describe(modulePath, () => {
     return content(doneStep, session, { ignoreContent });
   });
 
+  it('renders the content if the divorce is defended and reason is 2 years separation-2-years', () => {
+    const session = {
+      ConsentDecree: {
+        response: {
+          willDefend: 'yes'
+        }
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'notDefendedHeading',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
   describe('values', () => {
     it('displays reference number', () => {
       const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 4567';
