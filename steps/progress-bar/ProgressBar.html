@@ -1,0 +1,135 @@
+{% extends "page.njk" %}
+
+{% block back %}
+{% endblock %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+    <p class="font-xsmall">
+        <strong class="bold-xsmall">{{ content.details.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
+        <strong class="bold-xsmall">{{ content.details.name }}:</strong> &nbsp;&nbsp;
+        {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
+    </p>
+
+    {% set progressBarContent = getProgressBarContent() %}
+
+    {% set items = {
+        one: {
+            label: content.progressBar.husbandWifeApplied,
+            complete: true
+        },
+        two: {
+            label: content.progressBar.youResponded,
+            complete: true
+        },
+        three: {
+            label: content.progressBar.getDecreeNisi,
+            current: true
+        },
+        four: {
+            label: content.progressBar.madeFinal
+        }
+    } %}
+
+    {% include "reform-progress-list/template.njk" %}
+
+    {% if  progressBarContent === progressStates.progressedNoAos %}
+        <h2 class="heading-medium">{{ content.progressedNoAos.heading }}</h2>
+        <p>{{ content.progressedNoAos.info }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.progressedUndefended %}
+        <h2 class="heading-medium">{{ content.progressedUndefended.heading }}</h2>
+        <p>{{ content.progressedUndefended.info }}</p>
+
+        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
+        <p>{{ content.helpContent | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
+        <p>{{ content.improveContent | safe }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.awaitingAnswer %}
+        <h2 class="heading-medium">{{ content.awaitingAnswer.heading }}</h2>
+        <p>{{ content.awaitingAnswer.para1 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para2 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para3 | safe }}</p>
+        <ul class="list bold-small">
+            <li>{{ session.divorceCenterName }}</li>
+            {% if session.divorceCenterPoBox %}
+                <li>{{ session.divorceCenterPoBox }}</li>
+            {% endif %}
+            {% if session.divorceCenterStreet %}
+                <li>{{ session.divorceCenterStreet }}</li>
+            {% endif %}
+            <li>{{ session.divorceCenterCourtCity }}</li>
+            <li>{{ session.divorceCenterPostCode }}</li>
+        </ul>
+        <p>{{ content.awaitingAnswer.para4 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para5 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para6 | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
+        <p>{{ content.helpContent | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
+        <p>{{ content.improveContent | safe }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.defendedDivorce %}
+        <h2 class="heading-medium">{{ content.defendedDivorce.heading }}</h2>
+        <p>{{ content.defendedDivorce.info }}</p>
+
+        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
+        <p>{{ content.helpContent | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
+        <p>{{ content.improveContent | safe }}</p>
+    {% endif %}
+
+{% endblock %}
+
+{% block one_third %}
+    <aside class="govuk-related-items" role="complementary">
+
+        <h2 class="heading-small">{{ content.contactDetails.heading }}</h2>
+
+        <ul class="font-xsmall">
+            <li>
+                <strong class="bold-xsmall">{{ content.contactDetails.email }}</strong><br>
+                {{ content.contactDetails.emailAddressDivorceService }}
+                <br>
+            </li>
+            <li>
+                <strong class="bold-xsmall">{{ content.contactDetails.phone }}</strong><br>
+                {{ content.contactDetails.divorceCenterPhone }}<br>
+                {{ content.contactDetails.divorceCenterHours }}<br>
+            </li>
+            <li>
+                <strong>{{ content.contactDetails.courtsTribunals }}</strong>
+                <ul class="list small">
+                    <li>c/o {{ session.divorceCenterName }}</li>
+                    {% if session.divorceCenterPoBox %}
+                        <li>{{ session.divorceCenterPoBox }}</li>
+                    {% endif %}
+                    <li>{{ session.divorceCenterCourtCity }}</li>
+                    <li>{{ session.divorceCenterPostCode }}</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 class="heading-small" id="subsection-title">{{ content.contactDetails.guidance }}</h3>
+
+        <nav role="navigation" aria-labelledby="subsection-title">
+            <ul class="font-xsmall">
+                <li>{{ content.contactDetails.decreeNisiLink | safe }}</li>
+                <li>{{ content.contactDetails.decreeAbsoluteLink | safe }}</li>
+                <li>{{ content.contactDetails.childrenAndDivorceLink | safe }}</li>
+                <li>{{ content.contactDetails.moneyAndPropertyLinky | safe }}</li>
+            </ul>
+        </nav>
+    </aside>
+{% endblock %}

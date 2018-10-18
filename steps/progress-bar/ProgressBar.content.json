@@ -1,0 +1,55 @@
+{
+  "en": {
+    "title": "Your divorce",
+    "details": {
+      "referenceNumber": "Reference number",
+      "name": "Name"
+    },
+    "progressBar": {
+      "husbandWifeApplied": "Your {{ session.divorceWho }} applied",
+      "youResponded": "You responded",
+      "getDecreeNisi": "Your {{ session.divorceWho }} applies for a decree nisi",
+      "madeFinal": "The divorce is made final"
+    },
+    "progressedNoAos": {
+      "heading": "Contact the divorce centre",
+      "info": "You can no longer respond to this application online. Contact the divorce centre to find out what to do next."
+    },
+    "progressedUndefended": {
+      "heading": "You have submitted your response",
+      "info": "Your response will be checked and you'll be contacted about what you need to do next."
+    },
+    "awaitingAnswer": {
+      "heading": "You need to submit your answer",
+      "para1": "You must now submit the '<a href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">answer to a divorce application</a>' form. The deadline for the court to receive this is 21 days from the date you first signed in to respond to the application.",
+      "para2": "Download and fill in the paper form.",
+      "para3": "Post the form to:",
+      "para4": "You'll have to pay a £245 fee when you submit the form.",
+      "para5": "You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
+      "para6": "If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defence the divorce."
+    },
+    "defendedDivorce": {
+      "heading": "You have submitted your response",
+      "info": "Your response will be checked and you'll be contacted about what you need to do next."
+    },
+    "helpHeading": "If you need help",
+    "helpContent": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>.",
+    "improveHeading": "Help us improve this service",
+    "improveContent": "Please help us improve this service by <a href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">leaving your feedback</a>.",
+    "contactDetails": {
+      "heading": "Getting help",
+      "yourCourt": "Your divorce centre",
+      "courtsTribunals": "Courts and Tribunals Service Centre",
+      "email": "Email",
+      "emailAddressDivorceService": "divorce@justice.gov.uk",
+      "phone": "Phone",
+      "divorceCenterPhone": "0300 303 0642",
+      "divorceCenterHours": "(Monday to Friday, 8.30am to 5pm)",
+      "guidance": "Guidance on GOV.UK",
+      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
+      "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+      "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+    }
+   }
+}

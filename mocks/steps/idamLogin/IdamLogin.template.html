@@ -3,25 +3,28 @@
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
 
 {% set title %}
-  {{ content.title | safe }}
+    {{ content.title | safe }}
 {% endset %}
 
 {% block fields %}
 
-  {% call formSection() %}
-    {{ selectionButtons(fields.success, content.title,
-      options = [
-        { label: content.fields.success.yesCaseStarted, value: "yesCaseStarted" },
-        { label: content.fields.success.yesAdultery, value: "yesAdultery" },
-        { label: content.fields.success.yes2yrSeparation, value: "yes2yrSeparation" },
-        { label: content.fields.success.yes5yrSeparation, value: "yes5yrSeparation" },
-        { label: content.fields.success.yesCaseNotLinked, value: "yesCaseNotLinked" },
-        { label: content.fields.success.yesCaseNotLinkedAndInvalidPin, value: "yesCaseNotLinkedAndInvalidPin" },
-        { label: content.fields.success.yesCaseNotLinkedAndServerError, value: "yesCaseNotLinkedAndServerError" },
-        { label: content.fields.success.yesCaseCompleted, value: "yesCaseCompleted" },
-        { label: content.fields.success.no, value: "no" }
-      ]
-    ) }}
-  {% endcall %}
+    {% call formSection() %}
+        {{ selectionButtons(fields.success, content.title,
+            options = [
+                { label: content.fields.success.yesCaseStarted, value: "yesCaseStarted" },
+                { label: content.fields.success.yesAdultery, value: "yesAdultery" },
+                { label: content.fields.success.yes2yrSeparation, value: "yes2yrSeparation" },
+                { label: content.fields.success.yes5yrSeparation, value: "yes5yrSeparation" },
+                { label: content.fields.success.yesCaseNotLinked, value: "yesCaseNotLinked" },
+                { label: content.fields.success.yesCaseNotLinkedAndInvalidPin, value: "yesCaseNotLinkedAndInvalidPin" },
+                { label: content.fields.success.yesCaseNotLinkedAndServerError, value: "yesCaseNotLinkedAndServerError" },
+                { label: content.fields.success.yesCaseProgressedNoAos, value: "yesCaseProgressedNoAos" },
+                { label: content.fields.success.yesCaseProgressedUndefended, value: "yesCaseProgressedUndefended" },
+                { label: content.fields.success.yesCaseProgressedAwaitingAnswer, value: "yesCaseProgressedAwaitingAnswer" },
+                { label: content.fields.success.yesCaseProgressedDefending, value: "yesCaseProgressedDefending" },
+                { label: content.fields.success.no, value: "no" }
+            ]
+        ) }}
+    {% endcall %}
 
 {% endblock %}

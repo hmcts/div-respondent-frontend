@@ -53,8 +53,8 @@
 
     {% if session.originalPetition.reasonForDivorce == "adultery" and session.AdmitAdultery.response == "doNotAdmit" %}
 
-      <p class"text">{{ content.notDefendedAdultery1 }}</p>
-      <p class"text">{{ content.notDefendedAdultery2 }}</p>
+      <p class="text">{{ content.notDefendedAdultery1 }}</p>
+      <p class="text">{{ content.notDefendedAdultery2 }}</p>
       <ul class="bullet list-bullet">
         <li>{{ content.notDefendedAdulteryLi1 }}</li>
         <li>{{ content.notDefendedAdulteryLi2 }}</li>
@@ -63,14 +63,14 @@
 
     {% else %}
 
-      <p class"text">{{ content.notDefendedText1 }}</p>
-      <p class"text">{{ content.notDefendedText2 }}</p>
+      <p class="text">{{ content.notDefendedText1 }}</p>
+      <p class="text">{{ content.notDefendedText2 }}</p>
       <ol class="list list-number">
         <li>{{ content.notDefendedListItem1 }}</li>
         <li>{{ content.notDefendedListItem2 }}</li>
       </ol>
-      <p class"text">{{ content.notDefendedText3 }}</p>
-      <p class"text">{{ content.notDefendedText4 }}</p>
+      <p class="text">{{ content.notDefendedText3 }}</p>
+      <p class="text">{{ content.notDefendedText4 }}</p>
       <p class="text">{{ content.notDefendedText5 }}</p>
 
     {% endif %}
@@ -79,9 +79,9 @@
 
   {% if session.ChooseAResponse.response == "defend" or  session.ConsentDecree.response.willDefend == "yes" %}
     <h2 class="heading-medium">{{ content.defendedHeading }}</h2>
-    <p class"text">{{ content.defendedText1 | safe }}</p>
-    <p class"text">{{ content.defendedText2 }}</p>
-    <p class"text">{{ content.defendedText3 }}</p>
+    <p class="text">{{ content.defendedText1 | safe }}</p>
+    <p class="text">{{ content.defendedText2 }}</p>
+    <p class="text">{{ content.defendedText3 }}</p>
     <ul class="list bold-small">
       <li>{{ session.divorceCenterName }}</li>
 
@@ -96,9 +96,9 @@
       <li>{{ session.divorceCenterCourtCity }}</li>
       <li>{{ session.divorceCenterPostCode }}</li>
     </ul>
-    <p class"text">{{ content.defendedText4 }}</p>
-    <p class"text">{{ content.defendedText5 }}</p>
-    <p class"text">{{ content.defendedText6 }}</p>
+    <p class="text">{{ content.defendedText4 }}</p>
+    <p class="text">{{ content.defendedText5 }}</p>
+    <p class="text">{{ content.defendedText6 }}</p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-2-years" and session.ConsentDecree.response.consentDecree == "no" and session.ConsentDecree.response.willDefend == "no" %}

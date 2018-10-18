@@ -1,0 +1,233 @@
+{
+  "caseId": "1536587716568826",
+  "courts": "northWest",
+  "state": "AwaitingAnswer",
+  "data": {
+    "expires": 0,
+    "caseReference": "LV17D80101",
+    "screenHasMarriageBroken": "Yes",
+    "screenHasRespondentAddress": "Yes",
+    "screenHasMarriageCert": "Yes",
+    "helpWithFeesNeedHelp": "Yes",
+    "helpWithFeesAppliedForFees": "Yes",
+    "helpWithFeesReferenceNumber": "HWF-A1B-23D",
+    "divorceWho": "wife",
+    "marriageIsSameSexCouple": "Yes",
+    "marriageDateDay": 1,
+    "marriageDateMonth": 2,
+    "marriageDateYear": 2001,
+    "marriageDate": "2001-02-01T00:00:00.000+0000",
+    "marriageCanDivorce": "true",
+    "marriedInUk": "Yes",
+    "placeOfMarriage": "bbc",
+    "jurisdictionConnection": [
+      "A",
+      "C"
+    ],
+    "connections": {
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
+      "B": null,
+      "C": "The Respondent is habitually resident in England and Wales",
+      "D": null,
+      "E": null,
+      "F": null,
+      "G": null
+    },
+    "jurisdictionPetitionerResidence": "Yes",
+    "jurisdictionRespondentResidence": "Yes",
+    "jurisdictionConfidentLegal": "Yes",
+    "petitionerContactDetailsConfidential": "keep",
+    "petitionerFirstName": "viv",
+    "petitionerLastName": "div pet",
+    "respondentFirstName": "viv",
+    "respondentLastName": "divorce pet",
+    "marriagePetitionerName": "cat",
+    "marriageRespondentName": "rat",
+    "petitionerNameDifferentToMarriageCertificate": "Yes",
+    "petitionerNameChangedHow": [
+      "marriageCertificate"
+    ],
+    "petitionerEmail": "vivdivhideadd@mailinator.com",
+    "petitionerHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "NW10 1AE",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "2 Park View Road",
+        "London",
+        "NW10 1AE"
+      ]
+    },
+    "petitionerCorrespondenceUseHomeAddress": "No",
+    "petitionerCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "SW10 0JL",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "James McWirter Antiques Ltd",
+        "11 Langton Street",
+        "London",
+        "SW10 0JL"
+      ]
+    },
+    "livingArrangementsLiveTogether": "Yes",
+    "respondentHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "NW10 1AE",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "2 Park View Road",
+        "London",
+        "NW10 1AE"
+      ]
+    },
+    "respondentCorrespondenceUseHomeAddress": "No",
+    "respondentCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "SW10 0QD",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "The Greig & Greig Partnership",
+        "Unit 11",
+        "92 Lots Road",
+        "London",
+        "SW10 0QD"
+      ]
+    },
+    "reasonForDivorce": "separation-5-years",
+    "reasonForDivorceHasMarriageDate": "true",
+    "reasonForDivorceShowAdultery": "true",
+    "reasonForDivorceShowUnreasonableBehaviour": "true",
+    "reasonForDivorceShowTwoYearsSeparation": "true",
+    "reasonForDivorceShowFiveYearsSeparation": "true",
+    "reasonForDivorceShowDesertion": "true",
+    "reasonForDivorceLimitReasons": "false",
+    "reasonForDivorceEnableAdultery": "true",
+    "legalProceedings": "No",
+    "financialOrder": "Yes",
+    "financialOrderFor": [
+      "petitioner",
+      "children"
+    ],
+    "claimsCosts": "No",
+    "reasonForDivorceSeperationDay": 1,
+    "reasonForDivorceSeperationMonth": 2,
+    "reasonForDivorceSeperationYear": 2003,
+    "reasonForDivorceSeperationDate": "2003-02-01T00:00:00.000+0000",
+    "reasonForDivorceSeperationDateIsSameOrAfterLimitDate": "false",
+    "reasonForDivorceSeperationDateInFuture": "false",
+    "reasonForDivorceSeperationDateBeforeMarriageDate": "false",
+    "court": {
+      "eastMidlands": {
+        "divorceCentre": "East Midlands Regional Divorce Centre",
+        "courtCity": "Nottingham",
+        "poBox": "PO Box 10447",
+        "postCode": "NG2 9QN",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "eastmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA01"
+      },
+      "westMidlands": {
+        "divorceCentre": "West Midlands Regional Divorce Centre",
+        "courtCity": "Stoke-on-Trent",
+        "poBox": "PO Box 3650",
+        "postCode": "ST4 9NH",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "westmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA02"
+      },
+      "southWest": {
+        "divorceCentre": "South West Regional Divorce Centre",
+        "courtCity": "Southampton",
+        "poBox": "PO Box 1792",
+        "postCode": "SO15 9GG",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "sw-region-divorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA03"
+      },
+      "northWest": {
+        "divorceCentre": "North West Regional Divorce Centre",
+        "divorceCentreAddressName": "Liverpool Civil & Family Court",
+        "courtCity": "Liverpool",
+        "street": "35 Vernon Street",
+        "postCode": "L2 2BX",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "family@liverpool.countycourt.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA04"
+      }
+    },
+    "courts": "northWest",
+    "confirmPrayer": "Yes",
+    "marriageCertificateFiles": [],
+    "issueDate": "2018-10-18T00:00:00.000+0000",
+    "respConfirmReadPetition": "yes",
+    "respJurisdictionAgree": "yes",
+    "respDefendsDivorce": "yes",
+    "respLegalProceedingsExist": "no",
+    "respLegalProceedingsDescription": "some of personnel once",
+    "respEmailAddress": "vivdivres@mailinator.com",
+    "respPhoneNumber": "09988999111",
+    "respStatementOfTruth": "yes",
+    "respConsentToEmail": "yes",
+    "respHardshipDefenseResponse": "no",
+    "respHardshipDescription": "want to test it",
+    "d8": [
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "d8petition1536587716568826",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/9ee62383-13a6-468e-84c7-f8d1e69e1a23",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "aosinvitation1536587716568826",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/fb0fef79-88fe-4101-acde-c1e123a6e648",
+        "mimeType": null,
+        "status": null
+      }
+    ]
+  }
+}

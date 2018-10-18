@@ -2,6 +2,10 @@ const modulePath = 'middleware/petitionMiddleware';
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition: petitionMiddleware } = require(modulePath);
 const caseOrchestration = require('services/caseOrchestration');
+// eslint-disable-next-line max-len
+const completedMock = require('mocks/services/case-orchestration/retrieve-aos-case/case-progressed/not-defended');
+const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
+const ProgressBar = require('steps/progress-bar/ProgressBar.step');
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -12,7 +16,7 @@ describe(modulePath, () => {
     // given
     const req = sinon.stub();
     const res = {
-      redirect: sinon.stub()
+      redirect: sinon.spy()
     };
     const next = sinon.stub();
 
@@ -24,33 +28,30 @@ describe(modulePath, () => {
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
-        expect(caseOrchestration.getPetition.calledOnce).to.be.true;
-        expect(res.redirect.calledOnce).to.be.true;
+        expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce);
       })
       .then(done, done);
   });
 
-  it('redirects to invalid case state page if case state is not AosStarted', done => {
+  it('calls correct methods based on caseOrchestration service calls', done => {
     // given
     const req = sinon.stub();
     const res = {
-      redirect: sinon.stub()
+      redirect: sinon.spy()
     };
     const next = sinon.stub();
+    req.session = {};
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
         statusCode: 200,
-        body: {
-          state: 'AosCompleted'
-        }
+        body: completedMock
       });
 
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
-        expect(caseOrchestration.getPetition.calledOnce).to.be.true;
-        expect(res.redirect.calledOnce).to.be.true;
+        expect(res.redirect.withArgs(ProgressBar.path).calledOnce);
       })
       .then(done, done);
   });
@@ -59,7 +60,7 @@ describe(modulePath, () => {
     // given
     const req = sinon.stub();
     const res = sinon.stub();
-    const next = sinon.stub();
+    const next = sinon.spy();
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
@@ -69,8 +70,7 @@ describe(modulePath, () => {
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
-        expect(caseOrchestration.getPetition.calledOnce).to.be.true;
-        expect(next.calledOnce).to.be.true;
+        sinon.assert.calledOnce(next);
         expect(next.getCall(0).args[0])
           .to
           .be
