@@ -6,12 +6,6 @@ RUN apt-get update && \
 
 WORKDIR /opt/app
 
-ARG NODE_ENV=production
-ARG GIT_REVISION
-
-ENV GIT_REVISION=$GIT_REVISION \
-    NODE_ENV=$NODE_ENV
-
 COPY . /opt/app
 RUN yarn && yarn setup && yarn cache clean
 

@@ -31,6 +31,9 @@ spec:
       containers:
       - image: ${IMAGE_NAME}
         name: ${SERVICE_NAME}
+        envFrom:
+        - configMapRef:
+            name: ${SERVICE_NAME}-config
         env:
         - name: REDISCLOUD_URL
           valueFrom:
