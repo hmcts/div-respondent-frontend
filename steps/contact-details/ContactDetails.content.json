@@ -4,15 +4,15 @@
     "contactMethods": {
       "email": {
         "heading": "By email",
-        "intro": "You need to receive emails about the divorce to use the online service. Your email address will never be shared with anyone.<br/><br/>Your emails will be sent to: "
+        "intro": "You need to receive emails about the divorce to use the online service. Your email address will not be shared with your {{ session.divorceWho }}.<br/><br/>Your emails will be sent to: "
       },
       "telephone": {
         "heading": "By phone",
-        "intro": "Provide a phone number to let court staff contact you more quickly. Your phone number will never be shared with anyone."
+        "intro": "Provide a phone number to let court staff contact you more quickly. Your phone number will not be shared with your {{ session.divorceWho }}."
       },
       "post": {
         "heading": "By post",
-        "intro": "You may need to receive some correspondence by post. This will be sent to the address your husband/wife provided.<br/><br/>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You'll be given the divorce centre's contact details when you submit your response."
+        "intro": "You may need to receive some correspondence by post. This will be sent to the address which your {{ session.divorceWho }} provided.<br/><br/>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You'll be given the divorce centre's contact details when you submit your response."
       }
     },
     "fields": {
