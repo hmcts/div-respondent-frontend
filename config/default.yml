@@ -54,6 +54,8 @@ services:
     submitAosUrl: http://localhost:1111
   caseMaintenance:
     baseUrl: http://localhost:3001
+  feesAndPayments:
+    baseUrl: http://localhost:3001
 
 paths:
   health: /health
