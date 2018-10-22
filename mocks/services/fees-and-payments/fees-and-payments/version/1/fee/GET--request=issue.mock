@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "feeCode": "FEE0002",
+  "amount": 550,
+  "version": 4,
+  "description": "Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2."
+}
