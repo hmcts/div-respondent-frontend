@@ -4,8 +4,8 @@ metadata:
   name: ${SERVICE_NAME}-config
   namespace: ${NAMESPACE}
 data:
-  REFORM_ENVIRONMENT: aat
-  IDAM_APP_HEALHCHECK_URL: https://idam.preprod.ccidam.reform.hmcts.net/health
-  IDAM_API_URL: https://preprod-idamapi.reform.hmcts.net:3511
-  GOOGLE_ANALYTICS_ID: UA-93824767-2
-  RATE_LIMITER_ENABLED: false
+  REFORM_ENVIRONMENT: "aat"
+  IDAM_APP_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
+  IDAM_API_URL: "https://preprod-idamapi.reform.hmcts.net:3511"
+  GOOGLE_ANALYTICS_ID: "UA-93824767-2"
+  RATE_LIMITER_ENABLED: "false"
