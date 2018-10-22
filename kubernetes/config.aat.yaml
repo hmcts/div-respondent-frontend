@@ -12,7 +12,4 @@ data:
   REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis:6379"
   NODE_ENV: "production"
   IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login",
-  IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health",
-  SESSION_SECRET: "${SESSION_SECRET}",
-  IDAM_SECRET: "${IDAM_SECRET}",
-  REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
+  IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
