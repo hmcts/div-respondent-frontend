@@ -11,5 +11,5 @@ data:
   RATE_LIMITER_ENABLED: "false"
   REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis:6379"
   NODE_ENV: "production"
-  IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login",
+  IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login"
   IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
