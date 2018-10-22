@@ -4,10 +4,15 @@ metadata:
   name: ${SERVICE_NAME}-config
   namespace: ${NAMESPACE}
 data:
-  REFORM_ENVIRONMENT: "${REFORM_ENVIRONMENT}"
-  IDAM_APP_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
+  REFORM_ENVIRONMENT: "aat"
+  IDAM_APP_HEALHCHECK_URL: "https://preprod-idamapi.reform.hmcts.net:3511/health"
   IDAM_API_URL: "https://preprod-idamapi.reform.hmcts.net:3511"
   GOOGLE_ANALYTICS_ID: "UA-93824767-2"
   RATE_LIMITER_ENABLED: "false"
   REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis:6379"
   NODE_ENV: "production"
+  IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login",
+  IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health",
+  SESSION_SECRET: "${SESSION_SECRET}",
+  IDAM_SECRET: "${IDAM_SECRET}",
+  REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}",
