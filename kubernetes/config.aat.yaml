@@ -9,4 +9,5 @@ data:
   IDAM_API_URL: "https://preprod-idamapi.reform.hmcts.net:3511"
   GOOGLE_ANALYTICS_ID: "UA-93824767-2"
   RATE_LIMITER_ENABLED: "false"
+  REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis:6379"
   NODE_ENV: "production"

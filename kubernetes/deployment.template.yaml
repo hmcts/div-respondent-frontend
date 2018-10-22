@@ -34,12 +34,6 @@ spec:
         envFrom:
         - configMapRef:
             name: ${SERVICE_NAME}-config
-        env:
-        - name: REDISCLOUD_URL
-          valueFrom:
-            secretKeyRef:
-              name: ${SERVICE_NAME}-redis-secret
-              key: uri
         # These may be adjusted, but be mindful please
         resources:
           requests:
@@ -98,28 +92,47 @@ spec:
 # Redis
 #
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
-kind: ServiceInstance
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
 metadata:
-  name: ${SERVICE_NAME}-redis-instance
+  name: ${SERVICE_NAME}-redis
   namespace: ${NAMESPACE}
+  labels:
+    app: redis
 spec:
-  clusterServiceClassExternalName: azure-rediscache
-  clusterServicePlanExternalName: basic
-  parameters:
-    location: uksouth
-    resourceGroup: ${NAMESPACE}
-
+  selector:
+    matchLabels:
+      app: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: master
+        image: redis:5.0-alpine
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
 #
 # Redis binding
 #
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
-kind: ServiceBinding
+apiVersion: v1
+kind: Service
 metadata:
-  name: ${SERVICE_NAME}-redis-binding
+  name: ${SERVICE_NAME}-redis
   namespace: ${NAMESPACE}
+  labels:
+    app: redis
 spec:
-  instanceRef:
-    name: ${SERVICE_NAME}-redis-instance
-  secretName: ${SERVICE_NAME}-redis-secret
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: redis
+
