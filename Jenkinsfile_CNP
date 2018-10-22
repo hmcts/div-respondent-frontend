@@ -23,10 +23,10 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 
 withPipeline("nodejs", product, component) {
   if (env.CHANGE_TITLE && !env.CHANGE_TITLE.startsWith('[PREVIEW]')) {
-    loadVaultSecrets(secrets)
-    setVaultName('div-aat')
     enableDockerBuild()
     enableDeployToAKS()
+    loadVaultSecrets(secrets)
+    setVaultName('div')
   }
 
   after('test') {
