@@ -19,7 +19,7 @@
       "options": {
         "amountToPay": {
           "heading": "How much you may have to pay",
-          "summary": "The applicant's costs usually include the £550 fee. They could also include other court fees and costs. The costs could be much higher if your {{ session.divorceWho }} has legal fees (eg a solicitor) and these are also included."
+          "summary": "The applicant's costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if your {{ session.divorceWho }} has legal fees (eg a solicitor) and these are also included."
         },
         "whatNow": {
           "heading": "What happens now",

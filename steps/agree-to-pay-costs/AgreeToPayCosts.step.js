@@ -6,6 +6,7 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./AgreeToPayCosts.content');
+const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 const yes = 'Yes';
 const no = 'No';
@@ -22,6 +23,9 @@ class AgreeToPayCosts extends Question {
 
   get config() {
     return config;
+
+  get feesIssueApplication() {
+    return this.res.locals.applicationFee.issue.amount;
   }
 
   get form() {
@@ -141,7 +145,11 @@ class AgreeToPayCosts extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      getFeeFromFeesAndPayments('issue')
+    ];
   }
 
   next() {
