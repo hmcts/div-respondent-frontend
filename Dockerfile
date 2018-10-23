@@ -7,7 +7,7 @@ RUN apt-get update && \
 WORKDIR /opt/app
 
 COPY . /opt/app
-RUN yarn && yarn setup && yarn cache clean
+RUN yarn --production && yarn setup && yarn cache clean
 
 CMD [ "yarn", "start" ]
 
