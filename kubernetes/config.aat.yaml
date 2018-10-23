@@ -4,6 +4,8 @@ metadata:
   name: ${SERVICE_NAME}-config
   namespace: ${NAMESPACE}
 data:
+  # TODO - this should be changed once we deploy AAT to AKS
+  BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
   REFORM_ENVIRONMENT: "aat"
   IDAM_APP_HEALHCHECK_URL: "https://preprod-idamapi.reform.hmcts.net:3511/health"
   IDAM_API_URL: "https://preprod-idamapi.reform.hmcts.net:3511"
