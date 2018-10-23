@@ -15,3 +15,6 @@ data:
   NODE_ENV: "production"
   IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login"
   IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
+  GET_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/retrieve-aos-case"
+  LINK_RESPONDENT_URL: "http://div-cos-aat.service.core-compute-aat.internal/link-respondent"
+  SUBMIT_AOS_URL: "http://div-cos-aat.service.core-compute-aat.internal/submit-aos"
