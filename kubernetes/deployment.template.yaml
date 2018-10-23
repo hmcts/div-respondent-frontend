@@ -31,13 +31,6 @@ spec:
       containers:
       - image: ${IMAGE_NAME}
         name: ${SERVICE_NAME}
-        env:
-        - name: SESSION_SECRET
-          value: "${SESSION_SECRET}"
-        - name: IDAM_SECRET
-          value: "${IDAM_SECRET}"
-        - name: REDIS_ENCRYPTION_SECRET
-          value: "${REDIS_ENCRYPTION_SECRET}"
         envFrom:
         - configMapRef:
             name: ${SERVICE_NAME}-config
