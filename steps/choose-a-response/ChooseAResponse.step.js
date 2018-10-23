@@ -13,7 +13,8 @@ const consts = {
   defend: 'defend',
   yes: 'yes',
   no: 'no',
-  behavior: 'unreasonable-behaviour'
+  behavior: 'unreasonable-behaviour',
+  separation5yrs: 'separation-5-years'
 };
 
 class ChooseAResponse extends Question {
@@ -102,11 +103,14 @@ class ChooseAResponse extends Question {
   next() {
     const response = this.fields.response;
     const isDefend = response.value === consts.defend;
-    const reasonDivorce = this.session.originalPetition.reasonForDivorce;
+    const isProceed = response.value === consts.proceed;
+    const fiveYearSeparation = this.session.originalPetition.reasonForDivorce === consts.separation5yrs;
 
     return branch(
       redirectTo(this.journey.steps.DefendFinancialHardship)
-        .if(isDefend && reasonDivorce === 'separation-5-years'),
+        .if(isDefend && fiveYearSeparation),
+      redirectTo(this.journey.steps.FinancialSituation)
+        .if(isProceed && fiveYearSeparation),
       redirectTo(this.journey.steps.ConfirmDefence)
         .if(isDefend),
       redirectTo(this.journey.steps.Jurisdiction)

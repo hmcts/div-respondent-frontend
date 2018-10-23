@@ -3,7 +3,9 @@ const stepContent = require('steps/choose-a-response/ChooseAResponse.content');
 const ChooseAResponse = require(modulePath);
 const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
 const ConfirmDefence = require('steps/confirm-defence/ConfirmDefence.step');
+const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
 const DefendFinancialHardship = require('steps/defend-financial-hardship/DefendFinancialHardship.step.js'); // eslint-disable-line max-len
+
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
@@ -17,7 +19,7 @@ describe(modulePath, () => {
   };
 
   beforeEach(() => {
-    session.originalPetition = {};
+    session.originalPetition = { reasonForDivorce: 'adultery' };
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
   });
@@ -38,6 +40,12 @@ describe(modulePath, () => {
   it('redirects to confirm defence page when disagreeing with divorce', () => {
     const fields = { response: 'defend' };
     return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence, session);
+  });
+
+  it('redirects to financial situation when 5 year separation and not defended', () => {
+    const fields = { response: 'proceed' };
+    session.originalPetition = { reasonForDivorce: 'separation-5-years' };
+    return question.redirectWithField(ChooseAResponse, fields, FinancialSituation, session);
   });
 
   it('redirects to defend financial hardship page when disagreeing with divorce and reason is 5 year separatinon', () => { // eslint-disable-line max-len
