@@ -2,7 +2,6 @@ const ioRedis = require('ioredis');
 const config = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 
-logger.info(`Connecting to Redis on: '${config.services.redis.url}'`);
 const client = ioRedis.createClient(
   config.services.redis.url,
   { enableOfflineQueue: false }
