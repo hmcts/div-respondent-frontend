@@ -1,8 +1,4 @@
-FROM node:8.12.0-slim
-
-RUN apt-get update && \
-        apt-get install -y git && \
-        apt-get clean
+FROM node:8.12.0-stretch
 
 WORKDIR /opt/app
 
