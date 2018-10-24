@@ -49,28 +49,19 @@ class ProgressBar extends Interstitial {
   }
 
   progressedNoAos(caseState) {
-    return (
-      caseState === CaseStates.AwaitingLegalAdvisorReferral ||
-      caseState === CaseStates.AwaitingConsiderationDN ||
-      caseState === CaseStates.AwaitingClarification ||
-      caseState === CaseStates.AwaitingListing ||
-      caseState === CaseStates.AwaitingPronouncement)
-      && this.session.originalPetition.respDefendsDivorce === null;
+    return (caseState === CaseStates.AwaitingLegalAdvisorReferral
+      && this.session.originalPetition.respDefendsDivorce === null);
   }
 
   progressedUndefended(caseState) {
     return (
       caseState === CaseStates.AosCompleted ||
-      caseState === CaseStates.AwaitingLegalAdvisorReferral ||
-      caseState === CaseStates.AwaitingConsiderationDN ||
-      caseState === CaseStates.AwaitingClarification ||
-      caseState === CaseStates.AwaitingListing ||
-      caseState === CaseStates.AwaitingPronouncement)
+      caseState === CaseStates.AwaitingLegalAdvisorReferral)
       && this.session.originalPetition.respDefendsDivorce === values.no;
   }
 
   awaitingAnswer(caseState) {
-    return (caseState === CaseStates.AwaitingAnswer) ||
+    return (caseState === CaseStates.AosSubmittedAwaitingAnswer) ||
       (caseState === CaseStates.AosCompleted && this.session.originalPetition.respDefendsDivorce === values.yes);
   }
 

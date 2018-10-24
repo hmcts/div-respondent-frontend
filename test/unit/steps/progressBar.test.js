@@ -21,7 +21,7 @@ describe(modulePath, () => {
   it('renders the content for no AoS response', () => {
     // case has progressed without respondent AoS
     const session = {
-      caseState: 'AwaitingConsiderationDN',
+      caseState: 'AwaitingLegalAdvisorReferral',
       originalPetition: {
         respDefendsDivorce: null
       }
@@ -36,7 +36,7 @@ describe(modulePath, () => {
   it('renders the content for AoS and not defending', () => {
     // case has progressed with AoS, respondent is not defending
     const session = {
-      caseState: 'AwaitingConsiderationDN',
+      caseState: 'AwaitingLegalAdvisorReferral',
       originalPetition: {
         respDefendsDivorce: 'no'
       }
@@ -51,7 +51,7 @@ describe(modulePath, () => {
   it('renders the content for awaiting answer, defended', () => {
     // case has progressed with AoS, court is awaiting defence answer
     const session = {
-      caseState: 'AwaitingAnswer',
+      caseState: 'AosSubmittedAwaitingAnswer',
       originalPetition: {
         respDefendsDivorce: 'yes'
       }

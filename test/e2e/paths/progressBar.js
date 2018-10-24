@@ -24,7 +24,7 @@ Scenario('Should display content for respondent that has defended, awaiting answ
   I.seeContentForAosCompleteAwaitingAnswer();
 }).retry(2);
 
-Scenario('Should display content for respondent that has defended, ans has answered', I => {
+Scenario('Should display content for respondent that has defended, and has answered', I => {
   I.amOnPage('/entry');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedDefending();
