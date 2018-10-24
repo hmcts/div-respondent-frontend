@@ -28,7 +28,7 @@ describe(modulePath, () => {
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
-        expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce);
+        expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce).to.be.true;
       })
       .then(done, done);
   });
@@ -51,7 +51,7 @@ describe(modulePath, () => {
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
-        expect(res.redirect.withArgs(ProgressBar.path).calledOnce);
+        expect(res.redirect.withArgs(ProgressBar.path).calledOnce).to.be.true;
       })
       .then(done, done);
   });
@@ -70,7 +70,7 @@ describe(modulePath, () => {
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
-        sinon.assert.calledOnce(next);
+        expect(next.calledOnce).to.be.true;
         expect(next.getCall(0).args[0])
           .to
           .be
