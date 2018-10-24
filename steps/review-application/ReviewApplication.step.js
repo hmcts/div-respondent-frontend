@@ -6,6 +6,7 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const content = require('./ReviewApplication.content').en;
+const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 const values = {
   yes: 'Yes',
@@ -24,6 +25,10 @@ class ReviewApplication extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get feesIssueApplication() {
+    return this.res.locals.applicationFee.issue.amount;
   }
 
   get form() {
@@ -60,7 +65,8 @@ class ReviewApplication extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect()
+      idam.protect(),
+      getFeeFromFeesAndPayments('issue')
     ];
   }
 }

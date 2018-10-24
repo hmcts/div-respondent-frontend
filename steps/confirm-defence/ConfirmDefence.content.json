@@ -12,7 +12,7 @@
         },
         "makeOwnApplication": {
           "heading": "Making your own application for divorce",
-          "summary": "You'll need to complete a new divorce application and pay the £550 fee if you want to apply for the divorce yourself. You have 28 days to submit it from the date you received your {{ session.divorceWho }}'s application."
+          "summary": "You'll need to complete a new divorce application and pay the £{{ feesIssueApplication }} fee if you want to apply for the divorce yourself. You have 28 days to submit it from the date you received your {{ session.divorceWho }}'s application."
         }
       }
     },
