@@ -26,3 +26,4 @@ data:
   SESSION_SECRET: "${SESSION_SECRET}"
   IDAM_SECRET: "${IDAM_SECRET}"
   REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
+  FEES_AND_PAYMENTS_URL: "http://div-fps-aat.service.core-compute-aat.internal"
