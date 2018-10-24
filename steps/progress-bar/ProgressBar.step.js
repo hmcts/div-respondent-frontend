@@ -9,7 +9,8 @@ const progressStates = {
   progressedNoAos: 'progressedNoAos',
   progressedUndefended: 'progressedUndefended',
   awaitingAnswer: 'awaitingAnswer',
-  defendedDivorce: 'defendedDivorce'
+  defendedDivorce: 'defendedDivorce',
+  other: 'other'
 };
 
 const values = {
@@ -43,7 +44,8 @@ class ProgressBar extends Interstitial {
       return this.progressStates.defendedDivorce;
     }
 
-    return logger.error('No valid case state for ProgressBar page');
+    logger.error('No valid case state for ProgressBar page');
+    return this.progressStates.other;
   }
 
   progressedNoAos(caseState) {

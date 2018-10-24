@@ -83,4 +83,17 @@ describe(modulePath, () => {
       ]
     });
   });
+
+  it('renders the content for unhandled state', () => {
+    const session = {
+      caseState: 'UnhandledState',
+      originalPetition: {
+        respDefendsDivorce: 'yes'
+      }
+    };
+
+    return content(ProgressBar, session, {
+      specificValues: [ progressBarContent.en.other.heading ]
+    });
+  });
 });

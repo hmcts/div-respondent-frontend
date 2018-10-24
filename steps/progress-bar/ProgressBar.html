@@ -16,6 +16,7 @@
 
     {% set progressBarContent = getProgressBarContent() %}
 
+    {% if  progressBarContent !== progressStates.other %}
     {% set items = {
         one: {
             label: content.progressBar.husbandWifeApplied,
@@ -33,6 +34,7 @@
             label: content.progressBar.madeFinal
         }
     } %}
+    {% endif %}
 
     {% include "reform-progress-list/template.njk" %}
 
@@ -90,6 +92,10 @@
         <p>{{ content.improveContent | safe }}</p>
     {% endif %}
 
+    {% if  progressBarContent === progressStates.other %}
+        <p>{{ content.other.heading }}</p>
+    {% endif %}
+
 {% endblock %}
 
 {% block one_third %}
@@ -108,6 +114,7 @@
                 {{ content.contactDetails.divorceCenterPhone }}<br>
                 {{ content.contactDetails.divorceCenterHours }}<br>
             </li>
+            {% if session.divorceCenterName %}
             <li>
                 <strong>{{ content.contactDetails.courtsTribunals }}</strong>
                 <ul class="list small">
@@ -119,6 +126,7 @@
                     <li>{{ session.divorceCenterPostCode }}</li>
                 </ul>
             </li>
+            {% endif %}
         </ul>
 
         <h3 class="heading-small" id="subsection-title">{{ content.contactDetails.guidance }}</h3>
