@@ -5,21 +5,13 @@ It includes common services, middleware and configs
 
 ## Getting started
 
-### Running via Docker
-
-This option lets you start up the service without any local dependencies other than Docker
-
-`docker-compose up`
-
 ### Dev setup
-
-For development, use this option to have better control and debugging
 
 `yarn install`
 
 Start database:
 
-`docker run -p 6379:6379 -d redis`
+`docker run --name redis -p 6379:6379 -d redis`
 
 Start application and required mocks:
 
@@ -27,7 +19,7 @@ Start application and required mocks:
 
 `yarn mocks`
 
-## Running tests:
+### Running tests:
 
 * Unit
 
