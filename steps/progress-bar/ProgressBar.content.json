@@ -9,7 +9,7 @@
       "husbandWifeApplied": "Your {{ session.divorceWho }} applied",
       "youResponded": "You responded",
       "getDecreeNisi": "Your {{ session.divorceWho }} applies for a decree nisi",
-      "madeFinal": "The divorce is made final"
+      "madeFinal": "Divorce is complete"
     },
     "progressedNoAos": {
       "heading": "Contact the divorce centre",

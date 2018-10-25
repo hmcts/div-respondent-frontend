@@ -7,7 +7,7 @@
     "husbandWifeApplied": "Your {{ session.divorceWho }} applied",
     "youMustRespond": "You responded",
     "getDecreeNisi": "Your {{ session.divorceWho }} applies for a decree nisi",
-    "madeFinal": "The divorce is made final",
+    "madeFinal": "Divorce is complete",
 
     "notDefendedHeading":"What happens next",
     "notDefendedText1":"Your response will be checked and then sent to your {{ session.divorceWho }}. They can then apply for the court order which will divorce you.",

@@ -7,7 +7,7 @@
   "husbandWifeApplied": "Your {{ session.divorceWho }} applied",
   "youMustRespond": "You must respond",
   "getDecreeNisi": "Your {{ session.divorceWho }} applies for a decree nisi",
-  "madeFinal": "The divorce is made final",
+  "madeFinal": "Divorce is complete",
   "seeAvgerageTimes": "See average divorce times",
   "readApplication": "You need to read your {{ session.divorceWho }} application before you give your response. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
   "responseAcknowledgement": "Your response is legally known as the 'acknowledgement of service'.",
