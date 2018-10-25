@@ -9,34 +9,13 @@
 
 {% block main_content %}
     <p class="font-xsmall">
-        <strong class="bold-xsmall">{{ content.details.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
+        <strong class="bold-xsmall">{{ content.details.referenceNumber }}
+            :</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
         <strong class="bold-xsmall">{{ content.details.name }}:</strong> &nbsp;&nbsp;
         {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
     </p>
 
     {% set progressBarContent = getProgressBarContent() %}
-
-    {% if  progressBarContent !== progressStates.other %}
-    {% set items = {
-        one: {
-            label: content.progressBar.husbandWifeApplied,
-            complete: true
-        },
-        two: {
-            label: content.progressBar.youResponded,
-            complete: true
-        },
-        three: {
-            label: content.progressBar.getDecreeNisi,
-            current: true
-        },
-        four: {
-            label: content.progressBar.madeFinal
-        }
-    } %}
-    {% endif %}
-
-    {% include "reform-progress-list/template.njk" %}
 
     {% if  progressBarContent === progressStates.progressedNoAos %}
         <h2 class="heading-medium">{{ content.progressedNoAos.heading }}</h2>
@@ -60,15 +39,22 @@
         <p>{{ content.awaitingAnswer.para2 | safe }}</p>
         <p>{{ content.awaitingAnswer.para3 | safe }}</p>
         <ul class="list bold-small">
-            <li>{{ session.divorceCenterName }}</li>
-            {% if session.divorceCenterPoBox %}
-                <li>{{ session.divorceCenterPoBox }}</li>
+            {% if isDefending %}
+                <li>{{ content.defendedContact.name }}</li>
+                <li>{{ content.defendedContact.poBox }}</li>
+                <li>{{ content.defendedContact.town }}</li>
+                <li>{{ content.defendedContact.postcode }}</li>
+            {% else %}
+                <li>{{ session.divorceCenterName }}</li>
+                {% if session.divorceCenterPoBox %}
+                    <li>{{ session.divorceCenterPoBox }}</li>
+                {% endif %}
+                {% if session.divorceCenterStreet %}
+                    <li>{{ session.divorceCenterStreet }}</li>
+                {% endif %}
+                <li>{{ session.divorceCenterCourtCity }}</li>
+                <li>{{ session.divorceCenterPostCode }}</li>
             {% endif %}
-            {% if session.divorceCenterStreet %}
-                <li>{{ session.divorceCenterStreet }}</li>
-            {% endif %}
-            <li>{{ session.divorceCenterCourtCity }}</li>
-            <li>{{ session.divorceCenterPostCode }}</li>
         </ul>
         <p>{{ content.awaitingAnswer.para4 | safe }}</p>
         <p>{{ content.awaitingAnswer.para5 | safe }}</p>
@@ -114,18 +100,31 @@
                 {{ content.contactDetails.divorceCenterPhone }}<br>
                 {{ content.contactDetails.divorceCenterHours }}<br>
             </li>
-            {% if session.divorceCenterName %}
-            <li>
-                <strong>{{ content.contactDetails.courtsTribunals }}</strong>
-                <ul class="list small">
-                    <li>c/o {{ session.divorceCenterName }}</li>
-                    {% if session.divorceCenterPoBox %}
-                        <li>{{ session.divorceCenterPoBox }}</li>
-                    {% endif %}
-                    <li>{{ session.divorceCenterCourtCity }}</li>
-                    <li>{{ session.divorceCenterPostCode }}</li>
-                </ul>
-            </li>
+            {% if isDefending %}
+                <li>
+                    <strong>{{ content.contactDetails.courtsTribunals }}</strong>
+                    <ul class="list small">
+                        <li>c/o {{ content.defendedContact.name }}</li>
+                        <li>{{ content.defendedContact.poBox }}</li>
+                        <li>{{ content.defendedContact.town }}</li>
+                        <li>{{ content.defendedContact.postcode }}</li>
+                    </ul>
+                </li>
+            {% else %}
+                <li>
+                    <strong>{{ content.contactDetails.courtsTribunals }}</strong>
+                    <ul class="list small">
+                        <li>c/o {{ session.divorceCenterName }}</li>
+                        {% if session.divorceCenterPoBox %}
+                            <li>{{ session.divorceCenterPoBox }}</li>
+                        {% endif %}
+                        {% if session.divorceCenterStreet %}
+                            <li>{{ session.divorceCenterStreet }}</li>
+                        {% endif %}
+                        <li>{{ session.divorceCenterCourtCity }}</li>
+                        <li>{{ session.divorceCenterPostCode }}</li>
+                    </ul>
+                </li>
             {% endif %}
         </ul>
 
@@ -133,6 +132,7 @@
 
         <nav role="navigation" aria-labelledby="subsection-title">
             <ul class="font-xsmall">
+                <li>{{ content.contactDetails.howWifeHusbandResponds | safe }}</li>
                 <li>{{ content.contactDetails.decreeNisiLink | safe }}</li>
                 <li>{{ content.contactDetails.decreeAbsoluteLink | safe }}</li>
                 <li>{{ content.contactDetails.childrenAndDivorceLink | safe }}</li>

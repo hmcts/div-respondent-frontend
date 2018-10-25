@@ -62,11 +62,15 @@ class ProgressBar extends Interstitial {
 
   awaitingAnswer(caseState) {
     return (caseState === CaseStates.AosSubmittedAwaitingAnswer) ||
-      (caseState === CaseStates.AosCompleted && this.session.originalPetition.respDefendsDivorce === values.yes);
+      (caseState === CaseStates.AosCompleted && this.isDefending);
   }
 
   defendedDivorce(caseState) {
     return caseState === CaseStates.DefendedDivorce;
+  }
+
+  get isDefending() {
+    return this.session.originalPetition.respDefendsDivorce === values.yes;
   }
 
   get middleware() {
