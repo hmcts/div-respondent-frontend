@@ -96,7 +96,7 @@ describe(modulePath, () => {
     // then
     const values = step.values();
     expect(values).to.be.an('object');
-    expect(values).to.have.property('respDefendsDivorce', 'no');
+    expect(values).to.have.property('respDefendsDivorce', 'No');
   });
 
   it('sets respDefendsDivorce to yes if response is defend', () => {
@@ -113,7 +113,7 @@ describe(modulePath, () => {
     // then
     const values = step.values();
     expect(values).to.be.an('object');
-    expect(values).to.have.property('respDefendsDivorce', 'yes');
+    expect(values).to.have.property('respDefendsDivorce', 'Yes');
   });
 
   describe('returns correct answer based on response', () => {
@@ -219,8 +219,8 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'no');
-      expect(values).to.have.property('respAdmitOrConsentToFact', 'yes');
+      expect(values).to.have.property('respDefendsDivorce', 'No');
+      expect(values).to.have.property('respAdmitOrConsentToFact', 'Yes');
     });
 
     it('sets respAdmitOrConsentToFact to no if response is proceedButDisagree', () => {
@@ -237,8 +237,8 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'no');
-      expect(values).to.have.property('respAdmitOrConsentToFact', 'no');
+      expect(values).to.have.property('respDefendsDivorce', 'No');
+      expect(values).to.have.property('respAdmitOrConsentToFact', 'No');
     });
 
     it('set respAdmitOrConsentToFact to no if response is defend', () => {
@@ -255,8 +255,8 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'yes');
-      expect(values).to.have.property('respAdmitOrConsentToFact', 'no');
+      expect(values).to.have.property('respDefendsDivorce', 'Yes');
+      expect(values).to.have.property('respAdmitOrConsentToFact', 'No');
     });
 
     it('throws error for unknown response', () => {

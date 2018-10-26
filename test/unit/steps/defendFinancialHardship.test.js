@@ -20,7 +20,7 @@ describe(modulePath, () => {
   });
 
   it('severe hardship is yes value should contain details', () => {
-    const respHardshipDefenseResponse = 'yes';
+    const respHardshipDefenseResponse = 'Yes';
     const respHardshipDescription = 'Financial hardship';
 
     const fields = {
@@ -47,7 +47,7 @@ describe(modulePath, () => {
   });
 
   it('severe hardship is no value should not contain details', () => {
-    const respHardshipDefenseResponse = 'no';
+    const respHardshipDefenseResponse = 'No';
     const respHardshipDescription = 'Legal Proceedings';
 
     const fields = {
@@ -80,7 +80,7 @@ describe(modulePath, () => {
 
     const stepData = {
       financialHardship: {
-        exists: 'no'
+        exists: 'No'
       }
     };
 
@@ -99,7 +99,7 @@ describe(modulePath, () => {
 
     const stepData = {
       financialHardship: {
-        exists: 'yes',
+        exists: 'Yes',
         details
       }
     };
@@ -119,7 +119,7 @@ describe(modulePath, () => {
 
   it('redirects to ConfirmDefence step when answered no', () => {
     const fields = {
-      'financialHardship-exists': 'no'
+      'financialHardship-exists': 'No'
     };
     const sessionData = {
       originalPetition: {}
@@ -129,7 +129,7 @@ describe(modulePath, () => {
 
   it('redirects to ConfirmDefence step when answered yes', () => {
     const fields = {
-      'financialHardship-exists': 'yes',
+      'financialHardship-exists': 'Yes',
       'financialHardship-details': 'Financial hardship details'
     };
     const sessionData = {

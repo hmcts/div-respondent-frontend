@@ -14,8 +14,8 @@ const progressStates = {
 };
 
 const values = {
-  yes: 'yes',
-  no: 'no'
+  yes: 'Yes',
+  no: 'No'
 };
 
 class ProgressBar extends Interstitial {

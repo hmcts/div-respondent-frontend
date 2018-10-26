@@ -38,7 +38,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'AwaitingLegalAdvisorReferral',
       originalPetition: {
-        respDefendsDivorce: 'no'
+        respDefendsDivorce: 'No'
       }
     };
 
@@ -53,7 +53,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'AosSubmittedAwaitingAnswer',
       originalPetition: {
-        respDefendsDivorce: 'yes'
+        respDefendsDivorce: 'Yes'
       }
     };
 
@@ -71,7 +71,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'DefendedDivorce',
       originalPetition: {
-        respDefendsDivorce: 'yes'
+        respDefendsDivorce: 'Yes'
       }
     };
 
@@ -88,7 +88,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'UnhandledState',
       originalPetition: {
-        respDefendsDivorce: 'yes'
+        respDefendsDivorce: 'Yes'
       }
     };
 

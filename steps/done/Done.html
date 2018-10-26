@@ -47,7 +47,7 @@
   %}
   {% include "reform-progress-list/template.njk" %}
 
-  {% if session.ChooseAResponse.response == "proceed" or session.ChooseAResponse.response == "proceedButDisagree" or session.ConsentDecree.response.consentDecree == "yes" %}
+  {% if session.ChooseAResponse.response == "proceed" or session.ChooseAResponse.response == "proceedButDisagree" or session.ConsentDecree.response.consentDecree == "Yes" %}
 
     <h2 class="heading-medium">{{ content.notDefendedHeading }}</h2>
 
@@ -77,7 +77,7 @@
 
   {% endif %}
 
-  {% if session.ChooseAResponse.response == "defend" or  session.ConsentDecree.response.willDefend == "yes" %}
+  {% if session.ChooseAResponse.response == "defend" or  session.ConsentDecree.response.willDefend == "Yes" %}
     <h2 class="heading-medium">{{ content.defendedHeading }}</h2>
     <p class="text">{{ content.defendedText1 | safe }}</p>
     <p class="text">{{ content.defendedText2 }}</p>
@@ -101,7 +101,7 @@
     <p class="text">{{ content.defendedText6 }}</p>
   {% endif %}
 
-  {% if session.originalPetition.reasonForDivorce == "separation-2-years" and session.ConsentDecree.response.consentDecree == "no" and session.ConsentDecree.response.willDefend == "no" %}
+  {% if session.originalPetition.reasonForDivorce == "separation-2-years" and session.ConsentDecree.response.consentDecree == "No" and session.ConsentDecree.response.willDefend == "No" %}
 
     <h2 class="heading-medium">{{ content.notDefendedHeading }}</h2>
     <p class="text">{{ content.notDefended2YearsNoConsent }}</p>

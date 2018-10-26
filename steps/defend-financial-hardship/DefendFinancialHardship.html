@@ -21,15 +21,15 @@
       <p class="text">{{ content.info.summary2 | safe }}</p>
       <p class="text">{{ content.info.summary3 | safe }}</p>
       <p class="text">{{ content.info.summary4 | safe }}</p>
-    </div> 
+    </div>
   </details>
   <br>
 
   {% call formSection() %}
     {{ selectionButtons(fields.financialHardship.exists, content.title,
         options = [
-        { label: content.fields.yes.heading, value: "yes", target: "hardship-details" },
-        { label: content.fields.no.heading, value: "no" }
+        { label: content.fields.yes.heading, value: "Yes", target: "hardship-details" },
+        { label: content.fields.no.heading, value: "No" }
         ],
         hideQuestion=true,
         inline=true,
