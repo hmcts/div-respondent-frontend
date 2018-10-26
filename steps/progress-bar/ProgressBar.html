@@ -17,6 +17,26 @@
 
     {% set progressBarContent = getProgressBarContent() %}
 
+    {% set items = {
+        one: {
+            label: content.progressBar.husbandWifeApplied,
+            complete: true
+        },
+        two: {
+            label: content.progressBar.youResponded,
+            complete: true
+        },
+        three: {
+            label: content.progressBar.getDecreeNisi,
+            current: true
+        },
+        four: {
+            label: content.progressBar.madeFinal
+        }
+    } %}
+
+    {% include "reform-progress-list/template.njk" %}
+
     {% if  progressBarContent === progressStates.progressedNoAos %}
         <h2 class="heading-medium">{{ content.progressedNoAos.heading }}</h2>
         <p>{{ content.progressedNoAos.info }}</p>

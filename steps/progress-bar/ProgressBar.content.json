@@ -6,9 +6,9 @@
       "name": "Name"
     },
     "progressBar": {
-      "husbandWifeApplied": "Your {{ session.divorceWho }} applied",
-      "youResponded": "You responded",
-      "getDecreeNisi": "Your {{ session.divorceWho }} applies for a decree nisi",
+      "husbandWifeApplied": "Your {{ session.divorceWho }} applies",
+      "youResponded": "You must respond",
+      "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
       "madeFinal": "Divorce is complete"
     },
     "progressedNoAos": {
