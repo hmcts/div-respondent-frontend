@@ -426,7 +426,7 @@
 
   {% if session.originalPetition.reasonForDivorceAdultery3rdAddress|length %}
     <h2 class="heading-medium">{{ content.coRespondentsCorrespondenceAddress }}</h2>
-    <ul class="list">{{ session.originalPetition.reasonForDivorceAdultery3rdAddress.address | address | safe }}</ul>
+    <p class="text">{{ session.originalPetition.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
   {% endif %}
 
   <!-- EOF CoRespondent Address -->
