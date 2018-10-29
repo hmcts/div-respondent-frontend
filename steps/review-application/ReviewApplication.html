@@ -47,15 +47,6 @@
   <h3 class="heading-small">{{ content.respondent }}</h3>
   <p class="text">{{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}</p>
 
-  <details>
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
-    </summary>
-    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p class="text">{{ content.divorceRoleExplain }}</p>
-    </div>
-  </details>
-
   <!-- EOF Application for divorce -->
 
   <!-- CoRespondent -->
@@ -66,6 +57,15 @@
   {% endif %}
 
   <!-- EOF CoRespondent -->
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.divorceRoleExplain }}</p>
+    </div>
+  </details>
 
     <!-- About the marriage  -->
 
@@ -256,6 +256,7 @@
       {% endif %}
     </p>
 
+    <p class="text">{{ content.reasonForDivorceAdulteryStatement }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
 
     {% if session.originalPetition.reasonForDivorceAdulteryKnowWhere == "Yes" %}
@@ -425,28 +426,21 @@
 
   {% if session.originalPetition.reasonForDivorceAdultery3rdAddress|length %}
     <h2 class="heading-medium">{{ content.coRespondentsCorrespondenceAddress }}</h2>
-    <p class="text">{{ session.originalPetition.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
+    <ul class="list">{{ session.originalPetition.reasonForDivorceAdultery3rdAddress.address | address | safe }}</ul>
   {% endif %}
 
   <!-- EOF CoRespondent Address -->
 
+  <h3 class="heading-medium">{{ content.statementOfTruth }}</h3>
+  <p class="text">"{{ content.statementOfTruthParagraph | safe }}"</p>
+  <p>
+    <em>{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }}</em>
+  </p>
 
-  <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
-  <p class="text">{{ content.statementOfTruthParagraph | safe }}</p>
+  <br/>
+  <h3 class="heading-large">{{ content.acknowledgement }}</h3>
 
-  <h2 class="heading-medium">{{ content.acknowledgement }}</h2>
-
-  <div class="notice">
-    <i class="icon icon-important">
-      <span class="visuallyhidden">{{ content.hiddenWarning }}</span>
-    </i>
-    <strong class="text">
-      {{ content.youWillBeAbleToRespond }}
-    </strong>
-  </div>
-  <br>
-
-  <div class="confirmation-block">
+  <div class="confirmation-block" id="review-application-wrap">
   {% call formSection() %}
     {{
       selectionButtons(
@@ -462,6 +456,14 @@
         class='confirmation-container'
       )
     }}
+    <div class="notice">
+      <i class="icon icon-important">
+        <span class="visuallyhidden">{{ content.hiddenWarning }}</span>
+      </i>
+      <strong class="text">
+          {{ content.youWillBeAbleToRespond }}
+      </strong>
+    </div>
   {% endcall %}
   </div>
 
