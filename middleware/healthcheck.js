@@ -19,6 +19,7 @@ const checks = () => {
       })
         .catch(error => {
           logger.error(`Health check failed on redis: ${error}`);
+          return false;
         });
     }),
     'idam-authentication': healthcheck.web(config.services.idam.authenticationHealth, {

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${SERVICE_NAME}-config
+  namespace: ${NAMESPACE}
+data:
+  # TODO - this should be changed once we deploy AAT to AKS
+  BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
+  REFORM_ENVIRONMENT: "aat"
+  IDAM_APP_HEALHCHECK_URL: "https://preprod-idamapi.reform.hmcts.net:3511/health"
+  IDAM_API_URL: "https://preprod-idamapi.reform.hmcts.net:3511"
+  GOOGLE_ANALYTICS_ID: "UA-93824767-2"
+  GOOGLE_ANALYTICS_TRACKING_URL: "http://www.google-analytics.com/collect"
+  REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis:6379"
+  NODE_ENV: "production"
+  IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login"
+  IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
+  GET_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/retrieve-aos-case"
+  LINK_RESPONDENT_URL: "http://div-cos-aat.service.core-compute-aat.internal/link-respondent"
+  SUBMIT_AOS_URL: "http://div-cos-aat.service.core-compute-aat.internal/submit-aos"
+  HPKP_MAX_AGE: "86400"
+  HPKP_SHAS: "Naw+prhcXSIkbtYJ0t7vAD+Fc92DWL9UZevVfWBvids=,klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=,grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="
+  RATE_LIMITER_ENABLED: "false"
+  RATE_LIMITER_TOTAL: "3600"
+  RATE_LIMITER_EXPIRE: "3600000"
+  SESSION_SECRET: "${SESSION_SECRET}"
+  IDAM_SECRET: "${IDAM_SECRET}"
+  REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
+  FEES_AND_PAYMENTS_URL: "http://div-fps-aat.service.core-compute-aat.internal"
