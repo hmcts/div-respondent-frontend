@@ -50,7 +50,7 @@
     "desertion": "Desertion",
     "desertionParagraph": "The respondent abandoned the applicant (left without their agreement) more than 2 years ago.",
     "additionalApplications": "Additional applications",
-    "costOrder": "Costs order",
+    "costOrder": "Costs orders",
     "helpWithCostOrders": "Help with costs orders",
     "claimingCosts": "Claiming costs",
     "claimingCostsPar1": "Your {{ session.divorceWho }} was asked if they want the court to order you to pay some or all of the divorce costs. If your {{ session.divorceWho }} is using adultery as the reason for divorce and has chosen to name the co-respondent, they can also be asked to pay for some of the costs.",
@@ -68,8 +68,7 @@
     "ordersForChildMaintenancePar": "The court can only make financial orders for children under certain circumstances. You'll usually either need to come to an agreement with your {{ session.divorceWho }} (which you can then make legally binding with a consent order) or use the Child Maintenance Service.",
     "petitionerCorrespondenceAddressHeading": "Applicant's correspondence address",
     "respondentCorrespondenceAddressHeading": "Respondent's correspondence address",
-    "statementOfTruthParagraph": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} believes that the facts stated in this application are true.",
-    "acknowledgement": "Acknowledgement",
+    "acknowledgement": "Your acknowledgement",
     "hiddenWarning": "Warning",
     "youWillBeAbleToRespond": "You will be able to respond to this application on the next page",
     "readConfirmation": "I have read the application for divorce.",
@@ -103,6 +102,7 @@
     "reasonForDivorce": "Reason for the divorce",
     "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery with the co-respondent, and the applicant finds it intolerable to live with the respondent.",
     "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery, and the applicant finds it intolerable to live with the respondent.",
+    "reasonForDivorceAdulteryStatement": "This is supported by the following statement from the applicant.",
     "reasonForDivorceAdulteryWhere": "Where the adultery took place",
     "reasonForDivorceAdulteryWhen": "When the adultery took place",
     "reasonForDivorceUnreasonableBehaviourBrokenDown": "The marriage has broken down irretrievably, based on the fact that the respondent has behaved in such a way that the applicant cannot reasonably be expected to live with the respondent.",
@@ -127,6 +127,7 @@
 
     "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address",
     "statementOfTruth": "Statement of Truth",
+    "statementOfTruthParagraph": "I believe that the facts stated in this application are true.",
 
     "errors": {
       "required": "You need to confirm that you have read the application for divorce"
