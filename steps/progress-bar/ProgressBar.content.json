@@ -23,8 +23,11 @@
       "para6": "If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defence the divorce."
     },
     "defendedDivorce": {
-      "heading": "You have submitted your response",
-      "info": "Your response will be checked and you'll be contacted about what you need to do next."
+      "heading": "Your answer has been received by the court",
+      "para1": "Your ‘answer’ to the divorce application has been received by the court.",
+      "para2": "A Judge will now decide whether you and your wife will need to attend a hearing. You may be contacted for more information to help them make that decision.",
+      "para3": "You’ll receive a letter in the post telling you if you need to attend a hearing, and when and where that hearing is.",
+      "para4": "If after the hearing the court decides that the divorce can go ahead, then the rest of the divorce will be online."
     },
     "other": {
       "heading": "Please contact Courts and Tribunals Service Centre for more information"

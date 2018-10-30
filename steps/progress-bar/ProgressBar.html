@@ -69,13 +69,10 @@
 
     {% if  progressBarContent === progressStates.defendedDivorce %}
         <h2 class="heading-medium">{{ content.defendedDivorce.heading }}</h2>
-        <p>{{ content.defendedDivorce.info }}</p>
-
-        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
-        <p>{{ content.helpContent | safe }}</p>
-
-        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
-        <p>{{ content.improveContent | safe }}</p>
+        <p>{{ content.defendedDivorce.para1 }}</p>
+        <p>{{ content.defendedDivorce.para2 }}</p>
+        <p>{{ content.defendedDivorce.para3 }}</p>
+        <p>{{ content.defendedDivorce.para4 }}</p>
     {% endif %}
 
     {% if  progressBarContent === progressStates.other %}
