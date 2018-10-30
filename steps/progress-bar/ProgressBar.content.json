@@ -5,12 +5,6 @@
       "referenceNumber": "Reference number",
       "name": "Name"
     },
-    "progressBar": {
-      "husbandWifeApplied": "Your {{ session.divorceWho }} applies",
-      "youResponded": "You must respond",
-      "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
-      "madeFinal": "Divorce is complete"
-    },
     "progressedNoAos": {
       "heading": "Contact the divorce centre",
       "info": "You can no longer respond to this application online. Contact the divorce centre to find out what to do next."
