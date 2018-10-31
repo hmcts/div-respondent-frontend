@@ -23,8 +23,8 @@ const methods = {
     return idamArgs;
   },
   setRedirectUri: (req, res, next) => {
-    idamArgs.hostName = req.get('host').split(':')[0];
-    idamArgs.redirectUri = `https://${req.get('host')}${config.paths.authenticated}`;
+    idamArgs.hostName = config.node.baseUrl.split(':')[0];
+    idamArgs.redirectUri = `https://${config.node.baseUrl}${config.paths.authenticated}`;
     next();
   },
   authenticate: (...args) => {
