@@ -89,6 +89,7 @@ module "frontend" {
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
 
+    CASE_ORCHESTRATION_BASE_URL = "${local.div_cos_url}"
     GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
     LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
     SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"

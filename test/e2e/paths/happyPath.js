@@ -3,6 +3,7 @@ const content = require('common/content');
 Feature('Happy path');
 
 Scenario('@Integration First time new user', I => {
+  I.createAosCaseForUser('basic-divorce-session');
   I.amOnPage('/entry');
   I.seeIdamLoginPage();
   I.loginAsANewUser();

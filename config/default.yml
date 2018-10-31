@@ -49,6 +49,7 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
+    baseUrl: http://localhost:3001
     getPetitionUrl: http://localhost:3001/retrieve-aos-case
     linkRespondentUrl: http://localhost:3001/link-respondent
     submitAosUrl: http://localhost:1111
@@ -84,9 +85,9 @@ tests:
     waitForAction: 500
     smartWait: 5000
     outputDir: ../../functional-output
+    proxy: http://proxyout.reform.hmcts.net:8080
+    proxyByPass: '*beta*LB.reform.hmcts.net'
     idam:
-      idamTestApiProxy: proxyout.reform.hmcts.net:8080
-      idamTestProxyByPass: '*beta*LB.reform.hmcts.net'
       idamTestUsername:
       idamTestPassword:
       idamTestForename:

@@ -2,6 +2,7 @@ const config = require('config');
 
 let testEmail = '';
 let testPassword = '';
+let testToken = '';
 
 const setTestEmail = email => {
   testEmail = email;
@@ -9,6 +10,10 @@ const setTestEmail = email => {
 
 const setTestPassword = password => {
   testPassword = password;
+};
+
+const setTestToken = token => {
+  testToken = token;
 };
 
 const getTestEmail = () => {
@@ -19,4 +24,15 @@ const getTestPassword = () => {
   return config.idamTestPassword || testPassword;
 };
 
-module.exports = { setTestEmail, setTestPassword, getTestEmail, getTestPassword };
+const getTestToken = () => {
+  return testToken;
+};
+
+module.exports = {
+  setTestEmail,
+  setTestPassword,
+  setTestToken,
+  getTestEmail,
+  getTestPassword,
+  getTestToken
+};

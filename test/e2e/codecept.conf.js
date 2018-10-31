@@ -7,8 +7,8 @@ let waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
 if (config.environment !== 'development') {
-  const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
-  const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
+  const proxyServer = config.tests.e2e.proxy;
+  const proxyByPass = config.tests.e2e.proxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
@@ -26,12 +26,15 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
+      keepCookies: false,
+      keepBrowserState: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
+    CaseOrchestrationHelper: { require: './helpers/caseOrchestrationHelper.js' },
     JSWait: { require: './helpers/JSWait.js' }
   },
   include: { I: './pages/steps.js' },

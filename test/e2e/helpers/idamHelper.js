@@ -32,13 +32,17 @@ class IdamHelper extends Helper {
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
-
-      idamExpressTestHarness.createUser(idamArgs)
+      idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
         .then(() => {
           logger.info(`Created IDAM test user: ${testEmail}`);
+          return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
+        })
+        .then(response => {
+          logger.info(`Retrieved IDAM test user token: ${testEmail}`);
+          idamConfigHelper.setTestToken(response.access_token);
         })
         .catch(error => {
-          logger.warn(`Unable to create IDAM test user: ${error}`);
+          logger.warn(`Unable to create IDAM test user/token: ${error}`);
           throw error;
         });
     }
