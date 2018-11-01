@@ -85,4 +85,56 @@ describe(modulePath, () => {
       sinon.assert.calledOnce(mockSpy);
     });
   });
+
+  describe('idam args', () => {
+    let authenticated = '';
+    let baseUrl = '';
+    let indexUrl = '';
+    let idamApiUrl = '';
+    let idamLoginUrl = '';
+    let idamSecret = '';
+    let idamClientID = '';
+
+    before(() => {
+      authenticated = config.paths.authenticated;
+      baseUrl = config.node.baseUrl;
+      indexUrl = config.paths.index;
+      idamApiUrl = config.services.idam.apiUrl;
+      idamLoginUrl = config.services.idam.loginUrl;
+      idamSecret = config.services.idam.secret;
+      idamClientID = config.services.idam.clientId;
+    });
+
+    after(() => {
+      config.paths.authenticated = authenticated;
+      config.node.baseUrl = baseUrl;
+      config.paths.index = indexUrl;
+      config.services.idam.apiUrl = idamApiUrl;
+      config.services.idam.loginUrl = idamLoginUrl;
+      config.services.idam.secret = idamSecret;
+      config.services.idam.clientId = idamClientID;
+    });
+
+    it('sets correct idam args from config', () => {
+      config.paths.authenticated = '/auth';
+      config.node.baseUrl = 'http://base-url';
+      config.paths.index = '/index';
+      config.services.idam.apiUrl = 'http://api.idam';
+      config.services.idam.loginUrl = 'http://idam/login';
+      config.services.idam.secret = 'some-secret';
+      config.services.idam.clientId = 'div';
+
+      const idam = requireNoCache(modulePath);
+
+      const idamArgs = idam.getIdamArgs();
+
+      expect(idamArgs.redirectUri).equal('http://base-url/auth');
+      expect(idamArgs.hostName).equal('base-url');
+      expect(idamArgs.indexUrl).equal('/index');
+      expect(idamArgs.idamApiUrl).equal('http://api.idam');
+      expect(idamArgs.idamLoginUrl).equal('http://idam/login');
+      expect(idamArgs.idamSecret).equal('some-secret');
+      expect(idamArgs.idamClientID).equal('div');
+    });
+  });
 });

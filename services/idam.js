@@ -7,6 +7,7 @@ const redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
 
 const idamArgs = {
   redirectUri,
+  hostName: url.parse(config.node.baseUrl).hostname,
   indexUrl: config.paths.index,
   idamApiUrl: config.services.idam.apiUrl,
   idamLoginUrl: config.services.idam.loginUrl,
@@ -22,11 +23,6 @@ if (['development'].includes(config.environment)) {
 const methods = {
   getIdamArgs: () => {
     return idamArgs;
-  },
-  setRedirectUri: (req, res, next) => {
-    idamArgs.hostName = url.parse(config.node.baseUrl).hostname;
-    idamArgs.redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
-    next();
   },
   authenticate: (...args) => {
     return middleware.authenticate(idamArgs, ...args);

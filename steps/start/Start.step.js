@@ -1,6 +1,5 @@
 const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
-const idam = require('services/idam');
 
 class Start extends Page {
   static get ignorePa11yWarnings() {
@@ -10,7 +9,7 @@ class Start extends Page {
     return config.paths.index;
   }
   get middleware() {
-    return [...super.middleware, idam.setRedirectUri];
+    return [...super.middleware];
   }
 }
 
