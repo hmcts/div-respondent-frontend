@@ -7,7 +7,6 @@ const redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
 
 const idamArgs = {
   redirectUri,
-  hostName: url.parse(config.node.baseUrl).hostname,
   indexUrl: config.paths.index,
   idamApiUrl: config.services.idam.apiUrl,
   idamLoginUrl: config.services.idam.loginUrl,
@@ -24,8 +23,13 @@ const methods = {
   getIdamArgs: () => {
     return idamArgs;
   },
-  authenticate: (...args) => {
-    return middleware.authenticate(idamArgs, ...args);
+  authenticate: (req, res, next) => {
+    const reqUrl = url.parse(req.get('host'));
+    // clone args so we don't modify the global idamArgs
+    const args = Object.assign({}, idamArgs);
+    args.hostName = reqUrl.hostname;
+    args.redirectUri = `${reqUrl.protocol}//${reqUrl.host + config.paths.authenticated}`;
+    middleware.authenticate(args)(req, res, next);
   },
   landingPage: (...args) => {
     return middleware.landingPage(idamArgs, ...args);
