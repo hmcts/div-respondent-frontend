@@ -215,6 +215,7 @@ describe(modulePath, () => {
         'coRespondent',
         'reasonForDivorceAdulteryCorrespondentNamed',
         'reasonForDivorceAdulteryCorrespondentNotNamed',
+        'reasonForDivorceAdulteryStatement',
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',

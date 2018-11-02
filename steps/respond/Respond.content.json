@@ -9,7 +9,7 @@
   "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
   "madeFinal": "Divorce is complete",
   "seeAvgerageTimes": "See average divorce times",
-  "readApplication": "You need to read your {{ session.divorceWho }} application before you give your response. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
+  "readApplication": "You need to read your {{ session.divorceWho }}'s application before you give your response. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
   "responseAcknowledgement": "Your response is legally known as the 'acknowledgement of service'.",
   "respond7Days": "You must respond to the application within 7 days of receiving the letter. If you don’t, your {{ session.divorceWho }} can ask the court to move the divorce forwards without you. You may have to pay extra fees if this happens.",
   "continue": "Continue",
