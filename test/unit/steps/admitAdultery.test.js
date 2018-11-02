@@ -93,7 +93,7 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.respAdmitOrConsentToFact).to.equal('yes');
+    expect(values.respAdmitOrConsentToFact).to.equal('Yes');
   });
 
   it('returns the correct values object, with no for disputing adultery', () => {
@@ -109,7 +109,7 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.respAdmitOrConsentToFact).to.equal('no');
+    expect(values.respAdmitOrConsentToFact).to.equal('No');
   });
 
   it('returns the correct session based data', () => {

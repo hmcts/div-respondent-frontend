@@ -21,7 +21,7 @@ describe(modulePath, () => {
 
   it('when phone number is not supplied return correct value', () => {
     const telephone = ' ';
-    const consent = 'yes';
+    const consent = 'Yes';
 
     const fields = {
       contactDetails: {
@@ -47,7 +47,7 @@ describe(modulePath, () => {
 
   it('when all details are supplied return correct value', () => {
     const telephone = 'Phone Number';
-    const consent = 'yes';
+    const consent = 'Yes';
 
     const fields = {
       contactDetails: {
@@ -144,7 +144,7 @@ describe(modulePath, () => {
   it('shows error when consent is not yes', () => {
     const fields = {
       'contactDetails-telephone': '08647177782',
-      'contactDetails-consent': 'no'
+      'contactDetails-consent': 'No'
     };
 
     const onlyErrors = ['requireConsent'];
@@ -155,7 +155,7 @@ describe(modulePath, () => {
   it('shows error when invalid phone number supplied', () => {
     const fields = {
       'contactDetails-telephone': '0',
-      'contactDetails-consent': 'yes'
+      'contactDetails-consent': 'Yes'
     };
 
     const onlyErrors = ['requireValidTelephoneNo'];
@@ -165,7 +165,7 @@ describe(modulePath, () => {
 
   it('redirects to next page when phone number is not details are supplied', () => {
     const fields = {
-      'contactDetails-consent': 'yes'
+      'contactDetails-consent': 'Yes'
     };
 
     return question.redirectWithField(ContactDetails, fields, CheckYourAnswers);
@@ -174,7 +174,7 @@ describe(modulePath, () => {
   it('redirects to next page when all details are supplied', () => {
     const fields = {
       'contactDetails-telephone': '08647177782',
-      'contactDetails-consent': 'yes'
+      'contactDetails-consent': 'Yes'
     };
 
     return question.redirectWithField(ContactDetails, fields, CheckYourAnswers);

@@ -19,7 +19,10 @@ class IdamLogin extends Question {
       'yesCaseNotLinked',
       'yesCaseNotLinkedAndInvalidPin',
       'yesCaseNotLinkedAndServerError',
-      'yesCaseCompleted',
+      'yesCaseProgressedNoAos',
+      'yesCaseProgressedUndefended',
+      'yesCaseProgressedAwaitingAnswer',
+      'yesCaseProgressedDefending',
       'no'
     ];
     const validAnswers = Joi.string()

@@ -5,8 +5,8 @@ const { middleware, question, sinon, content, expect } = require('@hmcts/one-per
 const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
 const ConsentDecree = require('steps/consent-decree/ConsentDecree.step');
 
-const yes = 'yes';
-const no = 'no';
+const yes = 'Yes';
+const no = 'No';
 
 describe(modulePath, () => {
   beforeEach(() => {

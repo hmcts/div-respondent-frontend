@@ -73,6 +73,7 @@ paths:
   checkYourAnswers: /check-your-answers
   invalidCaseState: /invalid-case-state
   noConsentAreYouSure: /no-consent-are-you-sure
+  progressBar: /progress-bar
   done: /done
   entry: /entry
   mock:

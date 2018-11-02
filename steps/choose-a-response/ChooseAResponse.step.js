@@ -11,8 +11,8 @@ const consts = {
   proceed: 'proceed',
   proceedButDisagree: 'proceedButDisagree',
   defend: 'defend',
-  yes: 'yes',
-  no: 'no',
+  yes: 'Yes',
+  no: 'No',
   behavior: 'unreasonable-behaviour',
   separation5yrs: 'separation-5-years'
 };

@@ -25,7 +25,7 @@ class CheckYourAnswers extends CYA {
     return form({
       respStatementOfTruth: text.joi(
         this.errorMessage,
-        Joi.required().valid('yes')
+        Joi.required().valid('Yes')
       )
     });
   }

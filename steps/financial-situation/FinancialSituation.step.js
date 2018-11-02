@@ -8,8 +8,8 @@ const config = require('config');
 const content = require('./FinancialSituation.content');
 
 const constValues = {
-  yes: 'yes',
-  no: 'no'
+  yes: 'Yes',
+  no: 'No'
 };
 
 class FinancialSituation extends Question {
