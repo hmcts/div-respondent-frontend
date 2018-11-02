@@ -7,8 +7,8 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./DefendFinancialHardship.content');
 
-const yes = 'yes';
-const no = 'no';
+const yes = 'Yes';
+const no = 'No';
 
 class DefendFinancialHardship extends Question {
   static get path() {

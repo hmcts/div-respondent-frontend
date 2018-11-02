@@ -7,9 +7,9 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./AgreeToPayCosts.content');
 
-const yes = 'yes';
-const no = 'no';
-const differentAmount = 'differentAmount';
+const yes = 'Yes';
+const no = 'No';
+const differentAmount = 'DifferentAmount';
 
 class AgreeToPayCosts extends Question {
   static get path() {

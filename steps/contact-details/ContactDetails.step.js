@@ -7,7 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ContactDetails.content');
 
-const yes = 'yes';
+const yes = 'Yes';
 
 class ContactDetails extends Question {
   static get path() {

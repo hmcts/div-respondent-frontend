@@ -149,8 +149,8 @@
   {% call formSection() %}
     {{ selectionButtons(fields.jurisdiction.agree, content.question,
         options = [
-        { label: content.fields.agree.heading, value: "yes" },
-        { label: content.fields.disagree.heading, value: "no", target: "jurisdiction-no" }
+        { label: content.fields.agree.heading, value: validValues.yes },
+        { label: content.fields.disagree.heading, value: validValues.no, target: "jurisdiction-no" }
         ],
         hideQuestion=true,
         inline=false,

@@ -21,7 +21,7 @@ describe(modulePath, () => {
   });
 
   it('legal proceedings is yes value should contain details', () => {
-    const legalProceedingsExists = 'yes';
+    const legalProceedingsExists = 'Yes';
     const respLegalProceedingsDescription = 'Legal Proceedings';
 
     const fields = {
@@ -48,7 +48,7 @@ describe(modulePath, () => {
   });
 
   it('legal proceedings is yes value should contain details', () => {
-    const legalProceedingsExists = 'no';
+    const legalProceedingsExists = 'No';
     const respLegalProceedingsDescription = 'Legal Proceedings';
 
     const fields = {
@@ -81,7 +81,7 @@ describe(modulePath, () => {
 
     const stepData = {
       legalProceedings: {
-        exists: 'no'
+        exists: 'No'
       }
     };
 
@@ -100,7 +100,7 @@ describe(modulePath, () => {
 
     const stepData = {
       legalProceedings: {
-        exists: 'yes',
+        exists: 'Yes',
         details
       }
     };
@@ -114,7 +114,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when legal proceedings is yes and case details not supplied', () => {
-    const fields = { 'legalProceedings-exists': 'yes' };
+    const fields = { 'legalProceedings-exists': 'Yes' };
 
     const onlyErrors = ['requireCaseDetails'];
 
@@ -123,7 +123,7 @@ describe(modulePath, () => {
 
   it('costClaim=respondent, legalProceedings = yes, caseDetails != null -> AgreeToPayCosts', () => {
     const fields = {
-      'legalProceedings-exists': 'yes',
+      'legalProceedings-exists': 'Yes',
       'legalProceedings-details': 'Legal Proceedings'
     };
 
@@ -138,7 +138,7 @@ describe(modulePath, () => {
 
   it('costClaim=respondent, legalProceedings = no -> AgreeToPayCosts', () => {
     const fields = {
-      'legalProceedings-exists': 'no'
+      'legalProceedings-exists': 'No'
     };
 
     const sessionData = {
@@ -152,7 +152,7 @@ describe(modulePath, () => {
 
   it('costClaim=null, legalProceedings = no -> contactDetails', () => {
     const fields = {
-      'legalProceedings-exists': 'no'
+      'legalProceedings-exists': 'No'
     };
 
     const sessionData = {
@@ -164,7 +164,7 @@ describe(modulePath, () => {
 
   it('costClaim != respondent, legalProceedings = no -> contactDetails', () => {
     const fields = {
-      'legalProceedings-exists': 'no'
+      'legalProceedings-exists': 'No'
     };
 
     const sessionData = {

@@ -7,8 +7,8 @@ const idam = require('services/idam');
 const config = require('config');
 
 const constValues = {
-  yes: 'yes',
-  no: 'no'
+  yes: 'Yes',
+  no: 'No'
 };
 
 class NoConsentAreYouSure extends Question {
