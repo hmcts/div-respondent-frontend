@@ -27,9 +27,6 @@ exports.config = {
       waitForAction,
       show: false,
       waitForNavigation: [ 'domcontentloaded', 'networkidle0' ],
-      restart: false,
-      keepCookies: false,
-      keepBrowserState: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
