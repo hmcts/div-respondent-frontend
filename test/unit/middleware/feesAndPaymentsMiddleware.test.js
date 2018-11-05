@@ -1,9 +1,24 @@
 const modulePath = 'middleware/feesAndPaymentsMiddleware';
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 const { getFeeFromFeesAndPayments } = require(modulePath);
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 
 describe(modulePath, () => {
+  beforeEach(() => {
+    sinon.stub(feesAndPaymentsService, 'get').withArgs('issue')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
+  });
+
+  afterEach(() => {
+    feesAndPaymentsService.get.restore();
+  });
+
   it('gets the application fee from the service', done => {
     const next = sinon.stub();
     const res = {
