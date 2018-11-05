@@ -22,15 +22,15 @@ const excludedWarnings = [
   'The “complementary” role is unnecessary for element “aside”.',
   'The “navigation” role is unnecessary for element “nav”.'
 ];
+const filteredWarnings = r => {
+  return !excludedWarnings.includes(r.message);
+};
 /* eslint-disable */
 // FIXME - Ignored errors (temporarily)
 const excludedErrors = [
   'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)'
 ];
 /* eslint-enable */
-const filteredWarnings = r => {
-  return !excludedWarnings.includes(r.message);
-};
 const filteredErrors = r => {
   return !excludedErrors.includes(r.message);
 };
