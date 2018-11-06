@@ -39,6 +39,14 @@ class ReviewApplication extends Question {
     return this.res.locals.applicationFee['application-financial-order-fee'].amount;
   }
 
+  get feesFinancialConsentOrder() {
+    return this.res.locals.applicationFee.DivorceFinancialConsentOrderPayService.amount;
+  }
+
+  get feesDivorceSubmitFormA() {
+    return this.res.locals.applicationFee.DivorceSubmitFormAPayService.amount;
+  }
+
   get form() {
     const answers = [this.const.yes];
     const validAnswers = Joi.string()
