@@ -17,6 +17,7 @@ if (config.environment === 'development') {
   waitForAction = 1000;
 }
 
+
 exports.config = {
   tests: './paths/**/*.js',
   output: config.tests.e2e.outputDir,
