@@ -27,6 +27,7 @@ exports.config = {
       waitForAction,
       show: false,
       waitForNavigation: [ 'domcontentloaded', 'networkidle0' ],
+      getPageTimeout: 5000,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
