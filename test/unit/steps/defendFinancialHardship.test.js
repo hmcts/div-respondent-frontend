@@ -4,15 +4,24 @@ const ConfirmDefence = require('steps/confirm-defence/ConfirmDefence.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const DefendFinancialHardshipContent = require('steps/defend-financial-hardship/DefendFinancialHardship.content'); // eslint-disable-line max-len
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
+    sinon.stub(feesAndPaymentsService, 'get').withArgs('DefendDivorcePayService')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 245.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.get.restore();
   });
 
   it('has idam.protect middleware', () => {

@@ -4,6 +4,7 @@ const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
 const ConsentDecree = require('steps/consent-decree/ConsentDecree.step');
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 const yes = 'Yes';
 const no = 'No';
@@ -12,10 +13,18 @@ describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
+    sinon.stub(feesAndPaymentsService, 'get').withArgs('DivorceAmendPetitionPayService')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 95,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.get.restore();
   });
 
   it('has idam.protect middleware', () => {
