@@ -15,21 +15,24 @@ if (['development'].includes(config.environment)) {
   middleware = idamExpressMiddlewareMock;
 }
 
+const setArgsFromRequest = req => {
+  // clone args so we don't modify the global idamArgs
+  const args = Object.assign({}, idamArgs);
+  args.hostName = req.hostname;
+  args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
+  return args;
+};
+
 const methods = {
   getIdamArgs: () => {
     return idamArgs;
   },
   authenticate: (req, res, next) => {
-    // clone args so we don't modify the global idamArgs
-    const args = Object.assign({}, idamArgs);
-    args.hostName = req.hostname;
-    args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
+    const args = setArgsFromRequest(req);
     middleware.authenticate(args)(req, res, next);
   },
   landingPage: (req, res, next) => {
-    const args = Object.assign({}, idamArgs);
-    args.hostName = req.hostname;
-    args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
+    const args = setArgsFromRequest(req);
     middleware.landingPage(args)(req, res, next);
   },
   protect: (...args) => {
