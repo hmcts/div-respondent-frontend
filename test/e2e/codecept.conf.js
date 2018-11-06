@@ -26,7 +26,6 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
-      waitForNavigation: ['load'],
       getPageTimeout: 15000,
       chrome: {
         ignoreHTTPSErrors: true,
