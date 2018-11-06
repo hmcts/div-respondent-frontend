@@ -2,10 +2,7 @@ const idamExpressMiddleware = require('@hmcts/div-idam-express-middleware');
 const idamExpressMiddlewareMock = require('mocks/services/idam');
 const config = require('config');
 
-const redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
-
 const idamArgs = {
-  redirectUri,
   indexUrl: config.paths.index,
   idamApiUrl: config.services.idam.apiUrl,
   idamLoginUrl: config.services.idam.loginUrl,
@@ -29,8 +26,11 @@ const methods = {
     args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
     middleware.authenticate(args)(req, res, next);
   },
-  landingPage: (...args) => {
-    return middleware.landingPage(idamArgs, ...args);
+  landingPage: (req, res, next) => {
+    const args = Object.assign({}, idamArgs);
+    args.hostName = req.hostname;
+    args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
+    middleware.landingPage(args)(req, res, next);
   },
   protect: (...args) => {
     return middleware.protect(idamArgs, ...args);

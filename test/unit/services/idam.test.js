@@ -64,9 +64,11 @@ describe(modulePath, () => {
     });
 
     it('mock landingPage', () => {
-      mockSpy = sinon.spy(idamExpressMiddlewareMock, 'landingPage');
+      mockSpy = sinon.stub(idamExpressMiddlewareMock, 'landingPage').returns(sinon.stub());
 
-      idam.landingPage();
+      idam.landingPage({
+        get: sinon.stub().returns('http://some-host:4000/test')
+      });
 
       sinon.assert.calledOnce(mockSpy);
     });
@@ -158,7 +160,6 @@ describe(modulePath, () => {
       const idamArgs = idam.getIdamArgs();
 
       expect(idamArgs).to.eql({
-        redirectUri: 'http://base-url/auth',
         indexUrl: '/index',
         idamApiUrl: 'http://api.idam',
         idamLoginUrl: 'http://idam/login',

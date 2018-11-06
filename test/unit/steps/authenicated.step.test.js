@@ -7,12 +7,12 @@ const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite'
 
 describe(modulePath, () => {
   it('has idam.landingPage middleware', () => {
-    return middleware.hasMiddleware(Authenticated, [ idam.landingPage() ]);
+    return middleware.hasMiddleware(Authenticated, [ idam.landingPage ]);
   });
 
   context('navigation', () => {
     beforeEach(() => {
-      sinon.stub(idam, 'landingPage').returns(middleware.nextMock);
+      sinon.stub(idam, 'landingPage').callsFake(middleware.nextMock);
     });
 
     afterEach(() => {
