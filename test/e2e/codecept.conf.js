@@ -13,6 +13,7 @@ if (config.environment !== 'development') {
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
 
+
 if (config.environment === 'development') {
   waitForAction = 1000;
 }
