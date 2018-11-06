@@ -7,12 +7,18 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./Jurisdiction.content');
 
-const yes = 'yes';
-const no = 'no';
+const validValues = {
+  yes: 'Yes',
+  no: 'No'
+};
 
 class Jurisdiction extends Question {
   static get path() {
     return config.paths.jurisdiction;
+  }
+
+  get validValues() {
+    return validValues;
   }
 
   get session() {
@@ -20,13 +26,13 @@ class Jurisdiction extends Question {
   }
 
   get form() {
-    const answers = [yes, no];
+    const answers = [this.validValues.yes, this.validValues.no];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
     const validateDisagreeReason = ({ agree = '', reason = '' }) => {
-      if (agree === no && !reason.trim().length) {
+      if (agree === this.validValues.no && !reason.trim().length) {
         return false;
       }
 
@@ -34,7 +40,7 @@ class Jurisdiction extends Question {
     };
 
     const validateCountry = ({ agree = '', country = '' }) => {
-      if (agree === no && !country.trim().length) {
+      if (agree === this.validValues.no && !country.trim().length) {
         return false;
       }
 
@@ -68,7 +74,7 @@ class Jurisdiction extends Question {
     const values = {};
     values.respJurisdictionAgree = agree;
 
-    if (agree === no) {
+    if (agree === this.validValues.no) {
       values.respJurisdictionDisagreeReason = reason;
       values.respJurisdictionRespCountryOfResidence = country;
     }
@@ -81,10 +87,10 @@ class Jurisdiction extends Question {
 
     answers.push(answer(this, {
       question: content.en.cya.agree,
-      answer: this.fields.jurisdiction.agree.value === yes ? content.en.fields.agree.answer : content.en.fields.disagree.answer
+      answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content.en.fields.agree.answer : content.en.fields.disagree.answer
     }));
 
-    if (this.fields.jurisdiction.agree.value === no) {
+    if (this.fields.jurisdiction.agree.value === this.validValues.no) {
       answers.push(answer(this, {
         question: content.en.cya.reason,
         answer: this.fields.jurisdiction.reason.value

@@ -8,8 +8,8 @@ const config = require('config');
 const content = require('./ConsentDecree.content');
 
 const constValues = {
-  yes: 'yes',
-  no: 'no'
+  yes: 'Yes',
+  no: 'No'
 };
 
 class ConsentDecree extends Question {

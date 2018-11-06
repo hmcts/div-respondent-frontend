@@ -39,13 +39,6 @@ function loginAsANonLinkedUser() {
   I.click(commonContent.en.continue);
 }
 
-function loginAsCaseCompletedUser() {
-  const I = this;
-
-  I.click(content.en.fields.success.yesCaseCompleted);
-  I.click(commonContent.en.continue);
-}
-
 function loginAsInvalidPinUser() {
   const I = this;
 
@@ -80,16 +73,47 @@ function loginAs5yrSeparationCase() {
   I.click(content.en.fields.success.yes5yrSeparation);
   I.click(commonContent.en.continue);
 }
+function loginAsCaseProgressedNoAos() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseProgressedNoAos);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCaseProgressedNotDefending() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseProgressedUndefended);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCaseProgressedAwaitingAnswer() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseProgressedAwaitingAnswer);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCaseProgressedDefending() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseProgressedDefending);
+  I.click(commonContent.en.continue);
+}
+
 
 module.exports = {
   seeIdamLoginPage,
   loginAsANewUser,
   loginAsANonLinkedUser,
-  loginAsCaseCompletedUser,
   loginAsInvalidPinUser,
   loginAsALinkedUser,
   loginAsNonLinkedUserAndServerError,
   loginAsAdulteryCase,
+  loginAsCaseProgressedNoAos,
+  loginAsCaseProgressedNotDefending,
+  loginAsCaseProgressedAwaitingAnswer,
+  loginAsCaseProgressedDefending,
   loginAs2yrSeparationCase,
   loginAs5yrSeparationCase
 };

@@ -13,7 +13,10 @@
         "yesCaseNotLinked": "Yes - case not linked",
         "yesCaseNotLinkedAndInvalidPin": "Yes - case not linked and invalid pin",
         "yesCaseNotLinkedAndServerError": "Yes - case not linked and server error",
-        "yesCaseCompleted": "Yes - case completed",
+        "yesCaseProgressedNoAos": "Yes - case progressed, no AoS",
+        "yesCaseProgressedUndefended": "Yes - case progressed undefended",
+        "yesCaseProgressedAwaitingAnswer": "Yes - case progressed, defended & awaiting answer",
+        "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
         "no": "No"
       }
     }

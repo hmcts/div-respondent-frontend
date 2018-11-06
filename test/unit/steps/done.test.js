@@ -57,7 +57,7 @@ describe(modulePath, () => {
     const session = {
       ConsentDecree: {
         response: {
-          consentDecree: 'yes'
+          consentDecree: 'Yes'
         }
       }
     };
@@ -173,8 +173,8 @@ describe(modulePath, () => {
     const session = {
       ConsentDecree: {
         response: {
-          consentDecree: 'no',
-          willDefend: 'no'
+          consentDecree: 'No',
+          willDefend: 'No'
         }
       },
       originalPetition: {
@@ -251,7 +251,7 @@ describe(modulePath, () => {
     const session = {
       ConsentDecree: {
         response: {
-          willDefend: 'yes'
+          willDefend: 'Yes'
         }
       }
     };

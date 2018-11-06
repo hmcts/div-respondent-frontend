@@ -10,8 +10,8 @@ const content = require('./AdmitAdultery.content');
 const constValues = {
   admit: 'admit',
   doNotAdmit: 'doNotAdmit',
-  yes: 'yes',
-  no: 'no'
+  yes: 'Yes',
+  no: 'No'
 };
 
 class AdmitAdultery extends Question {

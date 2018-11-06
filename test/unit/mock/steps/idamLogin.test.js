@@ -15,12 +15,12 @@ describe(modulePath, () => {
   });
 
   it('redirects to Authenticated if answer is yes', () => {
-    const fields = { success: 'yesCaseCompleted' };
+    const fields = { success: 'yesCaseStarted' };
     return question.redirectWithField(IdamLogin, fields, Authenticated);
   });
 
   it('loads fields from the session', () => {
-    const sessionData = { success: 'yesCaseCompleted' };
+    const sessionData = { success: 'yesCaseStarted' };
     return question.rendersValues(IdamLogin, sessionData);
   });
 });

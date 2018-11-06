@@ -13,7 +13,7 @@ const {
   expect
 } = require('@hmcts/one-per-page-test-suite');
 
-const answers = ['yes', 'no'];
+const answers = ['Yes', 'No'];
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -64,7 +64,7 @@ describe(modulePath, () => {
       journey: {},
       session: {
         FinancialSituation: {
-          respConsiderFinancialSituation: 'yes'
+          respConsiderFinancialSituation: 'Yes'
         }
       }
     };

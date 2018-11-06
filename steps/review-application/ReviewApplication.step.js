@@ -8,7 +8,7 @@ const Joi = require('joi');
 const content = require('./ReviewApplication.content').en;
 
 const values = {
-  yes: 'yes',
+  yes: 'Yes',
   adultery: 'adultery',
   twoYearSeparation: 'separation-2-years'
 };

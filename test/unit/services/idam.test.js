@@ -54,17 +54,21 @@ describe(modulePath, () => {
     });
 
     it('mock authenticate', () => {
-      mockSpy = sinon.spy(idamExpressMiddlewareMock, 'authenticate');
+      mockSpy = sinon.stub(idamExpressMiddlewareMock, 'authenticate').returns(sinon.stub());
 
-      idam.authenticate();
+      idam.authenticate({
+        get: sinon.stub().returns('http://some-host:4000/test')
+      });
 
       sinon.assert.calledOnce(mockSpy);
     });
 
     it('mock landingPage', () => {
-      mockSpy = sinon.spy(idamExpressMiddlewareMock, 'landingPage');
+      mockSpy = sinon.stub(idamExpressMiddlewareMock, 'landingPage').returns(sinon.stub());
 
-      idam.landingPage();
+      idam.landingPage({
+        get: sinon.stub().returns('http://some-host:4000/test')
+      });
 
       sinon.assert.calledOnce(mockSpy);
     });
@@ -86,55 +90,82 @@ describe(modulePath, () => {
     });
   });
 
-  describe('idam args', () => {
+  describe('authenticate', () => {
     let authenticated = '';
-    let baseUrl = '';
-    let indexUrl = '';
-    let idamApiUrl = '';
-    let idamLoginUrl = '';
-    let idamSecret = '';
-    let idamClientID = '';
 
     before(() => {
       authenticated = config.paths.authenticated;
-      baseUrl = config.node.baseUrl;
-      indexUrl = config.paths.index;
-      idamApiUrl = config.services.idam.apiUrl;
-      idamLoginUrl = config.services.idam.loginUrl;
-      idamSecret = config.services.idam.secret;
-      idamClientID = config.services.idam.clientId;
+      sinon.stub(idamExpressMiddlewareMock, 'authenticate')
+        .returns(sinon.stub());
     });
 
     after(() => {
       config.paths.authenticated = authenticated;
-      config.node.baseUrl = baseUrl;
-      config.paths.index = indexUrl;
-      config.services.idam.apiUrl = idamApiUrl;
-      config.services.idam.loginUrl = idamLoginUrl;
-      config.services.idam.secret = idamSecret;
-      config.services.idam.clientId = idamClientID;
+      idamExpressMiddlewareMock.authenticate.restore();
+    });
+
+    it('sets correct redirect uri/hostName based on request', () => {
+      const req = {
+        hostname: 'some-host.com',
+        get: sinon.stub()
+          .withArgs('host')
+          .returns('some-host.com:4000')
+      };
+
+      config.paths.authenticated = '/auth';
+
+      const idam = requireNoCache(modulePath);
+
+      idam.authenticate(req);
+
+      const expected = Object.assign(idam.getIdamArgs(), {
+        hostName: 'some-host.com',
+        redirectUri: 'https://some-host.com:4000/auth'
+      });
+      sinon.assert.calledOnce(idamExpressMiddlewareMock.authenticate);
+      sinon.assert.calledWith(idamExpressMiddlewareMock.authenticate, expected);
+    });
+  });
+
+  describe('idam args', () => {
+    let sandbox = {};
+
+    before(() => {
+      sandbox = sinon.sandbox.create();
+    });
+
+    after(() => {
+      sandbox.restore();
     });
 
     it('sets correct idam args from config', () => {
-      config.paths.authenticated = '/auth';
-      config.node.baseUrl = 'http://base-url';
-      config.paths.index = '/index';
-      config.services.idam.apiUrl = 'http://api.idam';
-      config.services.idam.loginUrl = 'http://idam/login';
-      config.services.idam.secret = 'some-secret';
-      config.services.idam.clientId = 'div';
+      sandbox.stub(config, 'paths').value({
+        authenticated: '/auth',
+        index: '/index'
+      });
+      sandbox.stub(config, 'node').value({
+        baseUrl: 'http://base-url'
+      });
+      sandbox.stub(config, 'services').value({
+        idam: {
+          apiUrl: 'http://api.idam',
+          loginUrl: 'http://idam/login',
+          secret: 'some-secret',
+          clientId: 'div'
+        }
+      });
 
       const idam = requireNoCache(modulePath);
 
       const idamArgs = idam.getIdamArgs();
 
-      expect(idamArgs.redirectUri).equal('http://base-url/auth');
-      expect(idamArgs.hostName).equal('base-url');
-      expect(idamArgs.indexUrl).equal('/index');
-      expect(idamArgs.idamApiUrl).equal('http://api.idam');
-      expect(idamArgs.idamLoginUrl).equal('http://idam/login');
-      expect(idamArgs.idamSecret).equal('some-secret');
-      expect(idamArgs.idamClientID).equal('div');
+      expect(idamArgs).to.eql({
+        indexUrl: '/index',
+        idamApiUrl: 'http://api.idam',
+        idamLoginUrl: 'http://idam/login',
+        idamSecret: 'some-secret',
+        idamClientID: 'div'
+      });
     });
   });
 });

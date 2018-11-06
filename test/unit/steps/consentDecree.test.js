@@ -14,8 +14,8 @@ const {
 } = require('@hmcts/one-per-page-test-suite');
 
 const answers = {
-  yes: 'yes',
-  no: 'no'
+  yes: 'Yes',
+  no: 'No'
 };
 
 describe(modulePath, () => {
@@ -34,24 +34,24 @@ describe(modulePath, () => {
 
   it('redirects to financial page when user consents', () => {
     const fields = {
-      'response-consentDecree': 'yes',
-      'response-willDefend': 'no'
+      'response-consentDecree': 'Yes',
+      'response-willDefend': 'No'
     };
     return question.redirectWithField(ConsentDecree, fields, FinancialSituation);
   });
 
   it('redirects to check consent answer page when user does not consent but will not defend', () => { // eslint-disable-line
     const fields = {
-      'response-consentDecree': 'no',
-      'response-willDefend': 'no'
+      'response-consentDecree': 'No',
+      'response-willDefend': 'No'
     };
     return question.redirectWithField(ConsentDecree, fields, NoConsentAreYouSure);
   });
 
   it('redirects to confirm defence page when user does not consent and will defend', () => {
     const fields = {
-      'response-consentDecree': 'no',
-      'response-willDefend': 'yes'
+      'response-consentDecree': 'No',
+      'response-willDefend': 'Yes'
     };
     return question.redirectWithField(ConsentDecree, fields, ConfirmDefence);
   });
@@ -63,7 +63,7 @@ describe(modulePath, () => {
   });
 
   it('shows defence required error if not consenting', () => {
-    const fields = { 'response-consentDecree': 'no' };
+    const fields = { 'response-consentDecree': 'No' };
     const onlyErrors = ['defenceRequired'];
     return question.testErrors(ConsentDecree, {}, fields, { onlyErrors });
   });
