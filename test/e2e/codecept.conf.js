@@ -32,7 +32,6 @@ exports.config = {
         args: chromeArgs
       }
     },
-    IdamHelper: { require: './helpers/idamHelper.js' },
     JSWait: { require: './helpers/JSWait.js' }
   },
   include: { I: './pages/steps.js' },

@@ -1,14 +1,15 @@
 const content = require('common/content');
 
-Feature('Happy path');
+Feature('Happy path', { retries: 2 });
 
 Scenario('@Integration First time new user', I => {
   I.amOnLoadedPage('/');
+  I.seeExamplePage();
   I.navByClick('Start now');
   I.seeIdamLoginPage();
-  I.loginAsANewUser();
-  I.seeCaptureCaseAndPinPage();
-}).retry(2);
+  // I.loginAsANewUser();
+  // I.seeCaptureCaseAndPinPage();
+});
 
 Scenario('Proceed with divorce with linked user', I => {
   I.amOnPage('/');
