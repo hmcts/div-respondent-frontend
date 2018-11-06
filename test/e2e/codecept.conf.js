@@ -25,7 +25,7 @@ exports.config = {
       url: config.tests.e2e.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
-      show: true,
+      show: false,
       waitForNavigation: [ 'domcontentloaded', 'networkidle0' ],
       getPageTimeout: 60000,
       chrome: {
