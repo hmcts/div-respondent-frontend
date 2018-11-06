@@ -8,7 +8,7 @@
       "sections": {
         "intendToPrevent": {
           "heading": "If you intend to prevent the divorce",
-          "summary": "You'll need to submit another form (known as the 'answer') with your reason for defending the divorce. You'll also have to pay another £245 fee.<br/><br/>You have 28 days to submit your answer from the date you received the divorce application.<br/><br/>If you don't submit the answer by the deadline, your {{ session.divorceWho }} will usually be able to continue with the divorce as if you didn't defend it."
+          "summary": "You'll need to submit another form (known as the 'answer') with your reason for defending the divorce. You'll also have to pay another £{{ feesDefendDivorce }} fee.<br/><br/>You have 28 days to submit your answer from the date you received the divorce application.<br/><br/>If you don't submit the answer by the deadline, your {{ session.divorceWho }} will usually be able to continue with the divorce as if you didn't defend it."
         },
         "makeOwnApplication": {
           "heading": "Making your own application for divorce",

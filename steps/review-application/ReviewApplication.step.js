@@ -31,6 +31,14 @@ class ReviewApplication extends Question {
     return this.res.locals.applicationFee.issue.amount;
   }
 
+  get feesFinancialConsentOrder() {
+    return this.res.locals.applicationFee.DivorceFinancialConsentOrderPayService.amount;
+  }
+
+  get feesDivorceSubmitFormA() {
+    return this.res.locals.applicationFee.DivorceSubmitFormAPayService.amount;
+  }
+
   get form() {
     const answers = [this.const.yes];
     const validAnswers = Joi.string()
@@ -66,7 +74,9 @@ class ReviewApplication extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('issue')
+      getFeeFromFeesAndPayments('issue'),
+      getFeeFromFeesAndPayments('DivorceFinancialConsentOrderPayService'),
+      getFeeFromFeesAndPayments('DivorceSubmitFormAPayService')
     ];
   }
 }

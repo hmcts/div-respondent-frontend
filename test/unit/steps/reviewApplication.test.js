@@ -12,7 +12,7 @@ describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
-    sinon.stub(feesAndPaymentsService, 'get').withArgs('issue')
+    sinon.stub(feesAndPaymentsService, 'get')
       .resolves({
         feeCode: 'FEE0002',
         version: 4,
@@ -29,6 +29,25 @@ describe(modulePath, () => {
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(ReviewApplication, [ idam.protect() ]);
   });
+
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: {}
+      }
+    };
+    return content(
+      ReviewApplication,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledThrice(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'issue');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'DivorceFinancialConsentOrderPayService');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'DivorceSubmitFormAPayService');
+    });
+  });
+
 
   it('shows error if statement of truth not answered', () => {
     const session = {

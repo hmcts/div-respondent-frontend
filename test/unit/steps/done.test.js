@@ -9,7 +9,7 @@ describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
-    sinon.stub(feesAndPaymentsService, 'get').withArgs('DivorceAmendPetitionPayService')
+    sinon.stub(feesAndPaymentsService, 'get')
       .resolves({
         feeCode: 'FEE0002',
         version: 4,
@@ -25,6 +25,23 @@ describe(modulePath, () => {
 
   it('has idam.protect and user data middleware', () => {
     return middleware.hasMiddleware(doneStep, [idam.protect()]);
+  });
+
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: {}
+      }
+    };
+    return content(
+      doneStep,
+      session,
+      { specificContent: ['responseSent'] }
+    ).then(() => {
+      sinon.assert.calledTwice(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'DivorceAmendPetitionPayService');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'DefendDivorcePayService');
+    });
   });
 
   it('renders the content if the divorce is not defended', () => {
