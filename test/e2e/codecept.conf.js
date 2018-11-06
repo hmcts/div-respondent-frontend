@@ -13,11 +13,9 @@ if (config.environment !== 'development') {
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
 
-
 if (config.environment === 'development') {
   waitForAction = 1000;
 }
-
 
 exports.config = {
   tests: './paths/**/*.js',
@@ -29,7 +27,7 @@ exports.config = {
       waitForAction,
       show: false,
       waitForNavigation: [ 'domcontentloaded', 'networkidle0' ],
-      getPageTimeout: 5000,
+      getPageTimeout: 30000,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
