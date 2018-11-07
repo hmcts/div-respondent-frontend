@@ -41,6 +41,17 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(ChooseAResponse, [idam.protect()]);
   });
 
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    return content(
+      ChooseAResponse,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledOnce(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'DefendDivorcePayService');
+    });
+  });
+
   it('redirects to jurisdiction page when proceeding with divorce', () => {
     const fields = { response: 'proceed' };
     return question.redirectWithField(ChooseAResponse, fields, Jurisdiction, session);

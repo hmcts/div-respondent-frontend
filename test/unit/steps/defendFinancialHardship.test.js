@@ -28,6 +28,22 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(DefendFinancialHardship, [idam.protect()]);
   });
 
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: {}
+      }
+    };
+    return content(
+      DefendFinancialHardship,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledOnce(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'DefendDivorcePayService');
+    });
+  });
+
   it('severe hardship is yes value should contain details', () => {
     const respHardshipDefenseResponse = 'Yes';
     const respHardshipDescription = 'Financial hardship';

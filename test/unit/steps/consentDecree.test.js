@@ -41,6 +41,22 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(ConsentDecree, [idam.protect()]);
   });
 
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: {}
+      }
+    };
+    return content(
+      ConsentDecree,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledOnce(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'DivorceAmendPetitionPayService');
+    });
+  });
+
   it('redirects to financial page when user consents', () => {
     const fields = {
       'response-consentDecree': 'Yes',
