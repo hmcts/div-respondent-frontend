@@ -51,7 +51,7 @@
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
-    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#cd9a36bf2416d53253c07584819c54d6b41f67f1",
+    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#c0cdb0ee4eb3ea32dd764e4f4749b8c76fc35316",
     "@hmcts/one-per-page-test-suite": "^2.0.8",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
