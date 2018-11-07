@@ -11,7 +11,7 @@ let Helper = codecept_helper; // eslint-disable-line
 
 const mocksPath = 'resources';
 
-class CaseOrchestrationHelper extends Helper {
+class CaseHelper extends Helper {
   createAosCaseForUser(caseDataName) {
     return this._readFile(`${mocksPath}/${caseDataName}.json`, 'utf8')
       .then(caseData => {
@@ -74,4 +74,4 @@ class CaseOrchestrationHelper extends Helper {
   }
 }
 
-module.exports = CaseOrchestrationHelper;
+module.exports = CaseHelper;
