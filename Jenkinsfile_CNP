@@ -44,6 +44,7 @@ withPipeline("nodejs", product, component) {
     env.IDAM_API_URL = 'https://preprod-idamapi.reform.hmcts.net:3511'
     env.CASE_ORCHESTRATION_BASE_URL = 'http://div-cos-aat.service.core-compute-aat.internal'
     env.PREVIEW_ENV = 'true'
+    env.BASE_URL = env.TEST_URL
     sh "printenv"
   }
 
