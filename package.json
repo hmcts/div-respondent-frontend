@@ -19,7 +19,7 @@
     "test:a11y": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/a11y --timeout 15000",
     "test:nsp": "nsp check",
     "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "test:functional": "NODE_PATH=. LOG_LEVEL=DEBUG codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Integration' --reporter mochawesome",
+    "test:functional": "NODE_PATH=. POINT_TO_REMOTE=true LOG_LEVEL=DEBUG codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Integration' --reporter mochawesome",
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/w3cjs --timeout 15000",
     "lint": "eslint ."
   },
@@ -31,6 +31,7 @@
     "@hmcts/look-and-feel": "^1.19.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
+    "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#b9d3164aa429a9d844948173b3a0b60cc842c124",
     "@hmcts/one-per-page": "^4.0.3",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
