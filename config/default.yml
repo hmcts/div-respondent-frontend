@@ -49,10 +49,11 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-    baseUrl: http://localhost:3001
     getPetitionUrl: http://localhost:3001/retrieve-aos-case
     linkRespondentUrl: http://localhost:3001/link-respondent
     submitAosUrl: http://localhost:1111
+  caseMaintenance:
+    baseUrl: http://localhost:3001
 
 paths:
   health: /health
