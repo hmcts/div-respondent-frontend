@@ -2,9 +2,15 @@ const content = require('common/content');
 
 Feature('Happy path');
 
+Before(I => {
+  I.createAUser();
+});
+
 Scenario('@Integration First time new user', I => {
   I.createAosCaseForUser('basic-divorce-session');
-  I.amOnPage('/entry');
+  I.amOnLoadedPage('/');
+  I.seeExamplePage();
+  I.navByClick('Start now');
   I.seeIdamLoginPage();
   I.loginAsANewUser();
   I.seeCaptureCaseAndPinPage();

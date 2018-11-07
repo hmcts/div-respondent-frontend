@@ -17,7 +17,7 @@ const idamArgs = {
 };
 
 class IdamHelper extends Helper {
-  _before() {
+  createAUser() {
     if (config.features.idam) {
       const randomString = randomstring.generate({
         length: 16,
@@ -32,7 +32,7 @@ class IdamHelper extends Helper {
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
-      idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
+      return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
         .then(() => {
           logger.info(`Created IDAM test user: ${testEmail}`);
           return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
@@ -46,6 +46,7 @@ class IdamHelper extends Helper {
           throw error;
         });
     }
+    return Promise.resolve({});
   }
 
   _after() {
