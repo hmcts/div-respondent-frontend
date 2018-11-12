@@ -4,7 +4,7 @@ const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-set
 if (process.env.POINT_TO_REMOTE) {
   const configurationFile = './remote-config.json';
   processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
-  process.env.CASE_ORCHESTRATION_BASE_URL = 'http://div-cos-aat.service.core-compute-aat.internal';
+  process.env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal';
 }
 
 const config = require('config');

@@ -100,9 +100,9 @@
     request-promise-native "^1.0.5"
     uuid "^3.1.0"
 
-"@hmcts/div-idam-test-harness@https://github.com/hmcts/div-idam-test-harness.git#cd9a36bf2416d53253c07584819c54d6b41f67f1":
+"@hmcts/div-idam-test-harness@https://github.com/hmcts/div-idam-test-harness.git#c0cdb0ee4eb3ea32dd764e4f4749b8c76fc35316":
   version "1.2.1"
-  resolved "https://github.com/hmcts/div-idam-test-harness.git#cd9a36bf2416d53253c07584819c54d6b41f67f1"
+  resolved "https://github.com/hmcts/div-idam-test-harness.git#c0cdb0ee4eb3ea32dd764e4f4749b8c76fc35316"
   dependencies:
     "@hmcts/div-idam-express-middleware" "^6.0.1"
     request "^2.81.0"
