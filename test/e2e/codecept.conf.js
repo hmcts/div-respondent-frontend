@@ -40,7 +40,7 @@ exports.config = {
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
-    CaseOrchestrationHelper: { require: './helpers/caseHelper.js' },
+    CaseHelper: { require: './helpers/caseHelper.js' },
     JSWait: { require: './helpers/JSWait.js' }
   },
   include: { I: './pages/steps.js' },

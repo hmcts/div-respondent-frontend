@@ -1,10 +1,11 @@
 const content = require('common/content');
+const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 Feature('Happy path');
 
 Scenario('@Integration First time new user', async I => {
   await I.createAUser();
-  I.createAosCaseForUser('test/resources/basic-divorce-session.json');
+  I.createAosCaseForUser(basicDivorceSession);
   I.amOnLoadedPage('/');
   I.seeExamplePage();
   I.navByClick('Start now');

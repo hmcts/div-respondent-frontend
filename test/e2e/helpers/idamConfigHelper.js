@@ -4,6 +4,7 @@ let testEmail = '';
 let testPassword = '';
 let testToken = '';
 let testPin = '';
+let testLetterHolderId = '';
 
 const setTestEmail = email => {
   testEmail = email;
@@ -19,6 +20,10 @@ const setTestToken = token => {
 
 const setPin = pin => {
   testPin = pin;
+};
+
+const setLetterHolderId = id => {
+  testLetterHolderId = id;
 };
 
 const getTestEmail = () => {
@@ -37,6 +42,10 @@ const getPin = () => {
   return testPin;
 };
 
+const getLetterHolderId = () => {
+  return testLetterHolderId.toString();
+};
+
 module.exports = {
   setTestEmail,
   setTestPassword,
@@ -45,5 +54,7 @@ module.exports = {
   getTestEmail,
   getTestPassword,
   getTestToken,
-  getPin
+  getPin,
+  setLetterHolderId,
+  getLetterHolderId
 };
