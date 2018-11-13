@@ -127,6 +127,10 @@ variable "service_auth_provider_url" {
   type = "string"
 }
 
+variable "decree_nisi_frontend_url" {
+  default = ""
+}
+
 variable "frontend_service_name" {
   default = "divorce-respondent-frontend"
 }

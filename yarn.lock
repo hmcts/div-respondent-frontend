@@ -102,11 +102,13 @@
     request-promise-native "^1.0.5"
     uuid "^3.1.0"
 
-"@hmcts/div-idam-express-middleware@https://github.com/hmcts/div-idam-express-middleware#6.0.0":
-  version "6.0.0"
-  resolved "https://github.com/hmcts/div-idam-express-middleware#3b2466873627729a157b5c831217ff9610ed969d"
+"@hmcts/div-idam-express-middleware@^6.3.5":
+  version "6.3.5"
+  resolved "https://registry.yarnpkg.com/@hmcts/div-idam-express-middleware/-/div-idam-express-middleware-6.3.5.tgz#32c76173e33213bd0be7439c97d639dda30b0870"
+  integrity sha512-19ihrwRYQiT2MhrhvpnVJdkgRWGspp1j1g/bHWV4quvDBO1EhMRpdp/nN3SHIgQx9TY1zpA8WlKRIjd7qL0+Lg==
   dependencies:
-    "@hmcts/nodejs-logging" "^2.2.0"
+    "@hmcts/nodejs-logging" "^3.0.0"
+    jwt-decode "^2.2.0"
     request "^2.83.0"
     request-promise-native "^1.0.5"
     uuid "^3.1.0"
@@ -177,6 +179,15 @@
     moment "^2.19.3"
     on-finished "^2.3.0"
     uuid "^3.1.0"
+
+"@hmcts/nodejs-logging@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@hmcts/nodejs-logging/-/nodejs-logging-3.0.0.tgz#81d84cea5528fa57b4162641b427233fca771715"
+  integrity sha512-dFuuf0kZC1scL6tkOtCYYC5rpvrX155N6syVnxVOqIKyvVOrBsvNn4z/WFl+6rXHxPowcBjWPAx1F03sNJs3zA==
+  dependencies:
+    moment "^2.19.3"
+    on-finished "^2.3.0"
+    winston "^2.4.1"
 
 "@hmcts/nodejs-logging@https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd":
   version "3.0.0"
@@ -7024,6 +7035,11 @@ just-extend@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/just-extend/-/just-extend-3.0.0.tgz#cee004031eaabf6406da03a7b84e4fe9d78ef288"
   integrity sha512-Fu3T6pKBuxjWT/p4DkqGHFRsysc8OauWr4ZRTY9dIx07Y9O0RkoR5jcv28aeD1vuAwhm3nLkDurwLXoALp4DpQ==
+
+jwt-decode@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
+  integrity sha1-fYa9VmefWM5qhHBKZX3TkruoGnk=
 
 kew@^0.7.0:
   version "0.7.0"

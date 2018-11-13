@@ -52,6 +52,9 @@ services:
     getPetitionUrl: http://localhost:3001/retrieve-aos-case
     linkRespondentUrl: http://localhost:3001/link-respondent
     submitAosUrl: http://localhost:1111
+  dnFrontend:
+    url: https://localhost:4000
+    landing: /authenticated
 
 paths:
   health: /health

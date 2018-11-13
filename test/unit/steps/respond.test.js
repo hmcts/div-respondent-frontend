@@ -6,6 +6,8 @@ const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const getSteps = require('steps');
 const petitionMiddleware = require('middleware/petitionMiddleware');
+const redirectMiddleware = require('middleware/redirectMiddleware');
+
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -13,15 +15,24 @@ describe(modulePath, () => {
       .returns(middleware.nextMock);
     sinon.stub(petitionMiddleware, 'loadMiniPetition')
       .callsFake(middleware.nextMock);
+    sinon.stub(redirectMiddleware, 'redirectOnCondition')
+      .callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
     petitionMiddleware.loadMiniPetition.restore();
+    redirectMiddleware.redirectOnCondition.restore();
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Respond, [idam.protect()]);
+    return middleware.hasMiddleware(Respond,
+      [
+        idam.protect(),
+        petitionMiddleware.loadMiniPetition,
+        redirectMiddleware.redirectOnCondition
+      ]
+    );
   });
 
   it('redirects to next page', () => {

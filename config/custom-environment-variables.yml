@@ -55,6 +55,8 @@ services:
     getPetitionUrl: GET_PETITION_URL
     linkRespondentUrl: LINK_RESPONDENT_URL
     submitAosUrl: SUBMIT_AOS_URL
+  dnFrontEnd:
+    url: DN_FRONTEND_URL
 
 features:
   idam: FEATURE_IDAM
