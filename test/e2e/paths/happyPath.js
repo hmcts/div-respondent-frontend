@@ -2,19 +2,20 @@ const content = require('common/content');
 
 Feature('Happy path');
 
-Before(I => {
-  I.createAUser();
-});
-
-Scenario('@Integration First time new user', I => {
+Scenario('@Integration First time new user', async I => {
+  await I.createAUser();
   I.createAosCaseForUser('test/resources/basic-divorce-session.json');
   I.amOnLoadedPage('/');
   I.seeExamplePage();
   I.navByClick('Start now');
   I.seeIdamLoginPage();
-  I.loginAsANewUser();
+  await I.createAUser();
+  I.login();
   I.seeCaptureCaseAndPinPage();
-}).retry(2);
+  I.fillInReferenceNumberAndPinCode();
+  I.click(content.en.continue);
+  I.seeReviewApplicationPage();
+});
 
 Scenario('Proceed with divorce with linked user', I => {
   I.amOnPage('/');

@@ -9,7 +9,7 @@ function seeIdamLoginPage() {
   I.waitForText(content.en.title, 3);
 }
 
-function loginAsANewUser() {
+function login() {
   const I = this;
 
   if (config.features.idam) {
@@ -104,7 +104,7 @@ function loginAsCaseProgressedDefending() {
 
 module.exports = {
   seeIdamLoginPage,
-  loginAsANewUser,
+  login,
   loginAsANonLinkedUser,
   loginAsInvalidPinUser,
   loginAsALinkedUser,

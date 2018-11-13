@@ -6,6 +6,7 @@ locals {
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  div_cms_url              = "http://div-cms-${local.local_env}.service.core-compute-${local.local_env}.internal"
 
   asp_name = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
@@ -93,6 +94,9 @@ module "frontend" {
     GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
     LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
     SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
+
+    //Case Maintenence
+    CASE_MAINTENANCE_BASE_URL = "${local.div_cms_url}"
 
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"
