@@ -55,7 +55,7 @@ services:
     getPetitionUrl: GET_PETITION_URL
     linkRespondentUrl: LINK_RESPONDENT_URL
     submitAosUrl: SUBMIT_AOS_URL
-  dnFrontEnd:
+  dnFrontend:
     url: DECREE_NISI_FRONTEND_URL
 
 features:
