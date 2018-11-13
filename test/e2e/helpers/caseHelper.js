@@ -14,7 +14,7 @@ class CaseHelper extends Helper {
       authToken: idamConfigHelper.getTestToken(),
       caseDataFilePath
     };
-    return divTestHarness.createAosCase(params, config.tests.functional.proxy)
+    return divTestHarness.createAosCase(params, config.tests.e2e.proxy)
       .then(createCaseResponse => {
         logger.info(`Created case ${createCaseResponse.id} for ${idamConfigHelper.getTestEmail()}`);
         caseConfigHelper.setTestCaseId(createCaseResponse.id);

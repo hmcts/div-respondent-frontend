@@ -57,7 +57,7 @@ class IdamHelper extends Helper {
 
   _after() {
     if (config.features.idam) {
-      idamExpressTestHarness.removeUser(idamArgs)
+      idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
         .then(() => {
           logger.info(`Removed IDAM test user: ${idamArgs.testEmail}`);
         })
