@@ -7,7 +7,7 @@ Before(I => {
 });
 
 Scenario('@Integration First time new user', I => {
-  I.createAosCaseForUser('basic-divorce-session');
+  I.createAosCaseForUser('test/resources/basic-divorce-session.json');
   I.amOnLoadedPage('/');
   I.seeExamplePage();
   I.navByClick('Start now');
