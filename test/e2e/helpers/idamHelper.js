@@ -29,6 +29,7 @@ class IdamHelper extends Helper {
 
       idamArgs.testEmail = testEmail;
       idamArgs.testPassword = testPassword;
+      idamArgs.testGroupCode = 'caseworker';
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
@@ -41,6 +42,7 @@ class IdamHelper extends Helper {
           logger.info(`Retrieved IDAM test user token: ${testEmail}`);
           idamConfigHelper.setTestToken(response.access_token);
           idamArgs.accessToken = response.access_token;
+          idamArgs.roles = ['citizen', 'caseworker-divorce-courtadmin'];
           return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
         })
         .then(response => {
