@@ -20,7 +20,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to next page if statement of true answered', () => {
-    const fields = { respStatementOfTruth: 'yes' };
+    const fields = { respStatementOfTruth: 'Yes' };
     return question.redirectWithField(CheckYourAnswers, fields, doneStep);
   });
 

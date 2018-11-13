@@ -20,8 +20,8 @@
   {% call formSection() %}
     {{ selectionButtons(fields.legalProceedings.exists, content.question,
         options = [
-        { label: content.fields.yes.heading, value: "yes", target: "case-details" },
-        { label: content.fields.no.heading, value: "no" }
+        { label: content.fields.yes.heading, value: "Yes", target: "case-details" },
+        { label: content.fields.no.heading, value: "No" }
         ],
         hideQuestion=false,
         inline=true,

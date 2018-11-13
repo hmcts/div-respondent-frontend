@@ -54,17 +54,21 @@ describe(modulePath, () => {
     });
 
     it('mock authenticate', () => {
-      mockSpy = sinon.spy(idamExpressMiddlewareMock, 'authenticate');
+      mockSpy = sinon.stub(idamExpressMiddlewareMock, 'authenticate').returns(sinon.stub());
 
-      idam.authenticate();
+      idam.authenticate({
+        get: sinon.stub().returns('http://some-host:4000/test')
+      });
 
       sinon.assert.calledOnce(mockSpy);
     });
 
     it('mock landingPage', () => {
-      mockSpy = sinon.spy(idamExpressMiddlewareMock, 'landingPage');
+      mockSpy = sinon.stub(idamExpressMiddlewareMock, 'landingPage').returns(sinon.stub());
 
-      idam.landingPage();
+      idam.landingPage({
+        get: sinon.stub().returns('http://some-host:4000/test')
+      });
 
       sinon.assert.calledOnce(mockSpy);
     });
@@ -83,6 +87,85 @@ describe(modulePath, () => {
       idam.logout();
 
       sinon.assert.calledOnce(mockSpy);
+    });
+  });
+
+  describe('authenticate', () => {
+    let authenticated = '';
+
+    before(() => {
+      authenticated = config.paths.authenticated;
+      sinon.stub(idamExpressMiddlewareMock, 'authenticate')
+        .returns(sinon.stub());
+    });
+
+    after(() => {
+      config.paths.authenticated = authenticated;
+      idamExpressMiddlewareMock.authenticate.restore();
+    });
+
+    it('sets correct redirect uri/hostName based on request', () => {
+      const req = {
+        hostname: 'some-host.com',
+        get: sinon.stub()
+          .withArgs('host')
+          .returns('some-host.com:4000')
+      };
+
+      config.paths.authenticated = '/auth';
+
+      const idam = requireNoCache(modulePath);
+
+      idam.authenticate(req);
+
+      const expected = Object.assign(idam.getIdamArgs(), {
+        hostName: 'some-host.com',
+        redirectUri: 'https://some-host.com:4000/auth'
+      });
+      sinon.assert.calledOnce(idamExpressMiddlewareMock.authenticate);
+      sinon.assert.calledWith(idamExpressMiddlewareMock.authenticate, expected);
+    });
+  });
+
+  describe('idam args', () => {
+    let sandbox = {};
+
+    before(() => {
+      sandbox = sinon.sandbox.create();
+    });
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    it('sets correct idam args from config', () => {
+      sandbox.stub(config, 'paths').value({
+        authenticated: '/auth',
+        index: '/index'
+      });
+      sandbox.stub(config, 'node').value({
+        baseUrl: 'http://base-url'
+      });
+      sandbox.stub(config, 'services').value({
+        idam: {
+          apiUrl: 'http://api.idam',
+          loginUrl: 'http://idam/login',
+          secret: 'some-secret',
+          clientId: 'div'
+        }
+      });
+
+      const idam = requireNoCache(modulePath);
+
+      const idamArgs = idam.getIdamArgs();
+
+      expect(idamArgs).to.eql({
+        indexUrl: '/index',
+        idamApiUrl: 'http://api.idam',
+        idamLoginUrl: 'http://idam/login',
+        idamSecret: 'some-secret',
+        idamClientID: 'div'
+      });
     });
   });
 });

@@ -5,22 +5,13 @@ It includes common services, middleware and configs
 
 ## Getting started
 
+### Dev setup
+
 `yarn install`
-
-`touch docker-compose.yaml`
-
-put the following into docker-compose.yaml file:
-
-```
-redis:
-  image: redis
-  ports:
-    - "6379:6379"
-```
 
 Start database:
 
-`docker-compose up`
+`docker run --name redis -p 6379:6379 -d redis`
 
 Start application and required mocks:
 
@@ -28,7 +19,7 @@ Start application and required mocks:
 
 `yarn mocks`
 
-Running tests:
+### Running tests:
 
 * Unit
 

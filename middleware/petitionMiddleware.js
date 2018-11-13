@@ -1,15 +1,15 @@
 const caseOrchestration = require('services/caseOrchestration');
-
+const { CaseStates } = require('const');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
-const InvalidCaseState = require('steps/invalid-case-state/InvalidCaseState.step');
+const ProgressBar = require('steps/progress-bar/ProgressBar.step');
 
-const AOS_STARTED = 'AosStarted';
 const SUCCESS = 200;
 const NOT_FOUND = 404;
 const ERROR_RESPONSE = 400;
 
 function storePetitionInSession(req, response) {
   req.session.referenceNumber = response.body.caseId;
+  req.session.caseState = response.body.state;
   req.session.originalPetition = response.body.data;
   /* eslint-disable */
   if (req.session.originalPetition.marriageIsSameSexCouple !== 'Yes') {
@@ -39,16 +39,16 @@ const loadMiniPetition = (req, res, next) => {
   return caseOrchestration.getPetition(req)
     .then(response => {
       if (response.statusCode === SUCCESS) {
+        storePetitionInSession(req, response);
         const caseState = response.body.state;
-        if (caseState !== AOS_STARTED) {
-          return res.redirect(InvalidCaseState.path);
+        if (caseState !== CaseStates.AosStarted) {
+          return res.redirect(ProgressBar.path);
         }
       } else if (response.statusCode === NOT_FOUND) {
         return res.redirect(CaptureCaseAndPin.path);
       } else if (response.statusCode >= ERROR_RESPONSE) {
         return next(new Error(`Unexpected response code while retrieving case: ${response.statusCode}`));
       }
-      storePetitionInSession(req, response);
       return next();
     });
 };

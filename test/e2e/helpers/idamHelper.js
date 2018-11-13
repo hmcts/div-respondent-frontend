@@ -39,6 +39,7 @@ class IdamHelper extends Helper {
         })
         .catch(error => {
           logger.warn(`Unable to create IDAM test user: ${error}`);
+          throw error;
         });
     }
   }

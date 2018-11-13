@@ -30,7 +30,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to choose a response page when answered', () => {
-    const fields = { respConfirmReadPetition: 'yes' };
+    const fields = { respConfirmReadPetition: 'Yes' };
     const session = {
       originalPetition: {
         reasonForDivorceClaimingAdultery: false
@@ -215,6 +215,7 @@ describe(modulePath, () => {
         'coRespondent',
         'reasonForDivorceAdulteryCorrespondentNamed',
         'reasonForDivorceAdulteryCorrespondentNotNamed',
+        'reasonForDivorceAdulteryStatement',
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
@@ -504,7 +505,7 @@ describe(modulePath, () => {
     });
 
     context('legal proceedings', () => {
-      it('no', () => {
+      it('No', () => {
         const session = {
           originalPetition: {
             jurisdictionConnection: {},

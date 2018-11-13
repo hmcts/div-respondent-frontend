@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const modulePath = 'steps/done/Done.step';
 const doneStep = require(modulePath);
 const idam = require('services/idam');
@@ -36,11 +37,179 @@ describe(modulePath, () => {
       'defendedText3',
       'defendedText4',
       'defendedText5',
-      'defendedText6'
+      'defendedText6',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
     ];
-
     return content(doneStep, session, { ignoreContent });
   });
+
+  it('renders the content if the divorce is not defended and the reason is 2 years separation-2-years', () => {
+    const session = {
+      ConsentDecree: {
+        response: {
+          consentDecree: 'Yes'
+        }
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'defendedHeading',
+      'defendedText1',
+      'defendedText2',
+      'defendedText3',
+      'defendedText4',
+      'defendedText5',
+      'defendedText6',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
+
+  it('renders the content if the divorce is not defended you do not accept the allegations made in the application', () => {
+    const session = {
+      ChooseAResponse: {
+        response: 'proceedButDisagree'
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'defendedHeading',
+      'defendedText1',
+      'defendedText2',
+      'defendedText3',
+      'defendedText4',
+      'defendedText5',
+      'defendedText6',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
+  it('renders the content if the divorce is not defended, reason for divorce is adultery and adultery is not addmitted.', () => {
+    const session = {
+      ChooseAResponse: {
+        response: 'proceed'
+      },
+      originalPetition: {
+        reasonForDivorce: 'adultery'
+      },
+      AdmitAdultery: {
+        response: 'doNotAdmit'
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'defendedHeading',
+      'defendedText1',
+      'defendedText2',
+      'defendedText3',
+      'defendedText4',
+      'defendedText5',
+      'defendedText6',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
+  it('renders the content if the divorce is not defended, reason for divorce is separation-2-years and no consent.', () => {
+    const session = {
+      ConsentDecree: {
+        response: {
+          consentDecree: 'No',
+          willDefend: 'No'
+        }
+      },
+      originalPetition: {
+        reasonForDivorce: 'separation-2-years'
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'defendedHeading',
+      'defendedText1',
+      'defendedText2',
+      'defendedText3',
+      'defendedText4',
+      'defendedText5',
+      'defendedText6',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
 
   it('renders the content if the divorce is defended', () => {
     const session = {
@@ -62,9 +231,57 @@ describe(modulePath, () => {
       'notDefendedText4',
       'notDefendedText5',
       'notDefendedListItem1',
-      'notDefendedListItem2'
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
     ];
+    return content(doneStep, session, { ignoreContent });
+  });
 
+  it('renders the content if the divorce is defended and reason is 2 years separation-2-years', () => {
+    const session = {
+      ConsentDecree: {
+        response: {
+          willDefend: 'Yes'
+        }
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'notDefendedHeading',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
+    ];
     return content(doneStep, session, { ignoreContent });
   });
 
