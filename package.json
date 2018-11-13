@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#c0cdb0ee4eb3ea32dd764e4f4749b8c76fc35316",
-    "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#7ca9fcca4372b661a0715df56fe170386c1ed9af",
+    "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#d2756f9d47c1bdad4c1d58cde70bbcee3974ee2f",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/one-per-page-test-suite": "^2.0.8",
     "chai": "^4.1.2",

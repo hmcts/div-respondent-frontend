@@ -46,7 +46,7 @@ class IdamHelper extends Helper {
         .then(response => {
           logger.info(`Retrieved IDAM test user pin: ${testEmail}`);
           if (!idamConfigHelper.getPin()) {
-            idamConfigHelper.setPin(response.pin.toString());
+            idamConfigHelper.setPin(response.pin);
           }
         })
         .catch(error => {

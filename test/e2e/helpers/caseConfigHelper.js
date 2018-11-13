@@ -5,7 +5,7 @@ const setTestCaseId = caseId => {
 };
 
 const getTestCaseId = () => {
-  return testCaseId;
+  return testCaseId.toString();
 };
 
 module.exports = {
