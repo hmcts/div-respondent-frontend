@@ -22,6 +22,7 @@ class CaseHelper extends Helper {
       })
       .catch(error => {
         logger.info(`Error creating case: ${util.inspect(error)}`);
+        throw error;
       });
   }
 }
