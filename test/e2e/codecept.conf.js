@@ -32,8 +32,6 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
-      waitForNavigation: ['domcontentloaded', 'networkidle0'],
-      getPageTimeout: 30000,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
@@ -49,12 +47,6 @@ exports.config = {
       reportDir: process.env.E2E_OUTPUT_DIR || './functional-output',
       reportName: 'RespondentFrontendTests',
       inlineAssets: true
-    }
-  },
-  plugins: {
-    screenshotOnFail: {
-      enabled: true,
-      fullPageScreenshots: true
     }
   },
   name: 'Respondent Frontend Tests'
