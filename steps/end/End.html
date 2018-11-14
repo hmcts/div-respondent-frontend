@@ -1,0 +1,18 @@
+{% extends "page.njk" %}
+
+{% block back %}{% endblock %}
+
+{% block proposition_header %}{% endblock %}
+
+{% set title %}
+    {{ content.title | safe}}
+{% endset %}
+
+{% block main_content %}
+
+    <p>{{ content.signInToReturn | safe }}</p> <br>
+    <p>{{ content.ifYouNeedHelp | safe }}</p>
+    <p>{{ content.phoneToCallIfProblems | safe }}</p>
+    <p>{{ content.emailIfProblems | safe }}</p>
+
+{% endblock %}
