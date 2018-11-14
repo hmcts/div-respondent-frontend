@@ -32,8 +32,6 @@ class IdamHelper extends Helper {
       idamArgs.testGroupCode = 'caseworker';
       idamArgs.roles = ['citizen', 'caseworker-divorce-courtadmin'];
 
-      logger.info(idamArgs);
-
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
       return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
