@@ -28,7 +28,7 @@ class ReviewApplication extends Question {
   }
 
   get feesIssueApplication() {
-    return this.res.locals.applicationFee.issue.amount;
+    return this.res.locals.applicationFee['petition-issue-fee'].amount;
   }
 
   get feesFinancialConsentOrder() {
@@ -74,7 +74,7 @@ class ReviewApplication extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('issue'),
+      getFeeFromFeesAndPayments('petition-issue-fee'),
       getFeeFromFeesAndPayments('DivorceFinancialConsentOrderPayService'),
       getFeeFromFeesAndPayments('DivorceSubmitFormAPayService')
     ];
