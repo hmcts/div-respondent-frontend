@@ -29,6 +29,10 @@ withPipeline("nodejs", product, component) {
     setVaultName('div')
   }
 
+  before('build') {
+    sh 'yarn test:functional'
+  }
+
   after('test') {
     sh 'yarn test:validation'
   }
