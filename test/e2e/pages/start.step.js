@@ -5,7 +5,7 @@ function seeExamplePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ExamplePage.path);
-  I.see(content.en.start);
+  I.waitForText(content.en.start, 10);
 }
 
 module.exports = { seeExamplePage };
