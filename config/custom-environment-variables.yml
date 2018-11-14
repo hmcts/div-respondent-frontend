@@ -52,7 +52,6 @@ services:
     expire: RATE_LIMITER_EXPIRE
     enabled: RATE_LIMITER_ENABLED
   caseOrchestration:
-    baseUrl: CASE_ORCHESTRATION_BASE_URL
     getPetitionUrl: GET_PETITION_URL
     linkRespondentUrl: LINK_RESPONDENT_URL
     submitAosUrl: SUBMIT_AOS_URL
