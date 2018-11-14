@@ -20,6 +20,10 @@ class AgreeToPayCosts extends Question {
     return this.req.session;
   }
 
+  get config() {
+    return config;
+  }
+
   get form() {
     const answers = [yes, no, differentAmount];
     const validAnswers = Joi.string()

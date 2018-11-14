@@ -52,22 +52,25 @@
       )
     }}
 
-    {{ selectionButton(fields.agreeToPayCosts.agree,
-        option =
-          { label: content.fields.differentAmount.heading, value: "DifferentAmount", target: "different-amount" },
-        type='radio'
-      )
-    }}
+    {% if config.features.agreeToCosts.differentAmount.enabled === true %}
 
-    <div id="different-amount" class="form-group panel js-hidden">
-      <div class="form-group {{ errorClass(fields.agreeToPayCosts.newAmount) }}">
-        <label class="form-label-bold" for="{{ fields.agreeToPayCosts.newAmount.id }}">{{ content.fields.differentAmount.newAmount | safe }}</label>
-        {{ errorsFor(fields.agreeToPayCosts.newAmount) }}
-        <span id="currency-symbol">{{ content.poundSymbol }}</span><input class="form-control" id="{{ fields.agreeToPayCosts.newAmount.id }}" name="{{ fields.agreeToPayCosts.newAmount.id }}" type="text" value="{{ fields.agreeToPayCosts.newAmount.value | default('') }}" />
+      {{ selectionButton(fields.agreeToPayCosts.agree,
+          option =
+            { label: content.fields.differentAmount.heading, value: "DifferentAmount", target: "different-amount" },
+          type='radio'
+        )
+      }}
+
+      <div id="different-amount" class="form-group panel js-hidden">
+        <div class="form-group {{ errorClass(fields.agreeToPayCosts.newAmount) }}">
+          <label class="form-label-bold" for="{{ fields.agreeToPayCosts.newAmount.id }}">{{ content.fields.differentAmount.newAmount | safe }}</label>
+          {{ errorsFor(fields.agreeToPayCosts.newAmount) }}
+          <span id="currency-symbol">{{ content.poundSymbol }}</span><input class="form-control" id="{{ fields.agreeToPayCosts.newAmount.id }}" name="{{ fields.agreeToPayCosts.newAmount.id }}" type="text" value="{{ fields.agreeToPayCosts.newAmount.value | default('') }}" />
+        </div>
+
+        {{ textarea(fields.agreeToPayCosts.newAmountReason, content.fields.differentAmount.reason) }}
       </div>
-
-      {{ textarea(fields.agreeToPayCosts.newAmountReason, content.fields.differentAmount.reason) }}
-    </div>
+    {% endif %}
 
     {{ selectionButton(fields.agreeToPayCosts.agree,
         option =

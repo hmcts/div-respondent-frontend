@@ -98,6 +98,9 @@ tests:
 
 features:
   idam: false
+  agreeToCosts:
+    differentAmount:
+      enabled: false
 
 journey:
   timeoutDelay: 300
