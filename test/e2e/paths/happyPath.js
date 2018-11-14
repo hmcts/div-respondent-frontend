@@ -14,8 +14,8 @@ Scenario('@Integration First time new user', async I => {
   I.login();
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode();
-  I.click(content.en.continue);
-  I.seeReviewApplicationPage();
+  I.navByClick(content.en.continue);
+  I.seeRespondPage();
 });
 
 Scenario('Proceed with divorce with linked user', I => {

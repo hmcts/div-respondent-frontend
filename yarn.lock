@@ -100,18 +100,18 @@
     request-promise-native "^1.0.5"
     uuid "^3.1.0"
 
-"@hmcts/div-idam-test-harness@https://github.com/hmcts/div-idam-test-harness.git#c0cdb0ee4eb3ea32dd764e4f4749b8c76fc35316":
+"@hmcts/div-idam-test-harness@https://github.com/hmcts/div-idam-test-harness.git#892595760d839efc39e9f2c7cf68ed70dfae98e6":
   version "1.2.1"
-  resolved "https://github.com/hmcts/div-idam-test-harness.git#c0cdb0ee4eb3ea32dd764e4f4749b8c76fc35316"
+  resolved "https://github.com/hmcts/div-idam-test-harness.git#892595760d839efc39e9f2c7cf68ed70dfae98e6"
   dependencies:
     "@hmcts/div-idam-express-middleware" "^6.0.1"
     request "^2.81.0"
     request-promise-native "^1.0.4"
     socks5-https-client "^1.0.3"
 
-"@hmcts/div-test-harness@https://github.com/hmcts/div-test-harness#1f567f0a2dbc9f9cde02576b96b04038a5728c03":
+"@hmcts/div-test-harness@https://github.com/hmcts/div-test-harness#0.1":
   version "1.0.0"
-  resolved "https://github.com/hmcts/div-test-harness#1f567f0a2dbc9f9cde02576b96b04038a5728c03"
+  resolved "https://github.com/hmcts/div-test-harness#a459aaa16a92cb13e0dac35c32bf559ad79de6a6"
   dependencies:
     "@hmcts/nodejs-logging" "^3.0.0"
     request "^2.88.0"
