@@ -32,7 +32,7 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       getPageTimeout: 15000,
-      show: true,
+      show: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
