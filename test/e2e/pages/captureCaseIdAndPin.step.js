@@ -7,7 +7,7 @@ function seeCaptureCaseAndPinPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(CaptureCaseAndPinPage.path);
-  I.waitForText(content.en.title, 10);
+  I.waitForText(content.en.title, 15);
 }
 
 function fillInReferenceNumberAndPinCode(referenceNumber, pinCode) {

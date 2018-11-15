@@ -7,7 +7,7 @@ const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 function seeIdamLoginPage() {
   const I = this;
   I.seeInCurrentUrl('login');
-  I.waitForText(content.en.title, 10);
+  I.waitForText(content.en.title, 15);
 }
 
 function login() {
