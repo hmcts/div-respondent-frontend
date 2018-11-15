@@ -51,7 +51,7 @@
       }
     },
     "errors": {
-      "required": "Select ‘I agree to pay the suggested costs’ if you agree to pay all or some of the divorce costs.",
+      "required": "Select ‘I agree to pay the suggested costs’ if you agree to pay.",
       "noReasonRequired": "Enter a reason why you should not pay the costs.",
       "newAmountRequired": "Enter an amount that you want to pay.",
       "newAmountReasonRequired": "Enter a reason for why you should pay a different amount."
