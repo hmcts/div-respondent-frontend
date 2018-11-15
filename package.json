@@ -52,7 +52,7 @@
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
-    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#892595760d839efc39e9f2c7cf68ed70dfae98e6",
+    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#1.3.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#0.1",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/one-per-page-test-suite": "^2.0.8",
