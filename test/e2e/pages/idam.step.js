@@ -4,10 +4,10 @@ const content = require('mocks/steps/idamLogin/IdamLogin.content');
 const config = require('config');
 const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 
-function seeIdamLoginPage() {
+async function seeIdamLoginPage() {
   const I = this;
   I.seeInCurrentUrl('login');
-  I.waitForText(content.en.title, 15);
+  await I.waitForText(content.en.title, 15);
 }
 
 function login() {

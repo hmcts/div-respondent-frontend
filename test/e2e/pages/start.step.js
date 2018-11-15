@@ -1,11 +1,11 @@
 const ExamplePage = require('steps/start/Start.step');
 const content = require('steps/start/Start.content');
 
-function seeExamplePage() {
+async function seeExamplePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ExamplePage.path);
-  I.waitForText(content.en.start, 15);
+  await I.waitForText(content.en.start, 15);
 }
 
 module.exports = { seeExamplePage };
