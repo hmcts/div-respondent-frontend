@@ -6,11 +6,7 @@ const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe(modulePath, () => {
   beforeEach(() => {
-<<<<<<< HEAD
     sinon.stub(feesAndPaymentsService, 'get').withArgs('petition-issue-fee')
-=======
-    sinon.stub(feesAndPaymentsService, 'get').withArgs('issue')
->>>>>>> unit test fix for apply fee
       .resolves({
         feeCode: 'FEE0002',
         version: 4,

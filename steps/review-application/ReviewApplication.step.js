@@ -43,11 +43,11 @@ class ReviewApplication extends Question {
   }
 
   get feesFinancialConsentOrder() {
-    return this.res.locals.applicationFee.DivorceFinancialConsentOrderPayService.amount;
+    return this.res.locals.applicationFee['general-application-fee'].amount;
   }
 
   get feesDivorceSubmitFormA() {
-    return this.res.locals.applicationFee.DivorceSubmitFormAPayService.amount;
+    return this.res.locals.applicationFee['application-financial-order-fee'].amount;
   }
 
   get form() {

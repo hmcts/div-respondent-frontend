@@ -25,7 +25,7 @@ class AgreeToPayCosts extends Question {
     return config;
 
   get feesIssueApplication() {
-    return this.res.locals.applicationFee.issue.amount;
+    return this.res.locals.applicationFee['petition-issue-fee'].amount;
   }
 
   get feesIssueApplication() {

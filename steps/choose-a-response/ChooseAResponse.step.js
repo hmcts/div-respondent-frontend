@@ -32,11 +32,7 @@ class ChooseAResponse extends Question {
   }
 
   get feesDefendDivorce() {
-<<<<<<< HEAD
     return this.res.locals.applicationFee['defended-petition-fee'].amount;
-=======
-    return this.res.locals.applicationFee.DefendDivorcePayService.amount;
->>>>>>> additional fees added, unit tests amended
   }
 
   get isBehaviour() {

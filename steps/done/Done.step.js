@@ -20,10 +20,6 @@ class Done extends ExitPoint {
     return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
-  get feesDefendDivorce() {
-    return this.res.locals.applicationFee.DefendDivorcePayService.amount;
-  }
-
   get middleware() {
     return [
       idam.protect(),

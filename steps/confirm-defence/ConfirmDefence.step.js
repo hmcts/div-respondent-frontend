@@ -36,10 +36,6 @@ class ConfirmDefence extends Question {
     return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
-  get feesDefendDivorce() {
-    return this.res.locals.applicationFee.DefendDivorcePayService.amount;
-  }
-
   values() {
     // override here and return empty object to avoid sending this step to backend
     return {};
