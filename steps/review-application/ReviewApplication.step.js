@@ -32,11 +32,11 @@ class ReviewApplication extends Question {
   }
 
   get feesFinancialConsentOrder() {
-    return this.res.locals.applicationFee.DivorceFinancialConsentOrderPayService.amount;
+    return this.res.locals.applicationFee['general-application-fee'].amount;
   }
 
   get feesDivorceSubmitFormA() {
-    return this.res.locals.applicationFee.DivorceSubmitFormAPayService.amount;
+    return this.res.locals.applicationFee['application-financial-order-fee'].amount;
   }
 
   get form() {
@@ -75,8 +75,8 @@ class ReviewApplication extends Question {
       ...super.middleware,
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
-      getFeeFromFeesAndPayments('DivorceFinancialConsentOrderPayService'),
-      getFeeFromFeesAndPayments('DivorceSubmitFormAPayService')
+      getFeeFromFeesAndPayments('general-application-fee'),
+      getFeeFromFeesAndPayments('application-financial-order-fee')
     ];
   }
 }

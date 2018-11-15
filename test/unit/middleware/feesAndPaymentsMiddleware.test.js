@@ -6,7 +6,7 @@ const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe(modulePath, () => {
   beforeEach(() => {
-    sinon.stub(feesAndPaymentsService, 'get').withArgs('issue')
+    sinon.stub(feesAndPaymentsService, 'get').withArgs('petition-issue-fee')
       .resolves({
         feeCode: 'FEE0002',
         version: 4,
@@ -26,7 +26,7 @@ describe(modulePath, () => {
     };
     const req = sinon.stub();
     const appFeeIssue = {
-      issue: {
+      'petition-issue-fee': {
         feeCode: 'FEE0002',
         version: 4,
         amount: 550.00,
@@ -34,7 +34,7 @@ describe(modulePath, () => {
       }
     };
 
-    getFeeFromFeesAndPayments('issue')(req, res, next).then(() => {
+    getFeeFromFeesAndPayments('petition-issue-fee')(req, res, next).then(() => {
       expect(res.locals.applicationFee).to.eql(appFeeIssue);
       expect(next.calledOnce).to.eql(true);
       done();

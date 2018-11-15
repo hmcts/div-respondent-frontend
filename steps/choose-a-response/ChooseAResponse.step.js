@@ -32,7 +32,7 @@ class ChooseAResponse extends Question {
   }
 
   get feesDefendDivorce() {
-    return this.res.locals.applicationFee.DefendDivorcePayService.amount;
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
   get isBehaviour() {
@@ -105,7 +105,7 @@ class ChooseAResponse extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('DefendDivorcePayService')
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 

@@ -13,18 +13,18 @@ class Done extends ExitPoint {
   }
 
   get feesAmendDivorce() {
-    return this.res.locals.applicationFee.DivorceAmendPetitionPayService.amount;
+    return this.res.locals.applicationFee['amend-fee'].amount;
   }
 
   get feesDefendDivorce() {
-    return this.res.locals.applicationFee.DefendDivorcePayService.amount;
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
   get middleware() {
     return [
       idam.protect(),
-      getFeeFromFeesAndPayments('DivorceAmendPetitionPayService'),
-      getFeeFromFeesAndPayments('DefendDivorcePayService'),
+      getFeeFromFeesAndPayments('amend-fee'),
+      getFeeFromFeesAndPayments('defended-petition-fee'),
       preserveSession,
       ...super.middleware,
       idam.logout()

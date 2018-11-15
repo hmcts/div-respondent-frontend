@@ -27,7 +27,7 @@ class ConsentDecree extends Question {
   }
 
   get feesAmendDivorce() {
-    return this.res.locals.applicationFee.DivorceAmendPetitionPayService.amount;
+    return this.res.locals.applicationFee['amend-fee'].amount;
   }
 
   values() {
@@ -96,7 +96,7 @@ class ConsentDecree extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('DivorceAmendPetitionPayService')
+      getFeeFromFeesAndPayments('amend-fee')
     ];
   }
 

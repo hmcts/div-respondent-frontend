@@ -22,7 +22,7 @@ class NoConsentAreYouSure extends Question {
   }
 
   get feesAmendDivorce() {
-    return this.res.locals.applicationFee.DivorceAmendPetitionPayService.amount;
+    return this.res.locals.applicationFee['amend-fee'].amount;
   }
 
   get const() {
@@ -60,7 +60,7 @@ class NoConsentAreYouSure extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('DivorceAmendPetitionPayService')
+      getFeeFromFeesAndPayments('amend-fee')
     ];
   }
 

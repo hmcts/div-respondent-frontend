@@ -21,7 +21,7 @@ class DefendFinancialHardship extends Question {
   }
 
   get feesDefendDivorce() {
-    return this.res.locals.applicationFee.DefendDivorcePayService.amount;
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
   get form() {
@@ -87,7 +87,7 @@ class DefendFinancialHardship extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('DefendDivorcePayService')
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 

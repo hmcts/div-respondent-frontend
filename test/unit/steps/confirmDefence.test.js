@@ -44,8 +44,8 @@ describe(modulePath, () => {
       { specificContent: ['title'] }
     ).then(() => {
       sinon.assert.calledTwice(feesAndPaymentsService.get);
-      sinon.assert.calledWith(feesAndPaymentsService.get, 'issue');
-      sinon.assert.calledWith(feesAndPaymentsService.get, 'DefendDivorcePayService');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'petition-issue-fee');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'defended-petition-fee');
     });
   });
 

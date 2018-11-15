@@ -29,11 +29,11 @@ class ConfirmDefence extends Question {
   }
 
   get feesIssueApplication() {
-    return this.res.locals.applicationFee.issue.amount;
+    return this.res.locals.applicationFee['petition-issue-fee'].amount;
   }
 
   get feesDefendDivorce() {
-    return this.res.locals.applicationFee.DefendDivorcePayService.amount;
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
   values() {
@@ -70,8 +70,8 @@ class ConfirmDefence extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('issue'),
-      getFeeFromFeesAndPayments('DefendDivorcePayService')
+      getFeeFromFeesAndPayments('petition-issue-fee'),
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 

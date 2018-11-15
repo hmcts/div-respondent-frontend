@@ -10,7 +10,7 @@ describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
-    sinon.stub(feesAndPaymentsService, 'get').withArgs('DefendDivorcePayService')
+    sinon.stub(feesAndPaymentsService, 'get').withArgs('defended-petition-fee')
       .resolves({
         feeCode: 'FEE0002',
         version: 4,
@@ -40,7 +40,7 @@ describe(modulePath, () => {
       { specificContent: ['title'] }
     ).then(() => {
       sinon.assert.calledOnce(feesAndPaymentsService.get);
-      sinon.assert.calledWith(feesAndPaymentsService.get, 'DefendDivorcePayService');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'defended-petition-fee');
     });
   });
 

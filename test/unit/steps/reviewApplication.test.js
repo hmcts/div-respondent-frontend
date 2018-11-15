@@ -42,9 +42,9 @@ describe(modulePath, () => {
       { specificContent: ['title'] }
     ).then(() => {
       sinon.assert.calledThrice(feesAndPaymentsService.get);
-      sinon.assert.calledWith(feesAndPaymentsService.get, 'issue');
-      sinon.assert.calledWith(feesAndPaymentsService.get, 'DivorceFinancialConsentOrderPayService');
-      sinon.assert.calledWith(feesAndPaymentsService.get, 'DivorceSubmitFormAPayService');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'petition-issue-fee');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'general-application-fee');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'application-financial-order-fee');
     });
   });
 
