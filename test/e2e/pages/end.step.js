@@ -1,5 +1,5 @@
 const EndPage = require('steps/end/End.step');
-const content = require('steps/End/End.content');
+const content = require('steps/end/End.content');
 
 function seeEndPage() {
   const I = this;
