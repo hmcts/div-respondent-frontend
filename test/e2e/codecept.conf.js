@@ -33,7 +33,8 @@ exports.config = {
       },
       chrome: {
         ignoreHTTPSErrors: true,
-        args: chromeArgs
+        args: chromeArgs,
+        headless: false
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
