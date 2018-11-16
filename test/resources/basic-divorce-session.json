@@ -1,5 +1,6 @@
 {
   "createdDate":"2018-06-07",
+  "D8caseReference": "LV17D80101",
   "D8ScreenHasMarriageBroken":"YES",
   "D8ScreenHasRespondentAddress":"YES",
   "D8ScreenHasMarriageCert":"YES",
@@ -45,6 +46,7 @@
   ],
   "D8LegalProceedingsDetails":"The legal proceeding details",
   "D8ReasonForDivorce":"adultery",
+  "D8StatementOfTruth": "YES",
   "D8DerivedStatementOfCase":"On a washing machine.\nSome time ago.\nIt hurts inside.",
   "D8ReasonForDivorceAdultery3rdPartyFName":"Jennifer",
   "D8ReasonForDivorceAdultery3rdPartyLName":"Lawrence",
