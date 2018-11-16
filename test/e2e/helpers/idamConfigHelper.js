@@ -2,6 +2,9 @@ const config = require('config');
 
 let testEmail = '';
 let testPassword = '';
+let testToken = '';
+let testPin = '';
+let testLetterHolderId = '';
 
 const setTestEmail = email => {
   testEmail = email;
@@ -9,6 +12,18 @@ const setTestEmail = email => {
 
 const setTestPassword = password => {
   testPassword = password;
+};
+
+const setTestToken = token => {
+  testToken = token;
+};
+
+const setPin = pin => {
+  testPin = pin;
+};
+
+const setLetterHolderId = id => {
+  testLetterHolderId = id;
 };
 
 const getTestEmail = () => {
@@ -19,4 +34,27 @@ const getTestPassword = () => {
   return config.idamTestPassword || testPassword;
 };
 
-module.exports = { setTestEmail, setTestPassword, getTestEmail, getTestPassword };
+const getTestToken = () => {
+  return testToken;
+};
+
+const getPin = () => {
+  return testPin;
+};
+
+const getLetterHolderId = () => {
+  return testLetterHolderId.toString();
+};
+
+module.exports = {
+  setTestEmail,
+  setTestPassword,
+  setTestToken,
+  setPin,
+  getTestEmail,
+  getTestPassword,
+  getTestToken,
+  getPin,
+  setLetterHolderId,
+  getLetterHolderId
+};
