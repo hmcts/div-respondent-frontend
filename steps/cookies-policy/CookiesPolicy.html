@@ -1,0 +1,81 @@
+{% extends "page.njk" %}
+
+{% block back %}{% endblock %}
+
+{% set title %}
+{{ content.title }}
+{% endset %}
+
+{% block main_content %}
+<section>
+    <p>{{ content.cookieExplanation }}</p>
+    <p>{{ content.introDescription }}</p>
+    <ul class="list list-bullet">
+        <li>{{ content.serviceDesc1 }}</li>
+        <li>{{ content.serviceDesc2 }}</li>
+        <li>{{ content.serviceDesc3 }}</li>
+    </ul>
+    <p>{{ content.findMore | safe }}</p>
+</section>
+<section>
+    <h2 class="heading-medium">{{ content.inDivorceTitle }}</h2>
+    <section>
+        <h3 class="heading-small">{{ content.toMeasure }}</h3>
+        <p>{{ content.google1 }}</p>
+        <p>{{ content.googleAnalytics }}</p>
+        <ul class="list list-bullet">
+            <li>{{ content.ga1 }}</li>
+            <li>{{ content.ga2 }}</li>
+            <li>{{ content.ga3 }}</li>
+            <li>{{ content.ga4 }}</li>
+        </ul>
+        <p>{{ content.allowGoogle1 }}</p>
+        <p>{{ content.allowGoogle2 }}</p>
+        <p>{{ content.gaSets }}</p>
+        <table>
+            <caption>Definition of cookies & their purpose</caption>
+            <tr><th>{{ content.nameTitle }}</th><th>{{ content.purposeTitle }}</th><th>{{ content.expireTitle }}</th></tr>
+            <tr><td>{{ content.gaTd2 }}</td><td>{{ content.gaTdHelp }}</td><td>{{ content.gaTdYears }}</td></tr>
+            <tr><td>{{ content.gaTd3 }}</td><td>{{ content.gaTdRate }}</td><td>{{ content.gaTdMinutes }}</td></tr>
+            <tr><td>{{ content.gaTd4 }}</td><td>{{ content.gaId }}</td><td>{{ content.ga24h }}</td></tr>
+        </table>
+    </section>
+    <section>
+        <h3 class="heading-small">{{ content.introTitle }}</h3>
+        <p>{{ content.popup }}</p>
+        <table>
+            <caption>Definition of cookies & their purpose</caption>
+            <tr><th>{{ content.nameTitle }}</th><th>{{ content.purposeTitle }}</th><th>{{ content.expireTitle }}</th></tr>
+            <tr><td>{{ content.cookieMessage }}</td><td>{{ content.cookieSave }}</td><td>{{ content.cookie1month }}</td></tr>
+        </table>
+    </section>
+    <section>
+        <h3 class="heading-small">{{ content.store1 }}</h3>
+        <p>{{ content.store2 }}</p>
+        <table>
+            <caption>Definition of cookies & their purpose</caption>
+            <tr><th>{{ content.nameTitle }}</th><th>{{ content.purposeTitle }}</th><th>{{ content.expireTitle }}</th></tr>
+            <tr><td>{{ content.nameSid }}</td><td>{{ content.purposeCarrie }}</td><td>{{ content.expClose }}</td></tr>
+        </table>
+    </section>
+    <section>
+        <h3 class="heading-small">{{ content.toIdentify }}</h3>
+        <p>{{ content.useToIdentify }}</p>
+        <table>
+            <caption>Definition of cookies & their purpose</caption>
+            <tr><th>{{ content.nameTitle }}</th><th>{{ content.purposeTitle }}</th><th>{{ content.expireTitle }}</th></tr>
+            <tr><td>{{ content.nameAuth }}</td><td>{{ content.purposeIdent }}</td><td>{{ content.expClose }}</td></tr>
+        </table>
+    </section>
+    <section>
+        <h3 class="heading-small">{{ content.moreSecure1 }}</h3>
+        <p>{{ content.moreSecure2 }}</p>
+        <table>
+            <caption>Definition of cookies & their purpose</caption>
+            <tr><th>{{ content.nameTitle }}</th><th>{{ content.purposeTitle }}</th><th>{{ content.expireTitle }}</th></tr>
+            <tr><td>{{ content.nameTamp }}</td><td>{{ content.purposeTamp }}</td><td>{{ content.expClose }}</td></tr>
+            <tr><td>{{ content.nameState }}</td><td>{{ content.purposeIdentSec }}</td><td>{{ content.expClose }}</td></tr>
+        </table>
+    </section>
+</section>
+{% endblock %}
