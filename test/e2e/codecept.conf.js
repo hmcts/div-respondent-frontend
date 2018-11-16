@@ -26,20 +26,9 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
-      desiredCapabilities: {
-        chromeOptions: {
-          args: [
-            '--disable-gpu',
-            '--disable-setuid-sandbox',
-            '--no-sandbox',
-            '--ignore-certificate-errors'
-          ]
-        }
-      },
       chrome: {
         ignoreHTTPSErrors: true,
-        args: chromeArgs,
-        headless: true
+        args: chromeArgs
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
