@@ -23,7 +23,7 @@
         },
         "whatNow": {
           "heading": "What happens now",
-          "summary1": "Your husband/wife will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
+          "summary1": "Your {{ session.divorceWho }} will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
           "summary2": "The court will then make its decision on whether you should pay any costs. It will take all your circumstances into account, including your conduct, and your {{ session.divorceWho }}'s conduct, before and during the divorce.",
           "summary3": "You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
         },
