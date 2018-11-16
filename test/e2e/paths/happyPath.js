@@ -1,23 +1,33 @@
 const content = require('common/content');
-const basicDivorceSession = require('test/resources/basic-divorce-session');
+const behaviourDivorceSession = require('test/resources/unreasonable-behaviour-divorce-session');
 
 Feature('Happy path');
 
-Scenario('@Integration Can see index page', I => {
-  I.amOnLoadedPage('/');
-  I.seeExamplePage();
-});
-
-Scenario('@Integration Can see index page', async I => {
+Scenario('Can see index page', async I => {
   I.amOnLoadedPage('/');
   I.seeExamplePage();
   await I.createAUser();
-  await I.createAosCaseForUser(basicDivorceSession);
+  await I.createAosCaseForUser(behaviourDivorceSession);
+}).retry(2);
+
+Scenario('@Pipeline First time new user', async I => {
+  I.amOnLoadedPage('/');
+  I.seeExamplePage();
+  await I.createAUser();
+  await I.createAosCaseForUser(behaviourDivorceSession);
+  I.navByClick('Start now');
+  I.seeIdamLoginPage();
+
+  I.login();
+  I.seeCaptureCaseAndPinPage();
+  I.fillInReferenceNumberAndPinCode();
+  I.navByClick(content.en.continue);
+  I.seeRespondPage();
 });
 
-Scenario('First time new user', async I => {
+Scenario('@ Proceed with divorce with linked user', async I => {
   await I.createAUser();
-  I.createAosCaseForUser(basicDivorceSession);
+  await I.createAosCaseForUser(behaviourDivorceSession);
   I.amOnLoadedPage('/');
   I.seeExamplePage();
   I.navByClick('Start now');
@@ -27,16 +37,6 @@ Scenario('First time new user', async I => {
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content.en.continue);
-  I.seeRespondPage();
-}).retry(2);
-
-Scenario('Proceed with divorce with linked user', I => {
-  I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
-  I.seeIdamLoginPage();
-  I.loginAsALinkedUser();
-
   I.seeRespondPage();
   I.click(content.en.continue);
 
@@ -68,7 +68,7 @@ Scenario('Proceed with divorce with linked user', I => {
   I.submitApplication();
 
   I.amOnLoadedPage('/end');
-}).retry(2);
+});
 
 
 Scenario('Disagree with divorce', I => { // eslint-disable-line

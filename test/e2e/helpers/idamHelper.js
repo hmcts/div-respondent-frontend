@@ -36,17 +36,17 @@ class IdamHelper extends Helper {
       idamConfigHelper.setTestPassword(testPassword);
       return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
         .then(() => {
-          logger.info(`Created IDAM test user: ${testEmail}`);
+          logger.info('Created IDAM test user');
           return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
         })
         .then(response => {
-          logger.info(`Retrieved IDAM test user token: ${testEmail}`);
+          logger.info('Retrieved IDAM test user token');
           idamConfigHelper.setTestToken(response.access_token);
           idamArgs.accessToken = response.access_token;
           return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
         })
         .then(response => {
-          logger.info(`Retrieved IDAM test user pin: ${testEmail}`);
+          logger.info('Retrieved IDAM test user pin');
           if (!idamConfigHelper.getPin()) {
             idamConfigHelper.setLetterHolderId(response.userId);
             idamConfigHelper.setPin(response.pin);

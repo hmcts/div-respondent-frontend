@@ -17,6 +17,7 @@ if (config.environment !== 'development') {
   const proxyByPass = config.tests.e2e.proxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
+  chromeArgs.push('--allow-failed-policy-fetch-for-test');
 }
 
 if (config.environment === 'development') {
@@ -32,9 +33,13 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
+      args: chromeArgs,
+      // 3 mins (default 30secs)
+      timeout: 300000,
+      dumpio: true,
+      pipe: true,
       chrome: {
-        ignoreHTTPSErrors: true,
-        args: chromeArgs
+        ignoreHTTPSErrors: true
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
