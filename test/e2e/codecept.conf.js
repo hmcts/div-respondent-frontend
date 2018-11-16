@@ -5,6 +5,11 @@ const config = require('config');
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 let waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
+let testUrl = config.tests.e2e.url || config.node.baseUrl;
+
+if (testUrl.startsWith('https:')) {
+  testUrl = testUrl.replaceFirst(/https:/, 'http:');
+}
 
 if (config.environment !== 'development') {
   const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
@@ -22,7 +27,7 @@ exports.config = {
   output: config.tests.e2e.outputDir,
   helpers: {
     Puppeteer: {
-      url: config.tests.e2e.url || config.node.baseUrl,
+      url: testUrl,
       waitForTimeout,
       waitForAction,
       show: false,
