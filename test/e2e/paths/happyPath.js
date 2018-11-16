@@ -3,6 +3,18 @@ const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 Feature('Happy path');
 
+Scenario('@Integration Can see index page', I => {
+  I.amOnLoadedPage('/');
+  I.seeExamplePage();
+});
+
+Scenario('@Integration Can see index page', async I => {
+  I.amOnLoadedPage('/');
+  I.seeExamplePage();
+  await I.createAUser();
+  await I.createAosCaseForUser(basicDivorceSession);
+});
+
 Scenario('First time new user', async I => {
   await I.createAUser();
   I.createAosCaseForUser(basicDivorceSession);
