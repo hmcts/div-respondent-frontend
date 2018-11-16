@@ -28,13 +28,18 @@ exports.config = {
       show: false,
       desiredCapabilities: {
         chromeOptions: {
-          args: [ '--disable-gpu']
+          args: [
+            '--disable-gpu',
+            '--disable-setuid-sandbox',
+            '--no-sandbox',
+            '--ignore-certificate-errors'
+          ]
         }
       },
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs,
-        headless: false
+        headless: true
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
