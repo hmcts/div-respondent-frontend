@@ -3,7 +3,7 @@
     "title": "Paying for the divorce",
     "poundSymbol": "£",
     "cya": {
-      "agree" : "Do you agree to pay the suggested costs?",
+      "agree" : "Do you agree to pay the costs?",
       "noReason": "Why don't you agree to pay the suggested costs?",
       "newAmount": "Suggested New Amount",
       "newAmountReason": "Why don't you agree to pay the suggested costs?"
@@ -35,8 +35,8 @@
     },
     "fields": {
       "agree": {
-        "heading": "I agree to pay the suggested costs",
-        "answer": "I agree to pay the suggested costs"
+        "heading": "I agree to pay the costs",
+        "answer": "I agree to pay the costs"
       },
       "differentAmount": {
         "heading": "I suggest I pay a different amount",
@@ -51,7 +51,7 @@
       }
     },
     "errors": {
-      "required": "Select ‘I agree to pay the suggested costs’ if you agree to pay.",
+      "required": "Select ‘I agree to pay the costs’ if you agree to pay.",
       "noReasonRequired": "Enter a reason why you should not pay the costs.",
       "newAmountRequired": "Enter an amount that you want to pay.",
       "newAmountReasonRequired": "Enter a reason for why you should pay a different amount."
