@@ -8,4 +8,5 @@ function seeExamplePage() {
   I.see(content.en.start);
 }
 
+
 module.exports = { seeExamplePage };
