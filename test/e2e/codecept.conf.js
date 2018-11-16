@@ -26,6 +26,11 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
+      desiredCapabilities: {
+        chromeOptions: {
+          args: [ '--disable-gpu']
+        }
+      },
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
