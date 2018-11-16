@@ -8,7 +8,7 @@ const chromeArgs = [ '--no-sandbox' ];
 let testUrl = config.tests.e2e.url || config.node.baseUrl;
 
 if (testUrl.startsWith('https:')) {
-  testUrl = testUrl.replaceFirst(/https:/, 'http:');
+  testUrl = testUrl.replace(/https:/, 'http:');
 }
 
 if (config.environment !== 'development') {
