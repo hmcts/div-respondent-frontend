@@ -1,14 +1,20 @@
 /* eslint-disable no-process-env */
+const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
+
+if (process.env.POINT_TO_REMOTE) {
+  const configurationFile = './remote-config.json';
+  processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
+}
 
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 let waitForAction = config.tests.e2e.waitForAction;
-const chromeArgs = [ '--no-sandbox' ];
+const chromeArgs = ['--no-sandbox'];
 
 if (config.environment !== 'development') {
-  const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
-  const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
+  const proxyServer = config.tests.e2e.proxy;
+  const proxyByPass = config.tests.e2e.proxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
@@ -26,14 +32,13 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
-      waitForNavigation: [ 'domcontentloaded', 'networkidle0' ],
-      getPageTimeout: 30000,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
+    CaseHelper: { require: './helpers/caseHelper.js' },
     JSWait: { require: './helpers/JSWait.js' }
   },
   include: { I: './pages/steps.js' },

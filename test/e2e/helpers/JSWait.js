@@ -3,9 +3,10 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
 
     // Wait for content to load before checking URL
-    if (step.name === 'seeCurrentUrlEquals') {
-      helper.waitForElement('#content', 10);
+    if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
+      return helper.waitForElement('#content', 30);
     }
+    return Promise.resolve();
   }
 
   async navByClick(text, locator) {
@@ -16,6 +17,8 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
 
     if (helperIsPuppeteer) {
       await helper.page.waitForNavigation({ waitUntil: 'networkidle0' });
+    } else {
+      await helper.wait(2);
     }
   }
 
@@ -32,7 +35,9 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
       helper.page.goto(newUrl);
       await helper.page.waitForNavigation({ waitUntil: 'networkidle0' });
     } else {
-      helper.amOnPage(newUrl);
+      await helper.amOnPage(newUrl);
+      await helper.waitInUrl(newUrl);
+      await helper.waitForElement('#content');
     }
   }
 }

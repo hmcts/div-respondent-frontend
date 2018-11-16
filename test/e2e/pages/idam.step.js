@@ -6,10 +6,11 @@ const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 
 function seeIdamLoginPage() {
   const I = this;
-  I.waitForText(content.en.title, 3);
+  I.seeInCurrentUrl('login');
+  I.see(content.en.title);
 }
 
-function loginAsANewUser() {
+function login() {
   const I = this;
 
   if (config.features.idam) {
@@ -104,7 +105,7 @@ function loginAsCaseProgressedDefending() {
 
 module.exports = {
   seeIdamLoginPage,
-  loginAsANewUser,
+  login,
   loginAsANonLinkedUser,
   loginAsInvalidPinUser,
   loginAsALinkedUser,
