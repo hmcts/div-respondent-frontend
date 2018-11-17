@@ -17,7 +17,7 @@ const idamArgs = {
 };
 
 class IdamHelper extends Helper {
-  _before() {
+  createAUser() {
     if (config.features.idam) {
       const randomString = randomstring.generate({
         length: 16,
@@ -29,24 +29,40 @@ class IdamHelper extends Helper {
 
       idamArgs.testEmail = testEmail;
       idamArgs.testPassword = testPassword;
+      idamArgs.testGroupCode = 'caseworker';
+      idamArgs.roles = ['citizen', 'caseworker-divorce-courtadmin'];
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
-
-      idamExpressTestHarness.createUser(idamArgs)
+      return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
         .then(() => {
           logger.info(`Created IDAM test user: ${testEmail}`);
+          return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
+        })
+        .then(response => {
+          logger.info(`Retrieved IDAM test user token: ${testEmail}`);
+          idamConfigHelper.setTestToken(response.access_token);
+          idamArgs.accessToken = response.access_token;
+          return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
+        })
+        .then(response => {
+          logger.info(`Retrieved IDAM test user pin: ${testEmail}`);
+          if (!idamConfigHelper.getPin()) {
+            idamConfigHelper.setLetterHolderId(response.userId);
+            idamConfigHelper.setPin(response.pin);
+          }
         })
         .catch(error => {
-          logger.warn(`Unable to create IDAM test user: ${error}`);
+          logger.warn(`Unable to create IDAM test user/token: ${error}`);
           throw error;
         });
     }
+    return Promise.resolve({});
   }
 
   _after() {
     if (config.features.idam) {
-      idamExpressTestHarness.removeUser(idamArgs)
+      idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
         .then(() => {
           logger.info(`Removed IDAM test user: ${idamArgs.testEmail}`);
         })
