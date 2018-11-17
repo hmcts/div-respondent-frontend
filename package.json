@@ -19,7 +19,8 @@
     "test:a11y": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/a11y --timeout 15000",
     "test:nsp": "nsp check",
     "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "test:functional": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Integration' --reporter mochawesome",
+    "test:functional": "NODE_PATH=. LOG_LEVEL=DEBUG codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Integration' --reporter mochawesome",
+    "test:functional:remote": "NODE_PATH=. POINT_TO_REMOTE=true LOG_LEVEL=DEBUG codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Integration' --reporter mochawesome",
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/w3cjs --timeout 15000",
     "lint": "eslint ."
   },
@@ -51,7 +52,9 @@
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
-    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
+    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#1.3.0",
+    "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#0.1",
+    "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/one-per-page-test-suite": "^2.0.8",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
