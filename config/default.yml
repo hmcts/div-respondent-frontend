@@ -78,6 +78,10 @@ paths:
   progressBar: /progress-bar
   done: /done
   entry: /entry
+  termsAndConditions: /terms-and-conditions
+  cookiesPolicy: /cookie
+  privacyPolicy: /privacy-policy
+
   mock:
     idamLogin: /idam-mock-login
 
