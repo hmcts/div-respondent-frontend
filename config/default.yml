@@ -58,7 +58,6 @@ services:
 paths:
   health: /health
   authenticated: /authenticated
-  index: /
   captureCaseAndPin: /respond-with-pin
   financialSituation: /delay-the-decree
   respond: /respond
@@ -77,7 +76,7 @@ paths:
   noConsentAreYouSure: /no-consent-are-you-sure
   progressBar: /progress-bar
   done: /done
-  entry: /entry
+  index: /
   mock:
     idamLogin: /idam-mock-login
 

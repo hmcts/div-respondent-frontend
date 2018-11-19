@@ -7,8 +7,7 @@ Scenario('First time new user', async I => {
   await I.createAUser();
   I.createAosCaseForUser(basicDivorceSession);
   I.amOnLoadedPage('/');
-  I.seeExamplePage();
-  I.navByClick('Start now');
+
   I.seeIdamLoginPage();
   await I.createAUser();
   I.login();
@@ -20,8 +19,7 @@ Scenario('First time new user', async I => {
 
 Scenario('Proceed with divorce with linked user', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAsALinkedUser();
 
@@ -60,7 +58,7 @@ Scenario('Proceed with divorce with linked user', I => {
 
 
 Scenario('Disagree with divorce', I => { // eslint-disable-line
-  I.amOnPage('/entry');
+  I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsALinkedUser();
 
@@ -102,7 +100,7 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
 });
 
 Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
-  I.amOnPage('/entry');
+  I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsALinkedUser();
 
