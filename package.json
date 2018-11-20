@@ -32,7 +32,7 @@
     "@hmcts/look-and-feel": "1.19.4",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
-    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page.git#6a98b95e91a37a1bbf803a949c8277fb76a68131",
+    "@hmcts/one-per-page": "^4.1.1",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",
@@ -82,6 +82,10 @@
     "w3cjs": "^0.4.0",
     "webdriverio": "^4.13.1",
     "zepto-node": "^1.0.0"
+  },
+   "resolutions": {
+    "minimatch": "^3.0.4"
+
   },
   "nyc": {
     "report-dir": "coverage",
