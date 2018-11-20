@@ -18,6 +18,7 @@ Scenario('First time new user', async I => {
   I.seeRespondPage();
 }).retry(2);
 
+
 Scenario('Proceed with divorce with linked user', I => {
   I.amOnPage('/');
   I.seeExamplePage('/');
