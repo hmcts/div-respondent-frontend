@@ -4,7 +4,7 @@ vault_section = "preprod"
 packages_environment = "preprod"
 packages_version = "3.0.0"
 
-additional_host_name = "div-rfe-aat.service.core-compute-aat.internal"
+additional_host_name = "div-rfe-preview.service.core-compute-preview.internal"
 http_proxy = ""
 
 idam_authentication_web_url = "https://idam.preprod.ccidam.reform.hmcts.net"
