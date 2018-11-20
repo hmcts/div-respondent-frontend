@@ -33,9 +33,6 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
-      args: chromeArgs,
-      // 3 mins (default 30secs)
-      timeout: 300000,
       dumpio: true,
       pipe: true,
       chrome: {

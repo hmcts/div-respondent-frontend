@@ -25,7 +25,7 @@ Scenario('@Pipeline First time new user', async I => {
   I.seeRespondPage();
 });
 
-Scenario('@ Proceed with divorce with linked user', async I => {
+Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   await I.createAUser();
   await I.createAosCaseForUser(behaviourDivorceSession);
   I.amOnLoadedPage('/');

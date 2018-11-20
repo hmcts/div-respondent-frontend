@@ -94,5 +94,7 @@
   "D8Cohort":"onlineSubmissionPrivateBeta",
   "D8InferredPetitionerGender":"female",
   "D8InferredRespondentGender":"male",
-  "ReceivedAOSfromResp": null
+  "ReceivedAOSfromResp": null,
+  "D8caseReference": "LV17D80999",
+  "D8MarriagePlaceOfMarriage": "London"
 }
