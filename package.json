@@ -83,7 +83,7 @@
     "webdriverio": "^4.13.1",
     "zepto-node": "^1.0.0"
   },
-   "resolutions": {
+  "resolutions": {
     "minimatch": "^3.0.4",
     "tunnel-agent": "^0.6.0",
     "hoek": "^4.2.1",
