@@ -29,10 +29,6 @@ withPipeline("nodejs", product, component) {
     setVaultName('div')
   }
 
-  before('test') {
-    sh 'yarn cache clean'
-}
-
   after('test') {
     sh 'yarn test:validation'
   }
