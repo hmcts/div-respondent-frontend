@@ -4,9 +4,12 @@ const content = require('mocks/steps/idamLogin/IdamLogin.content');
 const config = require('config');
 const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 
-function seeIdamLoginPage() {
+async function seeIdamLoginPage() {
   const I = this;
-  I.see(content.en.title);
+  await I.waitForSelector('#content', {
+    visible: true
+  });
+  await I.see(content.en.title);
 }
 
 function login() {
