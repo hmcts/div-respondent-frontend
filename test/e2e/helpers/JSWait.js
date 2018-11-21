@@ -1,6 +1,16 @@
+let loggerEnabled = false;
+
 class JSWait extends codecept_helper { // eslint-disable-line camelcase
   _beforeStep(step) {
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
+    if (!loggerEnabled) {
+      console.log('enabled logger'); // eslint-disable-line
+      helper.page.on('pageerror', function(err) { // eslint-disable-line
+        console.log('page error!'); // eslint-disable-line
+        console.log(error); // eslint-disable-line
+        loggerEnabled = false;
+      });
+    }
 
     // Wait for content to load before checking URL
     if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
