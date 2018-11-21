@@ -1,7 +1,5 @@
 /* eslint-disable no-process-env */
 const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
-const request = require('request-promise-native');
 
 if (process.env.POINT_TO_REMOTE) {
   const configurationFile = './remote-config.json';
@@ -13,23 +11,14 @@ const config = require('config');
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 let waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = ['--no-sandbox'];
-const selfUrl = config.tests.e2e.url || config.node.baseUrl;
 
-request.get(selfUrl).then(result => {
-  logger.log(`Result of getting test URL ${selfUrl}`);
-  logger.log(result);
-}).catch(error => {
-  logger.log(`Error getting test URL ${selfUrl}`);
-  logger.log(error);
-});
-
-logger.log(`Using base URL: ${selfUrl}`);
 
 if (config.environment !== 'development') {
   const proxyServer = config.tests.e2e.proxy;
   const proxyByPass = config.tests.e2e.proxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
+  chromeArgs.push(`--host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE ${proxyByPass}`);
   chromeArgs.push('--allow-failed-policy-fetch-for-test');
 }
 
@@ -42,7 +31,7 @@ exports.config = {
   output: config.tests.e2e.outputDir,
   helpers: {
     Puppeteer: {
-      url: selfUrl,
+      url: config.tests.e2e.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
       show: false,

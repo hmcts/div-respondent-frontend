@@ -1,3 +1,5 @@
+const config = require('config');
+
 class JSWait extends codecept_helper { // eslint-disable-line camelcase
   _beforeStep(step) {
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
@@ -16,7 +18,7 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     helper.click(text, locator);
 
     if (helperIsPuppeteer) {
-      await helper.page.waitForNavigation({ waitUntil: 'networkidle0' });
+      await helper.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
     } else {
       await helper.wait(2);
     }
@@ -27,18 +29,38 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     const helperIsPuppeteer = this.helpers.Puppeteer;
     let newUrl = url;
 
+    const options = {
+      proxy: config.tests.e2e.proxy,
+      insecure: true,
+      rejectUnauthorized: false
+    };
+
     if (helperIsPuppeteer) {
       if (newUrl.indexOf('http') !== 0) {
         newUrl = helper.options.url + newUrl;
       }
 
-      helper.page.goto(newUrl);
-      await helper.page.waitForNavigation({ waitUntil: 'networkidle0' });
+      helper.page.goto(newUrl, options);
+      await helper.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
     } else {
       await helper.amOnPage(newUrl);
       await helper.waitInUrl(newUrl);
       await helper.waitForElement('#content');
     }
+  }
+
+  async startNav(url) {
+    let newUrl = url;
+    const helper = this.helpers.Puppeteer;
+    if (newUrl.indexOf('http') !== 0) {
+      newUrl = helper.options.url + newUrl;
+    }
+    const options = {
+      proxy: config.tests.e2e.proxy,
+      insecure: true,
+      rejectUnauthorized: false
+    };
+    await helper.page.goto(newUrl, options);
   }
 }
 

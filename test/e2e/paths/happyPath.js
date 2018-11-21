@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const content = require('common/content');
 const behaviourDivorceSession = require('test/resources/unreasonable-behaviour-divorce-session');
 
@@ -11,8 +12,9 @@ Scenario('Can see index page', async I => {
 }).retry(2);
 
 Scenario('@Pipeline First time new user', async I => {
-  I.amOnLoadedPage('/');
+  await I.amOnLoadedPage('/');
   I.seeExamplePage();
+
   await I.createAUser();
   await I.createAosCaseForUser(behaviourDivorceSession);
   I.navByClick('Start now');
@@ -25,7 +27,7 @@ Scenario('@Pipeline First time new user', async I => {
   I.seeRespondPage();
 });
 
-Scenario('@Pipeline Proceed with divorce with linked user', async I => {
+Scenario(' Proceed with divorce with linked user', async I => {
   await I.createAUser();
   await I.createAosCaseForUser(behaviourDivorceSession);
   I.amOnLoadedPage('/');
