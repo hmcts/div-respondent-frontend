@@ -10,14 +10,11 @@ const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 let waitForAction = config.tests.e2e.waitForAction;
-const chromeArgs = ['--no-sandbox'];
-
-if (config.environment !== 'development') {
-  const proxyServer = config.tests.e2e.proxy;
-  const proxyByPass = config.tests.e2e.proxyByPass;
-  chromeArgs.push(`--proxy-server=${proxyServer}`);
-  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
-}
+const chromeArgs = [
+  '--no-sandbox',
+  `--proxy-server=${config.tests.e2e.proxy}`,
+  `--proxy-bypass-list=${config.tests.e2e.proxyByPass}`
+];
 
 if (config.environment === 'development') {
   waitForAction = 1000;
