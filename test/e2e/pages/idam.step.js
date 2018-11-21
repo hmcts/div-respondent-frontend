@@ -19,7 +19,7 @@ function login() {
     I.seeInCurrentUrl('/login?');
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
-    I.navByClick('Sign in');
+    I.click('Sign in');
     I.wait(2);
   } else {
     I.seeCurrentUrlEquals(IdamLoginPage.path);

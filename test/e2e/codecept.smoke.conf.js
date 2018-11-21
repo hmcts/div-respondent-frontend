@@ -24,8 +24,7 @@ exports.config = {
         ignoreHTTPSErrors: true,
         args: chromeArgs
       }
-    },
-    JSWait: { require: './helpers/JSWait.js' }
+    }
   },
   include: { I: './pages/steps.js' },
   mocha: {

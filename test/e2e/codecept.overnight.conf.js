@@ -42,7 +42,6 @@ const setupConfig = {
       desiredCapabilities: {}
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
-    JSWait: { require: './helpers/JSWait.js' },
     SauceLabsReportingHelper: { require: './helpers/SauceLabsReportingHelper.js' }
   },
   include: { I: './pages/steps.js' },

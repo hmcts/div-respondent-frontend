@@ -6,15 +6,15 @@ Feature('Happy path');
 Scenario('@Integration First time new user', async I => {
   await I.createAUser();
   I.createAosCaseForUser(basicDivorceSession);
-  I.amOnLoadedPage('/');
+  I.amOnPage('/');
   I.seeExamplePage();
-  I.navByClick('Start now');
+  I.click('Start now');
   I.seeIdamLoginPage();
   await I.createAUser();
   I.login();
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode();
-  I.navByClick(content.en.continue);
+  I.click(content.en.continue);
   I.seeRespondPage();
 }).retry(2);
 
@@ -55,7 +55,7 @@ Scenario('Proceed with divorce with linked user', I => {
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
-  I.amOnLoadedPage('/end');
+  I.amOnPage('/end');
 }).retry(2);
 
 
@@ -98,7 +98,7 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
-  I.amOnLoadedPage('/end');
+  I.amOnPage('/end');
 });
 
 Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
@@ -144,5 +144,5 @@ Scenario('Disagree with divorce but change response', I => { // eslint-disable-l
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
-  I.amOnLoadedPage('/end');
+  I.amOnPage('/end');
 });

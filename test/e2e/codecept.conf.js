@@ -9,16 +9,12 @@ if (process.env.POINT_TO_REMOTE) {
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
-let waitForAction = config.tests.e2e.waitForAction;
+const waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [
   '--no-sandbox',
   `--proxy-server=${config.tests.e2e.proxy}`,
   `--proxy-bypass-list=${config.tests.e2e.proxyByPass}`
 ];
-
-if (config.environment === 'development') {
-  waitForAction = 1000;
-}
 
 exports.config = {
   tests: './paths/**/*.js',
@@ -35,8 +31,7 @@ exports.config = {
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
-    CaseHelper: { require: './helpers/caseHelper.js' },
-    JSWait: { require: './helpers/JSWait.js' }
+    CaseHelper: { require: './helpers/caseHelper.js' }
   },
   include: { I: './pages/steps.js' },
   mocha: {
