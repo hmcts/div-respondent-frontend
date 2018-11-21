@@ -110,6 +110,11 @@ describe(modulePath, () => {
 
   it('renders all the content', () => {
     return content(NoConsentAreYouSure, {},
-      { specificContent: ['detailsText', 'notice'] });
+      { specificContent: [
+        'detailsText.para1',
+        'detailsText.para2',
+        'detailsText.para3',
+        'notice'
+      ] });
   });
 });

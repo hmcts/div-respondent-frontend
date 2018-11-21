@@ -9,7 +9,7 @@ if (process.env.POINT_TO_REMOTE) {
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
-let waitForAction = config.tests.e2e.waitForAction;
+let waitForAction = 10000;
 const chromeArgs = ['--no-sandbox'];
 
 

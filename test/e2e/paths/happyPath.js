@@ -11,11 +11,11 @@ Scenario('Can see index page', async I => {
 }).retry(2);
 
 Scenario('@Pipeline First time new user', async I => {
-  I.amOnLoadedPage('/');
+  await I.amOnLoadedPage('/');
   I.seeExamplePage();
   await I.createAUser();
   await I.createAosCaseForUser(behaviourDivorceSession);
-  I.navByClick('Start now');
+  await I.navByClick('Start now');
   I.seeIdamLoginPage();
 
   I.login();
@@ -25,14 +25,14 @@ Scenario('@Pipeline First time new user', async I => {
   I.seeRespondPage();
 });
 
-Scenario('Proceed with divorce with linked user', async I => {
+Scenario('@ Proceed with divorce with linked user', async I => {
   await I.createAUser();
   await I.createAosCaseForUser(behaviourDivorceSession);
-  I.amOnLoadedPage('/');
+  await I.amOnLoadedPage('/');
   I.seeExamplePage();
   I.navByClick('Start now');
   I.seeIdamLoginPage();
-  await I.createAUser();
+
   I.login();
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode();
