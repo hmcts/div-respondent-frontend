@@ -1,15 +1,15 @@
 const config = require('config');
 
 class JSWait extends codecept_helper { // eslint-disable-line camelcase
-  _beforeStep(step) {
-    const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
-
-    // Wait for content to load before checking URL
-    if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
-      return helper.waitForElement('#content', 30);
-    }
-    return Promise.resolve();
-  }
+  // _beforeStep(step) {
+  //   const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
+  //
+  //   // Wait for content to load before checking URL
+  //   if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
+  //     return helper.waitForElement('#content', 30);
+  //   }
+  //   return Promise.resolve();
+  // }
 
   async navByClick(text, locator) {
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
@@ -55,12 +55,7 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     if (newUrl.indexOf('http') !== 0) {
       newUrl = helper.options.url + newUrl;
     }
-    const options = {
-      proxy: config.tests.e2e.proxy,
-      insecure: true,
-      rejectUnauthorized: false
-    };
-    await helper.page.goto(newUrl, options);
+    await helper.page.goto(newUrl);
   }
 }
 
