@@ -46,46 +46,6 @@
     <input class="button button-start" type="submit" value="{{ content.continue }}">
   </form>
 <br>
-<br>
-  <details>
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.seeAvgerageTimes }}</span>
-    </summary>
-
-    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p class="font-xsmall">{{ content.seeAvgDivTimesHeading }}</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th class="bold font-xsmall">{{ content.seeAvgDivTimesWhatHappens }}</th>
-            <th class="bold font-xsmall">{{ content.seeAvgDivTimesHowLong }}</th>
-          </tr>
-        </thead>
-        <tbody class="table--borderless">
-          <tr>
-            <td class="font-xsmall">{{ content.seeAvgDivTimesYouHave }}</td>
-            <td class="font-xsmall">{{ content.seeAvgDivTimes3W }}</td>
-          </tr>
-          <tr>
-            <td class="font-xsmall">{{ content.seeAvgDivTimesDecreeNisi }}</td>
-            <td class="font-xsmall">{{ content.seeAvgDivTimes3To4 }}</td>
-          </tr>
-          <tr>
-            <td class="font-xsmall">{{ content.seeAvgDivTimesWaitToApply }}</td>
-            <td class="font-xsmall">{{ content.seeAvgDivTimes6Weeks }}</td>
-          </tr>
-          <tr>
-            <td class="font-xsmall">{{ content.seeAvgDivTimesDivorceGranted }}</td>
-            <td class="font-xsmall">{{ content.seeAvgDivTimes2WorkingDays }}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="font-xsmall">{{ content.seeAvgDivTimesCanVary }}</p>
-    </div>
-  </details>
-
 {% endblock %}
 
 {% block one_third %}
