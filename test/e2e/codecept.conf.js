@@ -1,5 +1,7 @@
 /* eslint-disable no-process-env */
 const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
+const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const request = require('request-promise-native');
 
 if (process.env.POINT_TO_REMOTE) {
   const configurationFile = './remote-config.json';
@@ -11,6 +13,17 @@ const config = require('config');
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 let waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = ['--no-sandbox'];
+const selfUrl = config.tests.e2e.url || config.node.baseUrl;
+
+request.get(selfUrl).then(result => {
+  logger.log(`Result of getting test URL ${selfUrl}`);
+  logger.log(result);
+}).catch(error => {
+  logger.log(`Error getting test URL ${selfUrl}`);
+  logger.log(error);
+});
+
+logger.log(`Using base URL: ${selfUrl}`);
 
 if (config.environment !== 'development') {
   const proxyServer = config.tests.e2e.proxy;
@@ -29,14 +42,17 @@ exports.config = {
   output: config.tests.e2e.outputDir,
   helpers: {
     Puppeteer: {
-      url: config.tests.e2e.url || config.node.baseUrl,
+      url: selfUrl,
       waitForTimeout,
       waitForAction,
       show: false,
+      // 3 mins (default 30secs)
+      timeout: 300000,
       dumpio: true,
       pipe: true,
       chrome: {
-        ignoreHTTPSErrors: true
+        ignoreHTTPSErrors: true,
+        args: chromeArgs
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
