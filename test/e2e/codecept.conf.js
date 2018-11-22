@@ -8,6 +8,8 @@ if (process.env.POINT_TO_REMOTE) {
 
 const config = require('config');
 
+// test
+
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 let waitForAction = config.tests.e2e.waitForAction;
 const proxyServer = config.tests.e2e.proxy;
