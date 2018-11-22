@@ -22,6 +22,8 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 
 
 withPipeline("nodejs", product, component) {
+  setVaultName('div')
+  loadVaultSecrets(secrets)
   if (env.CHANGE_TITLE && !env.CHANGE_TITLE.startsWith('[PREVIEW]')) {
     enableDockerBuild()
     enableDeployToAKS()
@@ -38,8 +40,6 @@ withPipeline("nodejs", product, component) {
   }
 
   before('functionalTest:preview') {
-    setVaultName('div')
-    loadVaultSecrets(secrets)
     // required for running functional tests on CI
     env.FEATURE_IDAM = 'true'
     env.IDAM_API_URL = 'https://preprod-idamapi.reform.hmcts.net:3511'
