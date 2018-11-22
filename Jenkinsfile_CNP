@@ -40,6 +40,7 @@ withPipeline("nodejs", product, component) {
 
   before('functionalTest:preview') {
     // required for running functional tests on CI
+    sh 'printev'
     env.FEATURE_IDAM = 'true'
     env.IDAM_API_URL = 'https://preprod-idamapi.reform.hmcts.net:3511'
     env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal'
