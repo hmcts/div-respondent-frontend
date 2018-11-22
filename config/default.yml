@@ -77,6 +77,11 @@ paths:
   progressBar: /progress-bar
   done: /done
   index: /
+  entry: /entry
+  end: /end
+  termsAndConditions: /terms-and-conditions
+  cookiesPolicy: /cookie
+  privacyPolicy: /privacy-policy
   mock:
     idamLogin: /idam-mock-login
 
@@ -99,6 +104,9 @@ tests:
 
 features:
   idam: false
+  agreeToCosts:
+    differentAmount:
+      enabled: false
 
 journey:
   timeoutDelay: 300

@@ -3,7 +3,7 @@ const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 Feature('Happy path');
 
-Scenario('First time new user', async I => {
+Scenario('@Integration First time new user', async I => {
   await I.createAUser();
   I.createAosCaseForUser(basicDivorceSession);
   I.amOnLoadedPage('/');
@@ -15,7 +15,7 @@ Scenario('First time new user', async I => {
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content.en.continue);
   I.seeRespondPage();
-}).retry(2);
+}).retry(10);
 
 Scenario('Proceed with divorce with linked user', I => {
   I.amOnPage('/');
