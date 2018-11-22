@@ -31,6 +31,7 @@ withPipeline("nodejs", product, component) {
 
   after('test') {
     sh 'yarn test:validation'
+    sh 'printenv'
   }
 
   after('functionalTest:aat') {
