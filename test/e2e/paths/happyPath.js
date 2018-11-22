@@ -15,7 +15,7 @@ Scenario('First time new user', async I => {
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content.en.continue);
   I.seeRespondPage();
-}).retry(2);
+}).retry(10);
 
 Scenario('Proceed with divorce with linked user', I => {
   I.amOnPage('/');
