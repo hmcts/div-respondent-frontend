@@ -4,7 +4,6 @@ const Respond = require(modulePath);
 const ReviewApplication = require('steps/review-application/ReviewApplication.step');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const getSteps = require('steps');
 const petitionMiddleware = require('middleware/petitionMiddleware');
 
 describe(modulePath, () => {
@@ -25,7 +24,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to next page', () => {
-    return interstitial.navigatesToNext(Respond, ReviewApplication, getSteps());
+    return interstitial.navigatesToNext(Respond, ReviewApplication);
   });
 
   it('renders the content', () => {

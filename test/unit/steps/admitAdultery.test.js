@@ -64,7 +64,7 @@ describe(modulePath, () => {
       }
     };
     return content(AdmitAdultery, session, { ignoreContent: ['info'],
-      specificContent: ['whereAdultery', 'whenAdultery', 'details'] });
+      specificContent: ['whereAdultery.heading', 'whenAdultery.heading', 'details.heading'] });
   });
 
   it('renders only the content available', () => {
@@ -77,7 +77,7 @@ describe(modulePath, () => {
       }
     };
     return content(AdmitAdultery, session, { ignoreContent: ['info'],
-      specificContent: ['whenAdultery'] });
+      specificContent: ['whenAdultery.heading'] });
   });
 
   it('returns the correct values object, with yes for admitting adultery', () => {
