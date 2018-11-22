@@ -1,21 +1,16 @@
 /* eslint-disable no-process-env */
 const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
+const config = require('config');
 
 if (process.env.POINT_TO_REMOTE) {
   const configurationFile = './remote-config.json';
   processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
 }
 
-const config = require('config');
-
 const waitForTimeout = config.tests.e2e.waitForTimeout;
-let waitForAction = config.tests.e2e.waitForAction;
+const waitForAction = config.tests.e2e.waitForAction;
 const proxyServer = config.tests.e2e.proxy;
 const proxyByPass = config.tests.e2e.proxyByPass;
-
-if (config.environment === 'development') {
-  waitForAction = 1000;
-}
 
 exports.config = {
   tests: './paths/**/*.js',

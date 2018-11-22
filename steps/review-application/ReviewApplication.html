@@ -412,7 +412,7 @@
   <!-- Respondent Address -->
 
   <h2 class="heading-medium">{{ content.respondentCorrespondenceAddressHeading }}</h2>
-  {% if session.originalPetition.respondentSolicitorAddress %}
+  {% if session.originalPetition.respondentSolicitorAddress and session.originalPetition.respondentSolicitorName  %}
     <p class="text">{{ session.originalPetition.respondentSolicitorName }}</p>
     <p class="text">{{ session.originalPetition.respondentSolicitorCompany }}</p>
     <p class="text">{{ session.originalPetition.respondentSolicitorAddress.address | address | safe }}</p>

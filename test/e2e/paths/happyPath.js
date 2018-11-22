@@ -62,7 +62,7 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.submitApplication();
 
   I.amOnLoadedPage('/end');
-}).retry(0);
+}).retry(2);
 
 
 Scenario('Disagree with divorce', I => { // eslint-disable-line
