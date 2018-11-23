@@ -29,7 +29,7 @@ services:
   idam:
     apiHealth: https://localhost:8001/health
     authenticationHealth: https://localhost:3000/health
-    apiUrl: http://localhost:8001
+    apiUrl: http://localhost:3001/idam
     secret: '123456'
     loginUrl: https://localhost:3000/idam-mock-login
     clientId: 'divorce'
@@ -49,11 +49,11 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-    getPetitionUrl: http://localhost:3001/retrieve-aos-case
-    linkRespondentUrl: http://localhost:3001/link-respondent
-    submitAosUrl: http://localhost:1111
+    getPetitionUrl: http://localhost:3001/case-orchestration/retrieve-aos-case
+    linkRespondentUrl: http://localhost:3001/case-orchestration/link-respondent
+    submitAosUrl: http://localhost:3001/case-orchestration/submit-aos
   caseMaintenance:
-    baseUrl: http://localhost:3001
+    baseUrl: http://localhost:3001/case-maintenance
 
 paths:
   health: /health
@@ -87,7 +87,7 @@ paths:
 
 tests:
   e2e:
-    show: false
+    show: true
     waitForTimeout: 10000
     waitForAction: 500
     smartWait: 5000
