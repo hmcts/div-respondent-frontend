@@ -87,6 +87,7 @@ paths:
 
 tests:
   e2e:
+    show: false
     waitForTimeout: 10000
     waitForAction: 500
     smartWait: 5000

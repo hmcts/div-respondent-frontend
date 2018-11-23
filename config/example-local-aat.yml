@@ -1,0 +1,17 @@
+# For running tests locally against AAT
+environment: local-aat
+
+services:
+  idam:
+    apiUrl: https://preprod-idamapi.reform.hmcts.net:3511
+    secret: <get-from-vault> # DO NOT SET HERE - MAKE A COPY OF THIS FILE AS `local-aat.yml`
+  caseMaintenance:
+    baseUrl: http://div-cms-aat.service.core-compute-aat.internal
+
+tests:
+  e2e:
+    show: true
+    url: https://div-rfe-aat.service.core-compute-aat.internal
+
+features:
+  idam: true
