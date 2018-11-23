@@ -266,8 +266,8 @@
     winston "^2.4.1"
 
 "@hmcts/one-per-page-test-suite@^2.0.18":
-  version "2.0.18"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-2.0.18.tgz#30419b7b83c1bd95a6b5047feaf7652f5ee8ea50"
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-2.0.19.tgz#f37d61a1bb0d852b49f040b591b2d07f921d11bd"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.19.4"
@@ -2384,7 +2384,7 @@ color-name@^1.0.0:
 
 color-string@^0.3.0:
   version "0.3.0"
-  resolved "https://registry.yarnpkg.com/color-string/-/color-string-0.3.0.tgz#27d46fb67025c5c2fa25993bfbf579e47841b991"
+  resolved "http://registry.npmjs.org/color-string/-/color-string-0.3.0.tgz#27d46fb67025c5c2fa25993bfbf579e47841b991"
   dependencies:
     color-name "^1.0.0"
 
