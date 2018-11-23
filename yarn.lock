@@ -231,13 +231,6 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/node-js-environment-variable-setter@https://github.com/hmcts/node-js-environment-variable-setter#0.2":
-  version "1.0.0"
-  resolved "https://github.com/hmcts/node-js-environment-variable-setter#8933c71471e2aa81c75a78997784fa486c951b49"
-  dependencies:
-    chai "^4.2.0"
-    mocha "^5.2.0"
-
 "@hmcts/nodejs-healthcheck@^1.4.6":
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/@hmcts/nodejs-healthcheck/-/nodejs-healthcheck-1.4.6.tgz#3eb43ca7b1ba1b1306df0821bdb5d8c88257e863"
@@ -2064,7 +2057,7 @@ chai-jq@^0.0.9:
   version "0.0.9"
   resolved "http://registry.npmjs.org/chai-jq/-/chai-jq-0.0.9.tgz#6df6af3a940cfabafb1ed5184ec7a734d8252882"
 
-chai@^4.1.2, chai@^4.2.0:
+chai@^4.1.2:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.2.0.tgz#760aa72cf20e3795e84b12877ce0e83737aa29e5"
   dependencies:
@@ -9207,39 +9200,6 @@ reduce-function-call@^1.0.1:
 referrer-policy@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/referrer-policy/-/referrer-policy-1.1.0.tgz#35774eb735bf50fb6c078e83334b472350207d79"
-
-"reform-pattern-library@git+https://github.com/dtaylor7/reform-pattern-library.git":
-  version "1.0.0"
-  uid fd8966a0df4ea45994813b05c1e3cd535646829c
-  resolved "git+https://github.com/dtaylor7/reform-pattern-library.git#fd8966a0df4ea45994813b05c1e3cd535646829c"
-  dependencies:
-    body-parser "^1.18.2"
-    browser-sync "^2.18.13"
-    cookie-parser "^1.4.3"
-    del "^3.0.0"
-    express "^4.16.1"
-    express-session "^1.15.6"
-    govuk-elements-sass "^3.1.2"
-    govuk_frontend_toolkit "^7.1.0"
-    govuk_template_jinja "^0.23.0"
-    gulp "^3.9.1"
-    gulp-autoprefixer "^4.0.0"
-    gulp-cache "^0.4.6"
-    gulp-changed "^3.1.0"
-    gulp-cli "^1.4.0"
-    gulp-eslint "^4.0.0"
-    gulp-imagemin "^3.4.0"
-    gulp-nodemon "^2.2.1"
-    gulp-sass "^3.1.0"
-    gulp-uglify "^3.0.0"
-    heroku-ssl-redirect "0.0.4"
-    marked "^0.3.6"
-    multer "^1.1.0"
-    node-sass "^4.5.3"
-    nunjucks "git+https://git@github.com/gonogo/nunjucks.git"
-    nunjucks-markdown "^2.0.1"
-    require-dir "^0.3.2"
-    run-sequence "^2.2.0"
 
 "reform-pattern-library@https://github.com/dtaylor7/reform-pattern-library.git":
   version "1.0.0"
