@@ -58,7 +58,6 @@ services:
 paths:
   health: /health
   authenticated: /authenticated
-  index: /
   captureCaseAndPin: /respond-with-pin
   financialSituation: /delay-the-decree
   respond: /respond
@@ -77,6 +76,7 @@ paths:
   noConsentAreYouSure: /no-consent-are-you-sure
   progressBar: /progress-bar
   done: /done
+  index: /
   entry: /entry
   end: /end
   termsAndConditions: /terms-and-conditions
@@ -88,7 +88,7 @@ paths:
 tests:
   e2e:
     waitForTimeout: 10000
-    waitForAction: 500
+    waitForAction: 1000
     smartWait: 5000
     outputDir: ../../functional-output
     proxy: http://proxyout.reform.hmcts.net:8080
