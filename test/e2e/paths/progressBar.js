@@ -1,7 +1,7 @@
 Feature('Progress bar page - AoS complete status');
 
 Scenario('Should display content for respondent that has not submitted AoS in time', I => {
-  I.amOnPage('/entry');
+  I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedNoAos();
   I.seeProgressBarPage();
@@ -9,7 +9,7 @@ Scenario('Should display content for respondent that has not submitted AoS in ti
 }).retry(2);
 
 Scenario('Should display content for respondent that has submitted AoS and is not defending', I => {
-  I.amOnPage('/entry');
+  I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedNotDefending();
   I.seeProgressBarPage();
@@ -17,7 +17,7 @@ Scenario('Should display content for respondent that has submitted AoS and is no
 }).retry(2);
 
 Scenario('Should display content for respondent that has defended, awaiting answer', I => {
-  I.amOnPage('/entry');
+  I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedAwaitingAnswer();
   I.seeProgressBarPage();
@@ -25,7 +25,7 @@ Scenario('Should display content for respondent that has defended, awaiting answ
 }).retry(2);
 
 Scenario('Should display content for respondent that has defended, and has answered', I => {
-  I.amOnPage('/entry');
+  I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedDefending();
   I.seeProgressBarPage();

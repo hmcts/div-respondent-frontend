@@ -5,7 +5,7 @@ const config = require('config');
 
 class Entry extends EntryPoint {
   static get path() {
-    return config.paths.entry;
+    return config.paths.index;
   }
 
   next() {
