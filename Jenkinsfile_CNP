@@ -40,7 +40,7 @@ withPipeline("nodejs", product, component) {
     sh 'printenv'
   }
 
-  after(functionalTest:preview') {
+  after('functionalTest:preview') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }
