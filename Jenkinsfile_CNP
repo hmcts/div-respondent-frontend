@@ -32,9 +32,6 @@ withPipeline("nodejs", product, component) {
 
   after('test') {
     sh 'yarn test:validation'
-  }
-
-  before('functionalTest') {
     // required for running functional tests on CI
     env.FEATURE_IDAM = 'true'
     env.IDAM_API_URL = 'https://preprod-idamapi.reform.hmcts.net:3511'
@@ -43,7 +40,7 @@ withPipeline("nodejs", product, component) {
     sh 'printenv'
   }
 
-  after('functionalTest') {
+  after(functionalTest:preview') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }
