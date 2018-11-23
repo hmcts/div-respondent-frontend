@@ -34,7 +34,7 @@ describe(modulePath, () => {
             headers: {
               Authorization: 'Bearer test'
             },
-            uri: 'http://localhost:3001/link-respondent/1234567890123456/1234'
+            uri: 'http://localhost:3001/case-orchestration/link-respondent/1234567890123456/1234'
           });
       })
       .then(done, done);
