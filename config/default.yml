@@ -58,7 +58,6 @@ services:
 paths:
   health: /health
   authenticated: /authenticated
-  index: /
   captureCaseAndPin: /respond-with-pin
   financialSituation: /delay-the-decree
   respond: /respond
@@ -77,6 +76,7 @@ paths:
   noConsentAreYouSure: /no-consent-are-you-sure
   progressBar: /progress-bar
   done: /done
+  index: /
   entry: /entry
   end: /end
   termsAndConditions: /terms-and-conditions
