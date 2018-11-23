@@ -29,10 +29,6 @@ class AgreeToPayCosts extends Question {
     return this.res.locals.applicationFee['petition-issue-fee'].amount;
   }
 
-  get feesIssueApplication() {
-    return this.res.locals.applicationFee['petition-issue-fee'].amount;
-  }
-
   get form() {
     const answers = [yes, no, differentAmount];
     const validAnswers = Joi.string()

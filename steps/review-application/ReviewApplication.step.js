@@ -29,17 +29,6 @@ class ReviewApplication extends Question {
 
   get feesIssueApplication() {
     return this.res.locals.applicationFee['petition-issue-fee'].amount;
-<<<<<<< HEAD
-  }
-
-  get feesFinancialConsentOrder() {
-    return this.res.locals.applicationFee['general-application-fee'].amount;
-  }
-
-  get feesDivorceSubmitFormA() {
-    return this.res.locals.applicationFee['application-financial-order-fee'].amount;
-=======
->>>>>>> modify service and middleware according to new backend requirements
   }
 
   get feesFinancialConsentOrder() {
