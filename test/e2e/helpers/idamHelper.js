@@ -6,7 +6,7 @@ const idamConfigHelper = require('./idamConfigHelper');
 
 const Helper = codecept_helper; // eslint-disable-line
 
-const redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
+const redirectUri = `${config.tests.e2e.url}${config.paths.authenticated}`;
 const idamArgs = {
   redirectUri,
   indexUrl: config.paths.index,

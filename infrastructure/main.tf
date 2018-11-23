@@ -7,7 +7,6 @@ locals {
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
   div_cms_url              = "http://div-cms-${local.local_env}.service.core-compute-${local.local_env}.internal"
-
   asp_name = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
 }
