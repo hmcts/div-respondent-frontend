@@ -25,29 +25,27 @@ withPipeline("nodejs", product, component) {
   if (env.CHANGE_TITLE && !env.CHANGE_TITLE.startsWith('[PREVIEW]')) {
     enableDockerBuild()
     enableDeployToAKS()
-    loadVaultSecrets(secrets)
-    setVaultName('div')
   }
+
+  loadVaultSecrets(secrets)
+  setVaultName('div')
 
   after('test') {
     sh 'yarn test:validation'
-  }
-
-  after('functionalTest:aat') {
-    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
-    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-  }
-
-  before('functionalTest:preview') {
     // required for running functional tests on CI
     env.FEATURE_IDAM = 'true'
     env.IDAM_API_URL = 'https://preprod-idamapi.reform.hmcts.net:3511'
     env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal'
     env.PREVIEW_ENV = 'true'
-    env.BASE_URL = env.TEST_URL
+    sh 'printenv'
   }
 
   after('functionalTest:preview') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
+  after('functionalTest:aat') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }
