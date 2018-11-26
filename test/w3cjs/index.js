@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const petitionMiddleware = require('middleware/petitionMiddleware');
 const caseOrchestration = require('services/caseOrchestration');
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 // Get the mocked session from file
 const filePath = path.join(__dirname, '../../resources/mock.json');
@@ -88,6 +89,13 @@ steps
           .callsFake(middleware.nextMock);
         sinon.stub(caseOrchestration, 'getPetition')
           .resolves(middleware.nextMock);
+        sinon.stub(feesAndPaymentsService, 'get')
+          .resolves({
+            feeCode: 'FEE0002',
+            version: 4,
+            amount: 550.00,
+            description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+          });
         return stepHtml(step)
           .then(html => w3cjsValidate(html))
           .then(results => {
@@ -101,6 +109,7 @@ steps
       after(() => {
         caseOrchestration.getPetition.restore();
         petitionMiddleware.loadMiniPetition.restore();
+        feesAndPaymentsService.get.restore();
       });
 
       it('should not have any html errors', () => {
