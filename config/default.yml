@@ -88,7 +88,7 @@ paths:
 tests:
   e2e:
     waitForTimeout: 10000
-    waitForAction: 500
+    waitForAction: 1000
     smartWait: 5000
     outputDir: ../../functional-output
     proxy: http://proxyout.reform.hmcts.net:8080
