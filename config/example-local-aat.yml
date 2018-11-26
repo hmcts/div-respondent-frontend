@@ -12,6 +12,8 @@ tests:
   e2e:
     show: true
     url: https://div-rfe-aat.service.core-compute-aat.internal
+    proxy: http://proxyout.reform.hmcts.net:8080
+    proxyByPass: '*beta*LB.reform.hmcts.net'
 
 features:
   idam: true

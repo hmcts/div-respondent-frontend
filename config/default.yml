@@ -92,8 +92,8 @@ tests:
     waitForAction: 1000
     smartWait: 5000
     outputDir: ../../functional-output
-    proxy: http://proxyout.reform.hmcts.net:8080
-    proxyByPass: '*beta*LB.reform.hmcts.net'
+    proxy: ''
+    proxyByPass: ''
     idam:
       idamTestUsername:
       idamTestPassword:

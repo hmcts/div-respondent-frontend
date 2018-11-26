@@ -44,6 +44,8 @@ yarn test:e2e
 
 #### Running tests locally against a PR/AAT
 
+* Connect to the VPN
+
 * Rename `config/example-local-aat.yml` to `config/local-aat.yml` (which is ignored by git)
 
 * Substitute any secret values in ***local-aat.yml*** from SCM - Do not add/commit secrets to the example file!
