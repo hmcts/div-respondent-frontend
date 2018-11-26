@@ -287,15 +287,17 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays reference number', () => {
-      const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 4567';
+      const caseReference = 'CaseReference';
       const session = {
-        referenceNumber: referenceNumber.replace(/ ‐ /g, '')
+        originalPetition: {
+          caseReference
+        }
       };
       return content(
         doneStep,
         session,
         {
-          specificValues: [ referenceNumber ]
+          specificValues: [ caseReference ]
         }
       );
     });

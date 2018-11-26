@@ -20,7 +20,7 @@
     <h1 class="bold-large">{{ content.responseSent }}</h1>
     <p class="text-reference">
       {{ content.referenceNumber }}<br>
-      <strong class="text-reference-number">{{ session.referenceNumber | hypenate | safe }}</strong>
+      <strong class="text-reference-number">{{ session.originalPetition.caseReference | safe }}</strong>
     </p>
   </div>
 
