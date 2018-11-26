@@ -1,3 +1,4 @@
+//  Retrieve fees from fees and payments service
 const request = require('request-promise-native');
 const CONF = require('config');
 
