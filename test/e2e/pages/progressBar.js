@@ -32,7 +32,7 @@ function seeContentForAosCompleteDefending() {
   const I = this;
 
   I.see(content.en.defendedDivorce.heading);
-  I.see(content.en.defendedDivorce.info);
+  I.see(content.en.defendedDivorce.para1);
 }
 
 module.exports = {
