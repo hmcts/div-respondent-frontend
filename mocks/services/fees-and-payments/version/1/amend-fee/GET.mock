@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "feeCode": "FEE0269",
+  "amount": 95,
+  "version": 1,
+  "description": "Amendment of application for matrimonial/civil partnership order"
+}

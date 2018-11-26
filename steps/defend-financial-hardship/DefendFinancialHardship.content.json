@@ -12,7 +12,7 @@
       "summary1": "You'll need to convince the court that the hardship will be severe.",
       "summary2": "The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
       "summary3": "Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.",
-      "summary4": "You'll need to make your case for hardship in another form (called the 'answer') within 21 days. You'll also have to pay another £245 fee."
+      "summary4": "You'll need to make your case for hardship in another form (called the 'answer') within 21 days. You'll also have to pay another £{{ feesDefendDivorce }} fee."
     },
     "fields": {
       "yes": {

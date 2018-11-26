@@ -15,7 +15,7 @@
         },
         "defend": {
           "heading": "Disagreeing with the application (defending)",
-          "summary": "If you choose to defend the divorce you will have to pay a fee of £245. You may have to both attend a hearing where a judge will decide if the divorce should be granted."
+          "summary": "If you choose to defend the divorce you will have to pay a fee of £{{ feesDefendDivorce }}. You may have to both attend a hearing where a judge will decide if the divorce should be granted."
         }
       }
     },

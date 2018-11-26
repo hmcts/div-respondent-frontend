@@ -6,6 +6,7 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./DefendFinancialHardship.content');
+const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 const yes = 'Yes';
 const no = 'No';
@@ -17,6 +18,10 @@ class DefendFinancialHardship extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get feesDefendDivorce() {
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
   get form() {
@@ -79,7 +84,11 @@ class DefendFinancialHardship extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      getFeeFromFeesAndPayments('defended-petition-fee')
+    ];
   }
 
   next() {
