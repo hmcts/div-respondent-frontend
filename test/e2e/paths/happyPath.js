@@ -3,10 +3,10 @@ const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 Feature('Happy path');
 
-Scenario('@Integration First time new user', async I => {
+Scenario('@Pipeline First time new user', async I => {
   await I.createAUser();
   I.createAosCaseForUser(basicDivorceSession);
-  I.amOnLoadedPage('/');
+  await I.amOnLoadedPage('/');
 
   I.seeIdamLoginPage();
   await I.createAUser();
@@ -17,11 +17,17 @@ Scenario('@Integration First time new user', async I => {
   I.seeRespondPage();
 }).retry(2);
 
-Scenario('Proceed with divorce with linked user', I => {
-  I.amOnPage('/');
+Scenario('@Pipeline Proceed with divorce with linked user', async I => {
+  await I.createAUser();
+  I.createAosCaseForUser(basicDivorceSession);
+  await I.amOnLoadedPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAsALinkedUser();
+  await I.createAUser();
+  I.login();
+  I.seeCaptureCaseAndPinPage();
+  I.fillInReferenceNumberAndPinCode();
+  I.navByClick(content.en.continue);
 
   I.seeRespondPage();
   I.click(content.en.continue);
@@ -53,7 +59,7 @@ Scenario('Proceed with divorce with linked user', I => {
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
-  I.amOnLoadedPage('/end');
+  await I.amOnLoadedPage('/end');
 }).retry(2);
 
 

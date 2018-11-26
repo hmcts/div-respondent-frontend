@@ -2,13 +2,9 @@
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
-let waitForAction = config.tests.e2e.waitForAction;
+const waitForAction = config.tests.e2e.waitForAction;
 const proxyServer = config.tests.e2e.proxy;
 const proxyByPass = config.tests.e2e.proxyByPass;
-
-if (config.environment === 'development') {
-  waitForAction = 1000;
-}
 
 exports.config = {
   tests: './paths/**/*.js',
