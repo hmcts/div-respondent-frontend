@@ -6,6 +6,7 @@ const ConsentDecree = require('steps/consent-decree/ConsentDecree.step');
 const confirmDefenceContent = require('steps/confirm-defence/ConfirmDefence.content');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 const confirm = 'confirm';
 
@@ -13,14 +14,39 @@ describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
+    sinon.stub(feesAndPaymentsService, 'get')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.get.restore();
   });
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(ConfirmDefence, [idam.protect()]);
+  });
+
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: {}
+      }
+    };
+    return content(
+      ConfirmDefence,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledTwice(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'petition-issue-fee');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'defended-petition-fee');
+    });
   });
 
   it('redirects to the jurisdiction page on confirmation', () => {

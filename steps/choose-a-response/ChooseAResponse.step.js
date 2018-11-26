@@ -6,6 +6,7 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./ChooseAResponse.content');
+const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 const consts = {
   proceed: 'proceed',
@@ -28,6 +29,10 @@ class ChooseAResponse extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get feesDefendDivorce() {
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
   get isBehaviour() {
@@ -97,7 +102,11 @@ class ChooseAResponse extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      getFeeFromFeesAndPayments('defended-petition-fee')
+    ];
   }
 
   next() {

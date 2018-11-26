@@ -5,8 +5,7 @@ Feature('CaptureCaseAndPin step');
 
 Scenario('Can link case using case ID/PIN code', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAsANonLinkedUser();
   I.seeCaptureCaseAndPinPage();
@@ -17,8 +16,7 @@ Scenario('Can link case using case ID/PIN code', I => {
 
 Scenario('Should see an error page if PIN code is invalid', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAsInvalidPinUser();
   I.seeCaptureCaseAndPinPage();
@@ -30,8 +28,7 @@ Scenario('Should see an error page if PIN code is invalid', I => {
 
 Scenario('Should see a generic error page if link case fails', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAsNonLinkedUserAndServerError();
   I.seeCaptureCaseAndPinPage();

@@ -1,6 +1,5 @@
 {
   "createdDate":"2018-06-07",
-  "D8caseReference": "LV17D80101",
   "D8ScreenHasMarriageBroken":"YES",
   "D8ScreenHasRespondentAddress":"YES",
   "D8ScreenHasMarriageCert":"YES",
@@ -23,40 +22,35 @@
   },
   "D8DerivedPetitionerHomeAddress":"82 Landor Road\nLondon\nSW9 9PE",
   "D8PetitionerCorrespondenceAddress":{
-    "PostCode":"SW9 9PE"
+    "PostCode":"AB24 232"
   },
-  "D8DerivedPetitionerCorrespondenceAddr":"82 Landor Road\nLondon\nSW9 9PE",
-  "D8PetitionerCorrespondenceUseHomeAddress":"YES",
+  "D8DerivedPetitionerCorrespondenceAddr":"84 Landor Road\nLondon\nSW9 9PE",
+  "D8PetitionerCorrespondenceUseHomeAddress":"NO",
   "D8RespondentFirstName":"Jane",
   "D8RespondentLastName":"Jamed",
   "D8DerivedRespondentCurrentName":"Jane Jamed",
+  "D8DerivedRespondentSolicitorDetails":"Justin\nCase\n90 Landor Road\nLondon\nSW9 9PE",
   "D8RespondentHomeAddress":{
-    "PostCode":"SW9 9PE"
+    "PostCode":"SS SSS"
   },
-  "D8DerivedRespondentHomeAddress":"82 Landor Road\nLondon\nSW9 9PE",
+  "D8DerivedRespondentHomeAddress":"88 Landor Road\nLondon\nSW9 9PE",
   "D8RespondentCorrespondenceAddress":{
     "PostCode":"SW9 9PE"
   },
   "D8DerivedRespondentCorrespondenceAddr":"82 Landor Road\nLondon\nSW9 9PE",
-  "D8RespondentCorrespondenceUseHomeAddress":"No",
-  "D8LivingArrangementsLiveTogether":"YES",
+  "D8RespondentCorrespondenceUseHomeAddress":"Solicitor",
+  "D8RespondentLivesAtLastAddress":"NO",
+  "D8LivingArrangementsLastLivedTogether":"NO",
+  "D8LivingArrangementsLiveTogether":"NO",
   "D8LegalProceedings":"YES",
   "D8LegalProceedingsRelated":[
     "children"
   ],
   "D8LegalProceedingsDetails":"The legal proceeding details",
-  "D8ReasonForDivorce":"adultery",
-  "D8StatementOfTruth": "YES",
-  "D8DerivedStatementOfCase":"On a washing machine.\nSome time ago.\nIt hurts inside.",
-  "D8ReasonForDivorceAdultery3rdPartyFName":"Jennifer",
-  "D8ReasonForDivorceAdultery3rdPartyLName":"Lawrence",
-  "D8ReasonForDivorceAdulteryDetails":"It hurts inside.",
-  "D8ReasonForDivorceAdulteryKnowWhen":"YES",
-  "D8ReasonForDivorceAdulteryWishToName":"YES",
-  "D8ReasonForDivorceAdulteryKnowWhere":"YES",
-  "D8ReasonForDivorceAdulteryWhereDetails":"On a washing machine.",
-  "D8ReasonForDivorceAdulteryWhenDetails":"Some time ago.",
-  "D8ReasonForDivorceAdulteryIsNamed":"YES",
+  "D8ReasonForDivorce":"unreasonable-behaviour",
+  "D8DerivedStatementOfCase":"My wife is having an affair this week.",
+  "D8ReasonForDivorceBehaviourDetails":"My wife is having an affair this week.",
+  "D8ReasonForDivorceAdulteryIsNamed":"NO",
   "D8FinancialOrder":"YES",
   "D8FinancialOrderFor":[
     "petitioner",
@@ -67,8 +61,7 @@
   "D8HelpWithFeesReferenceNumber":"HWF-123-456",
   "D8DivorceCostsClaim":"YES",
   "D8DivorceClaimFrom":[
-    "respondent",
-    "correspondent"
+    "respondent"
   ],
   "D8JurisdictionConfidentLegal":"YES",
   "D8JurisdictionConnection":[
@@ -77,7 +70,7 @@
   ],
   "D8JurisdictionPetitionerResidence":"YES",
   "D8JurisdictionRespondentResidence":"YES",
-  "D8DivorceUnit":"westMidlands",
+  "D8DivorceUnit":"eastMidlands",
   "D8ReasonForDivorceShowAdultery":"YES",
   "D8ReasonForDivorceShowUnreasonableBehavi":"YES",
   "D8ReasonForDivorceShowTwoYearsSeparation":"YES",
@@ -85,12 +78,12 @@
   "D8ReasonForDivorceLimitReasons":"NO",
   "D8ReasonForDivorceEnableAdultery":"YES",
   "D8ClaimsCostsAppliedForFees":"YES",
-  "D8ReasonForDivorceClaimingAdultery":"YES",
+  "D8ReasonForDivorceClaimingAdultery":"NO",
   "D8MarriageCanDivorce":"YES",
   "D8MarriagePetitionerName":"John Doe",
   "D8MarriageRespondentName":"Jenny Benny",
-  "D8MarriagePlaceOfMarriage": "Disneyland",
-  "D8DerivedReasonForDivorceAdultery3dPtyNm":"Jennifer Lawrence",
+  "D8DerivedRespondentSolicitorAddr":"90 Landor Road\nLondon\nSW9 9PE",
+  "D8DerivedLivingArrangementsLastLivedAddr":"Flat A-B\n86 Landor Road\nLondon\nSW9 9PE",
   "D8Connections":{
     "A":"The Petitioner and the Respondent are habitually resident in England and Wales",
     "C":"The Respondent is habitually resident in England and Wales"
@@ -98,8 +91,10 @@
   "D8ReasonForDivorceHasMarriage":"YES",
   "D8ReasonForDivorceShowFiveYearsSeparatio":"YES",
   "D8ReasonForDivorceClaiming5YearSeparatio":"NO",
-  "D8DerivedReasonForDivorceAdultery3rdAddr":"Headquarters 1120 N Street Sacramento 916-654-5266\t\nP.O. Box 942873 Sacramento, CA 94273-0001",
   "D8Cohort":"onlineSubmissionPrivateBeta",
   "D8InferredPetitionerGender":"female",
-  "D8InferredRespondentGender":"male"
+  "D8InferredRespondentGender":"male",
+  "ReceivedAOSfromResp": null,
+  "D8caseReference": "LV17D80999",
+  "D8MarriagePlaceOfMarriage": "London"
 }

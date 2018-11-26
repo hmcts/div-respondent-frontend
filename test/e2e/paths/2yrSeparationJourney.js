@@ -4,8 +4,7 @@ Feature('Two year separation journey');
 
 Scenario('Consent to divorce based on 2 year separation', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
 
@@ -31,8 +30,7 @@ Scenario('Consent to divorce based on 2 year separation', I => {
 
 Scenario('Do not consent to 2 year separation and will defend against divorce', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
 
@@ -59,8 +57,7 @@ Scenario('Do not consent to 2 year separation and will defend against divorce', 
 
 Scenario('Do not consent to 2 year separation but will not defend against divorce, do not consider finance', I => { // eslint-disable-line
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
 
@@ -91,8 +88,7 @@ Scenario('Do not consent to 2 year separation but will not defend against divorc
 
 Scenario('Initially defend then change response for 2yr separation, no consent', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
 
