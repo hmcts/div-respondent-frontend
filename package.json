@@ -54,7 +54,6 @@
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#1.3.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#0.1",
-    "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/one-per-page-test-suite": "^2.0.18",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
