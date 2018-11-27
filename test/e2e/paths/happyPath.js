@@ -16,6 +16,7 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.navByClick(content.en.continue);
 
   I.seeRespondPage();
+  I.wait(5);
   I.click(content.en.continue);
 
   I.seeReviewApplicationPage();
@@ -35,6 +36,7 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.click(content.en.continue);
 
   I.seeAgreeToPayCostsPage();
+  I.wait(5);
   I.chooseAgreeToPay();
   I.click(content.en.continue);
 
@@ -43,9 +45,11 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.click(content.en.continue);
 
   I.seeCheckYourAnswersPage();
+  I.confirmInformationIsTrue();
   I.submitApplication();
+  I.wait(5);
 
-  I.seeEndPage();
+  I.seeDonePage();
   I.see('LV18D81234');
 }).retry(2);
 
@@ -87,9 +91,10 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.click(content.en.continue);
 
   I.seeCheckYourAnswersPage();
+  I.confirmInformationIsTrue();
   I.submitApplication();
 
-  I.seeEndPage();
+  I.seeDonePage();
 });
 
 Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
@@ -133,7 +138,8 @@ Scenario('Disagree with divorce but change response', I => { // eslint-disable-l
   I.click(content.en.continue);
 
   I.seeCheckYourAnswersPage();
+  I.confirmInformationIsTrue();
   I.submitApplication();
 
-  I.seeEndPage();
+  I.seeDonePage();
 });

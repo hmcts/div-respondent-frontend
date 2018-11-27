@@ -5,7 +5,12 @@ function seeCheckYourAnswersPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(CheckYourAnswersPage.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
+}
+
+function confirmInformationIsTrue() {
+  const I = this;
+  I.click(content.en.fields.statementOfTruth.yes);
 }
 
 function submitApplication() {
@@ -14,5 +19,6 @@ function submitApplication() {
 
 module.exports = {
   seeCheckYourAnswersPage,
+  confirmInformationIsTrue,
   submitApplication
 };
