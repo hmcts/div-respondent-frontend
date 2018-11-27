@@ -3,20 +3,6 @@ const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 Feature('Happy path');
 
-Scenario('@Pipeline First time new user', async I => {
-  await I.createAUser();
-  I.createAosCaseForUser(basicDivorceSession);
-  await I.amOnLoadedPage('/');
-
-  I.seeIdamLoginPage();
-  await I.createAUser();
-  I.login();
-  I.seeCaptureCaseAndPinPage();
-  I.fillInReferenceNumberAndPinCode();
-  I.navByClick(content.en.continue);
-  I.seeRespondPage();
-}).retry(2);
-
 Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   await I.createAUser();
   I.createAosCaseForUser(basicDivorceSession);
@@ -59,7 +45,8 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
-  await I.amOnLoadedPage('/end');
+  I.seeEndPage();
+  I.see('LV18D81234');
 }).retry(2);
 
 
@@ -102,7 +89,7 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
-  I.amOnLoadedPage('/end');
+  I.seeEndPage();
 });
 
 Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
@@ -148,5 +135,5 @@ Scenario('Disagree with divorce but change response', I => { // eslint-disable-l
   I.seeCheckYourAnswersPage();
   I.submitApplication();
 
-  I.amOnLoadedPage('/end');
+  I.seeEndPage();
 });
