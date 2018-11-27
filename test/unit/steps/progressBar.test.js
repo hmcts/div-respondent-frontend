@@ -2,7 +2,12 @@ const modulePath = 'steps/progress-bar/ProgressBar.step';
 const ProgressBar = require(modulePath);
 const progressBarContent = require('steps/progress-bar/ProgressBar.content');
 const idam = require('services/idam');
-const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { custom, expect, middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { CaseStates } = require('const');
+const httpStatus = require('http-status-codes');
+const { assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware,
+  testDivorceUnitDetailsRender,
+  testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -94,6 +99,54 @@ describe(modulePath, () => {
 
     return content(ProgressBar, session, {
       specificValues: [ progressBarContent.en.other.heading ]
+    });
+  });
+
+  describe('court address details - undefended divorce', () => {
+    const basicSession = {
+      caseState: CaseStates.AosSubmittedAwaitingAnswer,
+      originalPetition: {
+        respDefendsDivorce: 'No'
+      }
+    };
+
+    describe('when divorce unit handles case', () => {
+      const testCaseSession = Object.assign({}, basicSession,
+        assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware('westMidlands'));
+
+      it('should render the divorce unit info', () => {
+        return custom(ProgressBar)
+          .withSession(testCaseSession)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            const mainPage = $('.column-two-thirds').html();
+
+            expect(rightHandSideMenu).to.include('Your divorce centre');
+            testDivorceUnitDetailsRender(rightHandSideMenu);
+            testDivorceUnitDetailsRender(mainPage);
+          });
+      });
+    });
+
+    describe('when service centre handles case', () => {
+      const testCaseSession = Object.assign({}, basicSession,
+        assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware('serviceCentre'));
+
+      it('should render the service centre info', () => {
+        return custom(ProgressBar)
+          .withSession(testCaseSession)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            const mainPage = $('.column-two-thirds').html();
+
+            testCTSCDetailsRender(rightHandSideMenu);
+            testCTSCDetailsRender(mainPage);
+          });
+      });
     });
   });
 });

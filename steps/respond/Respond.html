@@ -50,11 +50,9 @@
 
 {% block one_third %}
   <aside class="govuk-related-items" role="complementary">
-
-    <h3 class="heading-small">{{ content.yourCourt }}</h3>
-
+    <h3 class="heading-small">{{ content.gettingHelp }}</h3>
+    
     <ul class="font-xsmall">
-      <li>{{ session.divorceCenterName }}</li>
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
         {{ content.emailAddressDivorceService }}
@@ -65,6 +63,7 @@
         {{ content.divorceCenterPhone }}<br>
         {{ content.divorceCenterHours }}<br>
       </li>
+      {% include "includes/sideMenuCourtDetails.html" %}
     </ul>
 
     <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
