@@ -3,7 +3,7 @@
 {% block back %}{% endblock %}
 
 {% set title %}
-{{ content.title }}
+  {{ content.title }}
 {% endset %}
 
 {% block main_content %}
@@ -18,21 +18,17 @@
 <h3 class="heading-small">{{ content.thePersonal | safe }}</h3>
 <p class="text">{{ content.whenYouUseDivorceService | safe }}</p>
 <ul class="list list-bullet">
-    <li>{{ content.yourCurrentName | safe }}</li>
-    <li>{{ content.yourHusbandOrWifesNames | safe }}</li>
-    <li>{{ content.changedName | safe }}</li>
-    <li>{{ content.marriageCert | safe }}</li>
-    <li>{{ content.countryInMarried | safe }}</li>
-    <li>{{ content.yourHabitualResidence | safe }}</li>
-    <li>{{ content.yourDomicile | safe }}</li>
-    <li>{{ content.yourEmail | safe }}</li>
-    <li>{{ content.yourPhone | safe }}</li>
-    <li>{{ content.yourAddress | safe }}</li>
-    <li>{{ content.theirAddress | safe }}</li>
-    <li>{{ content.reasonsForDivorce | safe }}</li>
-    <li>{{ content.otherCourtCases | safe }}</li>
-    <li>{{ content.adulteryNames | safe }}</li>
-    <li>{{ content.yourSolicitorsNameAddress | safe }}</li>
+  <li>{{ content.applicantAndRespNames | safe }}</li>
+  <li>{{ content.changedName | safe }}</li>
+  <li>{{ content.marriageCert | safe }}</li>
+  <li>{{ content.countryInMarried | safe }}</li>
+  <li>{{ content.yourHabitualResidence | safe }}</li>
+  <li>{{ content.yourDomicile | safe }}</li>
+  <li>{{ content.emailAndPhone | safe }}</li>
+  <li>{{ content.addressAndNames | safe }}</li>
+  <li>{{ content.reasonsForDivorce | safe }}</li>
+  <li>{{ content.otherCourtCases | safe }}</li>
+  <li>{{ content.adulteryNames | safe }}</li>
 </ul>
 <h3 class="heading-small">{{ content.receivingNotifications | safe }}</h3>
 <p class="text">{{ content.youNeedSignUp | safe }}</p>
@@ -46,9 +42,9 @@
 <h2 class="heading-small">{{ content.whyWeCollect | safe }}</h2>
 <p class="text">{{ content.personalData | safe }}</p>
 <ul class="list list-bullet">
-    <li>{{ content.processApplication | safe }}</li>
-    <li>{{ content.legalRequirements | safe }}</li>
-    <li>{{ content.improveService | safe }}</li>
+  <li>{{ content.processApplication | safe }}</li>
+  <li>{{ content.legalRequirements | safe }}</li>
+  <li>{{ content.improveService | safe }}</li>
 </ul>
 <p class="text">{{ content.staffUse | safe }}</p>
 
@@ -57,10 +53,10 @@
 <p class="text">{{ content.weMayAskForPermission | safe }}</p>
 <p class="text">{{ content.weUseCookies | safe }}</p>
 <ul class="list list-bullet">
-    <li>{{ content.ifYouOpenEmail | safe }}</li>
-    <li>{{ content.yourComputer | safe }}</li>
-    <li>{{ content.theRegion | safe }}</li>
-    <li>{{ content.theWeb | safe }}</li>
+  <li>{{ content.ifYouOpenEmail | safe }}</li>
+  <li>{{ content.yourComputer | safe }}</li>
+  <li>{{ content.theRegion | safe }}</li>
+  <li>{{ content.theWeb | safe }}</li>
 </ul>
 
 <h2 id="sharingYourData" class="heading-small">{{ content.sharingYour | safe }}</h2>
@@ -75,28 +71,31 @@
 <h3 class="heading-small">{{ content.yourRights | safe }}</h3>
 <p class="text">{{ content.youCanAsk | safe }}</p>
 <ul class="list list-bullet">
-    <li>{{ content.toSeePersonal | safe }}</li>
-    <li>{{ content.toHavePersonal | safe }}</li>
-    <li>{{ content.toHaveDataRemoved | safe }}</li>
-    <li>{{ content.thatAccessIsRestricted | safe }}</li>
+  <li>{{ content.toSeePersonal | safe }}</li>
+  <li>{{ content.toHavePersonal | safe }}</li>
+  <li>{{ content.toHaveDataRemoved | safe }}</li>
+  <li>{{ content.thatAccessIsRestricted | safe }}</li>
 </ul>
 <p class="text">{{ content.ifYouWantToSeePersonal | safe }}</p>
 <ul class="list list-bullet">
-    <li>{{ content.completeForm | safe }}</li>
-    <li>{{ content.writeToUs | safe }}</li>
+  <li>{{ content.completeForm | safe }}</li>
+  <li>{{ content.writeToUs | safe }}</li>
 </ul>
+
 <p class="text">{{ content.askMoreInformation | safe }}</p>
 <ul class="list list-bullet">
-    <li>{{ content.agreementsWeHave | safe }}</li>
-    <li>{{ content.withoutTellingYou | safe }}</li>
-    <li>{{ content.ourInstructions | safe }}</li>
-    <li>{{ content.howWeCheck | safe }}</li>
+  <li>{{ content.agreementsWeHave | safe }}</li>
+  <li>{{ content.withoutTellingYou | safe }}</li>
+  <li>{{ content.ourInstructions | safe }}</li>
+  <li>{{ content.howWeCheck | safe }}</li>
 </ul>
+
 <p class="text">{{ content.mojProtection | safe }}</p>
 <ul class="list list-bullet">
-    <li>{{ content.pettyFrance | safe }}</li>
-    <li>{{ content.emailing | safe }}</li>
+  <li>{{ content.pettyFrance | safe }}</li>
+  <li>{{ content.emailing | safe }}</li>
 </ul>
+
 <h2 class="heading-small">{{ content.howToComplain | safe }}</h2>
 <p class="text">{{ content.seeOurComplaints | safe }}</p>
 <p class="text">{{ content.writeTo | safe }}</p>
