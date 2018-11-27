@@ -31,7 +31,7 @@ app.use(idam.userDetails());
 app.use(setLocals.idamLoggedin);
 
 lookAndFeel.configure(app, {
-  baseUrl: config.node.baseUrl,
+  baseUrl: '/',
   express: {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
