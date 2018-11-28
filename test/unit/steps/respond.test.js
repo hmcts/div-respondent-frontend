@@ -8,7 +8,7 @@ const { custom, expect,
   sinon, content } = require('@hmcts/one-per-page-test-suite');
 const petitionMiddleware = require('middleware/petitionMiddleware');
 const httpStatus = require('http-status-codes');
-const { assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware,
+const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
@@ -48,7 +48,7 @@ describe(modulePath, () => {
 
   describe('court address details', () => {
     describe('when divorce unit handles case', () => {
-      const session = assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware('westMidlands');
+      const session = buildSessionWithCourtsInfo('westMidlands');
 
       it('should render the divorce unit info', () => {
         return custom(Respond)
@@ -65,7 +65,7 @@ describe(modulePath, () => {
     });
 
     describe('when service centre handles case', () => {
-      const session = assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware('serviceCentre');
+      const session = buildSessionWithCourtsInfo('serviceCentre');
 
       it('some contents should exist', () => {
         return custom(Respond)

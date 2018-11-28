@@ -2,7 +2,7 @@ const fs = require('fs');
 const { expect } = require('@hmcts/one-per-page-test-suite');
 
 module.exports = {
-  assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware(chosenDivorceCenter) {
+  buildSessionWithCourtsInfo(chosenDivorceCenter) {
     // Simulate what the petitionMiddleware does
     /* eslint-disable */
     const courtsList = JSON.parse(fs.readFileSync('test/unit/resources/courtsList.json'));

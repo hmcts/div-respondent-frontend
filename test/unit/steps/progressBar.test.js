@@ -5,7 +5,7 @@ const idam = require('services/idam');
 const { custom, expect, middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const { CaseStates } = require('const');
 const httpStatus = require('http-status-codes');
-const { assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware,
+const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
@@ -112,7 +112,7 @@ describe(modulePath, () => {
 
     describe('when divorce unit handles case', () => {
       const testCaseSession = Object.assign({}, basicSession,
-        assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware('westMidlands'));
+        buildSessionWithCourtsInfo('westMidlands'));
 
       it('should render the divorce unit info', () => {
         return custom(ProgressBar)
@@ -132,7 +132,7 @@ describe(modulePath, () => {
 
     describe('when service centre handles case', () => {
       const testCaseSession = Object.assign({}, basicSession,
-        assembleSessionWithCourtInfoAsExpectedFromPetitionMiddleware('serviceCentre'));
+        buildSessionWithCourtsInfo('serviceCentre'));
 
       it('should render the service centre info', () => {
         return custom(ProgressBar)
