@@ -5,7 +5,7 @@ function seeConfirmDefencePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ConfirmDefencePage.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function clickToConfirmDefenceAgainstDivorce() {

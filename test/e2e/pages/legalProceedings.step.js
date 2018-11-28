@@ -5,7 +5,7 @@ function seeLegalProceedingPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(LegalProceedingPage.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function chooseNoLegalProceedings() {

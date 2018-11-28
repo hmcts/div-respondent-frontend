@@ -5,7 +5,7 @@ function seeProgressBarPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ProgressBar.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function seeContentForAosNotCompleted() {

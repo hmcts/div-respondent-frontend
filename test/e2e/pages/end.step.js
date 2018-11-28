@@ -5,7 +5,7 @@ function seeEndPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(EndPage.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 module.exports = { seeEndPage };

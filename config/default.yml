@@ -51,7 +51,7 @@ services:
   caseOrchestration:
     getPetitionUrl: http://localhost:3001/case-orchestration/retrieve-aos-case
     linkRespondentUrl: http://localhost:3001/case-orchestration/link-respondent
-    submitAosUrl: http://localhost:1111
+    submitAosUrl: http://localhost:3001/case-orchestration/submit-aos
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
