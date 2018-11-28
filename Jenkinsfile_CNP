@@ -32,6 +32,13 @@ withPipeline("nodejs", product, component) {
 
   after('test') {
     sh 'yarn test:validation'
+     try {
+       sh 'yarn audit'
+      } catch (error) {
+       slackSend(channel: '#div-dev', color: 'good', message: "Securty check issue! Please see the build console log")
+      }
+     }
+
     // required for running functional tests on CI
     env.FEATURE_IDAM = 'true'
     env.IDAM_API_URL = 'https://preprod-idamapi.reform.hmcts.net:3511'
