@@ -20,6 +20,7 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.navByClick(content.en.continue);
 
   I.seeReviewApplicationPage();
+  I.wait(5);
   I.acknowledgeApplication();
   I.navByClick(content.en.continue);
 
