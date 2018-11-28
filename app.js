@@ -80,6 +80,8 @@ app.use('/images', (req, res) => {
   res.redirect(`/assets/images${req.path}`, '301');
 });
 
+app.set('trust proxy', 1);
+
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
