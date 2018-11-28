@@ -2,7 +2,7 @@ const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers'
 const { goTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
-const sendAosResponse = require('services/sendAosResponse');
+const caseOrchestration = require('services/caseOrchestration');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CheckYourAnswers.content');
@@ -36,7 +36,7 @@ class CheckYourAnswers extends CYA {
 
   sendToAPI(req) {
     const json = this.journey.values;
-    return sendAosResponse(req, json);
+    return caseOrchestration.sendAosResponse(req, json);
   }
 
   next() {

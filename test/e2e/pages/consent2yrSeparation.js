@@ -5,7 +5,7 @@ function seeConsentDecreePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ConsentDecree.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function clickToConsentToDivorce() {

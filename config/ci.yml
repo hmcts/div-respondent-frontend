@@ -1,0 +1,5 @@
+tests:
+  e2e:
+    show: false
+    proxy: http://proxyout.reform.hmcts.net:8080
+    proxyByPass: '*beta*LB.reform.hmcts.net'

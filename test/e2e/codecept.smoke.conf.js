@@ -1,10 +1,4 @@
 /* eslint-disable no-process-env */
-const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
-
-if (process.env.POINT_TO_REMOTE) {
-  const configurationFile = './remote-config.json';
-  processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
-}
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
@@ -20,7 +14,7 @@ exports.config = {
       url: config.tests.e2e.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
-      show: false,
+      show: config.tests.e2e.show,
       chrome: {
         ignoreHTTPSErrors: true,
         args: [

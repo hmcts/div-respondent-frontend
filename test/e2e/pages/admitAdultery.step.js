@@ -5,7 +5,7 @@ function seeAdmitAdulteryPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ConfirmDefencePage.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function clickToAdmitAdultery() {

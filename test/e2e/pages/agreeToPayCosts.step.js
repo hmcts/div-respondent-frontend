@@ -5,7 +5,7 @@ function seeAgreeToPayCostsPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(AgreeToPayCosts.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function chooseAgreeToPay() {
