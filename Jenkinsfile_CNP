@@ -33,11 +33,12 @@ withPipeline("nodejs", product, component) {
   after('test') {
     sh 'yarn test:validation'
     try {
-     sh 'auditoutput = yarn audit'
+     sh 'yarn audit >> auditoutput.txt'
     } catch (error) {
-     slackSend(channel: '#div-dev', color: 'good', message: "THIS IS A TEST MESSAGE. IGNORE IT. Yarn audit has detected vulnarabilities in ${env.JOB_NAME}: ```${env.auditoutput}```. For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
+     sh 'auditoutput=$( cat auditoutput.txt )'
+     slackSend(channel: '#borisjenkinstest', color: 'good', message: "THIS IS A TEST MESSAGE. IGNORE IT. Yarn audit has detected vulnarabilities in ${env.JOB_NAME}: ```${env.auditoutput}```. For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
     }
-    sh 'echo $auditoutput'
+    sh 'cat auditoutput.txt'
 
     // required for running functional tests on CI
     env.FEATURE_IDAM = 'true'
