@@ -1,7 +1,7 @@
 {
   "caseId": "1536587716568826",
   "courts": "northWest",
-  "state": "AosCompleted",
+  "state": "AosSubmittedAwaitingAnswer",
   "data": {
     "expires": 0,
     "caseReference": "LV17D80101",
@@ -190,9 +190,20 @@
         "email": "family@liverpool.countycourt.gsi.gov.uk",
         "phoneNumber": "0300 303 0642",
         "siteId": "AA04"
+      },
+      "serviceCentre": {
+          "serviceCentreName": "Courts and Tribunals Service Centre",
+          "divorceCentre": "East Midlands Regional Divorce Centre",
+          "courtCity": "Nottingham",
+          "poBox": "PO Box 10447",
+          "postCode": "NG2 9QN",
+          "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+          "email": "divorce@justice.gov.uk",
+          "phoneNumber": "0300 303 0642",
+          "siteId": "CTSC"
       }
     },
-    "courts": "northWest",
+    "courts": "serviceCentre",
     "confirmPrayer": "Yes",
     "marriageCertificateFiles": [],
     "issueDate": "2018-10-18T00:00:00.000+0000",
