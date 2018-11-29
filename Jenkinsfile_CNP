@@ -36,7 +36,7 @@ withPipeline("nodejs", product, component) {
      sh 'yarn audit >> auditoutput.txt'
     } catch (error) {
      sh 'auditoutput=$( cat auditoutput.txt )'
-     slackSend(channel: '#borisjenkinstest', color: 'good', message: "THIS IS A TEST MESSAGE. IGNORE IT. Yarn audit has detected vulnarabilities in ${env.JOB_NAME}: ``` ${env.auditoutput} ```. For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
+     slackSend(channel: '#borisjenkinstest', color: 'good', message: "THIS IS A TEST MESSAGE. IGNORE IT. Yarn audit has detected vulnarabilities in ${env.JOB_NAME}: ``` ${auditoutput} ```. For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
     }
     sh 'cat auditoutput.txt'
 
