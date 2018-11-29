@@ -29,7 +29,7 @@ services:
   idam:
     apiHealth: https://localhost:8001/health
     authenticationHealth: https://localhost:3000/health
-    apiUrl: http://localhost:8001
+    apiUrl: http://localhost:3001/idam
     secret: '123456'
     loginUrl: https://localhost:3000/idam-mock-login
     clientId: 'divorce'
@@ -49,17 +49,20 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-    getPetitionUrl: http://localhost:3001/retrieve-aos-case
-    linkRespondentUrl: http://localhost:3001/link-respondent
-    submitAosUrl: http://localhost:1111
+    getPetitionUrl: http://localhost:3001/case-orchestration/retrieve-aos-case
+    linkRespondentUrl: http://localhost:3001/case-orchestration/link-respondent
+    submitAosUrl: http://localhost:3001/case-orchestration/submit-aos
   dnFrontend:
     url: https://localhost:4000
     landing: /authenticated
+  caseMaintenance:
+    baseUrl: http://localhost:3001/case-maintenance
+  feesAndPayments:
+    baseUrl: http://localhost:3001
 
 paths:
   health: /health
   authenticated: /authenticated
-  index: /
   captureCaseAndPin: /respond-with-pin
   financialSituation: /delay-the-decree
   respond: /respond
@@ -78,19 +81,25 @@ paths:
   noConsentAreYouSure: /no-consent-are-you-sure
   progressBar: /progress-bar
   done: /done
+  index: /
   entry: /entry
+  end: /end
+  termsAndConditions: /terms-and-conditions
+  cookiesPolicy: /cookie
+  privacyPolicy: /privacy-policy
   mock:
     idamLogin: /idam-mock-login
 
 tests:
   e2e:
+    show: true
     waitForTimeout: 10000
-    waitForAction: 500
+    waitForAction: 1000
     smartWait: 5000
     outputDir: ../../functional-output
+    proxy: ''
+    proxyByPass: ''
     idam:
-      idamTestApiProxy: proxyout.reform.hmcts.net:8080
-      idamTestProxyByPass: '*beta*LB.reform.hmcts.net'
       idamTestUsername:
       idamTestPassword:
       idamTestForename:
@@ -101,6 +110,9 @@ tests:
 
 features:
   idam: false
+  agreeToCosts:
+    differentAmount:
+      enabled: false
 
 journey:
   timeoutDelay: 300

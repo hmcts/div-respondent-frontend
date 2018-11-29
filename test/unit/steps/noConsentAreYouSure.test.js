@@ -4,6 +4,7 @@ const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
 const ConsentDecree = require('steps/consent-decree/ConsentDecree.step');
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 const yes = 'Yes';
 const no = 'No';
@@ -12,14 +13,38 @@ describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
+    sinon.stub(feesAndPaymentsService, 'get').withArgs('amend-fee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 95,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.get.restore();
   });
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(NoConsentAreYouSure, [idam.protect()]);
+  });
+
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: {}
+      }
+    };
+    return content(
+      NoConsentAreYouSure,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledOnce(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'amend-fee');
+    });
   });
 
   it('shows error if question is not answered', () => {
@@ -110,6 +135,11 @@ describe(modulePath, () => {
 
   it('renders all the content', () => {
     return content(NoConsentAreYouSure, {},
-      { specificContent: ['detailsText', 'notice'] });
+      { specificContent: [
+        'detailsText.para1',
+        'detailsText.para2',
+        'detailsText.para3',
+        'notice'
+      ] });
   });
 });

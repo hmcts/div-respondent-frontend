@@ -2,20 +2,48 @@
 const modulePath = 'steps/done/Done.step';
 const doneStep = require(modulePath);
 const idam = require('services/idam');
-const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { custom, expect, middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+const httpStatus = require('http-status-codes');
+const { buildSessionWithCourtsInfo, testDivorceUnitDetailsRender, testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
+    sinon.stub(feesAndPaymentsService, 'get')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 95,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.get.restore();
   });
 
   it('has idam.protect and user data middleware', () => {
     return middleware.hasMiddleware(doneStep, [idam.protect()]);
+  });
+
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+    const session = {
+      originalPetition: {
+        jurisdictionConnection: {}
+      }
+    };
+    return content(
+      doneStep,
+      session,
+      { specificContent: ['responseSent'] }
+    ).then(() => {
+      sinon.assert.calledTwice(feesAndPaymentsService.get);
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'amend-fee');
+      sinon.assert.calledWith(feesAndPaymentsService.get, 'defended-petition-fee');
+    });
   });
 
   it('renders the content if the divorce is not defended', () => {
@@ -126,7 +154,7 @@ describe(modulePath, () => {
     return content(doneStep, session, { ignoreContent });
   });
 
-  it('renders the content if the divorce is not defended, reason for divorce is adultery and adultery is not addmitted.', () => {
+  it('renders the content if the divorce is not defended, reason for divorce is adultery and adultery is not admitted.', () => {
     const session = {
       ChooseAResponse: {
         response: 'proceed'
@@ -287,15 +315,17 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays reference number', () => {
-      const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 4567';
+      const caseReference = 'CaseReference';
       const session = {
-        referenceNumber: referenceNumber.replace(/ ‐ /g, '')
+        originalPetition: {
+          caseReference
+        }
       };
       return content(
         doneStep,
         session,
         {
-          specificValues: [ referenceNumber ]
+          specificValues: [ caseReference ]
         }
       );
     });
@@ -328,6 +358,56 @@ describe(modulePath, () => {
           ]
         }
       );
+    });
+  });
+
+  describe('court address rendering', () => {
+    const defendedDivorce = {
+      ChooseAResponse: {
+        response: 'defend'
+      }
+    };
+
+    describe('when divorce unit handles case', () => {
+      const session = Object.assign(buildSessionWithCourtsInfo('westMidlands'),
+        defendedDivorce
+      );
+
+      it('should render the divorce unit info', () => {
+        return custom(doneStep)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            const mainPage = $('.column-two-thirds').html();
+
+            expect(rightHandSideMenu).to.include('Your divorce centre');
+
+            testDivorceUnitDetailsRender(rightHandSideMenu);
+            testDivorceUnitDetailsRender(mainPage);
+          });
+      });
+    });
+
+    describe('should render the service centre info', () => {
+      const session = Object.assign(buildSessionWithCourtsInfo('serviceCentre'),
+        defendedDivorce
+      );
+
+      it('some contents should exist', () => {
+        return custom(doneStep)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            const mainPage = $('.column-two-thirds').html();
+
+            testCTSCDetailsRender(rightHandSideMenu);
+            testCTSCDetailsRender(mainPage);
+          });
+      });
     });
   });
 });

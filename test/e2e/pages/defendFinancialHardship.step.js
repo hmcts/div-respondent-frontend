@@ -6,7 +6,7 @@ function seeDefendFinancialHardShipPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(DefendFinancialHardship.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function clickNoToHardShipQuestion() {

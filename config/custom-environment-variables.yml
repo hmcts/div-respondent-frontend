@@ -14,9 +14,9 @@ tests:
     waitForAction: E2E_WAIT_FOR_ACTION_VALUE
     outputDir: E2E_OUTPUT_DIR
     url: TEST_URL
+    proxy: E2E_IDAM_PROXY
+    proxyByPass: E2E_IDAM_SERVER
     idam:
-      idamTestApiProxy: E2E_IDAM_PROXY
-      idamTestProxyByPass: E2E_IDAM_SERVER
       idamTestUsername: E2E_IDAM_USERNAME
       idamTestPassword: E2E_IDAM_PASSWORD
       idamTestForename: IDAM_TEST_FORENAME
@@ -57,6 +57,10 @@ services:
     submitAosUrl: SUBMIT_AOS_URL
   dnFrontend:
     url: DECREE_NISI_FRONTEND_URL
+  caseMaintenance:
+    baseUrl: CASE_MAINTENANCE_BASE_URL
+  feesAndPayments:
+    baseUrl: FEES_AND_PAYMENTS_URL
 
 features:
   idam: FEATURE_IDAM

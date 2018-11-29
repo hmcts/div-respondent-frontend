@@ -6,7 +6,7 @@ const idamConfigHelper = require('./idamConfigHelper');
 
 const Helper = codecept_helper; // eslint-disable-line
 
-const redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
+const redirectUri = `${config.tests.e2e.url}${config.paths.authenticated}`;
 const idamArgs = {
   redirectUri,
   indexUrl: config.paths.index,
@@ -17,43 +17,54 @@ const idamArgs = {
 };
 
 class IdamHelper extends Helper {
-  _before() {
-    if (config.features.idam) {
-      const randomString = randomstring.generate({
-        length: 16,
-        charset: 'numeric'
+  createAUser() {
+    const randomString = randomstring.generate({
+      length: 16,
+      charset: 'numeric'
+    });
+    const emailName = `simulate-delivered-${randomString}`;
+    const testEmail = `${emailName}@notifications.service.gov.uk`;
+    const testPassword = randomstring.generate(9);
+
+    idamArgs.testEmail = testEmail;
+    idamArgs.testPassword = testPassword;
+    idamArgs.testGroupCode = 'caseworker';
+    idamArgs.roles = ['citizen', 'caseworker-divorce-courtadmin'];
+
+    idamConfigHelper.setTestEmail(testEmail);
+    idamConfigHelper.setTestPassword(testPassword);
+    return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
+      .then(() => {
+        logger.info(`Created IDAM test user: ${testEmail}`);
+        return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
+      })
+      .then(response => {
+        logger.info(`Retrieved IDAM test user token: ${testEmail}`);
+        idamConfigHelper.setTestToken(response.access_token);
+        idamArgs.accessToken = response.access_token;
+        return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
+      })
+      .then(response => {
+        logger.info(`Retrieved IDAM test user pin: ${testEmail}`);
+        if (!idamConfigHelper.getPin()) {
+          idamConfigHelper.setLetterHolderId(response.userId);
+          idamConfigHelper.setPin(response.pin);
+        }
+      })
+      .catch(error => {
+        logger.warn(`Unable to create IDAM test user/token: ${error}`);
+        throw error;
       });
-      const emailName = `simulate-delivered-${randomString}`;
-      const testEmail = `${emailName}@notifications.service.gov.uk`;
-      const testPassword = randomstring.generate(9);
-
-      idamArgs.testEmail = testEmail;
-      idamArgs.testPassword = testPassword;
-
-      idamConfigHelper.setTestEmail(testEmail);
-      idamConfigHelper.setTestPassword(testPassword);
-
-      idamExpressTestHarness.createUser(idamArgs)
-        .then(() => {
-          logger.info(`Created IDAM test user: ${testEmail}`);
-        })
-        .catch(error => {
-          logger.warn(`Unable to create IDAM test user: ${error}`);
-          throw error;
-        });
-    }
   }
 
   _after() {
-    if (config.features.idam) {
-      idamExpressTestHarness.removeUser(idamArgs)
-        .then(() => {
-          logger.info(`Removed IDAM test user: ${idamArgs.testEmail}`);
-        })
-        .catch(error => {
-          logger.warn(`Unable to remove IDAM test user: ${error}`);
-        });
-    }
+    idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
+      .then(() => {
+        logger.info(`Removed IDAM test user: ${idamArgs.testEmail}`);
+      })
+      .catch(error => {
+        logger.warn(`Unable to remove IDAM test user: ${error}`);
+      });
   }
 }
 

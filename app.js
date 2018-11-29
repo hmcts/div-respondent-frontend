@@ -31,7 +31,7 @@ app.use(idam.userDetails());
 app.use(setLocals.idamLoggedin);
 
 lookAndFeel.configure(app, {
-  baseUrl: config.node.baseUrl,
+  baseUrl: '/',
   express: {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
@@ -80,12 +80,15 @@ app.use('/images', (req, res) => {
   res.redirect(`/assets/images${req.path}`, '301');
 });
 
+app.set('trust proxy', 1);
+
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
   errorPages: {},
   session: {
     redis: { url: config.services.redis.url },
+    cookie: { secure: true },
     secret: config.session.secret,
     sessionEncryption: req => {
       let key = config.services.redis.encryptionAtRestKey;

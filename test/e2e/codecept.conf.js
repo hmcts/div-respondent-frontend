@@ -1,21 +1,10 @@
 /* eslint-disable no-process-env */
-
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
-let waitForAction = config.tests.e2e.waitForAction;
-const chromeArgs = [ '--no-sandbox' ];
-
-if (config.environment !== 'development') {
-  const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
-  const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
-  chromeArgs.push(`--proxy-server=${proxyServer}`);
-  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
-}
-
-if (config.environment === 'development') {
-  waitForAction = 1000;
-}
+const waitForAction = config.tests.e2e.waitForAction;
+const proxyServer = config.tests.e2e.proxy;
+const proxyByPass = config.tests.e2e.proxyByPass;
 
 exports.config = {
   tests: './paths/**/*.js',
@@ -25,15 +14,18 @@ exports.config = {
       url: config.tests.e2e.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
-      show: false,
-      waitForNavigation: [ 'domcontentloaded', 'networkidle0' ],
-      getPageTimeout: 30000,
+      show: config.tests.e2e.show,
       chrome: {
         ignoreHTTPSErrors: true,
-        args: chromeArgs
+        args: [
+          '--no-sandbox',
+          `--proxy-server=${proxyServer}`,
+          `--proxy-bypass-list=${proxyByPass}`
+        ]
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
+    CaseHelper: { require: './helpers/caseHelper.js' },
     JSWait: { require: './helpers/JSWait.js' }
   },
   include: { I: './pages/steps.js' },

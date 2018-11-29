@@ -4,8 +4,7 @@ Feature('5 year Separation journey');
 
 Scenario('Proceed to financial situation for 5 year separation and proceed', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAs5yrSeparationCase();
 
@@ -27,8 +26,7 @@ Scenario('Proceed to financial situation for 5 year separation and proceed', I =
 
 Scenario('Do not show financial situation for 5 year separation and defend', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAs5yrSeparationCase();
 

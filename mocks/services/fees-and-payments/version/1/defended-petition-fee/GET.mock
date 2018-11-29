@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "feeCode": "FEE0424",
+  "amount": 245,
+  "version": 1,
+  "description": "Originating proceedings where no other fee is specified"
+}

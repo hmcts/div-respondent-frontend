@@ -20,13 +20,13 @@
 
     "notDefendedAdultery1": "The court needs to be sure that adultery took place for it to be used as the reason for divorce (legally known as the 'fact').",
     "notDefendedAdultery2": "To continue with the divorce your {{ session.divorceWho }} will need to either:",
-    "notDefendedAdulteryLi1": "change their reason for divorce (and pay a fee of £95)",
+    "notDefendedAdulteryLi1": "change their reason for divorce (and pay a fee of £{{ feesAmendDivorce }})",
     "notDefendedAdulteryLi2": "provide evidence of the adultery",
     "notDefendedAdultery3": "You'll be contacted by the court when your {{ session.divorceWho }} has made their decision.",
 
     "notDefended2YearsNoConsent": "As you haven't given your consent, the divorce won't be able to continue based on the 2 years separation with consent 'fact' (reason for divorce).",
     "notDefended2YearsNoConsent1": "The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.",
-    "notDefended2YearsNoConsent2": "Your {{ session.divorceWho }} will have to pay £95 to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs.",
+    "notDefended2YearsNoConsent2": "Your {{ session.divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs.",
     "notDefended2YearsNoConsent3": "You'll be contacted by the court when your {{ session.divorceWho }} has made their decision.",
     "notDefended2YearsNoConsentH2": "If you decide that you want to consent to the divorce",
     "notDefended2YearsNoConsent4": "You can change your mind and give your consent to the divorce at any time. You'll need to do this in writing. Contact the divorce centre if you want to do this.",
@@ -35,7 +35,7 @@
     "defendedText1":"You now have 21 days to submit the '<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\">answer to a divorce application</a>' form.",
     "defendedText2":"Download and fill in the paper form.",
     "defendedText3":"Post the form to:",
-    "defendedText4":"You'll have to pay a £245 fee when you submit the form.",
+    "defendedText4":"You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form.",
     "defendedText5":"You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
     "defendedText6":" If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defend the divorce.",
 
@@ -46,6 +46,8 @@
 
     "yourCourt": "Your divorce centre",
     "email": "Email",
+    "gettingHelp": "Getting help",
+    "careOfAbbreviation": "c/o",
     "emailAddressDivorceService": "divorce@justice.gov.uk",
     "phone": "Phone",
     "divorceCenterPhone": "0300 303 0642",

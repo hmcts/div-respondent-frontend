@@ -4,8 +4,7 @@ Feature('Adultery journey');
 
 Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAsAdulteryCase();
 
@@ -27,8 +26,7 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
 
 Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
   I.amOnPage('/');
-  I.seeExamplePage('/');
-  I.click('Start now');
+
   I.seeIdamLoginPage();
   I.loginAsAdulteryCase();
 

@@ -5,7 +5,7 @@ function seeFinancialSituationPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(FinancialSituation.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function clickToConsiderFinancialSituation() {

@@ -5,7 +5,7 @@ function seeContactDetailsPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ContactDetails.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function consentToSendingNotifications() {

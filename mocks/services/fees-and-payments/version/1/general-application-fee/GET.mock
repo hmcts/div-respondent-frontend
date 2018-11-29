@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "feeCode": "FEE0307",
+  "amount": 50,
+  "version": 1,
+  "description": "Application for decree nisi, conditional order, separation order (no fee if undefended)"
+}
