@@ -2,16 +2,20 @@ const modulePath = 'steps/check-your-answers/CheckYourAnswers.step';
 const CheckYourAnswers = require(modulePath);
 const doneStep = require('steps/done/Done.step');
 const idam = require('services/idam');
+const caseOrchestration = require('services/caseOrchestration');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
+    sinon.stub(caseOrchestration, 'sendAosResponse')
+      .resolves();
   });
 
   afterEach(() => {
     idam.protect.restore();
+    caseOrchestration.sendAosResponse.restore();
   });
 
   it('has idam.protect and user data middleware', () => {

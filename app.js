@@ -80,12 +80,15 @@ app.use('/images', (req, res) => {
   res.redirect(`/assets/images${req.path}`, '301');
 });
 
+app.set('trust proxy', 1);
+
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
   errorPages: {},
   session: {
     redis: { url: config.services.redis.url },
+    cookie: { secure: true },
     secret: config.session.secret,
     sessionEncryption: req => {
       let key = config.services.redis.encryptionAtRestKey;

@@ -3,6 +3,7 @@ const request = require('request-promise-native');
 const modulePath = 'services/caseOrchestration.js';
 const caseOrcestration = require(modulePath);
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
+const config = require('config');
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -64,5 +65,27 @@ describe(modulePath, () => {
       }, () => {
         done();
       });
+  });
+
+  it('sends the user token and the body along with the request', () => {
+    // Arrange.
+    const body = { foo: 'bar' };
+    const req = {
+      cookies: { '__auth-token': 'test' },
+      session: { referenceNumber: 123456789 }
+    };
+
+    sinon.stub(request, 'post')
+      .resolves({});
+
+    // Act.
+    caseOrcestration.sendAosResponse(req, body);
+    // Assert.
+    expect(request.post.args[0][0]).to.eql({
+      uri: `${config.services.caseOrchestration.submitAosUrl}/123456789`,
+      body,
+      headers: { Authorization: 'test' },
+      json: true
+    });
   });
 });

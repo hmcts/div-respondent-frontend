@@ -1,0 +1,7 @@
+HTTP/1.1 201 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "pin": "S0m3P11n",
+    "userId": "11223344"
+}
