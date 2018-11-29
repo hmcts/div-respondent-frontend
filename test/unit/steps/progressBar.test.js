@@ -125,7 +125,7 @@ describe(modulePath, () => {
 
             expect(rightHandSideMenu).to.include('Your divorce centre');
             testDivorceUnitDetailsRender(rightHandSideMenu);
-            testDivorceUnitDetailsRender(mainPage);
+            testDivorceUnitDetailsRender(mainPage, false);
           });
       });
     });

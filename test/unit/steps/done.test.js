@@ -340,6 +340,8 @@ describe(modulePath, () => {
         divorceCenterCourtCity: 'Nottingham',
         divorceCenterPostCode: 'NG2 9QN',
         divorceCenterStreet: '21 Jump Street',
+        divorceCenterEmail: 'eastmidlandsdivorce@hmcts.gsi.gov.uk',
+        divorceCenterPhoneNumber: '0300 303 0642',
         originalPetition: {
           respEmailAddress: 'test@test.com'
         }
@@ -354,6 +356,8 @@ describe(modulePath, () => {
             session.divorceCenterCourtCity,
             session.divorceCenterPostCode,
             session.divorceCenterStreet,
+            session.divorceCenterEmail,
+            session.divorceCenterPhoneNumber,
             session.originalPetition.respEmailAddress
           ]
         }
@@ -385,7 +389,7 @@ describe(modulePath, () => {
             expect(rightHandSideMenu).to.include('Your divorce centre');
 
             testDivorceUnitDetailsRender(rightHandSideMenu);
-            testDivorceUnitDetailsRender(mainPage);
+            testDivorceUnitDetailsRender(mainPage, false);
           });
       });
     });
@@ -405,7 +409,7 @@ describe(modulePath, () => {
             const mainPage = $('.column-two-thirds').html();
 
             testCTSCDetailsRender(rightHandSideMenu);
-            testCTSCDetailsRender(mainPage);
+            testCTSCDetailsRender(mainPage, false);
           });
       });
     });

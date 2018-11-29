@@ -47,11 +47,8 @@
     "contactDetails": {
       "heading": "Getting help",
       "yourCourt": "Your divorce centre",
-      "courtsTribunals": "Courts and Tribunals Service Centre",
       "email": "Email",
-      "emailAddressDivorceService": "divorce@justice.gov.uk",
       "phone": "Phone",
-      "divorceCenterPhone": "0300 303 0642",
       "divorceCenterHours": "(Monday to Friday, 8.30am to 5pm)",
       "guidance": "Guidance on GOV.UK",
       "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ session.divorceWho }} responds</a>",
