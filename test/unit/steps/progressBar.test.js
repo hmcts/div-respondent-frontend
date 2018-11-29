@@ -106,7 +106,7 @@ describe(modulePath, () => {
     const basicSession = {
       caseState: CaseStates.AosSubmittedAwaitingAnswer,
       originalPetition: {
-        respDefendsDivorce: 'No'
+        respDefendsDivorce: undefined
       }
     };
 
