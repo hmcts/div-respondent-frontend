@@ -36,11 +36,11 @@ withPipeline("nodejs", product, component) {
      sh 'yarn audit >> auditoutput.txt'
     } catch (error) {
      def auditoutput = sh(script:'cat auditoutput.txt', returnStdout:true)
-     slackSend(channel: '#borisjenkinstest', color: 'good', message: '''Yarn Audit has detected vulnerabilities in ${env.JOB_NAME}
+     slackSend(channel: '#borisjenkinstest', color: 'good', message: """Yarn Audit has detected vulnerabilities in ${env.JOB_NAME}
      ```
      ${auditoutput}
      ```
-     For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.''')
+     For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>."""")
     }
     sh 'cat auditoutput.txt'
 
