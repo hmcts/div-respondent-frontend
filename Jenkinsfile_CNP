@@ -35,9 +35,8 @@ withPipeline("nodejs", product, component) {
     try {
      sh 'yarn audit >> auditoutput.txt'
     } catch (error) {
-     File fh1 = new File("auditoutput.txt")
-     auditoutput = fh1.getText('UTF-8')
-     slackSend(channel: '#borisjenkinstest', color: 'good', message: "THIS IS A TEST MESSAGE. IGNORE IT. Yarn audit has detected vulnarabilities in ${env.JOB_NAME}: ${env.auditoutput} . For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
+     def auditoutput = sh(script:'cat auditoutput.txt', returnStdout:true)
+     slackSend(channel: '#borisjenkinstest', color: 'good', message: "THIS IS A TEST MESSAGE. IGNORE IT. Yarn audit has detected vulnarabilities in ${env.JOB_NAME}: ${auditoutput} . For more detials check here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>." + auditoutput)
     }
     sh 'cat auditoutput.txt'
 
