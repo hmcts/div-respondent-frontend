@@ -98,10 +98,8 @@
       "text"
     ],
     "exclude": [
-      "steps/cookies-policy/",
-      "steps/privacy-policy/",
-      "steps/terms-and-conditions/",
-      "test/**/*"
+      "test/**/*",
+      "mocks/**/*"
     ]
   }
 }
