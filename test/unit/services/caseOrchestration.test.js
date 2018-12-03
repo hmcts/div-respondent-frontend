@@ -88,4 +88,24 @@ describe(modulePath, () => {
       json: true
     });
   });
+
+  it('throws error when send response fails', done => {
+    // Arrange.
+    const body = { foo: 'bar' };
+    const req = {
+      cookies: { '__auth-token': 'test' },
+      session: { referenceNumber: 123456789 }
+    };
+
+    sinon.stub(request, 'post')
+      .rejects({});
+
+    // Act.
+    caseOrcestration.sendAosResponse(req, body)
+      .then(() => {
+        Promise.reject(new Error('should not come here'));
+      }, () => {
+        done();
+      });
+  });
 });
