@@ -35,7 +35,7 @@ withPipeline("nodejs", product, component) {
     try {
       sh 'yarn audit'
     } catch (error) {
-      onPR {
+      onMaster {
         slackSend(channel: '#borisjenkinstest', color: 'warning', message: "Yarn Audit has detected vulnerabilities in ${env.JOB_NAME}. You can check if there are patches for them in the full reoport, build details here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
       }
     }
