@@ -10,7 +10,7 @@
 {% block main_content %}
     <p class="font-xsmall">
         <strong class="bold-xsmall">{{ content.details.referenceNumber }}
-            :</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
+            :</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference }}<br>
         <strong class="bold-xsmall">{{ content.details.name }}:</strong> &nbsp;&nbsp;
         {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
     </p>
@@ -89,12 +89,12 @@
         <ul class="font-xsmall">
             <li>
                 <strong class="bold-xsmall">{{ content.contactDetails.email }}</strong><br>
-                {{ content.contactDetails.emailAddressDivorceService }}
+                {{ session.divorceCenterEmail | safe }}
                 <br>
             </li>
             <li>
                 <strong class="bold-xsmall">{{ content.contactDetails.phone }}</strong><br>
-                {{ content.contactDetails.divorceCenterPhone }}<br>
+                {{ session.divorceCenterPhoneNumber | safe }}<br>
                 {{ content.contactDetails.divorceCenterHours }}<br>
             </li>
             <li>
