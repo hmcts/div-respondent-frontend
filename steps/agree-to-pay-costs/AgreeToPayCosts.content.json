@@ -12,7 +12,7 @@
     "summary2": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ session.divorceWho }} make.",
 
     "question": "Do you agree to pay the costs?",
-    "notice": "A costs order will only cover the divorce costs, and won't include any costs related to financial settlements or child maintenance.",
+    "notice": "A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.",
 
     "info": {
       "heading": "Read more about costs orders",
