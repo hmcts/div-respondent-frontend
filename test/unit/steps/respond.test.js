@@ -10,6 +10,7 @@ const petitionMiddleware = require('middleware/petitionMiddleware');
 const httpStatus = require('http-status-codes');
 const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
+  testDivorceUnitWithStreetDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
 describe(modulePath, () => {
@@ -76,6 +77,21 @@ describe(modulePath, () => {
             const rightHandSideMenu = $('.column-one-third').html();
 
             testCTSCDetailsRender(rightHandSideMenu);
+          });
+      });
+    });
+
+    describe('when service centre handles case', () => {
+      const session = buildSessionWithCourtsInfo('northWest');
+
+      it('some contents should exist', () => {
+        return custom(Respond)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            testDivorceUnitWithStreetDetailsRender(rightHandSideMenu);
           });
       });
     });

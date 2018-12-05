@@ -47,5 +47,17 @@ module.exports = {
       expect(html).to.include('divorce@justice.gov.uk')
         .and.to.include('0300 303 0642');
     }
+  },
+  testDivorceUnitWithStreetDetailsRender(html, verifyContactDetails = true) {
+    expect(html).to.include('North West Regional Divorce Centre')
+      .and.to.include('Vernon Street')
+      .and.to.include('Liverpool')
+      .and.to.include('L2 2BX');
+
+    if (verifyContactDetails) {
+      expect(html).to.include('family@liverpool.countycourt.gsi.gov.uk')
+        .and.to.include('0300 303 0642');
+    }
+    expect(html).to.not.include('Courts and Tribunals Service Centre');
   }
 };
