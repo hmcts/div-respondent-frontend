@@ -5,7 +5,7 @@ function seeProgressBarPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ProgressBar.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function seeContentForAosNotCompleted() {
@@ -32,7 +32,7 @@ function seeContentForAosCompleteDefending() {
   const I = this;
 
   I.see(content.en.defendedDivorce.heading);
-  I.see(content.en.defendedDivorce.info);
+  I.see(content.en.defendedDivorce.para1);
 }
 
 module.exports = {

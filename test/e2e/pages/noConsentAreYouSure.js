@@ -5,7 +5,7 @@ function seeNoConsentAreYouSurePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(NoConsentAreYouSure.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function clickToConfirmNoConsent() {

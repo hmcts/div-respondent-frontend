@@ -32,6 +32,8 @@
     "other": {
       "heading": "Please contact Courts and Tribunals Service Centre for more information"
     },
+    "yourCourt": "Your divorce centre",
+    "careOfAbbreviation": "c/o",
     "helpHeading": "If you need help",
     "helpContent": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>.",
     "improveHeading": "Help us improve this service",
@@ -45,11 +47,8 @@
     "contactDetails": {
       "heading": "Getting help",
       "yourCourt": "Your divorce centre",
-      "courtsTribunals": "Courts and Tribunals Service Centre",
       "email": "Email",
-      "emailAddressDivorceService": "divorce@justice.gov.uk",
       "phone": "Phone",
-      "divorceCenterPhone": "0300 303 0642",
       "divorceCenterHours": "(Monday to Friday, 8.30am to 5pm)",
       "guidance": "Guidance on GOV.UK",
       "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ session.divorceWho }} responds</a>",

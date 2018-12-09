@@ -1,0 +1,12 @@
+<li>
+    <strong class="bold-xsmall">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
+    {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
+    {% if session.divorceCenterPoBox %}
+        {{ session.divorceCenterPoBox }}<br/>
+    {% endif %}
+    {% if session.divorceCenterStreet %}
+        {{ session.divorceCenterStreet }}<br/>
+    {% endif %}
+    {{ session.divorceCenterCourtCity }}<br/>
+    {{ session.divorceCenterPostCode }}<br/>
+</li>

@@ -5,7 +5,7 @@ function seeRespondPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(RespondPage.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 module.exports = { seeRespondPage };

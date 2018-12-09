@@ -5,7 +5,7 @@ function seeChooseAResponsePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ChooseAResponsePage.path);
-  I.see(content.en.title);
+  I.waitForText(content.en.title);
 }
 
 function chooseToProceedWithDivorce() {

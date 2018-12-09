@@ -10,7 +10,7 @@
 {% block main_content %}
     <p class="font-xsmall">
         <strong class="bold-xsmall">{{ content.details.referenceNumber }}
-            :</strong>&nbsp;&nbsp;&nbsp; {{ session.referenceNumber }}<br>
+            :</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference }}<br>
         <strong class="bold-xsmall">{{ content.details.name }}:</strong> &nbsp;&nbsp;
         {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
     </p>
@@ -39,22 +39,20 @@
         <p>{{ content.awaitingAnswer.para2 | safe }}</p>
         <p>{{ content.awaitingAnswer.para3 | safe }}</p>
         <ul class="list bold-small">
-            {% if isDefending %}
-                <li>{{ content.defendedContact.name }}</li>
-                <li>{{ content.defendedContact.poBox }}</li>
-                <li>{{ content.defendedContact.town }}</li>
-                <li>{{ content.defendedContact.postcode }}</li>
-            {% else %}
-                <li>{{ session.divorceCenterName }}</li>
-                {% if session.divorceCenterPoBox %}
-                    <li>{{ session.divorceCenterPoBox }}</li>
-                {% endif %}
-                {% if session.divorceCenterStreet %}
-                    <li>{{ session.divorceCenterStreet }}</li>
-                {% endif %}
-                <li>{{ session.divorceCenterCourtCity }}</li>
-                <li>{{ session.divorceCenterPostCode }}</li>
+            {% if session.serviceCentreName %}
+                <li>{{ session.serviceCentreName }}</li>
             {% endif %}
+
+            <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+
+            {% if session.divorceCenterPoBox %}
+                <li>{{ session.divorceCenterPoBox }}</li>
+            {% endif %}
+            {% if session.divorceCenterStreet %}
+                <li>{{ session.divorceCenterStreet }}</li>
+            {% endif %}
+            <li>{{ session.divorceCenterCourtCity }}</li>
+            <li>{{ session.divorceCenterPostCode }}</li>
         </ul>
         <p>{{ content.awaitingAnswer.para4 | safe }}</p>
         <p>{{ content.awaitingAnswer.para5 | safe }}</p>
@@ -91,40 +89,26 @@
         <ul class="font-xsmall">
             <li>
                 <strong class="bold-xsmall">{{ content.contactDetails.email }}</strong><br>
-                {{ content.contactDetails.emailAddressDivorceService }}
+                {{ session.divorceCenterEmail | safe }}
                 <br>
             </li>
             <li>
                 <strong class="bold-xsmall">{{ content.contactDetails.phone }}</strong><br>
-                {{ content.contactDetails.divorceCenterPhone }}<br>
+                {{ session.divorceCenterPhoneNumber | safe }}<br>
                 {{ content.contactDetails.divorceCenterHours }}<br>
             </li>
-            {% if isDefending %}
-                <li>
-                    <strong>{{ content.contactDetails.courtsTribunals }}</strong>
-                    <ul class="list small">
-                        <li>c/o {{ content.defendedContact.name }}</li>
-                        <li>{{ content.defendedContact.poBox }}</li>
-                        <li>{{ content.defendedContact.town }}</li>
-                        <li>{{ content.defendedContact.postcode }}</li>
-                    </ul>
-                </li>
-            {% else %}
-                <li>
-                    <strong>{{ content.contactDetails.courtsTribunals }}</strong>
-                    <ul class="list small">
-                        <li>c/o {{ session.divorceCenterName }}</li>
-                        {% if session.divorceCenterPoBox %}
-                            <li>{{ session.divorceCenterPoBox }}</li>
-                        {% endif %}
-                        {% if session.divorceCenterStreet %}
-                            <li>{{ session.divorceCenterStreet }}</li>
-                        {% endif %}
-                        <li>{{ session.divorceCenterCourtCity }}</li>
-                        <li>{{ session.divorceCenterPostCode }}</li>
-                    </ul>
-                </li>
-            {% endif %}
+            <li>
+                <strong class="bold-xsmall">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
+                {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
+                {% if session.divorceCenterPoBox %}
+                    {{ session.divorceCenterPoBox }}<br/>
+                {% endif %}
+                {% if session.divorceCenterStreet %}
+                    {{ session.divorceCenterStreet }}<br/>
+                {% endif %}
+                {{ session.divorceCenterCourtCity }}<br/>
+                {{ session.divorceCenterPostCode }}<br/>
+            </li>
         </ul>
 
         <h3 class="heading-small" id="subsection-title">{{ content.contactDetails.guidance }}</h3>
