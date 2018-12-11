@@ -1,9 +1,18 @@
 const CaseStates = Object.freeze({
+  AosAwaiting: 'AosAwaiting',
   AosStarted: 'AosStarted',
-  AosCompleted: 'AosCompleted',
-  AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral',
+  AosOverdue: 'AosOverdue',
   AosSubmittedAwaitingAnswer: 'AosSubmittedAwaitingAnswer',
-  DefendedDivorce: 'DefendedDivorce'
+  AmendPetition: 'AmendPetition',
+  AwaitingClarification: 'AwaitingClarification',
+  AwaitingConsideration: 'AwaitingConsideration',
+  AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute',
+  AwaitingDecreeNisi: 'AwaitingDecreeNisi',
+  AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral',
+  AwaitingPronouncement: 'AwaitingPronouncement',
+  AwaitingReissue: 'AwaitingReissue',
+  DefendedDivorce: 'DefendedDivorce',
+  DivorceGranted: 'DivorceGranted'
 });
 
 module.exports = { CaseStates };
