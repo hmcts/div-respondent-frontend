@@ -124,6 +124,7 @@
       ]
     },
     "reasonForDivorce": "separation-5-years",
+    "mentalSeparationDate": "",
     "reasonForDivorceHasMarriageDate": "true",
     "reasonForDivorceShowAdultery": "true",
     "reasonForDivorceShowUnreasonableBehaviour": "true",

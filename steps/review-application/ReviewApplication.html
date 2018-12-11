@@ -244,7 +244,9 @@
 
   <!-- Reason for divorce -->
 
-  <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
+  <h2 class="heading-medium">{{ content.reasonForDivorce }}
+
+  </h2>
 
   {% if session.originalPetition.reasonForDivorce == "adultery" %}
 
@@ -290,7 +292,16 @@
 
   {% if session.originalPetition.reasonForDivorce == "separation-5-years" %}
     <p class="text">{{ content.reasonForDivorceSeparationFiveYearsBrokenDown }}
-    <p class="text">{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
+    {% if session.originalPetition.mentalSeparationDate == "" %}
+      <p class="text">{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
+    {% else %}
+      <p class="text">{{ content.reasonForDivorceSeparationFiveYears2Dates }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.reasonForDivorceSeparationFiveYearsOver }} {{ session.originalPetition.mentalSeparationDate | date }}</li>
+        <li>{{ content.reasonForDivorceSeparationFiveYearsLvingApart }} {{ session.originalPetition.physicalSeparationDate | date }}</li>
+      </ul>
+      <p class="text">{{ content.reasonForDivorceSeparationFiveYears2DatesRecent }}</p>
+    {% endif %}
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "desertion" %}
