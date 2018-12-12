@@ -101,6 +101,24 @@ describe(modulePath, () => {
       );
     });
 
+    it('displays menatal and physical separation dates if used', () => {
+      const session = {
+        originalPetition: {
+          jurisdictionConnection: {},
+          reasonForDivorce: 'separation-5-years',
+          reasonForDivorceDecisionDate: '2003-02-01T00:00:00.000+0000',
+          reasonForDivorceLivingApartDate: '2003-02-02T00:00:00.000+0000'
+        }
+      };
+      return content(
+        ReviewApplication,
+        session,
+        {
+          specificValues: [ '01 February 2003', '02 February 2003' ]
+        }
+      );
+    });
+
     it('displays petitioner and respondent names', () => {
       const session = {
         originalPetition: {
@@ -282,7 +300,11 @@ describe(modulePath, () => {
         'whereTheMarriage',
         'readConfirmationQuestion',
         'readConfirmationYes',
-        'readConfirmationNo'
+        'readConfirmationNo',
+        'reasonForDivorceSeparationFiveYears2Dates',
+        'reasonForDivorceSeparationFiveYearsOver',
+        'reasonForDivorceSeparationFiveYearsLvingApart',
+        'reasonForDivorceSeparationFiveYears2DatesRecent'
       ];
       return content(ReviewApplication, session, { ignoreContent });
     });
@@ -641,6 +663,24 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceSeparationFiveYearsBrokenDown',
           'reasonForDivorceSeparationFiveYears'
+        ];
+        return content(ReviewApplication, session, { specificContent });
+      });
+
+      it('separation 5 years two date fields', () => {
+        const session = {
+          originalPetition: {
+            jurisdictionConnection: {},
+            reasonForDivorce: 'separation-5-years',
+            reasonForDivorceDecisionDate: '2003-02-01T00:00:00.000+0000',
+            reasonForDivorceLivingApartDate: '2003-02-01T00:00:00.000+0000'
+          }
+        };
+        const specificContent = [
+          'reasonForDivorceSeparationFiveYears2Dates',
+          'reasonForDivorceSeparationFiveYearsOver',
+          'reasonForDivorceSeparationFiveYearsLvingApart',
+          'reasonForDivorceSeparationFiveYears2DatesRecent'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
