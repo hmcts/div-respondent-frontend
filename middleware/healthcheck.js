@@ -22,14 +22,6 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-authentication': healthcheck.web(config.services.idam.authenticationHealth, {
-      callback: (error, res) => { // eslint-disable-line id-blacklist
-        if (error) {
-          logger.error(`Health check failed on idam-authentication: ${error}`);
-        }
-        return !error && res.status === OK ? outputs.up() : outputs.down(error);
-      }
-    }, options),
     'idam-app': healthcheck.web(config.services.idam.apiHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {

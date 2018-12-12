@@ -49,7 +49,7 @@ class ProgressBar extends Interstitial {
   }
 
   progressedNoAos(caseState) {
-    return this.caseBeyondAos(caseState) && this.session.originalPetition.respDefendsDivorce === null;
+    return this.caseBeyondAos(caseState) && !this.session.originalPetition.respDefendsDivorce;
   }
 
   progressedUndefended(caseState) {
