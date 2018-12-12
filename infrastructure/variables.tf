@@ -180,3 +180,13 @@ variable "rate_limiter_enabled" {
 variable "common_tags" {
   type = "map"
 }
+
+variable "website_local_cache_option" {
+  type = "string"
+  default = "Never"
+}
+
+variable "website_local_cache_sizeinmb" {
+  type = "string"
+  default = "0"
+}
