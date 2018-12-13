@@ -301,7 +301,6 @@ describe(modulePath, () => {
         'readConfirmationQuestion',
         'readConfirmationYes',
         'readConfirmationNo',
-        'reasonForDivorceSeparationFiveYears2Dates',
         'reasonForDivorceSeparationFiveYearsOver',
         'reasonForDivorceSeparationFiveYearsLvingApart',
         'reasonForDivorceSeparationFiveYears2DatesRecent'
@@ -677,7 +676,6 @@ describe(modulePath, () => {
           }
         };
         const specificContent = [
-          'reasonForDivorceSeparationFiveYears2Dates',
           'reasonForDivorceSeparationFiveYearsOver',
           'reasonForDivorceSeparationFiveYearsLvingApart',
           'reasonForDivorceSeparationFiveYears2DatesRecent'
