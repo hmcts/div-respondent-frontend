@@ -15,21 +15,13 @@ const redis = require('services/redis');
 
 const app = {};
 let res = {};
-const requestSuccessObj = {
-  defaults() {
-    return () => new Promise(resolve => {
-      return resolve('{ "status": "UP" }');
-    });
-  }
-};
-const requestErrorObj = {
-  defaults() {
-    return () => new Promise((resolve, reject) => {
-      // eslint-disable-next-line prefer-promise-reject-errors
-      return reject('error');
-    });
-  }
-};
+const requestSuccessObj = () => new Promise(resolve => {
+  return resolve('{ "status": "UP" }');
+});
+const requestErrorObj = () => new Promise((resolve, reject) => {
+  // eslint-disable-next-line prefer-promise-reject-errors
+  return reject('error');
+});
 
 
 describe(modulePath, () => {
@@ -103,13 +95,22 @@ describe(modulePath, () => {
     });
   });
 
-  it('throws an error if healthcheck fails for idam-app', () => {
+  it('throws an error if healthcheck fails for idam-api', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
     idamCallback('error');
 
-    sinon.assert.calledWith(logger.error, 'Health check failed on idam-app: error');
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
+  });
+
+  it('performs health-check for idam-api', () => {
+    setupHealthChecks(app);
+
+    const idamCallback = healthcheck.web.firstCall.args[1].callback;
+    idamCallback(null, res);
+
+    sinon.assert.called(outputs.up);
   });
 
   it('returns up if no error passed', () => {

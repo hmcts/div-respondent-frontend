@@ -24,9 +24,11 @@ const checks = () => {
         });
     }),
     'idam-authentication': healthcheck.raw(() => {
-      const idamReq = request.defaults({ proxy: config.services.idam.proxy });
-      const proxyOptions = Object.assign(options, { uri: config.services.idam.authenticationHealth });
-      return idamReq(proxyOptions)
+      const proxyOptions = Object.assign(options, {
+        uri: config.services.idam.authenticationHealth,
+        proxy: config.services.idam.proxy
+      });
+      return request(proxyOptions)
         .then(body => {
           const healthResponse = JSON.parse(body);
           return healthcheck.status(healthResponse.status === 'UP');
@@ -36,10 +38,10 @@ const checks = () => {
           return healthcheck.status(false);
         });
     }),
-    'idam-app': healthcheck.web(config.services.idam.apiHealth, {
+    'idam-api': healthcheck.web(config.services.idam.apiHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
-          logger.error(`Health check failed on idam-app: ${error}`);
+          logger.error(`Health check failed on idam-api: ${error}`);
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
