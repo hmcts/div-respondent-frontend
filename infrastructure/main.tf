@@ -101,6 +101,10 @@ module "frontend" {
     FEATURE_IDAM                               = "${var.feature_idam}"
 
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
+
+    // Cache
+    WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
+    WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
   }
 }
 
