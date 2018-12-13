@@ -74,7 +74,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('performs healthcheck for idam-authentication', () => {
+  it('performs healthcheck for idam-login-page', () => {
     setupHealthChecks = proxyquire(modulePath, { 'request-promise-native': requestSuccessObj });
     setupHealthChecks(app);
 
@@ -84,7 +84,7 @@ describe(modulePath, () => {
     });
   });
 
-  it('throws an error if healthcheck fails for idam-authentication', () => {
+  it('throws an error if healthcheck fails for idam-login-page', () => {
     setupHealthChecks = proxyquire(modulePath, { 'request-promise-native': requestErrorObj });
     setupHealthChecks(app);
 
@@ -105,15 +105,6 @@ describe(modulePath, () => {
   });
 
   it('performs health-check for idam-api', () => {
-    setupHealthChecks(app);
-
-    const idamCallback = healthcheck.web.firstCall.args[1].callback;
-    idamCallback(null, res);
-
-    sinon.assert.called(outputs.up);
-  });
-
-  it('returns up if no error passed', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
