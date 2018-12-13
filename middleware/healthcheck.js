@@ -26,7 +26,7 @@ const checks = () => {
     'idam-authentication': healthcheck.raw(() => {
       const proxyOptions = Object.assign(options, {
         uri: config.services.idam.authenticationHealth,
-        proxy: config.services.idam.proxy
+        proxy: config.services.proxyUrl
       });
       return request(proxyOptions)
         .then(body => {
