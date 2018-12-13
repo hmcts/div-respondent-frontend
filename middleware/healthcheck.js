@@ -1,3 +1,4 @@
+const request = require('request-promise-native');
 const healthcheck = require('@hmcts/nodejs-healthcheck');
 const config = require('config');
 const os = require('os');
@@ -20,6 +21,21 @@ const checks = () => {
         .catch(error => {
           logger.error(`Health check failed on redis: ${error}`);
           return false;
+        });
+    }),
+    'idam-login-page': healthcheck.raw(() => {
+      const proxyOptions = Object.assign(options, {
+        uri: config.services.idam.authenticationHealth,
+        proxy: config.services.proxyUrl
+      });
+      return request(proxyOptions)
+        .then(body => {
+          const healthResponse = JSON.parse(body);
+          return healthcheck.status(healthResponse.status === 'UP');
+        })
+        .catch(error => {
+          logger.error(`Health check failed on idam-authentication: ${error}`);
+          return healthcheck.status(false);
         });
     }),
     'idam-api': healthcheck.web(config.services.idam.apiHealth, {
