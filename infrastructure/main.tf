@@ -93,6 +93,7 @@ module "frontend" {
     GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
     LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
     SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
+    COS_HEALTHCHECK_URL = "${local.div_cos_url}${var.health_endpoint}"
 
     //Case Maintenence
     CASE_MAINTENANCE_BASE_URL = "${local.div_cms_url}"

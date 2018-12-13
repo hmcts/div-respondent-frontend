@@ -55,6 +55,7 @@ services:
     getPetitionUrl: GET_PETITION_URL
     linkRespondentUrl: LINK_RESPONDENT_URL
     submitAosUrl: SUBMIT_AOS_URL
+    health: COS_HEALTHCHECK_URL
   caseMaintenance:
     baseUrl: CASE_MAINTENANCE_BASE_URL
   feesAndPayments:

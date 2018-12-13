@@ -29,6 +29,14 @@ const checks = () => {
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
+    }, options),
+    'case-orchistration-service': healthcheck.web(config.services.caseOrchestration.health, {
+      callback: (error, res) => { // eslint-disable-line id-blacklist
+        if (error) {
+          logger.error(`Health check failed on case-orchestration-service: ${error}`);
+        }
+        return !error && res.status === OK ? outputs.up() : outputs.down(error);
+      }
     }, options)
   };
 };
