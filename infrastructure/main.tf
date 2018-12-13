@@ -1,3 +1,7 @@
+provider "azurerm" {
+  version = "1.19.0"
+}
+
 locals {
   local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
@@ -101,6 +105,10 @@ module "frontend" {
     FEATURE_IDAM                               = "${var.feature_idam}"
 
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
+
+    // Cache
+    WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
+    WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
   }
 }
 

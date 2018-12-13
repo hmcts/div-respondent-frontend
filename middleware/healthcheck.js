@@ -22,10 +22,10 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-app': healthcheck.web(config.services.idam.apiHealth, {
+    'idam-api': healthcheck.web(config.services.idam.apiHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
-          logger.error(`Health check failed on idam-app: ${error}`);
+          logger.error(`Health check failed on idam-api: ${error}`);
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }

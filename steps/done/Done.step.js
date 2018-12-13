@@ -1,7 +1,6 @@
 const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
-const preserveSession = require('middleware/preserveSession');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 class Done extends ExitPoint {
@@ -9,7 +8,7 @@ class Done extends ExitPoint {
     return config.paths.done;
   }
   get session() {
-    return this.req.sess;
+    return this.req.session;
   }
 
   get feesAmendDivorce() {
@@ -25,7 +24,6 @@ class Done extends ExitPoint {
       idam.protect(),
       getFeeFromFeesAndPayments('amend-fee'),
       getFeeFromFeesAndPayments('defended-petition-fee'),
-      preserveSession,
       ...super.middleware,
       idam.logout()
     ];
