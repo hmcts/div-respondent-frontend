@@ -20,7 +20,7 @@
       "para3": "Post the form to:",
       "para4": "You'll have to pay a £245 fee when you submit the form.",
       "para5": "You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
-      "para6": "If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defence the divorce."
+      "para6": "If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defend the divorce."
     },
     "defendedDivorce": {
       "heading": "Your answer has been received by the court",
