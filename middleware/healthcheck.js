@@ -1,3 +1,4 @@
+const request = require('request-promise-native');
 const healthcheck = require('@hmcts/nodejs-healthcheck');
 const config = require('config');
 const os = require('os');
@@ -22,14 +23,19 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-authentication': healthcheck.web(config.services.idam.authenticationHealth, {
-      callback: (error, res) => { // eslint-disable-line id-blacklist
-        if (error) {
+    'idam-authentication': healthcheck.raw(() => {
+      const idamReq = request.defaults({ proxy: config.services.idam.proxy });
+      const proxyOptions = Object.assign(options, { uri: config.services.idam.authenticationHealth });
+      return idamReq(proxyOptions)
+        .then(body => {
+          const healthResponse = JSON.parse(body);
+          return healthcheck.status(healthResponse.status === 'UP');
+        })
+        .catch(error => {
           logger.error(`Health check failed on idam-authentication: ${error}`);
-        }
-        return !error && res.status === OK ? outputs.up() : outputs.down(error);
-      }
-    }, options),
+          return healthcheck.status(false);
+        });
+    }),
     'idam-app': healthcheck.web(config.services.idam.apiHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {

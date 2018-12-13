@@ -35,6 +35,7 @@ services:
     secret: '123456'
     loginUrl: https://localhost:3000/idam-mock-login
     clientId: 'divorce'
+    proxy: http://proxyout.reform.hmcts.net:8080
   sourceLabs:
     browser: 'chrome'
     username: 'username'
