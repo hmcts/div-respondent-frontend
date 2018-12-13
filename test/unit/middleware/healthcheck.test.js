@@ -84,7 +84,7 @@ describe(modulePath, () => {
   it('throws an error if healthcheck fails for case-orchestration-service', () => {
     setupHealthChecks(app);
 
-    const cosCallback = healthcheck.web.firstCall.args[1].callback;
+    const cosCallback = healthcheck.web.secondCall.args[1].callback;
     cosCallback('error');
 
     sinon.assert.calledWith(
