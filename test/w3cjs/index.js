@@ -44,7 +44,7 @@ const filterSteps = step => {
 
 const userDetails = {
   id: 'idamUserId',
-  email: 'user@email.com'
+  email: 'respondent@email.address'
 };
 
 const stepHtml = step => {
