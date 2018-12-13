@@ -60,6 +60,7 @@ services:
     baseUrl: CASE_MAINTENANCE_BASE_URL
   feesAndPayments:
     baseUrl: FEES_AND_PAYMENTS_URL
+    health: FEES_AND_PAYMENTS_HEALTHCHECK_URL
 
 features:
   idam: FEATURE_IDAM

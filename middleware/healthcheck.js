@@ -37,6 +37,14 @@ const checks = () => {
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
+    }, options),
+    'fees-and-payments': healthcheck.web(config.services.feesAndPayments.health, {
+      callback: (error, res) => { // eslint-disable-line id-blacklist
+        if (error) {
+          logger.error(`Health check failed on fees-and-payments: ${error}`);
+        }
+        return !error && res.status === OK ? outputs.up() : outputs.down(error);
+      }
     }, options)
   };
 };

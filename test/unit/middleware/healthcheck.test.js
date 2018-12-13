@@ -93,6 +93,18 @@ describe(modulePath, () => {
     );
   });
 
+  it('throws an error if healthcheck fails for fees-and-payments', () => {
+    setupHealthChecks(app);
+
+    const feesCallback = healthcheck.web.thirdCall.args[1].callback;
+    feesCallback('error');
+
+    sinon.assert.calledWith(
+      logger.error,
+      'Health check failed on fees-and-payments: error'
+    );
+  });
+
   it('returns up if no error passed', () => {
     setupHealthChecks(app);
 
