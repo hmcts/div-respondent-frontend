@@ -15,3 +15,5 @@ google_analytics_tracking_id = "TBD"
 capacity = "2"
 
 rate_limiter_enabled = true
+
+decree_nisi_frontend_url = "https://www.apply-divorce.service.gov.uk"

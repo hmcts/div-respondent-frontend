@@ -55,6 +55,9 @@ services:
     linkRespondentUrl: http://localhost:3001/case-orchestration/link-respondent
     submitAosUrl: http://localhost:3001/case-orchestration/submit-aos
     health: http://localhost:3001/health
+  dnFrontend:
+    url: https://localhost:4000
+    landing: /authenticated
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:

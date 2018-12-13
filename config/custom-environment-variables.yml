@@ -56,6 +56,8 @@ services:
     linkRespondentUrl: LINK_RESPONDENT_URL
     submitAosUrl: SUBMIT_AOS_URL
     health: COS_HEALTHCHECK_URL
+  dnFrontend:
+    url: DECREE_NISI_FRONTEND_URL
   caseMaintenance:
     baseUrl: CASE_MAINTENANCE_BASE_URL
   feesAndPayments:

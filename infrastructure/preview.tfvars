@@ -12,3 +12,5 @@ idam_api_url = "https://preprod-idamapi.reform.hmcts.net:3511"
 service_auth_provider_url = "https://preprod-s2s-api.reform.hmcts.net:3511"
 google_analytics_tracking_id = "UA-93824767-2"
 rate_limiter_enabled = false
+
+decree_nisi_frontend_url = "https://div-dn-aat.service.core-compute-aat.internal"
