@@ -81,6 +81,18 @@ describe(modulePath, () => {
     sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
   });
 
+  it('throws an error if healthcheck fails for case-orchestration-service', () => {
+    setupHealthChecks(app);
+
+    const cosCallback = healthcheck.web.firstCall.args[1].callback;
+    cosCallback('error');
+
+    sinon.assert.calledWith(
+      logger.error,
+      'Health check failed on case-orchestration-service: error'
+    );
+  });
+
   it('returns up if no error passed', () => {
     setupHealthChecks(app);
 
