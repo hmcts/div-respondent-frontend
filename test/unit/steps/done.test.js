@@ -78,7 +78,12 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
       'notDefended2YearsNoConsent4',
-      'guidance'
+      'guidance',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -117,7 +122,12 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
       'notDefended2YearsNoConsent4',
-      'guidance'
+      'guidance',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -155,7 +165,12 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
       'notDefended2YearsNoConsent4',
-      'guidance'
+      'guidance',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -200,7 +215,12 @@ describe(modulePath, () => {
       'notDefendedText5',
       'notDefendedListItem1',
       'notDefendedListItem2',
-      'guidance'
+      'guidance',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -243,7 +263,12 @@ describe(modulePath, () => {
       'notDefendedAdultery2',
       'notDefendedAdulteryLi1',
       'notDefendedAdulteryLi2',
-      'guidance'
+      'guidance',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -280,7 +305,12 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
       'notDefended2YearsNoConsent4',
-      'guidance'
+      'guidance',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -319,7 +349,135 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
       'notDefended2YearsNoConsent4',
-      'guidance'
+      'guidance',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
+  it('renders the content if the financial situation consideration is yes', () => {
+    const session = {
+      ConsentDecree: {
+        response: {
+          willDefend: 'No'
+        }
+      },
+      FinancialSituation: {
+        respConsiderFinancialSituation: 'Yes'
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'defendedHeading',
+      'defendedText1',
+      'defendedText2',
+      'defendedText3',
+      'defendedText4',
+      'defendedText5',
+      'defendedText6',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedHeading',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4'
+    ];
+    return content(doneStep, session, { ignoreContent });
+  });
+
+  it('renders the content if the financial situation consideration is no', () => {
+    const session = {
+      ConsentDecree: {
+        response: {
+          willDefend: 'No'
+        }
+      },
+      FinancialSituation: {
+        respConsiderFinancialSituation: 'No'
+      }
+    };
+    const ignoreContent = [
+      'continue',
+      'backLink',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'defendedHeading',
+      'defendedText1',
+      'defendedText2',
+      'defendedText3',
+      'defendedText4',
+      'defendedText5',
+      'defendedText6',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedHeading',
+      'notDefendedText1',
+      'notDefendedText2',
+      'notDefendedText3',
+      'notDefendedText4',
+      'notDefendedText5',
+      'notDefendedListItem1',
+      'notDefendedListItem2',
+      'notDefendedAdultery1',
+      'notDefendedAdultery2',
+      'notDefendedAdulteryLi1',
+      'notDefendedAdulteryLi2',
+      'notDefendedAdultery3',
+      'notDefended2YearsNoConsent',
+      'notDefended2YearsNoConsent1',
+      'notDefended2YearsNoConsent2',
+      'notDefended2YearsNoConsent3',
+      'notDefended2YearsNoConsentH2',
+      'notDefended2YearsNoConsent4',
+      'financialSituationHeading',
+      'financialSituationText1',
+      'financialSituationText2',
+      'financialSituationText3',
+      'financialSituationFormLink'
     ];
     return content(doneStep, session, { ignoreContent });
   });
