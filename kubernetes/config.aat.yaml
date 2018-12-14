@@ -29,3 +29,4 @@ data:
   FEES_AND_PAYMENTS_URL: "http://div-fps-aat.service.core-compute-aat.internal"
   CASE_MAINTENANCE_BASE_URL: "http://div-cms-aat.service.core-compute-aat.internal"
   LOG_LEVEL: "DEBUG"
+  PROXY_URL: "http://proxyout.reform.hmcts.net:8080"

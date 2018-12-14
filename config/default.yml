@@ -58,6 +58,7 @@ services:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
     baseUrl: http://localhost:3001
+  proxyUrl: ''
 
 paths:
   health: /health

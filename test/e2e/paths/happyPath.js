@@ -3,7 +3,7 @@ const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 Feature('Happy path');
 
-Scenario('Proceed with divorce with linked user', async I => {
+Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   await I.createAUser();
   I.createAosCaseForUser(basicDivorceSession);
   await I.amOnLoadedPage('/');
