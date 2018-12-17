@@ -274,12 +274,17 @@
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatement }}</p>
     <p class="text">"
-    {% for item in session.originalPetition.reasonForDivorceBehaviourDetails %}
-      {{ item }}
-      {% if not loop.last %}
-       <br>
-      {% endif %}
-    {% endfor %}
+      {% for behaviourDetail in session.originalPetition.reasonForDivorceBehaviourDetails %}
+        {% if behaviourDetail | length > 0 and behaviourDetail !== '\r' %}
+          {{ behaviourDetail | nl2br | safe }}
+          {% if not loop.last %}
+            <br/>
+            {% if behaviourDetail.slice(-1)  !== '\r' %}
+              <br />
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     "</p>
   {% endif %}
 
