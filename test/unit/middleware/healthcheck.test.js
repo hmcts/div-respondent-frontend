@@ -74,7 +74,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('performs healthcheck for idam-login-page', () => {
+  it('performs healthcheck for idam-web-app', () => {
     setupHealthChecks = proxyquire(modulePath, { 'request-promise-native': requestSuccessObj });
     setupHealthChecks(app);
 
@@ -84,7 +84,7 @@ describe(modulePath, () => {
     });
   });
 
-  it('throws an error if healthcheck fails for idam-login-page', () => {
+  it('throws an error if healthcheck fails for idam-web-app', () => {
     setupHealthChecks = proxyquire(modulePath, { 'request-promise-native': requestErrorObj });
     setupHealthChecks(app);
 

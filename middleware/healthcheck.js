@@ -23,7 +23,7 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-login-page': healthcheck.raw(() => {
+    'idam-web-app': healthcheck.raw(() => {
       const proxyOptions = Object.assign(options, {
         uri: config.services.idam.authenticationHealth,
         proxy: config.services.proxyUrl
