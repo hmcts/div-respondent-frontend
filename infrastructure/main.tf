@@ -97,6 +97,7 @@ module "frontend" {
     GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
     LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
     SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
+    COS_HEALTHCHECK_URL = "${local.div_cos_url}${var.health_endpoint}"
 
     //Case Maintenence
     CASE_MAINTENANCE_BASE_URL = "${local.div_cms_url}"
@@ -105,6 +106,7 @@ module "frontend" {
     FEATURE_IDAM                               = "${var.feature_idam}"
 
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
+    FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.div_fps_url}${var.health_endpoint}"
 
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
