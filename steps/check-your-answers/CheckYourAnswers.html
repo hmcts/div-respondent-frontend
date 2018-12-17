@@ -17,7 +17,7 @@
 
 {% block statement_of_truth_content %}
 {{ header(content.confirm, size='medium') }}
-<p>{{ content.statementOfTruth | safe }}</p>
+<p class="bold-small">{{ content.statementOfTruth }}</p>
 {% endblock %}
 
 {% block full_width %}
