@@ -112,4 +112,50 @@ describe(modulePath, () => {
 
     sinon.assert.called(outputs.up);
   });
+
+  describe('case-orchestration-service', () => {
+    it('passes healthcheck', () => {
+      setupHealthChecks(app);
+
+      const cosCallback = healthcheck.web.secondCall.args[1].callback;
+      cosCallback(null, res);
+
+      sinon.assert.called(outputs.up);
+    });
+
+    it('throws an error if healthcheck fails for case-orchestration-service', () => {
+      setupHealthChecks(app);
+
+      const cosCallback = healthcheck.web.secondCall.args[1].callback;
+      cosCallback('error');
+
+      sinon.assert.calledWith(
+        logger.error,
+        'Health check failed on case-orchestration-service: error'
+      );
+    });
+  });
+
+  describe('fees-and-payments service', () => {
+    it('passes healthcheck', () => {
+      setupHealthChecks(app);
+
+      const feesCallback = healthcheck.web.thirdCall.args[1].callback;
+      feesCallback(null, res);
+
+      sinon.assert.called(outputs.up);
+    });
+
+    it('throws an error if healthcheck fails for fees-and-payments', () => {
+      setupHealthChecks(app);
+
+      const feesCallback = healthcheck.web.thirdCall.args[1].callback;
+      feesCallback('error');
+
+      sinon.assert.calledWith(
+        logger.error,
+        'Health check failed on fees-and-payments: error'
+      );
+    });
+  });
 });
