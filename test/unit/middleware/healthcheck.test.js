@@ -63,7 +63,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('returns up if healthcheck passes for idam-login-page', () => {
+  it('returns up if healthcheck passes for idam-auth', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
@@ -72,13 +72,13 @@ describe(modulePath, () => {
     sinon.assert.called(outputs.up);
   });
 
-  it('throws an error if healthcheck fails for idam-login-page', () => {
+  it('throws an error if healthcheck fails for idam-auth', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
     idamCallback('error');
 
-    sinon.assert.calledWith(logger.error, 'Health check failed on idam-login-page: error');
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-auth: error');
   });
 
   it('throws an error if healthcheck fails for idam-api', () => {
@@ -103,7 +103,7 @@ describe(modulePath, () => {
     it('passes healthcheck', () => {
       setupHealthChecks(app);
 
-      const cosCallback = healthcheck.web.secondCall.args[1].callback;
+      const cosCallback = healthcheck.web.thirdCall.args[1].callback;
       cosCallback(null, res);
 
       sinon.assert.called(outputs.up);
@@ -112,7 +112,7 @@ describe(modulePath, () => {
     it('throws an error if healthcheck fails for case-orchestration-service', () => {
       setupHealthChecks(app);
 
-      const cosCallback = healthcheck.web.secondCall.args[1].callback;
+      const cosCallback = healthcheck.web.thirdCall.args[1].callback;
       cosCallback('error');
 
       sinon.assert.calledWith(
@@ -126,7 +126,7 @@ describe(modulePath, () => {
     it('passes healthcheck', () => {
       setupHealthChecks(app);
 
-      const feesCallback = healthcheck.web.thirdCall.args[1].callback;
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
       feesCallback(null, res);
 
       sinon.assert.called(outputs.up);
@@ -135,7 +135,7 @@ describe(modulePath, () => {
     it('throws an error if healthcheck fails for fees-and-payments', () => {
       setupHealthChecks(app);
 
-      const feesCallback = healthcheck.web.thirdCall.args[1].callback;
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
       feesCallback('error');
 
       sinon.assert.calledWith(
