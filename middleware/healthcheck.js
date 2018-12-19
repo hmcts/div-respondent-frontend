@@ -1,3 +1,4 @@
+const request = require('request-promise-native');
 const healthcheck = require('@hmcts/nodejs-healthcheck');
 const config = require('config');
 const os = require('os');
@@ -22,10 +23,41 @@ const checks = () => {
           return false;
         });
     }),
+    'idam-login-page': healthcheck.raw(() => {
+      const proxyOptions = Object.assign(options, {
+        uri: config.services.idam.authenticationHealth,
+        proxy: config.services.proxyUrl
+      });
+      return request(proxyOptions)
+        .then(body => {
+          const healthResponse = JSON.parse(body);
+          return healthcheck.status(healthResponse.status === 'UP');
+        })
+        .catch(error => {
+          logger.error(`Health check failed on idam-authentication: ${error}`);
+          return healthcheck.status(false);
+        });
+    }),
     'idam-api': healthcheck.web(config.services.idam.apiHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
           logger.error(`Health check failed on idam-api: ${error}`);
+        }
+        return !error && res.status === OK ? outputs.up() : outputs.down(error);
+      }
+    }, options),
+    'case-orchestration-service': healthcheck.web(config.services.caseOrchestration.health, {
+      callback: (error, res) => { // eslint-disable-line id-blacklist
+        if (error) {
+          logger.error(`Health check failed on case-orchestration-service: ${error}`);
+        }
+        return !error && res.status === OK ? outputs.up() : outputs.down(error);
+      }
+    }, options),
+    'fees-and-payments': healthcheck.web(config.services.feesAndPayments.health, {
+      callback: (error, res) => { // eslint-disable-line id-blacklist
+        if (error) {
+          logger.error(`Health check failed on fees-and-payments: ${error}`);
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
