@@ -35,7 +35,8 @@
     "defendedText1":"You have 21 days to submit the '<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\">answer to a divorce application</a>' form from the date that you first signed into your divorce account.",
     "defendedText2":"Download and fill in the paper form.",
     "defendedText3":"Post the form to:",
-    "defendedText4":"You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form.",
+    "defendedText4":"You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to ",
+    "defendedText4Link": "<a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get help with paying this fee</a>",
     "defendedText5":"You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
     "defendedText6":" If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defend the divorce.",
 
