@@ -48,8 +48,7 @@ describe(modulePath, () => {
     };
 
     return content(ProgressBar, session, {
-      specificValues: [ progressBarContent.en.progressedUndefended.heading ],
-      specificValuesToNotExist: [ progressBarContent.en.progressedNoAos.heading ]
+      specificValues: [ progressBarContent.en.progressedUndefended.heading ]
     });
   });
 

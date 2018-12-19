@@ -63,25 +63,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('throws an error if healthcheck fails for idam-authentication', () => {
-    setupHealthChecks(app);
-
-    const idamCallback = healthcheck.web.firstCall.args[1].callback;
-    idamCallback('error');
-
-    sinon.assert.calledWith(logger.error, 'Health check failed on idam-authentication: error');
-  });
-
-  it('throws an error if healthcheck fails for idam-app', () => {
-    setupHealthChecks(app);
-
-    const idamCallback = healthcheck.web.secondCall.args[1].callback;
-    idamCallback('error');
-
-    sinon.assert.calledWith(logger.error, 'Health check failed on idam-app: error');
-  });
-
-  it('returns up if no error passed', () => {
+  it('returns up if healthcheck passes for idam-auth', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
@@ -90,12 +72,76 @@ describe(modulePath, () => {
     sinon.assert.called(outputs.up);
   });
 
-  it('throws an error if healthcheck fails for idam-app', () => {
+  it('throws an error if healthcheck fails for idam-auth', () => {
+    setupHealthChecks(app);
+
+    const idamCallback = healthcheck.web.firstCall.args[1].callback;
+    idamCallback('error');
+
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-auth: error');
+  });
+
+  it('throws an error if healthcheck fails for idam-api', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.secondCall.args[1].callback;
-    idamCallback(null, res);
+    idamCallback('error');
 
-    sinon.assert.called(outputs.up);
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
+  });
+
+  it('returns up if healthcheck passes for idam-api', () => {
+    setupHealthChecks(app);
+
+    const idamCallback = healthcheck.web.secondCall.args[1].callback;
+    idamCallback('error');
+
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
+  });
+
+  describe('case-orchestration-service', () => {
+    it('passes healthcheck', () => {
+      setupHealthChecks(app);
+
+      const cosCallback = healthcheck.web.thirdCall.args[1].callback;
+      cosCallback(null, res);
+
+      sinon.assert.called(outputs.up);
+    });
+
+    it('throws an error if healthcheck fails for case-orchestration-service', () => {
+      setupHealthChecks(app);
+
+      const cosCallback = healthcheck.web.thirdCall.args[1].callback;
+      cosCallback('error');
+
+      sinon.assert.calledWith(
+        logger.error,
+        'Health check failed on case-orchestration-service: error'
+      );
+    });
+  });
+
+  describe('fees-and-payments service', () => {
+    it('passes healthcheck', () => {
+      setupHealthChecks(app);
+
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
+      feesCallback(null, res);
+
+      sinon.assert.called(outputs.up);
+    });
+
+    it('throws an error if healthcheck fails for fees-and-payments', () => {
+      setupHealthChecks(app);
+
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
+      feesCallback('error');
+
+      sinon.assert.calledWith(
+        logger.error,
+        'Health check failed on fees-and-payments: error'
+      );
+    });
   });
 });

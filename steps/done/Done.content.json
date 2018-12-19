@@ -32,7 +32,7 @@
     "notDefended2YearsNoConsent4": "You can change your mind and give your consent to the divorce at any time. You'll need to do this in writing. Contact the divorce centre if you want to do this.",
 
     "defendedHeading":"What to do now",
-    "defendedText1":"You now have 21 days to submit the '<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\">answer to a divorce application</a>' form.",
+    "defendedText1":"You have 21 days to submit the '<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\">answer to a divorce application</a>' form from the date that you first signed into your divorce account.",
     "defendedText2":"Download and fill in the paper form.",
     "defendedText3":"Post the form to:",
     "defendedText4":"You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form.",

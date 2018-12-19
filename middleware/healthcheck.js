@@ -22,18 +22,34 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-authentication': healthcheck.web(config.services.idam.authenticationHealth, {
+    'idam-auth': healthcheck.web(config.services.idam.authenticationHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
-          logger.error(`Health check failed on idam-authentication: ${error}`);
+          logger.error(`Health check failed on idam-auth: ${error}`);
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
     }, options),
-    'idam-app': healthcheck.web(config.services.idam.apiHealth, {
+    'idam-api': healthcheck.web(config.services.idam.apiHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
-          logger.error(`Health check failed on idam-app: ${error}`);
+          logger.error(`Health check failed on idam-api: ${error}`);
+        }
+        return !error && res.status === OK ? outputs.up() : outputs.down(error);
+      }
+    }, options),
+    'case-orchestration-service': healthcheck.web(config.services.caseOrchestration.health, {
+      callback: (error, res) => { // eslint-disable-line id-blacklist
+        if (error) {
+          logger.error(`Health check failed on case-orchestration-service: ${error}`);
+        }
+        return !error && res.status === OK ? outputs.up() : outputs.down(error);
+      }
+    }, options),
+    'fees-and-payments': healthcheck.web(config.services.feesAndPayments.health, {
+      callback: (error, res) => { // eslint-disable-line id-blacklist
+        if (error) {
+          logger.error(`Health check failed on fees-and-payments: ${error}`);
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
