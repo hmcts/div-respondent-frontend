@@ -102,7 +102,7 @@ describe(modulePath, () => {
     });
   });
 
-  it('sets respDefendsDivorce to no if response is proceed', () => {
+  it('sets respWillDefendDivorce to no if response is proceed', () => {
     // given
     session.ChooseAResponse = {
       response: 'proceed'
@@ -116,10 +116,10 @@ describe(modulePath, () => {
     // then
     const values = step.values();
     expect(values).to.be.an('object');
-    expect(values).to.have.property('respDefendsDivorce', 'No');
+    expect(values).to.have.property('respWillDefendDivorce', 'No');
   });
 
-  it('sets respDefendsDivorce to yes if response is defend', () => {
+  it('sets respWillDefendDivorce to yes if response is defend', () => {
     // given
     session.ChooseAResponse = {
       response: 'defend'
@@ -133,7 +133,7 @@ describe(modulePath, () => {
     // then
     const values = step.values();
     expect(values).to.be.an('object');
-    expect(values).to.have.property('respDefendsDivorce', 'Yes');
+    expect(values).to.have.property('respWillDefendDivorce', 'Yes');
   });
 
   describe('returns correct answer based on response', () => {
@@ -225,7 +225,7 @@ describe(modulePath, () => {
         });
     });
 
-    it('sets respAdmitOrConsentToFact to yes if response is proceed', () => {
+    it('sets respWillDefendDivorce to no if response is proceed', () => {
       // given
       session.ChooseAResponse = {
         response: 'proceed'
@@ -239,11 +239,10 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'No');
-      expect(values).to.have.property('respAdmitOrConsentToFact', 'Yes');
+      expect(values).to.have.property('respWillDefendDivorce', 'No');
     });
 
-    it('sets respAdmitOrConsentToFact to no if response is proceedButDisagree', () => {
+    it('sets respWillDefendDivorce to notAccept if response is proceedButDisagree', () => {
       // given
       session.ChooseAResponse = {
         response: 'proceedButDisagree'
@@ -257,11 +256,13 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'No');
-      expect(values).to.have.property('respAdmitOrConsentToFact', 'No');
+      expect(values).to.have.property(
+        'respWillDefendDivorce',
+        'No, but does not accept the allegations made'
+      );
     });
 
-    it('set respAdmitOrConsentToFact to no if response is defend', () => {
+    it('set respWillDefendDivorce to Yes if response is defend', () => {
       // given
       session.ChooseAResponse = {
         response: 'defend'
@@ -275,8 +276,7 @@ describe(modulePath, () => {
       // then
       const values = step.values();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('respDefendsDivorce', 'Yes');
-      expect(values).to.have.property('respAdmitOrConsentToFact', 'No');
+      expect(values).to.have.property('respWillDefendDivorce', 'Yes');
     });
 
     it('throws error for unknown response', () => {

@@ -14,6 +14,7 @@ const consts = {
   defend: 'defend',
   yes: 'Yes',
   no: 'No',
+  notAccept: 'No, but does not accept the allegations made',
   behavior: 'unreasonable-behaviour',
   separation5yrs: 'separation-5-years'
 };
@@ -64,27 +65,18 @@ class ChooseAResponse extends Question {
     if (this.isBehaviour) {
       switch (response) {
       case consts.proceed:
-        return {
-          respDefendsDivorce: consts.no,
-          respAdmitOrConsentToFact: consts.yes
-        };
+        return { respWillDefendDivorce: consts.no };
       case consts.proceedButDisagree:
-        return {
-          respDefendsDivorce: consts.no,
-          respAdmitOrConsentToFact: consts.no
-        };
+        return { respWillDefendDivorce: consts.notAccept };
       case consts.defend:
-        return {
-          respDefendsDivorce: consts.yes,
-          respAdmitOrConsentToFact: consts.no
-        };
+        return { respWillDefendDivorce: consts.yes };
       default:
         throw new Error(`Unknown response to behavior: '${response}'`);
       }
     }
 
-    const respDefendsDivorce = response === consts.proceed ? consts.no : consts.yes;
-    return { respDefendsDivorce };
+    const respWillDefendDivorce = response === consts.proceed ? consts.no : consts.yes;
+    return { respWillDefendDivorce };
   }
 
   answers() {
