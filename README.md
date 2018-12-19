@@ -1,23 +1,22 @@
 # Divorce Respondent Frontend
-A starting point for all new divorce frontend projects.
 
-It includes common services, middleware and configs
+The Apply for Divorce Respondent Frontend.
 
 ## Getting started
 
-### Dev setup
+####Install dependencies:
 
 `yarn install`
 
-Start database:
+####Start application:
 
-`docker run --name redis -p 6379:6379 -d redis`
+`docker-compose up`
 
-Start application and required mocks:
+`yarn mocks`
 
 `yarn dev`
 
-`yarn mocks`
+The application will now be running on ```https://localhost:3000```.
 
 ### Running tests:
 
