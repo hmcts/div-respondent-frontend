@@ -8,12 +8,13 @@ const Joi = require('joi');
 const content = require('./ReviewApplication.content').en;
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
+const { replace, endsWith } = require('lodash');
+
 const values = {
   yes: 'Yes',
   adultery: 'adultery',
   twoYearSeparation: 'separation-2-years'
 };
-
 class ReviewApplication extends Question {
   static get path() {
     return config.paths.reviewApplication;
@@ -49,6 +50,28 @@ class ReviewApplication extends Question {
       .joi(this.content.errors.required, validAnswers);
 
     return form({ respConfirmReadPetition });
+  }
+
+  alignSections(details) {
+    let arrLength = details.length;
+    return details // eslint-disable-line max-len
+      .filter(item => {
+        if (item.length > 0 && item !== '\r') {
+          return true;
+        }
+        // Reduce array length by 1 if item is filtered
+        arrLength -= 1;
+        return false;
+      })
+      .map((item, index) => {
+        let value = item;
+        if (endsWith(item, '\r')) {
+          value = replace(item, '\r', '');
+        } else if (arrLength !== index + 1) {
+          value = item.concat('<br />');
+        }
+        return value;
+      });
   }
 
   answers() {
