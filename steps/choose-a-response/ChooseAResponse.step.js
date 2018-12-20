@@ -14,7 +14,7 @@ const consts = {
   defend: 'defend',
   yes: 'Yes',
   no: 'No',
-  notAccept: 'No, but does not accept the allegations made',
+  notAccept: 'NoNoAdmission',
   behavior: 'unreasonable-behaviour',
   separation5yrs: 'separation-5-years'
 };

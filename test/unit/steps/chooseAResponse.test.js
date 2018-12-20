@@ -258,7 +258,7 @@ describe(modulePath, () => {
       expect(values).to.be.an('object');
       expect(values).to.have.property(
         'respWillDefendDivorce',
-        'No, but does not accept the allegations made'
+        'NoNoAdmission'
       );
     });
 
