@@ -49,24 +49,33 @@ class ProgressBar extends Interstitial {
   }
 
   progressedNoAos(caseState) {
-    return (caseState === CaseStates.AwaitingLegalAdvisorReferral
-      && this.session.originalPetition.respDefendsDivorce === null);
+    return this.caseBeyondAos(caseState) && !this.session.originalPetition.respDefendsDivorce;
   }
 
   progressedUndefended(caseState) {
-    return (
-      caseState === CaseStates.AosCompleted ||
-      caseState === CaseStates.AwaitingLegalAdvisorReferral)
-      && this.session.originalPetition.respDefendsDivorce === values.no;
+    return this.caseBeyondAos(caseState) && this.session.originalPetition.respDefendsDivorce === values.no;
   }
 
   awaitingAnswer(caseState) {
-    return (caseState === CaseStates.AosSubmittedAwaitingAnswer) ||
-      (caseState === CaseStates.AosCompleted && this.isDefending);
+    return caseState === CaseStates.AosSubmittedAwaitingAnswer;
   }
 
   defendedDivorce(caseState) {
     return caseState === CaseStates.DefendedDivorce;
+  }
+
+  caseBeyondAos(caseState) {
+    return (
+      caseState === CaseStates.AwaitingLegalAdvisorReferral ||
+      caseState === CaseStates.AmendPetition ||
+      caseState === CaseStates.AwaitingClarification ||
+      caseState === CaseStates.AwaitingConsideration ||
+      caseState === CaseStates.AwaitingDecreeAbsolute ||
+      caseState === CaseStates.DNAwaiting ||
+      caseState === CaseStates.AwaitingReissue ||
+      caseState === CaseStates.DivorceGranted ||
+      caseState === CaseStates.AwaitingPronouncement
+    );
   }
 
   get isDefending() {
