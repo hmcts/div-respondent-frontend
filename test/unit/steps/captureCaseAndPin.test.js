@@ -6,7 +6,7 @@ const Respond = require('steps/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
-const validReferenceNumber = '1234567890123456';
+const validReferenceNumber = '1234567891234567';
 const validSecurityAccessCode = '1A3b5678';
 
 describe(modulePath, () => {
@@ -61,7 +61,15 @@ describe(modulePath, () => {
     });
     it('contains a non-digit character', () => {
       const answers = {
-        referenceNumber: '123456789012345A',
+        referenceNumber: '123456789123456A',
+        securityAccessCode: validSecurityAccessCode
+      };
+      const onlyErrors = ['referenceNumberDigitsOnly'];
+      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
+    });
+    it('contains a 0', () => {
+      const answers = {
+        referenceNumber: '1234567890123456',
         securityAccessCode: validSecurityAccessCode
       };
       const onlyErrors = ['referenceNumberDigitsOnly'];

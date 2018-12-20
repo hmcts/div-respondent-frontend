@@ -31,8 +31,8 @@ class CaptureCaseAndPin extends Question {
           .required())
       .joi(
         errors.referenceNumberDigitsOnly,
-        Joi.number()
-          .integer()
+        Joi.string()
+          .regex(/^[1-9]+$/)
       );
   }
 
