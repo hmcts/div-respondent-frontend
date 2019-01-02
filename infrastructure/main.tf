@@ -105,6 +105,8 @@ module "frontend" {
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"
 
+    // Decree Nisi Frontend Url
+    DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.div_fps_url}${var.health_endpoint}"
 

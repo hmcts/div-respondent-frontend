@@ -196,7 +196,6 @@
         }
     },
     "courts": "eastMidlands",
-    "respEmailAddress": "divdemores@mailinator.com",
     "confirmPrayer": "Yes",
     "payment": {
         "PaymentChannel" : "card",

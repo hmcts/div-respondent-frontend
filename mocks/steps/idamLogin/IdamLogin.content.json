@@ -17,7 +17,8 @@
         "yesCaseProgressedUndefended": "Yes - case progressed undefended",
         "yesCaseProgressedAwaitingAnswer": "Yes - case progressed, defended & awaiting answer",
         "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
-        "no": "No"
+        "no": "No",
+        "petitionerRedirect": "Set user to petitioner"
       }
     }
   }

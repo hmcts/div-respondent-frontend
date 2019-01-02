@@ -1,12 +1,10 @@
 const modulePath = 'middleware/healthcheck';
 
-let setupHealthChecks = require(modulePath);
+const setupHealthChecks = require(modulePath);
 const path = require('path');
-const proxyquire = require('proxyquire');
 const healthcheck = require('@hmcts/nodejs-healthcheck');
 const logger = require('@hmcts/nodejs-logging')
-  .Logger
-  .getLogger(path.resolve('middleware/healthcheck.js'));
+  .Logger.getLogger(path.resolve('middleware/healthcheck.js'));
 const { sinon } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
 const outputs = require('@hmcts/nodejs-healthcheck/healthcheck/outputs');
@@ -15,20 +13,11 @@ const redis = require('services/redis');
 
 const app = {};
 let res = {};
-const requestSuccessObj = () => new Promise(resolve => {
-  return resolve('{ "status": "UP" }');
-});
-const requestErrorObj = () => new Promise((resolve, reject) => {
-  // eslint-disable-next-line prefer-promise-reject-errors
-  return reject('error');
-});
-
 
 describe(modulePath, () => {
   beforeEach(() => {
     app.use = sinon.stub();
-    sinon.stub(redis, 'ping')
-      .resolves('PONG');
+    sinon.stub(redis, 'ping').resolves('PONG');
     sinon.stub(healthcheck, 'web');
     sinon.stub(healthcheck, 'raw');
     sinon.stub(healthcheck, 'status');
@@ -74,37 +63,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('performs healthcheck for idam-login-page', () => {
-    setupHealthChecks = proxyquire(modulePath, { 'request-promise-native': requestSuccessObj });
-    setupHealthChecks(app);
-
-    const idamCallback = healthcheck.raw.secondCall.args[0];
-    idamCallback().then(() => {
-      sinon.assert.calledWith(healthcheck.status, true);
-    });
-  });
-
-  it('throws an error if healthcheck fails for idam-login-page', () => {
-    setupHealthChecks = proxyquire(modulePath, { 'request-promise-native': requestErrorObj });
-    setupHealthChecks(app);
-
-    const idamCallback = healthcheck.raw.secondCall.args[0];
-    idamCallback('error').then(() => {
-      sinon.assert.calledWith(logger.error, 'Health check failed on idam-authentication: error');
-      sinon.assert.calledWith(healthcheck.status, false);
-    });
-  });
-
-  it('throws an error if healthcheck fails for idam-api', () => {
-    setupHealthChecks(app);
-
-    const idamCallback = healthcheck.web.firstCall.args[1].callback;
-    idamCallback('error');
-
-    sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
-  });
-
-  it('performs health-check for idam-api', () => {
+  it('returns up if healthcheck passes for idam-auth', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
@@ -113,11 +72,38 @@ describe(modulePath, () => {
     sinon.assert.called(outputs.up);
   });
 
+  it('throws an error if healthcheck fails for idam-auth', () => {
+    setupHealthChecks(app);
+
+    const idamCallback = healthcheck.web.firstCall.args[1].callback;
+    idamCallback('error');
+
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-auth: error');
+  });
+
+  it('throws an error if healthcheck fails for idam-api', () => {
+    setupHealthChecks(app);
+
+    const idamCallback = healthcheck.web.secondCall.args[1].callback;
+    idamCallback('error');
+
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
+  });
+
+  it('returns up if healthcheck passes for idam-api', () => {
+    setupHealthChecks(app);
+
+    const idamCallback = healthcheck.web.secondCall.args[1].callback;
+    idamCallback('error');
+
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
+  });
+
   describe('case-orchestration-service', () => {
     it('passes healthcheck', () => {
       setupHealthChecks(app);
 
-      const cosCallback = healthcheck.web.secondCall.args[1].callback;
+      const cosCallback = healthcheck.web.thirdCall.args[1].callback;
       cosCallback(null, res);
 
       sinon.assert.called(outputs.up);
@@ -126,7 +112,7 @@ describe(modulePath, () => {
     it('throws an error if healthcheck fails for case-orchestration-service', () => {
       setupHealthChecks(app);
 
-      const cosCallback = healthcheck.web.secondCall.args[1].callback;
+      const cosCallback = healthcheck.web.thirdCall.args[1].callback;
       cosCallback('error');
 
       sinon.assert.calledWith(
@@ -140,7 +126,7 @@ describe(modulePath, () => {
     it('passes healthcheck', () => {
       setupHealthChecks(app);
 
-      const feesCallback = healthcheck.web.thirdCall.args[1].callback;
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
       feesCallback(null, res);
 
       sinon.assert.called(outputs.up);
@@ -149,7 +135,7 @@ describe(modulePath, () => {
     it('throws an error if healthcheck fails for fees-and-payments', () => {
       setupHealthChecks(app);
 
-      const feesCallback = healthcheck.web.thirdCall.args[1].callback;
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
       feesCallback('error');
 
       sinon.assert.calledWith(

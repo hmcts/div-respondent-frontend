@@ -5,7 +5,7 @@ const modulePath = 'steps/review-application/ReviewApplication.step';
 const ReviewApplication = require(modulePath);
 const ChooseAResponse = require('steps/choose-a-response/ChooseAResponse.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe(modulePath, () => {
@@ -66,6 +66,73 @@ describe(modulePath, () => {
       }
     };
     return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
+  });
+
+  describe('Behaviour Details', () => {
+    it('Alignment', () => {
+      const reasonForDivorceBehaviourDetails = [
+        'My wife is 1',
+        'My wife is 1\r',
+        'My wife is 2',
+        'My wife is 1\r',
+        'My wife\n is 2\r',
+        'My wife is 3',
+        'My wife is 1\r',
+        'My wife is 2\r',
+        'My wife is 3\r',
+        'My wife is 4',
+        'My wife is 1\r',
+        'My wife is 2\r',
+        'My wife is 3\r',
+        'My wife is 4\r',
+        'My wife is 5',
+        'My wife is 1\r',
+        'My wife is 2\r',
+        'My wife is 3\r',
+        'My wife is 4\r',
+        'My wife is 5',
+        '\r',
+        '',
+        'My wife is 6'
+      ];
+      const alignedBehaviourDetails = [
+        'My wife is 1<br />',
+        'My wife is 1',
+        'My wife is 2<br />',
+        'My wife is 1',
+        'My wife\n is 2',
+        'My wife is 3<br />',
+        'My wife is 1',
+        'My wife is 2',
+        'My wife is 3',
+        'My wife is 4<br />',
+        'My wife is 1',
+        'My wife is 2',
+        'My wife is 3',
+        'My wife is 4',
+        'My wife is 5<br />',
+        'My wife is 1',
+        'My wife is 2',
+        'My wife is 3',
+        'My wife is 4',
+        'My wife is 5<br />',
+        'My wife is 6'
+      ];
+      const req = {
+        journey: {},
+        session: {
+        }
+      };
+      const step = new ReviewApplication(req, {});
+      step.retrieve()
+        .validate();
+
+      expect(
+        step.alignSections(reasonForDivorceBehaviourDetails))
+        .to
+        .deep
+        .equal(alignedBehaviourDetails);
+    });
   });
 
   describe('values', () => {
