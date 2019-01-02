@@ -211,7 +211,7 @@
       }
     },
     "courts": "serviceCentre",
-    "respEmailAddress": "divdemores@mailinator.com",
+    "respEmailAddress": "user@email.com",
     "confirmPrayer": "Yes",
     "payment": {
       "PaymentChannel": "card",
