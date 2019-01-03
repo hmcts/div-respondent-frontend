@@ -348,7 +348,7 @@ describe(modulePath, () => {
         divorceCenterEmail: 'eastmidlandsdivorce@hmcts.gsi.gov.uk',
         divorceCenterPhoneNumber: '0300 303 0642',
         originalPetition: {
-          respEmailAddress: 'test@test.com'
+          respEmailAddress: 'simulate-delivered@notifications.service.gov.uk'
         }
       };
       return content(
