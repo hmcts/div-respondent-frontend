@@ -102,7 +102,8 @@ onePerPage.journey(app, {
     }
   },
   timeoutDelay: config.journey.timeoutDelay,
-  i18n: { filters: getFilters() }
+  i18n: { filters: getFilters() },
+  useCsrfToken: true
 });
 
 app.use(logging.Express.accessLogger());

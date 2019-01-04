@@ -273,14 +273,16 @@
   {% if session.originalPetition.reasonForDivorce == "unreasonable-behaviour" %}
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatement }}</p>
-    <p class="text">"
-    {% for item in session.originalPetition.reasonForDivorceBehaviourDetails %}
-      {{ item }}
-      {% if not loop.last %}
-       <br>
-      {% endif %}
-    {% endfor %}
-    "</p>
+    {% if session.originalPetition.reasonForDivorceBehaviourDetails %}
+      <p class="text">"
+          {% for item in alignSections(session.originalPetition.reasonForDivorceBehaviourDetails) %}
+            {{ item | nl2br | safe }}
+            {% if not loop.last %}
+            <br>
+            {% endif %}
+          {% endfor %}
+      "</p>
+    {% endif %}
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-2-years" %}

@@ -64,6 +64,7 @@ describe(modulePath, () => {
       'defendedText2',
       'defendedText3',
       'defendedText4',
+      'defendedText4Link',
       'defendedText5',
       'defendedText6',
       'notDefendedAdultery1',
@@ -101,6 +102,7 @@ describe(modulePath, () => {
       'defendedText2',
       'defendedText3',
       'defendedText4',
+      'defendedText4Link',
       'defendedText5',
       'defendedText6',
       'notDefendedAdultery1',
@@ -137,6 +139,7 @@ describe(modulePath, () => {
       'defendedText2',
       'defendedText3',
       'defendedText4',
+      'defendedText4Link',
       'defendedText5',
       'defendedText6',
       'notDefendedAdultery1',
@@ -178,6 +181,7 @@ describe(modulePath, () => {
       'defendedText2',
       'defendedText3',
       'defendedText4',
+      'defendedText4Link',
       'defendedText5',
       'defendedText6',
       'notDefended2YearsNoConsent',
@@ -221,6 +225,7 @@ describe(modulePath, () => {
       'defendedText2',
       'defendedText3',
       'defendedText4',
+      'defendedText4Link',
       'defendedText5',
       'defendedText6',
       'notDefendedText1',
@@ -343,7 +348,7 @@ describe(modulePath, () => {
         divorceCenterEmail: 'eastmidlandsdivorce@hmcts.gsi.gov.uk',
         divorceCenterPhoneNumber: '0300 303 0642',
         originalPetition: {
-          respEmailAddress: 'test@test.com'
+          respEmailAddress: 'simulate-delivered@notifications.service.gov.uk'
         }
       };
       return content(
