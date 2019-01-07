@@ -106,5 +106,26 @@ describe(modulePath, () => {
           });
       });
     });
+
+    describe('right hand side menu rendering', () => {
+      const session = {
+        divorceWho: 'husband'
+      };
+
+      it('should render guidance links', () => {
+        return custom(Respond)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            expect(rightHandSideMenu).to.include(`How your ${session.divorceWho} responds`)
+              .and.to.include('Decree nisi')
+              .and.to.include('Decree absolute')
+              .and.to.include('Children and divorce')
+              .and.to.include('Money and property');
+          });
+      });
+    });
   });
 });
