@@ -109,9 +109,7 @@ describe(modulePath, () => {
     });
 
     describe('right hand side menu rendering', () => {
-      const session = {
-        divorceWho: 'husband'
-      };
+      const session = {};
 
       it('should render guidance links', () => {
         return custom(Respond)
@@ -121,7 +119,7 @@ describe(modulePath, () => {
           .html($ => {
             const rightHandSideMenu = $('.column-one-third').html();
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
-              .and.to.include(`How your ${session.divorceWho} responds`)
+              .and.to.include('Responding to a divorce application')
               .and.to.include('Decree nisi')
               .and.to.include('Decree absolute')
               .and.to.include('Children and divorce')

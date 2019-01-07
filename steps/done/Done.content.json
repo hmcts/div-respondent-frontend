@@ -53,7 +53,7 @@
     "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
     "guidance": {
       "title": "Guidance on GOV.UK",
-      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ session.divorceWho }} responds</a>",
+      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Responding to a divorce application</a>",
       "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
       "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
       "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
