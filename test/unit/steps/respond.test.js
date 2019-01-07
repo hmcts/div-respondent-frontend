@@ -53,7 +53,8 @@ describe(modulePath, () => {
         'isThereAProblemWithThisPagePhone',
         'isThereAProblemWithThisPageEmail',
         'backLink',
-        'divorceCenterUrl'
+        'divorceCenterUrl',
+        'guidance'
       ]
     });
   });
