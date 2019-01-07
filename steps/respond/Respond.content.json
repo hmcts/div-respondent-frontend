@@ -18,7 +18,7 @@
   "careOfAbbreviation": "c/o",
   "phone": "Phone",
   "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
-  "guidence": "Guidance on GOV.UK",
+  "guidance": "Guidance on GOV.UK",
   "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ session.divorceWho }} responds</a>",
   "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
   "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
