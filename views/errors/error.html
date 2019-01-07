@@ -1,0 +1,42 @@
+{% extends "look-and-feel/layouts/error.html" %}
+
+{% block proposition_header %}
+    {% include "includes/propositional_navigation.html" %}
+{% endblock %}
+
+{% block two_thirds -%}
+    <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
+    {{ header(title, size='large') }}
+    <p> {{ message }} </p>
+
+    {% if nextSteps %}
+        <p>
+            You can either:
+        <ul class="list list-bullet">
+            {% for option in nextSteps %}
+                <li>{{ option | safe }}</li>
+            {% endfor %}
+        </ul>
+        </p>
+    {% endif %}
+
+    {% if error %}
+        {% if settings.env == 'development' %}
+            <div class="form-group-error">
+                <label>
+                    <span class="form-label-bold">Error Message</span>
+                    <span class="form-hint">The error message will only not display in production mode</span>
+                    <span>{{ error }}</span>
+                </label>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block footer_support_links %}
+    <ul>
+        <li><a href="/cookie">Cookies</a></li>
+        <li><a href="/terms-and-conditions">Terms and conditions</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+    </ul>
+{% endblock %}

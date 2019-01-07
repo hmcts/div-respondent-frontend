@@ -85,7 +85,16 @@ app.set('trust proxy', 1);
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
-  errorPages: {},
+  errorPages: {
+    serverError: {
+      template: 'errors/error',
+      message: `Please try again in a few minutes.<br/>
+                You can contact us if the problem continues.<br/>
+                Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br/>
+                Email: divorce@justice.gov.uk`
+    },
+    notFound: { template: 'errors/error' }
+  },
   session: {
     redis: { url: config.services.redis.url },
     cookie: {
