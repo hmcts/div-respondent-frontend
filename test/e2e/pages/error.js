@@ -1,12 +1,25 @@
-function seeErrorContent() {
+const errorContent = require('views/errors/error-content');
+
+function seeServerErrorContent() {
   const I = this;
 
-  I.see('Please try again in a few minutes.');
-  I.see('You can contact us if the problem continues.');
-  I.see('Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)');
-  I.see('Email: divorce@justice.gov.uk');
+  I.see(errorContent.serviceName);
+  I.see(errorContent.tryAgain);
+  I.see(errorContent.canContact);
+  I.see(errorContent.isThereAProblemWithThisPagePhone);
+  I.see(errorContent.isThereAProblemWithThisPageEmail);
+}
+
+function seeNotFoundErrorContent() {
+  const I = this;
+
+  I.see(errorContent.notFoundMessage);
+  I.see(errorContent.isThereAProblemWithThisPageParagraph);
+  I.see(errorContent.isThereAProblemWithThisPagePhone);
+  I.see(errorContent.isThereAProblemWithThisPageEmail);
 }
 
 module.exports = {
-  seeErrorContent
+  seeServerErrorContent,
+  seeNotFoundErrorContent
 };

@@ -1,0 +1,22 @@
+{% if nextSteps %}
+    <p>
+        You can either:
+    <ul class="list list-bullet">
+        {% for option in nextSteps %}
+            <li>{{ option | safe }}</li>
+        {% endfor %}
+    </ul>
+    </p>
+{% endif %}
+
+{% if error %}
+    {% if settings.env == 'development' %}
+        <div class="form-group-error">
+            <label>
+                <span class="form-label-bold">Error Message</span>
+                <span class="form-hint">The error message will only display in development mode</span>
+                <span>{{ error }}</span>
+            </label>
+        </div>
+    {% endif %}
+{% endif %}

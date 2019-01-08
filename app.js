@@ -14,7 +14,7 @@ const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
-const commonContent = require('common/content');
+const errorContent = require('views/errors/error-content');
 
 const app = express();
 
@@ -88,10 +88,25 @@ onePerPage.journey(app, {
   steps: getSteps(),
   errorPages: {
     serverError: {
-      template: 'errors/error',
-      message: commonContent.en.serverErrorMessage
+      template: 'errors/server-error',
+      message: {
+        tryAgain: errorContent.tryAgain,
+        canContact: errorContent.canContact,
+        phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
+        emailDetails: errorContent.isThereAProblemWithThisPageEmail,
+        serviceName: errorContent.serviceName
+      }
     },
-    notFound: { template: 'errors/error' }
+    notFound: {
+      template: 'errors/not-found-error',
+      message: {
+        errorMessage: errorContent.notFoundMessage,
+        isThereAProblem: errorContent.isThereAProblemWithThisPageParagraph,
+        phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
+        emailDetails: errorContent.isThereAProblemWithThisPageEmail,
+        serviceName: errorContent.serviceName
+      }
+    }
   },
   session: {
     redis: { url: config.services.redis.url },
