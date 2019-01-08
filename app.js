@@ -14,6 +14,7 @@ const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
+const commonContent = require('common/content');
 
 const app = express();
 
@@ -88,10 +89,7 @@ onePerPage.journey(app, {
   errorPages: {
     serverError: {
       template: 'errors/error',
-      message: `Please try again in a few minutes.<br/>
-                You can contact us if the problem continues.<br/>
-                Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br/>
-                Email: divorce@justice.gov.uk`
+      message: commonContent.en.serverErrorMessage
     },
     notFound: { template: 'errors/error' }
   },

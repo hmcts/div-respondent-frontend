@@ -1,13 +1,23 @@
 {% extends "look-and-feel/layouts/error.html" %}
+{% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
 
 {% block proposition_header %}
-    {% include "includes/propositional_navigation.html" %}
+    <div class="header-proposition">
+        <div class="content">
+            <nav id="proposition-menu">
+                <a href="/" id="proposition-name">
+                    Respond to a divorce application
+                </a>
+            </nav>
+        </div>
+    </div>
 {% endblock %}
+
 
 {% block two_thirds -%}
     <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
     {{ header(title, size='large') }}
-    <p> {{ message }} </p>
+    <p> {{ message | safe }} </p>
 
     {% if nextSteps %}
         <p>
@@ -25,7 +35,7 @@
             <div class="form-group-error">
                 <label>
                     <span class="form-label-bold">Error Message</span>
-                    <span class="form-hint">The error message will only not display in production mode</span>
+                    <span class="form-hint">The error message will only display in development mode</span>
                     <span>{{ error }}</span>
                 </label>
             </div>
