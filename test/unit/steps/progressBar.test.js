@@ -148,4 +148,27 @@ describe(modulePath, () => {
       });
     });
   });
+
+  describe('right hand side menu rendering', () => {
+    const session = {
+      originalPetition: {
+      }
+    };
+
+    it('should render guidance links', () => {
+      return custom(ProgressBar)
+        .withSession(session)
+        .get()
+        .expect(httpStatus.OK)
+        .html($ => {
+          const rightHandSideMenu = $('.column-one-third').html();
+          expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
+            .and.to.include('Responding to a divorce application')
+            .and.to.include('Decree nisi')
+            .and.to.include('Decree absolute')
+            .and.to.include('Children and divorce')
+            .and.to.include('Money and property');
+        });
+    });
+  });
 });
