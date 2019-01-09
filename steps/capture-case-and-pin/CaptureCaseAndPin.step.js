@@ -32,7 +32,7 @@ class CaptureCaseAndPin extends Question {
       .joi(
         errors.referenceNumberDigitsOnly,
         Joi.string()
-          .regex(/^[1-9]+$/)
+          .regex(/^[0-9]+$/)
       );
   }
 

@@ -20,8 +20,7 @@ Scenario('Should see an error page if case number is invalid', I => {
   I.seeIdamLoginPage();
   I.loginAsInvalidPinUser();
   I.seeCaptureCaseAndPinPage();
-  // 0 is invalid inside case ID
-  I.fillInReferenceNumberAndPinCode('0234567891234567', '12345678');
+  I.fillInReferenceNumberAndPinCode('A234567891234567', '12345678');
   I.click(commonContent.en.continue);
   I.seeCaptureCaseAndPinPage();
   I.see(content.en.errors.referenceNumberDigitsOnly);
