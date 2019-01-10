@@ -1,0 +1,23 @@
+{% extends "look-and-feel/layouts/error.html" %}
+{% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
+
+{% block proposition_header %}
+    {% include 'errors/header.html' %}
+{% endblock %}
+
+
+{% block two_thirds -%}
+    <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
+    {{ header(title, size='large') }}
+    <p> {{ message.errorMessage }} </p>
+    <p> {{ message.isThereAProblem }} </p>
+    <p> {{ message.phoneDetails }} <br />
+        {{ message.emailDetails }}
+    </p>
+
+    {% include 'errors/content.html' %}
+{% endblock %}
+
+{% block footer_support_links %}
+    {% include 'errors/footer.html' %}
+{% endblock %}
