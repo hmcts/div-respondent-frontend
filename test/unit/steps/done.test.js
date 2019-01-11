@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, max-lines */
 const modulePath = 'steps/done/Done.step';
 const doneStep = require(modulePath);
 const idam = require('services/idam');
