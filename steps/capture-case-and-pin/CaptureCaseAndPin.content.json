@@ -8,10 +8,10 @@
     "securityAccessCodeLabel": "Your code is 8 characters long",
     "thereWasAProblem": "There was a problem",
     "referenceNumberOrPinDoNotMatch": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
-    "errorLinkingCase": "Try entering these details again. Contact the divorce centre if you need help.",
+    "errorLinkingCase": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
     "errors": {
       "referenceNumberRequired": "Enter the 16-digit case number to continue",
-      "referenceNumberDigitsOnly": "The case number is 16 digits long and can only contain the numbers 1 to 9",
+      "referenceNumberDigitsOnly": "The case number is a 16-digit long number",
       "securityAccessCodeRequired": "Enter the access code to continue",
       "securityAccessCodeAlphanumericOnly": "The access code cannot contain special characters"
     }
