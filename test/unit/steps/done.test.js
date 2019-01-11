@@ -414,7 +414,8 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent2',
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
-      'notDefended2YearsNoConsent4'
+      'notDefended2YearsNoConsent4',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -475,6 +476,7 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
       'notDefended2YearsNoConsent4',
+      'guidance',
       'financialSituationHeading',
       'financialSituationText1',
       'financialSituationText2',
