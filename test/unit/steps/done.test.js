@@ -77,7 +77,8 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent2',
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
-      'notDefended2YearsNoConsent4'
+      'notDefended2YearsNoConsent4',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -115,7 +116,8 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent2',
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
-      'notDefended2YearsNoConsent4'
+      'notDefended2YearsNoConsent4',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -152,7 +154,8 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent2',
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
-      'notDefended2YearsNoConsent4'
+      'notDefended2YearsNoConsent4',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -196,7 +199,8 @@ describe(modulePath, () => {
       'notDefendedText4',
       'notDefendedText5',
       'notDefendedListItem1',
-      'notDefendedListItem2'
+      'notDefendedListItem2',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -238,11 +242,11 @@ describe(modulePath, () => {
       'notDefendedAdultery1',
       'notDefendedAdultery2',
       'notDefendedAdulteryLi1',
-      'notDefendedAdulteryLi2'
+      'notDefendedAdulteryLi2',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
-
 
   it('renders the content if the divorce is defended', () => {
     const session = {
@@ -275,7 +279,8 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent2',
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
-      'notDefended2YearsNoConsent4'
+      'notDefended2YearsNoConsent4',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -313,7 +318,8 @@ describe(modulePath, () => {
       'notDefended2YearsNoConsent2',
       'notDefended2YearsNoConsent3',
       'notDefended2YearsNoConsentH2',
-      'notDefended2YearsNoConsent4'
+      'notDefended2YearsNoConsent4',
+      'guidance'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -348,7 +354,7 @@ describe(modulePath, () => {
         divorceCenterEmail: 'eastmidlandsdivorce@hmcts.gsi.gov.uk',
         divorceCenterPhoneNumber: '0300 303 0642',
         originalPetition: {
-          respEmailAddress: 'test@test.com'
+          respEmailAddress: 'simulate-delivered@notifications.service.gov.uk'
         }
       };
       return content(
@@ -417,6 +423,23 @@ describe(modulePath, () => {
             testCTSCDetailsRender(mainPage, false);
           });
       });
+    });
+  });
+
+  describe('right hand side menu rendering', () => {
+    it('should render guidance links', () => {
+      return custom(doneStep)
+        .get()
+        .expect(httpStatus.OK)
+        .html($ => {
+          const rightHandSideMenu = $('.column-one-third').html();
+          expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
+            .and.to.include('Responding to a divorce application')
+            .and.to.include('Decree nisi')
+            .and.to.include('Decree absolute')
+            .and.to.include('Children and divorce')
+            .and.to.include('Money and property');
+        });
     });
   });
 });

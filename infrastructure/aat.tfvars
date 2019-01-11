@@ -15,3 +15,5 @@ google_analytics_tracking_id = "UA-93824767-2"
 capacity = "2"
 
 rate_limiter_enabled = false
+
+decree_nisi_frontend_url = "https://div-dn-aat.service.core-compute-aat.internal"

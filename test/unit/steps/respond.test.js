@@ -7,6 +7,8 @@ const { custom, expect,
   middleware, interstitial,
   sinon, content } = require('@hmcts/one-per-page-test-suite');
 const petitionMiddleware = require('middleware/petitionMiddleware');
+const redirectMiddleware = require('middleware/redirectMiddleware');
+
 const httpStatus = require('http-status-codes');
 const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
@@ -19,15 +21,24 @@ describe(modulePath, () => {
       .returns(middleware.nextMock);
     sinon.stub(petitionMiddleware, 'loadMiniPetition')
       .callsFake(middleware.nextMock);
+    sinon.stub(redirectMiddleware, 'redirectOnCondition')
+      .callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
     petitionMiddleware.loadMiniPetition.restore();
+    redirectMiddleware.redirectOnCondition.restore();
   });
 
-  it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Respond, [idam.protect()]);
+  it('has middleware', () => {
+    return middleware.hasMiddleware(Respond,
+      [
+        idam.protect(),
+        petitionMiddleware.loadMiniPetition,
+        redirectMiddleware.redirectOnCondition
+      ]
+    );
   });
 
   it('redirects to next page', () => {
@@ -42,7 +53,8 @@ describe(modulePath, () => {
         'isThereAProblemWithThisPagePhone',
         'isThereAProblemWithThisPageEmail',
         'backLink',
-        'divorceCenterUrl'
+        'divorceCenterUrl',
+        'guidance'
       ]
     });
   });
@@ -92,6 +104,26 @@ describe(modulePath, () => {
           .html($ => {
             const rightHandSideMenu = $('.column-one-third').html();
             testDivorceUnitWithStreetDetailsRender(rightHandSideMenu);
+          });
+      });
+    });
+
+    describe('right hand side menu rendering', () => {
+      const session = {};
+
+      it('should render guidance links', () => {
+        return custom(Respond)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
+              .and.to.include('Responding to a divorce application')
+              .and.to.include('Decree nisi')
+              .and.to.include('Decree absolute')
+              .and.to.include('Children and divorce')
+              .and.to.include('Money and property');
           });
       });
     });

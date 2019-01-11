@@ -43,7 +43,7 @@
     "marriagePetitionerName": "Ban",
     "marriageRespondentName": "App",
     "petitionerNameDifferentToMarriageCertificate": "No",
-    "petitionerEmail": "vivdivred@mailinator.com",
+    "petitionerEmail": "user@email.com",
     "petitionerHomeAddress": {
       "addressType": "postcode",
       "postcode": "SW10 0AB",
@@ -123,7 +123,7 @@
         "SW10 0AB"
       ]
     },
-    "reasonForDivorce": "separation-5-years",
+    "reasonForDivorce": "separation-2-years",
     "reasonForDivorceHasMarriageDate": "true",
     "reasonForDivorceShowAdultery": "true",
     "reasonForDivorceShowUnreasonableBehaviour": "true",

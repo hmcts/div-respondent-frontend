@@ -83,8 +83,7 @@
 
 {% block one_third %}
     <aside class="govuk-related-items" role="complementary">
-
-        <h2 class="heading-small">{{ content.contactDetails.heading }}</h2>
+        <h3 class="heading-small">{{ content.contactDetails.heading }}</h3>
 
         <ul class="font-xsmall">
             <li>
@@ -97,30 +96,9 @@
                 {{ session.divorceCenterPhoneNumber | safe }}<br>
                 {{ content.contactDetails.divorceCenterHours }}<br>
             </li>
-            <li>
-                <strong class="bold-xsmall">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
-                {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
-                {% if session.divorceCenterPoBox %}
-                    {{ session.divorceCenterPoBox }}<br/>
-                {% endif %}
-                {% if session.divorceCenterStreet %}
-                    {{ session.divorceCenterStreet }}<br/>
-                {% endif %}
-                {{ session.divorceCenterCourtCity }}<br/>
-                {{ session.divorceCenterPostCode }}<br/>
-            </li>
+            {% include "includes/sideMenuCourtDetails.html" %}
         </ul>
 
-        <h3 class="heading-small" id="subsection-title">{{ content.contactDetails.guidance }}</h3>
-
-        <nav role="navigation" aria-labelledby="subsection-title">
-            <ul class="font-xsmall">
-                <li>{{ content.contactDetails.howWifeHusbandResponds | safe }}</li>
-                <li>{{ content.contactDetails.decreeNisiLink | safe }}</li>
-                <li>{{ content.contactDetails.decreeAbsoluteLink | safe }}</li>
-                <li>{{ content.contactDetails.childrenAndDivorceLink | safe }}</li>
-                <li>{{ content.contactDetails.moneyAndPropertyLinky | safe }}</li>
-            </ul>
-        </nav>
+        {% include "includes/sideMenuGuidanceLinks.html" %}
     </aside>
 {% endblock %}

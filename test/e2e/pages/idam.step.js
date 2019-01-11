@@ -102,6 +102,13 @@ function loginAsCaseProgressedDefending() {
   I.click(commonContent.en.continue);
 }
 
+function loginAndThrowError() {
+  const I = this;
+
+  I.click(content.en.fields.success.throwError);
+  I.click(commonContent.en.continue);
+}
+
 
 module.exports = {
   seeIdamLoginPage,
@@ -116,5 +123,6 @@ module.exports = {
   loginAsCaseProgressedAwaitingAnswer,
   loginAsCaseProgressedDefending,
   loginAs2yrSeparationCase,
-  loginAs5yrSeparationCase
+  loginAs5yrSeparationCase,
+  loginAndThrowError
 };

@@ -14,6 +14,7 @@ const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
+const errorContent = require('views/errors/error-content');
 
 const app = express();
 
@@ -85,7 +86,28 @@ app.set('trust proxy', 1);
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
-  errorPages: {},
+  errorPages: {
+    serverError: {
+      template: 'errors/server-error',
+      message: {
+        tryAgain: errorContent.tryAgain,
+        canContact: errorContent.canContact,
+        phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
+        emailDetails: errorContent.isThereAProblemWithThisPageEmail,
+        serviceName: errorContent.serviceName
+      }
+    },
+    notFound: {
+      template: 'errors/not-found-error',
+      message: {
+        errorMessage: errorContent.notFoundMessage,
+        isThereAProblem: errorContent.isThereAProblemWithThisPageParagraph,
+        phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
+        emailDetails: errorContent.isThereAProblemWithThisPageEmail,
+        serviceName: errorContent.serviceName
+      }
+    }
+  },
   session: {
     redis: { url: config.services.redis.url },
     cookie: {
@@ -102,7 +124,8 @@ onePerPage.journey(app, {
     }
   },
   timeoutDelay: config.journey.timeoutDelay,
-  i18n: { filters: getFilters() }
+  i18n: { filters: getFilters() },
+  useCsrfToken: true
 });
 
 app.use(logging.Express.accessLogger());
