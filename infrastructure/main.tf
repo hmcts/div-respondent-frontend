@@ -14,6 +14,8 @@ locals {
   div_fps_url              = "http://div-fps-${local.local_env}.service.core-compute-${local.local_env}.internal"
   asp_name = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
+  appinsights_name           = "${var.env == "preview" ? "${var.product}-${var.reform_service_name}-appinsights-${var.env}" : "${var.product}-${var.env}"}"
+  appinsights_resource_group = "${var.env == "preview" ? "${var.product}-${var.reform_service_name}-${var.env}" : "${var.product}-${var.env}"}"
 }
 
 module "redis-cache" {
@@ -34,11 +36,14 @@ module "frontend" {
   is_frontend                   = "${var.env != "preview" ? 1: 0}"
   subscription                  = "${var.subscription}"
   additional_host_name          = "${var.env != "preview" ? var.additional_host_name : "null"}"
-  https_only                    = "true"
+  https_only                    = "false"
   capacity                      = "${var.capacity}"
   common_tags                   = "${var.common_tags}"
   asp_name                      = "${local.asp_name}"
   asp_rg                        = "${local.asp_rg}"
+  appinsights_instrumentation_key = "${var.appinsights_instrumentation_key}"
+  instance_size                 = "I3"
+
 
   app_settings = {
 
