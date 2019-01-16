@@ -47,7 +47,6 @@
     "moment": "^2.22.1",
     "os": "^0.1.1",
     "paths": "^0.1.1",
-    "reform-pattern-library": "https://github.com/hmcts/reform-pattern-library.git",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5"
   },
