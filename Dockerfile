@@ -12,7 +12,6 @@ RUN addgroup --system --gid 1001 $APP_USER \
 COPY package.json yarn.lock ./
 RUN yarn install \
     --production \
-    --ignore-optional \
     --ignore-scripts
 
 # ---- Build image ----
