@@ -1,14 +1,7 @@
 # ---- Base image ----
-FROM node:8.12.0-slim as base
+FROM node:8.12.0-stretch as base
 ENV WORKDIR /opt/app
-ENV APP_USER hmcts
 WORKDIR ${WORKDIR}
-RUN addgroup --system --gid 1001 $APP_USER \
-    && adduser --system --gid 1001 -uid 1001 --disabled-password --disabled-login $APP_USER \
-    && chown -R $APP_USER:$APP_USER $WORKDIR \
-    && apt-get update \
-    && apt-get install -y git bzip2 \
-    && yarn config set proxy "$http_proxy" && yarn config set https-proxy "$https_proxy"
 COPY package.json yarn.lock ./
 RUN yarn install \
     --production \
@@ -34,6 +27,10 @@ RUN yarn setup \
 # For security compliance, the application
 # is executed by the hmcts user.
 FROM base as runtime
+ENV APP_USER hmcts
+RUN addgroup --system --gid 1001 $APP_USER \
+    && adduser --system --gid 1001 -uid 1001 --disabled-password --disabled-login $APP_USER \
+    && chown -R $APP_USER:$APP_USER $WORKDIR
 COPY --from=build $WORKDIR ./
 USER $APP_USER
 EXPOSE 3000
