@@ -144,7 +144,7 @@ describe(modulePath, () => {
 
   it('redirects to ConfirmDefence step when answered no', () => {
     const fields = {
-      'financialHardship-exists': 'No'
+      'financialHardship.exists': 'No'
     };
     const sessionData = {
       originalPetition: {}
@@ -154,8 +154,8 @@ describe(modulePath, () => {
 
   it('redirects to ConfirmDefence step when answered yes', () => {
     const fields = {
-      'financialHardship-exists': 'Yes',
-      'financialHardship-details': 'Financial hardship details'
+      'financialHardship.exists': 'Yes',
+      'financialHardship.details': 'Financial hardship details'
     };
     const sessionData = {
       originalPetition: {}
