@@ -40,7 +40,7 @@ services:
     username: 'username'
     key: 'privatekey'
     tunnelId: ''
-    waitForTimeout: 30000
+    waitForTimeout: 60000
   googleAnalytics:
     id: TBD
     trackingUrl: https://localhost:3000/
