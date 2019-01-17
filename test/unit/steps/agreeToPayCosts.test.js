@@ -185,7 +185,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when does not agree to cost and reason not supplied', () => {
-    const fields = { 'agreeToPayCosts-agree': 'No' };
+    const fields = { 'agreeToPayCosts.agree': 'No' };
 
     const onlyErrors = ['noReasonRequired'];
 
@@ -193,7 +193,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when agree to pay different and mount details not supplied', () => {
-    const fields = { 'agreeToPayCosts-agree': 'DifferentAmount' };
+    const fields = { 'agreeToPayCosts.agree': 'DifferentAmount' };
 
     const onlyErrors = ['newAmountRequired', 'newAmountReasonRequired'];
 
@@ -202,8 +202,8 @@ describe(modulePath, () => {
 
   it('shows error when agree to pay different amount and amount not supplied', () => {
     const fields = {
-      'agreeToPayCosts-agree': 'DifferentAmount',
-      'agreeToPayCosts-newAmountReason': 'Reason'
+      'agreeToPayCosts.agree': 'DifferentAmount',
+      'agreeToPayCosts.newAmountReason': 'Reason'
     };
 
     const onlyErrors = ['newAmountRequired'];
@@ -213,9 +213,9 @@ describe(modulePath, () => {
 
   it('shows error when agree to pay different amount and amount supplied is NaN', () => {
     const fields = {
-      'agreeToPayCosts-agree': 'DifferentAmount',
-      'agreeToPayCosts-newAmount': 'NaN',
-      'agreeToPayCosts-newAmountReason': 'Reason'
+      'agreeToPayCosts.agree': 'DifferentAmount',
+      'agreeToPayCosts.newAmount': 'NaN',
+      'agreeToPayCosts.newAmountReason': 'Reason'
     };
 
     const onlyErrors = ['newAmountRequired'];
@@ -225,8 +225,8 @@ describe(modulePath, () => {
 
   it('shows error when agree to pay different amount and reason not supplied', () => {
     const fields = {
-      'agreeToPayCosts-agree': 'DifferentAmount',
-      'agreeToPayCosts-newAmount': 555
+      'agreeToPayCosts.agree': 'DifferentAmount',
+      'agreeToPayCosts.newAmount': 555
     };
 
     const onlyErrors = ['newAmountReasonRequired'];
@@ -236,7 +236,7 @@ describe(modulePath, () => {
 
   it('redirects to next page when agreed to pay the costs', () => {
     const fields = {
-      'agreeToPayCosts-agree': 'Yes'
+      'agreeToPayCosts.agree': 'Yes'
     };
 
     return question.redirectWithField(AgreeToPayCosts, fields, ContactDetails);
@@ -244,8 +244,8 @@ describe(modulePath, () => {
 
   it('redirects to next page when not agreed to pay costs and reason supplied', () => {
     const fields = {
-      'agreeToPayCosts-agree': 'No',
-      'agreeToPayCosts-noReason': 'Reason'
+      'agreeToPayCosts.agree': 'No',
+      'agreeToPayCosts.noReason': 'Reason'
     };
 
     return question.redirectWithField(AgreeToPayCosts, fields, ContactDetails);
@@ -253,9 +253,9 @@ describe(modulePath, () => {
 
   it('redirects to next page when agreed to pay new Amount and details supplied', () => {
     const fields = {
-      'agreeToPayCosts-agree': 'DifferentAmount',
-      'agreeToPayCosts-newAmount': 12345,
-      'agreeToPayCosts-newAmountReason': 'Reason'
+      'agreeToPayCosts.agree': 'DifferentAmount',
+      'agreeToPayCosts.newAmount': 12345,
+      'agreeToPayCosts.newAmountReason': 'Reason'
     };
 
     return question.redirectWithField(AgreeToPayCosts, fields, ContactDetails);
