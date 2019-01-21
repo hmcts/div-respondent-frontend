@@ -59,36 +59,36 @@ describe(modulePath, () => {
 
   it('redirects to financial page when user consents', () => {
     const fields = {
-      'response-consentDecree': 'Yes',
-      'response-willDefend': 'No'
+      'response.consentDecree': 'Yes',
+      'response.willDefend': 'No'
     };
     return question.redirectWithField(ConsentDecree, fields, FinancialSituation);
   });
 
   it('redirects to check consent answer page when user does not consent but will not defend', () => { // eslint-disable-line
     const fields = {
-      'response-consentDecree': 'No',
-      'response-willDefend': 'No'
+      'response.consentDecree': 'No',
+      'response.willDefend': 'No'
     };
     return question.redirectWithField(ConsentDecree, fields, NoConsentAreYouSure);
   });
 
   it('redirects to confirm defence page when user does not consent and will defend', () => {
     const fields = {
-      'response-consentDecree': 'No',
-      'response-willDefend': 'Yes'
+      'response.consentDecree': 'No',
+      'response.willDefend': 'Yes'
     };
     return question.redirectWithField(ConsentDecree, fields, ConfirmDefence);
   });
 
   it('shows consent required error if consent not answered', () => {
-    const fields = { 'response-consentDecree': '' };
+    const fields = { 'response.consentDecree': '' };
     const onlyErrors = ['consentRequired'];
     return question.testErrors(ConsentDecree, {}, fields, { onlyErrors });
   });
 
   it('shows defence required error if not consenting', () => {
-    const fields = { 'response-consentDecree': 'No' };
+    const fields = { 'response.consentDecree': 'No' };
     const onlyErrors = ['defenceRequired'];
     return question.testErrors(ConsentDecree, {}, fields, { onlyErrors });
   });

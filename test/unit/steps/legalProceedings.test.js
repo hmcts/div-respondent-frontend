@@ -114,7 +114,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when legal proceedings is yes and case details not supplied', () => {
-    const fields = { 'legalProceedings-exists': 'Yes' };
+    const fields = { 'legalProceedings.exists': 'Yes' };
 
     const onlyErrors = ['requireCaseDetails'];
 
@@ -123,8 +123,8 @@ describe(modulePath, () => {
 
   it('costClaim=respondent, legalProceedings = yes, caseDetails != null -> AgreeToPayCosts', () => {
     const fields = {
-      'legalProceedings-exists': 'Yes',
-      'legalProceedings-details': 'Legal Proceedings'
+      'legalProceedings.exists': 'Yes',
+      'legalProceedings.details': 'Legal Proceedings'
     };
 
     const sessionData = {
@@ -138,7 +138,7 @@ describe(modulePath, () => {
 
   it('costClaim=respondent, legalProceedings = no -> AgreeToPayCosts', () => {
     const fields = {
-      'legalProceedings-exists': 'No'
+      'legalProceedings.exists': 'No'
     };
 
     const sessionData = {
@@ -152,7 +152,7 @@ describe(modulePath, () => {
 
   it('costClaim=null, legalProceedings = no -> contactDetails', () => {
     const fields = {
-      'legalProceedings-exists': 'No'
+      'legalProceedings.exists': 'No'
     };
 
     const sessionData = {
@@ -164,7 +164,7 @@ describe(modulePath, () => {
 
   it('costClaim != respondent, legalProceedings = no -> contactDetails', () => {
     const fields = {
-      'legalProceedings-exists': 'No'
+      'legalProceedings.exists': 'No'
     };
 
     const sessionData = {
