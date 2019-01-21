@@ -286,10 +286,10 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.0.0.tgz#380ba100b250628d018c0ca88ff3f17f6337e934"
-  integrity sha512-w7zvhhYq6H1VuO/xJDV2X+JNFQhDc9ULBTJmsUOTuBZMkns0ox1WAMGEW5IiuTl/r9Ki/jGdPhum0nOXtmAqQA==
+"@hmcts/look-and-feel@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.0.2.tgz#6ae83813d9620d56130a4e13d802bcf8c3c6b083"
+  integrity sha512-N16WQ7fr75M6u3zA6i6CvoXMRC2s3azeaLev0MBgxMpKU6oESnj1r/QqjEEkBgEtA1WQmWFAGxB+6f766vpj5w==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -308,6 +308,7 @@
     govuk-elements-sass "^3.1.1"
     govuk_frontend_toolkit "^8.1.0"
     govuk_template_jinja "^0.23.0"
+    hard-source-webpack-plugin "^0.13.1"
     imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
     jquery "^3.2.1"
     js-yaml "^3.9.1"
