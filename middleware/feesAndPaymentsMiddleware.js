@@ -10,12 +10,12 @@ const getFeeFromFeesAndPayments = feeUrl => {
     return feesAndPaymentsService.get(feeUrl)
       .then(response => {
         // set fee returned from Fees and payments service
-        logger.info(' Fee amount set to ', response.amount);
         res.locals.applicationFee[feeUrl] = response;
+        logger.info('fees_set', 'Fee amount set to', response.amount);
         return next();
       })
       .catch(error => {
-        logger.error(error);
+        logger.error('fees_error', 'Error getting fees', feeUrl, error.message);
         next(error);
       });
   };

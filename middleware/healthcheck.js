@@ -10,7 +10,7 @@ const healthOptions = message => {
   return {
     callback: (error, res) => { // eslint-disable-line id-blacklist
       if (error) {
-        logger.error({ message, error });
+        logger.error('health_check_error', message, error);
       }
       return !error && res.status === OK ? outputs.up() : outputs.down(error);
     },
@@ -26,7 +26,7 @@ const checks = () => {
         return healthcheck.status(_ === 'PONG');
       })
         .catch(error => {
-          logger.error(`Health check failed on redis: ${error}`);
+          logger.error('health_check_error', 'Health check failed on redis', error);
           return false;
         });
     }),

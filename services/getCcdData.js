@@ -9,7 +9,7 @@ const getCcdData = req => {
 
   return request.get({ uri, headers, json: true })
     .catch(error => {
-      logger.error(`Trying to connect to Case orchestration service error: ${error}`);
+      logger.error('ccd_request_error', 'Error trying to connect to CCD', uri, error.message);
       throw error;
     });
 };
