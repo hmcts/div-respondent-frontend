@@ -8,6 +8,7 @@ const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 const previousInstrumentationKey = config.services.applicationInsights.instrumentationKey;
 
 let appInsightsStub = {};
+const defaultClient = applicationinsights.defaultClient;
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -19,10 +20,12 @@ describe(modulePath, () => {
     appInsightsStub.start.returns(appInsightsStub);
 
     sinon.stub(applicationinsights, 'setup').returns(appInsightsStub);
+    applicationinsights.defaultClient = {};
   });
 
   afterEach(() => {
     applicationinsights.setup.restore();
+    applicationinsights.defaultClient = defaultClient;
   });
 
   after(() => {
@@ -35,6 +38,7 @@ describe(modulePath, () => {
     expect(applicationinsights.setup.calledOnce).to.eql(true);
     expect(appInsightsStub.setAutoCollectConsole.calledOnce).to.eql(true);
     expect(appInsightsStub.start.calledOnce).to.eql(true);
+    expect(applicationinsights.defaultClient.commonProperties).to.eql({ appName: 'div-rfe' });
   });
 
   it('does not start app insights if instrumentationKey is not set', () => {
