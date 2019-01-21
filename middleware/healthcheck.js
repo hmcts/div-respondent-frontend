@@ -31,16 +31,16 @@ const checks = () => {
         });
     }),
     'idam-auth': healthcheck.web(config.services.idam.authenticationHealth,
-      healthOptions('Health check failed on idam-auth:')
+      healthOptions('Health check failed on idam-auth')
     ),
     'idam-api': healthcheck.web(config.services.idam.apiHealth,
-      healthOptions('Health check failed on idam-api:')
+      healthOptions('Health check failed on idam-api')
     ),
     'case-orchestration-service': healthcheck.web(config.services.caseOrchestration.health,
-      healthOptions('Health check failed on case-orchestration-service:')
+      healthOptions('Health check failed on case-orchestration-service')
     ),
     'fees-and-payments': healthcheck.web(config.services.feesAndPayments.health,
-      healthOptions('Health check failed on fees-and-payments:')
+      healthOptions('Health check failed on fees-and-payments')
     )
   };
 };
