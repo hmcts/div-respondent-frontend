@@ -38,7 +38,7 @@ describe(modulePath, () => {
     expect(applicationinsights.setup.calledOnce).to.eql(true);
     expect(appInsightsStub.setAutoCollectConsole.calledOnce).to.eql(true);
     expect(appInsightsStub.start.calledOnce).to.eql(true);
-    expect(applicationinsights.defaultClient.commonProperties).to.eql({ divAppName: 'div-rfe' });
+    expect(applicationinsights.defaultClient.commonProperties).to.eql({ appName: 'div-rfe' });
   });
 
   it('does not start app insights if instrumentationKey is not set', () => {

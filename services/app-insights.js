@@ -6,7 +6,7 @@ const start = () => {
     appInsights.setup(config.services.applicationInsights.instrumentationKey)
       .setAutoCollectConsole(true, true)
       .start();
-    appInsights.defaultClient.commonProperties = { divAppName: 'div-rfe' };
+    appInsights.defaultClient.commonProperties = { appName: 'div-rfe' };
   }
 };
 
