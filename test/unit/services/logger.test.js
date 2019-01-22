@@ -1,6 +1,6 @@
 const modulePath = 'services/logger';
 
-const { expect } = require('@hmcts/one-per-page-test-suite');
+const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 const logger = require(modulePath);
 
 const reqWithIdam = {
@@ -22,6 +22,18 @@ describe(modulePath, () => {
     it('returns message if no idam or case id details', () => {
       const wrappedMessage = logger.wrapWithUserInfo({}, 'my message');
       expect(wrappedMessage).to.eql('IDAM ID: unkown, CASE ID: unkown - my message');
+    });
+  });
+
+  describe('#accessLogger', () => {
+    it('returns access logger middleware that is excutable', () => {
+      const middleware = logger.accessLogger();
+      const res = {
+        statusCode: 200,
+        end: sinon.stub()
+      };
+      middleware(reqWithIdam, res, sinon.stub());
+      res.end();
     });
   });
 
