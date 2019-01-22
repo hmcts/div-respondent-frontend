@@ -30,7 +30,7 @@
     "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#299f1cab7195f08bc783fb6ab119178fbd1dbefc",
     "@hmcts/look-and-feel": "^2.0.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
-    "@hmcts/nodejs-logging": "^3.0.0",
+    "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#3.0.0",
     "@hmcts/one-per-page": "^5.0.0",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
