@@ -1,6 +1,6 @@
 /* eslint-disable operator-linebreak */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
 const idam = require('services/idam');
 const { CaseStates } = require('const');
