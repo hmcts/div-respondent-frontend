@@ -319,7 +319,7 @@
     js-yaml "^3.8.4"
     superagent "^3.5.1"
 
-"@hmcts/nodejs-logging@^3.0.0", "@hmcts/nodejs-logging@https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd":
+"@hmcts/nodejs-logging@^3.0.0", "@hmcts/nodejs-logging@https://github.com/hmcts/nodejs-logging#3.0.0":
   version "3.0.0"
   resolved "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd"
   dependencies:
