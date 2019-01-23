@@ -12,3 +12,5 @@ idam_api_url = "http://betaDevBccidamAppLB.reform.hmcts.net:80"
 service_auth_provider_url = "http://betaDevBccidamS2SLB.reform.hmcts.net:80"
 google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
+
+decree_nisi_frontend_url = "https://div-dn-sprod.service.core-compute-sprod.internal"
