@@ -27,7 +27,7 @@
     "lint"
   ],
   "dependencies": {
-    "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#299f1cab7195f08bc783fb6ab119178fbd1dbefc",
+    "@hmcts/div-idam-express-middleware": "^6.3.5",
     "@hmcts/look-and-feel": "^2.0.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "^3.0.0",
