@@ -2,8 +2,8 @@ const nodeJsLogging = require('@hmcts/nodejs-logging');
 const { get } = require('lodash');
 
 const wrapWithUserInfo = (req, msg) => {
-  const idamId = get(req, 'idam.userDetails.id', 'unkown');
-  const caseId = get(req, 'session.case.id', 'unkown');
+  const idamId = get(req, 'idam.userDetails.id', 'unknown');
+  const caseId = get(req, 'session.case.id', 'unknown');
 
   return `IDAM ID: ${idamId}, CASE ID: ${caseId} - ${msg}`;
 };

@@ -21,7 +21,7 @@ describe(modulePath, () => {
 
     it('returns message if no idam or case id details', () => {
       const wrappedMessage = logger.wrapWithUserInfo({}, 'my message');
-      expect(wrappedMessage).to.eql('IDAM ID: unkown, CASE ID: unkown - my message');
+      expect(wrappedMessage).to.eql('IDAM ID: unknown, CASE ID: unknown - my message');
     });
   });
 
