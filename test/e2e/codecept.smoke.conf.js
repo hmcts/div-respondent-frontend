@@ -1,8 +1,8 @@
 /* eslint-disable */
 const config = require('config');
 
-const waitForTimeout = config.tests.functional.waitForTimeout;
-const waitForAction = config.tests.functional.waitForAction;
+const waitForTimeout = '10000';
+const waitForAction = '3000';
 const chromeArgs = [ '--no-sandbox' ];
 
 const proxyServer = config.tests.functional.proxy;
