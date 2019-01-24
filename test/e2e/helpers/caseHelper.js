@@ -1,5 +1,5 @@
 const util = require('util');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
 const idamConfigHelper = require('./idamConfigHelper');
 const caseConfigHelper = require('./caseConfigHelper');
