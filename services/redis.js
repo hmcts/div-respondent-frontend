@@ -1,6 +1,6 @@
 const ioRedis = require('ioredis');
 const config = require('config');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 
 const client = ioRedis.createClient(
   config.services.redis.url,

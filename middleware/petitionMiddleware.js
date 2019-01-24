@@ -2,7 +2,7 @@ const caseOrchestration = require('services/caseOrchestration');
 const { CaseStates } = require('const');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/progress-bar/ProgressBar.step');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 
 const SUCCESS = 200;
 const NOT_FOUND = 404;
@@ -46,14 +46,14 @@ const loadMiniPetition = (req, res, next) => {
         storePetitionInSession(req, response);
         const caseState = response.body.state;
         if (caseState !== CaseStates.AosStarted) {
-          logger.info('Case not started, redirecting to progress bar page');
+          logger.info({ message: logger.wrapWithUserInfo(req, 'Case not started, redirecting to progress bar page') });
           return res.redirect(ProgressBar.path);
         }
       } else if (response.statusCode === NOT_FOUND) {
-        logger.info('Case not found, redirecting to capture case and pin page');
+        logger.info({ message: logger.wrapWithUserInfo(req, 'Case not found, redirecting to capture case and pin page') });
         return res.redirect(CaptureCaseAndPin.path);
       } else if (response.statusCode >= ERROR_RESPONSE) {
-        logger.error(`Unexpected response code while retrieving case: ${response.statusCode}`);
+        logger.error(logger.wrapWithUserInfo(req, `Unexpected response code while retrieving case: ${response.statusCode}`));
         return next(new Error(response));
       }
       return next();
