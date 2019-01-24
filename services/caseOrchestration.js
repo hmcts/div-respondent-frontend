@@ -1,8 +1,6 @@
 const request = require('request-promise-native');
 const CONF = require('config');
-const logger = require('@hmcts/nodejs-logging')
-  .Logger
-  .getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 
 const FORBIDDEN = 403;
 
@@ -22,7 +20,7 @@ const getPetition = req => {
 
   return request(options)
     .catch(error => {
-      logger.error('get_petitioner_error', 'Trying to connect to Case orchestration service error', error.message);
+      logger.error(req, 'get_petitioner_error', 'Trying to connect to Case orchestration service error', error.message);
       throw error;
     });
 };
@@ -44,7 +42,7 @@ const linkCase = req => {
       if (error.statusCode === FORBIDDEN) {
         req.session.temp.linkCaseAuthError = true;
       }
-      logger.error('link_case_error', 'Error linking petition to user', error);
+      logger.error(req, 'link_case_error', 'Error linking petition to user', error);
       throw error;
     });
 };
@@ -57,7 +55,7 @@ const sendAosResponse = (req, body) => {
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
-      logger.error('send_response_error', 'Trying to connect to Case orchestration service error', error.message);
+      logger.error(req, 'send_response_error', 'Trying to connect to Case orchestration service error', error.message);
       throw error;
     });
 };
