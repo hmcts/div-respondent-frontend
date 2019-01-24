@@ -1,21 +1,18 @@
 const nodeJsLogging = require('@hmcts/nodejs-logging');
 const { get } = require('lodash');
 
-const buildUserInfo = (req, msg) => {
+const buildUserInfo = req => {
   const idamId = get(req, 'idam.userDetails.id', 'unknown');
   const caseId = get(req, 'session.case.id', 'unknown');
 
-  return `IDAM ID: ${idamId}, CASE ID: ${caseId} - ${msg}`;
+  return `IDAM ID: ${idamId}, CASE ID: ${caseId}`;
 };
 
 
-const logger = name => {
+const getLogger = name => {
   const loggerInstance = nodeJsLogging.Logger.getLogger(name);
 
   return {
-    log: (req, tag, message, ...args) => {
-      loggerInstance.log(buildUserInfo(req), tag, message, ...args);
-    },
     info: (req, tag, message, ...args) => {
       loggerInstance.info(buildUserInfo(req), tag, message, ...args);
     },
@@ -38,6 +35,6 @@ const accessLogger = () => {
 };
 
 module.exports = {
-  logger,
+  getLogger,
   accessLogger
 };

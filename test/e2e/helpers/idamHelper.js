@@ -1,5 +1,5 @@
 const config = require('config');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
 const idamConfigHelper = require('./idamConfigHelper');

@@ -47,7 +47,7 @@ describe(modulePath, () => {
     const rawPromise = healthcheck.raw.firstCall.args[0];
     rawPromise()
       .then(() => {
-        sinon.assert.calledWith(logger.error, 'health_check_error', 'Health check failed on redis');
+        sinon.assert.calledOnce(logger.error);
       })
       .then(done, done);
   });
@@ -78,12 +78,7 @@ describe(modulePath, () => {
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
     idamCallback('error');
 
-    sinon.assert.calledWith(
-      logger.error,
-      'health_check_error',
-      'Health check failed on idam-auth',
-      'error'
-    );
+    sinon.assert.calledOnce(logger.error);
   });
 
   it('throws an error if health check fails for idam-api', () => {
@@ -92,12 +87,7 @@ describe(modulePath, () => {
     const idamCallback = healthcheck.web.secondCall.args[1].callback;
     idamCallback('error');
 
-    sinon.assert.calledWith(
-      logger.error,
-      'health_check_error',
-      'Health check failed on idam-api',
-      'error'
-    );
+    sinon.assert.calledOnce(logger.error);
   });
 
   describe('case-orchestration-service', () => {
@@ -116,12 +106,7 @@ describe(modulePath, () => {
       const cosCallback = healthcheck.web.thirdCall.args[1].callback;
       cosCallback('error');
 
-      sinon.assert.calledWith(
-        logger.error,
-        'health_check_error',
-        'Health check failed on case-orchestration-service',
-        'error'
-      );
+      sinon.assert.calledOnce(logger.error);
     });
   });
 
@@ -141,12 +126,7 @@ describe(modulePath, () => {
       const feesCallback = healthcheck.web.lastCall.args[1].callback;
       feesCallback('error');
 
-      sinon.assert.calledWith(
-        logger.error,
-        'health_check_error',
-        'Health check failed on fees-and-payments',
-        'error'
-      );
+      sinon.assert.calledOnce(logger.error);
     });
   });
 });
