@@ -5,16 +5,6 @@ const waitForTimeout = '10000';
 const waitForAction = '3000';
 const chromeArgs = [ '--no-sandbox' ];
 
-const proxyServer = config.tests.functional.proxy;
-if (proxyServer) {
-  chromeArgs.push(`--proxy-server=${proxyServer}`);
-}
-
-const proxyByPass = config.tests.functional.proxyByPass;
-if (proxyByPass) {
-  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
-}
-
 exports.config = {
   tests: './smoke/*.js',
   output: config.tests.functional.outputDir,
