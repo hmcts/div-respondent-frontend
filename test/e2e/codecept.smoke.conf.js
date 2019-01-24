@@ -18,9 +18,7 @@ exports.config = {
       keepBrowserState: false,
       chrome: {
         ignoreHTTPSErrors: true,
-        args: [
-          '--no-sandbox'
-        ]
+        args: ['--no-sandbox']
       }
     },
     JSWait: { require: './helpers/JSWait.js' }
