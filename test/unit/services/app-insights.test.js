@@ -20,7 +20,14 @@ describe(modulePath, () => {
     appInsightsStub.start.returns(appInsightsStub);
 
     sinon.stub(applicationinsights, 'setup').returns(appInsightsStub);
-    applicationinsights.defaultClient = {};
+    applicationinsights.defaultClient = {
+      context: {
+        keys: {
+          cloudRole: 'someKey'
+        },
+        tags: {}
+      }
+    };
   });
 
   afterEach(() => {
@@ -38,7 +45,7 @@ describe(modulePath, () => {
     expect(applicationinsights.setup.calledOnce).to.eql(true);
     expect(appInsightsStub.setAutoCollectConsole.calledOnce).to.eql(true);
     expect(appInsightsStub.start.calledOnce).to.eql(true);
-    expect(applicationinsights.defaultClient.commonProperties).to.eql({ appName: 'div-rfe' });
+    expect(applicationinsights.defaultClient.context.tags.someKey).to.eql('div-rfe');
   });
 
   it('does not start app insights if instrumentationKey is not set', () => {
