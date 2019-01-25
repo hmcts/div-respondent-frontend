@@ -18,6 +18,25 @@ const values = {
   no: 'No'
 };
 
+const caseStateMap = [
+  {
+    template: './sections/OneCircleFilledIn.html',
+    state: ['AosAwaiting', 'AosStarted', 'AosOverdue', 'AwaitingReissue']
+  },
+  {
+    template: './sections/TwoCircleFilledIn.html',
+    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingDecreeNisi', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted']
+  },
+  {
+    template: './sections/ThreeCircleFilledIn.html',
+    state: ['AwaitingDecreeAbsolute']
+  },
+  {
+    template: './sections/FourCircleFilledIn.html',
+    state: ['DivorceGranted']
+  }
+];
+
 class ProgressBar extends Interstitial {
   static get path() {
     return config.paths.progressBar;
@@ -87,6 +106,21 @@ class ProgressBar extends Interstitial {
       ...super.middleware,
       idam.protect()
     ];
+  }
+
+  get currentCaseState() {
+    return this.req.session.caseState;
+  }
+
+  get stateTemplate() {
+    let template = '';
+    caseStateMap.forEach(dataMap => {
+      if (dataMap.state.includes(this.currentCaseState)) {
+        template = dataMap.template;
+      }
+    });
+
+    return template;
   }
 }
 
