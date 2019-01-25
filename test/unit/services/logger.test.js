@@ -4,13 +4,13 @@ const { sinon } = require('@hmcts/one-per-page-test-suite');
 const nodeJsLogger = require('@hmcts/nodejs-logging').Logger.getLogger('name');
 const logger = require(modulePath);
 
-const reqWithIdam = {
+const req = {
   originalUrl: 'url',
   method: 'POST',
   httpVersionMajor: '1',
   httpVersionMinor: '1',
   idam: { userDetails: { id: 'idam-id' } },
-  session: { case: { id: 'case-id' } }
+  session: { referenceNumber: 'case-id' }
 };
 
 describe(modulePath, () => {
@@ -21,24 +21,12 @@ describe(modulePath, () => {
         statusCode: 200,
         end: sinon.stub()
       };
-      middleware(reqWithIdam, res, sinon.stub());
+      middleware(req, res, sinon.stub());
       res.end();
     });
   });
 
   describe('#getLogger', () => {
-    const req = {
-      idam: {
-        userDetails: {
-          id: '123'
-        }
-      },
-      session: {
-        case: {
-          id: '456'
-        }
-      }
-    };
     const tag = 'tag';
     const message = 'message';
     const someArg = {};
