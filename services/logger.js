@@ -13,13 +13,13 @@ const getLogger = name => {
   const loggerInstance = nodeJsLogging.Logger.getLogger(name);
 
   return {
-    info: (req, tag, message, ...args) => {
+    infoWithReq: (req, tag, message, ...args) => {
       loggerInstance.info(buildUserInfo(req), tag, message, ...args);
     },
-    warn: (req, tag, message, ...args) => {
+    warnWithReq: (req, tag, message, ...args) => {
       loggerInstance.warn(buildUserInfo(req), tag, message, ...args);
     },
-    error: (req, tag, message, ...args) => {
+    errorWithReq: (req, tag, message, ...args) => {
       loggerInstance.error(buildUserInfo(req), tag, message, ...args);
     }
   };

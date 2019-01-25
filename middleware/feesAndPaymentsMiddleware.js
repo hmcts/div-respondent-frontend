@@ -11,11 +11,11 @@ const getFeeFromFeesAndPayments = feeUrl => {
       .then(response => {
         // set fee returned from Fees and payments service
         res.locals.applicationFee[feeUrl] = response;
-        logger.info(req, 'fees_set', 'Fee amount set to', response.amount);
+        logger.infoWithReq(req, 'fees_set', 'Fee amount set to', response.amount);
         return next();
       })
       .catch(error => {
-        logger.error(req, 'fees_error', 'Error getting fees', feeUrl, error.message);
+        logger.errorWithReq(req, 'fees_error', 'Error getting fees', feeUrl, error.message);
         next(error);
       });
   };

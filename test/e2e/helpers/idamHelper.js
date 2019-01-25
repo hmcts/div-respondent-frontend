@@ -35,24 +35,29 @@ class IdamHelper extends Helper {
     idamConfigHelper.setTestPassword(testPassword);
     return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
       .then(() => {
-        logger.info(null, 'idam_user_created', 'Created IDAM test user', testEmail);
+        logger.infoWithReq(null, 'idam_user_created', 'Created IDAM test user', testEmail);
         return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
       })
       .then(response => {
-        logger.info(null, 'idam_user_created', 'Retrieved IDAM test user token', testEmail);
+        logger.infoWithReq(null, 'idam_user_created', 'Retrieved IDAM test user token', testEmail);
         idamConfigHelper.setTestToken(response.access_token);
         idamArgs.accessToken = response.access_token;
         return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
       })
       .then(response => {
-        logger.info(null, `Retrieved IDAM test user pin: ${testEmail}`);
+        logger.infoWithReq(null, `Retrieved IDAM test user pin: ${testEmail}`);
         if (!idamConfigHelper.getPin()) {
           idamConfigHelper.setLetterHolderId(response.userId);
           idamConfigHelper.setPin(response.pin);
         }
       })
       .catch(error => {
-        logger.error(null, 'idam_error', 'Unable to create IDAM test user/token', error.message);
+        logger.errorWithReq(
+          null,
+          'idam_error',
+          'Unable to create IDAM test user/token',
+          error.message
+        );
         throw error;
       });
   }
@@ -60,10 +65,10 @@ class IdamHelper extends Helper {
   _after() {
     idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
       .then(() => {
-        logger.info(null, 'idam_user_removed', 'Removed IDAM test user', idamArgs.testEmail);
+        logger.infoWithReq(null, 'idam_user_removed', 'Removed IDAM test user', idamArgs.testEmail);
       })
       .catch(error => {
-        logger.warn(null, 'idam_error', 'Unable to remove IDAM test user', error.message);
+        logger.warnWithReq(null, 'idam_error', 'Unable to remove IDAM test user', error.message);
       });
   }
 }

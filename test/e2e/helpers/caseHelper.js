@@ -16,7 +16,7 @@ class CaseHelper extends Helper {
     };
     return divTestHarness.createAosCase(params, config.tests.e2e.proxy)
       .then(response => {
-        logger.info(null,
+        logger.infoWithReq(null,
           'case_created',
           'Case created',
           response.id,
@@ -25,7 +25,7 @@ class CaseHelper extends Helper {
         caseConfigHelper.setTestCaseId(response.id);
       })
       .catch(error => {
-        logger.error(
+        logger.errorWithReq(
           null,
           'create_case_error',
           'Error creating case',

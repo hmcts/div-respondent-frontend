@@ -46,17 +46,17 @@ const loadMiniPetition = (req, res, next) => {
         storePetitionInSession(req, response);
         const caseState = response.body.state;
         if (caseState !== CaseStates.AosStarted) {
-          logger.info(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
+          logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
         }
       } else if (response.statusCode === NOT_FOUND) {
-        logger.info(req, 'case_not_found', 'Case not found, redirecting to capture case and pin page');
+        logger.infoWithReq(req, 'case_not_found', 'Case not found, redirecting to capture case and pin page');
         return res.redirect(CaptureCaseAndPin.path);
       } else if (response.statusCode >= ERROR_RESPONSE) {
-        logger.error(req, 'case_unexpected_response', 'Unexpected response code while retrieving case', response.statusCode);
+        logger.errorWithReq(req, 'case_unexpected_response', 'Unexpected response code while retrieving case', response.statusCode);
         return next(new Error(response));
       }
-      logger.warn(req, 'case_unknown', 'Unknown case state', response.statusCode);
+      logger.warnWithReq(req, 'case_unknown', 'Unknown case state', response.statusCode);
       return next();
     });
 };

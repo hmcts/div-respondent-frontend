@@ -46,7 +46,7 @@ describe(modulePath, () => {
     it('calls logger.info', () => {
       const getLogger = logger.getLogger('name');
 
-      getLogger.info(req, tag, message, someArg);
+      getLogger.infoWithReq(req, tag, message, someArg);
 
       sinon.assert.calledWith(
         nodeJsLogger.info,
@@ -60,7 +60,7 @@ describe(modulePath, () => {
     it('calls logger.warn', () => {
       const getLogger = logger.getLogger('name');
 
-      getLogger.warn(req, tag, message, someArg);
+      getLogger.warnWithReq(req, tag, message, someArg);
 
       sinon.assert.calledWith(
         nodeJsLogger.warn,
@@ -74,7 +74,7 @@ describe(modulePath, () => {
     it('calls logger.error', () => {
       const getLogger = logger.getLogger('name');
 
-      getLogger.error(req, tag, message, someArg);
+      getLogger.errorWithReq(req, tag, message, someArg);
 
       sinon.assert.calledWith(
         nodeJsLogger.error,

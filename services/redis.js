@@ -7,7 +7,7 @@ const client = ioRedis.createClient(
   { enableOfflineQueue: false }
 );
 client.on('error', error => {
-  logger.error(null, 'redis_error', 'Error connecting to Redis', error);
+  logger.errorWithReq(null, 'redis_error', 'Error connecting to Redis', error);
 });
 
 module.exports = client;

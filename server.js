@@ -22,7 +22,7 @@ if (['development'].includes(config.environment)) {
   http = app.listen(config.node.port);
 }
 
-logger.info(null, 'app_running', 'Application running', config.node.baseUrl);
+logger.infoWithReq(null, 'app_running', 'Application running', config.node.baseUrl);
 
 process.on('SIGTERM', () => {
   http.close(() => {

@@ -44,7 +44,7 @@ class ProgressBar extends Interstitial {
       return this.progressStates.defendedDivorce;
     }
 
-    logger.error(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
+    logger.errorWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
     return this.progressStates.other;
   }
 
