@@ -1,6 +1,10 @@
 {
   "en": {
     "title": "Your divorce",
+    "husbandWifeApplied": "Your {{ session.divorceWho }} applies",
+    "youMustRespond": "You must respond",
+    "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
+    "madeFinal": "Divorce is complete",
     "details": {
       "referenceNumber": "Reference number",
       "name": "Name"
