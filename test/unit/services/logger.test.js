@@ -62,7 +62,7 @@ describe(modulePath, () => {
 
       sinon.assert.calledWith(
         nodeJsLogger.info,
-        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.case.id}`,
+        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.referenceNumber}`,
         tag,
         message,
         someArg
@@ -76,7 +76,7 @@ describe(modulePath, () => {
 
       sinon.assert.calledWith(
         nodeJsLogger.warn,
-        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.case.id}`,
+        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.referenceNumber}`,
         tag,
         message,
         someArg
@@ -90,7 +90,7 @@ describe(modulePath, () => {
 
       sinon.assert.calledWith(
         nodeJsLogger.error,
-        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.case.id}`,
+        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.referenceNumber}`,
         tag,
         message,
         someArg
