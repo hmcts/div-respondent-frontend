@@ -56,7 +56,7 @@ const loadMiniPetition = (req, res, next) => {
         logger.error(req, 'case_unexpected_response', 'Unexpected response code while retrieving case', response.statusCode);
         return next(new Error(response));
       }
-      logger.warn('case_unknown', 'Unknown case state', response.statusCode);
+      logger.warn(req, 'case_unknown', 'Unknown case state', response.statusCode);
       return next();
     });
 };

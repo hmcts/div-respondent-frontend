@@ -16,11 +16,21 @@ class CaseHelper extends Helper {
     };
     return divTestHarness.createAosCase(params, config.tests.e2e.proxy)
       .then(response => {
-        logger.info('case_created', 'Case created', response.id, idamConfigHelper.getTestEmail());
+        logger.info(null,
+          'case_created',
+          'Case created',
+          response.id,
+          idamConfigHelper.getTestEmail()
+        );
         caseConfigHelper.setTestCaseId(response.id);
       })
       .catch(error => {
-        logger.error('create_case_error', 'Error creating case', error.message);
+        logger.error(
+          null,
+          'create_case_error',
+          'Error creating case',
+          error.message
+        );
         throw error;
       });
   }
