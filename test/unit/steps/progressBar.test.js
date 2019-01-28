@@ -2,12 +2,21 @@ const modulePath = 'steps/progress-bar/ProgressBar.step';
 const ProgressBar = require(modulePath);
 const progressBarContent = require('steps/progress-bar/ProgressBar.content');
 const idam = require('services/idam');
-const { custom, expect, middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { custom, expect, middleware,
+  sinon, content, stepAsInstance } = require('@hmcts/one-per-page-test-suite');
 const { CaseStates } = require('const');
 const httpStatus = require('http-status-codes');
 const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+
+const templates = {
+  awaitingReissue: './sections/OneCircleFilledIn.html',
+  defendedDivorce: './sections/TwoCircleFilledIn.html',
+  awaitingDecreeAbsolute: './sections/ThreeCircleFilledIn.html',
+  divorceGranted: './sections/FourCircleFilledIn.html'
+};
+
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -90,7 +99,7 @@ describe(modulePath, () => {
 
   it('renders the content for unhandled state', () => {
     const session = {
-      caseState: 'UnhandledState',
+      caseState: 'AwaitingReissue',
       originalPetition: {
         respDefendsDivorce: 'Yes'
       }
@@ -151,6 +160,7 @@ describe(modulePath, () => {
 
   describe('right hand side menu rendering', () => {
     const session = {
+      caseState: 'AwaitingReissue',
       originalPetition: {
       }
     };
@@ -169,6 +179,51 @@ describe(modulePath, () => {
             .and.to.include('Children and divorce')
             .and.to.include('Money and property');
         });
+    });
+  });
+
+  // Test if all progressbar templates are rendered properly
+
+  describe('CCD state: AwaitingReissue', () => {
+    const session = {
+      caseState: 'AwaitingReissue'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingReissue);
+    });
+  });
+
+  describe('CCD state: DefendedDivorce', () => {
+    const session = {
+      caseState: 'DefendedDivorce'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedDivorce);
+    });
+  });
+  describe('CCD state: AwaitingDecreeAbsolute', () => {
+    const session = {
+      caseState: 'AwaitingDecreeAbsolute'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingDecreeAbsolute);
+    });
+  });
+
+  describe('CCD state: DivorceGranted', () => {
+    const session = {
+      caseState: 'DivorceGranted'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.divorceGranted);
     });
   });
 });
