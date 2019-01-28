@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const onePerPage = require('@hmcts/one-per-page');
 const lookAndFeel = require('@hmcts/look-and-feel');
-const logging = require('@hmcts/nodejs-logging');
+const { accessLogger } = require('services/logger');
 const getSteps = require('steps');
 const setupHelmet = require('middleware/helmet');
 const setupPrivacy = require('middleware/privacy');
@@ -79,6 +79,8 @@ app.use('/images', (req, res) => {
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());
 
+app.use(accessLogger());
+
 app.use(setLocals.idamLoggedin);
 
 app.set('trust proxy', 1);
@@ -127,7 +129,5 @@ onePerPage.journey(app, {
   i18n: { filters: getFilters() },
   useCsrfToken: true
 });
-
-app.use(logging.Express.accessLogger());
 
 module.exports = app;
