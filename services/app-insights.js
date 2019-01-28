@@ -6,6 +6,7 @@ const start = () => {
     appInsights.setup(config.services.applicationInsights.instrumentationKey)
       .setAutoCollectConsole(true, true)
       .start();
+    appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cloudRole] = 'div-rfe';
   }
 };
 

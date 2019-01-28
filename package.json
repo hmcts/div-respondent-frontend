@@ -27,10 +27,10 @@
     "lint"
   ],
   "dependencies": {
-    "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#6.0.0",
+    "@hmcts/div-idam-express-middleware": "^6.3.5",
     "@hmcts/look-and-feel": "^2.0.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
-    "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
+    "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.0.0",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",

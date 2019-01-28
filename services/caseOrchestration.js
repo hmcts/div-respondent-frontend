@@ -20,10 +20,7 @@ const getPetition = req => {
 
   return request(options)
     .catch(error => {
-      logger.error({
-        message: logger.wrapWithUserInfo(req, 'Trying to connect to Case orchestration service error'),
-        error
-      });
+      logger.errorWithReq(req, 'get_petitioner_error', 'Trying to connect to Case orchestration service error', error.message);
       throw error;
     });
 };
@@ -45,10 +42,7 @@ const linkCase = req => {
       if (error.statusCode === FORBIDDEN) {
         req.session.temp.linkCaseAuthError = true;
       }
-      logger.error({
-        message: logger.wrapWithUserInfo(req, 'Error linking petition to user'),
-        error
-      });
+      logger.errorWithReq(req, 'link_case_error', 'Error linking petition to user', error);
       throw error;
     });
 };
@@ -61,10 +55,7 @@ const sendAosResponse = (req, body) => {
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
-      logger.error({
-        message: logger.wrapWithUserInfo(req, 'Trying to connect to Case orchestration service error'),
-        error
-      });
+      logger.errorWithReq(req, 'send_response_error', 'Trying to connect to Case orchestration service error', error.message);
       throw error;
     });
 };

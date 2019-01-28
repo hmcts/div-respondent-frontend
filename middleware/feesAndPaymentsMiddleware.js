@@ -10,15 +10,12 @@ const getFeeFromFeesAndPayments = feeUrl => {
     return feesAndPaymentsService.get(feeUrl)
       .then(response => {
         // set fee returned from Fees and payments service
-        logger.info(logger.wrapWithUserInfo(req, `Fee amount set to ${response.amount}`));
         res.locals.applicationFee[feeUrl] = response;
+        logger.infoWithReq(req, 'fees_set', 'Fee amount set to', response.amount);
         return next();
       })
       .catch(error => {
-        logger.error({
-          message: logger.wrapWithUserInfo(req, 'An error occoured when retrieveing free from feesAndPaymentsService'),
-          error
-        });
+        logger.errorWithReq(req, 'fees_error', 'Error getting fees', feeUrl, error.message);
         next(error);
       });
   };
