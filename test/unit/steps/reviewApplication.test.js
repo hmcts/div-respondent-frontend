@@ -168,7 +168,7 @@ describe(modulePath, () => {
       );
     });
 
-    it('displays menatal and physical separation dates if used', () => {
+    it('displays menatal and physical separation dates if they are used', () => {
       const session = {
         originalPetition: {
           jurisdictionConnection: {},
