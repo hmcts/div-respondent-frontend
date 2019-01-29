@@ -291,8 +291,17 @@
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-5-years" %}
-    <p class="text">{{ content.reasonForDivorceSeparationFiveYearsBrokenDown }}
-    <p class="text">{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
+    <p class="text">{{ content.reasonForDivorceSeparationFiveYearsBrokenDown }}</p>
+    {% if session.originalPetition.reasonForDivorceDecisionDate and session.originalPetition.reasonForDivorceLivingApartDate %}
+      <ul class="bullet list-bullet">
+        <li>{{ content.reasonForDivorceSeparationFiveYearsOver }} {{ session.originalPetition.reasonForDivorceDecisionDate | date }}.</li>
+        <li>{{ content.reasonForDivorceSeparationFiveYearsLvingApart }} {{ session.originalPetition.reasonForDivorceLivingApartDate | date }}.</li>
+      </ul>
+      <br/>
+      <p class="text-small">{{ content.reasonForDivorceSeparationFiveYears2DatesRecent }}</p>
+    {% else %}
+      <p class="text">{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
+    {% endif %}
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "desertion" %}
