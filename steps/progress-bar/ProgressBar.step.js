@@ -21,14 +21,22 @@ const values = {
 const caseStateMap = [
   {
     template: './sections/OneCircleFilledIn.html',
-    state: ['AosAwaiting', 'AosStarted', 'AosOverdue', 'AwaitingReissue']
+    state: ['AwaitingReissue']
+  },
+  {
+    template: './sections/OneCircleFilledInBold.html',
+    state: ['AosAwaiting', 'AosStarted', 'AosOverdue']
   },
   {
     template: './sections/TwoCircleFilledIn.html',
-    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingDecreeNisi', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted']
+    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted']
   },
   {
-    template: './sections/ThreeCircleFilledIn.html',
+    template: './sections/TwoCircleFilledInBold.html',
+    state: ['AwaitingDecreeNisi']
+  },
+  {
+    template: './sections/ThreeCircleFilledInBold.html',
     state: ['AwaitingDecreeAbsolute']
   },
   {
