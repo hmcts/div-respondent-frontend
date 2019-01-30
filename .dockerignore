@@ -1,9 +1,9 @@
-.git/
-.github/
-infrastructure/
-kubernetes/
-node_modules/
-test/
+.git
+.github
+infrastructure
+kubernetes
+node_modules
+test
 
 Jenkinsfile*
 README.md
