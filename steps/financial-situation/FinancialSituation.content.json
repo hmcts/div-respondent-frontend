@@ -1,6 +1,6 @@
 {
   "en": {
-    "title": "Do you want the court to consider your financial situation after the divorce?",
+    "title": "Do you intend to ask the court to delay the divorce until it’s satisfied with your financial situation?",
     "description": "As your {{ session.divorceWho }} used separation as the reason for divorce, you can ask the court to consider what your financial position will be afterwards.",
     "theCourtMayDelay": "The court may then decide to delay the final stage of the divorce (the decree absolute) until it is satisfied with the future financial arrangements between you and your {{ session.divorceWho }}.",
     "readMore": "Read more about this",
