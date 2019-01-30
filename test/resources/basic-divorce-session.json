@@ -77,7 +77,7 @@
   "D8ReasonForDivorceShowTwoYearsSeparation": "YES",
   "D8StatementOfTruth": "YES",
   "D8PetitionerCorrespondenceUseHomeAddress": "YES",
-  "D8DerivedRespondentCurrentName": "Angelina JJ",
+  "RespondentFullName": "Angelina JJ",
   "D8ReasonForDivorceLimitReasons": "NO",
   "D8HelpWithFeesAppliedForFees": "YES",
   "D8PetitionerEmail": "vivdivrespaat@mailinator.com",
@@ -125,6 +125,6 @@
     "AddressLine3": null
   },
   "D8ReasonForDivorce": "unreasonable-behaviour",
-  "D8DerivedPetitionerCurrentFullName": "Brad Tom",
+  "PetitionerFullName": "Brad Tom",
   "D8InferredPetitionerGender": "male"
 }
