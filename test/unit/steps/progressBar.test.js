@@ -12,8 +12,10 @@ const { buildSessionWithCourtsInfo,
 
 const templates = {
   awaitingReissue: './sections/OneCircleFilledIn.html',
+  aosAwaiting: './sections/OneCircleFilledInBold.html',
   defendedDivorce: './sections/TwoCircleFilledIn.html',
-  awaitingDecreeAbsolute: './sections/ThreeCircleFilledIn.html',
+  awaitingDecreeNisi: './sections/TwoCircleFilledInBold.html',
+  awaitingDecreeAbsolute: './sections/ThreeCircleFilledInBold.html',
   divorceGranted: './sections/FourCircleFilledIn.html'
 };
 
@@ -195,6 +197,17 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: AwaitingReissue', () => {
+    const session = {
+      caseState: 'AosAwaiting'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.aosAwaiting);
+    });
+  });
+
   describe('CCD state: DefendedDivorce', () => {
     const session = {
       caseState: 'DefendedDivorce'
@@ -205,6 +218,18 @@ describe(modulePath, () => {
       expect(instance.stateTemplate).to.eql(templates.defendedDivorce);
     });
   });
+
+  describe('CCD state: AwaitingDecreeNisi', () => {
+    const session = {
+      caseState: 'AwaitingDecreeNisi'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingDecreeNisi);
+    });
+  });
+
   describe('CCD state: AwaitingDecreeAbsolute', () => {
     const session = {
       caseState: 'AwaitingDecreeAbsolute'
