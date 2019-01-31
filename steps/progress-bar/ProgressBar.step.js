@@ -121,13 +121,16 @@ class ProgressBar extends Interstitial {
   }
 
   get stateTemplate() {
-    let template = './sections/OneCircleFilledIn.html';
-    caseStateMap.forEach(dataMap => {
-      if (dataMap.state.includes(this.currentCaseState)) {
-        template = dataMap.template;
-      }
-    });
-
+    let template = '';
+    if (this.req.session.caseState) {
+      caseStateMap.forEach(dataMap => {
+        if (dataMap.state.includes(this.currentCaseState)) {
+          template = dataMap.template;
+        }
+      });
+    } else {
+      template = './sections/OneCircleFilledIn.html';
+    }
     return template;
   }
 }
