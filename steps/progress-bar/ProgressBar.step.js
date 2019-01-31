@@ -121,7 +121,7 @@ class ProgressBar extends Interstitial {
   }
 
   get stateTemplate() {
-    let template = '';
+    let template = './sections/OneCircleFilledIn.html';
     caseStateMap.forEach(dataMap => {
       if (dataMap.state.includes(this.currentCaseState)) {
         template = dataMap.template;
