@@ -92,6 +92,8 @@ class DefendFinancialHardship extends Question {
   }
 
   next() {
+    // set to null as it may be already answered, user may need to answer again (prevent POST loop)
+    this.session.ConfirmDefence = null;
     return goTo(this.journey.steps.ConfirmDefence);
   }
 }
