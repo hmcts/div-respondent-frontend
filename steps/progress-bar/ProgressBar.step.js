@@ -119,7 +119,7 @@ class ProgressBar extends Interstitial {
   get currentCaseState() {
     return this.req.session.caseState;
   }
-
+  // Select the appropriate template depending on case state
   get stateTemplate() {
     let template = '';
     if (this.req.session.caseState) {
