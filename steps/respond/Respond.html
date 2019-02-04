@@ -1,5 +1,7 @@
 {% extends "page.njk" %}
 
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+
 {% block back %}
 {% endblock %}
 
@@ -14,7 +16,8 @@
     {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
   </p>
 
-  {% set items = {
+  {{
+    progressList({
       one: {
         label: content.husbandWifeApplied,
         complete: true
@@ -29,9 +32,8 @@
       four: {
         label: content.madeFinal
       }
-    }
-  %}
-  {% include "reform-progress-list/template.njk" %}
+    })
+  }}
 
   <h2 class="heading-medium">{{ content.respondToApplication }}</h2>
 
@@ -51,7 +53,7 @@
 {% block one_third %}
   <aside class="govuk-related-items" role="complementary">
     <h3 class="heading-small">{{ content.gettingHelp }}</h3>
-    
+
     <ul class="font-xsmall">
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>

@@ -11,7 +11,6 @@ const setupHealthChecks = require('middleware/healthcheck');
 const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
@@ -32,8 +31,7 @@ lookAndFeel.configure(app, {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
       path.resolve(__dirname, 'steps'),
-      path.resolve(__dirname, 'views'),
-      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/views/macros')
+      path.resolve(__dirname, 'views')
     ]
   },
   webpack: {
@@ -44,17 +42,7 @@ lookAndFeel.configure(app, {
       path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
       path.resolve(__dirname, 'assets/scss/_agree-to-pay-costs.scss'),
       path.resolve(__dirname, 'assets/scss/_confirm-defence.scss'),
-      path.resolve(__dirname, 'assets/scss/_review-application.scss'),
-      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/sass/main.scss')
-    ],
-    plugins: [
-      new CopyWebpackPlugin(
-        [
-          {
-            from: path.resolve(__dirname, 'node_modules/reform-pattern-library/app/images'),
-            to: 'images'
-          }
-        ])
+      path.resolve(__dirname, 'assets/scss/_review-application.scss')
     ]
   },
   nunjucks: {
@@ -65,15 +53,6 @@ lookAndFeel.configure(app, {
       googleAnalyticsId: config.services.googleAnalytics.id
     }
   }
-});
-
-// redirect assets from reform-pattern-library for styles
-app.use('/public', (req, res) => {
-  res.redirect(req.path, '301');
-});
-// redirect images from reform-pattern-library
-app.use('/images', (req, res) => {
-  res.redirect(`/assets/images${req.path}`, '301');
 });
 
 // Get user details from idam, sets req.idam.userDetails
