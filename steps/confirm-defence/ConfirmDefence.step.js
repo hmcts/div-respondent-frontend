@@ -77,7 +77,7 @@ class ConfirmDefence extends Question {
       if (this.valid) {
         this.store();
         this.next().redirect(req, res, next);
-        req.session.confirmationAnswered = true;
+        req.session.previouslyConfirmed = this.fields.response.value === this.const.confirm;
         req.session.save();
       } else {
         this.storeErrors();
@@ -101,7 +101,7 @@ class ConfirmDefence extends Question {
     const petition = this.session.originalPetition;
     const doesConfirm = this.fields.response.value === this.const.confirm;
     const twoYrSep = petition && petition.reasonForDivorce === this.const.twoYearSeparation;
-    if (this.req.session.confirmationAnswered && !doesConfirm) {
+    if (this.req.session.previouslyConfirmed === false) {
       // user already answered this page, avoid infinite redirect by forcing journey
       return goTo(this.journey.steps.Jurisdiction);
     }
