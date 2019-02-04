@@ -49,6 +49,31 @@
     })
   }}
 
+  {% if session.FinancialSituation.respConsiderFinancialSituation == "Yes" %}
+
+    <h2 class="heading-medium">{{ content.financialSituationHeading }}</h2>
+
+    <p class="text">{{ content.financialSituationText1 }}</p>
+    <p class="text">{{ content.financialSituationText2 }} <span>{{ content.financialSituationFormLink | safe }}</span></p>
+    <p class="text">{{ content.financialSituationText3 }}</p>
+
+    <p class="text">
+      {% if session.serviceCentreName %}
+        {{ session.serviceCentreName }}<br/>
+      {% endif %}
+      {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
+      {% if session.divorceCenterPoBox %}
+          {{ session.divorceCenterPoBox }}<br/>
+      {% endif %}
+      {% if session.divorceCenterStreet %}
+          {{ session.divorceCenterStreet }}<br/>
+      {% endif %}
+      {{ session.divorceCenterCourtCity }}<br/>
+      {{ session.divorceCenterPostCode }}<br/>
+    </p>
+
+  {% endif %}
+
   {% if session.ChooseAResponse.response == "proceed" or session.ChooseAResponse.response == "proceedButDisagree" or session.ConsentDecree.response.consentDecree == "Yes" %}
 
     <h2 class="heading-medium">{{ content.notDefendedHeading }}</h2>

@@ -1,4 +1,3 @@
-const util = require('util');
 const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
 const idamConfigHelper = require('./idamConfigHelper');
@@ -16,12 +15,22 @@ class CaseHelper extends Helper {
       caseData
     };
     return divTestHarness.createAosCase(params, config.tests.e2e.proxy)
-      .then(createCaseResponse => {
-        logger.info(`Created case ${createCaseResponse.id} for ${idamConfigHelper.getTestEmail()}`);
-        caseConfigHelper.setTestCaseId(createCaseResponse.id);
+      .then(response => {
+        logger.infoWithReq(null,
+          'case_created',
+          'Case created',
+          response.id,
+          idamConfigHelper.getTestEmail()
+        );
+        caseConfigHelper.setTestCaseId(response.id);
       })
       .catch(error => {
-        logger.info(`Error creating case: ${util.inspect(error)}`);
+        logger.errorWithReq(
+          null,
+          'create_case_error',
+          'Error creating case',
+          error.message
+        );
         throw error;
       });
   }

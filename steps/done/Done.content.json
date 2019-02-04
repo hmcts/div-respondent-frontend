@@ -58,6 +58,11 @@
       "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
       "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
       "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
-    }
+    },
+    "financialSituationHeading": "What you need to do now",
+    "financialSituationText1": "You need to fill in another form and send it to the court if you want it to consider your financial situation after the divorce.",
+    "financialSituationText2": "Download and complete",
+    "financialSituationText3": "Post the form to:",
+    "financialSituationFormLink": "<a href=\"https://www.gov.uk/government/publications/form-b-notice-of-application-to-consider-the-financial-position-of-the-respondent-after-divorce-dissolution\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Form B: Notice of application to consider the financial position of the respondent after divorce</a>."
   }
 }
