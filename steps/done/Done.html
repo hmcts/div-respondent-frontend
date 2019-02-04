@@ -1,5 +1,7 @@
 {% extends "page.njk" %}
 
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
 {% block proposition_header %}
@@ -27,7 +29,8 @@
   <p class="text">{{ content.emailConfirmation }} <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
   </p>
 
-  {% set items = {
+  {{
+    progressList({
       one: {
         label: content.husbandWifeApplied,
         complete: true
@@ -43,9 +46,8 @@
       four: {
         label: content.madeFinal
       }
-    }
-  %}
-  {% include "reform-progress-list/template.njk" %}
+    })
+  }}
 
   {% if session.FinancialSituation.respConsiderFinancialSituation == "Yes" %}
 
