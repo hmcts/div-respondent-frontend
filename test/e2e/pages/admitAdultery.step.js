@@ -1,5 +1,5 @@
-const ConfirmDefencePage = require('steps/admit-adultery/AdmitAdultery.step');
-const content = require('steps/admit-adultery/AdmitAdultery.content');
+const ConfirmDefencePage = require('steps/respondent/admit-adultery/AdmitAdultery.step');
+const content = require('steps/respondent/admit-adultery/AdmitAdultery.content');
 
 function seeAdmitAdulteryPage() {
   const I = this;

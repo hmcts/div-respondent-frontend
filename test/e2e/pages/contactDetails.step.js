@@ -1,5 +1,5 @@
-const ContactDetails = require('steps/contact-details/ContactDetails.step');
-const content = require('steps/contact-details/ContactDetails.content');
+const ContactDetails = require('steps/respondent/contact-details/ContactDetails.step');
+const content = require('steps/respondent/contact-details/ContactDetails.content');
 
 function seeContactDetailsPage() {
   const I = this;

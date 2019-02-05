@@ -1,5 +1,5 @@
-const ReviewApplicationPage = require('steps/review-application/ReviewApplication.step');
-const content = require('steps/review-application/ReviewApplication.content');
+const ReviewApplicationPage = require('steps/respondent/review-application/ReviewApplication.step');
+const content = require('steps/respondent/review-application/ReviewApplication.content');
 
 function seeReviewApplicationPage() {
   const I = this;

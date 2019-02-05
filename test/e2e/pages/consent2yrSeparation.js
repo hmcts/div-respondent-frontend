@@ -1,5 +1,5 @@
-const ConsentDecree = require('steps/consent-decree/ConsentDecree.step');
-const content = require('steps/consent-decree/ConsentDecree.content');
+const ConsentDecree = require('steps/respondent/consent-decree/ConsentDecree.step');
+const content = require('steps/respondent/consent-decree/ConsentDecree.content');
 
 function seeConsentDecreePage() {
   const I = this;

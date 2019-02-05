@@ -1,5 +1,5 @@
-const FinancialSituation = require('steps/financial-situation/FinancialSituation.step');
-const content = require('steps/financial-situation/FinancialSituation.content');
+const FinancialSituation = require('steps/respondent/financial-situation/FinancialSituation.step');
+const content = require('steps/respondent/financial-situation/FinancialSituation.content');
 
 function seeFinancialSituationPage() {
   const I = this;

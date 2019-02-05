@@ -1,5 +1,9 @@
-const NoConsentAreYouSure = require('steps/no-consent-are-you-sure/NoConsentAreYouSure.step');
-const content = require('steps/no-consent-are-you-sure/NoConsentAreYouSure.content');
+const NoConsentAreYouSure = require(
+  'steps/respondent/no-consent-are-you-sure/NoConsentAreYouSure.step'
+);
+const content = require(
+  'steps/respondent/no-consent-are-you-sure/NoConsentAreYouSure.content'
+);
 
 function seeNoConsentAreYouSurePage() {
   const I = this;

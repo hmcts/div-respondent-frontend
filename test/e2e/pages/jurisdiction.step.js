@@ -1,5 +1,5 @@
-const Jurisdiction = require('steps/jurisdiction/Jurisdiction.step');
-const content = require('steps/jurisdiction/Jurisdiction.content');
+const Jurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.step');
+const content = require('steps/respondent/jurisdiction/Jurisdiction.content');
 
 function seeJurisdictionPage() {
   const I = this;

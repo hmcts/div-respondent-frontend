@@ -1,5 +1,5 @@
-const LegalProceedingPage = require('steps/legal-proceedings/LegalProceedings.step');
-const content = require('steps/legal-proceedings/LegalProceedings.content');
+const LegalProceedingPage = require('steps/respondent/legal-proceedings/LegalProceedings.step');
+const content = require('steps/respondent/legal-proceedings/LegalProceedings.content');
 
 function seeLegalProceedingPage() {
   const I = this;

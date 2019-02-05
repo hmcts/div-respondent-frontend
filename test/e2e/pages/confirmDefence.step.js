@@ -1,5 +1,5 @@
-const ConfirmDefencePage = require('steps/confirm-defence/ConfirmDefence.step');
-const content = require('steps/confirm-defence/ConfirmDefence.content');
+const ConfirmDefencePage = require('steps/respondent/confirm-defence/ConfirmDefence.step');
+const content = require('steps/respondent/confirm-defence/ConfirmDefence.content');
 
 function seeConfirmDefencePage() {
   const I = this;

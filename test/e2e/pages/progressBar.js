@@ -1,5 +1,5 @@
-const ProgressBar = require('steps/progress-bar/ProgressBar.step');
-const content = require('steps/progress-bar/ProgressBar.content');
+const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
+const content = require('steps/respondent/progress-bar/ProgressBar.content');
 
 function seeProgressBarPage() {
   const I = this;

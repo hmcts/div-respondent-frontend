@@ -1,5 +1,5 @@
-const ChooseAResponsePage = require('steps/choose-a-response/ChooseAResponse.step');
-const content = require('steps/choose-a-response/ChooseAResponse.content');
+const ChooseAResponsePage = require('steps/respondent/choose-a-response/ChooseAResponse.step');
+const content = require('steps/respondent/choose-a-response/ChooseAResponse.content');
 
 function seeChooseAResponsePage() {
   const I = this;

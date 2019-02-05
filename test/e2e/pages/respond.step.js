@@ -1,5 +1,5 @@
-const RespondPage = require('steps/respond/Respond.step');
-const content = require('steps/respond/Respond.content');
+const RespondPage = require('steps/respondent/respond/Respond.step');
+const content = require('steps/respondent/respond/Respond.content');
 
 function seeRespondPage() {
   const I = this;

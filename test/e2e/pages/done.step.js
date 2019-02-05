@@ -1,5 +1,5 @@
-const DonePage = require('steps/done/Done.step');
-const content = require('steps/done/Done.content');
+const DonePage = require('steps/respondent/done/Done.step');
+const content = require('steps/respondent/done/Done.content');
 
 function seeDonePage() {
   const I = this;

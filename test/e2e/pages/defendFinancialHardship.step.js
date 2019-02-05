@@ -1,6 +1,8 @@
-const modulePath = 'steps/defend-financial-hardship/DefendFinancialHardship.step';
+const modulePath = 'steps/respondent/defend-financial-hardship/DefendFinancialHardship.step';
 const DefendFinancialHardship = require(modulePath);
-const content = require('steps/defend-financial-hardship/DefendFinancialHardship.content');
+const content = require(
+  'steps/respondent/defend-financial-hardship/DefendFinancialHardship.content'
+);
 
 function seeDefendFinancialHardShipPage() {
   const I = this;

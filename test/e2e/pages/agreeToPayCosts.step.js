@@ -1,5 +1,5 @@
-const AgreeToPayCosts = require('steps/agree-to-pay-costs/AgreeToPayCosts.step');
-const content = require('steps/agree-to-pay-costs/AgreeToPayCosts.content');
+const AgreeToPayCosts = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.step');
+const content = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.content');
 
 function seeAgreeToPayCostsPage() {
   const I = this;

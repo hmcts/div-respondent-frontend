@@ -1,5 +1,5 @@
-const CheckYourAnswersPage = require('steps/check-your-answers/CheckYourAnswers.step');
-const content = require('steps/check-your-answers/CheckYourAnswers.content');
+const CheckYourAnswersPage = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
+const content = require('steps/respondent/check-your-answers/CheckYourAnswers.content');
 
 function seeCheckYourAnswersPage() {
   const I = this;
