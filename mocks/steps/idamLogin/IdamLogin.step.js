@@ -26,6 +26,7 @@ class IdamLogin extends Question {
       'yesCaseProgressedDefending',
       'no',
       'petitionerRedirect',
+      'correspondent',
       'throwError'
     ];
     const validAnswers = Joi.string()

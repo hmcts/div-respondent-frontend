@@ -20,6 +20,7 @@
         "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
         "no": "No",
         "petitionerRedirect": "Set user to petitioner",
+        "correspondentLogin": "Set user to Correspondent",
         "throwError": "Simulate 500 server error"
       }
     }

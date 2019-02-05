@@ -1,5 +1,6 @@
 const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
+const crRespond = require('steps/corespondent/cr-respond/CrRespond.step');
 
 const modulePath = 'middleware/redirectMiddleware';
 
@@ -54,6 +55,26 @@ describe(modulePath, () => {
     redirectMiddleware.redirectOnCondition(req, res, next);
 
     expect(next.calledOnce).to.eql(true);
+  });
+
+
+  it('should redirect to Correspondent respond page if user is Correspondent', () => {
+    const email = 'some@email.address';
+    const req = {
+      cookies: { '__auth-token': 'authToken' },
+      session: {
+        originalPetition: {
+          coRespEmailAddress: email
+        }
+      },
+      idam: {
+        userDetails: { email }
+      }
+    };
+
+    redirectMiddleware.redirectOnCondition(req, res, next);
+
+    expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
   });
 
   it('should direct to DN if user is not respondent', () => {
