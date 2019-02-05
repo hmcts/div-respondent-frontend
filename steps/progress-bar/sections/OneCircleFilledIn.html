@@ -1,0 +1,18 @@
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+{{
+  progressList({
+    one: {
+      label: content.husbandWifeApplied,
+      complete: true
+    },
+    two: {
+      label: content.youMustRespond
+    },
+    three: {
+      label: content.getDecreeNisi
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
