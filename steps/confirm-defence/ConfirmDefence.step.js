@@ -1,12 +1,13 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
+const { redirectTo, branch, goTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const { METHOD_NOT_ALLOWED } = require('http-status-codes');
 
 
 const values = {
@@ -66,6 +67,27 @@ class ConfirmDefence extends Question {
     });
   }
 
+  handler(req, res, next) {
+    if (req.method === 'GET') {
+      this.renderPage();
+    } else if (req.method === 'POST') {
+      this.parse();
+      this.validate();
+
+      if (this.valid) {
+        this.store();
+        this.next().redirect(req, res, next);
+        req.session.previouslyConfirmed = this.fields.response.value === this.const.confirm;
+        req.session.save();
+      } else {
+        this.storeErrors();
+        res.redirect(this.path);
+      }
+    } else {
+      res.sendStatus(METHOD_NOT_ALLOWED);
+    }
+  }
+
   get middleware() {
     return [
       ...super.middleware,
@@ -79,6 +101,10 @@ class ConfirmDefence extends Question {
     const petition = this.session.originalPetition;
     const doesConfirm = this.fields.response.value === this.const.confirm;
     const twoYrSep = petition && petition.reasonForDivorce === this.const.twoYearSeparation;
+    if (this.req.session.previouslyConfirmed === false) {
+      // user already answered this page, avoid infinite redirect by forcing journey
+      return goTo(this.journey.steps.Jurisdiction);
+    }
     return branch(
       redirectTo(this.journey.steps.Jurisdiction).if(doesConfirm),
       redirectTo(this.journey.steps.ConsentDecree).if(!doesConfirm && twoYrSep),
