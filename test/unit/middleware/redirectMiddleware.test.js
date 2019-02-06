@@ -1,6 +1,6 @@
 const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
-const crRespond = require('steps/corespondent/cr-respond/CrRespond.step');
+const crRespond = require('steps/correspondent/cr-respond/CrRespond.step');
 
 const modulePath = 'middleware/redirectMiddleware';
 

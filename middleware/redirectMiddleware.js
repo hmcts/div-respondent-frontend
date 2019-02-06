@@ -1,6 +1,6 @@
 const config = require('config');
 
-const crRespond = require('steps/corespondent/cr-respond/CrRespond.step');
+const crRespond = require('steps/correspondent/cr-respond/CrRespond.step');
 
 const authTokenString = '__auth-token';
 

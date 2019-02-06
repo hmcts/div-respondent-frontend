@@ -1,7 +1,7 @@
 const CaptureCaseAndPinPage = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const content = require('steps/capture-case-and-pin/CaptureCaseAndPin.content');
-const idamConfigHelper = require('../helpers/idamConfigHelper');
-const caseConfigHelper = require('../helpers/caseConfigHelper');
+const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
+const caseConfigHelper = require('test/e2e//helpers/caseConfigHelper.js');
 
 function seeCaptureCaseAndPinPage() {
   const I = this;
