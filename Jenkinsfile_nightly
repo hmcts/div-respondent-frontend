@@ -15,13 +15,13 @@ def component = "rfe"
 withNightlyPipeline("nodejs", product, component) {
     env.TEST_URL = params.URL_TO_TEST
 
-    enableCrossBrowserTest()
-    enableMutationTest()
+ //   enableCrossBrowserTest()  // TODO: Crossbrowser Test not available at the moment
+ //   enableMutationTest()      // TODO: Mutation Test not available at the moment
     enableSecurityScan()
 
     after('crossBrowserTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
 
-//    enableSlackNotifications('#div-dev')  // can be turned back on once the overnight functionality is working fully
+
 }
