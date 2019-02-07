@@ -1,5 +1,5 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const petitionMiddleware = require('middleware/petitionMiddleware');
@@ -20,7 +20,7 @@ class Respond extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.ReviewApplication);
+    return redirectTo(this.journey.steps.ReviewApplication);
   }
 
   get middleware() {
