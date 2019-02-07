@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { goTo } = require('@hmcts/one-per-page/flow');
 const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
@@ -110,7 +110,7 @@ class Jurisdiction extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.LegalProceedings);
+    return goTo(this.journey.steps.LegalProceedings);
   }
 }
 

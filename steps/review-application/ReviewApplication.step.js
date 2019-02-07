@@ -1,7 +1,7 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
+const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
@@ -87,9 +87,9 @@ class ReviewApplication extends Question {
     const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
     const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
     return branch(
-      redirectTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
-      redirectTo(this.journey.steps.ConsentDecree).if(twoYrSep),
-      redirectTo(this.journey.steps.ChooseAResponse)
+      goTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
+      goTo(this.journey.steps.ConsentDecree).if(twoYrSep),
+      goTo(this.journey.steps.ChooseAResponse)
     );
   }
 

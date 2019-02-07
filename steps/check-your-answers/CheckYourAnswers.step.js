@@ -1,5 +1,5 @@
 const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
-const { redirectTo, action } = require('@hmcts/one-per-page/flow');
+const { goTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
 const caseOrchestration = require('services/caseOrchestration');
@@ -41,7 +41,7 @@ class CheckYourAnswers extends CYA {
 
   next() {
     return action(this.sendToAPI)
-      .then(redirectTo(this.journey.steps.Done))
+      .then(goTo(this.journey.steps.Done))
       .onFailure();
   }
 }

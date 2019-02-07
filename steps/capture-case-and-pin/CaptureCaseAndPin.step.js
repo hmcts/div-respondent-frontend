@@ -1,5 +1,5 @@
 const { Question } = require('@hmcts/one-per-page/steps');
-const { redirectTo, action, stop } = require('@hmcts/one-per-page/flow');
+const { goTo, action, stop } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const caseOrchestration = require('services/caseOrchestration');
 const Joi = require('joi');
@@ -51,7 +51,7 @@ class CaptureCaseAndPin extends Question {
 
   next() {
     return action(caseOrchestration.linkCase)
-      .then(redirectTo(this.journey.steps.Respond))
+      .then(goTo(this.journey.steps.Respond))
       .onFailure(stop(this));
   }
 
