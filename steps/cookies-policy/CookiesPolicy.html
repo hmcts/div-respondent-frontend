@@ -7,28 +7,28 @@
 {% endset %}
 
 {% block main_content %}
-<p class="text">{{ content.info }}</p>
-<p class="text">{{ content.thisServiceUsesThemTo | safe }}</p>
-<ul class="list list-bullet">
+<p class="govuk-body">{{ content.info }}</p>
+<p class="govuk-body">{{ content.thisServiceUsesThemTo | safe }}</p>
+<ul class="govuk-list govuk-list--bullet">
     <li>{{ content.measureHow | safe }}</li>
     <li>{{ content.rememberNotifications | safe }}</li>
     <li>{{ content.temporarilyStore | safe }}</li>
 </ul>
-<p class="text">{{ content.moreInformation | safe }}</p>
+<p class="govuk-body">{{ content.moreInformation | safe }}</p>
 
-<h2 class="heading-medium">{{ content.howCookiesAreUsed | safe }}</h2>
-<h3 class="heading-small">{{ content.toMeasureWebsiteUsage | safe }}</h3>
-<p class="text">{{ content.ga1 | safe }}</p>
-<p class="text">{{ content.ga2 | safe }}</p>
-<ul class="list list-bullet">
+<h2 class="govuk-heading-m">{{ content.howCookiesAreUsed | safe }}</h2>
+<h3 class="govuk-heading-s">{{ content.toMeasureWebsiteUsage | safe }}</h3>
+<p class="govuk-body">{{ content.ga1 | safe }}</p>
+<p class="govuk-body">{{ content.ga2 | safe }}</p>
+<ul class="govuk-list govuk-list--bullet">
     <li>{{ content.ga3 | safe }}</li>
     <li>{{ content.ga4 | safe }}</li>
     <li>{{ content.ga5 | safe }}</li>
     <li>{{ content.ga6 | safe }}</li>
 </ul>
-<p class="text">{{ content.ga7 | safe }}</p>
-<p class="text">{{ content.ga8 | safe }}</p>
-<p class="text">{{ content.ga9 | safe }}</p>
+<p class="govuk-body">{{ content.ga7 | safe }}</p>
+<p class="govuk-body">{{ content.ga8 | safe }}</p>
+<p class="govuk-body">{{ content.ga9 | safe }}</p>
 <table>
     <tr>
         <th>{{ content.gaTableName | safe }}</th>
@@ -53,8 +53,8 @@
 </table>
 
 
-<h3 class="heading-small">{{ content.turnOffIntroductoryMessage | safe }}</h3>
-<p class="text">{{ content.youMaySeeAPopUp | safe }}</p>
+<h3 class="govuk-heading-s">{{ content.turnOffIntroductoryMessage | safe }}</h3>
+<p class="govuk-body">{{ content.youMaySeeAPopUp | safe }}</p>
 <table>
     <tr>
         <th>{{ content.gaTableName | safe }}</th>
@@ -69,8 +69,8 @@
 </table>
 
 
-<h3 class="heading-small">{{ content.toStoreThAnswers | safe }}</h3>
-<p class="text">{{ content.sessionCookiesAreStored | safe }}</p>
+<h3 class="govuk-heading-s">{{ content.toStoreThAnswers | safe }}</h3>
+<p class="govuk-body">{{ content.sessionCookiesAreStored | safe }}</p>
 <table>
     <tr>
         <th>{{ content.gaTableName | safe }}</th>
@@ -85,8 +85,8 @@
 </table>
 
 
-<h3 class="heading-small">{{ content.toIdentifyYouWhen | safe }}</h3>
-<p class="text">{{ content.weUseAuthenticationCookies | safe }}</p>
+<h3 class="govuk-heading-s">{{ content.toIdentifyYouWhen | safe }}</h3>
+<p class="govuk-body">{{ content.weUseAuthenticationCookies | safe }}</p>
 <table>
     <tr>
         <th>{{ content.gaTableName | safe }}</th>
@@ -101,8 +101,8 @@
 </table>
 
 
-<h3 class="heading-small">{{ content.toMakeServiceMoreSecure | safe }}</h3>
-<p class="text">{{ content.weSetCookiesWhichPrevent | safe }}</p>
+<h3 class="govuk-heading-s">{{ content.toMakeServiceMoreSecure | safe }}</h3>
+<p class="govuk-body">{{ content.weSetCookiesWhichPrevent | safe }}</p>
 <table>
     <tr>
         <th>{{ content.gaTableName | safe }}</th>

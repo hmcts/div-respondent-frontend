@@ -1,5 +1,5 @@
 <li>
-    <strong class="bold-xsmall">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
+    <strong class="govuk-!-font-size-16">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
     {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
     {% if session.divorceCenterPoBox %}
         {{ session.divorceCenterPoBox }}<br/>

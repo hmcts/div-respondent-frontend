@@ -2,7 +2,6 @@
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
-{% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
 
 {% block breadcrumbs %}
   {{ phaseBanner(phase, feedbackLink) }}
@@ -12,7 +11,7 @@
   {{ languageSwitch(currentLang, availableLangs) }}
 {% endblock %}
 
-{% set titleSize = titleSize | default('xlarge') %}
+{% set titleSize = titleSize | default('xl') %}
 
 {% block head %}
   {% include "includes/head.html" %}

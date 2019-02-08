@@ -10,7 +10,7 @@
 
     <div id="confirm-defence">
 
-        <p>{{ content.defenceFeeDetails | safe }}</p>
+        <p class="govuk-body">{{ content.defenceFeeDetails | safe }}</p>
 
         <div class="notice">
             <i class="icon icon-important">
@@ -21,16 +21,16 @@
             </strong>
         </div>
 
-        <details>
-            <summary>
-                <span class="summary">{{ content.info.readMore | safe }}</span>
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">{{ content.info.readMore | safe }}</span>
             </summary>
-            <div class="panel panel-border-narrow">
-                <h2 class="heading-small">{{ content.info.sections.intendToPrevent.heading | safe }}</h2>
-                <p class="text">{{ content.info.sections.intendToPrevent.summary | safe }}</p>
+            <div class="govuk-details__text">
+                <h2 class="govuk-heading-s">{{ content.info.sections.intendToPrevent.heading | safe }}</h2>
+                <p class="govuk-body">{{ content.info.sections.intendToPrevent.summary | safe }}</p>
 
-                <h2 class="heading-small">{{ content.info.sections.makeOwnApplication.heading | safe }}</h2>
-                <p class="text">{{ content.info.sections.makeOwnApplication.summary | safe }}</p>
+                <h2 class="govuk-heading-s">{{ content.info.sections.makeOwnApplication.heading | safe }}</h2>
+                <p class="govuk-body">{{ content.info.sections.makeOwnApplication.summary | safe }}</p>
             </div>
         </details>
 

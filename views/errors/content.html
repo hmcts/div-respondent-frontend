@@ -1,7 +1,7 @@
 {% if nextSteps %}
-    <p>
+    <p class="govuk-body">
         You can either:
-    <ul class="list list-bullet">
+    <ul class="govuk-list govuk-list--bullet">
         {% for option in nextSteps %}
             <li>{{ option | safe }}</li>
         {% endfor %}

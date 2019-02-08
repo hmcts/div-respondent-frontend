@@ -10,17 +10,17 @@
 
 <div>
 
-  <p class="text">{{ content.text1 | safe }}</p>
-  <p class="text">{{ content.text2 | safe }}</p>
-  <details>
-    <summary>
-      <span class="summary">{{ content.info.heading | safe }}</span>
+  <p class="govuk-body">{{ content.text1 | safe }}</p>
+  <p class="govuk-body">{{ content.text2 | safe }}</p>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">{{ content.info.heading | safe }}</span>
     </summary>
-    <div class="panel panel-border-narrow">
-      <p class="text">{{ content.info.summary1 | safe }}</p>
-      <p class="text">{{ content.info.summary2 | safe }}</p>
-      <p class="text">{{ content.info.summary3 | safe }}</p>
-      <p class="text">{{ content.info.summary4 | safe }}</p>
+    <div class="govuk-details__text">
+      <p class="govuk-body">{{ content.info.summary1 | safe }}</p>
+      <p class="govuk-body">{{ content.info.summary2 | safe }}</p>
+      <p class="govuk-body">{{ content.info.summary3 | safe }}</p>
+      <p class="govuk-body">{{ content.info.summary4 | safe }}</p>
     </div>
   </details>
   <br>
@@ -39,7 +39,7 @@
 
     <div id="hardship-details" class="panel js-hidden">
 
-      <h4 class="heading-small">{{ content.fields.yes.details.title | safe }}</h4>
+      <h4 class="govuk-heading-s">{{ content.fields.yes.details.title | safe }}</h4>
 
       {{ textarea(fields.financialHardship.details, content.fields.yes.details.title, hideLabel=true) }}
 

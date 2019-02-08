@@ -16,8 +16,8 @@
 } %}
 
 {% block statement_of_truth_content %}
-{{ header(content.confirm, size='medium') }}
-<p>{{ content.statementOfTruth | safe }}</p>
+{{ header(content.confirm, size='m') }}
+<p class="govuk-body">{{ content.statementOfTruth | safe }}</p>
 {% endblock %}
 
 {% block full_width %}
@@ -49,18 +49,18 @@
 
         <br>
 
-        <details>
+        <details class="govuk-details">
             <summary aria-controls="details-content-0" aria-expanded="false">
-                <span class="summary">{{ content.whatTheseStatements | safe }}</span>
+                <span class="govuk-details__summary-text">{{ content.whatTheseStatements | safe }}</span>
             </summary>
             <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-                <p class="text">{{ content.statementsExplanation | safe }}</p>
+                <p class="govuk-body">{{ content.statementsExplanation | safe }}</p>
             </div>
         </details>
     </div>
 
     <br>
-    
+
     <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
 {%- endblock %}
 
