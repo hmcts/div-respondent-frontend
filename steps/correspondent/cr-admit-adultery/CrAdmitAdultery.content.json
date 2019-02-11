@@ -1,0 +1,34 @@
+{
+  "en": {
+    "title": "Do you admit to committing the adultery?",
+    "detailsText": "The applicant provided the following details.",
+    "whereAdultery": {
+      "heading": "Where the adultery took place"
+    },
+    "whenAdultery": {
+      "heading": "When the adultery took place"
+    },
+    "details": {
+      "heading": "Description of the adultery"
+    },
+    "howYourAnswerAffect": {
+      "heading": "How your answer will affect the divorce",
+      "para1": "The court will take your answer into account in its judgement on whether the adultery took place, and therefore whether there are grounds for divorce.",
+      "para2": "You don’t have to admit to the adultery if you don’t want to. You can allow the divorce to proceed (not ‘defend’ it) and not admit to the adultery.",
+      "subHeading": "If the applicant has claimed the divorce costs",
+      "para3": "You may be liable to pay the costs regardless of whether or not you admit to the adultery. However, if you do admit to it and the applicant relies on it being proof that the adultery took place, then this may result in an order for costs being made against you. You should speak to a solicitor if you aren’t sure how to respond.",
+      "para4": "You will have a chance to respond to the costs claim later in this application. If you object to paying the costs you'll need to provide a valid reason for not paying them. If you do object, and provide a valid reason to not pay them, you may need to attend a hearing to present your case."
+    },
+    "fields": {
+      "admit": {
+        "label": "Yes, I admit to committing the adultery"
+      },
+      "doNotAdmit": {
+        "label": "No, I do not admit to committing the adultery"
+      }
+    },
+    "errors": {
+      "required": "Select yes if you admit to committing the adultery"
+    }
+  }
+}

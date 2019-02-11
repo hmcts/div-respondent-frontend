@@ -98,6 +98,7 @@ paths:
   correspondent:
     respond: /corespondent-aos/progress-bar/respond
     reviewApplication: /corespondent-aos/review-application
+    admitAdultery: /corespondent-aos/admit-the-adultery
 
 tests:
   e2e:

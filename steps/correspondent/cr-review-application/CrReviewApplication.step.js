@@ -58,7 +58,7 @@ class CrReviewApplication extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.AdmitAdultery);
+    return redirectTo(this.journey.steps.CrAdmitAdultery);
   }
 
   get middleware() {
