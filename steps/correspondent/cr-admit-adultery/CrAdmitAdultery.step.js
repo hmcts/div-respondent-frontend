@@ -65,7 +65,7 @@ class CrAdmitAdultery extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.ChooseAResponse);
+    return redirectTo(this.journey.steps.CrChooseAResponse);
   }
 }
 

@@ -18,6 +18,10 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.seeCrAdmitAdulteryPage();
   I.clickToCrAdmitAdultery();
   I.click(content.en.continue);
+
+  I.seeCrChooseAResponsePage();
+  I.chooseCrToProceedWithDivorce();
+  I.click(content.en.continue);
 }).retry(2);
 
 Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
@@ -35,5 +39,9 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
 
   I.seeCrAdmitAdulteryPage();
   I.clickToCrNotAdmitAdultery();
+  I.click(content.en.continue);
+
+  I.seeCrChooseAResponsePage();
+  I.chooseCrToDefendAgainstDivorce();
   I.click(content.en.continue);
 }).retry(2);

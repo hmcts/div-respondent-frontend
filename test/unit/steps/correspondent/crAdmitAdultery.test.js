@@ -1,6 +1,8 @@
 const modulePath = 'steps/correspondent/cr-admit-adultery/CrAdmitAdultery.step.js';
 const CrAdmitAdultery = require(modulePath);
-const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
+const CrChooseAResponse = require(
+  'steps/correspondent/cr-choose-a-response/CrChooseAResponse.step'
+);
 const CrAdmitAdulteryContent = require(
   'steps/correspondent/cr-admit-adultery/CrAdmitAdultery.content'
 );
@@ -24,14 +26,14 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(CrAdmitAdultery, [idam.protect()]);
   });
 
-  it('redirects to the check your answers page on admission', () => {
+  it('redirects to the ChooseAResponse page on admission', () => {
     const fields = { response: 'admit' };
-    return question.redirectWithField(CrAdmitAdultery, fields, ChooseAResponse);
+    return question.redirectWithField(CrAdmitAdultery, fields, CrChooseAResponse);
   });
 
   it('redirects to back to choose a response page on not admitting adultery', () => {
     const fields = { response: 'doNotAdmit' };
-    return question.redirectWithField(CrAdmitAdultery, fields, ChooseAResponse);
+    return question.redirectWithField(CrAdmitAdultery, fields, CrChooseAResponse);
   });
 
   it('shows error if question is not answered', () => {

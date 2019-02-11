@@ -99,6 +99,7 @@ paths:
     respond: /corespondent-aos/progress-bar/respond
     reviewApplication: /corespondent-aos/review-application
     admitAdultery: /corespondent-aos/admit-the-adultery
+    chooseAResponse: /corespondent-aos/choose-a-response
 
 tests:
   e2e:
