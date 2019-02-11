@@ -17,7 +17,7 @@
       <i class="icon icon-important">
         <span class="visually-hidden">Warning</span>
       </i>
-      <strong class="bold-small">
+      <strong class="govuk-!-font-size-19 govuk-!-font-weight-bold">
         {{ content.notice | safe }}
       </strong>
     </div>
@@ -45,7 +45,7 @@
   <h2 class="govuk-heading-m">{{ content.question | safe }}</h2>
 
   {% call formSection() %}
-    <div class="form-group {{ errorClass(fields.agreeToPayCosts.agree) }}">
+    <div class="govuk-form-group {{ errorClass(fields.agreeToPayCosts.agree) }}">
 
       {{ errorsFor(fields.agreeToPayCosts.agree) }}
 
@@ -65,8 +65,8 @@
           )
         }}
 
-        <div id="different-amount" class="form-group panel js-hidden">
-          <div class="form-group {{ errorClass(fields.agreeToPayCosts.newAmount) }}">
+        <div id="different-amount" class="govuk-form-group panel js-hidden">
+          <div class="govuk-form-group {{ errorClass(fields.agreeToPayCosts.newAmount) }}">
             <label class="form-label-bold" for="{{ fields.agreeToPayCosts.newAmount.id }}">{{ content.fields.differentAmount.newAmount | safe }}</label>
             {{ errorsFor(fields.agreeToPayCosts.newAmount) }}
             <span id="currency-symbol">{{ content.poundSymbol }}</span><input class="form-control" id="{{ fields.agreeToPayCosts.newAmount.id }}" name="{{ fields.agreeToPayCosts.newAmount.id }}" type="text" value="{{ fields.agreeToPayCosts.newAmount.value | default('') }}" />
@@ -83,7 +83,7 @@
         )
       }}
 
-      <div id="do-not-accept" class="form-group panel js-hidden">
+      <div id="do-not-accept" class="govuk-form-group panel js-hidden">
         {{ textarea(fields.agreeToPayCosts.noReason, content.fields.disagree.reason) }}
       </div>
     </div>

@@ -12,7 +12,7 @@
   <p class="govuk-body">{{ content.summary | safe }}</p>
 
   {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-  <ul class="list-bullet">
+  <ul class="govuk-list govuk-list--bullet">
     {% endif %}
 
     {% if "A" in session.originalPetition.jurisdictionConnection %}
@@ -120,7 +120,7 @@
       <p class="govuk-body">{{ content.info.options.domicile.summary2 | safe }}</p>
       <p class="govuk-body">{{ content.info.options.domicile.summary3Part1 | safe }}<b>{{ content.info.options.domicile.summary3Part2 | safe }}</b>{{ content.info.options.domicile.summary3Part3 | safe }}</p>
 
-      <ul class="list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.info.options.domicile.summary3SubText1 | safe }}</li>
         <li>{{ content.info.options.domicile.summary3SubText2 | safe }}</li>
       </ul>
@@ -132,12 +132,12 @@
 
       <h2 class="govuk-heading-s">{{ content.info.options.residualJurisdiction.heading | safe }}</h2>
       <p class="govuk-body">{{ content.info.options.residualJurisdiction.intro1 | safe }}</p>
-      <ul class="list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.info.options.residualJurisdiction.bullet1 | safe }}</li>
         <li>{{ content.info.options.residualJurisdiction.bullet2 | safe }}</li>
       </ul>
       <p class="govuk-body">{{ content.info.options.residualJurisdiction.intro2 | safe }}</p>
-       <ul class="list-bullet">
+       <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.info.options.residualJurisdiction.bullet3 | safe }}</li>
         <li>{{ content.info.options.residualJurisdiction.bullet4 | safe }}</li>
         <li>{{ content.info.options.residualJurisdiction.bullet5 | safe }}</li>
@@ -157,7 +157,7 @@
         type='radio'
       )
     }}
-    <div id="jurisdiction-no" class="form-group panel js-hidden">
+    <div id="jurisdiction-no" class="govuk-form-group panel js-hidden">
 
       {{ textarea(fields.jurisdiction.reason, content.fields.disagree.reason) }}
 

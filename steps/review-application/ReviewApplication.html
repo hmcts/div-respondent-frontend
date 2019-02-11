@@ -100,7 +100,7 @@
   <h2 class="govuk-heading-m">{{ content.whyTheCourtHeading }}</h2>
 
   {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <ul class="list-bullet">
+    <ul class="govuk-list govuk-list--bullet">
   {% endif %}
 
     {% if "A" in session.originalPetition.jurisdictionConnection %}
@@ -217,7 +217,7 @@
       <p class="govuk-body">{{ content.domicilePar1 }}</p>
       <p class="govuk-body">{{ content.domicilePar2 }}</p>
       <p class="govuk-body">{{ content.domicilePar3 | safe }}</p>
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.domicileList1 }}</li>
         <li>{{ content.domicileList2 }}</li>
       </ul>
@@ -225,12 +225,12 @@
       <p class="govuk-body">{{ content.domicilePar5 }}</p>
       <h3 class="govuk-heading-s">{{ content.residualJurisdiction }}</h3>
       <p class="govuk-body">{{ content.residualJurisdictionPar1 }}</p>
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.residualJurisdictionList2 }}</li>
         <li>{{ content.residualJurisdictionList3 }}</li>
       </ul>
     <p class="govuk-body">{{ content.residualJurisdictionPar2 }}</p>
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.residualJurisdictionList4 }}</li>
         <li>{{ content.residualJurisdictionList5 }}</li>
         <li>{{ content.residualJurisdictionList6 }}</li>
@@ -293,12 +293,12 @@
   {% if session.originalPetition.reasonForDivorce == "separation-5-years" %}
     <p class="govuk-body">{{ content.reasonForDivorceSeparationFiveYearsBrokenDown }}</p>
     {% if session.originalPetition.reasonForDivorceDecisionDate and session.originalPetition.reasonForDivorceLivingApartDate %}
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.reasonForDivorceSeparationFiveYearsOver }} {{ session.originalPetition.reasonForDivorceDecisionDate | date }}.</li>
         <li>{{ content.reasonForDivorceSeparationFiveYearsLvingApart }} {{ session.originalPetition.reasonForDivorceLivingApartDate | date }}.</li>
       </ul>
       <br/>
-      <p class="text-small">{{ content.reasonForDivorceSeparationFiveYears2DatesRecent }}</p>
+      <p class="govuk-body">{{ content.reasonForDivorceSeparationFiveYears2DatesRecent }}</p>
     {% else %}
       <p class="govuk-body">{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
     {% endif %}

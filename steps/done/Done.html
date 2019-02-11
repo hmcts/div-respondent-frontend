@@ -26,7 +26,7 @@
     </p>
   </div>
 
-  <p class="govuk-body">{{ content.emailConfirmation }} <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
+  <p class="govuk-body">{{ content.emailConfirmation }} <span class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ session.originalPetition.respEmailAddress | safe }}</span>
   </p>
 
   {{
@@ -82,7 +82,7 @@
 
       <p class="govuk-body">{{ content.notDefendedAdultery1 }}</p>
       <p class="govuk-body">{{ content.notDefendedAdultery2 }}</p>
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.notDefendedAdulteryLi1 }}</li>
         <li>{{ content.notDefendedAdulteryLi2 }}</li>
       </ul>
@@ -109,7 +109,7 @@
     <p class="govuk-body">{{ content.defendedText1 | safe }}</p>
     <p class="govuk-body">{{ content.defendedText2 }}</p>
     <p class="govuk-body">{{ content.defendedText3 }}</p>
-    <ul class="govuk-list bold-small">
+    <ul class="govuk-list govuk-!-font-size-19 govuk-!-font-weight-bold">
       {% if session.serviceCentreName %}
         <li>{{ session.serviceCentreName }}</li>
       {% endif %}
