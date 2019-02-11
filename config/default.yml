@@ -97,6 +97,7 @@ paths:
     done: /done
   correspondent:
     respond: /corespondent-aos/progress-bar/respond
+    reviewApplication: /corespondent-aos/review-application
 
 tests:
   e2e:

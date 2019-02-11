@@ -19,7 +19,7 @@ class CrRespond extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.ReviewApplication);
+    return goTo(this.journey.steps.CrReviewApplication);
   }
 
   get feesIssueApplication() {
