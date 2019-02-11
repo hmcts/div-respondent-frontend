@@ -452,7 +452,6 @@
   <h3 class="govuk-heading-l">{{ content.acknowledgement }}</h3>
 
   <div class="confirmation-block" id="review-application-wrap">
-  {% call formSection() %}
     {{
       selectionButtons(
         fields.respConfirmReadPetition,
@@ -463,19 +462,16 @@
         hint=false,
         hideQuestion=true,
         inline=false,
-        type='checkbox',
-        class='confirmation-container'
+        type='checkbox'
       )
     }}
-    <div class="notice">
-      <i class="icon icon-important">
-        <span class="visuallyhidden">{{ content.hiddenWarning }}</span>
-      </i>
-      <strong class="text">
-          {{ content.youWillBeAbleToRespond }}
-      </strong>
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <p class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">content.hiddenWarning</span>
+        {{ content.youWillBeAbleToRespond }}
+      </p>
     </div>
-  {% endcall %}
   </div>
 
 {% endblock %}
