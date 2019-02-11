@@ -12,6 +12,11 @@ const values = {
   yes: 'Yes',
   adultery: 'adultery'
 };
+
+/**
+ *  Review Application content should be same for DN, AOS Respondent and correspondent journey.
+ *  Any change to Mini petition should be made across all the Apps
+ */
 class CrReviewApplication extends Question {
   static get path() {
     return config.paths.correspondent.reviewApplication;

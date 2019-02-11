@@ -15,6 +15,11 @@ const values = {
   adultery: 'adultery',
   twoYearSeparation: 'separation-2-years'
 };
+
+/**
+ *  Review Application content should be same for DN, AOS Respondent and correspondent journey.
+ *  Any change to Mini petition should be made across all the Apps
+ */
 class ReviewApplication extends Question {
   static get path() {
     return config.paths.respondent.reviewApplication;

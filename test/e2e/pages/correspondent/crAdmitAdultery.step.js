@@ -8,16 +8,16 @@ function seeCrAdmitAdulteryPage() {
   I.waitForText(content.en.title);
 }
 
-function clickToCrAdmitAdultery() {
+function clickCrToAdmitAdultery() {
   this.click(content.en.fields.admit.label);
 }
 
-function clickToCrNotAdmitAdultery() {
+function clickCrToNotAdmitAdultery() {
   this.click(content.en.fields.doNotAdmit.label);
 }
 
 module.exports = {
   seeCrAdmitAdulteryPage,
-  clickToCrAdmitAdultery,
-  clickToCrNotAdmitAdultery
+  clickCrToAdmitAdultery,
+  clickCrToNotAdmitAdultery
 };

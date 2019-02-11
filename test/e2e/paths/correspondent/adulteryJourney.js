@@ -16,7 +16,7 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.click(content.en.continue);
 
   I.seeCrAdmitAdulteryPage();
-  I.clickToCrAdmitAdultery();
+  I.clickCrToAdmitAdultery();
   I.click(content.en.continue);
 
   I.seeCrChooseAResponsePage();
@@ -38,7 +38,7 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.click(content.en.continue);
 
   I.seeCrAdmitAdulteryPage();
-  I.clickToCrNotAdmitAdultery();
+  I.clickCrToNotAdmitAdultery();
   I.click(content.en.continue);
 
   I.seeCrChooseAResponsePage();
