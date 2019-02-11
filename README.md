@@ -15,7 +15,6 @@ The Apply for Divorce Respondent Frontend.
 
 
 
-
 `yarn mocks`
 
 `yarn dev`
