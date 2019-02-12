@@ -1,7 +1,6 @@
 import $ from 'jquery';
-import ShowHideContent from 'govuk/show-hide-content';
+import govukFrontend from 'govuk-frontend/all';
 
 $(document).ready(() => {
-  const showHideContent = new ShowHideContent();
-  showHideContent.init();
+  govukFrontend.initAll();
 });

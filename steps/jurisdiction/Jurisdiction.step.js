@@ -1,7 +1,7 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { goTo } = require('@hmcts/one-per-page/flow');
-const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
+const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
@@ -31,45 +31,37 @@ class Jurisdiction extends Question {
       .valid(answers)
       .required();
 
-    const validateDisagreeReason = ({ agree = '', reason = '' }) => {
-      if (agree === this.validValues.no && !reason.trim().length) {
+    const validateDisagreeJurisdiction = disagreeJurisdictionField => {
+      const value = disagreeJurisdictionField.value;
+      if (this.fields.jurisdictionAgree.value === this.validValues.no && (!value || !value.trim().length)) {
         return false;
       }
-
-      return true;
-    };
-
-    const validateCountry = ({ agree = '', country = '' }) => {
-      if (agree === this.validValues.no && !country.trim().length) {
-        return false;
-      }
-
       return true;
     };
 
     const fields = {
       agree: text.joi(this.content.errors.required, validAnswers),
-      reason: text,
-      country: text
+      reason: text.checkField(
+        this.content.errors.reasonRequired,
+        validateDisagreeJurisdiction
+      ),
+      country: text.checkField(
+        this.content.errors.countryRequired,
+        validateDisagreeJurisdiction
+      )
     };
 
-    const jurisdiction = object(fields)
-      .check(
-        errorFor('reason', this.content.errors.reasonRequired),
-        validateDisagreeReason
-      )
-      .check(
-        errorFor('country', this.content.errors.countryRequired),
-        validateCountry
-      );
-
-    return form({ jurisdiction });
+    return form({
+      jurisdictionAgree: fields.agree,
+      jurisdictionReason: fields.reason,
+      jurisdictionCountry: fields.country
+    });
   }
 
   values() {
-    const agree = this.fields.jurisdiction.agree.value;
-    const reason = this.fields.jurisdiction.reason.value;
-    const country = this.fields.jurisdiction.country.value;
+    const agree = this.fields.jurisdictionAgree.value;
+    const reason = this.fields.jurisdictionReason.value;
+    const country = this.fields.jurisdictionCountry.value;
 
     const values = {};
     values.respJurisdictionAgree = agree;
@@ -87,18 +79,18 @@ class Jurisdiction extends Question {
 
     answers.push(answer(this, {
       question: content.en.cya.agree,
-      answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content.en.fields.agree.answer : content.en.fields.disagree.answer
+      answer: this.fields.jurisdictionAgree.value === this.validValues.yes ? content.en.fields.agree.answer : content.en.fields.disagree.answer
     }));
 
-    if (this.fields.jurisdiction.agree.value === this.validValues.no) {
+    if (this.fields.jurisdictionAgree.value === this.validValues.no) {
       answers.push(answer(this, {
         question: content.en.cya.reason,
-        answer: this.fields.jurisdiction.reason.value
+        answer: this.fields.jurisdictionReason.value
       }));
 
       answers.push(answer(this, {
         question: content.en.cya.country,
-        answer: this.fields.jurisdiction.country.value
+        answer: this.fields.jurisdictionCountry.value
       }));
     }
 

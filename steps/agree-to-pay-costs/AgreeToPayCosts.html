@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "warning-text/macro.njk" import govukWarningText %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorsFor, textarea, errorClass %}
 
 {% set title %}
@@ -13,7 +13,7 @@
   <p class="govuk-body">{{ content.summary1 | safe }}</p>
   <p class="govuk-body">{{ content.summary2 | safe }}</p>
 
-  {{ govukWarningText({
+  {{ warningText({
       text: content.notice,
       iconFallbackText: content.warning
   }) }}

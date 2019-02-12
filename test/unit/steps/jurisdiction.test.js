@@ -30,7 +30,7 @@ describe(modulePath, () => {
   });
 
   it('shows errors when no jurisdiction and when both reason and country are not supplied', () => {
-    const fields = { 'jurisdiction.agree': 'No' };
+    const fields = { jurisdictionAgree: 'No' };
 
     const onlyErrors = ['reasonRequired', 'countryRequired' ];
 
@@ -38,7 +38,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when no jurisdiction and reason not supplied', () => {
-    const fields = { 'jurisdiction.agree': 'No', 'jurisdiction.country': 'country' };
+    const fields = { jurisdictionAgree: 'No', jurisdictionCountry: 'country' };
 
     const onlyErrors = ['reasonRequired'];
 
@@ -46,7 +46,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when no jurisdiction and country not supplied', () => {
-    const fields = { 'jurisdiction.agree': 'No', 'jurisdiction.reason': 'reason' };
+    const fields = { jurisdictionAgree: 'No', jurisdictionReason: 'reason' };
 
     const onlyErrors = ['countryRequired'];
 
@@ -55,16 +55,16 @@ describe(modulePath, () => {
 
   it('redirects to next page on jurisdiction is no and details are supplied', () => {
     const fields = {
-      'jurisdiction.agree': 'No',
-      'jurisdiction.reason': 'reason',
-      'jurisdiction.country': 'country'
+      jurisdictionAgree: 'No',
+      jurisdictionReason: 'reason',
+      jurisdictionCountry: 'country'
     };
 
     return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
   });
 
   it('redirects to next page on jurisdiction is yes', () => {
-    const fields = { 'jurisdiction.agree': 'Yes' };
+    const fields = { jurisdictionAgree: 'Yes' };
     return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
   });
 
@@ -74,11 +74,9 @@ describe(modulePath, () => {
     const respJurisdictionRespCountryOfResidence = 'Country';
 
     const fields = {
-      jurisdiction: {
-        agree: respJurisdictionAgree,
-        reason: respJurisdictionDisagreeReason,
-        country: respJurisdictionRespCountryOfResidence
-      }
+      jurisdictionAgree: respJurisdictionAgree,
+      jurisdictionReason: respJurisdictionDisagreeReason,
+      jurisdictionCountry: respJurisdictionRespCountryOfResidence
     };
 
     const req = {
@@ -105,11 +103,9 @@ describe(modulePath, () => {
     const respJurisdictionRespCountryOfResidence = 'Country';
 
     const fields = {
-      jurisdiction: {
-        agree: respJurisdictionAgree,
-        reason: respJurisdictionDisagreeReason,
-        country: respJurisdictionRespCountryOfResidence
-      }
+      jurisdictionAgree: respJurisdictionAgree,
+      jurisdictionReason: respJurisdictionDisagreeReason,
+      jurisdictionCountry: respJurisdictionRespCountryOfResidence
     };
 
     const req = {
@@ -135,9 +131,7 @@ describe(modulePath, () => {
     ];
 
     const stepData = {
-      jurisdiction: {
-        agree: 'Yes'
-      }
+      jurisdictionAgree: 'Yes'
     };
 
     return question.answers(Jurisdiction, stepData, expectedContent, defaultSession);
@@ -157,11 +151,9 @@ describe(modulePath, () => {
     ];
 
     const stepData = {
-      jurisdiction: {
-        agree: 'No',
-        reason,
-        country
-      }
+      jurisdictionAgree: 'No',
+      jurisdictionReason: reason,
+      jurisdictionCountry: country
     };
 
     return question.answers(Jurisdiction, stepData, expectedContent, defaultSession);
@@ -173,7 +165,7 @@ describe(modulePath, () => {
   });
 
   it('shows errors when no jurisdiction and when both reason and country are not supplied', () => {
-    const fields = { 'jurisdiction.agree': 'No' };
+    const fields = { jurisdictionAgree: 'No' };
 
     const onlyErrors = ['reasonRequired', 'countryRequired' ];
 
@@ -181,7 +173,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when no jurisdiction and reason not supplied', () => {
-    const fields = { 'jurisdiction.agree': 'No', 'jurisdiction.country': 'country' };
+    const fields = { jurisdictionAgree: 'No', jurisdictionCountry: 'country' };
 
     const onlyErrors = ['reasonRequired'];
 
@@ -189,7 +181,7 @@ describe(modulePath, () => {
   });
 
   it('shows error when no jurisdiction and country not supplied', () => {
-    const fields = { 'jurisdiction.agree': 'No', 'jurisdiction.reason': 'reason' };
+    const fields = { jurisdictionAgree: 'No', jurisdictionReason: 'reason' };
 
     const onlyErrors = ['countryRequired'];
 
@@ -198,16 +190,16 @@ describe(modulePath, () => {
 
   it('redirects to next page on jurisdiction is no and details are supplied', () => {
     const fields = {
-      'jurisdiction.agree': 'No',
-      'jurisdiction.reason': 'reason',
-      'jurisdiction.country': 'country'
+      jurisdictionAgree: 'No',
+      jurisdictionReason: 'reason',
+      jurisdictionCountry: 'country'
     };
 
     return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
   });
 
   it('redirects to next page on jurisdiction is yes', () => {
-    const fields = { 'jurisdiction.agree': 'Yes' };
+    const fields = { jurisdictionAgree: 'Yes' };
     return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
   });
 

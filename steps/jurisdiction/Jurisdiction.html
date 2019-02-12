@@ -146,24 +146,23 @@
   </details>
 
   <p class="govuk-body">{{ content.question | safe }}</p>
-  {% call formSection() %}
-    {{ selectionButtons(fields.jurisdiction.agree, content.question,
-        options = [
-        { label: content.fields.agree.heading, value: validValues.yes },
-        { label: content.fields.disagree.heading, value: validValues.no, target: "jurisdiction-no" }
-        ],
-        hideQuestion=true,
-        inline=false,
-        type='radio'
-      )
-    }}
-    <div id="jurisdiction-no" class="govuk-form-group panel js-hidden">
 
-      {{ textarea(fields.jurisdiction.reason, content.fields.disagree.reason) }}
+  {%  set conditionalHtml %}
+      {{ textarea(fields.jurisdictionReason, content.fields.disagree.reason) }}
 
-      {{ textbox(fields.jurisdiction.country, content.fields.disagree.country) }}
+      {{ textbox(fields.jurisdictionCountry, content.fields.disagree.country) }}
+  {% endset %}
 
-    </div>
-  {% endcall %}
+  {{ selectionButtons(fields.jurisdictionAgree, content.question,
+      options = [
+      { label: content.fields.agree.heading, value: validValues.yes },
+      { label: content.fields.disagree.heading, value: validValues.no, conditional: conditionalHtml }
+      ],
+      hideQuestion=true,
+      inline=false,
+      type='radio'
+    )
+  }}
+
 </div>
 {% endblock %}
