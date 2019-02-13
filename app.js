@@ -14,6 +14,7 @@ const setupRateLimiter = require('services/rateLimiter');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const app = express();
 
@@ -31,7 +32,8 @@ lookAndFeel.configure(app, {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
       path.resolve(__dirname, 'steps'),
-      path.resolve(__dirname, 'views')
+      path.resolve(__dirname, 'views'),
+      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/views/macros')
     ]
   },
   webpack: {
@@ -42,7 +44,17 @@ lookAndFeel.configure(app, {
       path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
       path.resolve(__dirname, 'assets/scss/_agree-to-pay-costs.scss'),
       path.resolve(__dirname, 'assets/scss/_confirm-defence.scss'),
-      path.resolve(__dirname, 'assets/scss/_review-application.scss')
+      path.resolve(__dirname, 'assets/scss/_review-application.scss'),
+      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/sass/main.scss')
+    ],
+    plugins: [
+      new CopyWebpackPlugin(
+        [
+          {
+            from: path.resolve(__dirname, 'node_modules/reform-pattern-library/app/images'),
+            to: 'images'
+          }
+        ])
     ]
   },
   nunjucks: {
