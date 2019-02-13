@@ -245,10 +245,9 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^2.0.2":
+"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#fe5f9f3e37ce7d28c3d15c1b03627dcc94d77502":
   version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.0.2.tgz#6ae83813d9620d56130a4e13d802bcf8c3c6b083"
-  integrity sha512-N16WQ7fr75M6u3zA6i6CvoXMRC2s3azeaLev0MBgxMpKU6oESnj1r/QqjEEkBgEtA1WQmWFAGxB+6f766vpj5w==
+  resolved "https://github.com/hmcts/look-and-feel.git#fe5f9f3e37ce7d28c3d15c1b03627dcc94d77502"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -264,15 +263,13 @@
     express "^4.15.3"
     express-nunjucks "^2.2.3"
     extract-text-webpack-plugin "^3.0.0"
-    govuk-elements-sass "^3.1.1"
-    govuk_frontend_toolkit "^8.1.0"
-    govuk_template_jinja "^0.23.0"
+    govuk-frontend "^2.6.0"
     hard-source-webpack-plugin "^0.13.1"
     imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
     jquery "^3.2.1"
     js-yaml "^3.9.1"
     node-sass "^4.5.3"
-    nunjucks "^3.0.1"
+    nunjucks "^3.1.7"
     sass-loader "^6.0.6"
     serve-static "^1.13.2"
     style-loader "^0.20.1"
@@ -5373,11 +5370,6 @@ govuk_frontend_toolkit@^7.1.0:
   resolved "https://registry.yarnpkg.com/govuk_frontend_toolkit/-/govuk_frontend_toolkit-7.6.0.tgz#b09a60631afbba4bfac76a8b7c02e72419c29cf5"
   integrity sha1-sJpgYxr7ukv6x2qLfALnJBnCnPU=
 
-govuk_frontend_toolkit@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/govuk_frontend_toolkit/-/govuk_frontend_toolkit-8.1.0.tgz#b09e4bc9c1abe494dc37284b0e96b11210f56e0e"
-  integrity sha512-KzuMy+xhH/QKJHYJYS4p6ZiPg1CWSd4TKJFBFzngpVnk2tbvEvfAw/yLoRmzgukd/9V4d9oDSA4dIXRFb7XvDA==
-
 govuk_template_jinja@^0.23.0:
   version "0.23.3"
   resolved "https://registry.yarnpkg.com/govuk_template_jinja/-/govuk_template_jinja-0.23.3.tgz#b15360b4931b9b51021d52f8500bfca96c1ea875"
@@ -8630,7 +8622,7 @@ nunjucks-markdown@^2.0.1:
   resolved "https://registry.yarnpkg.com/nunjucks-markdown/-/nunjucks-markdown-2.0.1.tgz#d55e75433a35850e2c345651fe3f931ed9b156a2"
   integrity sha1-1V51Qzo1hQ4sNFZR/j+THtmxVqI=
 
-nunjucks@^3.0.1:
+nunjucks@^3.0.1, nunjucks@^3.1.7:
   version "3.1.7"
   resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.1.7.tgz#0bd25f29ef9d11826350e762836286c518c98706"
   integrity sha512-MrjI68cobXQnyMK/LeY7BgYZ+7o4xn1UNGOe1y8ACVo4cn/1FXc1S4ySqHbmzFqxq/qtMWrehysTuXdbTvf7JA==
