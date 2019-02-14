@@ -92,6 +92,28 @@ describe(modulePath, () => {
     expect(answer.hide).to.equal(true);
   });
 
+  it('should ensure no re-direct loop if user has answered already', () => {
+    const fields = { response: 'changeResponse' };
+    const session = {
+      originalPetition: {
+        reasonForDivorce: 'separation-5-years'
+      },
+      previouslyConfirmed: false
+    };
+    return question.redirectWithField(ConfirmDefence, fields, Jurisdiction, session);
+  });
+
+  it('should ensure no re-direct loop if user has answered already, 2-yr sep.', () => {
+    const fields = { response: 'changeResponse' };
+    const session = {
+      originalPetition: {
+        reasonForDivorce: 'separation-2-years'
+      },
+      previouslyConfirmed: false
+    };
+    return question.redirectWithField(ConfirmDefence, fields, ConsentDecree, session);
+  });
+
   it('renders the content', () => {
     return content(ConfirmDefence, {}, { ignoreContent: ['info'] });
   });
