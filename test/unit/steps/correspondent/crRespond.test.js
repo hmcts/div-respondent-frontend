@@ -1,4 +1,4 @@
-const modulePath = 'steps/correspondent/cr-respond/CrRespond.step';
+const modulePath = 'steps/corespondent/cr-respond/CrRespond.step';
 const CrRespond = require(modulePath);
 const ReviewApplication = require('steps/respondent/review-application/ReviewApplication.step');
 const idam = require('services/idam');

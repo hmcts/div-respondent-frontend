@@ -95,7 +95,7 @@ paths:
     noConsentAreYouSure: /no-consent-are-you-sure
     progressBar: /progress-bar
     done: /done
-  correspondent:
+  corespondent:
     respond: /corespondent-aos/progress-bar/respond
 
 tests:

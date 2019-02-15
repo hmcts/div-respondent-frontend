@@ -11,7 +11,7 @@
   <p class="font-xsmall">
     <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference | safe }}<br>
     <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;
-    {{ session.originalPetition.correspondentFirstName | safe }} {{ session.originalPetition.correspondentLastName | safe }}
+    {{ session.originalPetition.corespondentFirstName | safe }} {{ session.originalPetition.corespondentLastName | safe }}
   </p>
 
   <h2 class="heading-medium">{{ content.readApp }}</h2>
@@ -21,7 +21,7 @@
     <p>{{ content.responseAcknowledgement }}</p>
   </div>
   <p>{{ content.respond7Days }}</p>
-  <p>{{ content.namedCorrespondent }}</p>
+  <p>{{ content.namedCorespondent }}</p>
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
