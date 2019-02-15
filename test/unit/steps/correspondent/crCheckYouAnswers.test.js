@@ -1,4 +1,4 @@
-const modulePath = 'steps/correspondqent/cr-check-your-answers/CrCheckYourAnswers.step';
+const modulePath = 'steps/correspondent/cr-check-your-answers/CrCheckYourAnswers.step';
 
 const CrCheckYourAnswers = require(modulePath);
 const Done = require('steps/correspondent/cr-done/CrDone.step');
@@ -39,14 +39,6 @@ describe(modulePath, () => {
       const onlyErrors = ['required'];
       return question.testErrors(CrCheckYourAnswers, session, {}, { onlyErrors });
     });
-
-    it('shows error if case submission fails', () => {
-      caseOrchestrationService.sendAosResponse.rejects();
-      const fields = { coRespStatementOfTruth: 'Yes' };
-      const session = { case: { caseData: {} } };
-      const onlyErrors = ['submitError'];
-      return question.testErrors(CrCheckYourAnswers, session, fields, { onlyErrors });
-    });
   });
 
   describe('navigates', () => {
@@ -62,12 +54,6 @@ describe(modulePath, () => {
       caseOrchestrationService.sendAosResponse.resolves();
       const fields = { coRespStatementOfTruth: 'Yes' };
       return question.redirectWithField(CrCheckYourAnswers, fields, Done);
-    });
-
-    it('to start page if save application fails', () => {
-      caseOrchestrationService.sendAosResponse.rejects();
-      const fields = { coRespStatementOfTruth: 'Yes' };
-      return question.redirectWithField(CrCheckYourAnswers, fields, CrCheckYourAnswers);
     });
   });
 });
