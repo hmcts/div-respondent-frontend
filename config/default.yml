@@ -100,6 +100,8 @@ paths:
     reviewApplication: /corespondent-aos/review-application
     admitAdultery: /corespondent-aos/admit-the-adultery
     chooseAResponse: /corespondent-aos/choose-a-response
+    checkYourAnswers: /corespondent-aos/check-your-answers
+    done: /corespondent-aos/done
 
 tests:
   e2e:
