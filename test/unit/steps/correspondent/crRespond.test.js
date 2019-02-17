@@ -37,7 +37,7 @@ describe(modulePath, () => {
     );
   });
 
-  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the coresponding number of times', () => { // eslint-disable-line max-len
     const session = {
       originalPetition: {
         jurisdictionConnection: {}
