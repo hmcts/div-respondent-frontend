@@ -1,0 +1,53 @@
+{% extends "page.njk" %}
+
+{% block back %}
+{% endblock %}
+
+{% set title  %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  <p class="font-xsmall">
+    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference | safe }}<br>
+    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;
+    {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName | safe }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName | safe }}
+ </p>
+
+  <h2 class="heading-medium">{{ content.readApp }}</h2>
+
+  <p>{{ content.readApplication }}</p>
+  <div class="panel panel-border-wide">
+    <p>{{ content.responseAcknowledgement }}</p>
+  </div>
+  <p>{{ content.respond7Days }}</p>
+  <p>{{ content.namedCorespondent }}</p>
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    <input class="button button-start" type="submit" value="{{ content.continue }}">
+  </form>
+<br>
+{% endblock %}
+
+{% block one_third %}
+  <aside class="govuk-related-items" role="complementary">
+    <h3 class="heading-small">{{ content.gettingHelp }}</h3>
+
+    <ul class="font-xsmall">
+      <li>
+        <strong class="bold-xsmall">{{ content.email }}</strong><br>
+        {{ session.divorceCenterEmail | safe }}
+        <br>
+      </li>
+      <li>
+        <strong class="bold-xsmall">{{ content.phone }}</strong><br>
+        {{ session.divorceCenterPhoneNumber | safe }}<br>
+        {{ content.divorceCenterHours }}<br>
+      </li>
+      {% include "includes/sideMenuCourtDetails.html" %}
+    </ul>
+    
+    {% include "includes/sideMenuGuidanceLinks.html" %}
+  </aside>
+{% endblock %}

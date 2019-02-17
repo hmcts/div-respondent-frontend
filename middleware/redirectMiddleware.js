@@ -1,6 +1,6 @@
 const config = require('config');
 
-const crRespond = require('steps/correspondent/cr-respond/CrRespond.step');
+const crRespond = require('steps/corespondent/cr-respond/CrRespond.step');
 
 const authTokenString = '__auth-token';
 
@@ -10,8 +10,8 @@ const redirectOnCondition = (req, res, next) => {
     return next();
   }
 
-  const idamUserIsCorrespondent = req.idam.userDetails.email === req.session.originalPetition.coRespEmailAddress;
-  if (idamUserIsCorrespondent) {
+  const idamUserIsCorespondent = req.idam.userDetails.email === req.session.originalPetition.coRespEmailAddress;
+  if (idamUserIsCorespondent) {
     return res.redirect(crRespond.path);
   }
 

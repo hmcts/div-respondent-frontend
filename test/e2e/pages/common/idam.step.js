@@ -102,10 +102,10 @@ function loginAsCaseProgressedDefending() {
   I.click(commonContent.en.continue);
 }
 
-function loginAsCorrespondent() {
+function loginAsCorespondent() {
   const I = this;
 
-  I.click(content.en.fields.success.correspondentLogin);
+  I.click(content.en.fields.success.corespondentLogin);
   I.click(commonContent.en.continue);
 }
 
@@ -131,6 +131,6 @@ module.exports = {
   loginAsCaseProgressedDefending,
   loginAs2yrSeparationCase,
   loginAs5yrSeparationCase,
-  loginAsCorrespondent,
+  loginAsCorespondent,
   loginAndThrowError
 };

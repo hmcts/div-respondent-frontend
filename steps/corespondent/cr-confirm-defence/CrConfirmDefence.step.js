@@ -5,20 +5,19 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
-const content = require('./ConfirmDefence.content');
+const content = require('./CrConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const { METHOD_NOT_ALLOWED } = require('http-status-codes');
 
 
 const values = {
   confirm: 'confirm',
-  changeResponse: 'changeResponse',
-  twoYearSeparation: 'separation-2-years'
+  changeResponse: 'changeResponse'
 };
 
-class ConfirmDefence extends Question {
+class CrConfirmDefence extends Question {
   static get path() {
-    return config.paths.respondent.confirmDefence;
+    return config.paths.corespondent.confirmDefence;
   }
 
   get const() {
@@ -27,10 +26,6 @@ class ConfirmDefence extends Question {
 
   get session() {
     return this.req.session;
-  }
-
-  get feesIssueApplication() {
-    return this.res.locals.applicationFee['petition-issue-fee'].amount;
   }
 
   get feesDefendDivorce() {
@@ -92,25 +87,21 @@ class ConfirmDefence extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('petition-issue-fee'),
       getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 
   next() {
-    const petition = this.session.originalPetition;
     const doesConfirm = this.fields.response.value === this.const.confirm;
-    const twoYrSep = petition && petition.reasonForDivorce === this.const.twoYearSeparation;
-    if (this.req.session.previouslyConfirmed === false && !twoYrSep) {
+    if (this.req.session.previouslyConfirmed === false) {
       // user already answered this page, avoid infinite redirect by forcing journey
-      return goTo(this.journey.steps.Jurisdiction);
+      return goTo(this.journey.steps.AgreeToPayCosts);
     }
     return branch(
-      redirectTo(this.journey.steps.Jurisdiction).if(doesConfirm),
-      redirectTo(this.journey.steps.ConsentDecree).if(!doesConfirm && twoYrSep),
-      redirectTo(this.journey.steps.ChooseAResponse)
+      redirectTo(this.journey.steps.AgreeToPayCosts).if(doesConfirm),
+      redirectTo(this.journey.steps.CrChooseAResponse)
     );
   }
 }
 
-module.exports = ConfirmDefence;
+module.exports = CrConfirmDefence;
