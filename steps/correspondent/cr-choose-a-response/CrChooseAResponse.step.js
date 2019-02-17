@@ -17,7 +17,7 @@ const consts = {
 
 class CrChooseAResponse extends Question {
   static get path() {
-    return config.paths.correspondent.chooseAResponse;
+    return config.paths.corespondent.chooseAResponse;
   }
 
   get consts() {

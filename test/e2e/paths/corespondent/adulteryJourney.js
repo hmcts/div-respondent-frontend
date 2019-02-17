@@ -1,12 +1,12 @@
 const content = require('common/content');
 
-Feature('Correspondent Adultery journey');
+Feature('Corespondent Adultery journey');
 
 Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAsCorrespondent();
+  I.loginAsCorespondent();
 
   I.seeCrRespondPage();
   I.click(content.en.continue);
@@ -28,7 +28,7 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAsCorrespondent();
+  I.loginAsCorespondent();
 
   I.seeCrRespondPage();
   I.click(content.en.continue);

@@ -1,7 +1,7 @@
 const CrChooseAResponsePage = require(
-  'steps/correspondent/cr-choose-a-response/CrChooseAResponse.step'
+  'steps/corespondent/cr-choose-a-response/CrChooseAResponse.step'
 );
-const content = require('steps/correspondent/cr-choose-a-response/CrChooseAResponse.content');
+const content = require('steps/corespondent/cr-choose-a-response/CrChooseAResponse.content');
 
 function seeCrChooseAResponsePage() {
   const I = this;

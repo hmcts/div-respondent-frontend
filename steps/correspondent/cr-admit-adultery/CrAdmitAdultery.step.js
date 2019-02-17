@@ -16,7 +16,7 @@ const constValues = {
 
 class CrAdmitAdultery extends Question {
   static get path() {
-    return config.paths.correspondent.admitAdultery;
+    return config.paths.corespondent.admitAdultery;
   }
 
   get const() {

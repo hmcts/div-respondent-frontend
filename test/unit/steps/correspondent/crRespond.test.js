@@ -1,7 +1,7 @@
-const modulePath = 'steps/correspondent/cr-respond/CrRespond.step';
+const modulePath = 'steps/corespondent/cr-respond/CrRespond.step';
 const CrRespond = require(modulePath);
 const CrReviewApplication = require(
-  'steps/correspondent/cr-review-application/CrReviewApplication.step'
+  'steps/corespondent/cr-review-application/CrReviewApplication.step'
 );
 const idam = require('services/idam');
 const { custom, expect,
@@ -39,7 +39,7 @@ describe(modulePath, () => {
     );
   });
 
-  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the coresponding number of times', () => { // eslint-disable-line max-len
     const session = {
       originalPetition: {
         jurisdictionConnection: {}

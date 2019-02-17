@@ -1,10 +1,10 @@
-const modulePath = 'steps/correspondent/cr-admit-adultery/CrAdmitAdultery.step.js';
+const modulePath = 'steps/corespondent/cr-admit-adultery/CrAdmitAdultery.step.js';
 const CrAdmitAdultery = require(modulePath);
 const CrChooseAResponse = require(
-  'steps/correspondent/cr-choose-a-response/CrChooseAResponse.step'
+  'steps/corespondent/cr-choose-a-response/CrChooseAResponse.step'
 );
 const CrAdmitAdulteryContent = require(
-  'steps/correspondent/cr-admit-adultery/CrAdmitAdultery.content'
+  'steps/corespondent/cr-admit-adultery/CrAdmitAdultery.content'
 );
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');

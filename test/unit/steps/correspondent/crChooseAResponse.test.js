@@ -1,5 +1,5 @@
-const modulePath = 'steps/correspondent/cr-choose-a-response/CrChooseAResponse.step'; // eslint-disable-line
-const stepContent = require('steps/correspondent/cr-choose-a-response/CrChooseAResponse.content');
+const modulePath = 'steps/corespondent/cr-choose-a-response/CrChooseAResponse.step'; // eslint-disable-line
+const stepContent = require('steps/corespondent/cr-choose-a-response/CrChooseAResponse.content');
 const CrChooseAResponse = require(modulePath);
 const AgreeToPayCosts = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.step');
 const ConfirmDefence = require('steps/respondent/confirm-defence/ConfirmDefence.step');

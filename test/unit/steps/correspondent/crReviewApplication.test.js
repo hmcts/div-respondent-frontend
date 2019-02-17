@@ -1,9 +1,9 @@
 /* eslint max-lines: 0 */
 
-const modulePath = 'steps/correspondent/cr-review-application/CrReviewApplication.step';
+const modulePath = 'steps/corespondent/cr-review-application/CrReviewApplication.step';
 
 const CrReviewApplication = require(modulePath);
-const CrAdmitAdultery = require('steps/correspondent/cr-admit-adultery/CrAdmitAdultery.step');
+const CrAdmitAdultery = require('steps/corespondent/cr-admit-adultery/CrAdmitAdultery.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
