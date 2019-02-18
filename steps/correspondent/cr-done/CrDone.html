@@ -29,25 +29,33 @@
   <p class="text">{{ content.emailConfirmation }} <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
   </p>
 
-  {{
-    progressList({
-      one: {
-        label: content.husbandWifeApplied,
-        complete: true
-      },
-      two: {
-        label: content.youMustRespond,
-        complete: true
-      },
-      three: {
-        label: content.getDecreeNisi,
-        current: true
-      },
-      four: {
-        label: content.madeFinal
-      }
-    })
-  }}
+<!-- {% if session.ChooseAResponse.response == "defend..." -->
+<h2 class="heading-medium">{{ content.defendedHeading }}</h2>
+<p class="text">{{ content.defendedText1 | safe }}</p>
+<p class="text">{{ content.defendedText2 }}</p>
+<p class="text">{{ content.defendedText3 }}</p>
+<ul class="list bold-small">
+    {% if session.serviceCentreName %}
+    <li>{{ session.serviceCentreName }}</li>
+    {% endif %}
+
+    <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+
+    {% if session.divorceCenterPoBox %}
+    <li>{{ session.divorceCenterPoBox }}</li>
+    {% endif %}
+
+    {% if session.divorceCenterStreet %}
+    <li>{{ session.divorceCenterStreet | safe }}</li>
+    {% endif %}
+
+    <li>{{ session.divorceCenterCourtCity }}</li>
+    <li>{{ session.divorceCenterPostCode }}</li>
+</ul>
+<p class="text">{{ content.defendedText4 }}</p>
+<p class="text">{{ content.defendedText5 }}</p>
+<p class="text">{{ content.defendedText6 }}</p>
+<!-- {% endif %} -->
 
   <h2 class="heading-medium">{{ content.ifYouNeedHelp }}</h2>
   <p class="text">{{ content.ifYouNeedHelpText | safe }}</p>
@@ -62,7 +70,6 @@
 {% block one_third %}
   <aside class="govuk-related-items" role="complementary">
     <h3 class="heading-small">{{ content.gettingHelp }}</h3>
-
     <ul class="font-xsmall">
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
@@ -76,7 +83,6 @@
       </li>
       {% include "includes/sideMenuCourtDetails.html" %}
     </ul>
-    
     {% include "includes/sideMenuGuidanceLinks.html" %}
   </aside>
 {% endblock %}

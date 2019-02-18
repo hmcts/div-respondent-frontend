@@ -2,7 +2,6 @@ const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
 
-//  WIP
 class CrDone extends ExitPoint {
   static get path() {
     return config.paths.correspondent.done;
