@@ -16,7 +16,12 @@ function confirmInformationIsTrue() {
   I.click(content.en.fields.statementOfTruth.yes);
 }
 
+function submitApplication() {
+  this.click(content.en.submit);
+}
+
 module.exports = {
   seeCrCheckYourAnswersPage,
-  confirmInformationIsTrue
+  confirmInformationIsTrue,
+  submitApplication
 };
