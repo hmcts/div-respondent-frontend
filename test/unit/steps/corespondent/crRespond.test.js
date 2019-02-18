@@ -1,6 +1,8 @@
 const modulePath = 'steps/corespondent/cr-respond/CrRespond.step';
 const CrRespond = require(modulePath);
-const ReviewApplication = require('steps/respondent/review-application/ReviewApplication.step');
+const CrReviewApplication = require(
+  'steps/corespondent/cr-review-application/CrReviewApplication.step'
+);
 const idam = require('services/idam');
 const { custom, expect,
   middleware, interstitial,
@@ -54,7 +56,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to next page', () => {
-    return interstitial.navigatesToNext(CrRespond, ReviewApplication);
+    return interstitial.navigatesToNext(CrRespond, CrReviewApplication);
   });
 
   it('renders the content', () => {
