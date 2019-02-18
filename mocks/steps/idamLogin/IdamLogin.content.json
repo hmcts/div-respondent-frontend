@@ -11,6 +11,7 @@
         "yes2yrSeparation": "Yes - case started - two year separation",
         "yes5yrSeparation": "Yes - case started - five year separation",
         "yes5yrSeparationTwoDates": "Yes - case started - five year separation with two dates",
+        "yesDesertion": "Yes - case started - desertion",
         "yesCaseNotLinked": "Yes - case not linked",
         "yesCaseNotLinkedAndInvalidPin": "Yes - case not linked and invalid pin",
         "yesCaseNotLinkedAndServerError": "Yes - case not linked and server error",

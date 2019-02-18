@@ -246,6 +246,9 @@
 
   <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
 
+  <p class="text">
+    {{ content.marriageBrokenDownIrretrievably }}
+  </p>
   {% if session.originalPetition.reasonForDivorce == "adultery" %}
 
     <p class="text">
@@ -257,7 +260,6 @@
     </p>
 
     <p class="text">{{ content.reasonForDivorceAdulteryStatement }}</p>
-    <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
 
     {% if session.originalPetition.reasonForDivorceAdulteryKnowWhere == "Yes" %}
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhere }}</p>
@@ -268,11 +270,21 @@
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhen }}</p>
       <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryWhenDetails }}"</p>
     {% endif %}
+
+    <p class="heading-small">{{ content.descriptionOfAdultery }}</p>
+
+
+    <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
+
+
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "unreasonable-behaviour" %}
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatement }}</p>
+
+    <p class="heading-small">{{ content.descriptionOfBehaviour }}</p>
+
     {% if session.originalPetition.reasonForDivorceBehaviourDetails %}
       <p class="text">"
           {% for item in alignSections(session.originalPetition.reasonForDivorceBehaviourDetails) %}
@@ -287,21 +299,26 @@
 
   {% if session.originalPetition.reasonForDivorce == "separation-2-years" %}
     <p class="text">{{ content.reasonForDivorceSeparationTwoYearsBrokenDown }}
-    <p class="text">{{ content.reasonForDivorceSeparationTwoYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
+      <ul class="list-bullet">
+          <li>{{ content.reasonForDivorceSeparationTwoYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</li>
+          <li>{{ content.reasonForDivorceSeparationFiveYearsLvingApart }} {{ session.originalPetition.reasonForDivorceLivingApartDate | date }}.</li>
+      </ul>
+      <br>
+      <p class="text">
+        {{ content.reasonForDivorceSeparationFiveYears2DatesRecent }}
+      </p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-5-years" %}
     <p class="text">{{ content.reasonForDivorceSeparationFiveYearsBrokenDown }}</p>
-    {% if session.originalPetition.reasonForDivorceDecisionDate and session.originalPetition.reasonForDivorceLivingApartDate %}
-      <ul class="bullet list-bullet">
-        <li>{{ content.reasonForDivorceSeparationFiveYearsOver }} {{ session.originalPetition.reasonForDivorceDecisionDate | date }}.</li>
+    <ul class="list-bullet">
+        <li>{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</li>
         <li>{{ content.reasonForDivorceSeparationFiveYearsLvingApart }} {{ session.originalPetition.reasonForDivorceLivingApartDate | date }}.</li>
-      </ul>
-      <br/>
-      <p class="text-small">{{ content.reasonForDivorceSeparationFiveYears2DatesRecent }}</p>
-    {% else %}
-      <p class="text">{{ content.reasonForDivorceSeparationFiveYears }} {{ session.originalPetition.reasonForDivorceSeperationDate | date }}.</p>
-    {% endif %}
+    </ul>
+    <br>
+    <p class="text">
+      {{ content.reasonForDivorceSeparationFiveYears2DatesRecent }}
+    </p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "desertion" %}
@@ -310,7 +327,6 @@
     <p class="text">{{ content.reasonForDivorceDesertionStatement }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
-
 
 
   <details>
