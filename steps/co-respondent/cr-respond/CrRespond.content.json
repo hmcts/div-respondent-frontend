@@ -4,9 +4,9 @@
     "referenceNumber": "Case number",
     "name": "Name",
     "readApp": "Read the divorce application",
-    "readApplication": "You need to read your {{ session.divorceWho }}'s application before you respond. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
+    "readApplication": "You need to read the divorce application before you respond. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
     "responseAcknowledgement": "Your response is legally known as the 'acknowledgement of service'.",
-    "respond7Days": "You must respond to the application within 7 days of receiving the letter. If you don’t, the divorce may move forwards without you.",
+    "respond7Days": "You must respond to the application within 7 days. If you don’t, the divorce may move forwards without you.",
     "namedCorespondent": "As you have been named as a co-respondent in the divorce, the applicant is allowed to claim the costs of the divorce from you. This could include the £{{ feesIssueApplication }} application fee, and their legal fees and expenses. If you don't respond, you won't have a say in whether or not you pay these costs.",
     "continue": "Continue",
     "yourCourt": "Your divorce centre",
@@ -17,9 +17,8 @@
     "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
     "guidance": {
       "title": "Guidance on GOV.UK",
-      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Responding to a divorce application</a>",
-      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
-      "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How to respond to a divorce application</a>",
+      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Get a divorce</a>",
       "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
       "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
     }

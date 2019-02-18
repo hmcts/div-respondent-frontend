@@ -135,7 +135,6 @@ describe(modulePath, () => {
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
               .and.to.include('Responding to a divorce application')
               .and.to.include('Decree nisi')
-              .and.to.include('Decree absolute')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });
