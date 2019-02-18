@@ -1,10 +1,10 @@
-const modulePath = 'steps/corespondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step';
+const modulePath = 'steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step';
 const CrAgreeToPayCosts = require(modulePath);
 const ContactDetails = require('steps/respondent/contact-details/ContactDetails.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const AgreeToPayCostsContent = require(
-  'steps/corespondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.content'
+  'steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.content'
 );
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 

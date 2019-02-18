@@ -1,8 +1,8 @@
-const modulePath = 'steps/corespondent/cr-confirm-defence/CrConfirmDefence.step.js';
+const modulePath = 'steps/co-respondent/cr-confirm-defence/CrConfirmDefence.step.js';
 const CrConfirmDefence = require(modulePath);
-const ChooseAResponse = require('steps/corespondent/cr-choose-a-response/CrChooseAResponse.step');
+const ChooseAResponse = require('steps/co-respondent/cr-choose-a-response/CrChooseAResponse.step');
 const CrConfirmDefenceContent = require(
-  'steps/corespondent/cr-confirm-defence/CrConfirmDefence.content'
+  'steps/co-respondent/cr-confirm-defence/CrConfirmDefence.content'
 );
 const AgreeToPayCosts = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.step');
 const idam = require('services/idam');

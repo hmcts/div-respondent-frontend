@@ -1,6 +1,6 @@
 const content = require('common/content');
 
-Feature('Corespondent Adultery journey');
+Feature('Co-respondent Adultery journey');
 
 Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.amOnPage('/');

@@ -1,6 +1,6 @@
 const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
-const crRespond = require('steps/corespondent/cr-respond/CrRespond.step');
+const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 
 const modulePath = 'middleware/redirectMiddleware';
 
@@ -58,7 +58,7 @@ describe(modulePath, () => {
   });
 
 
-  it('should redirect to Corespondent respond page if user is Corespondent', () => {
+  it('should redirect to Co-respondent respond page if user is Co-respondent', () => {
     const email = 'some@email.address';
     const req = {
       cookies: { '__auth-token': 'authToken' },

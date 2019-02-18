@@ -1,7 +1,7 @@
 const CrReviewApplicationPage = require(
-  'steps/corespondent/cr-review-application/CrReviewApplication.step'
+  'steps/co-respondent/cr-review-application/CrReviewApplication.step'
 );
-const content = require('steps/corespondent/cr-review-application/CrReviewApplication.content');
+const content = require('steps/co-respondent/cr-review-application/CrReviewApplication.content');
 
 function seeCrReviewApplicationPage() {
   const I = this;

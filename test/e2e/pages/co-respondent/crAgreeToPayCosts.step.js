@@ -1,7 +1,7 @@
 const CrAgreeToPayCosts = require(
-  'steps/corespondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step'
+  'steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step'
 );
-const content = require('steps/corespondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.content');
+const content = require('steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.content');
 
 function seeCrAgreeToPayCostsPage() {
   const I = this;

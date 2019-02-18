@@ -13,7 +13,7 @@ const no = 'No';
 
 class CrAgreeToPayCosts extends Question {
   static get path() {
-    return config.paths.corespondent.agreeToPayCosts;
+    return config.paths.coRespondent.agreeToPayCosts;
   }
 
   get session() {

@@ -1,7 +1,7 @@
 const CrConfirmDefencePage = require(
-  'steps/corespondent/cr-confirm-defence/CrConfirmDefence.step'
+  'steps/co-respondent/cr-confirm-defence/CrConfirmDefence.step'
 );
-const content = require('steps/corespondent/cr-confirm-defence/CrConfirmDefence.content');
+const content = require('steps/co-respondent/cr-confirm-defence/CrConfirmDefence.content');
 
 function seeCrConfirmDefencePage() {
   const I = this;

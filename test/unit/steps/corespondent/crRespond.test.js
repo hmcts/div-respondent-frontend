@@ -1,7 +1,7 @@
-const modulePath = 'steps/corespondent/cr-respond/CrRespond.step';
+const modulePath = 'steps/co-respondent/cr-respond/CrRespond.step';
 const CrRespond = require(modulePath);
 const CrReviewApplication = require(
-  'steps/corespondent/cr-review-application/CrReviewApplication.step'
+  'steps/co-respondent/cr-review-application/CrReviewApplication.step'
 );
 const idam = require('services/idam');
 const { custom, expect,

@@ -14,12 +14,12 @@ const values = {
 };
 
 /**
- *  Review Application content should be same for DN, AOS Respondent and corespondent journey.
+ *  Review Application content should be same for DN, AOS Respondent and co-respondent journey.
  *  Any change to Mini petition should be made across all the Apps
  */
 class CrReviewApplication extends Question {
   static get path() {
-    return config.paths.corespondent.reviewApplication;
+    return config.paths.coRespondent.reviewApplication;
   }
 
   get const() {

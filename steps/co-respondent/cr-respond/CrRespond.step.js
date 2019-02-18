@@ -6,7 +6,7 @@ const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddlew
 
 class CrRespond extends Interstitial {
   static get path() {
-    return config.paths.corespondent.respond;
+    return config.paths.coRespondent.respond;
   }
 
   get session() {

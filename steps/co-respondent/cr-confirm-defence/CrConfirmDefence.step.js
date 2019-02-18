@@ -17,7 +17,7 @@ const values = {
 
 class CrConfirmDefence extends Question {
   static get path() {
-    return config.paths.corespondent.confirmDefence;
+    return config.paths.coRespondent.confirmDefence;
   }
 
   get const() {

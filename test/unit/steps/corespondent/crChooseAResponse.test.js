@@ -1,10 +1,10 @@
-const modulePath = 'steps/corespondent/cr-choose-a-response/CrChooseAResponse.step'; // eslint-disable-line
-const stepContent = require('steps/corespondent/cr-choose-a-response/CrChooseAResponse.content');
+const modulePath = 'steps/co-respondent/cr-choose-a-response/CrChooseAResponse.step'; // eslint-disable-line
+const stepContent = require('steps/co-respondent/cr-choose-a-response/CrChooseAResponse.content');
 const CrChooseAResponse = require(modulePath);
 const CrAgreeToPayCosts = require(
-  'steps/corespondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step'
+  'steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step'
 );
-const CrConfirmDefence = require('steps/corespondent/cr-confirm-defence/CrConfirmDefence.step');
+const CrConfirmDefence = require('steps/co-respondent/cr-confirm-defence/CrConfirmDefence.step');
 
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
