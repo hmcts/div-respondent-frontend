@@ -1,8 +1,10 @@
 const modulePath = 'steps/corespondent/cr-choose-a-response/CrChooseAResponse.step'; // eslint-disable-line
 const stepContent = require('steps/corespondent/cr-choose-a-response/CrChooseAResponse.content');
 const CrChooseAResponse = require(modulePath);
-const AgreeToPayCosts = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.step');
-const ConfirmDefence = require('steps/respondent/confirm-defence/ConfirmDefence.step');
+const CrAgreeToPayCosts = require(
+  'steps/corespondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step'
+);
+const CrConfirmDefence = require('steps/corespondent/cr-confirm-defence/CrConfirmDefence.step');
 
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
@@ -50,14 +52,14 @@ describe(modulePath, () => {
     });
   });
 
-  it('redirects to confirm defence page when disagreeing with divorce', () => {
+  it('redirects to cr confirm defence page when disagreeing with divorce', () => {
     const fields = { response: 'defend' };
-    return question.redirectWithField(CrChooseAResponse, fields, ConfirmDefence, session);
+    return question.redirectWithField(CrChooseAResponse, fields, CrConfirmDefence, session);
   });
 
-  it('redirects to AgreeToPayCosts page when agreeing with divorce', () => {
+  it('redirects to CrAgreeToPayCosts page when agreeing with divorce', () => {
     const fields = { response: 'proceed' };
-    return question.redirectWithField(CrChooseAResponse, fields, AgreeToPayCosts, session);
+    return question.redirectWithField(CrChooseAResponse, fields, CrAgreeToPayCosts, session);
   });
 
   it('shows error if question is not answered', () => {
