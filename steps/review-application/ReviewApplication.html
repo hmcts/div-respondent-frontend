@@ -324,6 +324,7 @@
   {% if session.originalPetition.reasonForDivorce == "desertion" %}
     <p class="text">{{ content.reasonForDivorceDesertionBrokenDown }}
     <p class="text">{{ content.reasonForDivorceDesertionStatement }}</p>
+    <p class="text">{{ content.reasonForDivorceDesertion }} {{ session.originalPetition.reasonForDivorceDesertionDate | date }}.</p>
     <p class="heading-small">{{ content.descriptionOfDesertion }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
