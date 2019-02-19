@@ -119,7 +119,7 @@
     "reasonForDivorceSeparationFiveYears2DatesRecent": "The most recent date is considered legally to be the date of separation.",
     "reasonForDivorceDesertion": "The applicant has given the date of desertion as ",
     "descriptionOfDesertion": "Description of the desertion",
-    "reasonForDivorceDesertionBrokenDown": "The marriage has broken down irretrievably, based on the fact that the respondent has deserted the applicant for a continuous period of at least two years immediately preceding the presentation of the application.",
+    "reasonForDivorceDesertionBrokenDown": "The respondent has deserted the applicant for a continuous period of at least two years immediately preceding the presentation of this application.",
     "reasonForDivorceDesertionStatement": "This is supported by the following statement from the applicant.",
 
     "notClaimingForDivorce": "The applicant is not claiming the costs of the divorce.",
