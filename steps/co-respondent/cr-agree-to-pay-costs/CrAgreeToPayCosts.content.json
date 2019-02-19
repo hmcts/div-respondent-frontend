@@ -16,7 +16,7 @@
       "options": {
         "amountToPay": {
           "heading": "How much you may have to pay",
-          "summary1": "The applicant's costs usually include the £550 fee. They could also include other court fees and costs. The costs could be much higher if the applicant has legal fees (eg a solicitor) and these are also included.",
+          "summary1": "The applicant's costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if the applicant has legal fees (eg a solicitor) and these are also included.",
           "summary2": "If the court decides that you should also pay the applicant's legal costs, it will usually order that you only pay what it judges to be a reasonable amount of these. However, under certain circumstances it could order you to pay more."
         },
         "whatNow": {
