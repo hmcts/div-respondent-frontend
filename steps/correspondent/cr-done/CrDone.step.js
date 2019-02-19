@@ -11,6 +11,10 @@ class CrDone extends ExitPoint {
     return this.req.session;
   }
 
+  get caseData() {
+    return this.req.session.originalPetition;
+  }
+
   get middleware() {
     return [
       idam.protect(),

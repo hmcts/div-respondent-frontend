@@ -26,36 +26,21 @@
     </p>
   </div>
 
-  <p class="text">{{ content.emailConfirmation }} <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
+  <p class="text">{{ content.emailConfirmation }}
+      <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
   </p>
 
-<!-- {% if session.ChooseAResponse.response == "defend..." -->
-<h2 class="heading-medium">{{ content.defendedHeading }}</h2>
-<p class="text">{{ content.defendedText1 | safe }}</p>
-<p class="text">{{ content.defendedText2 }}</p>
-<p class="text">{{ content.defendedText3 }}</p>
-<ul class="list bold-small">
-    {% if session.serviceCentreName %}
-    <li>{{ session.serviceCentreName }}</li>
-    {% endif %}
+  <h2 class="heading-medium">{{ content.whatHappensNext }}</h2>
+  <p class="text">{{ content.yourResponse }}</p>
 
-    <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+        {% if session.originalPetition.claimsCosts == "Yes" %}
+            <h2 class="heading-medium">{{ content.claimedCostsTitle }}</h2>
+            <p>{{ content.claimedCostsText }}</p>
 
-    {% if session.divorceCenterPoBox %}
-    <li>{{ session.divorceCenterPoBox }}</li>
-    {% endif %}
-
-    {% if session.divorceCenterStreet %}
-    <li>{{ session.divorceCenterStreet | safe }}</li>
-    {% endif %}
-
-    <li>{{ session.divorceCenterCourtCity }}</li>
-    <li>{{ session.divorceCenterPostCode }}</li>
-</ul>
-<p class="text">{{ content.defendedText4 }}</p>
-<p class="text">{{ content.defendedText5 }}</p>
-<p class="text">{{ content.defendedText6 }}</p>
-<!-- {% endif %} -->
+            <h3 class="heading-small">{{ content.objectingToCostsOrderTitle }}</h3>
+            <p>{{ content.objectingToCostsOrderText1 }}</p>
+            <p class="text">{{ content.objectingToCostsOrderText2 }}</p>
+        {% endif %}
 
   <h2 class="heading-medium">{{ content.ifYouNeedHelp }}</h2>
   <p class="text">{{ content.ifYouNeedHelpText | safe }}</p>
