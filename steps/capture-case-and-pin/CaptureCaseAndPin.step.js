@@ -29,13 +29,7 @@ class CaptureCaseAndPin extends Question {
         Joi.string()
           .replace(/\D/gi, '')
           .length(referenceNumberLength)
-          .required())
-      .joi(
-        errors.referenceNumberDigitsOnly,
-        Joi.string()
-          .replace(/\D/gi, '')
-          .regex(/^[0-9]+$/)
-      );
+          .required());
   }
 
   buildSecurityAccessCodeValidation() {
