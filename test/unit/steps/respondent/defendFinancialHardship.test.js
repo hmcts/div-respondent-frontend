@@ -1,6 +1,6 @@
 const modulePath = 'steps/respondent/defend-financial-hardship/DefendFinancialHardship.step';
 const DefendFinancialHardship = require(modulePath);
-const ConfirmDefence = require('steps/respondent/confirm-defence/ConfirmDefence.step');
+const Jurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const DefendFinancialHardshipContent = require('steps/respondent/defend-financial-hardship/DefendFinancialHardship.content'); // eslint-disable-line max-len
@@ -142,17 +142,17 @@ describe(modulePath, () => {
     return content(DefendFinancialHardship, {}, { ignoreContent: ['info', 'cya'] });
   });
 
-  it('redirects to ConfirmDefence step when answered no', () => {
+  it('redirects to Jurisdiction step when answered no', () => {
     const fields = {
       'financialHardship.exists': 'No'
     };
     const sessionData = {
       originalPetition: {}
     };
-    return question.redirectWithField(DefendFinancialHardship, fields, ConfirmDefence, sessionData);
+    return question.redirectWithField(DefendFinancialHardship, fields, Jurisdiction, sessionData);
   });
 
-  it('redirects to ConfirmDefence step when answered yes', () => {
+  it('redirects to Jurisdiction step when answered yes', () => {
     const fields = {
       'financialHardship.exists': 'Yes',
       'financialHardship.details': 'Financial hardship details'
@@ -160,6 +160,6 @@ describe(modulePath, () => {
     const sessionData = {
       originalPetition: {}
     };
-    return question.redirectWithField(DefendFinancialHardship, fields, ConfirmDefence, sessionData);
+    return question.redirectWithField(DefendFinancialHardship, fields, Jurisdiction, sessionData);
   });
 });

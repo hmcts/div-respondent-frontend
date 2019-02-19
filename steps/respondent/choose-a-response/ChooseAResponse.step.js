@@ -42,6 +42,11 @@ class ChooseAResponse extends Question {
     return reasonForDivorce === consts.behavior || reasonForDivorce === consts.desertion;
   }
 
+  get isSeparation5yrs() {
+    const reasonForDivorce = this.session.originalPetition.reasonForDivorce;
+    return reasonForDivorce === consts.separation5yrs;
+  }
+
   get form() {
     const constants = consts;
     const answers = [
@@ -109,7 +114,7 @@ class ChooseAResponse extends Question {
     const fiveYearSeparation = this.session.originalPetition.reasonForDivorce === consts.separation5yrs;
 
     return branch(
-      redirectTo(this.journey.steps.DefendFinancialHardship)
+      redirectTo(this.journey.steps.ConfirmDefence)
         .if(isDefend && fiveYearSeparation),
       redirectTo(this.journey.steps.FinancialSituation)
         .if(isProceed && fiveYearSeparation),
