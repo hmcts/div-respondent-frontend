@@ -4,13 +4,22 @@ const requireDirectory = require('require-directory');
 const steps = requireDirectory(module);
 const actions = {};
 
+function setActorActions(stepKey) {
+  for (const func in stepKey) {
+    if (stepKey.hasOwnProperty(func)) {
+      actions[func] = stepKey[func];
+    }
+  }
+}
+
 const getActors = () => {
-  const stepsKeys = Object.keys(steps);
-  for (const step in stepsKeys) {
-    if (stepsKeys[step]) {
-      const sectionKeys = Object.keys(steps[stepsKeys[step]]);
-      sectionKeys.forEach(sectionKey => {
-        actions[sectionKey] = steps[stepsKeys[step]][sectionKey];
+  const stepDirs = Object.keys(steps);
+  for (const dir in stepDirs) {
+    if (stepDirs[dir]) {
+      const stepsKeys = Object.keys(steps[stepDirs[dir]]);
+
+      stepsKeys.forEach(stepKey => {
+        setActorActions(steps[stepDirs[dir]][stepKey]);
       });
     }
   }
