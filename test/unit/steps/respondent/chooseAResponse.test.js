@@ -186,112 +186,119 @@ describe(modulePath, () => {
     });
   });
 
-  describe('when reason for divorce is unreasonable behaviour', () => {
-    beforeEach(() => {
-      session.originalPetition = {
-        reasonForDivorce: 'unreasonable-behaviour'
-      };
-    });
+  ['desertion', 'unreasonable-behaviour'].forEach(reasonForDivorce => {
+    describe(`when reason for divorce is ${reasonForDivorce}`, () => {
+      beforeEach(() => {
+        session.originalPetition = {
+          reasonForDivorce
+        };
+      });
 
-    it('redirects to jurisdiction page when proceed but do not admit with divorce', () => {
-      const fields = { response: 'proceedButDisagree' };
-      return question.redirectWithField(ChooseAResponse, fields, Jurisdiction, session);
-    });
+      it('redirects to jurisdiction page when proceed but do not admit with divorce', () => {
+        const fields = { response: 'proceedButDisagree' };
+        return question.redirectWithField(ChooseAResponse, fields, Jurisdiction, session);
+      });
 
-    it('renders specific behaviour info', () => {
-      return content(
-        ChooseAResponse,
-        session,
-        {
-          specificValues: [stepContent.en.info.options.proceedButDisagree.heading]
-        }
-      );
-    });
+      it(`renders specific ${reasonForDivorce} info`, () => {
+        session.ChooseAResponse = {
+          response: 'proceedButDisagree'
+        };
 
-    it('renders specific behaviour questions', () => {
-      return content(
-        ChooseAResponse,
-        {
-          divorceWho: 'wife',
-          originalPetition: {
-            reasonForDivorce: 'unreasonable-behaviour'
+        return content(
+          ChooseAResponse,
+          session,
+          {
+            specificValues: [stepContent.en.info.options.proceedButDisagree.heading]
           }
-        }, {
-          specificValues: [
-            stepContent.en.fields.proceed.heading,
-            'I will let the divorce proceed, but I don\'t admit to what my wife said about me',
-            stepContent.en.fields.defend.heading
-          ]
-        });
-    });
+        );
+      });
 
-    it('sets respWillDefendDivorce to no if response is proceed', () => {
-      // given
-      session.ChooseAResponse = {
-        response: 'proceed'
-      };
+      it(`renders specific  ${reasonForDivorce} questions`, () => {
+        return content(
+          ChooseAResponse,
+          {
+            divorceWho: 'wife',
+            originalPetition: {
+              reasonForDivorce
+            }
+          }, {
+            specificValues: [
+              stepContent.en.fields.proceed.heading,
+              'I will let the divorce proceed, but I don\'t admit to what my wife said about me',
+              stepContent.en.fields.defend.heading
+            ]
+          });
+      });
 
-      // when
-      const step = new ChooseAResponse({ session });
-      step.retrieve()
-        .validate();
+      it('sets respWillDefendDivorce to no if response is proceed', () => {
+        // given
+        session.ChooseAResponse = {
+          response: 'proceed'
+        };
 
-      // then
-      const values = step.values();
-      expect(values).to.be.an('object');
-      expect(values).to.have.property('respWillDefendDivorce', 'No');
-    });
+        // when
+        const step = new ChooseAResponse({ session });
+        step.retrieve()
+          .validate();
 
-    it('sets respWillDefendDivorce to notAccept if response is proceedButDisagree', () => {
-      // given
-      session.ChooseAResponse = {
-        response: 'proceedButDisagree'
-      };
+        // then
+        const values = step.values();
+        expect(values).to.be.an('object');
+        expect(values).to.have.property('respWillDefendDivorce', 'No');
+      });
 
-      // when
-      const step = new ChooseAResponse({ session });
-      step.retrieve()
-        .validate();
+      it('sets respWillDefendDivorce to notAccept if response is proceedButDisagree', () => {
+        // given
+        session.ChooseAResponse = {
+          response: 'proceedButDisagree'
+        };
 
-      // then
-      const values = step.values();
-      expect(values).to.be.an('object');
-      expect(values).to.have.property(
-        'respWillDefendDivorce',
-        'NoNoAdmission'
-      );
-    });
+        // when
+        const step = new ChooseAResponse({ session });
+        step.retrieve()
+          .validate();
 
-    it('set respWillDefendDivorce to Yes if response is defend', () => {
-      // given
-      session.ChooseAResponse = {
-        response: 'defend'
-      };
+        // then
+        const values = step.values();
+        expect(values).to.be.an('object');
+        expect(values).to.have.property(
+          'respWillDefendDivorce',
+          'NoNoAdmission'
+        );
+      });
 
-      // when
-      const step = new ChooseAResponse({ session });
-      step.retrieve()
-        .validate();
+      it('set respWillDefendDivorce to Yes if response is defend', () => {
+        // given
+        session.ChooseAResponse = {
+          response: 'defend'
+        };
 
-      // then
-      const values = step.values();
-      expect(values).to.be.an('object');
-      expect(values).to.have.property('respWillDefendDivorce', 'Yes');
-    });
+        // when
+        const step = new ChooseAResponse({ session });
+        step.retrieve()
+          .validate();
 
-    it('throws error for unknown response', () => {
-      // given
-      session.ChooseAResponse = {
-        response: 'blah'
-      };
+        // then
+        const values = step.values();
+        expect(values).to.be.an('object');
+        expect(values).to.have.property('respWillDefendDivorce', 'Yes');
+      });
 
-      // when
-      const step = new ChooseAResponse({ session });
-      step.retrieve()
-        .validate();
+      it('throws error for unknown response', () => {
+        // given
+        session.ChooseAResponse = {
+          response: 'blah'
+        };
 
-      // then
-      expect(step.values.bind(step)).to.throw('Unknown response to behavior: \'blah\'');
+        // when
+        const step = new ChooseAResponse({ session });
+        step.retrieve()
+          .validate();
+
+        // then
+        expect(step.values.bind(step)).to
+          .throw('Unknown response to behavior or desertion: \'blah\'');
+      });
     });
   });
 });
