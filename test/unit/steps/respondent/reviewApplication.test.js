@@ -181,7 +181,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
-          specificValues: [ '01 February 2003', '02 February 2003' ]
+          specificValues: [ '02 February 2003' ]
         }
       );
     });
@@ -339,6 +339,9 @@ describe(modulePath, () => {
         'reasonForDivorceSeparationFiveYears',
         'reasonForDivorceSeparationFiveYearsBrokenDown',
         'reasonForDivorceDesertion',
+        'descriptionOfAdultery',
+        'descriptionOfBehaviour',
+        'descriptionOfDesertion',
         'reasonForDivorceDesertionBrokenDown',
         'reasonForDivorceDesertionStatement',
         'claimingCostsFromRespondentCoRespondent',
