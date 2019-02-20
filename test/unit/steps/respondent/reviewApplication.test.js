@@ -333,6 +333,8 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
+        'reasonForDivorceSeparationFiveYears2DatesRecent',
+        'reasonForDivorceSeparationTwoYears2DatesRecent',
         'reasonForDivorceUnreasonableBehaviourStatement',
         'reasonForDivorceSeparationTwoYears',
         'reasonForDivorceSeparationTwoYearsBrokenDown',
@@ -703,7 +705,8 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
-          'reasonForDivorceUnreasonableBehaviourStatement'
+          'reasonForDivorceUnreasonableBehaviourStatement',
+          'descriptionOfBehaviour'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
@@ -717,7 +720,8 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeparationTwoYearsBrokenDown',
-          'reasonForDivorceSeparationTwoYears'
+          'reasonForDivorceSeparationTwoYears',
+          'reasonForDivorceSeparationTwoYears2DatesRecent'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
@@ -731,7 +735,8 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeparationFiveYearsBrokenDown',
-          'reasonForDivorceSeparationFiveYears'
+          'reasonForDivorceSeparationFiveYears',
+          'reasonForDivorceSeparationFiveYears2DatesRecent'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
