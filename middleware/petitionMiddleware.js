@@ -1,7 +1,7 @@
 const caseOrchestration = require('services/caseOrchestration');
 const { CaseStates } = require('const');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
-const ProgressBar = require('steps/progress-bar/ProgressBar.step');
+const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const logger = require('services/logger').getLogger(__filename);
 
 const SUCCESS = 200;

@@ -1,0 +1,57 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+    <div id="admit-adultery">
+
+        <p>{{ content.detailsText | safe }}</p>
+
+        {% if caseData.reasonForDivorceAdulteryKnowWhere === 'Yes' %}
+            <h2 class="heading-small">{{ content.whereAdultery.heading }}</h2>
+            <p class="text">"{{ caseData.reasonForDivorceAdulteryWhereDetails }}"</p>
+        {% endif %}
+
+        {% if caseData.reasonForDivorceAdulteryKnowWhen === 'Yes' %}
+            <h2 class="heading-small">{{ content.whenAdultery.heading }}</h2>
+            <p class="text">"{{ caseData.reasonForDivorceAdulteryWhenDetails }}"</p>
+        {% endif %}
+
+        {% if caseData.reasonForDivorceAdulteryDetails %}
+            <h2 class="heading-small">{{ content.details.heading }}</h2>
+            <p class="text">"{{ caseData.reasonForDivorceAdulteryDetails }}"</p>
+        {% endif %}
+
+        <details>
+            <summary>
+                <span class="summary">{{ content.howYourAnswerAffect.heading }}</span>
+            </summary>
+            <div class="panel panel-border-narrow">
+                <p class="text">{{ content.howYourAnswerAffect.para1 }}</p>
+                <p class="text">{{ content.howYourAnswerAffect.para2 }}</p>
+                <h3 class="heading-small">{{ content.howYourAnswerAffect.subHeading }}</h3>
+                <p class="text">{{ content.howYourAnswerAffect.para3 }}</p>
+                <p class="text">{{ content.howYourAnswerAffect.para4 }}</p>
+            </div>
+        </details>
+
+        {% call formSection() %}
+            {{ selectionButtons(fields.response, content.title,
+                options = [
+                    { label: content.fields.admit.label, value: const.admit },
+                    { label: content.fields.doNotAdmit.label, value: const.doNotAdmit }
+                ],
+                hint=false,
+                hideQuestion=true,
+                inline=false,
+                type='radio'
+            ) }}
+        {% endcall %}
+    </div>
+
+{% endblock %}

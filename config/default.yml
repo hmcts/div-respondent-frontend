@@ -67,34 +67,41 @@ services:
 
 paths:
   health: /health
-  authenticated: /authenticated
-  captureCaseAndPin: /respond-with-pin
-  financialSituation: /delay-the-decree
-  respond: /respond
-  reviewApplication: /review-application
-  consentDecree: /consent-to-the-decree
-  admitAdultery: /admit-the-adultery
-  chooseAResponse: /choose-a-response
-  confirmDefence: /defend-are-you-sure
-  defendFinancialHardship: /defend-financial-hardship
-  jurisdiction: /jurisdiction
-  legalProceedings: /legal-proceedings
-  agreeToPayCosts: /agree-to-pay-costs
-  contactDetails: /contact-details
-  checkYourAnswers: /check-your-answers
-  invalidCaseState: /invalid-case-state
-  noConsentAreYouSure: /no-consent-are-you-sure
-  progressBar: /progress-bar
-  done: /done
   index: /
   entry: /entry
   end: /end
   termsAndConditions: /terms-and-conditions
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
+  authenticated: /authenticated
+  captureCaseAndPin: /respond-with-pin
   mock:
     idamLogin: /idam-mock-login
-
+  respondent:
+    financialSituation: /delay-the-decree
+    respond: /respond
+    reviewApplication: /review-application
+    consentDecree: /consent-to-the-decree
+    admitAdultery: /admit-the-adultery
+    chooseAResponse: /choose-a-response
+    confirmDefence: /defend-are-you-sure
+    defendFinancialHardship: /defend-financial-hardship
+    jurisdiction: /jurisdiction
+    legalProceedings: /legal-proceedings
+    agreeToPayCosts: /agree-to-pay-costs
+    contactDetails: /contact-details
+    checkYourAnswers: /check-your-answers
+    invalidCaseState: /invalid-case-state
+    noConsentAreYouSure: /no-consent-are-you-sure
+    progressBar: /progress-bar
+    done: /done
+  coRespondent:
+    respond: /co-respondent/progress-bar/respond
+    reviewApplication: /co-respondent/review-application
+    admitAdultery: /co-respondent/admit-the-adultery
+    chooseAResponse: /co-respondent/choose-a-response
+    confirmDefence: /co-respondent/defend-are-you-sure 
+    agreeToPayCosts: /co-respondent/agree-to-pay-costs
 tests:
   e2e:
     show: true
