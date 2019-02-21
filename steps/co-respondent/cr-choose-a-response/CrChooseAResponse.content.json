@@ -1,0 +1,24 @@
+{
+  "en": {
+    "title": "How do you want to respond?",
+    "detailsText1": "The divorce will go ahead if you and the respondent let the divorce proceed, and the court agrees to grant a divorce.",
+    "detailsText2": "You can let the divorce proceed, but still object to paying the divorce costs (if they've been claimed against you). You can do this on the next page.",
+    "detailsText3": "If you disagree with the divorce application and choose to 'defend', you will have to pay a fee of £{{ feesDefendDivorce }} and submit another form. You may also have to go to a hearing with a judge.",
+    "action": "Choose one of the following options.",
+    "errors": {
+      "required": "Select ‘I will let the application for divorce proceed’ if you do not want to defend the divorce"
+    },
+    "fields": {
+      "proceed": {
+        "heading": "I will let the application for divorce proceed",
+        "summary": "Choose this option if you don't want to try to prevent the divorce (you don't intend to 'defend' it).",
+        "answer": "I will let the application for divorce proceed and won’t try to prevent it (I don’t intend to ‘defend’ it)"
+      },
+      "defend": {
+        "heading": "I disagree with the application for divorce",
+        "summary": "Choose this option if you disagree that the divorce should be based on the allegation of adultery (you intend to 'defend' it).",
+        "answer": "I will try to prevent the divorce based on this application (I intend to ‘defend’ it)"
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ const caseOrchestration = require('services/caseOrchestration');
 // eslint-disable-next-line max-len
 const completedMock = require('mocks/services/case-orchestration/retrieve-aos-case/case-progressed/not-defended');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
-const ProgressBar = require('steps/progress-bar/ProgressBar.step');
+const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 
 describe(modulePath, () => {
   afterEach(() => {
