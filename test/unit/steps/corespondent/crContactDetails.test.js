@@ -3,6 +3,7 @@ const CrContactDetails = require(modulePath);
 const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
+
 const CrContactDetailsContent = require(
   'steps/co-respondent/cr-contact-details/CrContactDetails.content'
 );
