@@ -1,7 +1,7 @@
-const modulePath = 'steps/correspondent/cr-respond/CrRespond.step';
+const modulePath = 'steps/co-respondent/cr-respond/CrRespond.step';
 const CrRespond = require(modulePath);
 const CrReviewApplication = require(
-  'steps/correspondent/cr-review-application/CrReviewApplication.step'
+  'steps/co-respondent/cr-review-application/CrReviewApplication.step'
 );
 const idam = require('services/idam');
 const { custom, expect,
@@ -39,7 +39,7 @@ describe(modulePath, () => {
     );
   });
 
-  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
+  it('has getFeeFromFeesAndPayments middleware called with the proper values, and the coresponding number of times', () => { // eslint-disable-line max-len
     const session = {
       originalPetition: {
         jurisdictionConnection: {}
@@ -133,9 +133,8 @@ describe(modulePath, () => {
           .html($ => {
             const rightHandSideMenu = $('.column-one-third').html();
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
-              .and.to.include('Responding to a divorce application')
-              .and.to.include('Decree nisi')
-              .and.to.include('Decree absolute')
+              .and.to.include('How to respond to a divorce application')
+              .and.to.include('Get a divorce')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });

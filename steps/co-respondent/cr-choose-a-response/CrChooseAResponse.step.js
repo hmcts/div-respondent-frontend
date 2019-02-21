@@ -17,7 +17,7 @@ const consts = {
 
 class CrChooseAResponse extends Question {
   static get path() {
-    return config.paths.correspondent.chooseAResponse;
+    return config.paths.coRespondent.chooseAResponse;
   }
 
   get consts() {
@@ -89,9 +89,9 @@ class CrChooseAResponse extends Question {
     const isDefend = response.value === consts.defend;
 
     return branch(
-      redirectTo(this.journey.steps.ConfirmDefence)
+      redirectTo(this.journey.steps.CrConfirmDefence)
         .if(isDefend),
-      redirectTo(this.journey.steps.AgreeToPayCosts)
+      redirectTo(this.journey.steps.CrAgreeToPayCosts)
     );
   }
 }

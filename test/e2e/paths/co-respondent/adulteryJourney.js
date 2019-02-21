@@ -1,12 +1,12 @@
 const content = require('common/content');
 
-Feature('Correspondent Adultery journey');
+Feature('Co-respondent Adultery journey');
 
 Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAsCorrespondent();
+  I.loginAsCorespondent();
 
   I.seeCrRespondPage();
   I.click(content.en.continue);
@@ -23,6 +23,10 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.chooseCrToProceedWithDivorce();
   I.click(content.en.continue);
 
+  I.seeCrAgreeToPayCostsPage();
+  I.chooseCrAgreeToPay();
+  I.click(content.en.continue);
+
   I.seeCrCheckYourAnswersPage();
   I.confirmInformationIsTrue();
   I.submitApplication();
@@ -32,7 +36,7 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAsCorrespondent();
+  I.loginAsCorespondent();
 
   I.seeCrRespondPage();
   I.click(content.en.continue);
@@ -47,6 +51,10 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
 
   I.seeCrChooseAResponsePage();
   I.chooseCrToDefendAgainstDivorce();
+  I.click(content.en.continue);
+
+  I.seeCrConfirmDefencePage();
+  I.clickCrToConfirmDefenceAgainstDivorce();
   I.click(content.en.continue);
 
   I.seeCrCheckYourAnswersPage();

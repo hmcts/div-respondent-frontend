@@ -1,6 +1,6 @@
 {
   "en": {
-    "title": "Do you admit to committing the adultery?",
+    "title": "Do you admit to the adultery?",
     "detailsText": "The applicant provided the following details.",
     "whereAdultery": {
       "heading": "Where the adultery took place"
@@ -21,14 +21,14 @@
     },
     "fields": {
       "admit": {
-        "label": "Yes, I admit to committing the adultery"
+        "label": "Yes, I admit to the adultery"
       },
       "doNotAdmit": {
-        "label": "No, I do not admit to committing the adultery"
+        "label": "No, I do not admit to the adultery"
       }
     },
     "errors": {
-      "required": "Select yes if you admit to committing the adultery"
+      "required": "Select yes if you admit to the adultery"
     }
   }
 }

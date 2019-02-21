@@ -17,7 +17,7 @@ const values = {
 };
 
 /**
- *  Review Application content should be same for DN, AOS Respondent and correspondent journey.
+ *  Review Application content should be same for DN, AOS Respondent and co-respondent journey.
  *  Any change to Mini petition should be made across all the Apps
  */
 class ReviewApplication extends Question {

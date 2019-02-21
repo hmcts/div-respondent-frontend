@@ -17,7 +17,7 @@ describe('Google analytics', () => {
     const session = {
       caseState: 'AwaitingLegalAdvisorReferral',
       originalPetition: {
-        respDefendsDivorce: null
+        respWillDefendDivorce: null
       }
     };
     const googleAnalyticsId = 'google-analytics-id';

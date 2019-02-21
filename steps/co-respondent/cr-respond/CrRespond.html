@@ -12,7 +12,7 @@
     <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference | safe }}<br>
     <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;
     {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName | safe }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName | safe }}
-  </p>
+ </p>
 
   <h2 class="heading-medium">{{ content.readApp }}</h2>
 
@@ -21,7 +21,7 @@
     <p>{{ content.responseAcknowledgement }}</p>
   </div>
   <p>{{ content.respond7Days }}</p>
-  <p>{{ content.namedCorrespondent }}</p>
+  <p>{{ content.namedCorespondent }}</p>
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
@@ -48,6 +48,6 @@
       {% include "includes/sideMenuCourtDetails.html" %}
     </ul>
     
-    {% include "includes/sideMenuGuidanceLinks.html" %}
+    {% include "includes/sideMenuGuidanceLinksForCoRespondent.html" %}
   </aside>
 {% endblock %}
