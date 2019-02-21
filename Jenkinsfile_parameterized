@@ -1,0 +1,25 @@
+#!groovy
+
+@Library("Infrastructure") _
+
+properties([
+    parameters([
+        string(name: 'PRODUCT', defaultValue: 'div', description: 'Divorce'),
+        string(name: 'COMPONENT', defaultValue: 'rfe', description: 'Divorce Respondent Frontend'),
+        string(name: 'TYPE', defaultValue: 'nodejs', description: ''),
+        string(name: 'ENVIRONMENT', defaultValue: 'saat', description: 'Environment where code should be built and deployed'),
+        choice(name: 'SUBSCRIPTION', choices: 'sandbox\nnonprod\nprod', description: 'Azure subscriptions available to build in')
+    ])
+])
+
+withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.ENVIRONMENT, params.SUBSCRIPTION) {
+  after('test') {
+    sh 'yarn test:validation'
+    sh 'yarn test:e2e'
+  }
+
+  after('functionalTest:saat') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+}

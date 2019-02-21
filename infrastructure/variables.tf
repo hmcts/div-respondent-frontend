@@ -123,10 +123,6 @@ variable "idam_api_url" {
   type = "string"
 }
 
-variable "service_auth_provider_url" {
-  type = "string"
-}
-
 variable "decree_nisi_frontend_url" {
   type = "string"
 }
