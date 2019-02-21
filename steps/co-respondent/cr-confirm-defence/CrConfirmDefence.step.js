@@ -95,10 +95,10 @@ class CrConfirmDefence extends Question {
     const doesConfirm = this.fields.response.value === this.const.confirm;
     if (this.req.session.previouslyConfirmed === false) {
       // user already answered this page, avoid infinite redirect by forcing journey
-      return goTo(this.journey.steps.AgreeToPayCosts);
+      return goTo(this.journey.steps.CrAgreeToPayCosts);
     }
     return branch(
-      redirectTo(this.journey.steps.AgreeToPayCosts).if(doesConfirm),
+      redirectTo(this.journey.steps.CrAgreeToPayCosts).if(doesConfirm),
       redirectTo(this.journey.steps.CrChooseAResponse)
     );
   }
