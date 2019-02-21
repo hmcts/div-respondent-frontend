@@ -45,6 +45,7 @@ describe(modulePath, () => {
     expect(_values).to.be.an('object');
     expect(_values).not.to.have.property('coRespPhoneNumber');
     expect(_values).to.have.property('coRespConsentToEmail', consent);
+    expect(_values).to.have.property('coRespContactMethodIsDigital', consent);
   });
 
   it('when all details are supplied return correct value', () => {
@@ -71,6 +72,7 @@ describe(modulePath, () => {
     expect(_values).to.be.an('object');
     expect(_values).to.have.property('coRespPhoneNumber', telephone);
     expect(_values).to.have.property('coRespConsentToEmail', consent);
+    expect(_values).to.have.property('coRespContactMethodIsDigital', consent);
   });
 
   it('when phone number is not supplied returns correct answers', () => {

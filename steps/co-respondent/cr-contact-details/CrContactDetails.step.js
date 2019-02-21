@@ -41,7 +41,7 @@ class CrContactDetails extends Question {
   values() {
     const phoneNo = this.fields.contactDetails.telephone.value;
 
-    const values = { coRespConsentToEmail: yes };
+    const values = { coRespConsentToEmail: yes, coRespContactMethodIsDigital: yes };
 
     if (phoneNo && phoneNo.trim().length) {
       values.coRespPhoneNumber = phoneNo;
