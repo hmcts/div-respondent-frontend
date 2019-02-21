@@ -1,0 +1,32 @@
+{
+  "en": {
+    "title": "How the court will contact you",
+    "contactMethods": {
+      "email": {
+        "heading": "By email",
+        "intro": "You need to receive emails about the divorce to use the online service. Your email address will not be shared with the applicant.<br/><br/>Your emails will be sent to: "
+      },
+      "telephone": {
+        "heading": "By phone",
+        "intro": "Provide a phone number to let court staff contact you more quickly. Your phone number will not be shared with the applicant."
+      },
+      "post": {
+        "heading": "By post",
+        "intro": "You may need to receive some correspondence by post. This will be sent to the address the applicant provided.<br/><br/>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You'll be given the divorce centre's contact details when you submit your response."
+      }
+    },
+    "fields": {
+      "email": {
+        "label": "I agree that the divorce centre can send me notifications and deliver (serve) court documents to me by email."
+      },
+      "telephone": {
+        "label": "Enter your phone number",
+        "hint": "(Optional)"
+      }
+    },
+    "errors": {
+      "requireValidTelephoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
+      "requireConsent": "You must agree to receive notifications and court documents by email to use this service."
+    }
+  }
+}
