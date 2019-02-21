@@ -97,7 +97,7 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.coRespAdmitToAdultery).to.equal('Yes');
+    expect(values.admitAdultery).to.equal('Yes');
   });
 
   it('returns the correct values object, with no for disputing adultery', () => {
@@ -113,7 +113,7 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.coRespAdmitToAdultery).to.equal('No');
+    expect(values.admitAdultery).to.equal('No');
   });
 
   it('returns the correct session based data', () => {

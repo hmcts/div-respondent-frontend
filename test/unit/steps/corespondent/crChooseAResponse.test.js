@@ -84,7 +84,7 @@ describe(modulePath, () => {
     // then
     const values = step.values();
     expect(values).to.be.an('object');
-    expect(values).to.have.property('coRespDefendsDivorce', 'No');
+    expect(values).to.have.property('defendsDivorce', 'No');
   });
 
   it('sets coRespDefendsDivorce to yes if response is defend', () => {
@@ -101,7 +101,7 @@ describe(modulePath, () => {
     // then
     const values = step.values();
     expect(values).to.be.an('object');
-    expect(values).to.have.property('coRespDefendsDivorce', 'Yes');
+    expect(values).to.have.property('defendsDivorce', 'Yes');
   });
 
   describe('returns correct answer based on response', () => {

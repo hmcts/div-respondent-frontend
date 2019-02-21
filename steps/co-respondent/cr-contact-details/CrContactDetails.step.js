@@ -41,13 +41,15 @@ class CrContactDetails extends Question {
   values() {
     const phoneNo = this.fields.contactDetails.telephone.value;
 
-    const values = { coRespConsentToEmail: yes };
+    const contactInfo = { consentToReceivingEmails: yes, contactMethodIsDigital: yes };
 
     if (phoneNo && phoneNo.trim().length) {
-      values.coRespPhoneNumber = phoneNo;
+      contactInfo.phoneNumber = phoneNo;
     }
 
-    return values;
+    const coRespAnswers = {};
+    coRespAnswers.contactInfo = contactInfo;
+    return coRespAnswers;
   }
 
   answers() {
@@ -75,7 +77,7 @@ class CrContactDetails extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.CheckYourAnswers);
+    return redirectTo(this.journey.steps.CrCheckYourAnswers);
   }
 }
 
