@@ -99,9 +99,7 @@ module "frontend" {
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
 
-    GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
-    LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
-    SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
+    COS_BASE_URL = "${local.div_cos_url}"
     COS_HEALTHCHECK_URL = "${local.div_cos_url}${var.health_endpoint}"
 
     //Case Maintenence
