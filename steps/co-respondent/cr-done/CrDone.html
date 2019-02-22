@@ -27,7 +27,7 @@
   </div>
 
   <p class="text">{{ content.emailConfirmation }}
-      <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
+      <span class="bold-small">{{ session.originalPetition.coRespEmailAddress | safe }}</span>
   </p>
 
   <h2 class="heading-medium">{{ content.whatHappensNext }}</h2>
@@ -68,6 +68,6 @@
       </li>
       {% include "includes/sideMenuCourtDetails.html" %}
     </ul>
-    {% include "includes/sideMenuGuidanceLinks.html" %}
+    {% include "includes/sideMenuGuidanceLinksForCoRespondent.html" %}
   </aside>
 {% endblock %}

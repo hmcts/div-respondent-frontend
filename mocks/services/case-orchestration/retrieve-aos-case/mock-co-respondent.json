@@ -166,7 +166,7 @@
     ],
     "legalProceedingsDetails": "Mr text change\r\nmobile\r\n099889900990m is the mobile from where the messages sent .",
     "financialOrder": "No",
-    "claimsCosts": "No",
+    "claimsCosts": "Yes",
     "court": {
       "eastMidlands": {
         "divorceCentre": "East Midlands Regional Divorce Centre",

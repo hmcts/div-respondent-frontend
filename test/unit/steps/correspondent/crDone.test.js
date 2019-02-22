@@ -1,5 +1,5 @@
 /* eslint-disable max-len, max-lines */
-const modulePath = 'steps/correspondent/cr-done/CrDone.step';
+const modulePath = 'steps/co-respondent/cr-done/CrDone.step';
 const CrDone = require(modulePath);
 const idam = require('services/idam');
 const httpStatus = require('http-status-codes');
@@ -134,9 +134,8 @@ describe(modulePath, () => {
           .html($ => {
             const rightHandSideMenu = $('.column-one-third').html();
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
-              .and.to.include('Responding to a divorce application')
-              .and.to.include('Decree nisi')
-              .and.to.include('Decree absolute')
+              .and.to.include('How to respond to a divorce application')
+              .and.to.include('Get a divorce')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });
