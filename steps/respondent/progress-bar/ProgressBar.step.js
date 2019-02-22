@@ -76,11 +76,11 @@ class ProgressBar extends Interstitial {
   }
 
   progressedNoAos(caseState) {
-    return this.caseBeyondAos(caseState) && !this.session.originalPetition.respDefendsDivorce;
+    return this.caseBeyondAos(caseState) && !this.session.originalPetition.respWillDefendDivorce;
   }
 
   progressedUndefended(caseState) {
-    return this.caseBeyondAos(caseState) && this.session.originalPetition.respDefendsDivorce === values.no;
+    return this.caseBeyondAos(caseState) && this.session.originalPetition.respWillDefendDivorce === values.no;
   }
 
   awaitingAnswer(caseState) {
@@ -106,7 +106,7 @@ class ProgressBar extends Interstitial {
   }
 
   get isDefending() {
-    return this.session.originalPetition.respDefendsDivorce === values.yes;
+    return this.session.originalPetition.respWillDefendDivorce === values.yes;
   }
 
   get middleware() {

@@ -101,7 +101,7 @@ class ConfirmDefence extends Question {
     const petition = this.session.originalPetition;
     const doesConfirm = this.fields.response.value === this.const.confirm;
     const twoYrSep = petition && petition.reasonForDivorce === this.const.twoYearSeparation;
-    if (this.req.session.previouslyConfirmed === false) {
+    if (this.req.session.previouslyConfirmed === false && !twoYrSep) {
       // user already answered this page, avoid infinite redirect by forcing journey
       return goTo(this.journey.steps.Jurisdiction);
     }

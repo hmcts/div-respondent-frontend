@@ -52,9 +52,7 @@ services:
     expire: RATE_LIMITER_EXPIRE
     enabled: RATE_LIMITER_ENABLED
   caseOrchestration:
-    getPetitionUrl: GET_PETITION_URL
-    linkRespondentUrl: LINK_RESPONDENT_URL
-    submitAosUrl: SUBMIT_AOS_URL
+    baseUrl: COS_BASE_URL
     health: COS_HEALTHCHECK_URL
   dnFrontend:
     url: DECREE_NISI_FRONTEND_URL
