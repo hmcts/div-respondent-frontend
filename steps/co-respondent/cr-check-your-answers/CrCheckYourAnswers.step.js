@@ -9,7 +9,7 @@ const content = require('./CrCheckYourAnswers.content');
 
 class CrCheckYourAnswers extends CYA {
   static get path() {
-    return config.paths.correspondent.checkYourAnswers;
+    return config.paths.coRespondent.checkYourAnswers;
   }
 
   constructor(...args) {
@@ -36,7 +36,7 @@ class CrCheckYourAnswers extends CYA {
 
   sendToAPI(req) {
     const json = this.journey.values;
-    return caseOrchestration.sendAosResponse(req, json);
+    return caseOrchestration.sendCoRespondentResponse(req, json);
   }
 
   next() {

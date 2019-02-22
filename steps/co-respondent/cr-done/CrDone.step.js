@@ -5,7 +5,7 @@ const idam = require('services/idam');
 //  WIP
 class CrDone extends ExitPoint {
   static get path() {
-    return config.paths.correspondent.done;
+    return config.paths.coRespondent.done;
   }
 
   get session() {

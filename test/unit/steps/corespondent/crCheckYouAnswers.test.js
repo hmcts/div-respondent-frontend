@@ -1,7 +1,7 @@
-const modulePath = 'steps/correspondent/cr-check-your-answers/CrCheckYourAnswers.step';
+const modulePath = 'steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.step';
 
 const CrCheckYourAnswers = require(modulePath);
-const Done = require('steps/correspondent/cr-done/CrDone.step');
+const Done = require('steps/co-respondent/cr-done/CrDone.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationService = require('services/caseOrchestration');
@@ -27,11 +27,11 @@ describe(modulePath, () => {
 
   describe('errors', () => {
     beforeEach(() => {
-      sinon.stub(caseOrchestrationService, 'sendAosResponse');
+      sinon.stub(caseOrchestrationService, 'sendCoRespondentResponse');
     });
 
     afterEach(() => {
-      caseOrchestrationService.sendAosResponse.restore();
+      caseOrchestrationService.sendCoRespondentResponse.restore();
     });
 
     it('shows error if does not answer question', () => {
@@ -43,15 +43,15 @@ describe(modulePath, () => {
 
   describe('navigates', () => {
     beforeEach(() => {
-      sinon.stub(caseOrchestrationService, 'sendAosResponse');
+      sinon.stub(caseOrchestrationService, 'sendCoRespondentResponse');
     });
 
     afterEach(() => {
-      caseOrchestrationService.sendAosResponse.restore();
+      caseOrchestrationService.sendCoRespondentResponse.restore();
     });
 
     it('to Done if statement of true answered', () => {
-      caseOrchestrationService.sendAosResponse.resolves();
+      caseOrchestrationService.sendCoRespondentResponse.resolves();
       const fields = { coRespStatementOfTruth: 'Yes' };
       return question.redirectWithField(CrCheckYourAnswers, fields, Done);
     });

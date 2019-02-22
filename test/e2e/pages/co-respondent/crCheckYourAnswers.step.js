@@ -1,8 +1,8 @@
 const crCheckYourAnswers = require(
-  'steps/correspondent/cr-check-your-answers/CrCheckYourAnswers.step'
+  'steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.step'
 );
 
-const content = require('steps/correspondent/cr-check-your-answers/CrCheckYourAnswers.content');
+const content = require('steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.content');
 
 function seeCrCheckYourAnswersPage() {
   const I = this;
