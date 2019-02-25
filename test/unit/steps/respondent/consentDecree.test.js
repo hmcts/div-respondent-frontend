@@ -127,7 +127,7 @@ describe(modulePath, () => {
     expect(values)
       .to
       .have
-      .property('respDefendsDivorce', answers.no);
+      .property('respWillDefendDivorce', answers.no);
   });
 
   it('sets value for consent and defence based on form fields', () => {
@@ -158,7 +158,7 @@ describe(modulePath, () => {
     expect(values)
       .to
       .have
-      .property('respDefendsDivorce', answers.yes);
+      .property('respWillDefendDivorce', answers.yes);
   });
 
   it('applies the correct answer object given consent', () => {

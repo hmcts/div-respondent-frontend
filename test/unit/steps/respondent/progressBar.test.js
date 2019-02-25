@@ -39,7 +39,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'AwaitingLegalAdvisorReferral',
       originalPetition: {
-        respDefendsDivorce: null
+        respWillDefendDivorce: null
       }
     };
 
@@ -54,7 +54,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'AwaitingLegalAdvisorReferral',
       originalPetition: {
-        respDefendsDivorce: 'No'
+        respWillDefendDivorce: 'No'
       }
     };
 
@@ -68,7 +68,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'AosSubmittedAwaitingAnswer',
       originalPetition: {
-        respDefendsDivorce: 'Yes'
+        respWillDefendDivorce: 'Yes'
       }
     };
 
@@ -86,7 +86,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'DefendedDivorce',
       originalPetition: {
-        respDefendsDivorce: 'Yes'
+        respWillDefendDivorce: 'Yes'
       }
     };
 
@@ -103,7 +103,7 @@ describe(modulePath, () => {
     const session = {
       caseState: 'AwaitingReissue',
       originalPetition: {
-        respDefendsDivorce: 'Yes'
+        respWillDefendDivorce: 'Yes'
       }
     };
 
@@ -116,7 +116,7 @@ describe(modulePath, () => {
     const basicSession = {
       caseState: CaseStates.AosSubmittedAwaitingAnswer,
       originalPetition: {
-        respDefendsDivorce: undefined
+        respWillDefendDivorce: undefined
       }
     };
 

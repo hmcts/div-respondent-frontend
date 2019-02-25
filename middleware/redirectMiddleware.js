@@ -10,12 +10,14 @@ const redirectOnCondition = (req, res, next) => {
     return next();
   }
 
-  const idamUserIsCorespondent = req.idam.userDetails.email === req.session.originalPetition.coRespEmailAddress;
+  const originalPetition = req.session.originalPetition;
+
+  const idamUserIsCorespondent = originalPetition.coRespondentAnswers && originalPetition.coRespondentAnswers.contactInfo && req.idam.userDetails.email === originalPetition.coRespondentAnswers.contactInfo.emailAddress;
   if (idamUserIsCorespondent) {
     return res.redirect(crRespond.path);
   }
 
-  const idamUserIsRespondent = req.idam.userDetails.email === req.session.originalPetition.respEmailAddress;
+  const idamUserIsRespondent = req.idam.userDetails.email === originalPetition.respEmailAddress;
   if (!idamUserIsRespondent) {
     const appLandingPage = `${config.services.dnFrontend.url}${config.services.dnFrontend.landing}`;
     const queryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
