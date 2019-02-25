@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 const validReferenceNumber = '1234567891234560';
+const dashingReferenceNumber = '1234-5678-9123-4560';
 const validSecurityAccessCode = '1A3b5678';
 
 describe(modulePath, () => {
@@ -29,6 +30,22 @@ describe(modulePath, () => {
   it('redirects to next page', () => {
     const answers = {
       referenceNumber: validReferenceNumber,
+      securityAccessCode: validSecurityAccessCode
+    };
+    return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
+  });
+
+  it('redirects to next page with dashes in reference number', () => {
+    const answers = {
+      referenceNumber: dashingReferenceNumber,
+      securityAccessCode: validSecurityAccessCode
+    };
+    return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
+  });
+
+  it('redirects to next page when contains a non-digit character', () => {
+    const answers = {
+      referenceNumber: '1234567812345678A',
       securityAccessCode: validSecurityAccessCode
     };
     return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
@@ -57,14 +74,6 @@ describe(modulePath, () => {
         securityAccessCode: validSecurityAccessCode
       };
       const onlyErrors = ['referenceNumberRequired'];
-      return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
-    });
-    it('contains a non-digit character', () => {
-      const answers = {
-        referenceNumber: '123456789123456A',
-        securityAccessCode: validSecurityAccessCode
-      };
-      const onlyErrors = ['referenceNumberDigitsOnly'];
       return question.testErrors(CaptureCaseAndPin, {}, answers, { onlyErrors });
     });
   });

@@ -26,7 +26,7 @@ const getPetition = req => {
 };
 
 const linkCase = req => {
-  const caseId = req.body.referenceNumber;
+  const caseId = req.body.referenceNumber.replace(/\D/gi, '');
   const pin = req.body.securityAccessCode;
   const uri = `${CONF.services.caseOrchestration.linkRespondentUrl}/${caseId}/${pin}`;
   const authTokenString = '__auth-token';
