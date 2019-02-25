@@ -70,6 +70,13 @@ class CrContactDetails extends Question {
     return answers;
   }
 
+  get coRespEmailAddress() {
+    if (this.session.originalPetition && this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.contactInfo) {
+      return this.session.originalPetition.coRespondentAnswers.contactInfo.emailAddress;
+    }
+    return '';
+  }
+
   get middleware() {
     return [...super.middleware, idam.protect()];
   }
