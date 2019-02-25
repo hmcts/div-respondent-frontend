@@ -102,6 +102,7 @@ paths:
     chooseAResponse: /co-respondent/choose-a-response
     confirmDefence: /co-respondent/defend-are-you-sure 
     agreeToPayCosts: /co-respondent/agree-to-pay-costs
+    contactDetails: /co-respondent/contact-details
 tests:
   e2e:
     show: true
