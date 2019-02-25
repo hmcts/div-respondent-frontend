@@ -181,7 +181,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
-          specificValues: [ '01 February 2003', '02 February 2003' ]
+          specificValues: [ '02 February 2003' ]
         }
       );
     });
@@ -333,12 +333,17 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
+        'reasonForDivorceSeparationFiveYears2DatesRecent',
+        'reasonForDivorceSeparationTwoYears2DatesRecent',
         'reasonForDivorceUnreasonableBehaviourStatement',
         'reasonForDivorceSeparationTwoYears',
         'reasonForDivorceSeparationTwoYearsBrokenDown',
         'reasonForDivorceSeparationFiveYears',
         'reasonForDivorceSeparationFiveYearsBrokenDown',
         'reasonForDivorceDesertion',
+        'descriptionOfAdultery',
+        'descriptionOfBehaviour',
+        'descriptionOfDesertion',
         'reasonForDivorceDesertionBrokenDown',
         'reasonForDivorceDesertionStatement',
         'claimingCostsFromRespondentCoRespondent',
@@ -700,7 +705,8 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
-          'reasonForDivorceUnreasonableBehaviourStatement'
+          'reasonForDivorceUnreasonableBehaviourStatement',
+          'descriptionOfBehaviour'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
@@ -714,7 +720,8 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeparationTwoYearsBrokenDown',
-          'reasonForDivorceSeparationTwoYears'
+          'reasonForDivorceSeparationTwoYears',
+          'reasonForDivorceSeparationTwoYears2DatesRecent'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
@@ -728,7 +735,8 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeparationFiveYearsBrokenDown',
-          'reasonForDivorceSeparationFiveYears'
+          'reasonForDivorceSeparationFiveYears',
+          'reasonForDivorceSeparationFiveYears2DatesRecent'
         ];
         return content(ReviewApplication, session, { specificContent });
       });
