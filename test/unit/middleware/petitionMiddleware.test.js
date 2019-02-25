@@ -3,9 +3,15 @@ const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition: petitionMiddleware } = require(modulePath);
 const caseOrchestration = require('services/caseOrchestration');
 // eslint-disable-next-line max-len
-const completedMock = require('mocks/services/case-orchestration/retrieve-aos-case/case-progressed/not-defended');
+const completedMock = require(
+  'mocks/services/case-orchestration/retrieve-aos-case/case-progressed/not-defended'
+);
+const coRespondentMock = require(
+  'mocks/services/case-orchestration/retrieve-aos-case/mock-co-respondent'
+);
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
+const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -32,6 +38,46 @@ describe(modulePath, () => {
       })
       .then(done, done);
   });
+
+
+  it('should redirect to Co-respondent respond page if user is Co-respondent', done => {
+    // given
+    const email = 'user@email.com';
+    const req = {
+      cookies: { '__auth-token': 'authToken' },
+      session: {
+        originalPetition: {
+          coRespondentAnswers: {
+            contactInfo: {
+              emailAddress: email
+            }
+          }
+        }
+      },
+      idam: {
+        userDetails: { email }
+      }
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+    const next = sinon.stub();
+    req.session = {};
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves({
+        statusCode: 200,
+        body: coRespondentMock
+      });
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
 
   it('calls correct methods based on caseOrchestration service calls', done => {
     // given

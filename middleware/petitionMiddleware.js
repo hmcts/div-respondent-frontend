@@ -3,6 +3,7 @@ const { CaseStates } = require('const');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const logger = require('services/logger').getLogger(__filename);
+const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 
 const SUCCESS = 200;
 const NOT_FOUND = 404;
@@ -44,6 +45,12 @@ const loadMiniPetition = (req, res, next) => {
     .then(response => {
       if (response.statusCode === SUCCESS) {
         storePetitionInSession(req, response);
+
+        const originalPetition = req.session.originalPetition;
+        const idamUserIsCorespondent = originalPetition.coRespondentAnswers && originalPetition.coRespondentAnswers.contactInfo && req.idam.userDetails.email === originalPetition.coRespondentAnswers.contactInfo.emailAddress;
+        if (idamUserIsCorespondent) {
+          return res.redirect(crRespond.path);
+        }
         const caseState = response.body.state;
         if (caseState !== CaseStates.AosStarted) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');

@@ -1,7 +1,5 @@
 const config = require('config');
 
-const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
-
 const authTokenString = '__auth-token';
 
 const redirectOnCondition = (req, res, next) => {
@@ -10,12 +8,9 @@ const redirectOnCondition = (req, res, next) => {
     return next();
   }
 
-  const idamUserIsCorespondent = req.idam.userDetails.email === req.session.originalPetition.coRespEmailAddress;
-  if (idamUserIsCorespondent) {
-    return res.redirect(crRespond.path);
-  }
+  const originalPetition = req.session.originalPetition;
 
-  const idamUserIsRespondent = req.idam.userDetails.email === req.session.originalPetition.respEmailAddress;
+  const idamUserIsRespondent = req.idam.userDetails.email === originalPetition.respEmailAddress;
   if (!idamUserIsRespondent) {
     const appLandingPage = `${config.services.dnFrontend.url}${config.services.dnFrontend.landing}`;
     const queryString = `?${authTokenString}=${req.cookies[authTokenString]}`;

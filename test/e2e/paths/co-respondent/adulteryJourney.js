@@ -27,10 +27,13 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.chooseCrAgreeToPay();
   I.click(content.en.continue);
 
-  // WIP waiting for the previous step
-  // I.seeCrCheckYourAnswersPage();
-  // I.confirmInformationIsTrue();
-  // I.submitApplication();
+  I.seeCrContactDetailsPage();
+  I.consentToSendingCrNotifications();
+  I.navByClick(content.en.continue);
+
+  I.seeCrCheckYourAnswersPage();
+  I.confirmInformationIsTrue();
+  I.submitApplication();
 }).retry(2);
 
 Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
@@ -58,8 +61,15 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.clickCrToConfirmDefenceAgainstDivorce();
   I.click(content.en.continue);
 
-  // WIP waiting for the previous step
-  // I.seeCrCheckYourAnswersPage();
-  // I.confirmInformationIsTrue();
-  // I.submitApplication();
+  I.seeCrAgreeToPayCostsPage();
+  I.chooseCrAgreeToPay();
+  I.click(content.en.continue);
+
+  I.seeCrContactDetailsPage();
+  I.consentToSendingCrNotifications();
+  I.navByClick(content.en.continue);
+
+  I.seeCrCheckYourAnswersPage();
+  I.confirmInformationIsTrue();
+  I.submitApplication();
 }).retry(2);

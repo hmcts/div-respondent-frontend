@@ -14,16 +14,15 @@ Scenario('Can link case using case ID/PIN code', I => {
   I.seeRespondPage();
 }).retry(2);
 
-Scenario('Should see an error page if case number is invalid', I => {
+Scenario('Can link case using case ID/PIN code if ID has extra nonnumerical characters', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAsInvalidPinUser();
+  I.loginAsANonLinkedUser();
   I.seeCaptureCaseAndPinPage();
-  I.fillInReferenceNumberAndPinCode('A234567891234567', '12345678');
+  I.fillInReferenceNumberAndPinCode('AAA1234123412341234AAAA', '12345678');
   I.click(commonContent.en.continue);
-  I.seeCaptureCaseAndPinPage();
-  I.see(content.en.errors.referenceNumberDigitsOnly);
+  I.seeRespondPage();
 }).retry(2);
 
 Scenario('Should see an error page if PIN code is invalid', I => {
