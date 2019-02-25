@@ -4,7 +4,9 @@ const ChooseAResponse = require('steps/co-respondent/cr-choose-a-response/CrChoo
 const CrConfirmDefenceContent = require(
   'steps/co-respondent/cr-confirm-defence/CrConfirmDefence.content'
 );
-const AgreeToPayCosts = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.step');
+const CrAgreeToPayCosts = require(
+  'steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step'
+);
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
@@ -51,7 +53,7 @@ describe(modulePath, () => {
 
   it('redirects to the agree to pay costs page on confirmation', () => {
     const fields = { response: 'confirm' };
-    return question.redirectWithField(CrConfirmDefence, fields, AgreeToPayCosts);
+    return question.redirectWithField(CrConfirmDefence, fields, CrAgreeToPayCosts);
   });
 
   it('redirects back to cr choose a response page on changing response', () => {

@@ -102,7 +102,7 @@ class CrAgreeToPayCosts extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.ContactDetails);
+    return goTo(this.journey.steps.CrContactDetails);
   }
 }
 
