@@ -213,7 +213,11 @@
     "courts": "northWest",
     "confirmPrayer": "Yes",
     "marriageCertificateFiles": [],
-    "coRespEmailAddress": "user@email.com",
+    "coRespondentAnswers": {
+      "contactInfo": {
+        "emailAddress":  "user@email.com"
+      }
+    },
     "d8": [
       {
         "createdBy": 0,
