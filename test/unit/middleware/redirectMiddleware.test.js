@@ -64,7 +64,11 @@ describe(modulePath, () => {
       cookies: { '__auth-token': 'authToken' },
       session: {
         originalPetition: {
-          coRespEmailAddress: email
+          coRespondentAnswers: {
+            contactInfo: {
+              emailAddress: email
+            }
+          }
         }
       },
       idam: {
