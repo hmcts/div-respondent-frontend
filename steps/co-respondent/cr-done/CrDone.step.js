@@ -11,8 +11,11 @@ class CrDone extends ExitPoint {
     return this.req.session;
   }
 
-  get caseData() {
-    return this.req.session.originalPetition;
+  get coRespEmailAddress() {
+    if (this.session.originalPetition && this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.contactInfo) {
+      return this.session.originalPetition.coRespondentAnswers.contactInfo.emailAddress;
+    }
+    return '';
   }
 
   get middleware() {

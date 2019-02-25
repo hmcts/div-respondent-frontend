@@ -1,6 +1,6 @@
 const modulePath = 'steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step';
 const CrAgreeToPayCosts = require(modulePath);
-const ContactDetails = require('steps/respondent/contact-details/ContactDetails.step');
+const CrContactDetails = require('steps/co-respondent/cr-contact-details/CrContactDetails.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const AgreeToPayCostsContent = require(
@@ -144,7 +144,7 @@ describe(modulePath, () => {
       'crAgreeToPayCosts.agree': 'Yes'
     };
 
-    return question.redirectWithField(CrAgreeToPayCosts, fields, ContactDetails);
+    return question.redirectWithField(CrAgreeToPayCosts, fields, CrContactDetails);
   });
 
   it('redirects to next page when not agreed to pay costs and reason supplied', () => {
@@ -153,7 +153,7 @@ describe(modulePath, () => {
       'crAgreeToPayCosts.noReason': 'Reason'
     };
 
-    return question.redirectWithField(CrAgreeToPayCosts, fields, ContactDetails);
+    return question.redirectWithField(CrAgreeToPayCosts, fields, CrContactDetails);
   });
 
   it('renders the content', () => {

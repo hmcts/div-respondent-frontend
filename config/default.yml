@@ -100,6 +100,7 @@ paths:
     chooseAResponse: /co-respondent/choose-a-response
     confirmDefence: /co-respondent/defend-are-you-sure
     agreeToPayCosts: /co-respondent/agree-to-pay-costs
+    contactDetails: /co-respondent/contact-details
     checkYourAnswers: /co-respondent/check-your-answers
     done: /co-respondent/done
 tests:
