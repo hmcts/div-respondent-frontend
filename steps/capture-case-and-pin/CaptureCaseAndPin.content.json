@@ -11,7 +11,6 @@
     "errorLinkingCase": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
     "errors": {
       "referenceNumberRequired": "Enter the 16-digit case number to continue",
-      "referenceNumberDigitsOnly": "The case number is a 16-digit long number",
       "securityAccessCodeRequired": "Enter the access code to continue",
       "securityAccessCodeAlphanumericOnly": "The access code cannot contain special characters"
     }
