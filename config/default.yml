@@ -51,9 +51,7 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-    getPetitionUrl: http://localhost:3001/case-orchestration/retrieve-aos-case
-    linkRespondentUrl: http://localhost:3001/case-orchestration/link-respondent
-    submitAosUrl: http://localhost:3001/case-orchestration/submit-aos
+    baseUrl: http://localhost:3001/case-orchestration
     health: http://localhost:3001/health
   dnFrontend:
     url: https://localhost:4000
@@ -100,12 +98,14 @@ paths:
     reviewApplication: /co-respondent/review-application
     admitAdultery: /co-respondent/admit-the-adultery
     chooseAResponse: /co-respondent/choose-a-response
-    confirmDefence: /co-respondent/defend-are-you-sure 
+    confirmDefence: /co-respondent/defend-are-you-sure
     agreeToPayCosts: /co-respondent/agree-to-pay-costs
     contactDetails: /co-respondent/contact-details
+    checkYourAnswers: /co-respondent/check-your-answers
+    done: /co-respondent/done
 tests:
   e2e:
-    show: true
+    show: false
     waitForTimeout: 10000
     waitForAction: 1000
     smartWait: 5000

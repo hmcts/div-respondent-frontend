@@ -113,7 +113,7 @@ describe(modulePath, () => {
     caseOrcestration.sendAosResponse(req, body);
     // Assert.
     expect(request.post.args[0][0]).to.eql({
-      uri: `${config.services.caseOrchestration.submitAosUrl}/123456789`,
+      uri: `${config.services.caseOrchestration.baseUrl}/submit-aos/123456789`,
       body,
       headers: { Authorization: 'test' },
       json: true
@@ -133,6 +133,55 @@ describe(modulePath, () => {
 
     // Act.
     caseOrcestration.sendAosResponse(req, body)
+      .then(() => {
+        Promise.reject(new Error('should not come here'));
+      }, () => {
+        done();
+      });
+  });
+
+  it('can  co-respondent send the petition', done => {
+    // given
+    const req = {
+      cookies: { '__auth-token': 'Bearer test' },
+      session: { referenceNumber: 123456789 }
+    };
+    const body = { foo: 'bar' };
+
+    sinon.stub(request, 'post')
+      .resolves({});
+
+    // when
+    caseOrcestration.sendCoRespondentResponse(req, body)
+      .then(() => {
+        expect(request.post.calledOnce).to.be.true;
+
+        expect(request.post.getCall(0).args[0])
+          .to
+          .eql({
+            headers: {
+              Authorization: 'Bearer test'
+            },
+            body,
+            json: true,
+            uri: 'http://localhost:3001/case-orchestration/submit-co-respondent-aos'
+          });
+      })
+      .then(done, done);
+  });
+
+  it('throws error when co-respondent response fails', done => {
+    const body = { foo: 'bar' };
+    const req = {
+      cookies: { '__auth-token': 'test' },
+      session: { referenceNumber: 123456789 }
+    };
+
+    sinon.stub(request, 'post')
+      .rejects({});
+
+    // Act.
+    caseOrcestration.sendCoRespondentResponse(req, body)
       .then(() => {
         Promise.reject(new Error('should not come here'));
       }, () => {
