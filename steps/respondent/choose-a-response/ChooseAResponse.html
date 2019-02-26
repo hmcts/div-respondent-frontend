@@ -6,7 +6,7 @@
     {{ content.title | safe }}
 {% endset %}
 
-{% if isBehaviour %}
+{% if isBehaviourOrDesertion %}
     {% set responseOptions = [
         { label: content.fields.proceed.heading, value: consts.proceed, description: content.fields.proceed.summary },
         { label: content.fields.proceedButDisagree.heading, value: consts.proceedButDisagree, description: content.fields.proceedButDisagree.summary },
@@ -33,13 +33,24 @@
                 <h2 class="heading-small">{{ content.info.options.proceed.heading | safe }}</h2>
                 <p class="text">{{ content.info.options.proceed.summary | safe }}</p>
 
-                {% if isBehaviour %}
+                {% if isBehaviourOrDesertion %}
                     <h2 class="heading-small">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
                     <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
                 {% endif %}
 
                 <h2 class="heading-small">{{ content.info.options.defend.heading | safe }}</h2>
                 <p class="text">{{ content.info.options.defend.summary | safe }}</p>
+
+                {% if isSeparation5yrs %}
+                    <h2 class="heading-small">{{ content.info.options.hardship.heading | safe }}</h2>
+                    <p class="text">{{ content.info.options.hardship.text1 | safe }}</p>
+                    <p class="text">{{ content.info.options.hardship.text2 | safe }}</p>
+                    <p class="text">{{ content.info.options.hardship.text3 | safe }}</p>
+                    <p class="text">{{ content.info.options.hardship.text4 | safe }}</p>
+                    <p class="text">{{ content.info.options.hardship.text5 | safe }}</p>
+                    <p class="text">{{ content.info.options.hardship.text6 | safe }}</p>
+                    <p class="text">{{ content.info.options.hardship.text7 | safe }}</p>
+                {% endif %}
             </div>
         </details>
 
