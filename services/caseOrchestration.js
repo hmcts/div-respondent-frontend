@@ -53,7 +53,6 @@ const sendCoRespondentResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-co-respondent-aos`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
-
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
       logger.errorWithReq(req, 'send_response_error', 'Trying to connect to Case orchestration service error', error.message);
