@@ -103,7 +103,7 @@
     "reasonForDivorce": "Reason for the divorce (and supporting information)",
     "marriageBrokenDownIrretrievably": "The marriage has broken down irretrievably. The applicant is relying on the following fact to support their application.",
     "reasonForDivorceAdulteryCorrespondentNamed": "The respondent committed adultery with the co-respondent, and the applicant finds it intolerable to live with the respondent.",
-    "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery, and the applicant finds it intolerable to live with the respondent.",
+    "reasonForDivorceAdulteryCorrespondentNotNamed": "The respondent has committed adultery and the applicant finds it intolerable to live with the respondent.",
     "reasonForDivorceAdulteryStatement": "This is supported by the following statement from the applicant.",
     "reasonForDivorceAdulteryWhere": "Where the adultery took place",
     "reasonForDivorceAdulteryWhen": "When the adultery took place",
