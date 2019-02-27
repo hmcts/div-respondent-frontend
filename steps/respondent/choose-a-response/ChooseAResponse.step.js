@@ -16,6 +16,7 @@ const consts = {
   no: 'No',
   notAccept: 'NoNoAdmission',
   behavior: 'unreasonable-behaviour',
+  desertion: 'desertion',
   separation5yrs: 'separation-5-years'
 };
 
@@ -36,9 +37,9 @@ class ChooseAResponse extends Question {
     return this.res.locals.applicationFee['defended-petition-fee'].amount;
   }
 
-  get isBehaviour() {
+  get isBehaviourOrDesertion() {
     const reasonForDivorce = this.session.originalPetition.reasonForDivorce;
-    return reasonForDivorce === consts.behavior;
+    return reasonForDivorce === consts.behavior || reasonForDivorce === consts.desertion;
   }
 
   get form() {
@@ -62,7 +63,7 @@ class ChooseAResponse extends Question {
   values() {
     const response = this.fields.response.value;
 
-    if (this.isBehaviour) {
+    if (this.isBehaviourOrDesertion) {
       switch (response) {
       case consts.proceed:
         return { respWillDefendDivorce: consts.no };
@@ -71,7 +72,7 @@ class ChooseAResponse extends Question {
       case consts.defend:
         return { respWillDefendDivorce: consts.yes };
       default:
-        throw new Error(`Unknown response to behavior: '${response}'`);
+        throw new Error(`Unknown response to behavior or desertion: '${response}'`);
       }
     }
 
