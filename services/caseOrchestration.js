@@ -3,7 +3,6 @@ const CONF = require('config');
 const logger = require('services/logger').getLogger(__filename);
 
 const FORBIDDEN = 403;
-
 const COS_BASE_URI = `${CONF.services.caseOrchestration.baseUrl}`;
 
 const getPetition = req => {
