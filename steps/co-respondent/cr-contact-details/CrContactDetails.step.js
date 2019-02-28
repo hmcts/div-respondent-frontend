@@ -82,7 +82,7 @@ class CrContactDetails extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.CheckYourAnswers);
+    return redirectTo(this.journey.steps.CrCheckYourAnswers);
   }
 }
 

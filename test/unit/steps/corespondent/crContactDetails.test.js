@@ -1,6 +1,7 @@
 const modulePath = 'steps/co-respondent/cr-contact-details/CrContactDetails.step';
 const CrContactDetails = require(modulePath);
-const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
+const CrCheckYourAnswers = require(
+  'steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.step.js');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
@@ -173,7 +174,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(CrContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(CrContactDetails, fields, CrCheckYourAnswers);
   });
 
   it('redirects to next page when all details are supplied', () => {
@@ -182,7 +183,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(CrContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(CrContactDetails, fields, CrCheckYourAnswers);
   });
 
   it('renders the content', () => {
