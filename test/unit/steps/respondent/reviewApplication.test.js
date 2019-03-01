@@ -341,6 +341,7 @@ describe(modulePath, () => {
         'reasonForDivorceSeparationFiveYears',
         'reasonForDivorceSeparationFiveYearsBrokenDown',
         'reasonForDivorceDesertion',
+        'reasonForDivorceDesertionAgreed',
         'descriptionOfAdultery',
         'descriptionOfBehaviour',
         'descriptionOfDesertion',
@@ -762,13 +763,15 @@ describe(modulePath, () => {
         const session = {
           originalPetition: {
             jurisdictionConnection: {},
-            reasonForDivorce: 'desertion'
+            reasonForDivorce: 'desertion',
+            reasonForDivorceDesertionAgreed: 'Yes'
           }
         };
         const specificContent = [
           'reasonForDivorceDesertionBrokenDown',
           'reasonForDivorceDesertion',
-          'reasonForDivorceDesertionStatement'
+          'reasonForDivorceDesertionStatement',
+          'reasonForDivorceDesertionAgreed'
         ];
         return content(ReviewApplication, session, { specificContent });
       });

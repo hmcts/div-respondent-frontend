@@ -119,6 +119,7 @@
     "reasonForDivorceSeparationFiveYears2DatesRecent": "The most recent date is considered legally to be the date of separation.",
     "reasonForDivorceSeparationTwoYears2DatesRecent": "The most recent date is considered legally to be the date of separation.",
     "reasonForDivorceDesertion": "The applicant has given the date of desertion as ",
+    "reasonForDivorceDesertionAgreed": "The applicant stated that the respondent left without their agreement.",
     "descriptionOfDesertion": "Description of the desertion",
     "reasonForDivorceDesertionBrokenDown": "The respondent has deserted the applicant for a continuous period of at least two years immediately preceding the presentation of this application.",
     "reasonForDivorceDesertionStatement": "This is supported by the following statement from the applicant.",
