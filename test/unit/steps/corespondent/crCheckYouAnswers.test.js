@@ -52,7 +52,7 @@ describe(modulePath, () => {
 
     it('to Done if statement of true answered', () => {
       caseOrchestrationService.sendCoRespondentResponse.resolves();
-      const fields = { coRespStatementOfTruth: 'Yes' };
+      const fields = { statementOfTruth: 'Yes' };
       return question.redirectWithField(CrCheckYourAnswers, fields, Done);
     });
   });

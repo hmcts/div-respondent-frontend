@@ -57,7 +57,7 @@ class CrAdmitAdultery extends Question {
 
   values() {
     const doesAdmit = this.fields.response.value === this.const.admit;
-    return { coRespAdmitToAdultery: doesAdmit ? this.const.yes : this.const.no };
+    return { admitAdultery: doesAdmit ? this.const.yes : this.const.no };
   }
 
   get middleware() {

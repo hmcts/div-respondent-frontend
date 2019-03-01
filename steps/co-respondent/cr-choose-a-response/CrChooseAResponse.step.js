@@ -54,9 +54,9 @@ class CrChooseAResponse extends Question {
 
     switch (response) {
     case consts.proceed:
-      return { coRespDefendsDivorce: consts.no };
+      return { defendsDivorce: consts.no };
     case consts.defend:
-      return { coRespDefendsDivorce: consts.yes };
+      return { defendsDivorce: consts.yes };
     default:
       throw new Error(`Unknown response : '${response}'`);
     }

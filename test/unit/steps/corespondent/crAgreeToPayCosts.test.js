@@ -66,7 +66,7 @@ describe(modulePath, () => {
 
     const _values = step.values();
     expect(_values).to.be.an('object');
-    expect(_values).to.have.property('coRespAgreeToCosts', agreeToPayCosts);
+    expect(_values).to.have.deep.nested.property('costs.agreeToCosts', agreeToPayCosts);
   });
 
   it('when does not agree to pay the cost then reason required', () => {
@@ -91,8 +91,8 @@ describe(modulePath, () => {
 
     const _values = step.values();
     expect(_values).to.be.an('object');
-    expect(_values).to.have.property('coRespAgreeToCosts', coRespAgreeToCosts);
-    expect(_values).to.have.property('coRespCostsReason', coRespCostsReason);
+    expect(_values).to.have.deep.nested.property('costs.agreeToCosts', coRespAgreeToCosts);
+    expect(_values).to.have.deep.nested.property('costs.reason', coRespCostsReason);
   });
 
   it('returns correct answers if answered yes', () => {
