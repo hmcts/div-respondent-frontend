@@ -5,78 +5,69 @@
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
 {% block proposition_header %}
-  <div class="header-proposition">
+<div class="header-proposition">
     <div class="content">
-      <nav id="proposition-menu">
-        <a href="/" id="proposition-name">
-              {{ content.serviceName }}
-        </a>
-      </nav>
+        <nav id="proposition-menu">
+            <a href="/" id="proposition-name">
+                {{ content.serviceName }}
+            </a>
+        </nav>
     </div>
-  </div>
+</div>
 {% endblock %}
 
 {% block main_content %}
 
-  <div class="govuk-box-highlight">
+<div class="govuk-box-highlight">
     <h1 class="bold-large">{{ content.responseSent }}</h1>
     <p class="text-reference">
-      {{ content.referenceNumber }}<br>
-      <strong class="text-reference-number">{{ session.originalPetition.caseReference | safe }}</strong>
+        {{ content.referenceNumber }}<br>
+        <strong class="text-reference-number">{{ session.originalPetition.caseReference | safe }}</strong>
     </p>
-  </div>
+</div>
 
-  <p class="text">{{ content.emailConfirmation }} <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
-  </p>
+<p class="text">{{ content.emailConfirmation }}
+    <span class="bold-small">{{ coRespEmailAddress | safe }}</span>
+</p>
 
-  {{
-    progressList({
-      one: {
-        label: content.husbandWifeApplied,
-        complete: true
-      },
-      two: {
-        label: content.youMustRespond,
-        complete: true
-      },
-      three: {
-        label: content.getDecreeNisi,
-        current: true
-      },
-      four: {
-        label: content.madeFinal
-      }
-    })
-  }}
+<h2 class="heading-medium">{{ content.whatHappensNext }}</h2>
+<p class="text">{{ content.yourResponse }}</p>
 
-  <h2 class="heading-medium">{{ content.ifYouNeedHelp }}</h2>
-  <p class="text">{{ content.ifYouNeedHelpText | safe }}</p>
+{% if session.originalPetition.claimsCosts == "Yes" %}
+<h2 class="heading-medium">{{ content.claimedCostsTitle }}</h2>
+<p>{{ content.claimedCostsText }}</p>
 
-  <h2 class="heading-medium">{{ content.helpImproveHeading }}</h2>
-  <p class="text">{{ content.helpImproveText | safe }}</p>
+<h3 class="heading-small">{{ content.objectingToCostsOrderTitle }}</h3>
+<p>{{ content.objectingToCostsOrderText1 }}</p>
+<p class="text">{{ content.objectingToCostsOrderText2 }}</p>
+{% endif %}
 
-  {% block problems_with_this_page -%}
-  {%- endblock %}
+<h2 class="heading-medium">{{ content.ifYouNeedHelp }}</h2>
+<p class="text">{{ content.ifYouNeedHelpText | safe }}</p>
+
+<h2 class="heading-medium">{{ content.helpImproveHeading }}</h2>
+<p class="text">{{ content.helpImproveText | safe }}</p>
+
+{% block problems_with_this_page -%}
+{%- endblock %}
 {% endblock %}
 
 {% block one_third %}
-  <aside class="govuk-related-items" role="complementary">
+<aside class="govuk-related-items" role="complementary">
     <h3 class="heading-small">{{ content.gettingHelp }}</h3>
-
     <ul class="font-xsmall">
-      <li>
-        <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        {{ session.divorceCenterEmail | safe }}
-        <br>
-      </li>
-      <li>
-        <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ session.divorceCenterPhoneNumber | safe }}<br>
-        {{ content.divorceCenterHours }}<br>
-      </li>
-      {% include "includes/sideMenuCourtDetails.html" %}
+        <li>
+            <strong class="bold-xsmall">{{ content.email }}</strong><br>
+            {{ session.divorceCenterEmail | safe }}
+            <br>
+        </li>
+        <li>
+            <strong class="bold-xsmall">{{ content.phone }}</strong><br>
+            {{ session.divorceCenterPhoneNumber | safe }}<br>
+            {{ content.divorceCenterHours }}<br>
+        </li>
+        {% include "includes/sideMenuCourtDetails.html" %}
     </ul>
-    
-    {% include "includes/sideMenuGuidanceLinks.html" %}
-  </aside>
+    {% include "includes/sideMenuGuidanceLinksForCoRespondent.html" %}
+</aside>
 {% endblock %}
