@@ -59,7 +59,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to AdmitAdultery', () => {
-    const fields = { coRespConfirmReadPetition: 'Yes' };
+    const fields = { confirmReadPetition: 'Yes' };
     return question.redirectWithField(CrReviewApplication, fields, CrAdmitAdultery, {});
   });
 

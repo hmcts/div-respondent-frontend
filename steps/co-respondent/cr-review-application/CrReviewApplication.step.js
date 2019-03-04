@@ -48,17 +48,17 @@ class CrReviewApplication extends Question {
       .valid(answers)
       .required();
 
-    const coRespConfirmReadPetition = text
+    const confirmReadPetition = text
       .joi(this.content.errors.required, validAnswers);
 
-    return form({ coRespConfirmReadPetition });
+    return form({ confirmReadPetition });
   }
 
   answers() {
     const question = content.readConfirmationQuestion;
     return answer(this, {
       question,
-      answer: this.fields.coRespConfirmReadPetition.value === this.const.yes ? content.readConfirmationYes : content.readConfirmationNo
+      answer: this.fields.confirmReadPetition.value === this.const.yes ? content.readConfirmationYes : content.readConfirmationNo
     });
   }
 

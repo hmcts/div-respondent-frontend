@@ -60,14 +60,14 @@ class CrAgreeToPayCosts extends Question {
     const agree = this.fields.crAgreeToPayCosts.agree.value;
     const noReason = this.fields.crAgreeToPayCosts.noReason.value;
 
-    const values = {};
-    values.coRespAgreeToCosts = agree;
+    const costResponse = { costs: {} };
+
+    costResponse.costs.agreeToCosts = agree;
 
     if (agree === no) {
-      values.coRespCostsReason = noReason;
+      costResponse.costs.reason = noReason;
     }
-
-    return values;
+    return costResponse;
   }
 
   answers() {
