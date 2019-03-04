@@ -2,7 +2,6 @@ const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
 
-//  WIP
 class CrDone extends ExitPoint {
   static get path() {
     return config.paths.coRespondent.done;
@@ -10,6 +9,13 @@ class CrDone extends ExitPoint {
 
   get session() {
     return this.req.session;
+  }
+
+  get coRespEmailAddress() {
+    if (this.session.originalPetition && this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.contactInfo) {
+      return this.session.originalPetition.coRespondentAnswers.contactInfo.emailAddress;
+    }
+    return '';
   }
 
   get middleware() {
