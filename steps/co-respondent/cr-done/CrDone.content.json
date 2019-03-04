@@ -3,42 +3,14 @@
     "responseSent": "Response sent",
     "referenceNumber": "Your reference number is",
     "emailConfirmation": "Email confirmation has been sent to",
+    "whatHappensNext":"What happens next",
+    "yourResponse":"Your response will be sent to the applicant. They can then apply for the court order which will divorce them and the respondent.",
 
-    "husbandWifeApplied": "Your {{ session.divorceWho }} applies",
-    "youMustRespond": "You must respond",
-    "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
-    "madeFinal": "Divorce is complete",
-
-    "notDefendedHeading":"What happens next",
-    "notDefendedText1":"Your response will be checked and then sent to your {{ session.divorceWho }}. They can then apply for the court order which will divorce you.",
-    "notDefendedText2":"The order (known as a decree) is made in 2 stages. You're only divorced once both stages are complete.",
-    "notDefendedListItem1":"The 'decree nisi', which shows that the court agrees that you're entitled to a divorce.",
-    "notDefendedListItem2":"The 'decree absolute', which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.",
-    "notDefendedText3":"You'll be sent an email after each stage.",
-    "notDefendedText4":"The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn't be given a divorce.",
-    "notDefendedText5":"Contact the divorce centre if you don't hear anything back after 6 weeks.",
-
-    "notDefendedAdultery1": "The court needs to be sure that adultery took place for it to be used as the reason for divorce (legally known as the 'fact').",
-    "notDefendedAdultery2": "To continue with the divorce your {{ session.divorceWho }} will need to either:",
-    "notDefendedAdulteryLi1": "change their reason for divorce (and pay a fee of £{{ feesAmendDivorce }})",
-    "notDefendedAdulteryLi2": "provide evidence of the adultery",
-    "notDefendedAdultery3": "You'll be contacted by the court when your {{ session.divorceWho }} has made their decision.",
-
-    "notDefended2YearsNoConsent": "As you haven't given your consent, the divorce won't be able to continue based on the 2 years separation with consent 'fact' (reason for divorce).",
-    "notDefended2YearsNoConsent1": "The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.",
-    "notDefended2YearsNoConsent2": "Your {{ session.divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs.",
-    "notDefended2YearsNoConsent3": "You'll be contacted by the court when your {{ session.divorceWho }} has made their decision.",
-    "notDefended2YearsNoConsentH2": "If you decide that you want to consent to the divorce",
-    "notDefended2YearsNoConsent4": "You can change your mind and give your consent to the divorce at any time. You'll need to do this in writing. Contact the divorce centre if you want to do this.",
-
-    "defendedHeading":"What to do now",
-    "defendedText1":"You have 21 days to submit the '<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\">answer to a divorce application</a>' form from the date that you first signed into your divorce account.",
-    "defendedText2":"Download and fill in the paper form.",
-    "defendedText3":"Post the form to:",
-    "defendedText4":"You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to ",
-    "defendedText4Link": "<a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get help with paying this fee</a>",
-    "defendedText5":"You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
-    "defendedText6":" If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defend the divorce.",
+    "claimedCostsTitle":"If the applicant has claimed their costs",
+    "claimedCostsText":"The court will make a decision on this at the same time as it considers whether the divorce should be granted. You'll be sent an email when the decision has been made, and the date of the hearing at which the cost order will be made.",
+    "objectingToCostsOrderTitle":"Objecting to a costs order",
+    "objectingToCostsOrderText1":"You can object to a costs order if you don't think that you should pay it. You'll need to email the court at least 14 days before the hearing, giving your reasons.",
+    "objectingToCostsOrderText2":"You can contact the Courts and Tribunals Service Centre if you don't hear anything back after 6 weeks.",
 
     "ifYouNeedHelp": "If you need help",
     "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\">solicitor or legal adviser</a>.",
@@ -53,16 +25,10 @@
     "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
     "guidance": {
       "title": "Guidance on GOV.UK",
-      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Responding to a divorce application</a>",
-      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
-      "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How to respond to a divorce application</a>",
+      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Get a divorce</a>",
       "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
       "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
-    },
-    "financialSituationHeading": "What you need to do now",
-    "financialSituationText1": "You need to fill in another form and send it to the court if you want it to consider your financial situation after the divorce.",
-    "financialSituationText2": "Download and complete",
-    "financialSituationText3": "Post the form to:",
-    "financialSituationFormLink": "<a href=\"https://www.gov.uk/government/publications/form-b-notice-of-application-to-consider-the-financial-position-of-the-respondent-after-divorce-dissolution\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Form B: Notice of application to consider the financial position of the respondent after divorce</a>."
+    }
   }
 }
