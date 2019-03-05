@@ -257,7 +257,6 @@
     </p>
 
     <p class="text">{{ content.reasonForDivorceAdulteryStatement }}</p>
-    <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
 
     {% if session.originalPetition.reasonForDivorceAdulteryKnowWhere == "Yes" %}
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhere }}</p>
@@ -268,8 +267,17 @@
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhen }}</p>
       <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryWhenDetails }}"</p>
     {% endif %}
+
+    <p class="heading-small">{{ content.reasonForDivorceAdulteryDetails }}</p>
+    <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
+
+   {% if session.originalPetition.reasonForDivorceAdulterySecondHandInfo == "Yes"%}
+    <p class="text">{{ content.reasonForDivorceAdulterySecondHandInfo }}</p>
+    <p class="text">"{{ session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails }}"</p>
+   {% endif %}
+
   {% endif %}
-  
+
   <details>
     <summary aria-controls="details-content-3" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
