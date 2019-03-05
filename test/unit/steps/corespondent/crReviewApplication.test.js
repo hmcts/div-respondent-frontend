@@ -207,11 +207,13 @@ describe(modulePath, () => {
       const ignoreContent = [
         'coRespondentsCorrespondenceAddress',
         'coRespondent',
+        'reasonForDivorceAdulteryDetails',
         'reasonForDivorceAdulteryCorrespondentNamed',
         'reasonForDivorceAdulteryCorrespondentNotNamed',
         'reasonForDivorceAdulteryStatement',
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
+        'reasonForDivorceAdulterySecondHandInfo',
         'claimingCostsFromRespondentCoRespondent',
         'claimingCostsFromCoRespondent',
         'claimingCostsFromRespondent',
