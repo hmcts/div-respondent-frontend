@@ -7,6 +7,7 @@
       "respondent": "Respondent",
       "whatThisMeans": "What this means",
       "divorceRoleExplain": "The applicant is the person who has applied for a divorce (legally known as the petitioner). The respondent is their husband or wife.",
+      "coRespRoleExplain": "The co-respondent is the person the applicant claims the respondent committed adultery with.",
       "aboutTheMarriage": "About the marriage",
       "whoTheMarriage": "Who the marriage is between",
       "whoTheMarriageNames": "{{ session.originalPetition.marriagePetitionerName }} and {{ session.originalPetition.marriageRespondentName }} (as shown on the marriage certificate)",
