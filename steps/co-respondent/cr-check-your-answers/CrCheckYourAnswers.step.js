@@ -23,7 +23,7 @@ class CrCheckYourAnswers extends CYA {
 
   get form() {
     return form({
-      coRespStatementOfTruth: text.joi(
+      statementOfTruth: text.joi(
         this.errorMessage,
         Joi.required().valid('Yes')
       )
@@ -36,7 +36,11 @@ class CrCheckYourAnswers extends CYA {
 
   sendToAPI(req) {
     const json = this.journey.values;
-    return caseOrchestration.sendCoRespondentResponse(req, json);
+    const coRespAnswer = {};
+
+    coRespAnswer.coRespondentAnswers = json;
+
+    return caseOrchestration.sendCoRespondentResponse(req, coRespAnswer);
   }
 
   next() {

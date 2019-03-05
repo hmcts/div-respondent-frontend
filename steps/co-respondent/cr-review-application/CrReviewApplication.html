@@ -64,6 +64,9 @@
     </summary>
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p class="text">{{ content.divorceRoleExplain }}</p>
+      {% if session.originalPetition.reasonForDivorce == "adultery" and session.originalPetition.reasonForDivorceAdulteryWishToName == "Yes" %}
+        <p class="text">{{ content.coRespRoleExplain }}</p>
+      {% endif %}
     </div>
   </details>
 
@@ -412,7 +415,7 @@
   {% call formSection() %}
     {{
       selectionButtons(
-        fields.coRespConfirmReadPetition,
+        fields.confirmReadPetition,
         content.statementOfTruth,
         options = [
           { label: content.fields.statementOfTruth.yes, value: "Yes" }

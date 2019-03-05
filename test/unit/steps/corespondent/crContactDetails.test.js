@@ -1,9 +1,9 @@
 const modulePath = 'steps/co-respondent/cr-contact-details/CrContactDetails.step';
 const CrContactDetails = require(modulePath);
-const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
+const CrCheckYourAnswers = require(
+  'steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
-
 const CrContactDetailsContent = require(
   'steps/co-respondent/cr-contact-details/CrContactDetails.content'
 );
@@ -44,9 +44,9 @@ describe(modulePath, () => {
 
     const _values = step.values();
     expect(_values).to.be.an('object');
-    expect(_values).not.to.have.property('coRespPhoneNumber');
-    expect(_values).to.have.property('coRespConsentToEmail', consent);
-    expect(_values).to.have.property('coRespContactMethodIsDigital', consent);
+    expect(_values).not.to.have.deep.nested.property('contactInfo.phoneNumber');
+    expect(_values).to.have.deep.nested.property('contactInfo.consentToReceivingEmails', consent);
+    expect(_values).to.have.deep.nested.property('contactInfo.contactMethodIsDigital', consent);
   });
 
   it('when all details are supplied return correct value', () => {
@@ -71,9 +71,9 @@ describe(modulePath, () => {
 
     const _values = step.values();
     expect(_values).to.be.an('object');
-    expect(_values).to.have.property('coRespPhoneNumber', telephone);
-    expect(_values).to.have.property('coRespConsentToEmail', consent);
-    expect(_values).to.have.property('coRespContactMethodIsDigital', consent);
+    expect(_values).to.have.deep.nested.property('contactInfo.phoneNumber', telephone);
+    expect(_values).to.have.deep.nested.property('contactInfo.consentToReceivingEmails', consent);
+    expect(_values).to.have.deep.nested.property('contactInfo.contactMethodIsDigital', consent);
   });
 
   it('when phone number is not supplied returns correct answers', () => {
@@ -173,7 +173,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(CrContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(CrContactDetails, fields, CrCheckYourAnswers);
   });
 
   it('redirects to next page when all details are supplied', () => {
@@ -182,7 +182,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(CrContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(CrContactDetails, fields, CrCheckYourAnswers);
   });
 
   it('renders the content', () => {
