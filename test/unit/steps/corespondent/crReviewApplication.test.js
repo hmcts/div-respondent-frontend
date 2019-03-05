@@ -178,9 +178,11 @@ describe(modulePath, () => {
           reasonForDivorce: 'adultery',
           reasonForDivorceAdulteryKnowWhere: 'Yes',
           reasonForDivorceAdulteryKnowWhen: 'Yes',
+          reasonForDivorceAdulteryKnowSecondHandInfo: 'Yes',
           reasonForDivorceAdulteryDetails: 'Here are some adultery details',
           reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
-          reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
+          reasonForDivorceAdulteryWhenDetails: 'When the adultery happened',
+          reasonForDivorceAdulterySecondHandInfoDetails: 'Information from another person'
         }
       };
       return content(
@@ -190,7 +192,8 @@ describe(modulePath, () => {
           specificValues: [
             session.originalPetition.reasonForDivorceAdulteryDetails,
             session.originalPetition.reasonForDivorceAdulteryWhereDetails,
-            session.originalPetition.reasonForDivorceAdulteryWhenDetails
+            session.originalPetition.reasonForDivorceAdulteryWhenDetails,
+            session.originalPetition.reasonForDivorceAdulterySecondHandInfo
           ]
         }
       );
@@ -245,7 +248,7 @@ describe(modulePath, () => {
       return content(CrReviewApplication, session, { ignoreContent });
     });
 
-    context('intro text - claim costs & finantial order', () => {
+    context('intro text - claim costs & financial order', () => {
       it('from respondent and co-respondent', () => {
         const session = {
           originalPetition: {
@@ -558,6 +561,20 @@ describe(modulePath, () => {
             CrReviewApplication,
             session,
             { specificContent: [ 'reasonForDivorceAdulteryWhen' ] });
+        });
+        it('has second hand information', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfo: 'Yes'
+            }
+          };
+          return content(
+            CrReviewApplication,
+            session,
+            { specificContent: [ 'reasonForDivorceAdulterySecondHandInfo' ] }
+          );
         });
       });
     });
