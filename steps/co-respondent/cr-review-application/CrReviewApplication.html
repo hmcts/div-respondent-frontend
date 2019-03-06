@@ -274,7 +274,8 @@
     <p class="heading-small">{{ content.reasonForDivorceAdulteryDetails }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
 
-   {% if session.originalPetition.reasonForDivorceAdulterySecondHandInfo == "Yes"%}
+   {% if session.originalPetition.reasonForDivorceAdulterySecondHandInfo == "Yes" and
+      session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails %}
     <p class="text">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails }}"</p>
    {% endif %}
