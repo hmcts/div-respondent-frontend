@@ -107,7 +107,7 @@
       "reasonForDivorceAdulteryDetails": "Description of the adultery",
       "reasonForDivorceAdulteryWhere": "Where the adultery took place",
       "reasonForDivorceAdulteryWhen": "When the adultery took place",
-      "reasonForDivorceAdulterySecondHandInfo": "The applicant stated that some of this information was given to them by another person and provided the following details: ",
+      "statementOfSecondHandInformationAboutAdultery": "The applicant stated that some of this information was given to them by another person and provided the following details: ",
 
       "notClaimingForDivorce": "The applicant is not claiming the costs of the divorce.",
       "claimingCostsFromRespondentCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent and the co-respondent.",
