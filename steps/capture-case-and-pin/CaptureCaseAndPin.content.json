@@ -6,6 +6,7 @@
     "referenceNumberLabel": "This is a 16-digit number",
     "securityAccessCode": "Access code",
     "securityAccessCodeLabel": "Your code is 8 characters long",
+    "infoAboutSetup":"It may take a few minutes to finish setting up your account. Please don't leave this page or refresh it.",
     "thereWasAProblem": "There was a problem",
     "referenceNumberOrPinDoNotMatch": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
     "errorLinkingCase": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
