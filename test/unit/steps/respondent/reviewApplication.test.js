@@ -210,7 +210,7 @@ describe(modulePath, () => {
       );
     });
 
-    it('displays coorespondent names', () => {
+    it('displays co-respondent names', () => {
       const session = {
         originalPetition: {
           jurisdictionConnection: {},
@@ -224,6 +224,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
+          specificContent: ['coRespRoleExplain'],
           specificValues: [
             session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName,
             session.originalPetition.reasonForDivorceAdultery3rdPartyLastName
@@ -343,6 +344,7 @@ describe(modulePath, () => {
         'reasonForDivorceDesertion',
         'reasonForDivorceDesertionAgreed',
         'descriptionOfAdultery',
+        'coRespRoleExplain',
         'descriptionOfBehaviour',
         'descriptionOfDesertion',
         'reasonForDivorceDesertionBrokenDown',
