@@ -1,19 +1,19 @@
 {
   "en": {
     "title": "Enter these details from the letter",
-    "instructions": "Enter the case number and access code from the letter the court sent you.",
-    "referenceNumber": "Case number",
+    "instructions": "Enter the reference number and access code from the court's letter.",
+    "referenceNumber": "Reference number",
     "referenceNumberLabel": "This is a 16-digit number",
     "securityAccessCode": "Access code",
     "securityAccessCodeLabel": "Your code is 8 characters long",
-    "infoAboutSetup":"It may take a few minutes to finish setting up your account. Please don't leave this page or refresh it.",
+    "infoAboutSetup":"It may take a few minutes to link your account with this case. Please don't leave this page or refresh it.",
     "thereWasAProblem": "There was a problem",
-    "referenceNumberOrPinDoNotMatch": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
-    "errorLinkingCase": "This case number and/or access code are incorrect. Try entering these details again. Contact the divorce centre if you need help.",
+    "referenceNumberOrPinDoNotMatch": "The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
+    "errorLinkingCase": "The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
     "errors": {
-      "referenceNumberRequired": "Enter the 16-digit case number to continue",
-      "securityAccessCodeRequired": "Enter the access code to continue",
-      "securityAccessCodeAlphanumericOnly": "The access code cannot contain special characters"
+      "referenceNumberRequired": "Enter the 16-digit reference number to continue.",
+      "securityAccessCodeRequired": "Enter the access code to continue.",
+      "securityAccessCodeAlphanumericOnly": "The access code contains letters and numbers only."
     }
   }
 }
