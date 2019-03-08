@@ -12,7 +12,8 @@ const consts = {
   proceed: 'proceed',
   defend: 'defend',
   yes: 'Yes',
-  no: 'No'
+  no: 'No',
+  coRespondent: 'correspondent'
 };
 
 class CrChooseAResponse extends Question {
@@ -87,11 +88,15 @@ class CrChooseAResponse extends Question {
   next() {
     const response = this.fields.response;
     const isDefend = response.value === consts.defend;
+    const costClaim = this.req.session.originalPetition.claimsCostsFrom;
+
+    const condition = costClaim && costClaim.includes(consts.coRespondent);
 
     return branch(
       redirectTo(this.journey.steps.CrConfirmDefence)
         .if(isDefend),
-      redirectTo(this.journey.steps.CrAgreeToPayCosts)
+      redirectTo(this.journey.steps.CrAgreeToPayCosts).if(condition),
+      redirectTo(this.journey.steps.CrContactDetails)
     );
   }
 }

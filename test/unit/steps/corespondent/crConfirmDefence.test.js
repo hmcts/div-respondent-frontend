@@ -1,6 +1,9 @@
 const modulePath = 'steps/co-respondent/cr-confirm-defence/CrConfirmDefence.step.js';
 const CrConfirmDefence = require(modulePath);
 const ChooseAResponse = require('steps/co-respondent/cr-choose-a-response/CrChooseAResponse.step');
+const CrContactDetails = require(
+  'steps/co-respondent/cr-contact-details/CrContactDetails.step'
+);
 const CrConfirmDefenceContent = require(
   'steps/co-respondent/cr-confirm-defence/CrConfirmDefence.content'
 );
@@ -51,14 +54,38 @@ describe(modulePath, () => {
     });
   });
 
-  it('redirects to the agree to pay costs page on confirmation', () => {
+  it('redirects to the CrAgreeToPayCosts on confirmation & if petitioner claims costs', () => {
     const fields = { response: 'confirm' };
-    return question.redirectWithField(CrConfirmDefence, fields, CrAgreeToPayCosts);
+    const session = {
+      originalPetition: {
+        claimsCostsFrom: [
+          'respondent',
+          'correspondent'
+        ]
+      }
+    };
+    return question.redirectWithField(CrConfirmDefence, fields, CrAgreeToPayCosts, session);
+  });
+
+
+  it('redirects - CrContactDetails page on confirmation & petitioner not claim costs', () => {
+    const fields = { response: 'confirm' };
+    const session = {
+      originalPetition: {
+        claimsCostsFrom: ['respondent']
+      }
+    };
+    return question.redirectWithField(CrConfirmDefence, fields, CrContactDetails, session);
   });
 
   it('redirects back to cr choose a response page on changing response', () => {
     const fields = { response: 'changeResponse' };
-    return question.redirectWithField(CrConfirmDefence, fields, ChooseAResponse);
+    const session = {
+      originalPetition: {
+        claimsCostsFrom: ['respondent']
+      }
+    };
+    return question.redirectWithField(CrConfirmDefence, fields, ChooseAResponse, session);
   });
 
   it('shows error if question is not answered', () => {
