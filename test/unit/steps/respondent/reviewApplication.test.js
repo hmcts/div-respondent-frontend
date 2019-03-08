@@ -210,7 +210,7 @@ describe(modulePath, () => {
       );
     });
 
-    it('displays coorespondent names', () => {
+    it('displays co-respondent names', () => {
       const session = {
         originalPetition: {
           jurisdictionConnection: {},
@@ -224,6 +224,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
+          specificContent: ['coRespRoleExplain'],
           specificValues: [
             session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName,
             session.originalPetition.reasonForDivorceAdultery3rdPartyLastName
@@ -341,7 +342,9 @@ describe(modulePath, () => {
         'reasonForDivorceSeparationFiveYears',
         'reasonForDivorceSeparationFiveYearsBrokenDown',
         'reasonForDivorceDesertion',
+        'reasonForDivorceDesertionAgreed',
         'descriptionOfAdultery',
+        'coRespRoleExplain',
         'descriptionOfBehaviour',
         'descriptionOfDesertion',
         'reasonForDivorceDesertionBrokenDown',
@@ -762,13 +765,15 @@ describe(modulePath, () => {
         const session = {
           originalPetition: {
             jurisdictionConnection: {},
-            reasonForDivorce: 'desertion'
+            reasonForDivorce: 'desertion',
+            reasonForDivorceDesertionAgreed: 'Yes'
           }
         };
         const specificContent = [
           'reasonForDivorceDesertionBrokenDown',
           'reasonForDivorceDesertion',
-          'reasonForDivorceDesertionStatement'
+          'reasonForDivorceDesertionStatement',
+          'reasonForDivorceDesertionAgreed'
         ];
         return content(ReviewApplication, session, { specificContent });
       });

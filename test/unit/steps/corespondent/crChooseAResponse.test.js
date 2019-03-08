@@ -4,6 +4,9 @@ const CrChooseAResponse = require(modulePath);
 const CrAgreeToPayCosts = require(
   'steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayCosts.step'
 );
+const CrContactDetails = require(
+  'steps/co-respondent/cr-contact-details/CrContactDetails.step'
+);
 const CrConfirmDefence = require('steps/co-respondent/cr-confirm-defence/CrConfirmDefence.step');
 
 const idam = require('services/idam');
@@ -57,9 +60,28 @@ describe(modulePath, () => {
     return question.redirectWithField(CrChooseAResponse, fields, CrConfirmDefence, session);
   });
 
-  it('redirects to CrAgreeToPayCosts page when agreeing with divorce', () => {
+  it('redirects to CrAgreeToPayCosts page, agreeing divorce & petitioner cliams costs', () => {
     const fields = { response: 'proceed' };
-    return question.redirectWithField(CrChooseAResponse, fields, CrAgreeToPayCosts, session);
+    const sess = {
+      originalPetition: {
+        claimsCostsFrom: [
+          'respondent',
+          'correspondent'
+        ]
+      }
+    };
+    return question.redirectWithField(CrChooseAResponse, fields, CrAgreeToPayCosts, sess);
+  });
+
+
+  it('redirects to CrContactDetails page when agreeing with divorce & not claiming costs', () => {
+    const fields = { response: 'proceed' };
+    const sess = {
+      originalPetition: {
+        claimsCostsFrom: ['respondent']
+      }
+    };
+    return question.redirectWithField(CrChooseAResponse, fields, CrContactDetails, sess);
   });
 
   it('shows error if question is not answered', () => {

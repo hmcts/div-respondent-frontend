@@ -64,6 +64,9 @@
     </summary>
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p class="text">{{ content.divorceRoleExplain }}</p>
+      {% if session.originalPetition.reasonForDivorce == "adultery" and session.originalPetition.reasonForDivorceAdulteryWishToName == "Yes" %}
+        <p class="text">{{ content.coRespRoleExplain }}</p>
+      {% endif %}
     </div>
   </details>
 
@@ -322,9 +325,12 @@
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "desertion" %}
-    <p class="text">{{ content.reasonForDivorceDesertionBrokenDown }}
+    <p class="text">{{ content.reasonForDivorceDesertionBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceDesertionStatement }}</p>
     <p class="text">{{ content.reasonForDivorceDesertion }} {{ session.originalPetition.reasonForDivorceDesertionDate | date }}.</p>
+    {% if session.originalPetition.reasonForDivorceDesertionAgreed == "Yes" %}
+       <p class="text">{{ content.reasonForDivorceDesertionAgreed }}</p>
+    {% endif %}
     <p class="heading-small">{{ content.descriptionOfDesertion }}</p>
     <p class="text">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}

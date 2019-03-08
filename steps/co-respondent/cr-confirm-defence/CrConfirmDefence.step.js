@@ -12,7 +12,8 @@ const { METHOD_NOT_ALLOWED } = require('http-status-codes');
 
 const values = {
   confirm: 'confirm',
-  changeResponse: 'changeResponse'
+  changeResponse: 'changeResponse',
+  coRespondent: 'correspondent'
 };
 
 class CrConfirmDefence extends Question {
@@ -92,14 +93,19 @@ class CrConfirmDefence extends Question {
   }
 
   next() {
-    const doesConfirm = this.fields.response.value === this.const.confirm;
+    const changeResponse = this.fields.response.value === this.const.changeResponse;
+    const costClaim = this.req.session.originalPetition.claimsCostsFrom;
+
+    const condition = costClaim && costClaim.includes(this.const.coRespondent);
+
     if (this.req.session.previouslyConfirmed === false) {
       // user already answered this page, avoid infinite redirect by forcing journey
       return goTo(this.journey.steps.CrAgreeToPayCosts);
     }
     return branch(
-      redirectTo(this.journey.steps.CrAgreeToPayCosts).if(doesConfirm),
-      redirectTo(this.journey.steps.CrChooseAResponse)
+      redirectTo(this.journey.steps.CrChooseAResponse).if(changeResponse),
+      redirectTo(this.journey.steps.CrAgreeToPayCosts).if(condition),
+      redirectTo(this.journey.steps.CrContactDetails)
     );
   }
 }
