@@ -12,12 +12,12 @@
       "proceed": {
         "heading": "I will let the application for divorce proceed",
         "summary": "Choose this option if you don't want to try to prevent the divorce (you don't intend to 'defend' it).",
-        "answer": "I will let the application for divorce proceed and won’t try to prevent it (I don’t intend to ‘defend’ it)"
+        "answer": "I do not dispute the allegations made in the application (I do not intend to defend)."
       },
       "defend": {
         "heading": "I disagree with the application for divorce",
         "summary": "Choose this option if you disagree that the divorce should be based on the allegation of adultery (you intend to 'defend' it).",
-        "answer": "I don’t accept the allegations made in the application (I intend to defend it)."
+        "answer": "I dispute the allegations made in the application (I intend to defend)."
       }
     }
   }
