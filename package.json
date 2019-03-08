@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "@hmcts/div-idam-express-middleware": "^6.3.5",
-    "@hmcts/look-and-feel": "^2.1.1",
+    "@hmcts/look-and-feel": "https://github.com/hmcts/look-and-feel.git#ff20369f44943b884464a3edff77e9d3e615c39c",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.0.0",
