@@ -17,7 +17,7 @@
       "defend": {
         "heading": "I disagree with the application for divorce",
         "summary": "Choose this option if you disagree that the divorce should be based on the allegation of adultery (you intend to 'defend' it).",
-        "answer": "I will try to prevent the divorce based on this application (I intend to ‘defend’ it)"
+        "answer": "I don’t accept the allegations made in the application (I intend to defend it)."
       }
     }
   }
