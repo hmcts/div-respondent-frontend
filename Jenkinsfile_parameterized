@@ -35,7 +35,7 @@ withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.
     sh 'yarn test:validation'
   }
 
-  before('funtionalTest:saat') {
+  before('functionalTest:saat') {
     // required for running functional tests on CI
     env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-saat.service.core-compute-saat.internal'
     env.PREVIEW_ENV = 'true'

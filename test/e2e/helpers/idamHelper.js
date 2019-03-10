@@ -19,7 +19,7 @@ const idamArgs = {
 class IdamHelper extends Helper {
   createAUser() {
     const randomString = randomstring.generate({
-      length: 8,
+      length: 16,
       charset: 'numeric'
     });
     const emailName = `divorce+rfe-test-${randomString}`;
@@ -29,7 +29,7 @@ class IdamHelper extends Helper {
     idamArgs.testEmail = testEmail;
     idamArgs.testPassword = testPassword;
     idamArgs.testGroupCode = 'divorce-private-beta';
-    idamArgs.roles = [{ code: 'citizen' }];
+    idamArgs.roles = [{ code: 'citizen' }, { code: 'caseworker-divorce-courtadmin' }];
 
     idamConfigHelper.setTestEmail(testEmail);
     idamConfigHelper.setTestPassword(testPassword);
