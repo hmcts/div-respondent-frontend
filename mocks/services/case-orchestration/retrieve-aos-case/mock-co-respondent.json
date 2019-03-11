@@ -156,6 +156,10 @@
     "legalProceedings": "No",
     "financialOrder": "No",
     "claimsCosts": "No",
+    "claimsCostsFrom": [
+      "respondent",
+      "correspondent"
+    ],
     "reasonForDivorceAdulteryIsNamed": "Yes",
     "claimsCostsAppliedForFees": "false",
     "reasonForDivorceClaiming5YearSeparation": "false",
