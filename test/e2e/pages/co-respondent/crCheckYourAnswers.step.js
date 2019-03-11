@@ -20,8 +20,13 @@ function submitApplication() {
   this.click(content.en.submit);
 }
 
+function none() {
+  this.click(content.en.submit);
+}
+
 module.exports = {
   seeCrCheckYourAnswersPage,
   confirmInformationIsTrue,
-  submitApplication
+  submitApplication,
+  none
 };
