@@ -28,7 +28,8 @@ describe(modulePath, () => {
           '\'self\'',
           '\'unsafe-inline\'',
           'www.google-analytics.com',
-          'hmctspiwik.useconnect.co.uk'
+          'hmctspiwik.useconnect.co.uk',
+          'www.googletagmanager.com'
         ],
         connectSrc: ['\'self\''],
         mediaSrc: ['\'self\''],

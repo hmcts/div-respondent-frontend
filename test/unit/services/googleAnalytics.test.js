@@ -30,7 +30,9 @@ describe('Google analytics', () => {
       .get()
       .expect(httpStatus.OK)
       .text(pageContent => {
-        const googleAnalyticsCodeExists = pageContent.includes('<!-- Google Analytics -->');
+        const googleAnalyticsCodeExists = pageContent.includes(
+          '<!-- Global site tag (gtag.js) - Google Analytics -->'
+        );
         const googleAnalyticsIdExists = pageContent.includes(googleAnalyticsId);
         expect(googleAnalyticsCodeExists).to.eql(true);
         return expect(googleAnalyticsIdExists).to.eql(true);
