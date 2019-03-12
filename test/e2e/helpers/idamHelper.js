@@ -28,7 +28,7 @@ class IdamHelper extends Helper {
 
     idamArgs.testEmail = testEmail;
     idamArgs.testPassword = testPassword;
-    idamArgs.testGroupCode = 'divorce-private-beta';
+    idamArgs.testGroupCode = 'citizens';
     idamArgs.roles = [{ code: 'citizen' }, { code: 'caseworker-divorce-courtadmin' }];
 
     idamConfigHelper.setTestEmail(testEmail);
