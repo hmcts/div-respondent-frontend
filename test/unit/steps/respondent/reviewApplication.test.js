@@ -546,14 +546,19 @@ describe(modulePath, () => {
       it('for both resident', () => {
         const session = {
           originalPetition: {
-            jurisdictionConnection: { A: '' },
+            jurisdictionConnection: { A: '', C: '' },
             reasonForDivorce: 'adultery'
           }
         };
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'jurisdictionConnectionBothResident' ] });
+          {
+            specificContent: [
+              'jurisdictionConnectionBothResident',
+              'jurisdictionConnectionRespondent'
+            ]
+          });
       });
       it('for one resides', () => {
         const session = {
