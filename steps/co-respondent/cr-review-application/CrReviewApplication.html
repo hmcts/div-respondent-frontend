@@ -130,7 +130,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "C" in session.originalPetition.jurisdictionConnection and (not ("A" in session.originalPetition.jurisdictionConnection)) %}
+    {% if "C" in session.originalPetition.jurisdictionConnection %}
       {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
         <li>
       {% endif %}
