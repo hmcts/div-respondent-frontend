@@ -1,7 +1,8 @@
 const caseOrchestration = require('services/caseOrchestration');
-const { CaseStates } = require('const');
+const { CaseStates, CoRespLinkableStates } = require('const');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
+const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
 const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 
@@ -47,11 +48,14 @@ const loadMiniPetition = (req, res, next) => {
         storePetitionInSession(req, response);
 
         const originalPetition = req.session.originalPetition;
+        const caseState = response.body.state;
         const idamUserIsCorespondent = originalPetition.coRespondentAnswers && originalPetition.coRespondentAnswers.contactInfo && req.idam.userDetails.email === originalPetition.coRespondentAnswers.contactInfo.emailAddress;
         if (idamUserIsCorespondent) {
-          return res.redirect(crRespond.path);
+          if (CoRespLinkableStates.includes[caseState]) {
+            return res.redirect(crRespond.path);
+          }
+          return res.redirect(crProgressBar.path);
         }
-        const caseState = response.body.state;
         if (caseState !== CaseStates.AosStarted) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);

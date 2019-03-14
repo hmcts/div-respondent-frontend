@@ -15,4 +15,15 @@ const CaseStates = Object.freeze({
   DivorceGranted: 'DivorceGranted'
 });
 
-module.exports = { CaseStates };
+const CoRespLinkableStates = [
+  'AosAwaiting',
+  'AosStarted',
+  'AosOverdue',
+  'AosCompeted',
+  'AosSubmittedAwaitingAnswer',
+  'DefendedDivorce',
+  'AwaitingDecreeNisi',
+  'AwaitingLegalAdvisorReferral'
+];
+
+module.exports = { CaseStates, CoRespLinkableStates };

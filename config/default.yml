@@ -95,6 +95,7 @@ paths:
     done: /done
   coRespondent:
     respond: /co-respondent/progress-bar/respond
+    progressBar: /co-respondent/progress-bar
     reviewApplication: /co-respondent/review-application
     admitAdultery: /co-respondent/admit-the-adultery
     chooseAResponse: /co-respondent/choose-a-response
