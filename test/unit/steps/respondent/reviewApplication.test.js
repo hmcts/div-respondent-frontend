@@ -1,6 +1,8 @@
 /* eslint max-lines: 0 */
 
-const modulePath = 'steps/respondent/review-application/ReviewApplication.step';
+const moduleRootName = 'steps/respondent/review-application/ReviewApplication';
+const modulePath = `${moduleRootName}.step`;
+const reviewApplicationContent = require(`${moduleRootName}.content`);
 
 const ReviewApplication = require(modulePath);
 const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
@@ -27,7 +29,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(ReviewApplication, [ idam.protect() ]);
+    return middleware.hasMiddleware(ReviewApplication, [idam.protect()]);
   });
 
   it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
@@ -147,7 +149,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
-          specificValues: [ session.caseReference ]
+          specificValues: [session.caseReference]
         }
       );
     });
@@ -163,7 +165,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
-          specificValues: [ '02 February 2006' ]
+          specificValues: ['02 February 2006']
         }
       );
     });
@@ -181,7 +183,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
-          specificValues: [ '02 February 2003' ]
+          specificValues: ['02 February 2003']
         }
       );
     });
@@ -243,7 +245,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificValues: [ '02 February 2001' ] }
+        { specificValues: ['02 February 2001'] }
       );
     });
 
@@ -258,7 +260,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificValues: [ session.originalPetition.legalProceedingsDetails ] }
+        { specificValues: [session.originalPetition.legalProceedingsDetails] }
       );
     });
 
@@ -292,13 +294,13 @@ describe(modulePath, () => {
         originalPetition: {
           jurisdictionConnection: {},
           reasonForDivorce: 'unreasonable-behaviour',
-          reasonForDivorceBehaviourDetails: [ 'My wife is lazy' ]
+          reasonForDivorceBehaviourDetails: ['My wife is lazy']
         }
       };
       return content(
         ReviewApplication,
         session,
-        { specificValues: [ session.originalPetition.reasonForDivorceBehaviourDetails ] }
+        { specificValues: [session.originalPetition.reasonForDivorceBehaviourDetails] }
       );
     });
 
@@ -313,73 +315,75 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificValues: [ session.originalPetition.reasonForDivorceDesertionDetails ] }
+        { specificValues: [session.originalPetition.reasonForDivorceDesertionDetails] }
       );
     });
   });
 
   describe('content', () => {
+    const ignoreContent = [
+      'coRespondentsCorrespondenceAddress',
+      'coRespondent',
+      'reasonForDivorceAdulteryCorrespondentNamed',
+      'reasonForDivorceAdulteryCorrespondentNotNamed',
+      'reasonForDivorceAdulteryStatement',
+      'reasonForDivorceAdulteryWhere',
+      'reasonForDivorceAdulteryWhen',
+      'statementOfSecondHandInformationAboutAdultery',
+      'reasonForDivorceUnreasonableBehaviourBrokenDown',
+      'reasonForDivorceSeparationFiveYears2DatesRecent',
+      'reasonForDivorceSeparationTwoYears2DatesRecent',
+      'reasonForDivorceUnreasonableBehaviourStatement',
+      'reasonForDivorceSeparationTwoYears',
+      'reasonForDivorceSeparationTwoYearsBrokenDown',
+      'reasonForDivorceSeparationFiveYears',
+      'reasonForDivorceSeparationFiveYearsBrokenDown',
+      'reasonForDivorceDesertion',
+      'reasonForDivorceDesertionAgreed',
+      'descriptionOfAdultery',
+      'coRespRoleExplain',
+      'descriptionOfBehaviour',
+      'descriptionOfDesertion',
+      'reasonForDivorceDesertionBrokenDown',
+      'reasonForDivorceDesertionStatement',
+      'claimingCostsFromRespondentCoRespondent',
+      'claimingCostsFromCoRespondent',
+      'claimingCostsFromRespondent',
+      'financialOrdersPropertyMoneyPensionsChildren',
+      'financialOrdersChildren',
+      'financialOrdersPropertyMoneyPensions',
+      'applicantsCorrespondenceAddress',
+      'costsPetitionerPayedByRespondentAndCorrespondent',
+      'costsPetitionerPayedByCorrespondent',
+      'costsPetitionerPayedByRespondent',
+      'costsPetitionerDivorceCostsByRespondentAndCorespondent',
+      'costsPetitionerDivorceCostsByCorespondent',
+      'costsPetitionerDivorceCostsByRespondent',
+      'costsPetitionerDivorceCostsByFinancialOrder',
+      'jurisdictionConnectionBothResident',
+      'jurisdictionConnectionBothDomiciled',
+      'jurisdictionConnectionOneResides',
+      'jurisdictionConnectionPetitioner',
+      'jurisdictionConnectionRespondent',
+      'jurisdictionConnectionPetitionerSixMonths',
+      'jurisdictionConnectionOther',
+      'onGoingCasesNo',
+      'petitionerCorrespondenceAddressHeading',
+      'whereTheMarriage',
+      'readConfirmationQuestion',
+      'readConfirmationYes',
+      'readConfirmationNo',
+      'reasonForDivorceSeparationFiveYearsOver',
+      'reasonForDivorceSeparationFiveYearsLvingApart',
+      'reasonForDivorceSeparationFiveYears2DatesRecent'
+    ];
+
     it('all', () => {
       const session = {
         originalPetition: {
           jurisdictionConnection: {}
         }
       };
-      const ignoreContent = [
-        'coRespondentsCorrespondenceAddress',
-        'coRespondent',
-        'reasonForDivorceAdulteryCorrespondentNamed',
-        'reasonForDivorceAdulteryCorrespondentNotNamed',
-        'reasonForDivorceAdulteryStatement',
-        'reasonForDivorceAdulteryWhere',
-        'reasonForDivorceAdulteryWhen',
-        'reasonForDivorceUnreasonableBehaviourBrokenDown',
-        'reasonForDivorceSeparationFiveYears2DatesRecent',
-        'reasonForDivorceSeparationTwoYears2DatesRecent',
-        'reasonForDivorceUnreasonableBehaviourStatement',
-        'reasonForDivorceSeparationTwoYears',
-        'reasonForDivorceSeparationTwoYearsBrokenDown',
-        'reasonForDivorceSeparationFiveYears',
-        'reasonForDivorceSeparationFiveYearsBrokenDown',
-        'reasonForDivorceDesertion',
-        'reasonForDivorceDesertionAgreed',
-        'descriptionOfAdultery',
-        'coRespRoleExplain',
-        'descriptionOfBehaviour',
-        'descriptionOfDesertion',
-        'reasonForDivorceDesertionBrokenDown',
-        'reasonForDivorceDesertionStatement',
-        'claimingCostsFromRespondentCoRespondent',
-        'claimingCostsFromCoRespondent',
-        'claimingCostsFromRespondent',
-        'financialOrdersPropertyMoneyPensionsChildren',
-        'financialOrdersChildren',
-        'financialOrdersPropertyMoneyPensions',
-        'applicantsCorrespondenceAddress',
-        'costsPetitionerPayedByRespondentAndCorrespondent',
-        'costsPetitionerPayedByCorrespondent',
-        'costsPetitionerPayedByRespondent',
-        'costsPetitionerDivorceCostsByRespondentAndCorespondent',
-        'costsPetitionerDivorceCostsByCorespondent',
-        'costsPetitionerDivorceCostsByRespondent',
-        'costsPetitionerDivorceCostsByFinancialOrder',
-        'jurisdictionConnectionBothResident',
-        'jurisdictionConnectionBothDomiciled',
-        'jurisdictionConnectionOneResides',
-        'jurisdictionConnectionPetitioner',
-        'jurisdictionConnectionRespondent',
-        'jurisdictionConnectionPetitionerSixMonths',
-        'jurisdictionConnectionOther',
-        'onGoingCasesNo',
-        'petitionerCorrespondenceAddressHeading',
-        'whereTheMarriage',
-        'readConfirmationQuestion',
-        'readConfirmationYes',
-        'readConfirmationNo',
-        'reasonForDivorceSeparationFiveYearsOver',
-        'reasonForDivorceSeparationFiveYearsLvingApart',
-        'reasonForDivorceSeparationFiveYears2DatesRecent'
-      ];
       return content(ReviewApplication, session, { ignoreContent });
     });
 
@@ -428,7 +432,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'costsPetitionerPayedByRespondent' ] });
+          { specificContent: ['costsPetitionerPayedByRespondent'] });
       });
     });
 
@@ -445,7 +449,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsByRespondentAndCorespondent'] }
+          { specificContent: ['costsPetitionerDivorceCostsByRespondentAndCorespondent'] }
         );
       });
       it('from co-respondent', () => {
@@ -460,7 +464,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsByCorespondent' ] });
+          { specificContent: ['costsPetitionerDivorceCostsByCorespondent'] });
       });
 
       it('from neither respondent or co-respondent', () => {
@@ -475,7 +479,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsByRespondent' ] });
+          { specificContent: ['costsPetitionerDivorceCostsByRespondent'] });
       });
     });
 
@@ -492,7 +496,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificContent: [ 'costsPetitionerDivorceCostsByFinancialOrder' ] });
+        { specificContent: ['costsPetitionerDivorceCostsByFinancialOrder'] });
     });
 
     it('not claiming costs or applying for financial Order', () => {
@@ -507,7 +511,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificContent: [ 'costsPetitionerDivorceNoCosts' ] });
+        { specificContent: ['costsPetitionerDivorceNoCosts'] });
     });
 
     it('shows details for co-respondent', () => {
@@ -523,7 +527,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificContent: [ 'coRespondent' ] });
+        { specificContent: ['coRespondent'] });
     });
 
     it('shows name for co-respondent', () => {
@@ -539,7 +543,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificContent: [ 'coRespondent' ] });
+        { specificContent: ['coRespondent'] });
     });
 
     context('jurisdiction', () => {
@@ -570,7 +574,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'jurisdictionConnectionOneResides' ] });
+          { specificContent: ['jurisdictionConnectionOneResides'] });
       });
       it('respondent', () => {
         const session = {
@@ -582,7 +586,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'jurisdictionConnectionRespondent' ] });
+          { specificContent: ['jurisdictionConnectionRespondent'] });
       });
       it('petitioner', () => {
         const session = {
@@ -594,7 +598,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'jurisdictionConnectionPetitioner' ] });
+          { specificContent: ['jurisdictionConnectionPetitioner'] });
       });
       it('petitioner six months', () => {
         const session = {
@@ -606,7 +610,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'jurisdictionConnectionPetitionerSixMonths' ] });
+          { specificContent: ['jurisdictionConnectionPetitionerSixMonths'] });
       });
       it('both domiciled', () => {
         const session = {
@@ -618,7 +622,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'jurisdictionConnectionBothDomiciled' ] });
+          { specificContent: ['jurisdictionConnectionBothDomiciled'] });
       });
       it('both domiciled', () => {
         const session = {
@@ -630,7 +634,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'jurisdictionConnectionOther' ] });
+          { specificContent: ['jurisdictionConnectionOther'] });
       });
     });
 
@@ -645,7 +649,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'onGoingCasesNo' ] });
+          { specificContent: ['onGoingCasesNo'] });
       });
       it('Yes', () => {
         const session = {
@@ -657,7 +661,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'onGoingCasesYes' ] });
+          { specificContent: ['onGoingCasesYes'] });
       });
     });
 
@@ -674,7 +678,7 @@ describe(modulePath, () => {
           return content(
             ReviewApplication,
             session,
-            { specificContent: [ 'reasonForDivorceAdulteryCorrespondentNamed' ] });
+            { specificContent: ['reasonForDivorceAdulteryCorrespondentNamed'] });
         });
         it('knows where', () => {
           const session = {
@@ -687,7 +691,7 @@ describe(modulePath, () => {
           return content(
             ReviewApplication,
             session,
-            { specificContent: [ 'reasonForDivorceAdulteryWhere' ] });
+            { specificContent: ['reasonForDivorceAdulteryWhere'] });
         });
         it('knows when', () => {
           const session = {
@@ -700,7 +704,85 @@ describe(modulePath, () => {
           return content(
             ReviewApplication,
             session,
-            { specificContent: [ 'reasonForDivorceAdulteryWhen' ] });
+            { specificContent: ['reasonForDivorceAdulteryWhen'] });
+        });
+        it('show details if petitioner has information from another person', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfo: 'Yes',
+              reasonForDivorceAdulterySecondHandInfoDetails: 'This info came from someone else.'
+            }
+          };
+          return content(
+            ReviewApplication,
+            session,
+            {
+              specificValues: [
+                reviewApplicationContent.en.statementOfSecondHandInformationAboutAdultery,
+                '"This info came from someone else."'
+              ]
+            }
+          );
+        });
+        it('hide details if petitioner has not specified information from another person', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfo: 'Yes',
+              reasonForDivorceAdulterySecondHandInfoDetails: ''
+            }
+          };
+          return content(
+            ReviewApplication,
+            session,
+            {
+              specificContentToNotExist: ['statementOfSecondHandInformationAboutAdultery']
+            }
+          );
+        });
+        it('hide details if petitioner has no information from another person', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfo: 'No',
+              reasonForDivorceAdulterySecondHandInfoDetails: 'this info should not be shown'
+            }
+          };
+          return content(
+            ReviewApplication,
+            session,
+            {
+              ignoreContent,
+              specificValuesToNotExist: [
+                reviewApplicationContent.en.statementOfSecondHandInformationAboutAdultery,
+                'this info should not be shown'
+              ]
+            }
+          );
+        });
+        it('hide details if petitioner has not replied about second hand information', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfoDetails: 'this info should not be shown'
+            }
+          };
+          return content(
+            ReviewApplication,
+            session,
+            {
+              ignoreContent,
+              specificValuesToNotExist: [
+                reviewApplicationContent.en.statementOfSecondHandInformationAboutAdultery,
+                'this info should not be shown'
+              ]
+            }
+          );
         });
       });
 
@@ -796,7 +878,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'claimingCostsFromRespondentCoRespondent' ] });
+          { specificContent: ['claimingCostsFromRespondentCoRespondent'] });
       });
       it('from co-respondent', () => {
         const session = {
@@ -809,7 +891,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'claimingCostsFromCoRespondent' ] });
+          { specificContent: ['claimingCostsFromCoRespondent'] });
       });
 
       it('from neither respondent or co-respondent', () => {
@@ -823,7 +905,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'claimingCostsFromRespondent' ] });
+          { specificContent: ['claimingCostsFromRespondent'] });
       });
 
       it('not claiming', () => {
@@ -837,7 +919,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'notClaimingForDivorce' ] });
+          { specificContent: ['notClaimingForDivorce'] });
       });
     });
 
@@ -853,7 +935,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'financialOrdersPropertyMoneyPensionsChildren' ] }
+          { specificContent: ['financialOrdersPropertyMoneyPensionsChildren'] }
         );
       });
       it('for children', () => {
@@ -867,7 +949,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'financialOrdersChildren' ] });
+          { specificContent: ['financialOrdersChildren'] });
       });
 
       it('from neither respondent or co-respondent', () => {
@@ -881,7 +963,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'financialOrdersPropertyMoneyPensions' ] });
+          { specificContent: ['financialOrdersPropertyMoneyPensions'] });
       });
 
       it('not claiming', () => {
@@ -895,7 +977,7 @@ describe(modulePath, () => {
         return content(
           ReviewApplication,
           session,
-          { specificContent: [ 'financialOrdersNone' ] });
+          { specificContent: ['financialOrdersNone'] });
       });
     });
 
@@ -912,9 +994,8 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificValues: [ session.originalPetition.petitionerCorrespondenceAddress.address] });
+        { specificValues: [session.originalPetition.petitionerCorrespondenceAddress.address] });
     });
-
 
     it('CoRespondent Address', () => {
       const session = {
@@ -926,7 +1007,7 @@ describe(modulePath, () => {
       return content(
         ReviewApplication,
         session,
-        { specificContent: [ 'coRespondentsCorrespondenceAddress' ] });
+        { specificContent: ['coRespondentsCorrespondenceAddress'] });
     });
   });
 });
