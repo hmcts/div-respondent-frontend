@@ -24,16 +24,16 @@ class CrProgressBar extends Interstitial {
     return this.req.session;
   }
 
-  receivedAosFromCoResp(checkValue) {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.aos && this.session.originalPetition.coRespondentAnswers.aos.received === checkValue;
+  receivedAosFromCoResp() {
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.aos && this.session.originalPetition.coRespondentAnswers.aos.received === values.yes;
   }
 
-  coRespDefendsDivorce(checkValue) {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.defendsDivorce === checkValue;
+  coRespDefendsDivorce() {
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.defendsDivorce === values.yes;
   }
 
-  receivedAnswerFromCoResp(checkValue) {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.answer && this.session.originalPetition.coRespondentAnswers.answer.received === checkValue;
+  receivedAnswerFromCoResp() {
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.answer && this.session.originalPetition.coRespondentAnswers.answer.received === values.yes;
   }
 
   get progressStates() {
@@ -45,12 +45,12 @@ class CrProgressBar extends Interstitial {
   }
 
   getProgressBarContent() {
-    if (this.receivedAosFromCoResp(values.yes)) {
-      if (this.coRespDefendsDivorce(values.no)) {
+    if (this.receivedAosFromCoResp()) {
+      if (!this.coRespDefendsDivorce()) {
         return this.progressStates.notDefending;
-      } else if (this.coRespDefendsDivorce(values.yes) && this.receivedAnswerFromCoResp(values.no)) {
+      } else if (this.coRespDefendsDivorce() && !this.receivedAnswerFromCoResp()) {
         return this.progressStates.defendingAwaitingAnswer;
-      } else if (this.coRespDefendsDivorce(values.yes) && this.receivedAnswerFromCoResp(values.yes)) {
+      } else if (this.coRespDefendsDivorce() && this.receivedAnswerFromCoResp()) {
         return this.progressStates.defendingSubmittedAnswer;
       }
     }
