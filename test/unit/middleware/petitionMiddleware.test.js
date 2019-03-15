@@ -11,6 +11,7 @@ const coRespondentMock = require(
 );
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
+const crProgressBar = require('steps/co-respondent/cr-progress-bar/crProgressBar.step');
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 
 describe(modulePath, () => {
@@ -45,15 +46,60 @@ describe(modulePath, () => {
     const email = 'user@email.com';
     const req = {
       cookies: { '__auth-token': 'authToken' },
-      session: {
-        originalPetition: {
+      idam: {
+        userDetails: { email }
+      }
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+
+
+    const response = {
+      statusCode: 200,
+      body: {
+        state: 'AosStarted',
+        caseId: 1234,
+        data: { // eslint-disable-line id-blacklist
+          marriageIsSameSexCouple: 'No',
+          divorceWho: 'husband',
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
+          },
           coRespondentAnswers: {
             contactInfo: {
               emailAddress: email
+            },
+            aos: {
+              received: 'No'
             }
           }
         }
-      },
+      }
+    };
+
+    const next = sinon.stub();
+    req.session = {};
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves(response);
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
+  it('To Co-resp progress page if CoResp user submitted response', done => {
+    // given
+    const email = 'user@email.com';
+    const req = {
+      cookies: { '__auth-token': 'authToken' },
       idam: {
         userDetails: { email }
       }
@@ -73,11 +119,10 @@ describe(modulePath, () => {
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
-        expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
+        expect(res.redirect.withArgs(crProgressBar.path).calledOnce).to.be.true;
       })
       .then(done, done);
   });
-
 
   it('calls correct methods based on caseOrchestration service calls', done => {
     // given

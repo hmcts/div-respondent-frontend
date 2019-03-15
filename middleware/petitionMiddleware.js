@@ -41,6 +41,14 @@ function storePetitionInSession(req, response) {
   /* eslint-enable */
 }
 
+function findCoRespPath(originalPetition, caseState) {
+  const receivedAOSRespFromCoResp = originalPetition.coRespondentAnswers && originalPetition.coRespondentAnswers.aos && originalPetition.coRespondentAnswers.aos.received === 'Yes';
+  if (!receivedAOSRespFromCoResp && CoRespLinkableStates.includes(caseState)) {
+    return crRespond.path;
+  }
+  return crProgressBar.path;
+}
+
 const loadMiniPetition = (req, res, next) => {
   return caseOrchestration.getPetition(req)
     .then(response => {
@@ -49,12 +57,10 @@ const loadMiniPetition = (req, res, next) => {
 
         const originalPetition = req.session.originalPetition;
         const caseState = response.body.state;
+
         const idamUserIsCorespondent = originalPetition.coRespondentAnswers && originalPetition.coRespondentAnswers.contactInfo && req.idam.userDetails.email === originalPetition.coRespondentAnswers.contactInfo.emailAddress;
         if (idamUserIsCorespondent) {
-          if (CoRespLinkableStates.includes[caseState]) {
-            return res.redirect(crRespond.path);
-          }
-          return res.redirect(crProgressBar.path);
+          return res.redirect(findCoRespPath(originalPetition, caseState));
         }
         if (caseState !== CaseStates.AosStarted) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');

@@ -1,6 +1,7 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const idam = require('services/idam');
+const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 const values = {
   yes: 'Yes',
@@ -39,6 +40,10 @@ class CrProgressBar extends Interstitial {
     return progressStates;
   }
 
+  get feesDefendDivorce() {
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
+  }
+
   getProgressBarContent() {
     if (this.receivedAosFromCoResp(values.yes)) {
       if (this.coRespDefendsDivorce(values.no)) {
@@ -55,7 +60,8 @@ class CrProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect()
+      idam.protect(),
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 }
