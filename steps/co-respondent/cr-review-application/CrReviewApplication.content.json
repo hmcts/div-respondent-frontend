@@ -44,27 +44,27 @@
       "behaviourParagraph1": "The respondent has behaved in such a way that the applicant cannot reasonably be expected to live with them.",
       "behaviourParagraph2": "The applicant must provide enough examples of the respondent's behaviour to satisfy the court that they can't reasonably be expected to live with them. The examples must be of the respondent's behaviour, and examples where the applicant and respondent are both at fault cannot be used.",
       "behaviourParagraph3": "If the applicant lives with the respondent as a couple for more than 6 months after the most recent example of behaviour, the court will take this into account in its judgement of whether or not the marriage has broken down irretrievably. This could be over a single 6 month period, or if they live together on and off for several periods adding up to more than 6 months.",
-     
+
       "adultery": "Adultery",
       "adulteryParagraph1": "The respondent committed adultery, and the applicant finds it intolerable to live with them.",
       "adulteryParagraph2": "Adultery can only be used if it was with a member of the opposite sex.",
       "adulteryParagraph3": "The applicant has the option of naming the person with whom the respondent committed adultery (known as the co-respondent). Co-respondents are sent a copy of the divorce application and asked if they want to defend the allegations.",
       "adulteryParagraph4": "Adultery can't be used as a reason if the applicant and respondent lived together as a couple for more than 6 months after the applicant found out about it. This could have been in one go, or if they lived together on and off for several periods of time adding up to more than 6 months.",
-     
+
       "separatedFor2Years": "Separated for 2 years with consent",
       "separatedFor2YearsParagraph1": "The applicant and respondent must have spent the past 2 years living apart to use this reason for divorce.",
       "separatedFor2YearsParagraph2": "They are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 2 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.",
       "separatedFor2YearsParagraph3": "The respondent must give their consent to a divorce for this reason to be used.",
-     
+
       "separatedFor5Years": "Separated for 5 years",
       "separatedFor5YearsParagraph1": "The applicant and respondent must have spent the past 5 years living apart to use this reason for divorce.",
       "separatedFor5YearsParagraph2": "They are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 5 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.",
-     
+
       "desertion": "Desertion",
       "desertionParagraph1": "The respondent left the applicant without their agreement at least 2 years ago, and they have lived apart since.",
       "desertionParagraph2": "The applicant and respondent are allowed to have spent some time living together since the desertion, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 2 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.",
       "desertionParagraph3": "The respondent must have chosen to leave the applicant. For example, it can't be used if they have been sent to prison.",
-     
+
       "additionalApplications": "Additional applications",
       "costOrder": "Costs orders",
       "helpWithCostOrders": "Help with costs orders",
@@ -88,10 +88,10 @@
       "hiddenWarning": "Warning",
       "youWillBeAbleToRespond": "You will be able to respond to this application on the next page",
       "readConfirmation": "I have read the application for divorce.",
-      "readConfirmationQuestion": "Confirm that you have read your husband/wife's application",
+      "readConfirmationQuestion": "Confirm that you have read the divorce application",
       "readConfirmationYes": "I have read the divorce application.",
       "readConfirmationNo": "I have not read the divorce application.",
-  
+
       "costsPetitionerPayedByRespondentAndCorrespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
       "costsPetitionerPayedByCorrespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
       "costsPetitionerPayedByRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} to pay some or all of the divorce costs, and for financial orders.",
@@ -100,9 +100,9 @@
       "costsPetitionerDivorceCostsByRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, and for an order that {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} to pay some or all of the divorce costs.",
       "costsPetitionerDivorceCostsByFinancialOrder": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, and for financial orders.",
       "costsPetitionerDivorceNoCosts": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}.",
-  
+
       "coRespondent": "Co-respondent",
-  
+
       "jurisdictionConnectionBothResident": "The applicant and respondent are both ‘habitually resident’ in England and Wales.",
       "jurisdictionConnectionBothDomiciled": "The applicant and respondent are both domiciled in England and Wales.",
       "jurisdictionConnectionOneResides": "The applicant and respondent were last habitually resident in England and Wales and one of them still resides there.",
@@ -110,11 +110,11 @@
       "jurisdictionConnectionRespondent": "The respondent is habitually resident in England and Wales.",
       "jurisdictionConnectionPetitionerSixMonths": "The applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the application.",
       "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction.",
-  
+
       "otherCourtCases": "Other court cases that could affect jurisdiction",
       "onGoingCasesNo": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
       "onGoingCasesYes": "The applicant has given the following court cases which are related to the marriage, property or children.",
-  
+
       "reasonForDivorce": "Reason for the divorce (and supporting information)",
       "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery with the co-respondent, and the applicant finds it intolerable to live with the respondent.",
       "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery, and the applicant finds it intolerable to live with the respondent.",
@@ -126,26 +126,25 @@
       "claimingCostsFromRespondentCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent and the co-respondent.",
       "claimingCostsFromCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the co-respondent.",
       "claimingCostsFromRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent.",
-  
+
       "financialOrdersPropertyMoneyPensionsChildren": "The applicant is also applying to the court for financial orders for the applicant, and for the children of the applicant and the respondent.",
       "financialOrdersChildren": "The applicant is also applying to the court for financial orders for the children of the applicant and the respondent.",
       "financialOrdersPropertyMoneyPensions": "The applicant is also applying to the court for financial orders for the applicant.",
       "financialOrdersNone": "The applicant is not applying for a financial order.",
-  
+
       "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address",
       "statementOfTruth": "Statement of Truth",
       "statementOfTruthParagraph": "I believe that the facts stated in this application are true.",
-  
+
       "errors": {
         "required": "You need to confirm that you have read the application for divorce"
       },
-  
+
       "fields": {
         "statementOfTruth": {
           "yes": "I have read the application for divorce."
         }
       }
-  
+
     }
   }
-  
