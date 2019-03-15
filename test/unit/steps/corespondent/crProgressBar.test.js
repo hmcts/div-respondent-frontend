@@ -2,9 +2,14 @@ const modulePath = 'steps/co-respondent/cr-progress-bar/CrProgressBar.step';
 const CrProgressBar = require(modulePath);
 const CrProgressBarContent = require('steps/co-respondent/cr-progress-bar/CrProgressBar.content');
 const idam = require('services/idam');
-const { middleware,
+const { custom, expect, middleware,
   sinon, content } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
+const httpStatus = require('http-status-codes');
+const { buildSessionWithCourtsInfo,
+  testDivorceUnitDetailsRender,
+  testDivorceUnitWithStreetDetailsRender,
+  testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -147,6 +152,97 @@ describe(modulePath, () => {
         CrProgressBarContent.en.tooLateToRespond.heading,
         CrProgressBarContent.en.tooLateToRespond.info
       ]
+    });
+  });
+
+
+  describe('court address details', () => {
+    const basicSession = {
+      caseState: 'AosAwaiting',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          },
+          aos: {
+            received: 'Yes',
+            letterHolderId: '755791',
+            dateReceived: '2019-02-22'
+          },
+          defendsDivorce: 'Yes',
+          answer: {
+            received: 'Yes'
+          }
+        }
+      }
+    };
+
+    describe('when divorce unit handles case', () => {
+      const session = Object.assign({}, basicSession,
+        buildSessionWithCourtsInfo('westMidlands'));
+
+      it('should render the divorce unit info', () => {
+        return custom(CrProgressBar)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+
+            expect(rightHandSideMenu).to.include('Your divorce centre');
+            testDivorceUnitDetailsRender(rightHandSideMenu);
+          });
+      });
+    });
+
+    describe('when service centre handles case', () => {
+      const session = Object.assign({}, basicSession,
+        buildSessionWithCourtsInfo('serviceCentre'));
+
+      it('some contents should exist', () => {
+        return custom(CrProgressBar)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+
+            testCTSCDetailsRender(rightHandSideMenu);
+          });
+      });
+    });
+
+    describe('when divorce centre handles case', () => {
+      const session = Object.assign({}, basicSession,
+        buildSessionWithCourtsInfo('northWest'));
+
+      it('some contents should exist', () => {
+        return custom(CrProgressBar)
+          .withSession(session)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            testDivorceUnitWithStreetDetailsRender(rightHandSideMenu);
+          });
+      });
+    });
+
+    describe('right hand side menu rendering', () => {
+      it('should render guidance links', () => {
+        return custom(CrProgressBar)
+          .withSession(basicSession)
+          .get()
+          .expect(httpStatus.OK)
+          .html($ => {
+            const rightHandSideMenu = $('.column-one-third').html();
+            expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
+              .and.to.include('How to respond to a divorce application')
+              .and.to.include('Get a divorce')
+              .and.to.include('Children and divorce')
+              .and.to.include('Money and property');
+          });
+      });
     });
   });
 });
