@@ -69,7 +69,7 @@ describe(modulePath, () => {
     });
   });
 
-  it('renders the content for Aos Received - defending waiting answer', () => {
+  it('renders the content for Aos Received - defending awaiting answer', () => {
     const session = {
       caseState: 'AwaitingPronouncement',
       originalPetition: {
@@ -97,6 +97,55 @@ describe(modulePath, () => {
         CrProgressBarContent.en.defendingAwaitingAnswer.para3,
         CrProgressBarContent.en.defendingAwaitingAnswer.para5,
         CrProgressBarContent.en.defendingAwaitingAnswer.para6
+      ]
+    });
+  });
+
+  it('renders the content for Aos Received - defending submitted answer', () => {
+    const session = {
+      caseState: 'AwaitingPronouncement',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          },
+          aos: {
+            received: 'Yes',
+            letterHolderId: '755791',
+            dateReceived: '2019-02-22'
+          },
+          defendsDivorce: 'Yes',
+          answer: {
+            received: 'Yes'
+          }
+        }
+      }
+    };
+    return content(CrProgressBar, session, {
+      specificValues: [
+        CrProgressBarContent.en.defendingSubmittedAnswer.heading,
+        CrProgressBarContent.en.defendingSubmittedAnswer.para1,
+        CrProgressBarContent.en.defendingSubmittedAnswer.para2,
+        CrProgressBarContent.en.defendingSubmittedAnswer.para3
+      ]
+    });
+  });
+
+  it('renders the content for Aos not received - Too late to respond', () => {
+    const session = {
+      caseState: 'DivorceGranted',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          }
+        }
+      }
+    };
+    return content(CrProgressBar, session, {
+      specificValues: [
+        CrProgressBarContent.en.tooLateToRespond.heading,
+        CrProgressBarContent.en.tooLateToRespond.info
       ]
     });
   });
