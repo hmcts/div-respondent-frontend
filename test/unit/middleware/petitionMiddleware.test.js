@@ -15,7 +15,7 @@ const coRespondentNotDefendingMock = require(
 );
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
-const crProgressBar = require('steps/co-respondent/cr-progress-bar/crProgressBar.step');
+const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 
 describe(modulePath, () => {
