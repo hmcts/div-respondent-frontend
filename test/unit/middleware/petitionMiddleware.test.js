@@ -9,6 +9,10 @@ const completedMock = require(
 const coRespondentMock = require(
   'mocks/services/case-orchestration/retrieve-aos-case/mock-co-respondent'
 );
+
+const coRespondentNotDefendingMock = require(
+  'mocks/services/case-orchestration/retrieve-aos-case/mock-coRespNotDefending'
+);
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/crProgressBar.step');
@@ -54,38 +58,14 @@ describe(modulePath, () => {
       redirect: sinon.spy()
     };
 
-
-    const response = {
-      statusCode: 200,
-      body: {
-        state: 'AosStarted',
-        caseId: 1234,
-        data: { // eslint-disable-line id-blacklist
-          marriageIsSameSexCouple: 'No',
-          divorceWho: 'husband',
-          courts: 'eastMidlands',
-          court: {
-            eastMidlands: {
-              divorceCentre: 'East Midlands Regional Divorce Centre'
-            }
-          },
-          coRespondentAnswers: {
-            contactInfo: {
-              emailAddress: email
-            },
-            aos: {
-              received: 'No'
-            }
-          }
-        }
-      }
-    };
-
     const next = sinon.stub();
     req.session = {};
 
     sinon.stub(caseOrchestration, 'getPetition')
-      .resolves(response);
+      .resolves({
+        statusCode: 200,
+        body: coRespondentMock
+      });
 
     // when
     petitionMiddleware(req, res, next)
@@ -113,7 +93,7 @@ describe(modulePath, () => {
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
         statusCode: 200,
-        body: coRespondentMock
+        body: coRespondentNotDefendingMock
       });
 
     // when

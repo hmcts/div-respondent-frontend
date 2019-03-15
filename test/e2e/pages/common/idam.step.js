@@ -109,6 +109,35 @@ function loginAsCorespondent() {
   I.click(commonContent.en.continue);
 }
 
+
+function loginAsCoRespNotDefending() {
+  const I = this;
+
+  I.click(content.en.fields.success.coRespNotDefending);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCoRespDefendingWaitingAnswer() {
+  const I = this;
+
+  I.click(content.en.fields.success.coRespDefendingWaitingAnswer);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCoRespDefendingSubmittedAnswer() {
+  const I = this;
+
+  I.click(content.en.fields.success.coRespDefendingSubmittedAnswer);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCoRespTooLateToRespond() {
+  const I = this;
+
+  I.click(content.en.fields.success.coRespTooLateToRespond);
+  I.click(commonContent.en.continue);
+}
+
 function loginAndThrowError() {
   const I = this;
 
@@ -132,5 +161,9 @@ module.exports = {
   loginAs2yrSeparationCase,
   loginAs5yrSeparationCase,
   loginAsCorespondent,
+  loginAsCoRespNotDefending,
+  loginAsCoRespDefendingWaitingAnswer,
+  loginAsCoRespDefendingSubmittedAnswer,
+  loginAsCoRespTooLateToRespond,
   loginAndThrowError
 };

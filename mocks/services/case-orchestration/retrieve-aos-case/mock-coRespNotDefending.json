@@ -250,7 +250,13 @@
     "coRespondentAnswers": {
       "contactInfo": {
         "emailAddress": "user@email.com"
-      }
+      },
+      "aos": {
+        "received": "Yes",
+        "letterHolderId": "755791",
+        "dateReceived": "2019-02-22"
+      },
+      "defendsDivorce": "No"
     },
     "d8": [
       {
