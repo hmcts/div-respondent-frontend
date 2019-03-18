@@ -45,17 +45,62 @@ describe(modulePath, () => {
     return interstitial.navigatesToNext(Respond, ReviewApplication);
   });
 
-  it('renders the content', () => {
-    return content(Respond, {}, {
-      ignoreContent: [
-        'isThereAProblemWithThisPage',
-        'isThereAProblemWithThisPageParagraph',
-        'isThereAProblemWithThisPagePhone',
-        'isThereAProblemWithThisPageEmail',
-        'backLink',
-        'divorceCenterUrl',
-        'guidance'
-      ]
+  describe('renders the content', () => {
+    it('should render contents when previousCaseId is not specified', () => {
+      return content(Respond, {
+        divorceWho: 'husband'
+      }, {
+        ignoreContent: [
+          'isThereAProblemWithThisPage',
+          'isThereAProblemWithThisPageParagraph',
+          'isThereAProblemWithThisPagePhone',
+          'isThereAProblemWithThisPageEmail',
+          'backLink',
+          'divorceCenterUrl',
+          'guidance'
+        ],
+        specificValues: ['Respond to your husband\'s divorce application']
+      });
+    });
+
+    it('should render contents when previousCaseId is null', () => {
+      return content(Respond, {
+        divorceWho: 'husband',
+        originalPetition: {
+          previousCaseId: null
+        }
+      }, {
+        ignoreContent: [
+          'isThereAProblemWithThisPage',
+          'isThereAProblemWithThisPageParagraph',
+          'isThereAProblemWithThisPagePhone',
+          'isThereAProblemWithThisPageEmail',
+          'backLink',
+          'divorceCenterUrl',
+          'guidance'
+        ],
+        specificValues: ['Respond to your husband\'s divorce application']
+      });
+    });
+
+    it('should render contents when case was amended', () => {
+      return content(Respond, {
+        divorceWho: 'husband',
+        originalPetition: {
+          previousCaseId: '12345'
+        }
+      }, {
+        ignoreContent: [
+          'isThereAProblemWithThisPage',
+          'isThereAProblemWithThisPageParagraph',
+          'isThereAProblemWithThisPagePhone',
+          'isThereAProblemWithThisPageEmail',
+          'backLink',
+          'divorceCenterUrl',
+          'guidance'
+        ],
+        specificValues: ['Respond to your husband\'s amended divorce application']
+      });
     });
   });
 
@@ -93,7 +138,7 @@ describe(modulePath, () => {
       });
     });
 
-    describe('when service centre handles case', () => {
+    describe('when RDC handles case', () => {
       const session = buildSessionWithCourtsInfo('northWest');
 
       it('some contents should exist', () => {
