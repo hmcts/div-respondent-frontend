@@ -91,7 +91,7 @@
       "readConfirmationQuestion": "Confirm that you have read your husband/wife's application",
       "readConfirmationYes": "I have read the divorce application.",
       "readConfirmationNo": "I have not read the divorce application.",
-  
+
       "costsPetitionerPayedByRespondentAndCorrespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} and {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
       "costsPetitionerPayedByCorrespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }} to pay some or all of the divorce costs, and for financial orders.",
       "costsPetitionerPayedByRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, to order {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} to pay some or all of the divorce costs, and for financial orders.",
@@ -100,9 +100,9 @@
       "costsPetitionerDivorceCostsByRespondent": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, and for an order that {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }} to pay some or all of the divorce costs.",
       "costsPetitionerDivorceCostsByFinancialOrder": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}, and for financial orders.",
       "costsPetitionerDivorceNoCosts": "{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }} is applying to the court for a decree of divorce from {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}.",
-  
+
       "coRespondent": "Co-respondent",
-  
+
       "jurisdictionConnectionBothResident": "The applicant and respondent are both ‘habitually resident’ in England and Wales.",
       "jurisdictionConnectionBothDomiciled": "The applicant and respondent are both domiciled in England and Wales.",
       "jurisdictionConnectionOneResides": "The applicant and respondent were last habitually resident in England and Wales and one of them still resides there.",
@@ -110,42 +110,43 @@
       "jurisdictionConnectionRespondent": "The respondent is habitually resident in England and Wales.",
       "jurisdictionConnectionPetitionerSixMonths": "The applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the application.",
       "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction.",
-  
+
       "otherCourtCases": "Other court cases that could affect jurisdiction",
       "onGoingCasesNo": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
       "onGoingCasesYes": "The applicant has given the following court cases which are related to the marriage, property or children.",
-  
+
       "reasonForDivorce": "Reason for the divorce (and supporting information)",
       "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery with the co-respondent, and the applicant finds it intolerable to live with the respondent.",
       "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery, and the applicant finds it intolerable to live with the respondent.",
       "reasonForDivorceAdulteryStatement": "This is supported by the following statement from the applicant.",
+      "reasonForDivorceAdulteryDetails": "Description of the adultery",
       "reasonForDivorceAdulteryWhere": "Where the adultery took place",
       "reasonForDivorceAdulteryWhen": "When the adultery took place",
+      "statementOfSecondHandInformationAboutAdultery": "The applicant stated that some of this information was given to them by another person and provided the following details: ",
 
       "notClaimingForDivorce": "The applicant is not claiming the costs of the divorce.",
       "claimingCostsFromRespondentCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent and the co-respondent.",
       "claimingCostsFromCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the co-respondent.",
       "claimingCostsFromRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent.",
-  
+
       "financialOrdersPropertyMoneyPensionsChildren": "The applicant is also applying to the court for financial orders for the applicant, and for the children of the applicant and the respondent.",
       "financialOrdersChildren": "The applicant is also applying to the court for financial orders for the children of the applicant and the respondent.",
       "financialOrdersPropertyMoneyPensions": "The applicant is also applying to the court for financial orders for the applicant.",
       "financialOrdersNone": "The applicant is not applying for a financial order.",
-  
+
       "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address",
       "statementOfTruth": "Statement of Truth",
       "statementOfTruthParagraph": "I believe that the facts stated in this application are true.",
-  
+
       "errors": {
         "required": "You need to confirm that you have read the application for divorce"
       },
-  
+
       "fields": {
         "statementOfTruth": {
           "yes": "I have read the application for divorce."
         }
       }
-  
+
     }
   }
-  
