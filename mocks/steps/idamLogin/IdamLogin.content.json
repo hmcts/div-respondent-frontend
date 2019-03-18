@@ -8,6 +8,7 @@
       "success": {
         "yesCaseStarted": "Yes - case started - unreasonable behaviour",
         "yesAdultery": "Yes - case started - adultery",
+        "yesAdulteryAmendedCase": "Yes - amended case started - adultery",
         "yes2yrSeparation": "Yes - case started - two year separation",
         "yes5yrSeparation": "Yes - case started - five year separation",
         "yes5yrSeparationTwoDates": "Yes - case started - five year separation with two dates",

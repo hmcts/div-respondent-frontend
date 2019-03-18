@@ -14,6 +14,7 @@ class IdamLogin extends Question {
     const answers = [
       'yesCaseStarted',
       'yesAdultery',
+      'yesAdulteryAmendedCase',
       'yes2yrSeparation',
       'yes5yrSeparation',
       'yes5yrSeparationTwoDates',
