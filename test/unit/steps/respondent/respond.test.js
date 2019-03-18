@@ -46,19 +46,21 @@ describe(modulePath, () => {
   });
 
   describe('renders the content', () => {
+    const ignoreContent = [
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'backLink',
+      'divorceCenterUrl',
+      'guidance'
+    ];
+
     it('should render contents when previousCaseId is not specified', () => {
       return content(Respond, {
         divorceWho: 'husband'
       }, {
-        ignoreContent: [
-          'isThereAProblemWithThisPage',
-          'isThereAProblemWithThisPageParagraph',
-          'isThereAProblemWithThisPagePhone',
-          'isThereAProblemWithThisPageEmail',
-          'backLink',
-          'divorceCenterUrl',
-          'guidance'
-        ],
+        ignoreContent,
         specificContent: ['respondToApplication']
       });
     });
@@ -70,15 +72,7 @@ describe(modulePath, () => {
           previousCaseId: null
         }
       }, {
-        ignoreContent: [
-          'isThereAProblemWithThisPage',
-          'isThereAProblemWithThisPageParagraph',
-          'isThereAProblemWithThisPagePhone',
-          'isThereAProblemWithThisPageEmail',
-          'backLink',
-          'divorceCenterUrl',
-          'guidance'
-        ],
+        ignoreContent,
         specificContent: ['respondToApplication']
       });
     });
@@ -90,15 +84,7 @@ describe(modulePath, () => {
           previousCaseId: '12345'
         }
       }, {
-        ignoreContent: [
-          'isThereAProblemWithThisPage',
-          'isThereAProblemWithThisPageParagraph',
-          'isThereAProblemWithThisPagePhone',
-          'isThereAProblemWithThisPageEmail',
-          'backLink',
-          'divorceCenterUrl',
-          'guidance'
-        ],
+        ignoreContent,
         specificContent: ['respondToAmendedApplication']
       });
     });

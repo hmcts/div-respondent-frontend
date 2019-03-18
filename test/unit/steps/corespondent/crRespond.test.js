@@ -60,17 +60,19 @@ describe(modulePath, () => {
   });
 
   describe('renders the content', () => {
+    const ignoreContent = [
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'backLink',
+      'divorceCenterUrl',
+      'guidance'
+    ];
+
     it('should render contents when previousCaseId is not specified', () => {
       return content(CrRespond, {}, {
-        ignoreContent: [
-          'isThereAProblemWithThisPage',
-          'isThereAProblemWithThisPageParagraph',
-          'isThereAProblemWithThisPagePhone',
-          'isThereAProblemWithThisPageEmail',
-          'backLink',
-          'divorceCenterUrl',
-          'guidance'
-        ],
+        ignoreContent,
         specificContent: ['readApp']
       });
     });
@@ -81,15 +83,7 @@ describe(modulePath, () => {
           previousCaseId: null
         }
       }, {
-        ignoreContent: [
-          'isThereAProblemWithThisPage',
-          'isThereAProblemWithThisPageParagraph',
-          'isThereAProblemWithThisPagePhone',
-          'isThereAProblemWithThisPageEmail',
-          'backLink',
-          'divorceCenterUrl',
-          'guidance'
-        ],
+        ignoreContent,
         specificContent: ['readApp']
       });
     });
@@ -100,15 +94,7 @@ describe(modulePath, () => {
           previousCaseId: '12345'
         }
       }, {
-        ignoreContent: [
-          'isThereAProblemWithThisPage',
-          'isThereAProblemWithThisPageParagraph',
-          'isThereAProblemWithThisPagePhone',
-          'isThereAProblemWithThisPageEmail',
-          'backLink',
-          'divorceCenterUrl',
-          'guidance'
-        ],
+        ignoreContent,
         specificContent: ['readAmendedApp']
       });
     });
