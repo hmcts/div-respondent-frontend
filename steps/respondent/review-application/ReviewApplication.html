@@ -273,12 +273,15 @@
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhen }}</p>
       <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryWhenDetails }}"</p>
     {% endif %}
-
+      
     <p class="heading-small">{{ content.descriptionOfAdultery }}</p>
-
-
     <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
 
+    {% if session.originalPetition.reasonForDivorceAdulterySecondHandInfo == "Yes" and 
+      session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails %}
+      <p class="text">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
+      <p class="text">"{{ session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails }}"</p>
+    {% endif %}
 
   {% endif %}
 
