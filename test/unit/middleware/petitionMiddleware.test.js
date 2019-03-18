@@ -17,6 +17,7 @@ const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
+const httpStatus = require('http-status-codes');
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -33,7 +34,7 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 404
+        statusCode: httpStatus.NOT_FOUND
       });
 
     // when
@@ -63,7 +64,7 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 200,
+        statusCode: httpStatus.OK,
         body: coRespondentMock
       });
 
@@ -92,7 +93,7 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 200,
+        statusCode: httpStatus.OK,
         body: coRespondentNotDefendingMock
       });
 
@@ -115,7 +116,7 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 200,
+        statusCode: httpStatus.OK,
         body: completedMock
       });
 
@@ -135,7 +136,7 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 500
+        statusCode: httpStatus.INTERNAL_SERVER_ERROR
       });
 
     // when

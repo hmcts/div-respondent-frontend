@@ -1,14 +1,11 @@
 const caseOrchestration = require('services/caseOrchestration');
-const { CaseStates, CoRespLinkableStates } = require('const');
+const config = require('config');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
 const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
-
-const SUCCESS = 200;
-const NOT_FOUND = 404;
-const ERROR_RESPONSE = 400;
+const httpStatus = require('http-status-codes');
 
 function storePetitionInSession(req, response) {
   req.session.referenceNumber = response.body.caseId;
@@ -41,9 +38,9 @@ function storePetitionInSession(req, response) {
   /* eslint-enable */
 }
 
-function findCoRespPath(originalPetition, caseState) {
-  const receivedAOSRespFromCoResp = originalPetition.coRespondentAnswers && originalPetition.coRespondentAnswers.aos && originalPetition.coRespondentAnswers.aos.received === 'Yes';
-  if (!receivedAOSRespFromCoResp && CoRespLinkableStates.includes(caseState)) {
+function findCoRespPath(coRespAnswers, caseState) {
+  const receivedAOSRespFromCoResp = coRespAnswers && coRespAnswers.aos && coRespAnswers.aos.received === 'Yes';
+  if (!receivedAOSRespFromCoResp && config.coRespRespondableStates.includes(caseState)) {
     return crRespond.path;
   }
   return crProgressBar.path;
@@ -52,24 +49,25 @@ function findCoRespPath(originalPetition, caseState) {
 const loadMiniPetition = (req, res, next) => {
   return caseOrchestration.getPetition(req)
     .then(response => {
-      if (response.statusCode === SUCCESS) {
+      if (response.statusCode === httpStatus.OK) {
         storePetitionInSession(req, response);
 
         const originalPetition = req.session.originalPetition;
         const caseState = response.body.state;
 
-        const idamUserIsCorespondent = originalPetition.coRespondentAnswers && originalPetition.coRespondentAnswers.contactInfo && req.idam.userDetails.email === originalPetition.coRespondentAnswers.contactInfo.emailAddress;
+        const coRespAnswers = originalPetition && originalPetition.coRespondentAnswers;
+        const idamUserIsCorespondent = coRespAnswers && coRespAnswers.contactInfo && req.idam.userDetails.email === coRespAnswers.contactInfo.emailAddress;
         if (idamUserIsCorespondent) {
-          return res.redirect(findCoRespPath(originalPetition, caseState));
+          return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }
-        if (caseState !== CaseStates.AosStarted) {
+        if (caseState !== config.caseStates.AosStarted) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
         }
-      } else if (response.statusCode === NOT_FOUND) {
+      } else if (response.statusCode === httpStatus.NOT_FOUND) {
         logger.infoWithReq(req, 'case_not_found', 'Case not found, redirecting to capture case and pin page');
         return res.redirect(CaptureCaseAndPin.path);
-      } else if (response.statusCode >= ERROR_RESPONSE) {
+      } else if (response.statusCode >= httpStatus.BAD_REQUEST) {
         logger.errorWithReq(req, 'case_unexpected_response', 'Unexpected response code while retrieving case', response.statusCode);
         return next(new Error(response));
       }
