@@ -29,6 +29,7 @@ class IdamLogin extends Question {
       'no',
       'petitionerRedirect',
       'co-respondent',
+      'co-respondent-amended-case',
       'coRespNotDefending',
       'coRespDefendingWaitingAnswer',
       'coRespDefendingSubmittedAnswer',

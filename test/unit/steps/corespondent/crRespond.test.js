@@ -59,17 +59,58 @@ describe(modulePath, () => {
     return interstitial.navigatesToNext(CrRespond, CrReviewApplication);
   });
 
-  it('renders the content', () => {
-    return content(CrRespond, {}, {
-      ignoreContent: [
-        'isThereAProblemWithThisPage',
-        'isThereAProblemWithThisPageParagraph',
-        'isThereAProblemWithThisPagePhone',
-        'isThereAProblemWithThisPageEmail',
-        'backLink',
-        'divorceCenterUrl',
-        'guidance'
-      ]
+  describe('renders the content', () => {
+    it('should render contents when previousCaseId is not specified', () => {
+      return content(CrRespond, {}, {
+        ignoreContent: [
+          'isThereAProblemWithThisPage',
+          'isThereAProblemWithThisPageParagraph',
+          'isThereAProblemWithThisPagePhone',
+          'isThereAProblemWithThisPageEmail',
+          'backLink',
+          'divorceCenterUrl',
+          'guidance'
+        ],
+        specificContent: ['readApp']
+      });
+    });
+
+    it('should render contents when previousCaseId is not specified', () => {
+      return content(CrRespond, {
+        originalPetition: {
+          previousCaseId: null
+        }
+      }, {
+        ignoreContent: [
+          'isThereAProblemWithThisPage',
+          'isThereAProblemWithThisPageParagraph',
+          'isThereAProblemWithThisPagePhone',
+          'isThereAProblemWithThisPageEmail',
+          'backLink',
+          'divorceCenterUrl',
+          'guidance'
+        ],
+        specificContent: ['readApp']
+      });
+    });
+
+    it('should render contents when previousCaseId is not specified', () => {
+      return content(CrRespond, {
+        originalPetition: {
+          previousCaseId: '12345'
+        }
+      }, {
+        ignoreContent: [
+          'isThereAProblemWithThisPage',
+          'isThereAProblemWithThisPageParagraph',
+          'isThereAProblemWithThisPagePhone',
+          'isThereAProblemWithThisPageEmail',
+          'backLink',
+          'divorceCenterUrl',
+          'guidance'
+        ],
+        specificContent: ['readAmendedApp']
+      });
     });
   });
 

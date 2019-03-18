@@ -4,6 +4,7 @@
     "referenceNumber": "Case number",
     "name": "Name",
     "readApp": "Read the divorce application",
+    "readAmendedApp": "Read the amended divorce application",
     "readApplication": "You need to read the divorce application before you respond. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
     "responseAcknowledgement": "Your response is legally known as the 'acknowledgement of service'.",
     "respond7Days": "You must respond to the application within 7 days. If you don’t, the divorce may move forwards without you.",

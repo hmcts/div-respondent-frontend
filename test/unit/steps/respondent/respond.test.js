@@ -59,7 +59,7 @@ describe(modulePath, () => {
           'divorceCenterUrl',
           'guidance'
         ],
-        specificValues: ['Respond to your husband\'s divorce application']
+        specificContent: ['respondToApplication']
       });
     });
 
@@ -79,7 +79,7 @@ describe(modulePath, () => {
           'divorceCenterUrl',
           'guidance'
         ],
-        specificValues: ['Respond to your husband\'s divorce application']
+        specificContent: ['respondToApplication']
       });
     });
 
@@ -99,7 +99,7 @@ describe(modulePath, () => {
           'divorceCenterUrl',
           'guidance'
         ],
-        specificValues: ['Respond to your husband\'s amended divorce application']
+        specificContent: ['respondToAmendedApplication']
       });
     });
   });
