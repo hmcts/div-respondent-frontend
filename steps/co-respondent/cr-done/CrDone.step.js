@@ -1,6 +1,7 @@
 const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
+const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 class CrDone extends ExitPoint {
   static get path() {
@@ -18,11 +19,16 @@ class CrDone extends ExitPoint {
     return '';
   }
 
+  get feesDefendDivorce() {
+    return this.res.locals.applicationFee['defended-petition-fee'].amount;
+  }
+
   get middleware() {
     return [
       idam.protect(),
       ...super.middleware,
-      idam.logout()
+      idam.logout(),
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 }

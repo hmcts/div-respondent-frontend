@@ -119,8 +119,10 @@
       "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery with the co-respondent, and the applicant finds it intolerable to live with the respondent.",
       "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery, and the applicant finds it intolerable to live with the respondent.",
       "reasonForDivorceAdulteryStatement": "This is supported by the following statement from the applicant.",
+      "reasonForDivorceAdulteryDetails": "Description of the adultery",
       "reasonForDivorceAdulteryWhere": "Where the adultery took place",
       "reasonForDivorceAdulteryWhen": "When the adultery took place",
+      "statementOfSecondHandInformationAboutAdultery": "The applicant stated that some of this information was given to them by another person and provided the following details: ",
 
       "notClaimingForDivorce": "The applicant is not claiming the costs of the divorce.",
       "claimingCostsFromRespondentCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent and the co-respondent.",

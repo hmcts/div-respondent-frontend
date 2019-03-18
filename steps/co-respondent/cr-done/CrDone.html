@@ -30,8 +30,41 @@
     <span class="bold-small">{{ coRespEmailAddress | safe }}</span>
 </p>
 
-<h2 class="heading-medium">{{ content.whatHappensNext }}</h2>
-<p class="text">{{ content.yourResponse }}</p>
+{% if session.CrChooseAResponse.response == "defend" %}
+
+    <h2 class="heading-medium">{{ content.whatYouNeedToDoNow }}</h2>
+
+    <p class="text">{{ content.submitAnswerToDivorce | safe }}</p>
+    <p class="text">{{ content.fillInPaperForm }}</p>
+    <p class="text">{{ content.postFormTo }}</p>
+
+    <ul class="list bold-small">
+        {% if session.serviceCentreName %}
+            <li>{{ session.serviceCentreName }}</li>
+        {% endif %}
+
+        <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+
+        {% if session.divorceCenterPoBox %}
+            <li>{{ session.divorceCenterPoBox }}</li>
+        {% endif %}
+        {% if session.divorceCenterStreet %}
+            <li>{{ session.divorceCenterStreet }}</li>
+        {% endif %}
+        <li>{{ session.divorceCenterCourtCity }}</li>
+        <li>{{ session.divorceCenterPostCode }}</li>
+    </ul>
+
+    <p class="text">{{ content.feeToPay | safe }}</p>
+    <p class="text">{{ content.hearingAboutDivorce }}</p>
+    <p class="text">{{ content.dontSubmitAnswer }}</p>
+
+{% else %}
+
+    <h2 class="heading-medium">{{ content.whatHappensNext }}</h2>
+    <p class="text">{{ content.yourResponse }}</p>
+
+{% endif %}
 
 {% if session.originalPetition.claimsCosts == "Yes" %}
 <h2 class="heading-medium">{{ content.claimedCostsTitle }}</h2>
