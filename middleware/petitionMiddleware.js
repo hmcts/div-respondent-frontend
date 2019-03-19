@@ -52,10 +52,13 @@ const loadMiniPetition = (req, res, next) => {
           return res.redirect(crRespond.path);
         }
         const caseState = response.body.state;
+        logger.infoWithReq(req, 'case_state', caseState);
         if (caseState !== CaseStates.AosStarted) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
         }
+        logger.infoWithReq(req, 'case_state_ok', 'Case is AoS Started, can proceed respondent journey', response.statusCode);
+        return next();
       } else if (response.statusCode === NOT_FOUND) {
         logger.infoWithReq(req, 'case_not_found', 'Case not found, redirecting to capture case and pin page');
         return res.redirect(CaptureCaseAndPin.path);
