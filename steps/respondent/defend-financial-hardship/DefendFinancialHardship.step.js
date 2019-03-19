@@ -92,7 +92,7 @@ class DefendFinancialHardship extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.ConfirmDefence);
+    return goTo(this.journey.steps.Jurisdiction);
   }
 }
 

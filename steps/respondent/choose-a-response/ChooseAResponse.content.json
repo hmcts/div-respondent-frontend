@@ -16,6 +16,16 @@
         "defend": {
           "heading": "Disagreeing with the application (defending)",
           "summary": "If you choose to defend the divorce you will have to pay a fee of £{{ feesDefendDivorce }}. You may have to both attend a hearing where a judge will decide if the divorce should be granted."
+        },
+        "hardship": {
+          "heading": "Defending the divorce because it will cause you hardship",
+          "text1": "As your wife used separation for 5 years as the reason for divorce, you can try to prevent it on the basis that it will cause you severe hardship.",
+          "text2": "The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).",
+          "text3": "You'll need to convince the court that the hardship will be severe.",
+          "text4": "The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
+          "text5": "Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.",
+          "text6": "You'll need to make your case for hardship in another form (called the 'answer'). You have 21 days to submit your answer from the date that you sign in to respond to the divorce application.",
+          "text7": "You'll also have to pay another £{{ feesDefendDivorce }} fee."
         }
       }
     },

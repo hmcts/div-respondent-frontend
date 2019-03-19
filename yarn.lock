@@ -297,7 +297,7 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@^3.0.0":
+"@hmcts/one-per-page-test-suite@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-3.0.1.tgz#d76a07a52660d0d4ac9c8e9a6d230b67bfcf95bc"
   integrity sha512-paJM+xDIEcw/XMydUBTJIjo0vnu5XaU/qLHR0IQ/clPeXD+nGIugcPE3dB4ziGB0DKwOFbkWAbegJIU2F+7aog==
