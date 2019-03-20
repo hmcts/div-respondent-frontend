@@ -1,6 +1,7 @@
 {
   "en": {
-      "title": "Application for divorce",
+      "title": "Divorce application (petition)",
+      "amendAppDetails": "Amended and reissued {{ session.originalPetition.issueDate | date }}",
       "caseReference": "Case number",
       "issued": "Issued",
       "applicant": "Applicant",
