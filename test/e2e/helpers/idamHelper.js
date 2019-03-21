@@ -24,7 +24,7 @@ class IdamHelper extends Helper {
     });
     const emailName = `divorce+rfe-test-${randomString}`;
     const testEmail = `${emailName}@example.com`;
-    const testPassword = 'genericPassword1';
+    const testPassword = 'genericPassword123';
 
     idamArgs.testEmail = testEmail;
     idamArgs.testPassword = testPassword;
