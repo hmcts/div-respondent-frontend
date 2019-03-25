@@ -85,6 +85,7 @@
     "braces": "^2.3.1",
     "event-stream": "3.3.4",
     "hoek": "^4.2.1",
+    "js-yaml": "^3.13.0",
     "lodash": "^4.17.5",
     "mem": "^4.0.0 ",
     "minimatch": "^3.0.4",
