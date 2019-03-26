@@ -22,14 +22,14 @@ class IdamHelper extends Helper {
       length: 16,
       charset: 'numeric'
     });
-    const emailName = `hmcts.divorce.reform+rfe-automatedtest-${randomString}`;
-    const testEmail = `${emailName}@gmail.com`;
-    const testPassword = randomstring.generate(9);
+    const emailName = `divorce+rfe-test-${randomString}`;
+    const testEmail = `${emailName}@example.com`;
+    const testPassword = 'genericPassword123';
 
     idamArgs.testEmail = testEmail;
     idamArgs.testPassword = testPassword;
-    idamArgs.testGroupCode = 'caseworker';
-    idamArgs.roles = ['citizen', 'caseworker-divorce-courtadmin'];
+    idamArgs.testGroupCode = 'citizens';
+    idamArgs.roles = [{ code: 'citizen' }, { code: 'caseworker-divorce-courtadmin' }];
 
     idamConfigHelper.setTestEmail(testEmail);
     idamConfigHelper.setTestPassword(testPassword);

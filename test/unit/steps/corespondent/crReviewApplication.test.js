@@ -1,6 +1,8 @@
 /* eslint max-lines: 0 */
 
-const modulePath = 'steps/co-respondent/cr-review-application/CrReviewApplication.step';
+const moduleRootName = 'steps/co-respondent/cr-review-application/CrReviewApplication';
+const modulePath = `${moduleRootName}.step`;
+const reviewApplicationContent = require(`${moduleRootName}.content`);
 
 const CrReviewApplication = require(modulePath);
 const CrAdmitAdultery = require('steps/co-respondent/cr-admit-adultery/CrAdmitAdultery.step');
@@ -179,9 +181,11 @@ describe(modulePath, () => {
           reasonForDivorce: 'adultery',
           reasonForDivorceAdulteryKnowWhere: 'Yes',
           reasonForDivorceAdulteryKnowWhen: 'Yes',
+          reasonForDivorceAdulteryKnowSecondHandInfo: 'Yes',
           reasonForDivorceAdulteryDetails: 'Here are some adultery details',
           reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
-          reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
+          reasonForDivorceAdulteryWhenDetails: 'When the adultery happened',
+          reasonForDivorceAdulterySecondHandInfoDetails: 'Information from another person'
         }
       };
       return content(
@@ -191,7 +195,8 @@ describe(modulePath, () => {
           specificValues: [
             session.originalPetition.reasonForDivorceAdulteryDetails,
             session.originalPetition.reasonForDivorceAdulteryWhereDetails,
-            session.originalPetition.reasonForDivorceAdulteryWhenDetails
+            session.originalPetition.reasonForDivorceAdulteryWhenDetails,
+            session.originalPetition.reasonForDivorceAdulterySecondHandInfo
           ]
         }
       );
@@ -199,53 +204,56 @@ describe(modulePath, () => {
   });
 
   describe('content', () => {
+    const ignoreContent = [
+      'coRespondentsCorrespondenceAddress',
+      'coRespondent',
+      'reasonForDivorceAdulteryDetails',
+      'reasonForDivorceAdulteryCorrespondentNamed',
+      'reasonForDivorceAdulteryCorrespondentNotNamed',
+      'reasonForDivorceAdulteryStatement',
+      'reasonForDivorceAdulteryWhere',
+      'reasonForDivorceAdulteryWhen',
+      'statementOfSecondHandInformationAboutAdultery',
+      'coRespRoleExplain',
+      'claimingCostsFromRespondentCoRespondent',
+      'claimingCostsFromCoRespondent',
+      'claimingCostsFromRespondent',
+      'financialOrdersPropertyMoneyPensionsChildren',
+      'financialOrdersChildren',
+      'financialOrdersPropertyMoneyPensions',
+      'applicantsCorrespondenceAddress',
+      'costsPetitionerPayedByRespondentAndCorrespondent',
+      'costsPetitionerPayedByCorrespondent',
+      'costsPetitionerPayedByRespondent',
+      'costsPetitionerDivorceCostsByRespondentAndCorespondent',
+      'costsPetitionerDivorceCostsByCorespondent',
+      'costsPetitionerDivorceCostsByRespondent',
+      'costsPetitionerDivorceCostsByFinancialOrder',
+      'jurisdictionConnectionBothResident',
+      'jurisdictionConnectionBothDomiciled',
+      'jurisdictionConnectionOneResides',
+      'jurisdictionConnectionPetitioner',
+      'jurisdictionConnectionRespondent',
+      'jurisdictionConnectionPetitionerSixMonths',
+      'jurisdictionConnectionOther',
+      'onGoingCasesNo',
+      'petitionerCorrespondenceAddressHeading',
+      'whereTheMarriage',
+      'readConfirmationQuestion',
+      'readConfirmationYes',
+      'readConfirmationNo'
+    ];
+
     it('all', () => {
       const session = {
         originalPetition: {
           jurisdictionConnection: {}
         }
       };
-      const ignoreContent = [
-        'coRespondentsCorrespondenceAddress',
-        'coRespondent',
-        'reasonForDivorceAdulteryCorrespondentNamed',
-        'reasonForDivorceAdulteryCorrespondentNotNamed',
-        'reasonForDivorceAdulteryStatement',
-        'reasonForDivorceAdulteryWhere',
-        'reasonForDivorceAdulteryWhen',
-        'coRespRoleExplain',
-        'claimingCostsFromRespondentCoRespondent',
-        'claimingCostsFromCoRespondent',
-        'claimingCostsFromRespondent',
-        'financialOrdersPropertyMoneyPensionsChildren',
-        'financialOrdersChildren',
-        'financialOrdersPropertyMoneyPensions',
-        'applicantsCorrespondenceAddress',
-        'costsPetitionerPayedByRespondentAndCorrespondent',
-        'costsPetitionerPayedByCorrespondent',
-        'costsPetitionerPayedByRespondent',
-        'costsPetitionerDivorceCostsByRespondentAndCorespondent',
-        'costsPetitionerDivorceCostsByCorespondent',
-        'costsPetitionerDivorceCostsByRespondent',
-        'costsPetitionerDivorceCostsByFinancialOrder',
-        'jurisdictionConnectionBothResident',
-        'jurisdictionConnectionBothDomiciled',
-        'jurisdictionConnectionOneResides',
-        'jurisdictionConnectionPetitioner',
-        'jurisdictionConnectionRespondent',
-        'jurisdictionConnectionPetitionerSixMonths',
-        'jurisdictionConnectionOther',
-        'onGoingCasesNo',
-        'petitionerCorrespondenceAddressHeading',
-        'whereTheMarriage',
-        'readConfirmationQuestion',
-        'readConfirmationYes',
-        'readConfirmationNo'
-      ];
       return content(CrReviewApplication, session, { ignoreContent });
     });
 
-    context('intro text - claim costs & finantial order', () => {
+    context('intro text - claim costs & financial order', () => {
       it('from respondent and co-respondent', () => {
         const session = {
           originalPetition: {
@@ -564,6 +572,85 @@ describe(modulePath, () => {
             CrReviewApplication,
             session,
             { specificContent: [ 'reasonForDivorceAdulteryWhen' ] });
+        });
+
+        it('show details if petitioner has information from another person', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfo: 'Yes',
+              reasonForDivorceAdulterySecondHandInfoDetails: 'This info came from someone else.'
+            }
+          };
+          return content(
+            CrReviewApplication,
+            session,
+            {
+              specificValues: [
+                reviewApplicationContent.en.statementOfSecondHandInformationAboutAdultery,
+                '"This info came from someone else."'
+              ]
+            }
+          );
+        });
+        it('hide details if petitioner has not specified information from another person', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfo: 'Yes',
+              reasonForDivorceAdulterySecondHandInfoDetails: ''
+            }
+          };
+          return content(
+            CrReviewApplication,
+            session,
+            {
+              specificContentToNotExist: ['statementOfSecondHandInformationAboutAdultery']
+            }
+          );
+        });
+        it('hide details if petitioner has no information from another person', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfo: 'No',
+              reasonForDivorceAdulterySecondHandInfoDetails: 'this info should not be shown'
+            }
+          };
+          return content(
+            CrReviewApplication,
+            session,
+            {
+              ignoreContent,
+              specificValuesToNotExist: [
+                reviewApplicationContent.en.statementOfSecondHandInformationAboutAdultery,
+                'this info should not be shown'
+              ]
+            }
+          );
+        });
+        it('hide details if petitioner has not replied about second hand information', () => {
+          const session = {
+            originalPetition: {
+              jurisdictionConnection: {},
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulterySecondHandInfoDetails: 'this info should not be shown'
+            }
+          };
+          return content(
+            CrReviewApplication,
+            session,
+            {
+              ignoreContent,
+              specificValuesToNotExist: [
+                reviewApplicationContent.en.statementOfSecondHandInformationAboutAdultery,
+                'this info should not be shown'
+              ]
+            }
+          );
         });
       });
     });

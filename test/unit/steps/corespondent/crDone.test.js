@@ -8,47 +8,89 @@ const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
   testDivorceUnitWithStreetDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
+    sinon.stub(feesAndPaymentsService, 'get').withArgs('defended-petition-fee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 245.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.get.restore();
   });
 
   it('has idam.protect and idam.logout middleware', () => {
     return middleware.hasMiddleware(CrDone, [ idam.protect(), idam.logout() ]);
   });
 
+  it('renders content', () => {
+    const session = {
+      originalPetition: {
+        claimsCosts: 'Yes'
+      },
+      CrChooseAResponse: {
+        response: 'defend'
+      }
+    };
 
-  it('renders the content if the costs are not being claimed', () => {
+    const ignoreContent = [
+      'whatHappensNext',
+      'yourResponse',
+      'continue',
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'backLink'
+    ];
+
+    return content(CrDone, session, { ignoreContent });
+  });
+
+  it('renders content if co-respondent is defending', () => {
+    const session = {
+      originalPetition: {
+        claimsCosts: 'No'
+      },
+      CrChooseAResponse: {
+        response: 'defend'
+      }
+    };
+
+    const specificContent = [
+      'whatYouNeedToDoNow',
+      'submitAnswerToDivorce',
+      'fillInPaperForm',
+      'postFormTo',
+      'feeToPay',
+      'hearingAboutDivorce',
+      'dontSubmitAnswer'
+    ];
+
+    return content(CrDone, session, { specificContent });
+  });
+
+  it('renders content if co-respondent is not defending', () => {
     const session = {
       originalPetition: {
         claimsCosts: 'No'
       }
     };
-    const ignoreContent = [
-      'claimedCostsTitle',
-      'claimedCostsText',
-      'objectingToCostsOrderTitle',
-      'objectingToCostsOrderText1',
-      'objectingToCostsOrderText2',
-      'continue',
-      'backLink',
-      'isThereAProblemWithThisPage',
-      'isThereAProblemWithThisPageParagraph',
-      'isThereAProblemWithThisPagePhone',
-      'isThereAProblemWithThisPageEmail',
-      'responseSent',
-      'referenceNumber',
-      'emailConfirmation',
+
+    const specificContent = [
       'whatHappensNext',
-      'yourResponse',
-      'guidance'
+      'yourResponse'
     ];
-    return content(CrDone, session, { ignoreContent });
+
+    return content(CrDone, session, { specificContent });
   });
 
   it('renders the content if the costs are being claimed', () => {
@@ -57,21 +99,16 @@ describe(modulePath, () => {
         claimsCosts: 'Yes'
       }
     };
-    const ignoreContent = [
-      'continue',
-      'backLink',
-      'isThereAProblemWithThisPage',
-      'isThereAProblemWithThisPageParagraph',
-      'isThereAProblemWithThisPagePhone',
-      'isThereAProblemWithThisPageEmail',
-      'responseSent',
-      'referenceNumber',
-      'emailConfirmation',
-      'whatHappensNext',
-      'yourResponse',
-      'guidance'
+
+    const specificContent = [
+      'claimedCostsTitle',
+      'claimedCostsText',
+      'objectingToCostsOrderTitle',
+      'objectingToCostsOrderText1',
+      'objectingToCostsOrderText2'
     ];
-    return content(CrDone, session, { ignoreContent });
+
+    return content(CrDone, session, { specificContent });
   });
 
   describe('court address details', () => {

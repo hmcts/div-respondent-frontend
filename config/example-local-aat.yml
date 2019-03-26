@@ -3,7 +3,7 @@ environment: local-aat
 
 services:
   idam:
-    apiUrl: https://preprod-idamapi.reform.hmcts.net:3511
+    apiUrl: https://idam-api.aat.platform.hmcts.net
     secret: <get-from-vault> # DO NOT SET HERE - MAKE A COPY OF THIS FILE AS `local-aat.yml`
   caseMaintenance:
     baseUrl: http://div-cms-aat.service.core-compute-aat.internal
