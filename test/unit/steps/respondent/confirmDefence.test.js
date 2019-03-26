@@ -3,6 +3,9 @@ const ConfirmDefence = require(modulePath);
 const Jurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.step');
 const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
 const ConsentDecree = require('steps/respondent/consent-decree/ConsentDecree.step');
+const DefendFinancialHardship = require(
+  'steps/respondent/defend-financial-hardship/DefendFinancialHardship.step'
+);
 const confirmDefenceContent = require('steps/respondent/confirm-defence/ConfirmDefence.content');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
@@ -49,26 +52,6 @@ describe(modulePath, () => {
     });
   });
 
-  it('redirects to the jurisdiction page on confirmation', () => {
-    const fields = { response: 'confirm' };
-    return question.redirectWithField(ConfirmDefence, fields, Jurisdiction);
-  });
-
-  it('redirects back to choose a response page on changing response', () => {
-    const fields = { response: 'changeResponse' };
-    return question.redirectWithField(ConfirmDefence, fields, ChooseAResponse);
-  });
-
-  it('redirects back to consent decree page if original petition is 2yr separation', () => {
-    const fields = { response: 'changeResponse' };
-    const session = {
-      originalPetition: {
-        reasonForDivorce: 'separation-2-years'
-      }
-    };
-    return question.redirectWithField(ConfirmDefence, fields, ConsentDecree, session);
-  });
-
   it('shows error if question is not answered', () => {
     return question.testErrors(ConfirmDefence);
   });
@@ -92,29 +75,66 @@ describe(modulePath, () => {
     expect(answer.hide).to.equal(true);
   });
 
-  it('should ensure no re-direct loop if user has answered already', () => {
-    const fields = { response: 'changeResponse' };
-    const session = {
-      originalPetition: {
-        reasonForDivorce: 'separation-5-years'
-      },
-      previouslyConfirmed: false
-    };
-    return question.redirectWithField(ConfirmDefence, fields, Jurisdiction, session);
-  });
-
-  it('should ensure no re-direct loop if user has answered already, 2-yr sep.', () => {
-    const fields = { response: 'changeResponse' };
-    const session = {
-      originalPetition: {
-        reasonForDivorce: 'separation-2-years'
-      },
-      previouslyConfirmed: false
-    };
-    return question.redirectWithField(ConfirmDefence, fields, ConsentDecree, session);
-  });
-
   it('renders the content', () => {
     return content(ConfirmDefence, {}, { ignoreContent: ['info'] });
+  });
+
+  describe('redirection', () => {
+    context('reason for divorce is: separation-2-years', () => {
+      const session = {
+        originalPetition: {
+          reasonForDivorce: 'separation-2-years'
+        }
+      };
+      it('redirects to the jurisdiction page on confirmation', () => {
+        const fields = { response: 'confirm' };
+        return question.redirectWithField(ConfirmDefence, fields, Jurisdiction, session);
+      });
+
+      it('redirects to the ConsentDecree page on change', () => {
+        const fields = { response: 'changeResponse' };
+        return question.redirectWithField(ConfirmDefence, fields, ConsentDecree, session);
+      });
+    });
+
+    context('reason for divorce is: separation-5-years', () => {
+      const session = {
+        originalPetition: {
+          reasonForDivorce: 'separation-5-years'
+        }
+      };
+      it('redirects to the DefendFinancialHardship page on confirmation', () => {
+        const fields = { response: 'confirm' };
+        return question.redirectWithField(ConfirmDefence, fields, DefendFinancialHardship, session);
+      });
+
+      it('redirects to the ChooseAResponse page on change', () => {
+        const fields = { response: 'changeResponse' };
+        return question.redirectWithField(ConfirmDefence, fields, ChooseAResponse, session);
+      });
+    });
+
+    [
+      'unreasonable-behaviour',
+      'adultery',
+      'desertion'
+    ].forEach(reason => {
+      context(`reason for divorce is: ${reason}`, () => {
+        const session = {
+          originalPetition: {
+            reasonForDivorce: reason
+          }
+        };
+        it('redirects to the jurisdiction page on confirmation', () => {
+          const fields = { response: 'confirm' };
+          return question.redirectWithField(ConfirmDefence, fields, Jurisdiction, session);
+        });
+
+        it('redirects to the ChooseAResponse page on change', () => {
+          const fields = { response: 'changeResponse' };
+          return question.redirectWithField(ConfirmDefence, fields, ChooseAResponse, session);
+        });
+      });
+    });
   });
 });

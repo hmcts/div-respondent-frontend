@@ -29,6 +29,14 @@
       "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Get a divorce</a>",
       "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
       "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
-    }
+    },
+
+    "whatYouNeedToDoNow": "What you need to do now",
+    "submitAnswerToDivorce": "You must now submit the <a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">'answer to a divorce application'</a> form. The deadline for the court to receive this is 21 days from the date you first signed in to respond to the divorce application.",
+    "fillInPaperForm": "Download and fill in the paper form.",
+    "postFormTo": "Post the form to:",
+    "feeToPay": "You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get help with paying this fee</a>.",
+    "hearingAboutDivorce": "You may have to go to a hearing about the divorce.",
+    "dontSubmitAnswer": "If you don't submit your answer before the deadline, then the applicant can continue the divorce as if you hadn't said that you intended to defend it."
   }
 }

@@ -4,22 +4,16 @@ const ChooseAResponse = require(modulePath);
 const Jurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.step');
 const ConfirmDefence = require('steps/respondent/confirm-defence/ConfirmDefence.step');
 const FinancialSituation = require('steps/respondent/financial-situation/FinancialSituation.step');
-const DefendFinancialHardship = require('steps/respondent/defend-financial-hardship/DefendFinancialHardship.step.js'); // eslint-disable-line max-len
 
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe(modulePath, () => {
-  const session = {
-    fields: {
-      response: {
-        value: 'proceed'
-      }
-    }
-  };
+  let session = {};
 
   beforeEach(() => {
+    session = { fields: { response: { value: 'proceed' } } };
     session.originalPetition = { reasonForDivorce: 'adultery' };
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
@@ -68,10 +62,10 @@ describe(modulePath, () => {
     return question.redirectWithField(ChooseAResponse, fields, FinancialSituation, session);
   });
 
-  it('redirects to defend financial hardship page when disagreeing with divorce and reason is 5 year separatinon', () => { // eslint-disable-line max-len
+  it('redirects to defend are you sure page when disagreeing with divorce and reason is 5 year separatinon', () => { // eslint-disable-line max-len
     const fields = { response: 'defend' };
     session.originalPetition.reasonForDivorce = 'separation-5-years';
-    return question.redirectWithField(ChooseAResponse, fields, DefendFinancialHardship, session);
+    return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence, session);
   });
 
   it('shows error if question is not answered', () => {
@@ -98,6 +92,22 @@ describe(modulePath, () => {
       specificValuesToNotExist: [
         stepContent.en.fields.proceedButDisagree.heading,
         stepContent.en.fields.proceedButDisagree.summary
+      ]
+    });
+  });
+
+  it('does not render specific five year info by default', () => {
+    return content(ChooseAResponse, session, {
+      ignoreContent: ['info'],
+      specificValuesToNotExist: [
+        stepContent.en.info.options.hardship.heading,
+        stepContent.en.info.options.hardship.text1,
+        stepContent.en.info.options.hardship.text2,
+        stepContent.en.info.options.hardship.text3,
+        stepContent.en.info.options.hardship.text4,
+        stepContent.en.info.options.hardship.text5,
+        stepContent.en.info.options.hardship.text6,
+        stepContent.en.info.options.hardship.text7
       ]
     });
   });
@@ -299,6 +309,38 @@ describe(modulePath, () => {
         expect(step.values.bind(step)).to
           .throw('Unknown response to behavior or desertion: \'blah\'');
       });
+    });
+  });
+
+  describe('when reason for divorce is unreasonable behaviour', () => {
+    beforeEach(() => {
+      session.originalPetition = {
+        reasonForDivorce: 'separation-5-years'
+      };
+    });
+
+    it('redirects to ConfirmDefence page when defend', () => {
+      const fields = { response: 'defend' };
+      return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence, session);
+    });
+
+    it('renders specific behaviour info', () => {
+      return content(
+        ChooseAResponse,
+        session,
+        {
+          specificContent: [
+            'info.options.hardship.heading',
+            'info.options.hardship.text1',
+            'info.options.hardship.text2',
+            'info.options.hardship.text3',
+            'info.options.hardship.text4',
+            'info.options.hardship.text5',
+            'info.options.hardship.text6',
+            'info.options.hardship.text7'
+          ]
+        }
+      );
     });
   });
 });
