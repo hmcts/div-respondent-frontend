@@ -126,7 +126,7 @@ coRespRespondableStates: [
   'AosAwaiting',
   'AosStarted',
   'AosOverdue',
-  'AosCompeted',
+  'AosCompleted',
   'AosSubmittedAwaitingAnswer',
   'DefendedDivorce',
   'AwaitingDecreeNisi',
