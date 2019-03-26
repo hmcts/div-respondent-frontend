@@ -130,6 +130,7 @@ coRespRespondableStates: [
   'AosSubmittedAwaitingAnswer',
   'DefendedDivorce',
   'AwaitingDecreeNisi',
+  'DNAwaiting',
   'AwaitingLegalAdvisorReferral'
 ]
 
