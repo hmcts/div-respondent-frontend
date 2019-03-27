@@ -58,6 +58,10 @@ lookAndFeel.configure(app, {
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());
 
+app.get('/assets/images/noJS.png', (req, res) => {
+  res.send('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+});
+
 app.use(accessLogger());
 
 app.use(setLocals.idamLoggedin);
