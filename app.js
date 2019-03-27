@@ -58,7 +58,8 @@ lookAndFeel.configure(app, {
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());
 
-app.get('/assets/images/noJS.png', (req, res) => {
+// 1px image used for tracking
+app.get('/noJS.png', (req, res) => {
   res.send('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
 });
 
