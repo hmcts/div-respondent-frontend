@@ -16,6 +16,14 @@ nodejs:
         LOG_LEVEL: "DEBUG"
         PROXY_URL: "http://proxyout.reform.hmcts.net:8080"
 
+    keyVaults:
+        "div":
+            resourceGroup: div
+            secrets:
+                - session-secret
+                - redis-secret
+                - idam-secret
+                    
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
