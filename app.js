@@ -8,6 +8,7 @@ const getSteps = require('steps');
 const setupHelmet = require('middleware/helmet');
 const setupPrivacy = require('middleware/privacy');
 const setupHealthChecks = require('middleware/healthcheck');
+const setupSecrets = require('middleware/setupSecretsMiddleware');
 const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
@@ -21,7 +22,7 @@ setupHelmet(app);
 setupPrivacy(app);
 setupHealthChecks(app);
 setupRateLimiter(app);
-
+setupSecrets(app);
 // Parsing cookies
 app.use(cookieParser());
 
