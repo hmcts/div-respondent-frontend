@@ -107,7 +107,7 @@ describe(modulePath, () => {
       });
     });
 
-    describe('when service centre handles case', () => {
+    describe('when divorce centre handles case', () => {
       const session = buildSessionWithCourtsInfo('northWest');
 
       it('some contents should exist', () => {
