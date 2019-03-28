@@ -3,7 +3,6 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
 const idam = require('services/idam');
-const { CaseStates } = require('const');
 
 const progressStates = {
   progressedNoAos: 'progressedNoAos',
@@ -84,24 +83,24 @@ class ProgressBar extends Interstitial {
   }
 
   awaitingAnswer(caseState) {
-    return caseState === CaseStates.AosSubmittedAwaitingAnswer;
+    return caseState === config.caseStates.AosSubmittedAwaitingAnswer;
   }
 
   defendedDivorce(caseState) {
-    return caseState === CaseStates.DefendedDivorce;
+    return caseState === config.caseStates.DefendedDivorce;
   }
 
   caseBeyondAos(caseState) {
     return (
-      caseState === CaseStates.AwaitingLegalAdvisorReferral ||
-      caseState === CaseStates.AmendPetition ||
-      caseState === CaseStates.AwaitingClarification ||
-      caseState === CaseStates.AwaitingConsideration ||
-      caseState === CaseStates.AwaitingDecreeAbsolute ||
-      caseState === CaseStates.DNAwaiting ||
-      caseState === CaseStates.AwaitingReissue ||
-      caseState === CaseStates.DivorceGranted ||
-      caseState === CaseStates.AwaitingPronouncement
+      caseState === config.caseStates.AwaitingLegalAdvisorReferral ||
+      caseState === config.caseStates.AmendPetition ||
+      caseState === config.caseStates.AwaitingClarification ||
+      caseState === config.caseStates.AwaitingConsideration ||
+      caseState === config.caseStates.AwaitingDecreeAbsolute ||
+      caseState === config.caseStates.DNAwaiting ||
+      caseState === config.caseStates.AwaitingReissue ||
+      caseState === config.caseStates.DivorceGranted ||
+      caseState === config.caseStates.AwaitingPronouncement
     );
   }
 
