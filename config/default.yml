@@ -95,6 +95,7 @@ paths:
     done: /done
   coRespondent:
     respond: /co-respondent/progress-bar/respond
+    progressBar: /co-respondent/progress-bar
     reviewApplication: /co-respondent/review-application
     admitAdultery: /co-respondent/admit-the-adultery
     chooseAResponse: /co-respondent/choose-a-response
@@ -120,6 +121,34 @@ tests:
       idamTestUserGroup:
       idamTestLevelOfAccess:
       idamTestSupportCreateAccountEndpoint:
+
+coRespRespondableStates: [
+  'AosAwaiting',
+  'AosStarted',
+  'AosOverdue',
+  'AosCompleted',
+  'AosSubmittedAwaitingAnswer',
+  'DefendedDivorce',
+  'AwaitingDecreeNisi',
+  'DNAwaiting',
+  'AwaitingLegalAdvisorReferral'
+]
+
+caseStates: 
+  AosAwaiting: 'AosAwaiting'
+  AosStarted: 'AosStarted'
+  AosOverdue: 'AosOverdue'
+  AosSubmittedAwaitingAnswer: 'AosSubmittedAwaitingAnswer'
+  AmendPetition: 'AmendPetition'
+  AwaitingClarification: 'AwaitingClarification'
+  AwaitingConsideration: 'AwaitingConsideration'
+  AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
+  DNAwaiting: 'DNAwaiting'
+  AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
+  AwaitingPronouncement: 'AwaitingPronouncement'
+  AwaitingReissue: 'AwaitingReissue'
+  DefendedDivorce: 'DefendedDivorce'
+  DivorceGranted: 'DivorceGranted'
 
 features:
   idam: false

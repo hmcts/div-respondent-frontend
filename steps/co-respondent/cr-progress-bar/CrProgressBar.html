@@ -1,0 +1,97 @@
+{% extends "page.njk" %}
+
+{% block back %}
+{% endblock %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+    <p class="font-xsmall">
+        <strong class="bold-xsmall">{{ content.details.referenceNumber }}
+            :</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference }}<br>
+        <strong class="bold-xsmall">{{ content.details.name }}:</strong> &nbsp;&nbsp;
+      {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName | safe }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName | safe }}
+    </p>
+
+    {% set progressBarContent = getProgressBarContent() %}
+
+    {% if  progressBarContent === progressStates.notDefending %}
+        <h2 class="heading-medium">{{ content.notDefending.heading }}</h2>
+        <p>{{ content.notDefending.info }}</p>
+
+        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
+        <p>{{ content.helpContent | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
+        <p>{{ content.improveContent | safe }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.defendingAwaitingAnswer %}
+        <h2 class="heading-medium">{{ content.defendingAwaitingAnswer.heading }}</h2>
+        <p>{{ content.defendingAwaitingAnswer.para1 | safe }}</p>
+        <p>{{ content.defendingAwaitingAnswer.para2 | safe }}</p>
+        <p>{{ content.defendingAwaitingAnswer.para3 | safe }}</p>
+        <ul class="list bold-small">
+            {% if session.serviceCentreName %}
+                <li>{{ session.serviceCentreName }}</li>
+            {% endif %}
+
+            <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+
+            {% if session.divorceCenterPoBox %}
+                <li>{{ session.divorceCenterPoBox }}</li>
+            {% endif %}
+            {% if session.divorceCenterStreet %}
+                <li>{{ session.divorceCenterStreet }}</li>
+            {% endif %}
+            <li>{{ session.divorceCenterCourtCity }}</li>
+            <li>{{ session.divorceCenterPostCode }}</li>
+        </ul>
+        <p>{{ content.defendingAwaitingAnswer.para4 | safe }}</p>
+        <p>{{ content.defendingAwaitingAnswer.para5 | safe }}</p>
+        <p>{{ content.defendingAwaitingAnswer.para6 | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
+        <p>{{ content.helpContent | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
+        <p>{{ content.improveContent | safe }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.defendingSubmittedAnswer %}
+        <h2 class="heading-medium">{{ content.defendingSubmittedAnswer.heading }}</h2>
+        <p>{{ content.defendingSubmittedAnswer.para1 }}</p>
+        <p>{{ content.defendingSubmittedAnswer.para2 }}</p>
+        <p>{{ content.defendingSubmittedAnswer.para3 }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.tooLateToRespond %}    
+        <h2 class="heading-medium">{{ content.tooLateToRespond.heading }}</h2>
+        <p>{{ content.tooLateToRespond.info }}</p>
+    {% endif %}
+
+{% endblock %}
+
+{% block one_third %}
+    <aside class="govuk-related-items" role="complementary">
+        <h3 class="heading-small">{{ content.contactDetails.heading }}</h3>
+
+        <ul class="font-xsmall">
+            <li>
+                <strong class="bold-xsmall">{{ content.contactDetails.email }}</strong><br>
+                {{ session.divorceCenterEmail | safe }}
+                <br>
+            </li>
+            <li>
+                <strong class="bold-xsmall">{{ content.contactDetails.phone }}</strong><br>
+                {{ session.divorceCenterPhoneNumber | safe }}<br>
+                {{ content.contactDetails.divorceCenterHours }}<br>
+            </li>
+            {% include "includes/sideMenuCourtDetails.html" %}
+        </ul>
+
+        {% include "includes/sideMenuGuidanceLinksForCoRespondent.html" %}
+    </aside>
+{% endblock %}

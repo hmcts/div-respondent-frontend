@@ -28,6 +28,10 @@ class IdamLogin extends Question {
       'no',
       'petitionerRedirect',
       'co-respondent',
+      'coRespNotDefending',
+      'coRespDefendingWaitingAnswer',
+      'coRespDefendingSubmittedAnswer',
+      'coRespTooLateToRespond',
       'throwError'
     ];
     const validAnswers = Joi.string()
