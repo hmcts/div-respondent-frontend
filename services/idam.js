@@ -1,6 +1,9 @@
 const idamExpressMiddleware = require('@hmcts/div-idam-express-middleware');
 const idamExpressMiddlewareMock = require('mocks/services/idam');
 const config = require('config');
+const { Logger } = require('@hmcts/nodejs-logging');
+
+const logger = Logger.getLogger(__filename);
 
 const idamArgs = {
   indexUrl: config.paths.index,
@@ -20,6 +23,8 @@ const setArgsFromRequest = req => {
   const args = Object.assign({}, idamArgs);
   args.hostName = req.hostname;
   args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
+  const argStr = JSON.stringify(args);
+  logger.info(argStr);
   return args;
 };
 
