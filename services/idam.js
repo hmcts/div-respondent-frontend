@@ -1,10 +1,7 @@
 const idamExpressMiddleware = require('@hmcts/div-idam-express-middleware');
 const idamExpressMiddlewareMock = require('mocks/services/idam');
 const config = require('@hmcts/properties-volume').addTo(require('config'));
-const { Logger } = require('@hmcts/nodejs-logging');
 const setupSecrets = require('services/setupSecrets');
-
-const logger = Logger.getLogger(__filename);
 
 if (config.environment !== 'testing') {
   setupSecrets();
@@ -28,8 +25,6 @@ const setArgsFromRequest = req => {
   const args = Object.assign({}, idamArgs);
   args.hostName = req.hostname;
   args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
-  const argStr = JSON.stringify(args);
-  logger.info(argStr);
   return args;
 };
 

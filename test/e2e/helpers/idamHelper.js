@@ -1,4 +1,4 @@
-const config = require('@hmcts/properties-volume').addTo(require('config'));
+const config = require('config');
 const logger = require('services/logger').getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
@@ -38,10 +38,7 @@ class IdamHelper extends Helper {
         return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
       })
       .then(response => {
-        const idamArgsStr = JSON.stringify(idamArgs);
-
-        logger.infoWithReq(null, 'idam_user_created', 'Retrieved IDAM test user token',
-          testEmail, idamArgsStr);
+        logger.infoWithReq(null, 'idam_user_created', 'Retrieved IDAM test user token', testEmail);
         idamConfigHelper.setTestToken(response.access_token);
         idamArgs.accessToken = response.access_token;
         return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);

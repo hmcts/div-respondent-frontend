@@ -10,7 +10,6 @@ nodejs:
         RATE_LIMITER_ENABLED: "false"
         RATE_LIMITER_TOTAL: "3600"
         RATE_LIMITER_EXPIRE: "3600000"
-        REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
         LOG_LEVEL: "DEBUG"
         PROXY_URL: "http://proxyout.reform.hmcts.net:8080"
 

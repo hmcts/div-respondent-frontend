@@ -1,4 +1,4 @@
-const config = require('config');
+const config = require('@hmcts/properties-volume').addTo(require('config'));
 const { get, set } = require('lodash');
 
 const setSecret = (secretPath, configPath) => {
