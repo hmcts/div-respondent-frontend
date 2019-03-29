@@ -1,10 +1,13 @@
-const config = require('config');
+const config = require('@hmcts/properties-volume').addTo(require('config'));
 const logger = require('services/logger').getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
 const idamConfigHelper = require('./idamConfigHelper');
+const setupSecrets = require('services/setupSecrets');
 
 const Helper = codecept_helper; // eslint-disable-line
+
+setupSecrets();
 
 const redirectUri = `${config.tests.e2e.url}${config.paths.authenticated}`;
 const idamArgs = {

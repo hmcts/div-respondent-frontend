@@ -9,9 +9,7 @@ const setupSecrets = require('services/setupSecrets');
 
 let http = {};
 
-if (config.environment !== 'testing') {
-  setupSecrets();
-}
+setupSecrets();
 
 if (['development'].includes(config.environment)) {
   const sslDirectory = path.join(__dirname, 'resources', 'localhost-ssl');
