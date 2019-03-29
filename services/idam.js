@@ -1,9 +1,14 @@
 const idamExpressMiddleware = require('@hmcts/div-idam-express-middleware');
 const idamExpressMiddlewareMock = require('mocks/services/idam');
-const config = require('config');
+const config = require('@hmcts/properties-volume').addTo(require('config'));
 const { Logger } = require('@hmcts/nodejs-logging');
+const setupSecrets = require('services/setupSecrets');
 
 const logger = Logger.getLogger(__filename);
+
+if (config.environment !== 'testing') {
+  setupSecrets();
+}
 
 const idamArgs = {
   indexUrl: config.paths.index,
