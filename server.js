@@ -5,8 +5,13 @@ const config = require('@hmcts/properties-volume').addTo(require('config'));
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
+const setupSecrets = require('services/setupSecrets');
 
 let http = {};
+
+if (config.environment !== 'testing') {
+  setupSecrets();
+}
 
 if (['development'].includes(config.environment)) {
   const sslDirectory = path.join(__dirname, 'resources', 'localhost-ssl');
