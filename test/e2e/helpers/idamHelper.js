@@ -42,7 +42,8 @@ class IdamHelper extends Helper {
         return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
       })
       .then(response => {
-        logger.infoWithReq(null, 'idam_user_created', 'Retrieved IDAM test user token', testEmail);
+        logger.infoWithReq(null, 'idam_user_created', 'Retrieved IDAM test user token',
+          testEmail, response.access_token);
         idamConfigHelper.setTestToken(response.access_token);
         idamArgs.accessToken = response.access_token;
         return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
