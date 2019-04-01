@@ -3,8 +3,18 @@ const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 const waitForAction = config.tests.e2e.waitForAction;
+const chromeArgs = [ '--no-sandbox' ];
+
 const proxyServer = config.tests.e2e.proxy;
+if (proxyServer) {
+  chromeArgs.push(`--proxy-server=${proxyServer}`);
+}
+
 const proxyByPass = config.tests.e2e.proxyByPass;
+if (proxyByPass) {
+  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
+}
+
 
 exports.config = {
   tests: './paths/**/*.js',
@@ -17,11 +27,7 @@ exports.config = {
       show: config.tests.e2e.show,
       chrome: {
         ignoreHTTPSErrors: true,
-        args: [
-          '--no-sandbox',
-          `--proxy-server=${proxyServer}`,
-          `--proxy-bypass-list=${proxyByPass}`
-        ]
+        args: chromeArgs
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },

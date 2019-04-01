@@ -150,11 +150,9 @@
     },
     "reasonForDivorceAdulteryKnowWhere": "Yes",
     "reasonForDivorceAdulteryKnowWhen": "Yes",
-    "reasonForDivorceAdulteryDetails": "I received several messages that night from Baxter boasting that she was with my husband and that they were having an affair. I confronted him about it the next day and he confessed and moved out of the house. We haven’t spoken since that day. I can provide text messages from both my Husband and Baxter confessing to the adultery.",
-    "reasonForDivorceAdulteryWhenDetails": "New years eve 2018, At midnight.",
-    "reasonForDivorceAdulteryWhereDetails": "At a Travelodge in Westminster  street, near central London.",
-    "reasonForDivorceAdulterySecondHandInfo": "Yes",
-    "reasonForDivorceAdulterySecondHandInfoDetails": "A trusted source of mine gave me this information",
+    "reasonForDivorceAdulteryDetails": "Molestias nostrum es",
+    "reasonForDivorceAdulteryWhenDetails": "Ex voluptate enim co",
+    "reasonForDivorceAdulteryWhereDetails": "Ut consequatur sed",
     "legalProceedings": "No",
     "financialOrder": "No",
     "claimsCosts": "No",
@@ -252,6 +250,15 @@
     "coRespondentAnswers": {
       "contactInfo": {
         "emailAddress": "user@email.com"
+      },
+      "aos": {
+        "received": "Yes",
+        "letterHolderId": "755791",
+        "dateReceived": "2019-02-22"
+      },
+      "defendsDivorce": "Yes",
+      "answer": {
+        "received": "Yes"
       }
     },
     "d8": [
@@ -285,8 +292,6 @@
         "mimeType": null,
         "status": null
       }
-    ],
-    "previousCaseId": "12345",
-    "previousIssueDate":"2018-10-02T00:00:00.000Z"
+    ]
   }
 }
