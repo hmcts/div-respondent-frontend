@@ -1,11 +1,6 @@
 const idamExpressMiddleware = require('@hmcts/div-idam-express-middleware');
 const idamExpressMiddlewareMock = require('mocks/services/idam');
 const config = require('@hmcts/properties-volume').addTo(require('config'));
-const setupSecrets = require('services/setupSecrets');
-
-if (config.environment !== 'testing') {
-  setupSecrets();
-}
 
 const idamArgs = {
   indexUrl: config.paths.index,
