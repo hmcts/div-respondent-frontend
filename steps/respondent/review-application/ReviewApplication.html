@@ -10,7 +10,9 @@
 {% block fields %}
 
   <!-- Application for divorce -->
-
+  {% if session.originalPetition.previousCaseId %}
+    <h3 class="heading-small">{{ content.amendAppDetails }}</h3>
+  {% endif %}
   <p class="text">
     {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrder == "Yes" %}
       {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
@@ -36,7 +38,11 @@
   </p>
 
   <h3 class="heading-small">{{ content.issued }}</h3>
-  <p class="text">{{ session.originalPetition.issueDate | date }}</p>
+  {% if session.originalPetition.previousCaseId %}
+    <p class="text">{{ session.originalPetition.previousIssueDate | date }}</p>
+  {% else %}
+    <p class="text">{{ session.originalPetition.issueDate | date }}</p>
+  {% endif %}
 
   <h3 class="heading-small">{{ content.caseReference }}</h3>
   <p class="text">{{ session.originalPetition.caseReference }}</p>
