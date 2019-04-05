@@ -50,9 +50,5 @@ describe(modulePath, () => {
         return redirect.navigatesToNext(Entry, SystemMessage);
       });
     });
-
-    it('to respond page', () => {
-      return redirect.navigatesToNext(Entry, Respond);
-    });
   });
 });

@@ -47,6 +47,22 @@ describe(modulePath, () => {
       };
       return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
     });
+
+    it('redirects to next page with dashes in reference number', () => {
+      const answers = {
+        referenceNumber: dashingReferenceNumber,
+        securityAccessCode: validSecurityAccessCode
+      };
+      return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
+    });
+
+    it('redirects to next page when contains a non-digit character', () => {
+      const answers = {
+        referenceNumber: '1234567812345678A',
+        securityAccessCode: validSecurityAccessCode
+      };
+      return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
+    });
   });
 
   describe('showSystemMessage feature on', () => {
@@ -58,29 +74,13 @@ describe(modulePath, () => {
       sandbox.restore();
     });
 
-    it('to respond page', () => {
+    it('to SystemMessage page', () => {
       const answers = {
         referenceNumber: validReferenceNumber,
         securityAccessCode: validSecurityAccessCode
       };
       return question.redirectWithField(CaptureCaseAndPin, answers, SystemMessage);
     });
-  });
-
-  it('redirects to next page with dashes in reference number', () => {
-    const answers = {
-      referenceNumber: dashingReferenceNumber,
-      securityAccessCode: validSecurityAccessCode
-    };
-    return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
-  });
-
-  it('redirects to next page when contains a non-digit character', () => {
-    const answers = {
-      referenceNumber: '1234567812345678A',
-      securityAccessCode: validSecurityAccessCode
-    };
-    return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
   });
 
   describe('validate reference number shows error if', () => {
