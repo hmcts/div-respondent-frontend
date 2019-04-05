@@ -49,6 +49,10 @@ withPipeline("nodejs", product, component) {
     sh 'printenv'
   }
 
+  before('functionalTest:preview') {
+    sh "curl -X PATCH https://idam-api.aat.platform.hmcts.net/testing-support/services/divorce -H 'Accept: application/json' -H 'Content-Type: application/json' -d '[{\"operation\": \"add\", \"field\": \"redirect_uri\", \"value\": \"${env.TEST_URL}/authenticated\"}]'"
+  }
+
   after('functionalTest:preview') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
