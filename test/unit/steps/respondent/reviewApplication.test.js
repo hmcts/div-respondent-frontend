@@ -137,6 +137,27 @@ describe(modulePath, () => {
     });
   });
 
+  describe('Amend Case', () => {
+    it('displays Amend case heading, issue date, reissue date', () => {
+      const session = {
+        originalPetition: {
+          issueDate: '2019-22-02T00:00:00.000+0000',
+          previousCaseId: '12345',
+          previousIssueDate: '2018-10-02T00:00:00.000Z',
+          jurisdictionConnection: {}
+        }
+      };
+      return content(
+        ReviewApplication,
+        session,
+        {
+          specificContent: ['amendAppDetails'],
+          specificValues: [ '02 October 2018', '22 February 2019' ]
+        }
+      );
+    });
+  });
+
   describe('values', () => {
     it('displays case reference number', () => {
       const session = {
@@ -322,6 +343,7 @@ describe(modulePath, () => {
 
   describe('content', () => {
     const ignoreContent = [
+      'amendAppDetails',
       'coRespondentsCorrespondenceAddress',
       'coRespondent',
       'reasonForDivorceAdulteryCorrespondentNamed',
