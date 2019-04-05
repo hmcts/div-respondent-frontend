@@ -5,12 +5,16 @@ const caseOrchestration = require('services/caseOrchestration');
 const Respond = require('steps/respondent/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const config = require('config');
+const SystemMessage = require('steps/system-message/SystemMessage.step');
 
 const validReferenceNumber = '1234567891234560';
 const dashingReferenceNumber = '1234-5678-9123-4560';
 const validSecurityAccessCode = '1A3b5678';
 
 describe(modulePath, () => {
+  const sandbox = sinon.createSandbox();
+
   beforeEach(() => {
     sinon.stub(idam, 'protect')
       .returns(middleware.nextMock);
@@ -27,12 +31,40 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(CaptureCaseAndPin, [idam.protect()]);
   });
 
-  it('redirects to next page', () => {
-    const answers = {
-      referenceNumber: validReferenceNumber,
-      securityAccessCode: validSecurityAccessCode
-    };
-    return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
+  describe('showSystemMessage feature off', () => {
+    before(() => {
+      sandbox.replace(config.features, 'showSystemMessage', false);
+    });
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    it('to respond page', () => {
+      const answers = {
+        referenceNumber: validReferenceNumber,
+        securityAccessCode: validSecurityAccessCode
+      };
+      return question.redirectWithField(CaptureCaseAndPin, answers, Respond);
+    });
+  });
+
+  describe('showSystemMessage feature on', () => {
+    before(() => {
+      sandbox.replace(config.features, 'showSystemMessage', true);
+    });
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    it('to respond page', () => {
+      const answers = {
+        referenceNumber: validReferenceNumber,
+        securityAccessCode: validSecurityAccessCode
+      };
+      return question.redirectWithField(CaptureCaseAndPin, answers, SystemMessage);
+    });
   });
 
   it('redirects to next page with dashes in reference number', () => {

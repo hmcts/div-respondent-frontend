@@ -1,4 +1,6 @@
 const content = require('common/content');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 Feature('5 year Separation journey');
 
@@ -7,6 +9,10 @@ Scenario('Proceed to financial situation for 5 year separation and proceed', I =
 
   I.seeIdamLoginPage();
   I.loginAs5yrSeparationCase();
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeRespondPage();
   I.click(content.en.continue);
@@ -29,6 +35,10 @@ Scenario('Do not show financial situation for 5 year separation and defend', I =
 
   I.seeIdamLoginPage();
   I.loginAs5yrSeparationCase();
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeRespondPage();
   I.click(content.en.continue);

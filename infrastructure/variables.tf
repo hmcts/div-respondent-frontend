@@ -111,6 +111,10 @@ variable "feature_idam" {
   default = true
 }
 
+variable "feature_show_system_message" {
+  default = false
+}
+
 variable "idam_authentication_web_url" {
   type = "string"
 }

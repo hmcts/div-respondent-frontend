@@ -1,4 +1,6 @@
 const content = require('common/content');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 Feature('Co-respondent Adultery journey');
 
@@ -7,6 +9,10 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
 
   I.seeIdamLoginPage();
   I.loginAsCorespondent();
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeCrRespondPage();
   I.click(content.en.continue);
@@ -41,6 +47,10 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
 
   I.seeIdamLoginPage();
   I.loginAsCorespondent();
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeCrRespondPage();
   I.click(content.en.continue);

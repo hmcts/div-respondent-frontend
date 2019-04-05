@@ -65,6 +65,7 @@ services:
 
 features:
   idam: FEATURE_IDAM
+  showSystemMessage: FEATURE_SHOW_SYSTEM_MESSAGE
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY

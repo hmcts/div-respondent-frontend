@@ -1,0 +1,17 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  <p>{{ content.message1 | safe }}</p>
+  <p>{{ content.message2 | safe }}</p>
+  <p>{{ content.message3 | safe }}</p>
+  <p>{{ content.message4 | safe }}</p>
+  <br>
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+    <input class="button" type="submit" value="Continue">
+  </form>
+  <br>
+{% endblock %}

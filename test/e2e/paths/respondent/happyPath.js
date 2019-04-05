@@ -1,5 +1,7 @@
 const content = require('common/content');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 Feature('Happy path');
 
@@ -14,6 +16,10 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content.en.continue);
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeRespondPage();
   I.wait(5);

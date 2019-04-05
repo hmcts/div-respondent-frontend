@@ -113,6 +113,7 @@ module "frontend" {
 
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"
+    FEATURE_SHOW_SYSTEM_MESSAGE                = "${var.feature_show_system_message}"
 
     // Decree Nisi Frontend Url
     DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"

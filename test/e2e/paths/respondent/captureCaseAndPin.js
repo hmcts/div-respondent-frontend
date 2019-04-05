@@ -1,5 +1,7 @@
 const commonContent = require('common/content');
 const content = require('steps/capture-case-and-pin/CaptureCaseAndPin.content');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 Feature('CaptureCaseAndPin step');
 
@@ -11,6 +13,10 @@ Scenario('Can link case using case ID/PIN code', I => {
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode('9234567891234567', '12345678');
   I.click(commonContent.en.continue);
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
   I.seeRespondPage();
 }).retry(2);
 
@@ -22,6 +28,10 @@ Scenario('Can link case using case ID/PIN code if ID has extra nonnumerical char
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode('AAA1234123412341234AAAA', '12345678');
   I.click(commonContent.en.continue);
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
   I.seeRespondPage();
 }).retry(2);
 

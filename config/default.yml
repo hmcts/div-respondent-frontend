@@ -68,6 +68,7 @@ paths:
   index: /
   entry: /entry
   end: /end
+  systemMessage: /system-message
   termsAndConditions: /terms-and-conditions
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
@@ -134,7 +135,7 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral'
 ]
 
-caseStates: 
+caseStates:
   AosAwaiting: 'AosAwaiting'
   AosStarted: 'AosStarted'
   AosOverdue: 'AosOverdue'
@@ -155,6 +156,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
+  showSystemMessage: false
 
 journey:
   timeoutDelay: 300

@@ -1,4 +1,6 @@
 const content = require('common/content');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 Feature('Two year separation journey');
 
@@ -7,6 +9,10 @@ Scenario('Consent to divorce based on 2 year separation', I => {
 
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeRespondPage();
   I.click(content.en.continue);
@@ -34,6 +40,10 @@ Scenario('Do not consent to 2 year separation and will defend against divorce', 
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
 
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
+
   I.seeRespondPage();
   I.click(content.en.continue);
 
@@ -60,6 +70,10 @@ Scenario('Do not consent to 2 year separation but will not defend against divorc
 
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeRespondPage();
   I.click(content.en.continue);
@@ -91,6 +105,10 @@ Scenario('Initially defend then change response for 2yr separation, no consent',
 
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
+
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeSystemMessage();
+  }
 
   I.seeRespondPage();
   I.click(content.en.continue);

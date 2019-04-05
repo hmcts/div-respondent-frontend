@@ -17,3 +17,7 @@ output "idam_api_url" {
 output "feature_idam" {
   value = "${var.feature_idam}"
 }
+
+output "feature_show_system_message" {
+  value = "${var.feature_show_system_message}"
+}

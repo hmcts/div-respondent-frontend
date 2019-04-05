@@ -5,6 +5,7 @@ const caseOrchestration = require('services/caseOrchestration');
 const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const referenceNumberLength = 16;
 const securityAccessCode = 8;
@@ -46,8 +47,9 @@ class CaptureCaseAndPin extends Question {
   }
 
   next() {
+    const nextStep = parseBool(config.features.showSystemMessage) ? this.journey.steps.SystemMessage : this.journey.steps.Respond;
     return action(caseOrchestration.linkCase)
-      .then(goTo(this.journey.steps.Respond))
+      .then(goTo(nextStep))
       .onFailure(stop(this));
   }
 
