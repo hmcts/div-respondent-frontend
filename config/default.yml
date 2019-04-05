@@ -156,7 +156,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
-  showSystemMessage: false
+  showSystemMessage: true
 
 journey:
   timeoutDelay: 300

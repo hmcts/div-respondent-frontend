@@ -31,4 +31,4 @@ data:
   CASE_MAINTENANCE_BASE_URL: "http://div-cms-aat.service.core-compute-aat.internal"
   LOG_LEVEL: "DEBUG"
   PROXY_URL: "http://proxyout.reform.hmcts.net:8080"
-  FEATURE_SHOW_SYSTEM_MESSAGE: "false"
+  FEATURE_SHOW_SYSTEM_MESSAGE: "true"
