@@ -9,6 +9,7 @@ const httpStatus = require('http-status-codes');
 const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+const moment = require('moment');
 
 const templates = {
   awaitingReissue: './sections/OneCircleFilledIn.html',
@@ -16,7 +17,8 @@ const templates = {
   defendedDivorce: './sections/TwoCircleFilledIn.html',
   awaitingDecreeNisi: './sections/TwoCircleFilledInBold.html',
   awaitingDecreeAbsolute: './sections/ThreeCircleFilledInBold.html',
-  divorceGranted: './sections/FourCircleFilledIn.html'
+  divorceGranted: './sections/FourCircleFilledIn.html',
+  awaitingPronouncement: './sections/TwoCircleFilledIn.html'
 };
 
 
@@ -97,6 +99,41 @@ describe(modulePath, () => {
         progressBarContent.en.awaitingAnswer.heading
       ]
     });
+  });
+
+  it('renders the content awaitingPronouncement and hearingAssigned', () => {
+    // case has progressed with AoS, court has received respondents defence answer
+    const session = {
+      caseState: 'AwaitingPronouncement',
+      originalPetition: {
+        hearingDate: [moment().add(7, 'days')],
+        D8DocumentsGenerated: [
+          {
+            id: 'bc6a1b97-7657-4d35-ad1d-226274be4646',
+            value: { DocumentFileName: 'd8petition1539017559370699.pdf' }
+          },
+          {
+            id: '401ab79e-34cb-4570-9f2f-4cf9357dc123',
+            value: { DocumentFileName: 'certificateOfEntitlement1539017559370699.pdf' }
+          }
+        ]
+      }
+    };
+
+    const specificContent = [
+      'decreeNisiAnnouncement.heading',
+      'decreeNisiAnnouncement.districtJudge',
+      'decreeNisiAnnouncement.secondStage',
+      'decreeNisiAnnouncement.theHearing',
+      'decreeNisiAnnouncement.moreDetails',
+      'decreeNisiAnnouncement.dontNeedToCome',
+      'decreeNisiAnnouncement.wantToAttend',
+      'downloadableFiles',
+      'files.dpetition',
+      'files.certificateOfEntitlement'
+    ];
+
+    return content(ProgressBar, session, { specificContent });
   });
 
   it('renders the content for unhandled state', () => {
@@ -249,6 +286,20 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(ProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.divorceGranted);
+    });
+  });
+
+  describe('CCD state: awaitingPronouncement', () => {
+    const session = {
+      caseState: 'AwaitingPronouncement',
+      originalPetition: {
+        hearingDate: [moment().add(7, 'days')]
+      }
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingPronouncement);
     });
   });
 });

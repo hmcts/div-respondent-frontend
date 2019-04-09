@@ -29,7 +29,7 @@ services:
     useSSL: false
     encryptionAtRestKey: encryptionAtRestKey
   idam:
-    apiHealth: https://localhost:8001/health
+    apiHealth: https://localhost:8001/idam-api-health
     authenticationHealth: https://localhost:3000/health
     apiUrl: http://localhost:3001/idam
     secret: '123456'
@@ -52,7 +52,7 @@ services:
     enabled: false
   caseOrchestration:
     baseUrl: http://localhost:3001/case-orchestration
-    health: http://localhost:3001/health
+    health: http://localhost:3001/case-orchestration-health
   dnFrontend:
     url: https://localhost:4000
     landing: /authenticated
@@ -60,8 +60,11 @@ services:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
     baseUrl: http://localhost:3001
-    health: http://localhost:3001/health
+    health: http://localhost:3001/fees-and-payments-health
   proxyUrl: ''
+  evidenceManagement:
+    baseUrl: http://localhost:3001/evidence-managment
+    health: http://localhost:3001/evidence-managment-health
 
 paths:
   health: /health
@@ -134,7 +137,7 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral'
 ]
 
-caseStates: 
+caseStates:
   AosAwaiting: 'AosAwaiting'
   AosStarted: 'AosStarted'
   AosOverdue: 'AosOverdue'

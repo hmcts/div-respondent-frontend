@@ -180,6 +180,15 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@hmcts/div-document-express-handler@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@hmcts/div-document-express-handler/-/div-document-express-handler-1.0.6.tgz#de21148cabb2e4a2b4ade64b60b5fdc18d2cc5f9"
+  integrity sha512-S3R8kqGADTQonTL8toPFnu/lHj/l6sY8b6V/Mv2yavsGuF2fpgS+oGMzpdYWRNAhY1OA3UET0VlV1pVVhzAPKw==
+  dependencies:
+    config "^3.0.1"
+    lodash "^4.17.11"
+    request "^2.88.0"
+
 "@hmcts/div-idam-express-middleware@^6.0.1", "@hmcts/div-idam-express-middleware@^6.4.0":
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/@hmcts/div-idam-express-middleware/-/div-idam-express-middleware-6.4.1.tgz#98fe98e9046b8fbbb6e36f60220cbc27ae3926e8"
@@ -214,7 +223,7 @@
   resolved "https://registry.yarnpkg.com/@hmcts/eslint-config/-/eslint-config-1.4.0.tgz#e713457cee3758a43394c2974913885aaae8a41b"
   integrity sha1-5xNFfO43WKQzlMKXSROIWqropBs=
 
-"@hmcts/look-and-feel@^1.19.6", "@hmcts/look-and-feel@^1.8.0-3":
+"@hmcts/look-and-feel@^1.8.0-3":
   version "1.19.6"
   resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.6.tgz#5d391700a28b1a47fe56e2e6ecc571a4315fbb9e"
   integrity sha512-UDhFx61uZMQF6ftwOhphuqzCkAoevGzQ4W4Ulz9v71TjWYpfsy07nNXzpmMUu/e/6x/HS/sJFRMPovkLaBUZDg==
@@ -246,10 +255,10 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^2.1.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.2.1.tgz#1a92e0209fb98a38b2be0d035bf8369f65da84c8"
-  integrity sha512-egurVVYU9nSXZxdHNzj4Ujw5CsLHrNEMTG0hrvCEuiioKO+BVqmEgoc46ITdbGV9nj6KjzXS2OHV2LyxifE63Q==
+"@hmcts/look-and-feel@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.2.2.tgz#f91cce16015dde13ff750a57ab54d1e9412079e0"
+  integrity sha512-9Y70kfIE7KiCzeTEqCiNSdJXfX2bU5xXiiQgz8Zvr6Hz/1sMK4lGIRR07QuEDABrcszqmTFIeqjG5RUku2oy3Q==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -298,13 +307,13 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-3.0.1.tgz#d76a07a52660d0d4ac9c8e9a6d230b67bfcf95bc"
-  integrity sha512-paJM+xDIEcw/XMydUBTJIjo0vnu5XaU/qLHR0IQ/clPeXD+nGIugcPE3dB4ziGB0DKwOFbkWAbegJIU2F+7aog==
+"@hmcts/one-per-page-test-suite@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-3.0.2.tgz#9141e190caa638f260931458861039d7264b38d1"
+  integrity sha512-2oqOsgM1hFmKbeuT0gA9O7ryIRtxoZkDhihfZ8Cq5VcNnvWh1fiA74UKbasEqVbCHNZu4BUMK4PZxpGk1KMM3g==
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
-    "@hmcts/look-and-feel" "^1.19.6"
+    "@hmcts/look-and-feel" "^2.2.2"
     "@hmcts/one-per-page" "^5.0.0"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
@@ -353,6 +362,38 @@
     i18next "^10.2.1"
     joi "^13.0.2"
     js-yaml "^3.10.0"
+    nunjucks "^3.0.1"
+    option "^0.2.4"
+    router "^1.3.2"
+    sanitizer "^0.1.3"
+    slug "^0.9.2"
+    traverse "^0.6.6"
+    url-parse "^1.4.3"
+
+"@hmcts/one-per-page@^5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-5.2.1.tgz#64b5fa96398eea9f29c554bf38979eb9eb5b4fd5"
+  integrity sha512-Apk3aWJbfh3WVihcg5wjMWBugVmMzeEu0QtOfobru4F+U13daPBQKaD8VDgNUuoGyxNIb6cK+B35PNC5BO0/VQ==
+  dependencies:
+    "@log4js-node/log4js-api" "^1.0.0"
+    body-parser "^1.18.2"
+    callsites "^2.0.0"
+    colors "^1.1.2"
+    config "^1.28.1"
+    connect-redis "^3.3.2"
+    cookie-parser "^1.4.3"
+    csurf "^1.9.0"
+    debug "^3.1.0"
+    deepmerge "2.0.1"
+    express "^4.16.2"
+    express-nunjucks "^2.2.3"
+    express-session "^1.15.6"
+    glob "^7.1.2"
+    http-status-codes "^1.3.0"
+    i18next "^10.2.1"
+    joi "^13.0.2"
+    js-yaml "^3.10.0"
+    node-emoji "^1.10.0"
     nunjucks "^3.0.1"
     option "^0.2.4"
     router "^1.3.2"
@@ -2803,6 +2844,13 @@ config@^1.26.1, config@^1.28.1:
   dependencies:
     json5 "^1.0.1"
 
+config@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/config/-/config-3.0.1.tgz#c3118e2eb45fdfd135277339f87e2492559cb147"
+  integrity sha512-TBNrrk2b6AybUohqXw2AydglFBL9b/+1GG93Di6Fm6x1SyVJ5PYgo+mqY2X0KpU9m0PJDSbFaC5H95utSphtLw==
+  dependencies:
+    json5 "^1.0.1"
+
 configstore@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/configstore/-/configstore-3.1.2.tgz#c6f25defaeef26df12dd33414b001fe81a543f8f"
@@ -2954,7 +3002,7 @@ copy-props@^2.0.1:
     each-props "^1.3.0"
     is-plain-object "^2.0.1"
 
-copy-webpack-plugin@^4.0.1, copy-webpack-plugin@^4.5.2:
+copy-webpack-plugin@^4.0.1:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.6.0.tgz#e7f40dd8a68477d405dd1b7a854aae324b158bae"
   integrity sha512-Y+SQCF+0NoWQryez2zXn5J5knmr9z/9qSQt7fbL78u83rxmigOy8X5+BFn8CFSuX+nKT8gpYwJX68ekqtQt6ZA==
@@ -8351,7 +8399,7 @@ node-dev@^3.1.3:
     node-notifier "^4.0.2"
     resolve "^1.0.0"
 
-node-emoji@^1.4.1:
+node-emoji@^1.10.0, node-emoji@^1.4.1:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.10.0.tgz#8886abd25d9c7bb61802a658523d1f8d2a89b2da"
   integrity sha512-Yt3384If5H6BYGVHiHwTL+99OzJKHhgp82S8/dktEK73T26BazdgZ4JZh92xSVtGNJvz9UbXdNAc5hcrXV42vw==
@@ -10300,9 +10348,9 @@ referrer-policy@1.1.0:
   resolved "https://registry.yarnpkg.com/referrer-policy/-/referrer-policy-1.1.0.tgz#35774eb735bf50fb6c078e83334b472350207d79"
   integrity sha1-NXdOtzW/UPtsB46DM0tHI1AgfXk=
 
-"reform-pattern-library@git+https://github.com/hmcts/reform-pattern-library.git":
+"reform-pattern-library@https://github.com/hmcts/reform-pattern-library.git":
   version "1.0.0"
-  resolved "git+https://github.com/hmcts/reform-pattern-library.git#4c75c1e9352e08eb0ed939221203ef1db35b4a54"
+  resolved "https://github.com/hmcts/reform-pattern-library.git#4c75c1e9352e08eb0ed939221203ef1db35b4a54"
   dependencies:
     body-parser "^1.18.2"
     browser-sync "^2.18.13"

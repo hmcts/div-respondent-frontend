@@ -32,7 +32,8 @@ class IdamLogin extends Question {
       'coRespDefendingWaitingAnswer',
       'coRespDefendingSubmittedAnswer',
       'coRespTooLateToRespond',
-      'throwError'
+      'throwError',
+      'yesDecreeNisiAnnouncement'
     ];
     const validAnswers = Joi.string()
       .valid(answers)

@@ -62,6 +62,9 @@ services:
     baseUrl: FEES_AND_PAYMENTS_URL
     health: FEES_AND_PAYMENTS_HEALTHCHECK_URL
   proxyUrl: PROXY_URL
+  evidenceManagement:
+    baseUrl: EVIDENCE_MANAGMENT_SERVICE_URL
+    health: EVIDENCE_MANAGMENT_SERVICE_HEALTHCHECK_URL
 
 features:
   idam: FEATURE_IDAM

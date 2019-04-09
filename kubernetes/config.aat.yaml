@@ -31,3 +31,5 @@ data:
   CASE_MAINTENANCE_BASE_URL: "http://div-cms-aat.service.core-compute-aat.internal"
   LOG_LEVEL: "DEBUG"
   PROXY_URL: "http://proxyout.reform.hmcts.net:8080"
+  EVIDENCE_MANAGMENT_SERVICE_URL: "http://div-emca-aat.service.core-compute-aat.internal"
+  EVIDENCE_MANAGMENT_SERVICE_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"

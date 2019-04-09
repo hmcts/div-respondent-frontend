@@ -26,6 +26,8 @@
         "coRespDefendingWaitingAnswer": "Co-respondent user responded - defending waiting answer",
         "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer",
         "coRespTooLateToRespond": "Co-respondent not responded - Divorce Granted",
+        "corespondentLogin": "Set user to Co-respondent",
+        "yesDecreeNisiAnnouncement": "Yes - Awaiting Pronouncement and date of hearing assigned",
         "throwError": "Simulate 500 server error"
       }
     }
