@@ -45,17 +45,48 @@ describe(modulePath, () => {
     return interstitial.navigatesToNext(Respond, ReviewApplication);
   });
 
-  it('renders the content', () => {
-    return content(Respond, {}, {
-      ignoreContent: [
-        'isThereAProblemWithThisPage',
-        'isThereAProblemWithThisPageParagraph',
-        'isThereAProblemWithThisPagePhone',
-        'isThereAProblemWithThisPageEmail',
-        'backLink',
-        'divorceCenterUrl',
-        'guidance'
-      ]
+  describe('renders the content', () => {
+    const ignoreContent = [
+      'isThereAProblemWithThisPage',
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'backLink',
+      'divorceCenterUrl',
+      'guidance'
+    ];
+
+    it('should render contents when previousCaseId is not specified', () => {
+      return content(Respond, {
+        divorceWho: 'husband'
+      }, {
+        ignoreContent,
+        specificContent: ['respondToApplication']
+      });
+    });
+
+    it('should render contents when previousCaseId is null', () => {
+      return content(Respond, {
+        divorceWho: 'husband',
+        originalPetition: {
+          previousCaseId: null
+        }
+      }, {
+        ignoreContent,
+        specificContent: ['respondToApplication']
+      });
+    });
+
+    it('should render contents when case was amended', () => {
+      return content(Respond, {
+        divorceWho: 'husband',
+        originalPetition: {
+          previousCaseId: '12345'
+        }
+      }, {
+        ignoreContent,
+        specificContent: ['respondToAmendedApplication']
+      });
     });
   });
 
@@ -93,7 +124,7 @@ describe(modulePath, () => {
       });
     });
 
-    describe('when service centre handles case', () => {
+    describe('when RDC handles case', () => {
       const session = buildSessionWithCourtsInfo('northWest');
 
       it('some contents should exist', () => {
