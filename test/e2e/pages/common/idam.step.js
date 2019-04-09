@@ -102,6 +102,13 @@ function loginAsCaseProgressedDefending() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsCaseAwaitingPronouncement() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesDecreeNisiAnnouncement);
+  I.click(commonContent.en.continue);
+}
+
 function loginAsCorespondent() {
   const I = this;
 
@@ -165,5 +172,6 @@ module.exports = {
   loginAsCoRespDefendingWaitingAnswer,
   loginAsCoRespDefendingSubmittedAnswer,
   loginAsCoRespTooLateToRespond,
-  loginAndThrowError
+  loginAndThrowError,
+  loginAsCaseAwaitingPronouncement
 };

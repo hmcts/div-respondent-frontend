@@ -31,3 +31,11 @@ Scenario('Should display content for respondent that has defended, and has answe
   I.seeProgressBarPage();
   I.seeContentForAosCompleteDefending();
 }).retry(2);
+
+Scenario('Should display content for respondent that the state is AwaitingPronouncement', I => {
+  I.amOnPage('/');
+  I.seeIdamLoginPage();
+  I.loginAsCaseAwaitingPronouncement();
+  I.seeProgressBarPage();
+  I.seeContentForAwaitingPronouncement();
+}).retry(2);
