@@ -53,6 +53,11 @@ withPipeline("nodejs", product, component) {
     sh 'printenv'
   }
 
+  before('functionalTest:aat') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
   after('functionalTest:preview') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
