@@ -1,24 +1,23 @@
 {
-  "caseId": "1539017559370699",
-  "courts": "northWest",
-  "state": "AosStarted",
+  "caseId": "1550848268807298",
+  "courts": "serviceCentre",
+  "state": "AosAwaiting",
   "data": {
     "expires": 0,
-    "caseReference": "LV17D80999",
+    "caseReference": "LV17D80100",
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",
     "screenHasMarriageCert": "Yes",
-    "helpWithFeesNeedHelp": "Yes",
-    "helpWithFeesAppliedForFees": "Yes",
-    "helpWithFeesReferenceNumber": "HWF-123-456",
-    "divorceWho": "wife",
+    "helpWithFeesNeedHelp": "No",
+    "divorceWho": "husband",
     "marriageIsSameSexCouple": "No",
-    "marriageDateDay": 1,
-    "marriageDateMonth": 1,
-    "marriageDateYear": 2000,
-    "marriageDate": "2000-01-01T00:00:00.000+0000",
+    "marriageDateDay": 9,
+    "marriageDateMonth": 9,
+    "marriageDateYear": 1979,
+    "marriageDate": "1979-09-09T00:00:00.000+0000",
     "marriageCanDivorce": "true",
     "marriedInUk": "Yes",
+    "placeOfMarriage": "London",
     "jurisdictionConnection": [
       "A",
       "C"
@@ -32,96 +31,91 @@
       "F": null,
       "G": null
     },
-    "issueDate": "2019-02-22T00:00:00.000+0000",
     "jurisdictionPetitionerResidence": "Yes",
     "jurisdictionRespondentResidence": "Yes",
     "jurisdictionConfidentLegal": "Yes",
     "petitionerContactDetailsConfidential": "share",
-    "petitionerFirstName": "BANANA",
-    "petitionerLastName": "ban",
-    "respondentFirstName": "Apple",
-    "respondentLastName": "App",
-    "marriagePetitionerName": "Ban",
-    "marriageRespondentName": "App",
+    "petitionerFirstName": "Paloma",
+    "petitionerLastName": "Acosta",
+    "respondentFirstName": "Henry",
+    "respondentLastName": "Morrison",
+    "marriagePetitionerName": "Barbara Howell",
+    "marriageRespondentName": "Mufutau Pratt",
     "petitionerNameDifferentToMarriageCertificate": "No",
-    "petitionerEmail": "vivdivred@mailinator.com",
+    "petitionerEmail": "nabyg@mailinator.com",
     "petitionerHomeAddress": {
       "addressType": "postcode",
-      "postcode": "SW10 0AB",
+      "postcode": "E15 3DT",
       "street1": null,
       "street2": null,
       "town": null,
       "postcodeManual": null,
-      "addressConfirmed": true,
+      "addressConfirmed": "true",
       "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": false,
+      "postcodeError": "false",
       "url": null,
       "address": [
-        "Chelsea Academy",
-        "Lots Road",
+        "16 Chaplin Road",
         "London",
-        "SW10 0AB"
+        "E15 3DT"
       ]
     },
     "petitionerCorrespondenceUseHomeAddress": "Yes",
     "petitionerCorrespondenceAddress": {
       "addressType": "postcode",
-      "postcode": "SW10 0AB",
+      "postcode": "E15 3DT",
       "street1": null,
       "street2": null,
       "town": null,
       "postcodeManual": null,
-      "addressConfirmed": true,
+      "addressConfirmed": "true",
       "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": false,
+      "postcodeError": "false",
       "url": null,
       "address": [
-        "Chelsea Academy",
-        "Lots Road",
+        "16 Chaplin Road",
         "London",
-        "SW10 0AB"
+        "E15 3DT"
       ]
     },
     "livingArrangementsLiveTogether": "Yes",
     "respondentHomeAddress": {
       "addressType": "postcode",
-      "postcode": "SW10 0AB",
+      "postcode": "E15 3DT",
       "street1": null,
       "street2": null,
       "town": null,
       "postcodeManual": null,
-      "addressConfirmed": true,
+      "addressConfirmed": "true",
       "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": false,
+      "postcodeError": "false",
       "url": null,
       "address": [
-        "Chelsea Academy",
-        "Lots Road",
+        "16 Chaplin Road",
         "London",
-        "SW10 0AB"
+        "E15 3DT"
       ]
     },
     "respondentCorrespondenceUseHomeAddress": "Yes",
     "respondentCorrespondenceAddress": {
       "addressType": "postcode",
-      "postcode": "SW10 0AB",
+      "postcode": "E15 3DT",
       "street1": null,
       "street2": null,
       "town": null,
       "postcodeManual": null,
-      "addressConfirmed": true,
+      "addressConfirmed": "true",
       "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": false,
+      "postcodeError": "false",
       "url": null,
       "address": [
-        "Chelsea Academy",
-        "Lots Road",
+        "16 Chaplin Road",
         "London",
-        "SW10 0AB"
+        "E15 3DT"
       ]
     },
     "reasonForDivorce": "adultery",
@@ -134,42 +128,42 @@
     "reasonForDivorceLimitReasons": "false",
     "reasonForDivorceEnableAdultery": "true",
     "reasonForDivorceAdulteryWishToName": "Yes",
-    "reasonForDivorceAdultery3rdPartyFirstName": "Orange",
-    "reasonForDivorceAdultery3rdPartyLastName": "Orange",
+    "reasonForDivorceAdultery3rdPartyFirstName": "Baxter",
+    "reasonForDivorceAdultery3rdPartyLastName": "Gill",
     "reasonForDivorceAdultery3rdAddress": {
       "addressType": "postcode",
-      "postcode": "SW10 0AA",
+      "postcode": "E15 4PT",
       "street1": null,
       "street2": null,
       "town": null,
       "postcodeManual": null,
-      "addressConfirmed": true,
+      "addressConfirmed": "true",
       "addressAbroad": null,
       "validPostcode": true,
-      "postcodeError": false,
+      "postcodeError": "false",
       "url": null,
       "address": [
-        "Apartment 2.1",
-        "1 Waterfront Drive",
+        "80 West Ham Lane",
         "London",
-        "SW10 0AA"
+        "E15 4PT"
       ]
     },
     "reasonForDivorceAdulteryKnowWhere": "Yes",
     "reasonForDivorceAdulteryKnowWhen": "Yes",
-    "reasonForDivorceAdulteryDetails": "I received several messages that night from Orange boasting that she was with my husband and that they were having an affair. I confronted him about it the next day and he confessed and moved out of the house. We haven’t spoken since that day. I can provide text messages from both my Husband and Orange confessing to the adultery.",
-    "reasonForDivorceAdulteryWhenDetails": "New years eve 2018, At midnight.",
-    "reasonForDivorceAdulteryWhereDetails": "At a Travelodge in Westminster street, near central London.",
-    "reasonForDivorceAdulterySecondHandInfo": "Yes",
-    "reasonForDivorceAdulterySecondHandInfoDetails": "A trusted source of mine gave me this information",
-    "legalProceedings": "Yes",
-    "legalProceedingsRelated": [
-      "marriage",
-      "property"
-    ],
-    "legalProceedingsDetails": "Mr text change\r\nmobile\r\n099889900990m is the mobile from where the messages sent .",
+    "reasonForDivorceAdulteryDetails": "Molestias nostrum es",
+    "reasonForDivorceAdulteryWhenDetails": "Ex voluptate enim co",
+    "reasonForDivorceAdulteryWhereDetails": "Ut consequatur sed",
+    "legalProceedings": "No",
     "financialOrder": "No",
     "claimsCosts": "No",
+    "claimsCostsFrom": [
+      "respondent",
+      "correspondent"
+    ],
+    "reasonForDivorceAdulteryIsNamed": "Yes",
+    "claimsCostsAppliedForFees": "false",
+    "reasonForDivorceClaiming5YearSeparation": "false",
+    "reasonForDivorceClaimingAdultery": "true",
     "court": {
       "eastMidlands": {
         "divorceCentre": "East Midlands Regional Divorce Centre",
@@ -211,20 +205,67 @@
         "email": "family@liverpool.countycourt.gsi.gov.uk",
         "phoneNumber": "0300 303 0642",
         "siteId": "AA04"
+      },
+      "serviceCentre": {
+        "serviceCentreName": "Courts and Tribunals Service Centre",
+        "divorceCentre": "East Midlands Regional Divorce Centre",
+        "courtCity": "Nottingham",
+        "poBox": "PO Box 10447",
+        "postCode": "NG2 9QN",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "divorcecase@justice.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA01"
       }
     },
-    "courts": "northWest",
+    "courts": "serviceCentre",
     "confirmPrayer": "Yes",
-    "marriageCertificateFiles": [],
-    "respEmailAddress": "user@email.com",
+    "payment": {
+      "PaymentChannel": "online",
+      "PaymentTransactionId": "r3po2u2e4qf3ganoohb4051rb4",
+      "PaymentReference": "RC-1550-8482-8255-7754",
+      "PaymentDate": "22022019",
+      "PaymentAmount": "55000",
+      "PaymentStatus": "Success",
+      "PaymentFeeId": "FEE0002",
+      "PaymentSiteId": "AA04"
+    },
+    "marriageCertificateFiles": [
+      {
+        "createdBy": 0,
+        "createdOn": "2019-02-22T00:00:00.000+0000",
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "Screenshot 2019-02-22 at 13.09.15.png",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/c36adbbb-5fbb-4db2-baf5-e806540f5c93",
+        "mimeType": null,
+        "status": null
+      }
+    ],
+    "petitionerConsent": "Yes",
+    "createdDate": "2019-02-22T00:00:00.000+0000",
+    "issueDate": "2019-02-22T00:00:00.000+0000",
+    "dueDate": "2019-03-24T00:00:00.000+0000",
+    "respondentContactDetailsConfidential": "share",
+    "coRespondentAnswers": {
+      "contactInfo": {
+        "emailAddress": "user@email.com"
+      },
+      "aos": {
+        "received": "Yes",
+        "letterHolderId": "755791",
+        "dateReceived": "2019-02-22"
+      },
+      "defendsDivorce": "No"
+    },
     "d8": [
       {
         "createdBy": 0,
         "createdOn": null,
         "lastModifiedBy": 0,
         "modifiedOn": null,
-        "fileName": "d8petition1539017559370699",
-        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/430b333a-de02-4b16-8868-e6b1130aab2b",
+        "fileName": "d8petition1550848268807298",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/67c96669-07d5-4f06-a3a9-1bc2886ca4c7",
         "mimeType": null,
         "status": null
       },
@@ -233,13 +274,21 @@
         "createdOn": null,
         "lastModifiedBy": 0,
         "modifiedOn": null,
-        "fileName": "aosinvitation1539017559370699",
-        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/a060ba13-d5da-45b0-a181-1c2ace891904",
+        "fileName": "aosinvitation1550848268807298",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/f8acddb7-b0b4-4857-8a08-3e93053e452d",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "co-respondentaosinvitation1550848268807298",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/88217833-f74f-4cc3-ae73-f66d61f7f4d4",
         "mimeType": null,
         "status": null
       }
-    ],
-    "previousCaseId": "12345",
-    "previousIssueDate":"2018-10-02T00:00:00.000Z"
+    ]
   }
 }

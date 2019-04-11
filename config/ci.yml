@@ -3,3 +3,13 @@ tests:
     show: false
     proxy: http://proxyout.reform.hmcts.net:8080
     proxyByPass: '*beta*LB.reform.hmcts.net'
+
+services:
+  idam:
+    apiUrl: https://idam-api.aat.platform.hmcts.net
+  caseMaintenance:
+    baseUrl: http://div-cms-aat.service.core-compute-aat.internal
+
+features:
+  idam: true
+
