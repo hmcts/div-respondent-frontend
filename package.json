@@ -27,7 +27,7 @@
     "lint"
   ],
   "dependencies": {
-    "@hmcts/div-document-express-handler": "^1.0.6",
+    "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.4.0",
     "@hmcts/look-and-feel": "^2.2.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",

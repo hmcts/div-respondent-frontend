@@ -180,10 +180,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@hmcts/div-document-express-handler@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@hmcts/div-document-express-handler/-/div-document-express-handler-1.0.6.tgz#de21148cabb2e4a2b4ade64b60b5fdc18d2cc5f9"
-  integrity sha512-S3R8kqGADTQonTL8toPFnu/lHj/l6sY8b6V/Mv2yavsGuF2fpgS+oGMzpdYWRNAhY1OA3UET0VlV1pVVhzAPKw==
+"@hmcts/div-document-express-handler@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@hmcts/div-document-express-handler/-/div-document-express-handler-1.1.0.tgz#1fed050291e943402848b030597a9d31f487e0a5"
+  integrity sha512-yonHJAp3ouw+3c9iq9fANW/F/CPAiV5e2LUz5WwEnlgj3zkHF3zsJGHy3GnQW3HOK+TkpaDGogzjaI3Nu37dFg==
   dependencies:
     config "^3.0.1"
     lodash "^4.17.11"

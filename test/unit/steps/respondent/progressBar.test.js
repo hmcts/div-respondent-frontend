@@ -290,16 +290,53 @@ describe(modulePath, () => {
   });
 
   describe('CCD state: awaitingPronouncement', () => {
-    const session = {
-      caseState: 'AwaitingPronouncement',
-      originalPetition: {
-        hearingDate: [moment().add(7, 'days')]
-      }
-    };
+    let session = {};
+
+    beforeEach(() => {
+      session = {
+        caseState: 'AwaitingPronouncement',
+        originalPetition: {
+          hearingDate: [moment().add(7, 'days')]
+        }
+      };
+    });
 
     it('renders the correct template', () => {
       const instance = stepAsInstance(ProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingPronouncement);
+    });
+
+    it('returns the correct files', () => {
+      session.originalPetition.D8DocumentsGenerated = [
+        {
+          id: 'bc6a1b97-7657-4d35-ad1d-226274be4646',
+          value: {
+            DocumentFileName: 'd8petition.pdf'
+          }
+        },
+        {
+          id: '401ab79e-34cb-4570-9f2f-4cf9357dc123',
+          value: {
+            DocumentFileName: 'certificateOfEntitlement.pdf'
+          }
+        },
+        {
+          id: '401ab79e-34cb-4570-9f2f-4cf9357dc123',
+          value: {
+            DocumentFileName: 'shouldNotBeThere.pdf'
+          }
+        }
+      ];
+      const instance = stepAsInstance(ProgressBar, session);
+
+      const fileTypes = instance.downloadableFiles.map(file => {
+        return file.type;
+      });
+
+      expect(fileTypes).to.eql([
+        'dpetition',
+        'certificateOfEntitlement'
+      ]);
     });
   });
 });

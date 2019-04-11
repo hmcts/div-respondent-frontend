@@ -161,3 +161,7 @@ features:
 
 journey:
   timeoutDelay: 300
+
+filesWhiteList:
+  coRespondent: ['no-files']
+  respondent: ['d8petition', 'certificateOfEntitlement']

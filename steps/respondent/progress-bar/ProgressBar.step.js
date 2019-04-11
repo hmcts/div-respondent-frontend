@@ -62,7 +62,8 @@ class ProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    return createUris(this.session.originalPetition.D8DocumentsGenerated);
+    const documentWhiteList = ['d8petition', 'certificateOfEntitlement'];
+    return createUris(this.session.originalPetition.D8DocumentsGenerated, { documentWhiteList });
   }
 
   get entitlementToADecreeFileLink() {
