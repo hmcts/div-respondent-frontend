@@ -1,3 +1,8 @@
+idam-pr:
+  service:
+    name: divorce
+    redirect_uri: https://${SERVICE_FQDN}/authenticated
+
 nodejs:
     environment:
         # TODO - this should be changed once we deploy AAT to AKS
@@ -18,3 +23,5 @@ nodejs:
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
+    tags:
+    - idam-pr
