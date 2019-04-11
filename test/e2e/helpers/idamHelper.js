@@ -56,7 +56,7 @@ class IdamHelper extends Helper {
           null,
           'idam_error',
           'Unable to create IDAM test user/token',
-          error
+          error.message
         );
         throw error;
       });
