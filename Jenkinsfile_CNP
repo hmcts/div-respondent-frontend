@@ -41,10 +41,14 @@ withPipeline("nodejs", product, component) {
       }
     }
     // required for running functional tests on CI
-    env.FEATURE_IDAM = 'true'
-    env.IDAM_API_URL = 'https://idam-api.aat.platform.hmcts.net'
-    env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal'
-    env.PREVIEW_ENV = 'true'
+  }
+
+  before('functionalTest:aks') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
+  before('functionalTest:preview') {
     env.NODE_ENV= 'ci'
     sh 'printenv'
   }

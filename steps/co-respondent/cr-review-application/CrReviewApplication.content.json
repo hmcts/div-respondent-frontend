@@ -70,7 +70,7 @@
       "costOrder": "Costs orders",
       "helpWithCostOrders": "Help with costs orders",
       "claimingCosts": "Claiming costs",
-      "claimingCostsPar1": "The Petitioner was asked if they want the court to order you to pay some or all of the divorce costs. If the Petitioner is using adultery as the reason for divorce and has chosen to name a co-respondent, then the co-respondent can also be asked to pay for some of the costs.",
+      "claimingCostsPar1": "The applicant was asked if they want the court to order you to pay some or all of the divorce costs. If the applicant is using adultery as the reason for divorce and has chosen to name a co-respondent, then the co-respondent can also be asked to pay for some of the costs.",
       "claimingCostsPar2": "This could include all the fees during the divorce, such as the £{{ feesIssueApplication }} application fee, solicitor fees, and any extra court fees.",
       "financialOrders": "Financial orders",
       "petitionerCorrespondenceAddressHeading": "Applicant's correspondence address",
