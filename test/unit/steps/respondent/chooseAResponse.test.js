@@ -234,7 +234,7 @@ describe(modulePath, () => {
           }, {
             specificValues: [
               stepContent.en.fields.proceed.heading,
-              'I will let the divorce proceed, but I don\'t admit to what my wife said about me',
+              'I will let the divorce proceed, but I don\'t accept what my wife said about me',
               stepContent.en.fields.defend.heading
             ]
           });

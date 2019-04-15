@@ -14,7 +14,7 @@
     {{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName | safe }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName | safe }}
  </p>
 
-  <h2 class="heading-medium">{{ content.readApp }}</h2>
+  <h2 class="heading-medium">{{ content.readAmendedApp if session.originalPetition.previousCaseId else content.readApp }}</h2>
 
   <p>{{ content.readApplication }}</p>
   <div class="panel panel-border-wide">

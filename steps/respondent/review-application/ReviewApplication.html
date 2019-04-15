@@ -10,7 +10,9 @@
 {% block fields %}
 
   <!-- Application for divorce -->
-
+  {% if session.originalPetition.previousCaseId %}
+    <h3 class="heading-small">{{ content.amendAppDetails }}</h3>
+  {% endif %}
   <p class="text">
     {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrder == "Yes" %}
       {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
@@ -36,7 +38,11 @@
   </p>
 
   <h3 class="heading-small">{{ content.issued }}</h3>
-  <p class="text">{{ session.originalPetition.issueDate | date }}</p>
+  {% if session.originalPetition.previousCaseId %}
+    <p class="text">{{ session.originalPetition.previousIssueDate | date }}</p>
+  {% else %}
+    <p class="text">{{ session.originalPetition.issueDate | date }}</p>
+  {% endif %}
 
   <h3 class="heading-small">{{ content.caseReference }}</h3>
   <p class="text">{{ session.originalPetition.caseReference }}</p>
@@ -130,7 +136,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "C" in session.originalPetition.jurisdictionConnection and (not ("A" in session.originalPetition.jurisdictionConnection)) %}
+    {% if "C" in session.originalPetition.jurisdictionConnection %}
       {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
         <li>
       {% endif %}
@@ -338,24 +344,38 @@
     <p class="text">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
 
-
   <details>
     <summary aria-controls="details-content-3" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
     <div class="panel panel-border-narrow" id="details-content-3" aria-hidden="true">
-      <p class="text">{{ content.reasonForDivorcePar1 }}</p>
-      <p class="text">{{ content.reasonForDivorcePar2 }}</p>
-      <h3 class="heading-small">{{ content.behaviour }}</h3>
-      <p class="text">{{ content.behaviourParagraph }}</p>
-      <h3 class="heading-small">{{ content.adultery }}</h3>
-      <p class="text">{{ content.adulteryParagraph }}</p>
-      <h3 class="heading-small">{{ content.separatedFor2Years }}</h3>
-      <p class="text">{{ content.separatedFor2YearsParagraph }}</p>
-      <h3 class="heading-small">{{ content.separatedFor5Years }}</h3>
-      <p class="text">{{ content.separatedFor5YearsParagraph }}</p>
-      <h3 class="heading-small">{{ content.desertion }}</h3>
-      <p class="text">{{ content.desertionParagraph }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceLegalGround }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceChosenReason }}</p>
+
+      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceBehaviour }}</h3>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceBehaviourDescription1 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceBehaviourDescription2 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceBehaviourDescription3 }}</p>
+
+      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceAdultery }}</h3>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription1 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription2 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription3 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription4 }}</p>
+
+      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYears }}</h3>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription1 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription2 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription3 }}</p>
+
+      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYears }}</h3>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription1 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription2 }}</p>
+
+      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceDesertion }}</h3>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceDesertionDescription1 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceDesertionDescription2 }}</p>
+      <p class="text">{{ content.whatThisMeansReasonForDivorceDesertionDescription3 }}</p>
     </div>
   </details>
 
