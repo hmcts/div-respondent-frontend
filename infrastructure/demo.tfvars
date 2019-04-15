@@ -7,8 +7,8 @@ packages_version = "3.0.0"
 additional_host_name = "www.apply-div-rfe.demo.platform.hmcts.net"
 http_proxy = ""
 
-idam_authentication_web_url = "https://idam.preprod.ccidam.reform.hmcts.net"
-idam_api_url = "https://preprod-idamapi.reform.hmcts.net:3511"
+idam_authentication_web_url = "https://idam-web-public.demo.platform.hmcts.net"
+idam_api_url = "https://idam-api.demo.platform.hmcts.net"
 
 google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
