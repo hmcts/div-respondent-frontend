@@ -71,7 +71,8 @@ const loadMiniPetition = (req, res, next) => {
         logger.errorWithReq(req, 'case_unexpected_response', 'Unexpected response code while retrieving case', response.statusCode);
         return next(new Error(response));
       }
-      logger.warnWithReq(req, 'case_unknown', 'Unknown case state', response.statusCode);
+
+      logger.infoWithReq(req, 'load_mini_petition', 'Loading mini petition', response.statusCode);
       return next();
     });
 };
