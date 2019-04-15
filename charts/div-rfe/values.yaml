@@ -1,0 +1,30 @@
+nodejs:
+    applicationPort: 3000
+    environment:
+        GOOGLE_ANALYTICS_ID: ""
+        GOOGLE_ANALYTICS_TRACKING_URL: "http://www.google-analytics.com/collect"
+        NODE_ENV: "production"
+        HPKP_MAX_AGE: "86400"
+        HPKP_SHAS: "Naw+prhcXSIkbtYJ0t7vAD+Fc92DWL9UZevVfWBvids=,klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=,grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="
+        RATE_LIMITER_ENABLED: "false"
+        RATE_LIMITER_TOTAL: "3600"
+        RATE_LIMITER_EXPIRE: "3600000"
+        LOG_LEVEL: "DEBUG"
+        PROXY_URL: "http://proxyout.reform.hmcts.net:8080"
+
+    keyVaults:
+        "div":
+            resourceGroup: div
+            secrets:
+                - session-secret
+                - redis-secret
+                - idam-secret
+
+redis:
+    cluster:
+        enabled: false
+        slaveCount: 0
+    usePassword: false
+    master:
+        persistence:
+            enabled: false

@@ -29,9 +29,10 @@
   "dependencies": {
     "@hmcts/div-idam-express-middleware": "^6.4.0",
     "@hmcts/look-and-feel": "^2.1.1",
-    "@hmcts/nodejs-healthcheck": "^1.4.6",
+    "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.0.0",
+    "@hmcts/properties-volume": "^0.0.9",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",

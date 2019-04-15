@@ -21,7 +21,6 @@ setupHelmet(app);
 setupPrivacy(app);
 setupHealthChecks(app);
 setupRateLimiter(app);
-
 // Parsing cookies
 app.use(cookieParser());
 
