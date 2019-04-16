@@ -145,7 +145,7 @@ describe(modulePath, () => {
       });
     });
 
-    describe('when service centre handles case', () => {
+    describe('when RDC handles case', () => {
       const session = buildSessionWithCourtsInfo('northWest');
 
       it('some contents should exist', () => {

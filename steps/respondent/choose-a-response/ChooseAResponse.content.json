@@ -35,17 +35,17 @@
     "fields": {
       "proceed": {
         "heading": "I will let the divorce proceed",
-        "summary": "Choose this option if you don't want to try to prevent the divorce (you don't intend to 'defend' it).",
+        "summary": "Choose this option if you do not intend to defend the divorce.",
         "answer": "I will let the divorce proceed and won’t try to prevent it (I don’t intend to ‘defend’ it)"
       },
       "proceedButDisagree": {
-        "heading": "I will let the divorce proceed, but I don't admit to what my {{ session.divorceWho }} said about me",
-        "summary": "Choose this option if you don't accept the allegations made in the application, but you don't want to try to prevent the divorce (you don't intend to 'defend' it).",
+        "heading": "I will let the divorce proceed, but I don't accept what my {{ session.divorceWho }} said about me",
+        "summary": "Choose this option if you don't accept the allegations in the application, but you do not intend to defend.",
         "answer": "I will let the divorce proceed (I don’t intend to defend it), but I don’t accept the allegations made in the application"
       },
       "defend": {
         "heading": "I disagree with the application for divorce",
-        "summary": "Choose this option if you want to try to prevent the divorce or want to make your own application for divorce (you intend to 'defend' it)",
+        "summary": "Choose this option if you intend to defend because you don’t agree that your marriage has irretrievably broken down; want to defend yourself against the allegations; or want to make your own application.",
         "answer": "I will try to prevent the divorce based on this application (I intend to ‘defend’ it)"
       }
     }

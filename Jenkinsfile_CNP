@@ -24,7 +24,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withPipeline("nodejs", product, component) {
   if (env.CHANGE_TITLE && !env.CHANGE_TITLE.startsWith('[PREVIEW]')) {
     enableDockerBuild()
-    enableDeployToAKS()
+    installCharts()
   }
 
   loadVaultSecrets(secrets)
@@ -41,10 +41,19 @@ withPipeline("nodejs", product, component) {
       }
     }
     // required for running functional tests on CI
-    env.FEATURE_IDAM = 'true'
-    env.IDAM_API_URL = 'https://idam-api.aat.platform.hmcts.net'
-    env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal'
-    env.PREVIEW_ENV = 'true'
+  }
+
+  before('functionalTest:aks') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
+  before('functionalTest:preview') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
+  before('functionalTest:aat') {
     env.NODE_ENV= 'ci'
     sh 'printenv'
   }
@@ -57,14 +66,6 @@ withPipeline("nodejs", product, component) {
   after('functionalTest:aat') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-  }
-
-  before('buildinfra:prod') {
-    error('Halting pipeline before prod stages - code freeze')
-  }
-  
-  before('deploy:prod') {
-    error('Halting pipeline before prod stages - code freeze')
   }
 
   enableSlackNotifications('#div-dev')
