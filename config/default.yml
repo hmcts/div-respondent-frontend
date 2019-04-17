@@ -65,6 +65,7 @@ services:
   evidenceManagement:
     baseUrl: http://localhost:3001/evidence-managment
     health: http://localhost:3001/evidence-managment-health
+    downloadEndpoint: /emclientapi/version/1/download
 
 paths:
   health: /health
@@ -162,6 +163,9 @@ features:
 journey:
   timeoutDelay: 300
 
-filesWhiteList:
-  coRespondent: ['no-files']
-  respondent: ['d8petition', 'certificateOfEntitlement']
+document:
+  sessionPath: 'case.data.d8'
+  documentNamePath: 'fileName'
+  filesWhiteList:
+    coRespondent: ['no-files']
+    respondent: ['d8petition', 'certificateOfEntitlement']

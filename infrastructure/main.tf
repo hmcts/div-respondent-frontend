@@ -121,6 +121,7 @@ module "frontend" {
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.div_fps_url}${var.health_endpoint}"
     EVIDENCE_MANAGMENT_SERVICE_URL = "${local.div_emca_url}"
     EVIDENCE_MANAGMENT_SERVICE_HEALTHCHECK_URL = "${local.div_emca_url}${var.health_endpoint}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT = "${var.evidence_management_download_endpoint}"
 
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"

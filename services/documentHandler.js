@@ -3,8 +3,6 @@ const idam = require('services/idam');
 const { initDocumentHandler } = require('@hmcts/div-document-express-handler');
 const { get } = require('lodash');
 
-const downloadDocumentEndpoint = '/documents';
-
 const documentWhiteList = req => {
   const idamEmailAddress = get(req, 'idam.userDetails.email');
   const coRespondentEmailAddress = get(
@@ -16,18 +14,19 @@ const documentWhiteList = req => {
 
   // return files corespondent is able to view
   if (isCorespondent) {
-    return config.filesWhiteList.coRespondent;
+    return config.document.filesWhiteList.coRespondent;
   }
 
   // return files respondent is able to view
-  return config.filesWhiteList.respondent;
+  return config.document.filesWhiteList.respondent;
 };
 
 const bind = app => {
   const middleware = [ idam.protect() ];
   const options = {
-    documentServiceUrl: `${config.services.evidenceManagement.baseUrl}${downloadDocumentEndpoint}`,
-    sessionFileCollectionsPaths: ['originalPetition.D8DocumentsGenerated'],
+    documentServiceUrl: `${config.services.evidenceManagement.baseUrl}${config.services.evidenceManagement.downloadEndpoint}`,
+    sessionFileCollectionsPaths: [config.document.sessionPath],
+    documentNamePath: config.document.documentNamePath,
     documentWhiteList
   };
   initDocumentHandler(app, middleware, options);

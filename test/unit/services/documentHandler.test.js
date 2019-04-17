@@ -33,7 +33,7 @@ describe(modulePath, () => {
       }
     };
     const whiteList = underTest.documentWhiteList(req);
-    expect(whiteList).to.eql(config.filesWhiteList.coRespondent);
+    expect(whiteList).to.eql(config.document.filesWhiteList.coRespondent);
   });
 
   it('returns documentWhiteList for respondent', () => {
@@ -46,6 +46,6 @@ describe(modulePath, () => {
       session: { originalPetition: {} }
     };
     const whiteList = underTest.documentWhiteList(req);
-    expect(whiteList).to.eql(config.filesWhiteList.respondent);
+    expect(whiteList).to.eql(config.document.filesWhiteList.respondent);
   });
 });

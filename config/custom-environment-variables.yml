@@ -65,6 +65,7 @@ services:
   evidenceManagement:
     baseUrl: EVIDENCE_MANAGMENT_SERVICE_URL
     health: EVIDENCE_MANAGMENT_SERVICE_HEALTHCHECK_URL
+    downloadFileUrl: EVIDENCE_MANAGEMENT_SERVICE_FILE_DOWNLOAD_URL
 
 features:
   idam: FEATURE_IDAM
