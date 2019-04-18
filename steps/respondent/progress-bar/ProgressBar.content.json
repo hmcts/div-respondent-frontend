@@ -7,8 +7,7 @@
     "madeFinal": "Divorce is complete",
     "downloadableFiles": "Download your documents",
     "files": {
-      "dpetition": "Divorce application",
-      "certificateOfEntitlement": "Entitlement to a decree"
+      "dpetition": "Divorce application"
     },
     "details": {
       "referenceNumber": "Reference number",
@@ -67,15 +66,6 @@
       "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
       "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
       "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
-    },
-    "decreeNisiAnnouncement": {
-      "heading": "Your {{ session.divorceWho }}'s decree nisi application has been accepted",
-      "districtJudge": "A district judge will formally announce the decree nisi at a court hearing. This is the first stage of the decree ending your marriage.",
-      "secondStage": "You'll only be divorced when the second stage is complete and the decree is made absolute.",
-      "theHearing": "The hearing",
-      "moreDetails": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a href=\"{{ entitlementToADecreeFileLink.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Entitlement to a decree PDF.\">Entitlement to a decree</a> ({{ entitlementToADecreeFileLink.fileType | upper }}).",
-      "dontNeedToCome": "You don’t need to come to the hearing unless you want to object to any of the court orders being made.",
-      "wantToAttend": "If you want to attend the hearing, you need to email the court before the hearing date. If you, or your {{ session.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date."
     }
   }
 }

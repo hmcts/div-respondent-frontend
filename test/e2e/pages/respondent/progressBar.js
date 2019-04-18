@@ -35,18 +35,10 @@ function seeContentForAosCompleteDefending() {
   I.see(content.en.defendedDivorce.para1);
 }
 
-function seeContentForAwaitingPronouncement() {
-  const I = this;
-
-  I.see(content.en.decreeNisiAnnouncement.districtJudge);
-  I.see(content.en.decreeNisiAnnouncement.secondStage);
-}
-
 module.exports = {
   seeProgressBarPage,
   seeContentForAosNotCompleted,
   seeContentForAosCompleteNotDefending,
   seeContentForAosCompleteAwaitingAnswer,
-  seeContentForAosCompleteDefending,
-  seeContentForAwaitingPronouncement
+  seeContentForAosCompleteDefending
 };

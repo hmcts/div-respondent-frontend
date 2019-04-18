@@ -77,28 +77,6 @@
         <p>{{ content.defendedDivorce.para4 }}</p>
     {% endif %}
 
-    {% if progressBarContent === progressStates.awaitingPronouncement %}
-        <h2 class="heading-medium">{{ content.decreeNisiAnnouncement.heading }}</h2>
-        <p>{{ content.decreeNisiAnnouncement.districtJudge }}</p>
-        <div class="panel panel-border-wide">
-            <p>{{ content.decreeNisiAnnouncement.secondStage }}</p>
-        </div>
-
-        <h2 class="heading-medium">{{ content.decreeNisiAnnouncement.theHearing }}</h2>
-        <p>{{ content.decreeNisiAnnouncement.moreDetails | safe }}</p>
-
-        <div class="notice">
-            <em class="icon icon-important">
-                <span class="visually-hidden">Warning</span>
-            </em>
-            <strong class="bold-xsmall">{{ content.decreeNisiAnnouncement.dontNeedToCome }}</strong>
-        </div>
-
-        <br>
-
-        <p>{{ content.decreeNisiAnnouncement.wantToAttend }}</p>
-    {% endif %}
-
     {% if  progressBarContent === progressStates.other %}
         <br />
         <br />

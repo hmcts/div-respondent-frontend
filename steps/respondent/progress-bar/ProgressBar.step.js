@@ -4,11 +4,9 @@ const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
 const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
-const moment = require('moment');
-const { get, last } = require('lodash');
+const { documentWhiteList } = require('services/documentHandler');
 
 const progressStates = {
-  awaitingPronouncement: 'awaitingPronouncement',
   progressedNoAos: 'progressedNoAos',
   progressedUndefended: 'progressedUndefended',
   awaitingAnswer: 'awaitingAnswer',
@@ -62,22 +60,17 @@ class ProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    const documentWhiteList = ['d8petition', 'certificateOfEntitlement'];
-    return createUris(this.session.originalPetition.D8DocumentsGenerated, { documentWhiteList });
-  }
-
-  get entitlementToADecreeFileLink() {
-    return this.downloadableFiles.find(file => {
-      return file.type === 'certificateOfEntitlement';
-    });
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: documentWhiteList(this.req)
+    };
+    return createUris(this.session.originalPetition.d8 || [], docConfig);
   }
 
   getProgressBarContent() {
     const caseState = this.session.caseState;
 
-    if (this.awaitingPronouncement(caseState)) {
-      return this.progressStates.awaitingPronouncement;
-    } else if (this.progressedNoAos(caseState)) {
+    if (this.progressedNoAos(caseState)) {
       return this.progressStates.progressedNoAos;
     } else if (this.progressedUndefended(caseState)) {
       return this.progressStates.progressedUndefended;
@@ -105,15 +98,6 @@ class ProgressBar extends Interstitial {
 
   defendedDivorce(caseState) {
     return caseState === config.caseStates.DefendedDivorce;
-  }
-
-  awaitingPronouncement(caseState) {
-    const hearingDates = get(this.session, 'originalPetition.hearingDate');
-    if (hearingDates && hearingDates.length) {
-      const hearingAssigned = moment(last(hearingDates)).isAfter(moment());
-      return caseState === config.caseStates.AwaitingPronouncement && hearingAssigned;
-    }
-    return false;
   }
 
   caseBeyondAos(caseState) {

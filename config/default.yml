@@ -167,5 +167,7 @@ document:
   sessionPath: 'case.data.d8'
   documentNamePath: 'fileName'
   filesWhiteList:
-    coRespondent: ['no-files']
-    respondent: ['d8petition', 'certificateOfEntitlement']
+    coRespondent:
+    - 'd8petition'
+    respondent:
+    - 'd8petition'
