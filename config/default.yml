@@ -29,7 +29,7 @@ services:
     useSSL: false
     encryptionAtRestKey: encryptionAtRestKey
   idam:
-    apiHealth: https://localhost:8001/idam-api-health
+    apiHealth: https://localhost:8001/health
     authenticationHealth: https://localhost:3000/health
     apiUrl: http://localhost:3001/idam
     secret: '123456'
@@ -52,7 +52,7 @@ services:
     enabled: false
   caseOrchestration:
     baseUrl: http://localhost:3001/case-orchestration
-    health: http://localhost:3001/case-orchestration-health
+    health: http://localhost:3001/health
   dnFrontend:
     url: https://localhost:4000
     landing: /authenticated
@@ -60,11 +60,11 @@ services:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
     baseUrl: http://localhost:3001
-    health: http://localhost:3001/fees-and-payments-health
+    health: http://localhost:3001/health
   proxyUrl: ''
   evidenceManagement:
     baseUrl: http://localhost:3001/evidence-management
-    health: http://localhost:3001/evidence-management-health
+    health: http://localhost:3001/health
     downloadEndpoint: /emclientapi/version/1/download
 
 paths:
