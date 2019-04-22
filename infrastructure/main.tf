@@ -119,8 +119,8 @@ module "frontend" {
     DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.div_fps_url}${var.health_endpoint}"
-    EVIDENCE_MANAGMENT_SERVICE_URL = "${local.div_emca_url}"
-    EVIDENCE_MANAGMENT_SERVICE_HEALTHCHECK_URL = "${local.div_emca_url}${var.health_endpoint}"
+    EVIDENCE_MANAGEMENT_SERVICE_URL = "${local.div_emca_url}"
+    EVIDENCE_MANAGEMENT_SERVICE_HEALTHCHECK_URL = "${local.div_emca_url}${var.health_endpoint}"
     EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT = "${var.evidence_management_download_endpoint}"
 
     // Cache

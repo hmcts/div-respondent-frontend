@@ -18,9 +18,9 @@ nodejs:
         FEES_AND_PAYMENTS_HEALTHCHECK_URL: "http://div-fps-aat.service.core-compute-aat.internal/health"
         DECREE_NISI_FRONTEND_URL: "https://div-dn-aat.service.core-compute-aat.internal"
         CASE_MAINTENANCE_BASE_URL: "http://div-cms-aat.service.core-compute-aat.internal"
-        EVIDENCE_MANAGMENT_SERVICE_URL: "http://div-emca-aat.service.core-compute-aat.internal"
-        EVIDENCE_MANAGMENT_SERVICE_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
-        EVIDENCE_MANAGMENT_SERVICE_FILE_DOWNLOAD_URL: "http://div-emca-aat.service.core-compute-aat.internal/documents"
+        EVIDENCE_MANAGEMENT_SERVICE_URL: "http://div-emca-aat.service.core-compute-aat.internal"
+        EVIDENCE_MANAGEMENT_SERVICE_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
+        EVIDENCE_MANAGEMENT_SERVICE_FILE_DOWNLOAD_URL: "http://div-emca-aat.service.core-compute-aat.internal/documents"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
     # Don't modify below here
     image: ${IMAGE_NAME}

@@ -63,8 +63,8 @@ services:
     health: http://localhost:3001/fees-and-payments-health
   proxyUrl: ''
   evidenceManagement:
-    baseUrl: http://localhost:3001/evidence-managment
-    health: http://localhost:3001/evidence-managment-health
+    baseUrl: http://localhost:3001/evidence-management
+    health: http://localhost:3001/evidence-management-health
     downloadEndpoint: /emclientapi/version/1/download
 
 paths:
