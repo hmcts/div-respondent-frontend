@@ -17,7 +17,8 @@ const consts = {
   notAccept: 'NoNoAdmission',
   behavior: 'unreasonable-behaviour',
   desertion: 'desertion',
-  separation5yrs: 'separation-5-years'
+  separation5yrs: 'separation-5-years',
+  respondentCorrespondenceSendToSolicitor: 'respondentCorrespondenceSendToSolicitor'
 };
 
 class ChooseAResponse extends Question {
@@ -31,6 +32,10 @@ class ChooseAResponse extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get config() {
+    return config;
   }
 
   get feesDefendDivorce() {
@@ -52,7 +57,8 @@ class ChooseAResponse extends Question {
     const answers = [
       constants.proceed,
       constants.proceedButDisagree,
-      constants.defend
+      constants.defend,
+      constants.respondentCorrespondenceSendToSolicitor
     ];
 
     const validAnswers = Joi.string()
@@ -67,27 +73,37 @@ class ChooseAResponse extends Question {
 
   values() {
     const response = this.fields.response.value;
-
     if (this.isBehaviourOrDesertion) {
       switch (response) {
       case consts.proceed:
-        return { respWillDefendDivorce: consts.no };
+        return { respWillDefendDivorce: consts.no, respondentCorrespondenceSendToSolicitor: consts.no };
       case consts.proceedButDisagree:
-        return { respWillDefendDivorce: consts.notAccept };
+        return { respWillDefendDivorce: consts.notAccept, respondentCorrespondenceSendToSolicitor: consts.no };
       case consts.defend:
-        return { respWillDefendDivorce: consts.yes };
+        return { respWillDefendDivorce: consts.yes, respondentCorrespondenceSendToSolicitor: consts.no };
+      case consts.respondentCorrespondenceSendToSolicitor:
+        return { respWillDefendDivorce: null, respondentCorrespondenceSendToSolicitor: consts.yes };
       default:
         throw new Error(`Unknown response to behavior or desertion: '${response}'`);
       }
     }
 
-    const respWillDefendDivorce = response === consts.proceed ? consts.no : consts.yes;
-    return { respWillDefendDivorce };
+    let respondentCorrespondenceSendToSolicitor = '';
+    let respWillDefendDivorce = '';
+
+    if (response === consts.respondentCorrespondenceSendToSolicitor) {
+      respondentCorrespondenceSendToSolicitor = consts.yes;
+      respWillDefendDivorce = null;
+    } else {
+      respWillDefendDivorce = response === consts.proceed ? consts.no : consts.yes;
+      respondentCorrespondenceSendToSolicitor = consts.no;
+    }
+
+    return { respWillDefendDivorce, respondentCorrespondenceSendToSolicitor };
   }
 
   answers() {
     const response = this.fields.response.value;
-
     if (response) {
       const question = content.en.title;
       const cyaContent = content.en.fields[response].answer;
@@ -111,6 +127,7 @@ class ChooseAResponse extends Question {
     const response = this.fields.response;
     const isDefend = response.value === consts.defend;
     const isProceed = response.value === consts.proceed;
+    const isRepresentedBySolicitor = response.value === consts.respondentCorrespondenceSendToSolicitor;
     const fiveYearSeparation = this.session.originalPetition.reasonForDivorce === consts.separation5yrs;
 
     return branch(
@@ -120,6 +137,8 @@ class ChooseAResponse extends Question {
         .if(isProceed && fiveYearSeparation),
       redirectTo(this.journey.steps.ConfirmDefence)
         .if(isDefend),
+      redirectTo(this.journey.steps.CheckYourAnswers)
+        .if(isRepresentedBySolicitor),
       redirectTo(this.journey.steps.Jurisdiction)
     );
   }

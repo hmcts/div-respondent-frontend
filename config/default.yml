@@ -134,7 +134,7 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral'
 ]
 
-caseStates: 
+caseStates:
   AosAwaiting: 'AosAwaiting'
   AosStarted: 'AosStarted'
   AosOverdue: 'AosOverdue'
@@ -155,6 +155,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
+  respSolicitorDetails: false
 
 journey:
   timeoutDelay: 300
