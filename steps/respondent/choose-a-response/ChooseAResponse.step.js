@@ -73,6 +73,11 @@ class ChooseAResponse extends Question {
 
   values() {
     const response = this.fields.response.value;
+
+    if (response === consts.respondentCorrespondenceSendToSolicitor) {
+      return { respWillDefendDivorce: null, respondentCorrespondenceSendToSolicitor: consts.yes };
+    }
+
     if (this.isBehaviourOrDesertion) {
       switch (response) {
       case consts.proceed:
@@ -81,25 +86,14 @@ class ChooseAResponse extends Question {
         return { respWillDefendDivorce: consts.notAccept, respondentCorrespondenceSendToSolicitor: consts.no };
       case consts.defend:
         return { respWillDefendDivorce: consts.yes, respondentCorrespondenceSendToSolicitor: consts.no };
-      case consts.respondentCorrespondenceSendToSolicitor:
-        return { respWillDefendDivorce: null, respondentCorrespondenceSendToSolicitor: consts.yes };
       default:
         throw new Error(`Unknown response to behavior or desertion: '${response}'`);
       }
     }
 
-    let respondentCorrespondenceSendToSolicitor = '';
-    let respWillDefendDivorce = '';
+    const respWillDefendDivorce = response === consts.proceed ? consts.no : consts.yes;
 
-    if (response === consts.respondentCorrespondenceSendToSolicitor) {
-      respondentCorrespondenceSendToSolicitor = consts.yes;
-      respWillDefendDivorce = null;
-    } else {
-      respWillDefendDivorce = response === consts.proceed ? consts.no : consts.yes;
-      respondentCorrespondenceSendToSolicitor = consts.no;
-    }
-
-    return { respWillDefendDivorce, respondentCorrespondenceSendToSolicitor };
+    return { respWillDefendDivorce, respondentCorrespondenceSendToSolicitor: consts.no };
   }
 
   answers() {
