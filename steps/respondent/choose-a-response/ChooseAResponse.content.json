@@ -47,6 +47,11 @@
         "heading": "I disagree with the application for divorce",
         "summary": "Choose this option if you intend to defend because you don’t agree that your marriage has irretrievably broken down; want to defend yourself against the allegations; or want to make your own application.",
         "answer": "I will try to prevent the divorce based on this application (I intend to ‘defend’ it)"
+      },
+      "respondentCorrespondenceSendToSolicitor": {
+        "heading": "I am represented by a solicitor and will let them respond on my behalf",
+        "summary": "Choose this option if you are being represented by a solicitor and want them to continue this application.",
+        "answer": "I would like a solicitor to respond on my behalf, so that the solicitor can act for me"
       }
     }
   }

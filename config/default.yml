@@ -159,6 +159,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
+  respSolicitorDetails: false
 
 journey:
   timeoutDelay: 300

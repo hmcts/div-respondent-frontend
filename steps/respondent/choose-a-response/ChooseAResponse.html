@@ -19,6 +19,11 @@
     ] %}
 {% endif %}
 
+{% if config.features.respSolicitorDetails === true %}
+    {% set solicitorLine =  {label: content.fields.respondentCorrespondenceSendToSolicitor.heading, value: consts.respondentCorrespondenceSendToSolicitor, description: content.fields.respondentCorrespondenceSendToSolicitor.summary} %}
+    {% set responseOptions = (responseOptions.push(solicitorLine),responseOptions) %}
+{% endif %}
+
 {% block fields %}
 
     <div id="choose-a-response">
