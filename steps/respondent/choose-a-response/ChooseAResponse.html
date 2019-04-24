@@ -19,7 +19,7 @@
     ] %}
 {% endif %}
 
-{% if config.features.respSolicitorDetails === true %}
+{% if respSolicitorDetailsEnabled %}
     {% set solicitorLine =  {label: content.fields.respondentCorrespondenceSendToSolicitor.heading, value: consts.respondentCorrespondenceSendToSolicitor, description: content.fields.respondentCorrespondenceSendToSolicitor.summary} %}
     {% set responseOptions = (responseOptions.push(solicitorLine),responseOptions) %}
 {% endif %}

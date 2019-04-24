@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const consts = {
   proceed: 'proceed',
@@ -34,8 +35,8 @@ class ChooseAResponse extends Question {
     return this.req.session;
   }
 
-  get config() {
-    return config;
+  get respSolicitorDetailsEnabled() {
+    return parseBool(config.features.respSolicitorDetails) ;
   }
 
   get feesDefendDivorce() {
