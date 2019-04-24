@@ -6,6 +6,16 @@
     {{ content.title | safe }}
 {% endset %}
 
+{% set responseOptions = [
+    { label: content.fields.consentDecree.labelYes, value: const.yes },
+    { label: content.fields.consentDecree.labelNo, value: const.no, target: 'choose-defend' }
+] %}
+
+{% if respSolicitorDetailsEnabled %}
+    {% set solicitorLine =  { label: content.fields.respondentCorrespondenceSendToSolicitor.heading, value: const.respondentCorrespondenceSendToSolicitor } %}
+    {% set responseOptions = (responseOptions.push(solicitorLine),responseOptions) %}
+{% endif %}
+
 {% block fields %}
 
     <div id="confirm-defence">
@@ -27,10 +37,7 @@
         <div class="default-margin">
             {% call formSection() %}
                 {{ selectionButtons(fields.response.consentDecree, content.fields.consentDecree.header,
-                    options = [
-                        { label: content.fields.consentDecree.labelYes, value: const.yes },
-                        { label: content.fields.consentDecree.labelNo, value: const.no, target: 'choose-defend' }
-                    ],
+                    options = responseOptions,
                     hint=false,
                     hideQuestion=false,
                     inline=false,

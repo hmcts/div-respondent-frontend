@@ -21,6 +21,11 @@
         "labelNo": "No, I don't want to defend",
         "answerNo": "I will let the divorce proceed and won't try to prevent it (I don't intend to 'defend' it).",
         "answerYes": "I will try to prevent the divorce based on this application (I intend to 'defend' it)"
+      },
+      "respondentCorrespondenceSendToSolicitor": {
+        "heading": "I am represented by a solicitor and will let them respond on my behalf",
+        "question": "How do you want to respond?",
+        "answer": "I would like a solicitor to respond on my behalf, so that the solicitor can act for me"
       }
     },
     "errors": {
