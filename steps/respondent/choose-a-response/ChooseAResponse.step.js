@@ -36,7 +36,7 @@ class ChooseAResponse extends Question {
   }
 
   get respSolicitorDetailsEnabled() {
-    return parseBool(config.features.respSolicitorDetails) ;
+    return parseBool(config.features.respSolicitorDetails);
   }
 
   get feesDefendDivorce() {
