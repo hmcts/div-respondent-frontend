@@ -7,10 +7,12 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConsentDecree.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const constValues = {
   yes: 'Yes',
-  no: 'No'
+  no: 'No',
+  respondentCorrespondenceSendToSolicitor: 'respondentCorrespondenceSendToSolicitor'
 };
 
 class ConsentDecree extends Question {
@@ -26,23 +28,36 @@ class ConsentDecree extends Question {
     return this.req.session;
   }
 
+  get respSolicitorDetailsEnabled() {
+    return parseBool(config.features.respSolicitorDetails);
+  }
+
   get feesAmendDivorce() {
     return this.res.locals.applicationFee['amend-fee'].amount;
   }
 
   values() {
+    if (this.fields.response.consentDecree.value === this.const.respondentCorrespondenceSendToSolicitor) {
+      return {
+        respWillDefendDivorce: null,
+        respAdmitOrConsentToFact: null,
+        respondentCorrespondenceSendToSolicitor: this.const.yes
+      };
+    }
     const respAdmitOrConsentToFact = this.fields.response.consentDecree.value;
     const respWillDefendDivorce = this.fields.response.willDefend.value === this.const.yes ? this.const.yes : this.const.no;
     return {
       respAdmitOrConsentToFact,
-      respWillDefendDivorce
+      respWillDefendDivorce,
+      respondentCorrespondenceSendToSolicitor: this.const.no
     };
   }
 
   get form() {
     const answers = [
       this.const.yes,
-      this.const.no
+      this.const.no,
+      this.const.respondentCorrespondenceSendToSolicitor
     ];
     const validConsentAnswers = Joi.string()
       .valid(answers)
@@ -70,23 +85,34 @@ class ConsentDecree extends Question {
   }
 
   answers() {
+    // eslint-disable-next-line max-len
+    const isRepresentedBySolicitor = this.fields.response.consentDecree.value === this.const.respondentCorrespondenceSendToSolicitor;
     const answers = [];
-    const questionConsent = content.en.fields.consentDecree.header;
-    const doesConsent = this.fields.response.consentDecree.value === this.const.yes;
-    const consentAnswerValue = doesConsent ? content.en.fields.consentDecree.labelYes : content.en.fields.consentDecree.labelNo;
-    answers.push(answer(this, {
-      question: questionConsent,
-      answer: consentAnswerValue
-    }));
 
-    if (!doesConsent) {
-      const questionDefend = content.en.fields.willDefend.header;
-      const willDefend = this.fields.response.willDefend.value === this.const.yes;
-      const defendValue = willDefend ? content.en.fields.willDefend.answerYes : content.en.fields.willDefend.answerNo;
+    if (isRepresentedBySolicitor) {
+      const questionSolicitorResp = content.en.fields.respondentCorrespondenceSendToSolicitor.question;
+      const answerSolicitorResp = content.en.fields.respondentCorrespondenceSendToSolicitor.answer;
       answers.push(answer(this, {
-        question: questionDefend,
-        answer: defendValue
+        question: questionSolicitorResp,
+        answer: answerSolicitorResp
       }));
+    } else {
+      const questionConsent = content.en.fields.consentDecree.header;
+      const doesConsent = this.fields.response.consentDecree.value === this.const.yes;
+      const consentAnswerValue = doesConsent ? content.en.fields.consentDecree.labelYes : content.en.fields.consentDecree.labelNo;
+      answers.push(answer(this, {
+        question: questionConsent,
+        answer: consentAnswerValue
+      }));
+      if (!doesConsent) {
+        const questionDefend = content.en.fields.willDefend.header;
+        const willDefend = this.fields.response.willDefend.value === this.const.yes;
+        const defendValue = willDefend ? content.en.fields.willDefend.answerYes : content.en.fields.willDefend.answerNo;
+        answers.push(answer(this, {
+          question: questionDefend,
+          answer: defendValue
+        }));
+      }
     }
 
     return answers;
@@ -103,9 +129,12 @@ class ConsentDecree extends Question {
   next() {
     const doesConsent = this.fields.response.consentDecree.value === this.const.yes;
     const isDefending = this.fields.response.willDefend.value === this.const.yes;
+    // eslint-disable-next-line max-len
+    const isRepresentedBySolicitor = this.fields.response.consentDecree.value === this.const.respondentCorrespondenceSendToSolicitor;
     return branch(
-      redirectTo(this.journey.steps.ConfirmDefence).if(!doesConsent && isDefending),
-      redirectTo(this.journey.steps.NoConsentAreYouSure).if(!doesConsent && !isDefending),
+      redirectTo(this.journey.steps.ConfirmDefence).if(!doesConsent && isDefending && !isRepresentedBySolicitor),
+      redirectTo(this.journey.steps.NoConsentAreYouSure).if(!doesConsent && !isDefending && !isRepresentedBySolicitor),
+      redirectTo(this.journey.steps.CheckYourAnswers).if(isRepresentedBySolicitor && !doesConsent && !isDefending),
       redirectTo(this.journey.steps.FinancialSituation)
     );
   }
