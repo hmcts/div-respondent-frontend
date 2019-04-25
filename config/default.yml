@@ -164,7 +164,7 @@ journey:
   timeoutDelay: 300
 
 document:
-  sessionPath: 'case.data.d8'
+  sessionPath: 'originalPetition.d8'
   documentNamePath: 'fileName'
   filesWhiteList:
     coRespondent:
