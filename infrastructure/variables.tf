@@ -197,5 +197,5 @@ variable "appinsights_instrumentation_key" {
 }
 
 variable "evidence_management_download_endpoint" {
-  default = "/documents"
+  default = "/emclientapi/version/1/download"
 }

@@ -140,7 +140,9 @@ describe(modulePath, () => {
     });
 
     describe('right hand side menu rendering', () => {
-      const session = {};
+      const session = {
+
+      };
 
       it('should render guidance links', () => {
         return custom(Respond)
