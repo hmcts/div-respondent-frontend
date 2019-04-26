@@ -1,0 +1,42 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textbox %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+    <p class="text">{{ content.enterTheDetailsOfTheSolicitor | safe }}</p>
+
+    {% call formSection() %}
+        {{ textbox(
+            fields.solicitorDetails.telephone,
+            content.fields.telephone.label) }}
+    {% endcall %}
+
+    {% call formSection() %}
+        {{ textbox(
+            fields.solicitorDetails.firmName,
+            content.fields.firmName.label) }}
+    {% endcall %}
+
+    {% call formSection() %}
+    {{
+    selectionButtons(
+        fields.solicitorDetails.consent,
+        content.statementOfTruth,
+        options = [
+        { label: content.fields.statementOfTruth.yes, value: "Yes" }
+    ],
+        hint=false,
+        hideQuestion=true,
+        inline=false,
+        type='checkbox',
+        class='confirmation-container'
+    )
+    }}
+    {% endcall %}
+
+{% endblock %}

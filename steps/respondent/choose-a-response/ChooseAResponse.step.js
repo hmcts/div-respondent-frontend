@@ -124,7 +124,6 @@ class ChooseAResponse extends Question {
     const isProceed = response.value === consts.proceed;
     const isRepresentedBySolicitor = response.value === consts.respondentCorrespondenceSendToSolicitor;
     const fiveYearSeparation = this.session.originalPetition.reasonForDivorce === consts.separation5yrs;
-
     return branch(
       redirectTo(this.journey.steps.ConfirmDefence)
         .if(isDefend && fiveYearSeparation),
@@ -132,7 +131,7 @@ class ChooseAResponse extends Question {
         .if(isProceed && fiveYearSeparation),
       redirectTo(this.journey.steps.ConfirmDefence)
         .if(isDefend),
-      redirectTo(this.journey.steps.CheckYourAnswers)
+      redirectTo(this.journey.steps.SolicitorDetails)
         .if(isRepresentedBySolicitor),
       redirectTo(this.journey.steps.Jurisdiction)
     );

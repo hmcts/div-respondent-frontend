@@ -93,6 +93,7 @@ paths:
     noConsentAreYouSure: /no-consent-are-you-sure
     progressBar: /progress-bar
     done: /done
+    solicitorDetails: /solicitor-details
   coRespondent:
     respond: /co-respondent/progress-bar/respond
     progressBar: /co-respondent/progress-bar

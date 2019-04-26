@@ -1,0 +1,23 @@
+{
+  "en": {
+    "title": "Your solicitor's details",
+    "enterTheDetailsOfTheSolicitor": "Enter the details of the solicitor who will be representing you during the divorce.",
+    "statementOfTruth": "Statement of Truth",
+    "fields": {
+      "telephone": {
+        "label": "Solicitor's phone number"
+      },
+      "firmName": {
+        "label": "Firm name"
+      },
+      "statementOfTruth": {
+        "yes": "I confirm that the solicitor's details are correct"
+      }
+    },
+    "errors": {
+      "requireValidTelephoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
+      "requiredField": "Enter the required data",
+      "requireConsent": "Please confirm that the solicitor's details are correct"
+    }
+  }
+}
