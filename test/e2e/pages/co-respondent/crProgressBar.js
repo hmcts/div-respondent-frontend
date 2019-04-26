@@ -38,10 +38,19 @@ function seeContentForTooLateToRespond() {
   I.see(content.en.tooLateToRespond.info);
 }
 
+
+function seeCoRespAwaitingPronouncementHearingDataFuture() {
+  const I = this;
+
+  I.see(content.en.awaitingPronouncementHearingDataFuture.title);
+  I.see(content.en.awaitingPronouncementHearingDataFuture.districtJudge);
+}
+
 module.exports = {
   seeCrProgressBarPage,
   seeContentForNotDefending,
   seeContentForDefendingAwaitingAnswer,
   seeContentForNotDefendingSubmittedAnswer,
-  seeContentForTooLateToRespond
+  seeContentForTooLateToRespond,
+  seeCoRespAwaitingPronouncementHearingDataFuture
 };

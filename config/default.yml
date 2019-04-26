@@ -169,5 +169,6 @@ document:
   filesWhiteList:
     coRespondent:
     - 'd8petition'
+    - 'certificateOfEntitlement'
     respondent:
     - 'd8petition'

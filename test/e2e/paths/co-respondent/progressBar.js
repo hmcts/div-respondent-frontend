@@ -31,3 +31,11 @@ Scenario('Should display content for co-respondent - Too late to Respond', I => 
   I.seeCrProgressBarPage();
   I.seeContentForTooLateToRespond();
 }).retry(2);
+
+Scenario('Should display content for co-respondent - awaiting pronouncement and hearing date in the future', I => { // eslint-disable-line max-len
+  I.amOnPage('/');
+  I.seeIdamLoginPage();
+  I.loginAsCoRespAwaitingPronouncementHearingDataFuture();
+  I.seeCrProgressBarPage();
+  I.seeCoRespAwaitingPronouncementHearingDataFuture();
+}).retry(2);

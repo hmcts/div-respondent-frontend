@@ -155,6 +155,121 @@ describe(modulePath, () => {
     });
   });
 
+  it('shows content for files if they exsist', () => {
+    const session = {
+      caseState: 'AwaitingPronouncement',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          },
+          aos: {
+            received: 'Yes',
+            letterHolderId: '755791',
+            dateReceived: '2019-02-22'
+          },
+          defendsDivorce: 'Yes',
+          answer: {
+            received: 'Yes'
+          }
+        },
+        hearingDate: ['3000-01-01T00:00:00.000+0000'],
+        d8: [
+          {
+            id: '88217833-f74f-4cc3-ae73-882178332123',
+            fileName: 'certificateOfEntitlement1539017559370699.pdf'
+          },
+          {
+            id: '88217833-f74f-4cc3-ae73-882178332ccd',
+            fileName: 'd8petition1539017559370699.pdf'
+          }
+        ]
+      }
+    };
+    return content(CrProgressBar, session, {
+      specificContent: [
+        'downloadableFiles',
+        'files.dpetition',
+        'files.certificateOfEntitlement'
+      ]
+    });
+  });
+
+  describe('content for awaiting pronouncement and hearing date in the future', () => { // eslint-disable-line max-len
+    const session = {
+      caseState: 'AwaitingPronouncement',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          },
+          aos: {
+            received: 'Yes',
+            letterHolderId: '755791',
+            dateReceived: '2019-02-22'
+          },
+          defendsDivorce: 'Yes',
+          answer: {
+            received: 'Yes'
+          }
+        },
+        hearingDate: ['3000-01-01T00:00:00.000+0000'],
+        d8: [
+          {
+            id: '88217833-f74f-4cc3-ae73-882178332ccd',
+            fileName: 'certificateOfEntitlement1539017559370699.pdf'
+          }
+        ]
+      }
+    };
+
+    it('shows costs content', () => {
+      session.originalPetition.costsClaimGranted = 'Yes';
+      session.originalPetition.whoPaysCosts = 'respondent and correspondent';
+      return content(CrProgressBar, session, {
+        specificContent: [
+          'awaitingPronouncementHearingDataFuture.title',
+          'awaitingPronouncementHearingDataFuture.districtJudge',
+          'awaitingPronouncementHearingDataFuture.orderPayDivorceCosts',
+          'awaitingPronouncementHearingDataFuture.divorceOnlyComplete',
+          'awaitingPronouncementHearingDataFuture.theHearing',
+          'awaitingPronouncementHearingDataFuture.findMoreDetails',
+          'awaitingPronouncementHearingDataFuture.wantToObject',
+          'awaitingPronouncementHearingDataFuture.attendTheHearing'
+        ]
+      });
+    });
+
+    it('doesnt show costs content', () => {
+      session.originalPetition.costsClaimGranted = 'No';
+      return content(CrProgressBar, session, {
+        specificContentToNotExist: [
+          'awaitingPronouncementHearingDataFuture.orderPayDivorceCosts',
+          'awaitingPronouncementHearingDataFuture.wantToObject'
+        ]
+      });
+    });
+  });
+
+  it('renders the content for awaiting Pronouncement and Hearing Data in the Future - Too late to respond', () => { // eslint-disable-line max-len
+    const session = {
+      caseState: 'DivorceGranted',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          }
+        }
+      }
+    };
+    return content(CrProgressBar, session, {
+      specificValues: [
+        CrProgressBarContent.en.tooLateToRespond.heading,
+        CrProgressBarContent.en.tooLateToRespond.info
+      ]
+    });
+  });
+
 
   describe('court address details', () => {
     const basicSession = {
