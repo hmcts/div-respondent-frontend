@@ -11,6 +11,7 @@ const setupHealthChecks = require('middleware/healthcheck');
 const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
+const documentHandler = require('services/documentHandler');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
@@ -71,6 +72,7 @@ app.set('trust proxy', 1);
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
+  routes: [ documentHandler ],
   errorPages: {
     serverError: {
       template: 'errors/server-error',

@@ -12,6 +12,7 @@ locals {
   div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
   div_cms_url              = "http://div-cms-${local.local_env}.service.core-compute-${local.local_env}.internal"
   div_fps_url              = "http://div-fps-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  div_emca_url             = "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal"
   asp_name = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
   appinsights_name           = "${var.env == "preview" ? "${var.product}-${var.reform_service_name}-appinsights-${var.env}" : "${var.product}-${var.env}"}"
@@ -118,6 +119,9 @@ module "frontend" {
     DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.div_fps_url}${var.health_endpoint}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_URL = "${local.div_emca_url}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL = "${local.div_emca_url}${var.health_endpoint}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT = "${var.evidence_management_download_endpoint}"
 
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"

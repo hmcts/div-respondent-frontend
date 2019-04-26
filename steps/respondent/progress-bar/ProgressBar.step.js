@@ -3,6 +3,8 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
 const idam = require('services/idam');
+const { createUris } = require('@hmcts/div-document-express-handler');
+const { documentWhiteList } = require('services/documentHandler');
 
 const progressStates = {
   progressedNoAos: 'progressedNoAos',
@@ -55,6 +57,14 @@ class ProgressBar extends Interstitial {
 
   get progressStates() {
     return progressStates;
+  }
+
+  get downloadableFiles() {
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: documentWhiteList(this.req)
+    };
+    return createUris(this.session.originalPetition.d8 || [], docConfig);
   }
 
   getProgressBarContent() {

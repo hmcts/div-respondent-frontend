@@ -45,8 +45,8 @@ const divIdamExpressMiddleware = {
       const userDetails = cookies.get('mockIdamUserDetails');
       if (userDetails) {
         req.idam = { userDetails: JSON.parse(userDetails) };
-        const stepName = req.currentStep.name;
-        const idamLogin = req.session.IdamLogin;
+        const stepName = req.currentStep ? req.currentStep.name : '';
+        const idamLogin = req.session ? req.session.IdamLogin : null;
         if (stepName === 'CaptureCaseAndPin' && req.method === 'POST') {
           if (idamLogin && idamLogin.success === 'yesCaseNotLinked') {
             // simulate case being linked after entering case ID/pin
