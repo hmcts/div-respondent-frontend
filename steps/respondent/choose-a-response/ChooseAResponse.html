@@ -56,6 +56,11 @@
                     <p class="text">{{ content.info.options.hardship.text6 | safe }}</p>
                     <p class="text">{{ content.info.options.hardship.text7 | safe }}</p>
                 {% endif %}
+                {% if respSolicitorDetailsEnabled %}
+                    <h2 class="heading-small">{{ content.info.options.solicitor.heading | safe }}</h2>
+                    <p class="text">{{ content.info.options.solicitor.summary | safe }}</p>
+                {% endif %}
+
             </div>
         </details>
 
