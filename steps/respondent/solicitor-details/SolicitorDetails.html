@@ -8,7 +8,34 @@
 
 {% block fields %}
 
-    <p class="text">{{ content.enterTheDetailsOfTheSolicitor | safe }}</p>
+<p class="text">{{ content.enterTheDetailsOfTheSolicitor | safe }}</p>
+
+<div id="respondent-solicitor-details">
+
+    {% call formSection() %}
+        {{ textbox(
+            fields.solicitorDetails.solicitorName,
+            content.fields.solicitorName.label,
+            hint=content.fields.solicitorName.hint) }}
+    {% endcall %}
+
+    {% call formSection() %}
+        {{ textbox(
+            fields.solicitorDetails.firmName,
+            content.fields.firmName.label) }}
+    {% endcall %}
+
+    {% call formSection() %}
+        {{ textbox(
+            fields.solicitorDetails.firmAddress,
+            content.fields.firmAddress.label) }}
+    {% endcall %}
+
+    {% call formSection() %}
+        {{ textbox(
+            fields.solicitorDetails.solicitorEmail,
+            content.fields.solicitorEmail.label) }}
+    {% endcall %}
 
     {% call formSection() %}
         {{ textbox(
@@ -18,8 +45,8 @@
 
     {% call formSection() %}
         {{ textbox(
-            fields.solicitorDetails.firmName,
-            content.fields.firmName.label) }}
+            fields.solicitorDetails.solicitorRefNumber,
+            content.fields.solicitorRefNumber.label) }}
     {% endcall %}
 
     {% call formSection() %}
@@ -39,4 +66,5 @@
     }}
     {% endcall %}
 
+</div>
 {% endblock %}

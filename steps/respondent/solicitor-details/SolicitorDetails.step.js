@@ -31,11 +31,16 @@ class SolicitorDetails extends Question {
     const requiredAnswer = Joi.string()
       .required();
 
+    const errorMessageRequiredField = this.content.errors.requiredField;
 
     const fields = {
+      solicitorName: text,
+      firmName: text.joi(errorMessageRequiredField, requiredAnswer),
+      firmAddress: text.joi(errorMessageRequiredField, requiredAnswer),
+      solicitorEmail: text.joi(errorMessageRequiredField, requiredAnswer),
       telephone: text.joi(this.content.errors.requireValidTelephoneNo,
         validatePhoneNumber),
-      firmName: text.joi(this.content.errors.requiredField, requiredAnswer),
+      solicitorRefNumber: text.joi(errorMessageRequiredField, requiredAnswer),
       consent: text.joi(this.content.errors.requireConsent, validAnswers)
     };
 
@@ -45,31 +50,63 @@ class SolicitorDetails extends Question {
   }
 
   values() {
-    const phoneNo = this.fields.solicitorDetails.telephone.value;
+    const solicitorName = this.fields.solicitorDetails.solicitorName.value;
     const firmNameSol = this.fields.solicitorDetails.firmName.value;
+    const firmAddressSol = this.fields.solicitorDetails.firmAddress.value;
+    const solicitorEmailAddress = this.fields.solicitorDetails.solicitorEmail.value;
+    const phoneNo = this.fields.solicitorDetails.telephone.value;
+    const solicitorReferenceNumber = this.fields.solicitorDetails.solicitorRefNumber.value;
+
     const values = {};
-    if (phoneNo && phoneNo.trim().length) {
-      values.respondentSolicitorPhone = phoneNo;
+
+    if (solicitorName && solicitorName.trim().length) {
+      values.respondentSolicitorName = solicitorName;
     }
+
     values.respondentSolicitorCompany = firmNameSol;
+    values.respondentSolicitorAddress = firmAddressSol;
+    values.respondentSolicitorEmail = solicitorEmailAddress;
+    values.respondentSolicitorPhone = phoneNo;
+    values.respondentSolicitorReference = solicitorReferenceNumber;
+
     return values;
   }
 
   answers() {
-    const phoneNo = this.fields.solicitorDetails.telephone.value;
+    const solicitorName = this.fields.solicitorDetails.solicitorName.value;
 
     const answers = [];
 
-    if (phoneNo && phoneNo.trim().length) {
+    if (solicitorName && solicitorName.trim().length) {
       answers.push(answer(this, {
-        question: content.en.fields.telephone.label,
-        answer: this.fields.solicitorDetails.telephone.value
+        question: content.en.fields.solicitorName.label,
+        answer: this.fields.solicitorDetails.solicitorName.value
       }));
     }
 
     answers.push(answer(this, {
       question: content.en.fields.firmName.label,
       answer: this.fields.solicitorDetails.firmName.value
+    }));
+
+    answers.push(answer(this, {
+      question: content.en.fields.firmAddress.label,
+      answer: this.fields.solicitorDetails.firmAddress.value
+    }));
+
+    answers.push(answer(this, {
+      question: content.en.fields.solicitorEmail.label,
+      answer: this.fields.solicitorDetails.solicitorEmail.value
+    }));
+
+    answers.push(answer(this, {
+      question: content.en.fields.telephone.label,
+      answer: this.fields.solicitorDetails.telephone.value
+    }));
+
+    answers.push(answer(this, {
+      question: content.en.fields.solicitorRefNumber.label,
+      answer: this.fields.solicitorDetails.solicitorRefNumber.value
     }));
 
     return answers;
