@@ -4,11 +4,24 @@
     "enterTheDetailsOfTheSolicitor": "Enter the details of the solicitor who will be representing you during the divorce.",
     "statementOfTruth": "Statement of Truth",
     "fields": {
-      "telephone": {
-        "label": "Solicitor's phone number"
+      "solicitorName": {
+        "label": "Solicitor's name",
+        "hint": "(Optional)"
       },
       "firmName": {
         "label": "Firm name"
+      },
+      "firmAddress": {
+        "label": "Firm address"
+      },
+      "solicitorEmail": {
+        "label": "Solicitor's email address"
+      },
+      "telephone": {
+        "label": "Solicitor's phone number"
+      },
+      "solicitorRefNumber": {
+        "label": "Solicitor's reference number"
       },
       "statementOfTruth": {
         "yes": "I confirm that the solicitor's details are correct"
