@@ -57,17 +57,17 @@ class SolicitorDetails extends Question {
     const phoneNo = this.fields.solicitorDetails.telephone.value;
     const solicitorReferenceNumber = this.fields.solicitorDetails.solicitorRefNumber.value;
 
-    const values = {};
+    const values = { respondentSolicitor: {} };
 
     if (solicitorName && solicitorName.trim().length) {
-      values.respondentSolicitorName = solicitorName;
+      values.respondentSolicitor.name = solicitorName;
     }
 
-    values.respondentSolicitorCompany = firmNameSol;
-    values.respondentSolicitorAddress = firmAddressSol;
-    values.respondentSolicitorEmail = solicitorEmailAddress;
-    values.respondentSolicitorPhone = phoneNo;
-    values.respondentSolicitorReference = solicitorReferenceNumber;
+    values.respondentSolicitor.company = firmNameSol;
+    values.respondentSolicitor.address = firmAddressSol;
+    values.respondentSolicitor.email = solicitorEmailAddress;
+    values.respondentSolicitor.phone = phoneNo;
+    values.respondentSolicitor.reference = solicitorReferenceNumber;
 
     return values;
   }
