@@ -9,6 +9,7 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.loginAsCorespondent();
 
   I.seeCrRespondPage();
+  I.seeCrDocumentsForDownload();
   I.click(content.en.continue);
 
   I.seeCrReviewApplicationPage();
