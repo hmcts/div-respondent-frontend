@@ -4,6 +4,7 @@ const ChooseAResponse = require(modulePath);
 const Jurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.step');
 const ConfirmDefence = require('steps/respondent/confirm-defence/ConfirmDefence.step');
 const FinancialSituation = require('steps/respondent/financial-situation/FinancialSituation.step');
+const SolicitorDetails = require('steps/respondent/solicitor-details/SolicitorDetails.step');
 
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
@@ -68,6 +69,11 @@ describe(modulePath, () => {
     return question.redirectWithField(ChooseAResponse, fields, ConfirmDefence, session);
   });
 
+  it('redirects to solicitor details page when choosing to be represented by solicitor', () => {
+    const fields = { response: 'respondentCorrespondenceSendToSolicitor' };
+    return question.redirectWithField(ChooseAResponse, fields, SolicitorDetails, session);
+  });
+
   it('shows error if question is not answered', () => {
     return question.testErrors(ChooseAResponse, session);
   });
@@ -112,7 +118,7 @@ describe(modulePath, () => {
     });
   });
 
-  it('sets respWillDefendDivorce to no if response is proceed', () => {
+  it('sets respWillDefendDivorce to no and Solicitor to no if response is proceed', () => {
     // given
     session.ChooseAResponse = {
       response: 'proceed'
@@ -127,9 +133,10 @@ describe(modulePath, () => {
     const values = step.values();
     expect(values).to.be.an('object');
     expect(values).to.have.property('respWillDefendDivorce', 'No');
+    expect(values).to.have.property('respondentCorrespondenceSendToSolicitor', 'No');
   });
 
-  it('sets respWillDefendDivorce to yes if response is defend', () => {
+  it('sets respWillDefendDivorce to yes and Solicitor to no if response is defend', () => {
     // given
     session.ChooseAResponse = {
       response: 'defend'
@@ -144,7 +151,27 @@ describe(modulePath, () => {
     const values = step.values();
     expect(values).to.be.an('object');
     expect(values).to.have.property('respWillDefendDivorce', 'Yes');
+    expect(values).to.have.property('respondentCorrespondenceSendToSolicitor', 'No');
   });
+
+  it('sets respWillDefendDivorce to null and Solicitor to yes if response is Solicitor', () => {
+    // given
+    session.ChooseAResponse = {
+      response: 'respondentCorrespondenceSendToSolicitor'
+    };
+
+    // when
+    const step = new ChooseAResponse({ session });
+    step.retrieve()
+      .validate();
+
+    // then
+    const values = step.values();
+    expect(values).to.be.an('object');
+    expect(values).to.have.property('respWillDefendDivorce', null);
+    expect(values).to.have.property('respondentCorrespondenceSendToSolicitor', 'Yes');
+  });
+
 
   describe('returns correct answer based on response', () => {
     it('returns correct answer for proceed', () => {
@@ -193,6 +220,25 @@ describe(modulePath, () => {
       const answers = step.answers();
       expect(answers).to.be.an('object');
       expect(answers).to.have.property('answer', stepContent.en.fields.defend.answer);
+    });
+
+    it('returns correct answer for respondentCorrespondenceSendToSolicitor', () => {
+      // given
+      session.ChooseAResponse = {
+        response: 'respondentCorrespondenceSendToSolicitor'
+      };
+
+      // when
+      const step = new ChooseAResponse({ session });
+      step.retrieve().validate();
+
+      // then
+      const answers = step.answers();
+      expect(answers).to.be.an('object');
+      expect(answers).to.have.property(
+        'answer',
+        stepContent.en.fields.respondentCorrespondenceSendToSolicitor.answer
+      );
     });
   });
 

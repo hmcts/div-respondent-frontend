@@ -6,6 +6,7 @@ const ConfirmDefence = require('steps/respondent/confirm-defence/ConfirmDefence.
 const NoConsentAreYouSure = require(
   'steps/respondent/no-consent-are-you-sure/NoConsentAreYouSure.step'
 );
+const SolicitorDetails = require('steps/respondent/solicitor-details/SolicitorDetails.step');
 const idam = require('services/idam');
 const {
   middleware,
@@ -82,6 +83,14 @@ describe(modulePath, () => {
     };
     return question.redirectWithField(ConsentDecree, fields, ConfirmDefence);
   });
+
+  it('redirects to solicitor details page when choosing to be represented by solicitor', () => {
+    const fields = {
+      'response.consentDecree': 'respondentCorrespondenceSendToSolicitor'
+    };
+    return question.redirectWithField(ConsentDecree, fields, SolicitorDetails);
+  });
+
 
   it('shows consent required error if consent not answered', () => {
     const fields = { 'response.consentDecree': '' };
@@ -161,6 +170,32 @@ describe(modulePath, () => {
       .property('respWillDefendDivorce', answers.yes);
   });
 
+  it('sets value for respondentCorrespondenceSendToSolicitor', () => {
+    const req = {
+      session: {
+        ConsentDecree: {
+          response: {
+            consentDecree: 'respondentCorrespondenceSendToSolicitor'
+          }
+        }
+      }
+    };
+    const step = new ConsentDecree(req, {});
+
+    step.retrieve()
+      .validate();
+
+    const values = step.values();
+    expect(values)
+      .to
+      .be
+      .an('object');
+    expect(values)
+      .to
+      .have
+      .property('respondentCorrespondenceSendToSolicitor', answers.yes);
+  });
+
   it('applies the correct answer object given consent', () => {
     const req = {
       session: {
@@ -225,5 +260,34 @@ describe(modulePath, () => {
     expect(answersArr[1].answer)
       .to
       .equal(contentFile.en.fields.willDefend.answerNo);
+  });
+
+  it('applies the correct answer object respondentCorrespondenceSendToSolicitor', () => {
+    const req = {
+      session: {
+        ConsentDecree: {
+          response: {
+            consentDecree: 'respondentCorrespondenceSendToSolicitor'
+          }
+        }
+      }
+    };
+    const step = new ConsentDecree(req, {});
+    step.retrieve()
+      .validate();
+    const answersArr = step.answers();
+
+    expect(answersArr)
+      .to
+      .be
+      .an('array');
+
+    expect(answersArr[0].question)
+      .to
+      .equal(contentFile.en.fields.respondentCorrespondenceSendToSolicitor.question);
+
+    expect(answersArr[0].answer)
+      .to
+      .equal(contentFile.en.fields.respondentCorrespondenceSendToSolicitor.answer);
   });
 });
