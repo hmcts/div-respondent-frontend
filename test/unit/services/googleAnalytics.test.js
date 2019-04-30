@@ -1,4 +1,4 @@
-const exampleStep = require('steps/progress-bar/ProgressBar.step');
+const exampleStep = require('steps/respondent/progress-bar/ProgressBar.step');
 const { custom, expect, sinon, middleware } = require('@hmcts/one-per-page-test-suite');
 const idam = require('services/idam');
 const httpStatus = require('http-status-codes');
@@ -17,7 +17,7 @@ describe('Google analytics', () => {
     const session = {
       caseState: 'AwaitingLegalAdvisorReferral',
       originalPetition: {
-        respDefendsDivorce: null
+        respWillDefendDivorce: null
       }
     };
     const googleAnalyticsId = 'google-analytics-id';
@@ -30,7 +30,9 @@ describe('Google analytics', () => {
       .get()
       .expect(httpStatus.OK)
       .text(pageContent => {
-        const googleAnalyticsCodeExists = pageContent.includes('<!-- Google Analytics -->');
+        const googleAnalyticsCodeExists = pageContent.includes(
+          '<!-- Global site tag (gtag.js) - Google Analytics -->'
+        );
         const googleAnalyticsIdExists = pageContent.includes(googleAnalyticsId);
         expect(googleAnalyticsCodeExists).to.eql(true);
         return expect(googleAnalyticsIdExists).to.eql(true);

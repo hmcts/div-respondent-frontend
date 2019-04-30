@@ -32,6 +32,7 @@
       "F": null,
       "G": null
     },
+    "issueDate": "2019-02-22T00:00:00.000+0000",
     "jurisdictionPetitionerResidence": "Yes",
     "jurisdictionRespondentResidence": "Yes",
     "jurisdictionConfidentLegal": "Yes",
@@ -156,9 +157,11 @@
     },
     "reasonForDivorceAdulteryKnowWhere": "Yes",
     "reasonForDivorceAdulteryKnowWhen": "Yes",
-    "reasonForDivorceAdulteryDetails": "I received several messages that night from Orange  boasting that she was with my husband and that they were having an affair. I confronted him about it the next day and he confessed and moved out of the house. We haven’t spoken since that day. I can provide text messages from both my Husband and Orange confessing to the adultery.",
+    "reasonForDivorceAdulteryDetails": "I received several messages that night from Orange boasting that she was with my husband and that they were having an affair. I confronted him about it the next day and he confessed and moved out of the house. We haven’t spoken since that day. I can provide text messages from both my Husband and Orange confessing to the adultery.",
     "reasonForDivorceAdulteryWhenDetails": "New years eve 2018, At midnight.",
-    "reasonForDivorceAdulteryWhereDetails": "At a travelodge in Westminster  street, near central London.",
+    "reasonForDivorceAdulteryWhereDetails": "At a Travelodge in Westminster street, near central London.",
+    "reasonForDivorceAdulterySecondHandInfo": "Yes",
+    "reasonForDivorceAdulterySecondHandInfoDetails": "A trusted source of mine gave me this information",
     "legalProceedings": "Yes",
     "legalProceedingsRelated": [
       "marriage",
@@ -220,7 +223,7 @@
         "createdOn": null,
         "lastModifiedBy": 0,
         "modifiedOn": null,
-        "fileName": "d8petition1539017559370699",
+        "fileName": "d8petition1539017559370699.pdf",
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/430b333a-de02-4b16-8868-e6b1130aab2b",
         "mimeType": null,
         "status": null
@@ -230,11 +233,13 @@
         "createdOn": null,
         "lastModifiedBy": 0,
         "modifiedOn": null,
-        "fileName": "aosinvitation1539017559370699",
+        "fileName": "aosinvitation1539017559370699.pdf",
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/a060ba13-d5da-45b0-a181-1c2ace891904",
         "mimeType": null,
         "status": null
       }
-    ]
+    ],
+    "previousCaseId": "12345",
+    "previousIssueDate":"2018-10-02T00:00:00.000Z"
   }
 }

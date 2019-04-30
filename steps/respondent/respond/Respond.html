@@ -1,0 +1,80 @@
+{% extends "page.njk" %}
+
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+{% from "look-and-feel/components/document-list.njk" import documentList %}
+
+{% block back %}
+{% endblock %}
+
+{% set title  %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  <p class="font-xsmall">
+    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference | safe }}<br>
+    <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;
+    {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
+  </p>
+
+  {{
+    progressList({
+      one: {
+        label: content.husbandWifeApplied,
+        complete: true
+      },
+      two: {
+        label: content.youMustRespond,
+        current: true
+      },
+      three: {
+        label: content.getDecreeNisi
+      },
+      four: {
+        label: content.madeFinal
+      }
+    })
+  }}
+
+  <h2 class="heading-medium">{{ content.respondToAmendedApplication if session.originalPetition.previousCaseId else content.respondToApplication }}</h2>
+
+  <p>{{ content.readApplication }}</p>
+  <div class="panel panel-border-wide">
+    <p>{{ content.responseAcknowledgement }}</p>
+  </div>
+  <p>{{ content.respond7Days }}</p>
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    <input class="button button-start" type="submit" value="{{ content.continue }}">
+  </form>
+<br>
+{% endblock %}
+
+{% block one_third %}
+  <aside class="govuk-related-items" role="complementary">
+    <h3 class="heading-small">{{ content.gettingHelp }}</h3>
+
+    <ul class="font-xsmall">
+      <li>
+        <strong class="bold-xsmall">{{ content.email }}</strong><br>
+        {{ session.divorceCenterEmail | safe }}
+        <br>
+      </li>
+      <li>
+        <strong class="bold-xsmall">{{ content.phone }}</strong><br>
+        {{ session.divorceCenterPhoneNumber | safe }}<br>
+        {{ content.divorceCenterHours }}<br>
+      </li>
+      {% include "includes/sideMenuCourtDetails.html" %}
+    </ul>
+    {% if (downloadableFiles.length > 0) %}
+      <h3 class="heading-small" id="subsection-title">{{ content.downloadableFiles }}</h3>
+
+      {{ documentList(downloadableFiles, content.files) }}
+    {% endif %}
+
+
+    {% include "includes/sideMenuGuidanceLinks.html" %}
+  </aside>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, selectionButton %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+
+{% set responseOptions = [
+    { label: content.fields.proceed.heading, value: consts.proceed, description: content.fields.proceed.summary },
+    { label: content.fields.defend.heading, value: consts.defend, description: content.fields.defend.summary }
+] %}
+
+
+{% block fields %}
+
+    <p class="text">{{ content.detailsText1 | safe }}</p>
+    <div class="panel panel-border-wide">
+        <p class="text">{{ content.detailsText2 | safe }}</p>
+    </div>
+    <p class="text">{{ content.detailsText3 | safe }}</p>
+
+    <div id="choose-a-response">
+
+        <strong class="bold-small">
+            {{ content.action | safe }}
+        </strong>
+        {% call formSection() %}
+            {{ selectionButtons(fields.response, content.title,
+                options = responseOptions,
+                hint=false,
+                hideQuestion=true,
+                inline=false,
+                type='radio'
+            ) }}
+        {% endcall %}
+    </div>
+
+{% endblock %}

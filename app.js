@@ -11,6 +11,7 @@ const setupHealthChecks = require('middleware/healthcheck');
 const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
+const documentHandler = require('services/documentHandler');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
@@ -21,7 +22,6 @@ setupHelmet(app);
 setupPrivacy(app);
 setupHealthChecks(app);
 setupRateLimiter(app);
-
 // Parsing cookies
 app.use(cookieParser());
 
@@ -58,6 +58,11 @@ lookAndFeel.configure(app, {
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());
 
+// 1px image used for tracking
+app.get('/noJS.png', (req, res) => {
+  res.send('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+});
+
 app.use(accessLogger());
 
 app.use(setLocals.idamLoggedin);
@@ -67,6 +72,7 @@ app.set('trust proxy', 1);
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
+  routes: [ documentHandler ],
   errorPages: {
     serverError: {
       template: 'errors/server-error',

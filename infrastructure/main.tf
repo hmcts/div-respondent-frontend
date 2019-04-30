@@ -3,8 +3,8 @@ provider "azurerm" {
 }
 
 locals {
+  aseName = "core-compute-${var.env}"
   local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
-  aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
   previewVaultName = "${var.raw_product}-aat"
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
@@ -12,10 +12,17 @@ locals {
   div_cos_url              = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
   div_cms_url              = "http://div-cms-${local.local_env}.service.core-compute-${local.local_env}.internal"
   div_fps_url              = "http://div-fps-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  div_emca_url             = "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal"
   asp_name = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-rfe-prod" : "${var.raw_product}-${var.env}"}"
   appinsights_name           = "${var.env == "preview" ? "${var.product}-${var.reform_service_name}-appinsights-${var.env}" : "${var.product}-${var.env}"}"
   appinsights_resource_group = "${var.env == "preview" ? "${var.product}-${var.reform_service_name}-${var.env}" : "${var.product}-${var.env}"}"
+}
+
+data "azurerm_subnet" "core_infra_redis_subnet" {
+  name                 = "core-infra-subnet-1-${var.env}"
+  virtual_network_name = "core-infra-vnet-${var.env}"
+  resource_group_name  = "core-infra-${var.env}"
 }
 
 module "redis-cache" {
@@ -23,7 +30,7 @@ module "redis-cache" {
   product  = "${var.env != "preview" ? "${var.product}-redis" : "${var.product}-${var.reform_service_name}-redis"}"
   location = "${var.location}"
   env      = "${var.env}"
-  subnetid = "${data.terraform_remote_state.core_apps_infrastructure.subnet_ids[1]}"
+  subnetid = "${data.azurerm_subnet.core_infra_redis_subnet.id}"
   common_tags = "${var.common_tags}"
 }
 
@@ -99,9 +106,7 @@ module "frontend" {
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
 
-    GET_PETITION_URL = "${local.div_cos_url}/retrieve-aos-case"
-    LINK_RESPONDENT_URL = "${local.div_cos_url}/link-respondent"
-    SUBMIT_AOS_URL = "${local.div_cos_url}/submit-aos"
+    COS_BASE_URL = "${local.div_cos_url}"
     COS_HEALTHCHECK_URL = "${local.div_cos_url}${var.health_endpoint}"
 
     //Case Maintenence
@@ -114,6 +119,9 @@ module "frontend" {
     DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.div_fps_url}${var.health_endpoint}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_URL = "${local.div_emca_url}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL = "${local.div_emca_url}${var.health_endpoint}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT = "${var.evidence_management_download_endpoint}"
 
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"

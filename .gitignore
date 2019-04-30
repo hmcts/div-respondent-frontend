@@ -29,3 +29,5 @@ package-lock.json
 dist
 remote-config.json
 config/local*
+acb.yaml
+mochawesome-report

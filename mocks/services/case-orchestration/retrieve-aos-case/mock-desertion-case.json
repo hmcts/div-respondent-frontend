@@ -1,0 +1,230 @@
+{
+  "caseId": "1550507292105588",
+  "courts": "serviceCentre",
+  "state": "AosStarted",
+  "data": {
+    "expires": 0,
+    "caseReference": "EZ12D81281",
+    "screenHasMarriageBroken": "Yes",
+    "screenHasRespondentAddress": "Yes",
+    "screenHasMarriageCert": "Yes",
+    "helpWithFeesNeedHelp": "No",
+    "divorceWho": "wife",
+    "marriageIsSameSexCouple": "No",
+    "marriageDateDay": 1,
+    "marriageDateMonth": 1,
+    "marriageDateYear": 2000,
+    "marriageDate": "2000-01-01T00:00:00.000+0000",
+    "marriageCanDivorce": "true",
+    "marriedInUk": "Yes",
+    "placeOfMarriage": "London",
+    "jurisdictionConnection": [
+      "A",
+      "C"
+    ],
+    "connections": {
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
+      "B": null,
+      "C": "The Respondent is habitually resident in England and Wales",
+      "D": null,
+      "E": null,
+      "F": null,
+      "G": null
+    },
+    "jurisdictionPetitionerResidence": "Yes",
+    "jurisdictionRespondentResidence": "Yes",
+    "jurisdictionConfidentLegal": "Yes",
+    "petitionerContactDetailsConfidential": "share",
+    "petitionerFirstName": "first name",
+    "petitionerLastName": "last name",
+    "respondentFirstName": "wife name",
+    "respondentLastName": "wife last name",
+    "marriagePetitionerName": "smae",
+    "marriageRespondentName": "anme",
+    "petitionerNameDifferentToMarriageCertificate": "No",
+    "petitionerEmail": "qzsometest2@mailinator.com",
+    "petitionerHomeAddress": {
+      "addressType": "manual",
+      "postcode": null,
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": "My address",
+      "validPostcode": false,
+      "postcodeError": null,
+      "url": null,
+      "address": [
+        "My address"
+      ]
+    },
+    "petitionerCorrespondenceUseHomeAddress": "Yes",
+    "petitionerCorrespondenceAddress": {
+      "addressType": "manual",
+      "postcode": null,
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": "My address",
+      "validPostcode": false,
+      "postcodeError": null,
+      "url": null,
+      "address": [
+        "My address"
+      ]
+    },
+    "livingArrangementsLiveTogether": "Yes",
+    "respondentHomeAddress": {
+      "addressType": "manual",
+      "postcode": null,
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": "My address",
+      "validPostcode": false,
+      "postcodeError": null,
+      "url": null,
+      "address": [
+        "My address"
+      ]
+    },
+    "respondentCorrespondenceUseHomeAddress": "Yes",
+    "respondentCorrespondenceAddress": {
+      "addressType": "manual",
+      "postcode": null,
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": "My address",
+      "validPostcode": false,
+      "postcodeError": null,
+      "url": null,
+      "address": [
+        "My address"
+      ]
+    },
+    "reasonForDivorce": "desertion",
+    "reasonForDivorceHasMarriageDate": "true",
+    "reasonForDivorceShowAdultery": "true",
+    "reasonForDivorceShowUnreasonableBehaviour": "true",
+    "reasonForDivorceShowTwoYearsSeparation": "true",
+    "reasonForDivorceShowFiveYearsSeparation": "true",
+    "reasonForDivorceShowDesertion": "true",
+    "reasonForDivorceLimitReasons": "false",
+    "reasonForDivorceEnableAdultery": "true",
+    "reasonForDivorceDesertionAlright": "true",
+    "legalProceedings": "No",
+    "financialOrder": "No",
+    "claimsCosts": "No",
+    "reasonForDivorceDesertionDay": 1,
+    "reasonForDivorceDesertionMonth": 1,
+    "reasonForDivorceDesertionYear": 2010,
+    "reasonForDivorceDesertionBeforeMarriage": "false",
+    "reasonForDivorceDesertionDateInFuture": "false",
+    "reasonForDivorceDesertionDate": "2010-01-01T00:00:00.000+0000",
+    "reasonForDivorceDesertionAgreed": "Yes",
+    "reasonForDivorceDesertionDetails": "Left a note and run away",
+    "court": {
+      "eastMidlands": {
+        "divorceCentre": "East Midlands Regional Divorce Centre",
+        "courtCity": "Nottingham",
+        "poBox": "PO Box 10447",
+        "postCode": "NG2 9QN",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "eastmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA01"
+      },
+      "westMidlands": {
+        "divorceCentre": "West Midlands Regional Divorce Centre",
+        "courtCity": "Stoke-on-Trent",
+        "poBox": "PO Box 3650",
+        "postCode": "ST4 9NH",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "westmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA02"
+      },
+      "southWest": {
+        "divorceCentre": "South West Regional Divorce Centre",
+        "courtCity": "Southampton",
+        "poBox": "PO Box 1792",
+        "postCode": "SO15 9GG",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "sw-region-divorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA03"
+      },
+      "northWest": {
+        "divorceCentre": "North West Regional Divorce Centre",
+        "divorceCentreAddressName": "Liverpool Civil & Family Court",
+        "courtCity": "Liverpool",
+        "street": "35 Vernon Street",
+        "postCode": "L2 2BX",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "family@liverpool.countycourt.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA04"
+      },
+      "serviceCentre": {
+        "serviceCentreName": "Courts and Tribunals Service Centre",
+        "divorceCentre": "East Midlands Regional Divorce Centre",
+        "courtCity": "Nottingham",
+        "poBox": "PO Box 10447",
+        "postCode": "NG2 9QN",
+        "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
+        "email": "divorcecase@justice.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA01"
+      }
+    },
+    "courts": "serviceCentre",
+    "confirmPrayer": "Yes",
+    "payment": {
+      "PaymentChannel": "online",
+      "PaymentTransactionId": "vtnh4uck90v3ihpmtso63r4403",
+      "PaymentReference": "RC-1550-5073-2212-4476",
+      "PaymentDate": "18022019",
+      "PaymentAmount": "55000",
+      "PaymentStatus": "Success",
+      "PaymentFeeId": "FEE0002",
+      "PaymentSiteId": "AA03"
+    },
+    "marriageCertificateFiles": [],
+    "petitionerConsent": "Yes",
+    "createdDate": "2019-02-18T00:00:00.000+0000",
+    "issueDate": "2019-02-18T00:00:00.000+0000",
+    "dueDate": "2019-03-20T00:00:00.000+0000",
+    "respondentContactDetailsConfidential": "share",
+    "respEmailAddress": "user@email.com",
+    "d8": [
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "d8petition1550507292105588.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/6b5229c7-a8b0-41fd-836c-a86247f5e940",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "aosinvitation1550507292105588.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/daca48de-9a5a-4e0f-a916-5b5f5bdf9bc5",
+        "mimeType": null,
+        "status": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{% extends "page.njk" %}
+
+{% from "look-and-feel/components/document-list.njk" import documentList %}
+
+{% block back %}
+{% endblock %}
+
+{% set title %}
+    {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+    <p class="font-xsmall">
+        <strong class="bold-xsmall">{{ content.details.referenceNumber }}
+            :</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference }}<br>
+        <strong class="bold-xsmall">{{ content.details.name }}:</strong> &nbsp;&nbsp;
+        {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
+    </p>
+
+    {% include stateTemplate %}
+
+    {% set progressBarContent = getProgressBarContent() %}
+
+    {% if  progressBarContent === progressStates.progressedNoAos %}
+        <h2 class="heading-medium">{{ content.progressedNoAos.heading }}</h2>
+        <p>{{ content.progressedNoAos.info }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.progressedUndefended %}
+        <h2 class="heading-medium">{{ content.progressedUndefended.heading }}</h2>
+        <p>{{ content.progressedUndefended.info }}</p>
+
+        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
+        <p>{{ content.helpContent | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
+        <p>{{ content.improveContent | safe }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.awaitingAnswer %}
+        <h2 class="heading-medium">{{ content.awaitingAnswer.heading }}</h2>
+        <p>{{ content.awaitingAnswer.para1 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para2 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para3 | safe }}</p>
+        <ul class="list bold-small">
+            {% if session.serviceCentreName %}
+                <li>{{ session.serviceCentreName }}</li>
+            {% endif %}
+
+            <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+
+            {% if session.divorceCenterPoBox %}
+                <li>{{ session.divorceCenterPoBox }}</li>
+            {% endif %}
+            {% if session.divorceCenterStreet %}
+                <li>{{ session.divorceCenterStreet }}</li>
+            {% endif %}
+            <li>{{ session.divorceCenterCourtCity }}</li>
+            <li>{{ session.divorceCenterPostCode }}</li>
+        </ul>
+        <p>{{ content.awaitingAnswer.para4 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para5 | safe }}</p>
+        <p>{{ content.awaitingAnswer.para6 | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
+        <p>{{ content.helpContent | safe }}</p>
+
+        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
+        <p>{{ content.improveContent | safe }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.defendedDivorce %}
+        <h2 class="heading-medium">{{ content.defendedDivorce.heading }}</h2>
+        <p>{{ content.defendedDivorce.para1 }}</p>
+        <p>{{ content.defendedDivorce.para2 }}</p>
+        <p>{{ content.defendedDivorce.para3 }}</p>
+        <p>{{ content.defendedDivorce.para4 }}</p>
+    {% endif %}
+
+    {% if  progressBarContent === progressStates.other %}
+        <br />
+        <br />
+        <p>{{ content.other.heading }}</p>
+    {% endif %}
+
+{% endblock %}
+
+{% block one_third %}
+    <aside class="govuk-related-items" role="complementary">
+        <h3 class="heading-small">{{ content.contactDetails.heading }}</h3>
+
+        <ul class="font-xsmall">
+            <li>
+                <strong class="bold-xsmall">{{ content.contactDetails.email }}</strong><br>
+                {{ session.divorceCenterEmail | safe }}
+                <br>
+            </li>
+            <li>
+                <strong class="bold-xsmall">{{ content.contactDetails.phone }}</strong><br>
+                {{ session.divorceCenterPhoneNumber | safe }}<br>
+                {{ content.contactDetails.divorceCenterHours }}<br>
+            </li>
+            {% include "includes/sideMenuCourtDetails.html" %}
+        </ul>
+
+        {% if (downloadableFiles.length > 0) %}
+            <h3 class="heading-small" id="subsection-title">{{ content.downloadableFiles }}</h3>
+
+            {{ documentList(downloadableFiles, content.files) }}
+        {% endif %}
+
+        {% include "includes/sideMenuGuidanceLinks.html" %}
+    </aside>
+{% endblock %}

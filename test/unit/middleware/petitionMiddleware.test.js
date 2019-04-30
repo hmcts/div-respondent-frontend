@@ -3,9 +3,21 @@ const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition: petitionMiddleware } = require(modulePath);
 const caseOrchestration = require('services/caseOrchestration');
 // eslint-disable-next-line max-len
-const completedMock = require('mocks/services/case-orchestration/retrieve-aos-case/case-progressed/not-defended');
+const completedMock = require(
+  'mocks/services/case-orchestration/retrieve-aos-case/case-progressed/not-defended'
+);
+const coRespondentMock = require(
+  'mocks/services/case-orchestration/retrieve-aos-case/mock-co-respondent'
+);
+
+const coRespondentNotDefendingMock = require(
+  'mocks/services/case-orchestration/retrieve-aos-case/mock-coRespNotDefending'
+);
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
-const ProgressBar = require('steps/progress-bar/ProgressBar.step');
+const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
+const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
+const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
+const httpStatus = require('http-status-codes');
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -22,13 +34,113 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 404
+        statusCode: httpStatus.NOT_FOUND
       });
 
     // when
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
+  it('redirects to capture case and pin if case found, state: AosAwaiting', done => {
+    // given
+    const req = {
+      cookies: { '__auth-token': 'test' },
+      get: sinon.stub(),
+      session: {}
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+    const next = sinon.stub();
+
+    const response = {
+      statusCode: 200,
+      body: {
+        state: 'AosAwaiting',
+        caseId: 1234,
+        data: { // eslint-disable-line id-blacklist
+          marriageIsSameSexCouple: 'No',
+          divorceWho: 'husband',
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
+          }
+        }
+      }
+    };
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves(response);
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
+  it('should redirect to Co-respondent respond page if user is Co-respondent', done => {
+    // given
+    const email = 'user@email.com';
+    const req = {
+      cookies: { '__auth-token': 'authToken' },
+      idam: {
+        userDetails: { email }
+      }
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+
+    const next = sinon.stub();
+    req.session = {};
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves({
+        statusCode: httpStatus.OK,
+        body: coRespondentMock
+      });
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
+  it('To Co-resp progress page if CoResp user submitted response', done => {
+    // given
+    const email = 'user@email.com';
+    const req = {
+      cookies: { '__auth-token': 'authToken' },
+      idam: {
+        userDetails: { email }
+      }
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+    const next = sinon.stub();
+    req.session = {};
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves({
+        statusCode: httpStatus.OK,
+        body: coRespondentNotDefendingMock
+      });
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(res.redirect.withArgs(crProgressBar.path).calledOnce).to.be.true;
       })
       .then(done, done);
   });
@@ -44,7 +156,7 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 200,
+        statusCode: httpStatus.OK,
         body: completedMock
       });
 
@@ -64,7 +176,7 @@ describe(modulePath, () => {
 
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves({
-        statusCode: 500
+        statusCode: httpStatus.INTERNAL_SERVER_ERROR
       });
 
     // when
@@ -127,6 +239,7 @@ describe(modulePath, () => {
       body: {
         state: 'AosStarted',
         caseId: 1234,
+        caseReference: 'LV17D80999',
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
           divorceWho: 'husband',

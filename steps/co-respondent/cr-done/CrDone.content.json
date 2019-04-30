@@ -1,0 +1,42 @@
+{
+  "en": {
+    "responseSent": "Response sent",
+    "referenceNumber": "Your reference number is",
+    "emailConfirmation": "Email confirmation has been sent to",
+    "whatHappensNext":"What happens next",
+    "yourResponse":"Your response will be sent to the applicant. They can then apply for the court order which will divorce them and the respondent.",
+
+    "claimedCostsTitle":"If the applicant has claimed their costs",
+    "claimedCostsText":"The court will make a decision on this at the same time as it considers whether the divorce should be granted. You'll be sent an email when the decision has been made, and the date of the hearing at which the cost order will be made.",
+    "objectingToCostsOrderTitle":"Objecting to a costs order",
+    "objectingToCostsOrderText1":"You can object to a costs order if you don't think that you should pay it. You'll need to email the court at least 14 days before the hearing, giving your reasons.",
+    "objectingToCostsOrderText2":"You can contact the Courts and Tribunals Service Centre if you don't hear anything back after 6 weeks.",
+
+    "ifYouNeedHelp": "If you need help",
+    "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\">solicitor or legal adviser</a>.",
+    "helpImproveHeading": "Help us improve this service",
+    "helpImproveText": "Please help us improve this service by <a href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\">leaving your feedback</a>.",
+
+    "yourCourt": "Your divorce centre",
+    "email": "Email",
+    "gettingHelp": "Getting help",
+    "careOfAbbreviation": "c/o",
+    "phone": "Phone",
+    "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
+    "guidance": {
+      "title": "Guidance on GOV.UK",
+      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How to respond to a divorce application</a>",
+      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Get a divorce</a>",
+      "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+    },
+
+    "whatYouNeedToDoNow": "What you need to do now",
+    "submitAnswerToDivorce": "You must now submit the <a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">'answer to a divorce application'</a> form. The deadline for the court to receive this is 21 days from the date you first signed in to respond to the divorce application.",
+    "fillInPaperForm": "Download and fill in the paper form.",
+    "postFormTo": "Post the form to:",
+    "feeToPay": "You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get help with paying this fee</a>.",
+    "hearingAboutDivorce": "You may have to go to a hearing about the divorce.",
+    "dontSubmitAnswer": "If you don't submit your answer before the deadline, then the applicant can continue the divorce as if you hadn't said that you intended to defend it."
+  }
+}

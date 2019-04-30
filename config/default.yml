@@ -51,9 +51,7 @@ services:
     expire: 3600000
     enabled: false
   caseOrchestration:
-    getPetitionUrl: http://localhost:3001/case-orchestration/retrieve-aos-case
-    linkRespondentUrl: http://localhost:3001/case-orchestration/link-respondent
-    submitAosUrl: http://localhost:3001/case-orchestration/submit-aos
+    baseUrl: http://localhost:3001/case-orchestration
     health: http://localhost:3001/health
   dnFrontend:
     url: https://localhost:4000
@@ -64,46 +62,62 @@ services:
     baseUrl: http://localhost:3001
     health: http://localhost:3001/health
   proxyUrl: ''
+  evidenceManagement:
+    baseUrl: http://localhost:3001/evidence-management
+    health: http://localhost:3001/health
+    downloadEndpoint: /emclientapi/version/1/download
 
 paths:
   health: /health
-  authenticated: /authenticated
-  captureCaseAndPin: /respond-with-pin
-  financialSituation: /delay-the-decree
-  respond: /respond
-  reviewApplication: /review-application
-  consentDecree: /consent-to-the-decree
-  admitAdultery: /admit-the-adultery
-  chooseAResponse: /choose-a-response
-  confirmDefence: /defend-are-you-sure
-  defendFinancialHardship: /defend-financial-hardship
-  jurisdiction: /jurisdiction
-  legalProceedings: /legal-proceedings
-  agreeToPayCosts: /agree-to-pay-costs
-  contactDetails: /contact-details
-  checkYourAnswers: /check-your-answers
-  invalidCaseState: /invalid-case-state
-  noConsentAreYouSure: /no-consent-are-you-sure
-  progressBar: /progress-bar
-  done: /done
   index: /
   entry: /entry
   end: /end
   termsAndConditions: /terms-and-conditions
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
+  authenticated: /authenticated
+  captureCaseAndPin: /respond-with-pin
   mock:
     idamLogin: /idam-mock-login
-
+  respondent:
+    financialSituation: /delay-the-decree
+    respond: /respond
+    reviewApplication: /review-application
+    consentDecree: /consent-to-the-decree
+    admitAdultery: /admit-the-adultery
+    chooseAResponse: /choose-a-response
+    confirmDefence: /defend-are-you-sure
+    defendFinancialHardship: /defend-financial-hardship
+    jurisdiction: /jurisdiction
+    legalProceedings: /legal-proceedings
+    agreeToPayCosts: /agree-to-pay-costs
+    contactDetails: /contact-details
+    checkYourAnswers: /check-your-answers
+    invalidCaseState: /invalid-case-state
+    noConsentAreYouSure: /no-consent-are-you-sure
+    progressBar: /progress-bar
+    done: /done
+  coRespondent:
+    respond: /co-respondent/progress-bar/respond
+    progressBar: /co-respondent/progress-bar
+    reviewApplication: /co-respondent/review-application
+    admitAdultery: /co-respondent/admit-the-adultery
+    chooseAResponse: /co-respondent/choose-a-response
+    confirmDefence: /co-respondent/defend-are-you-sure
+    agreeToPayCosts: /co-respondent/agree-to-pay-costs
+    contactDetails: /co-respondent/contact-details
+    checkYourAnswers: /co-respondent/check-your-answers
+    done: /co-respondent/done
 tests:
   e2e:
-    show: true
+    show: false
     waitForTimeout: 10000
     waitForAction: 1000
     smartWait: 5000
-    outputDir: ../../functional-output
+    outputDir: './functional-output'
     proxy: ''
     proxyByPass: ''
+    addWaitForCrossBrowser: false
     idam:
       idamTestUsername:
       idamTestPassword:
@@ -113,6 +127,34 @@ tests:
       idamTestLevelOfAccess:
       idamTestSupportCreateAccountEndpoint:
 
+coRespRespondableStates: [
+  'AosAwaiting',
+  'AosStarted',
+  'AosOverdue',
+  'AosCompleted',
+  'AosSubmittedAwaitingAnswer',
+  'DefendedDivorce',
+  'AwaitingDecreeNisi',
+  'DNAwaiting',
+  'AwaitingLegalAdvisorReferral'
+]
+
+caseStates:
+  AosAwaiting: 'AosAwaiting'
+  AosStarted: 'AosStarted'
+  AosOverdue: 'AosOverdue'
+  AosSubmittedAwaitingAnswer: 'AosSubmittedAwaitingAnswer'
+  AmendPetition: 'AmendPetition'
+  AwaitingClarification: 'AwaitingClarification'
+  AwaitingConsideration: 'AwaitingConsideration'
+  AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
+  DNAwaiting: 'DNAwaiting'
+  AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
+  AwaitingPronouncement: 'AwaitingPronouncement'
+  AwaitingReissue: 'AwaitingReissue'
+  DefendedDivorce: 'DefendedDivorce'
+  DivorceGranted: 'DivorceGranted'
+
 features:
   idam: false
   agreeToCosts:
@@ -121,3 +163,21 @@ features:
 
 journey:
   timeoutDelay: 300
+
+document:
+  sessionPath: 'originalPetition.d8'
+  documentNamePath: 'fileName'
+  filesWhiteList:
+    coRespondent:
+    - 'd8petition'
+    respondent:
+    - 'd8petition'
+
+saucelabs:
+  browser: 'chrome'
+  username: 'username'
+  key: 'privatekey'
+  tunnelId: 'reformtunnel'
+  waitForTimeout: 60000
+  smartWait: 45000
+

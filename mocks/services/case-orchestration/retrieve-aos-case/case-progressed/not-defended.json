@@ -209,7 +209,7 @@
     "issueDate": "2018-10-18T00:00:00.000+0000",
     "respConfirmReadPetition": "Yes",
     "respJurisdictionAgree": "Yes",
-    "respDefendsDivorce": "No",
+    "respWillDefendDivorce": "No",
     "respLegalProceedingsExist": "No",
     "respLegalProceedingsDescription": "some of personnel once",
     "respEmailAddress": "vivdivres@mailinator.com",
@@ -224,7 +224,7 @@
         "createdOn": null,
         "lastModifiedBy": 0,
         "modifiedOn": null,
-        "fileName": "d8petition1536587716568826",
+        "fileName": "d8petition1536587716568826.pdf",
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/9ee62383-13a6-468e-84c7-f8d1e69e1a23",
         "mimeType": null,
         "status": null
@@ -234,7 +234,7 @@
         "createdOn": null,
         "lastModifiedBy": 0,
         "modifiedOn": null,
-        "fileName": "aosinvitation1536587716568826",
+        "fileName": "aosinvitation1536587716568826.pdf",
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/fb0fef79-88fe-4101-acde-c1e123a6e648",
         "mimeType": null,
         "status": null

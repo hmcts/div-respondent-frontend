@@ -14,9 +14,11 @@ class IdamLogin extends Question {
     const answers = [
       'yesCaseStarted',
       'yesAdultery',
+      'yesAdulteryAmendedCase',
       'yes2yrSeparation',
       'yes5yrSeparation',
       'yes5yrSeparationTwoDates',
+      'yesDesertion',
       'yesCaseNotLinked',
       'yesCaseNotLinkedAndInvalidPin',
       'yesCaseNotLinkedAndServerError',
@@ -26,6 +28,12 @@ class IdamLogin extends Question {
       'yesCaseProgressedDefending',
       'no',
       'petitionerRedirect',
+      'co-respondent',
+      'co-respondent-amended-case',
+      'coRespNotDefending',
+      'coRespDefendingWaitingAnswer',
+      'coRespDefendingSubmittedAnswer',
+      'coRespTooLateToRespond',
       'throwError'
     ];
     const validAnswers = Joi.string()

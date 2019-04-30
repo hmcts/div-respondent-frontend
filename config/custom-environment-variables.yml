@@ -16,6 +16,7 @@ tests:
     url: TEST_URL
     proxy: E2E_IDAM_PROXY
     proxyByPass: E2E_IDAM_SERVER
+    addWaitForCrossBrowser: E2E_ADD_WAIT_CROSSBROWSER
     idam:
       idamTestUsername: E2E_IDAM_USERNAME
       idamTestPassword: E2E_IDAM_PASSWORD
@@ -52,9 +53,7 @@ services:
     expire: RATE_LIMITER_EXPIRE
     enabled: RATE_LIMITER_ENABLED
   caseOrchestration:
-    getPetitionUrl: GET_PETITION_URL
-    linkRespondentUrl: LINK_RESPONDENT_URL
-    submitAosUrl: SUBMIT_AOS_URL
+    baseUrl: COS_BASE_URL
     health: COS_HEALTHCHECK_URL
   dnFrontend:
     url: DECREE_NISI_FRONTEND_URL
@@ -64,6 +63,10 @@ services:
     baseUrl: FEES_AND_PAYMENTS_URL
     health: FEES_AND_PAYMENTS_HEALTHCHECK_URL
   proxyUrl: PROXY_URL
+  evidenceManagement:
+    baseUrl: EVIDENCE_MANAGEMENT_CLIENT_API_URL
+    health: EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL
+    downloadEndPoint: EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT
 
 features:
   idam: FEATURE_IDAM

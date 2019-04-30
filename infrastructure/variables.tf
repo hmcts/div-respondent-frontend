@@ -123,10 +123,6 @@ variable "idam_api_url" {
   type = "string"
 }
 
-variable "service_auth_provider_url" {
-  type = "string"
-}
-
 variable "decree_nisi_frontend_url" {
   type = "string"
 }
@@ -198,4 +194,8 @@ variable "website_local_cache_sizeinmb" {
 variable "appinsights_instrumentation_key" {
   description = "Instrumentation key of the App Insights instance this webapp should use. Module will create own App Insights resource if this is not provided"
   default     = ""
+}
+
+variable "evidence_management_download_endpoint" {
+  default = "/emclientapi/version/1/download"
 }

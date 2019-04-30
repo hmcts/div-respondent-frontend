@@ -10,3 +10,4 @@ test/crossbrowser/reports/*
 webpack.config.js
 Gruntfile.js
 dist
+mochawesome-report

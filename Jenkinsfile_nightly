@@ -12,16 +12,32 @@ properties([
 def product = "div"
 def component = "rfe"
 
+List<LinkedHashMap<String, Object>> secrets = [
+  secret('session-secret', 'SESSION_SECRET'),
+  secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
+  secret('idam-secret', 'IDAM_SECRET')
+]
+
+static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
+  [ $class: 'AzureKeyVaultSecret',
+    secretType: 'Secret',
+    name: secretName,
+    version: '',
+    envVariable: envVar
+  ]
+}
+
 withNightlyPipeline("nodejs", product, component) {
     env.TEST_URL = params.URL_TO_TEST
+    env.NODE_ENV= 'ci'
 
- //   enableCrossBrowserTest()  // TODO: Crossbrowser Test not available at the moment
- //   enableMutationTest()      // TODO: Mutation Test not available at the moment
+    loadVaultSecrets(secrets)
+    setVaultName('div')
+
+    enableCrossBrowserTest()
     enableSecurityScan()
 
     after('crossBrowserTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
-
-
 }

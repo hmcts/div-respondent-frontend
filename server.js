@@ -1,12 +1,17 @@
 require('./services/app-insights')();
 const logger = require('services/logger').getLogger(__filename);
+const setupSecrets = require('services/setupSecrets');
+
+setupSecrets();
+
 const app = require('./app');
-const config = require('config');
+const config = require('@hmcts/properties-volume').addTo(require('config'));
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
 
 let http = {};
+
 
 if (['development'].includes(config.environment)) {
   const sslDirectory = path.join(__dirname, 'resources', 'localhost-ssl');

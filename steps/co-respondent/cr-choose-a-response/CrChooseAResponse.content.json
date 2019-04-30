@@ -1,0 +1,24 @@
+{
+  "en": {
+    "title": "How do you want to respond?",
+    "detailsText1": "The divorce will go ahead if you and the respondent do not defend it, and the court agrees to grant a divorce.",
+    "detailsText2": "It is possible for you to not defend, but still object to paying the divorce costs (if they've been claimed against you). You can do this on the next page.",
+    "detailsText3": " If you choose to defend, you will have to pay a fee of £{{ feesDefendDivorce }} and submit another form. You may also have to go to a hearing with a judge.",
+    "action": "Choose one of the following options:",
+    "errors": {
+      "required": "Select ‘I do not dispute the allegations in the application’ if you do not want to defend the divorce."
+    },
+    "fields": {
+      "proceed": {
+        "heading": "I do not dispute the allegations in the application",
+        "summary": "Choose this option if you do not intend to defend the divorce.",
+        "answer": "I do not dispute the allegations in the application (I do not intend to defend)."
+      },
+      "defend": {
+        "heading": "I want to dispute the allegations in the application",
+        "summary": "Choose this option if you intend to defend the divorce.",
+        "answer": "I want to dispute the allegations in the application (I intend to defend)."
+      }
+    }
+  }
+}

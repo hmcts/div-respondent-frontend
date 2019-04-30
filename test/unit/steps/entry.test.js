@@ -1,7 +1,7 @@
 const modulePath = 'steps/entry/Entry.step';
 
 const Entry = require(modulePath);
-const Respond = require('steps/respond/Respond.step');
+const Respond = require('steps/respondent/respond/Respond.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
 
