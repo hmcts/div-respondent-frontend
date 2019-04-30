@@ -1,5 +1,6 @@
 const content = require('common/content');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
+const config = require('config');
 
 Feature('Happy path');
 
@@ -15,6 +16,9 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content.en.continue);
 
+  if (config.tests.e2e.addWaitForCrossBrowser) {
+    I.wait(5);
+  }
   I.seeRespondPage();
   I.wait(5);
   I.navByClick(content.en.continue);
