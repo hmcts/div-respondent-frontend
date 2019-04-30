@@ -71,13 +71,15 @@ describe(modulePath, () => {
     ];
 
     it('should render contents when previousCaseId is not specified', () => {
-      return content(CrRespond, {}, {
+      return content(CrRespond, {
+        originalPetition: { }
+      }, {
         ignoreContent,
         specificContent: ['readApp']
       });
     });
 
-    it('should render contents when previousCaseId is not specified', () => {
+    it('should render contents when previousCaseId is null', () => {
       return content(CrRespond, {
         originalPetition: {
           previousCaseId: null
@@ -88,7 +90,7 @@ describe(modulePath, () => {
       });
     });
 
-    it('should render contents when previousCaseId is not specified', () => {
+    it('should render contents when previousCaseId is specified', () => {
       return content(CrRespond, {
         originalPetition: {
           previousCaseId: '12345'
