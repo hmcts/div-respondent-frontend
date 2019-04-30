@@ -6,20 +6,7 @@ module.exports = {
     // Simulate what the petitionMiddleware does
     const req = {
       session: {
-        originalPetition: {
-          d8: [
-            {
-              createdBy: 0,
-              createdOn: null,
-              lastModifiedBy: 0,
-              modifiedOn: null,
-              fileName: 'd8petition1539017559370699.pdf',
-              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
-              mimeType: null,
-              status: null
-            }
-          ]
-        }
+        originalPetition: { }
       }
     };
     req.session.serviceCentreName = courtsList[chosenDivorceCenter].serviceCentreName;
