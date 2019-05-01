@@ -11,9 +11,6 @@
       "firmName": {
         "label": "Firm name"
       },
-      "firmAddress": {
-        "label": "Firm address"
-      },
       "solicitorEmail": {
         "label": "Solicitor's email address"
       },

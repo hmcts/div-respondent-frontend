@@ -29,7 +29,6 @@ describe(modulePath, () => {
     const fields = {
       'solicitorDetails.solicitorName': 'John Johnes',
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.firmAddress': 'Firm Test Address',
       'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
@@ -43,7 +42,6 @@ describe(modulePath, () => {
     const fields = {
       'solicitorDetails.solicitorName': '',
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.firmAddress': 'Firm Test Address',
       'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
@@ -56,7 +54,6 @@ describe(modulePath, () => {
   it('shows error when invalid phone number supplied', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.firmAddress': 'Firm Test Address',
       'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
       'solicitorDetails.telephone': '0',
       'solicitorDetails.solicitorRefNumber': '11111111111',
@@ -70,7 +67,6 @@ describe(modulePath, () => {
   it('shows error when consent is not yes', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.firmAddress': 'Firm Test Address',
       'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
@@ -81,24 +77,9 @@ describe(modulePath, () => {
     return question.testErrors(SolicitorDetails, {}, fields, { onlyErrors });
   });
 
-  it('shows error when address is not filled', () => {
-    const fields = {
-      'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.firmAddress': '',
-      'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
-      'solicitorDetails.telephone': '2222222222',
-      'solicitorDetails.solicitorRefNumber': '11111111111',
-      'solicitorDetails.consent': 'Yes'
-    };
-    const onlyErrors = ['requiredField'];
-
-    return question.testErrors(SolicitorDetails, {}, fields, { onlyErrors });
-  });
-
   it('shows error when email is not filled', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.firmAddress': 'Firm Test Address',
       'solicitorDetails.solicitorEmail': '',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
@@ -112,7 +93,6 @@ describe(modulePath, () => {
   it('shows error when solicitor reference is not filled', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.firmAddress': 'Firm Test Address',
       'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '',
@@ -126,7 +106,6 @@ describe(modulePath, () => {
   it('when all details are supplied return correct value', () => {
     const solicitorName = 'Test name';
     const firmName = 'Solicitor Firm Test Name';
-    const firmAddress = 'Solicitor Test Address';
     const solicitorEmail = 'solicitor@firm.com';
     const telephone = '07777777777';
     const solicitorRefNumber = '111111111';
@@ -135,7 +114,6 @@ describe(modulePath, () => {
       solicitorDetails: {
         solicitorName,
         firmName,
-        firmAddress,
         solicitorEmail,
         telephone,
         solicitorRefNumber
@@ -151,18 +129,16 @@ describe(modulePath, () => {
     step.retrieve().validate();
     const _values = step.values();
     expect(_values).to.be.an('object');
-    expect(_values.respondentSolicitor).to.have.property('name', solicitorName);
-    expect(_values.respondentSolicitor).to.have.property('company', firmName);
-    expect(_values.respondentSolicitor).to.have.property('address', firmAddress);
-    expect(_values.respondentSolicitor).to.have.property('email', solicitorEmail);
-    expect(_values.respondentSolicitor).to.have.property('phone', telephone);
-    expect(_values.respondentSolicitor).to.have.property('reference', solicitorRefNumber);
+    expect(_values).to.have.property('respondentSolicitorName', solicitorName);
+    expect(_values).to.have.property('respondentSolicitorCompany', firmName);
+    expect(_values).to.have.property('respondentSolicitorEmail', solicitorEmail);
+    expect(_values).to.have.property('respondentSolicitorPhoneNumber', telephone);
+    expect(_values).to.have.property('respondentSolicitorReference', solicitorRefNumber);
   });
 
   it('when when the name is not supplied return correct value', () => {
     const solicitorName = '';
     const firmName = 'Solicitor Firm Test Name';
-    const firmAddress = 'Solicitor Test Address';
     const solicitorEmail = 'solicitor@firm.com';
     const telephone = '07777777777';
     const solicitorRefNumber = '111111111';
@@ -171,7 +147,6 @@ describe(modulePath, () => {
       solicitorDetails: {
         solicitorName,
         firmName,
-        firmAddress,
         solicitorEmail,
         telephone,
         solicitorRefNumber
@@ -187,19 +162,17 @@ describe(modulePath, () => {
     step.retrieve().validate();
     const _values = step.values();
     expect(_values).to.be.an('object');
-    expect(_values.respondentSolicitor).not.to.have.property('name');
-    expect(_values.respondentSolicitor).to.have.property('company', firmName);
-    expect(_values.respondentSolicitor).to.have.property('address', firmAddress);
-    expect(_values.respondentSolicitor).to.have.property('email', solicitorEmail);
-    expect(_values.respondentSolicitor).to.have.property('phone', telephone);
-    expect(_values.respondentSolicitor).to.have.property('reference', solicitorRefNumber);
+    expect(_values).not.to.have.property('respondentSolicitorName');
+    expect(_values).to.have.property('respondentSolicitorCompany', firmName);
+    expect(_values).to.have.property('respondentSolicitorEmail', solicitorEmail);
+    expect(_values).to.have.property('respondentSolicitorPhoneNumber', telephone);
+    expect(_values).to.have.property('respondentSolicitorReference', solicitorRefNumber);
   });
 
   it('when all details are supplied returns correct answers', () => {
     const expectedContent = [
       SolicitorDetailsContent.en.fields.solicitorName.label,
       SolicitorDetailsContent.en.fields.firmName.label,
-      SolicitorDetailsContent.en.fields.firmAddress.label,
       SolicitorDetailsContent.en.fields.solicitorEmail.label,
       SolicitorDetailsContent.en.fields.telephone.label,
       SolicitorDetailsContent.en.fields.solicitorRefNumber.label
@@ -209,7 +182,6 @@ describe(modulePath, () => {
       solicitorDetails: {
         solicitorName: SolicitorDetailsContent.en.fields.solicitorName.label,
         firmName: SolicitorDetailsContent.en.fields.firmName.label,
-        firmAddress: SolicitorDetailsContent.en.fields.firmAddress.label,
         solicitorEmail: SolicitorDetailsContent.en.fields.solicitorEmail.label,
         telephone: SolicitorDetailsContent.en.fields.telephone.label,
         solicitorRefNumber: SolicitorDetailsContent.en.fields.solicitorRefNumber.label
@@ -222,7 +194,6 @@ describe(modulePath, () => {
   it('when solicitor name is not supplied returns correct answers', () => {
     const expectedContent = [
       SolicitorDetailsContent.en.fields.firmName.label,
-      SolicitorDetailsContent.en.fields.firmAddress.label,
       SolicitorDetailsContent.en.fields.solicitorEmail.label,
       SolicitorDetailsContent.en.fields.telephone.label,
       SolicitorDetailsContent.en.fields.solicitorRefNumber.label
@@ -231,7 +202,6 @@ describe(modulePath, () => {
     const stepData = {
       solicitorDetails: {
         firmName: SolicitorDetailsContent.en.fields.firmName.label,
-        firmAddress: SolicitorDetailsContent.en.fields.firmAddress.label,
         solicitorEmail: SolicitorDetailsContent.en.fields.solicitorEmail.label,
         telephone: SolicitorDetailsContent.en.fields.telephone.label,
         solicitorRefNumber: SolicitorDetailsContent.en.fields.solicitorRefNumber.label

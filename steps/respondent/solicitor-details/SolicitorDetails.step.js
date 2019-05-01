@@ -36,7 +36,6 @@ class SolicitorDetails extends Question {
     const fields = {
       solicitorName: text,
       firmName: text.joi(errorMessageRequiredField, requiredAnswer),
-      firmAddress: text.joi(errorMessageRequiredField, requiredAnswer),
       solicitorEmail: text.joi(errorMessageRequiredField, requiredAnswer),
       telephone: text.joi(this.content.errors.requireValidTelephoneNo,
         validatePhoneNumber),
@@ -52,22 +51,20 @@ class SolicitorDetails extends Question {
   values() {
     const solicitorName = this.fields.solicitorDetails.solicitorName.value;
     const firmNameSol = this.fields.solicitorDetails.firmName.value;
-    const firmAddressSol = this.fields.solicitorDetails.firmAddress.value;
     const solicitorEmailAddress = this.fields.solicitorDetails.solicitorEmail.value;
     const phoneNo = this.fields.solicitorDetails.telephone.value;
     const solicitorReferenceNumber = this.fields.solicitorDetails.solicitorRefNumber.value;
 
-    const values = { respondentSolicitor: {} };
+    const values = {};
 
     if (solicitorName && solicitorName.trim().length) {
-      values.respondentSolicitor.name = solicitorName;
+      values.respondentSolicitorName = solicitorName;
     }
 
-    values.respondentSolicitor.company = firmNameSol;
-    values.respondentSolicitor.address = firmAddressSol;
-    values.respondentSolicitor.email = solicitorEmailAddress;
-    values.respondentSolicitor.phone = phoneNo;
-    values.respondentSolicitor.reference = solicitorReferenceNumber;
+    values.respondentSolicitorCompany = firmNameSol;
+    values.respondentSolicitorEmail = solicitorEmailAddress;
+    values.respondentSolicitorPhoneNumber = phoneNo;
+    values.respondentSolicitorReference = solicitorReferenceNumber;
 
     return values;
   }
@@ -87,11 +84,6 @@ class SolicitorDetails extends Question {
     answers.push(answer(this, {
       question: content.en.fields.firmName.label,
       answer: this.fields.solicitorDetails.firmName.value
-    }));
-
-    answers.push(answer(this, {
-      question: content.en.fields.firmAddress.label,
-      answer: this.fields.solicitorDetails.firmAddress.value
     }));
 
     answers.push(answer(this, {
