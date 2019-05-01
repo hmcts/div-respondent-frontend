@@ -16,6 +16,7 @@ tests:
     url: TEST_URL
     proxy: E2E_IDAM_PROXY
     proxyByPass: E2E_IDAM_SERVER
+    addWaitForCrossBrowser: E2E_ADD_WAIT_CROSSBROWSER
     idam:
       idamTestUsername: E2E_IDAM_USERNAME
       idamTestPassword: E2E_IDAM_PASSWORD

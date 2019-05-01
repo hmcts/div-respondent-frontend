@@ -3,6 +3,8 @@ tests:
     show: false
     proxy: http://proxyout.reform.hmcts.net:8080
     proxyByPass: '*beta*LB.reform.hmcts.net'
+    outputDir: './functional-output'
+    addWaitForCrossBrowser: true
 
 services:
   idam:
