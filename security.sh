@@ -17,6 +17,29 @@ while !(curl -s http://0.0.0.0:1001) > /dev/null
   echo 'Changing owner from $(id -u):$(id -g) to $(id -u):$(id -u)'
   chown -R $(id -u):$(id -u) activescan.html
   chown -R $(id -u):$(id -u) activescanReport.xml
+
   cp *.html functional-output/
   cp activescanReport.xml functional-output/
-  zap-cli -p 1001 alerts -l Medium
+
+if [ -f zapKnownIssues.xml ]; then
+  if diff -q zapKnownIssues.xml functional-output/activescanReport.xml --ignore-all-space --ignore-matching-lines=OWASPZAPReport >  2>&1; then
+    echo
+    echo Ignorning known vulnerabilities
+    exit 0
+  fi
+fi
+
+echo
+echo ZAP Security vulnerabilities were found that were not ignored
+echo
+echo Check to see if these vulnerabilities apply to production
+echo and/or if they have fixes available. If they do not have
+echo fixes and they do not apply to production, you may ignore them
+echo
+echo To ignore these vulnerabilities, add them to:
+echo
+echo "./zapKnownIssues.xml"
+echo
+echo and commit the change
+
+zap-cli -p 1001 alerts -l Medium
