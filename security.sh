@@ -23,8 +23,8 @@ while !(curl -s http://0.0.0.0:1001) > /dev/null
 
 if [ -f zapKnownIssues.xml ]; then
 
-$ grep -vE "^(<uri>)" zapKnownIssues.xml > zapKnownIssues.xml
-$ grep -vE "^(<uri>)" functional-output/activescanReport.xml > functional-output/activescanReport.xml
+$ grep -vE "^(<uri>|<otherinfo>)" zapKnownIssues.xml > zapKnownIssues.xml
+$ grep -vE "^(<uri>|<otherinfo>)" functional-output/activescanReport.xml > functional-output/activescanReport.xml
 
   if diff -q zapKnownIssues.xml functional-output/activescanReport.xml --ignore-all-space --ignore-matching-lines=OWASPZAPReport > output.xml 2>&1; then
     echo
