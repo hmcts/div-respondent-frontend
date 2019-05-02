@@ -22,7 +22,7 @@ while !(curl -s http://0.0.0.0:1001) > /dev/null
   cp activescanReport.xml functional-output/
 
 if [ -f zapKnownIssues.xml ]; then
-  if diff -q zapKnownIssues.xml functional-output/activescanReport.xml --ignore-all-space --ignore-matching-lines=OWASPZAPReport >  2>&1; then
+  if diff -q zapKnownIssues.xml functional-output/activescanReport.xml --ignore-all-space --ignore-matching-lines=OWASPZAPReport > output.xml 2>&1; then
     echo
     echo Ignorning known vulnerabilities
     exit 0
