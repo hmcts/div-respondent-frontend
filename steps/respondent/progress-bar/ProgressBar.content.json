@@ -8,7 +8,8 @@
     "downloadableFiles": "Download your documents",
     "files": {
       "dpetition": "Divorce application",
-      "respondentAnswers": "Your answers"
+      "respondentAnswers": "Your answers",
+      "coRespondentAnswers": "Co-Respondent's answers"
     },
     "details": {
       "referenceNumber": "Reference number",

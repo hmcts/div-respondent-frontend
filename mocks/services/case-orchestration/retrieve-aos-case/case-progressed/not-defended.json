@@ -126,7 +126,7 @@
         "SW10 0QD"
       ]
     },
-    "reasonForDivorce": "separation-5-years",
+    "reasonForDivorce": "adultery",
     "reasonForDivorceHasMarriageDate": "true",
     "reasonForDivorceShowAdultery": "true",
     "reasonForDivorceShowUnreasonableBehaviour": "true",
@@ -246,6 +246,16 @@
         "modifiedOn": null,
         "fileName": "respondentAnswers.pdf",
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/respondentAnswers",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "coRespondentAnswers.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/corespondentAnswers",
         "mimeType": null,
         "status": null
       }

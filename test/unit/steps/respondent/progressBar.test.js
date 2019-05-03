@@ -184,6 +184,16 @@ describe(modulePath, () => {
             fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
             mimeType: null,
             status: null
+          },
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'coRespondentAnswers.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
           }
         ]
       }
@@ -203,6 +213,7 @@ describe(modulePath, () => {
             .and.to.include('Download your documents')
             .and.to.include('Divorce application (PDF)')
             .and.to.include('Your answers (PDF)')
+            .and.to.include('Co-Respondent\'s answers (PDF)')
             .and.to.include('Children and divorce')
             .and.to.include('Money and property');
         });

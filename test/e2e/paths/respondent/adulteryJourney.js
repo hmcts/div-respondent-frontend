@@ -9,6 +9,7 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.loginAsAdulteryCase();
 
   I.seeRespondPage();
+  I.seeDocumentsForDownload();
   I.click(content.en.continue);
 
   I.seeReviewApplicationPage();
@@ -31,6 +32,7 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.loginAsAdulteryCase();
 
   I.seeRespondPage();
+  I.seeDocumentsForDownload();
   I.click(content.en.continue);
 
   I.seeReviewApplicationPage();

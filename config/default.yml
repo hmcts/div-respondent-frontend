@@ -171,9 +171,11 @@ document:
     coRespondent:
     - 'd8petition'
     - 'respondentAnswers'
+    - 'coRespondentAnswers'
     respondent:
     - 'd8petition'
     - 'respondentAnswers'
+    - 'coRespondentAnswers'
 
 saucelabs:
   browser: 'chrome'

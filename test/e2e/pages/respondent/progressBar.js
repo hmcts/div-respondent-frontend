@@ -45,6 +45,12 @@ function seeRespondentAnswersToDownload() {
   I.see(content.en.files.respondentAnswers);
 }
 
+function seeCoRespondentAnswersToDownload() {
+  const I = this;
+  I.see(content.en.files.coRespondentAnswers);
+}
+
+
 module.exports = {
   seeProgressBarPage,
   seeContentForAosNotCompleted,
@@ -52,5 +58,6 @@ module.exports = {
   seeContentForAosCompleteAwaitingAnswer,
   seeContentForAosCompleteDefending,
   seePetitionToDownload,
-  seeRespondentAnswersToDownload
+  seeRespondentAnswersToDownload,
+  seeCoRespondentAnswersToDownload
 };
