@@ -134,7 +134,7 @@ class ConsentDecree extends Question {
     return branch(
       redirectTo(this.journey.steps.ConfirmDefence).if(!doesConsent && isDefending && !isRepresentedBySolicitor),
       redirectTo(this.journey.steps.NoConsentAreYouSure).if(!doesConsent && !isDefending && !isRepresentedBySolicitor),
-      redirectTo(this.journey.steps.SolicitorDetails).if(isRepresentedBySolicitor && !doesConsent && !isDefending),
+      redirectTo(this.journey.steps.SolicitorDetails).if(isRepresentedBySolicitor),
       redirectTo(this.journey.steps.FinancialSituation)
     );
   }
