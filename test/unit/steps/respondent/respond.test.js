@@ -183,7 +183,7 @@ describe(modulePath, () => {
               .and.to.include('Decree absolute')
               .and.to.include('Children and divorce')
               .and.to.include('Download your documents')
-              .and.to.include('Divorce application')
+              .and.to.include('Divorce application (PDF)')
               .and.to.include('Money and property');
           });
       });

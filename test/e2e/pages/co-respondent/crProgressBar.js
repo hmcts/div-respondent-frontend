@@ -38,10 +38,22 @@ function seeContentForTooLateToRespond() {
   I.see(content.en.tooLateToRespond.info);
 }
 
+function seePetitionToDownload() {
+  const I = this;
+  I.see(content.en.files.dpetition);
+}
+
+function seeRespondentAnswersToDownload() {
+  const I = this;
+  I.see(content.en.files.respondentAnswers);
+}
+
 module.exports = {
   seeCrProgressBarPage,
   seeContentForNotDefending,
   seeContentForDefendingAwaitingAnswer,
   seeContentForNotDefendingSubmittedAnswer,
-  seeContentForTooLateToRespond
+  seeContentForTooLateToRespond,
+  seePetitionToDownload,
+  seeRespondentAnswersToDownload
 };
