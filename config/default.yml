@@ -141,6 +141,7 @@ coRespRespondableStates: [
 
 caseStates:
   AosAwaiting: 'AosAwaiting'
+  AosCompleted: 'AosCompleted'
   AosStarted: 'AosStarted'
   AosOverdue: 'AosOverdue'
   AosSubmittedAwaitingAnswer: 'AosSubmittedAwaitingAnswer'
@@ -148,12 +149,20 @@ caseStates:
   AwaitingClarification: 'AwaitingClarification'
   AwaitingConsideration: 'AwaitingConsideration'
   AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
+  AwaitingDecreeNisi: 'AwaitingDecreeNisi'
   DNAwaiting: 'DNAwaiting'
   AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
   AwaitingPronouncement: 'AwaitingPronouncement'
   AwaitingReissue: 'AwaitingReissue'
   DefendedDivorce: 'DefendedDivorce'
   DivorceGranted: 'DivorceGranted'
+
+progressStates:
+  awaitingAnswer: 'awaitingAnswer'
+  defendedDivorce: 'defendedDivorce'
+  other: 'other'
+  progressedNoAos: 'progressedNoAos'
+  progressedUndefended: 'progressedUndefended'
 
 features:
   idam: false

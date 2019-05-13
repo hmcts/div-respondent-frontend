@@ -6,14 +6,6 @@ const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
 
-const progressStates = {
-  progressedNoAos: 'progressedNoAos',
-  progressedUndefended: 'progressedUndefended',
-  awaitingAnswer: 'awaitingAnswer',
-  defendedDivorce: 'defendedDivorce',
-  other: 'other'
-};
-
 const values = {
   yes: 'Yes',
   no: 'No'
@@ -22,27 +14,32 @@ const values = {
 const caseStateMap = [
   {
     template: './sections/OneCircleFilledIn.html',
-    state: ['AwaitingReissue']
+    state: [config.caseStates.AwaitingReissue]
   },
   {
     template: './sections/OneCircleFilledInBold.html',
-    state: ['AosAwaiting', 'AosStarted', 'AosOverdue']
+    state: [config.caseStates.AosAwaiting, config.caseStates.AosStarted, config.caseStates.AosOverdue]
   },
   {
     template: './sections/TwoCircleFilledIn.html',
-    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted']
+    state: [
+      config.caseStates.AosSubmittedAwaitingAnswer, config.caseStates.DefendedDivorce,
+      config.caseStates.AwaitingLegalAdvisorReferral, config.caseStates.AmendPetition,
+      config.caseStates.AwaitingConsideration, config.caseStates.AwaitingClarification,
+      config.caseStates.AwaitingPronouncement, config.caseStates.AosCompleted
+    ]
   },
   {
     template: './sections/TwoCircleFilledInBold.html',
-    state: ['AwaitingDecreeNisi', 'DNAwaiting']
+    state: [config.caseStates.AwaitingDecreeNisi, config.caseStates.DNAwaiting]
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
-    state: ['AwaitingDecreeAbsolute']
+    state: [config.caseStates.AwaitingDecreeAbsolute]
   },
   {
     template: './sections/FourCircleFilledIn.html',
-    state: ['DivorceGranted']
+    state: [config.caseStates.DivorceGranted]
   }
 ];
 
@@ -56,7 +53,7 @@ class ProgressBar extends Interstitial {
   }
 
   get progressStates() {
-    return progressStates;
+    return config.progressStates;
   }
 
   get downloadableFiles() {
