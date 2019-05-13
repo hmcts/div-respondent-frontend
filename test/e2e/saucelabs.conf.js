@@ -50,14 +50,9 @@ const setupConfig = {
   include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
-      mochawesome: {
-        stdout: './functional-output/console.log',
-        options: {
-          reportDir: conf.tests.e2e.outputDir,
-          reportName: 'index',
-          inlineAssets: true
-        }
-      }
+      reportDir: `${process.cwd()}/functional-output`,
+      reportName: 'index',
+      inlineAssets: true
     }
   },
   multiple: {
