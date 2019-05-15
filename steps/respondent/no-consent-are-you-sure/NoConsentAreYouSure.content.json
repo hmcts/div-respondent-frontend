@@ -5,6 +5,7 @@
       "para2": "The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.",
       "para3": "Your {{ session.divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs."
     },
+    "warning": "Warning",
     "notice": "You should get legal advice if you're not sure.",
     "fields": {
       "confirm": {

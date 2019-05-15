@@ -10,33 +10,33 @@
 
     <div id="admit-adultery">
 
-        <p>{{ content.detailsText | safe }}</p>
+        <p class="govuk-body">{{ content.detailsText | safe }}</p>
 
         {% if caseData.reasonForDivorceAdulteryKnowWhere === 'Yes' %}
-            <h2 class="heading-small">{{ content.whereAdultery.heading }}</h2>
-            <p class="text">"{{ caseData.reasonForDivorceAdulteryWhereDetails }}"</p>
+            <h2 class="govuk-heading-s">{{ content.whereAdultery.heading }}</h2>
+            <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhereDetails }}"</p>
         {% endif %}
 
         {% if caseData.reasonForDivorceAdulteryKnowWhen === 'Yes' %}
-            <h2 class="heading-small">{{ content.whenAdultery.heading }}</h2>
-            <p class="text">"{{ caseData.reasonForDivorceAdulteryWhenDetails }}"</p>
+            <h2 class="govuk-heading-s">{{ content.whenAdultery.heading }}</h2>
+            <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhenDetails }}"</p>
         {% endif %}
 
         {% if caseData.reasonForDivorceAdulteryDetails %}
-            <h2 class="heading-small">{{ content.details.heading }}</h2>
-            <p class="text">"{{ caseData.reasonForDivorceAdulteryDetails }}"</p>
+            <h2 class="govuk-heading-s">{{ content.details.heading }}</h2>
+            <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryDetails }}"</p>
         {% endif %}
 
-        <details>
-            <summary>
-                <span class="summary">{{ content.howYourAnswerAffect.heading }}</span>
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">{{ content.howYourAnswerAffect.heading }}</span>
             </summary>
-            <div class="panel panel-border-narrow">
-                <p class="text">{{ content.howYourAnswerAffect.para1 }}</p>
-                <p class="text">{{ content.howYourAnswerAffect.para2 }}</p>
-                <h3 class="heading-small">{{ content.howYourAnswerAffect.subHeading }}</h3>
-                <p class="text">{{ content.howYourAnswerAffect.para3 }}</p>
-                <p class="text">{{ content.howYourAnswerAffect.para4 }}</p>
+            <div class="govuk-details__text">
+                <p class="govuk-body">{{ content.howYourAnswerAffect.para1 }}</p>
+                <p class="govuk-body">{{ content.howYourAnswerAffect.para2 }}</p>
+                <h3 class="govuk-heading-s">{{ content.howYourAnswerAffect.subHeading }}</h3>
+                <p class="govuk-body">{{ content.howYourAnswerAffect.para3 }}</p>
+                <p class="govuk-body">{{ content.howYourAnswerAffect.para4 }}</p>
             </div>
         </details>
 

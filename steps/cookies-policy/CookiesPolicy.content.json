@@ -6,7 +6,7 @@
     "measureHow": "measure how you use the service so it can be updated and improved based on your needs",
     "rememberNotifications": "remember the notifications you’ve seen so that you’re not shown them again",
     "temporarilyStore": "temporarily store the answers you give",
-    "moreInformation": "Find out more about <a href=\"https://www.aboutcookies.org\">how to manage cookies</a>.",
+    "moreInformation": "Find out more about <a class=\"govuk-link\" href=\"https://www.aboutcookies.org\">how to manage cookies</a>.",
 
     "howCookiesAreUsed": "How cookies are used in the divorce service",
     "toMeasureWebsiteUsage": "To measure website usage",
@@ -16,8 +16,8 @@
     "ga4": "how long you spend on each page",
     "ga5": "how you got to the service",
     "ga6": "what you click on while you’re visiting the service",
-    "ga7": "We allow Google to use or share our analytics data. You can find out more about how Google use this information in their <a href=\"https://www.google.com/policies/privacy/partners\">privacy policy.</a>",
-    "ga8": "You can <a href=\"https://tools.google.com/dlpage/gaoptout\">opt out of Google Analytics</a> if you do not want Google to have access to your information.",
+    "ga7": "We allow Google to use or share our analytics data. You can find out more about how Google use this information in their <a class=\"govuk-link\" href=\"https://www.google.com/policies/privacy/partners\">privacy policy.</a>",
+    "ga8": "You can <a class=\"govuk-link\" href=\"https://tools.google.com/dlpage/gaoptout\">opt out of Google Analytics</a> if you do not want Google to have access to your information.",
 
     "ga9": "Google Analytics sets the following cookies:",
     "gaTableName": "Name",

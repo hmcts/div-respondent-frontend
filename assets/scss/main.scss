@@ -1,10 +1,13 @@
-@import 'govuk-elements';
+@import '~govuk-frontend/all.scss';
 @import 'look-and-feel/check-your-answers';
 @import 'look-and-feel/add-another';
 @import 'look-and-feel/language-switch';
 @import 'look-and-feel/progress-list';
 @import 'look-and-feel/text-reference';
 @import 'look-and-feel/document-list';
+@import 'look-and-feel/related-items';
+@import 'look-and-feel/gov-uk-frontend-toolkit-backward-compatable';
+@import 'look-and-feel/confirmation-statement';
 
 .govuk-related-items {
   margin-top: 30px;
@@ -12,7 +15,7 @@
   padding-top: 5px;
 }
 
-.govuk-related-items .heading-medium {
+.govuk-related-items .govuk-heading-m {
   margin-top: 0.3em;
   margin-bottom: 0.5em;
 }
@@ -71,14 +74,13 @@ position: relative;
     background-color: #fff;
 }
 
-.confirmation-block .form-group  {
+.confirmation-block .govuk-form-group  {
   background: #dee0e2;
   padding: 25px;
-  width: 100%;
 }
 
 @media (min-width: 641px) {
-h1.heading-large {
+h1.govuk-heading-l {
     margin-top: 0.4em;
   }
 }
@@ -103,7 +105,7 @@ textarea.form-control {
 }
 
 .heading-subsection {
-  h2.heading-medium {
+  h2.govuk-heading-m {
     margin-top: 20px;
   }
 }
