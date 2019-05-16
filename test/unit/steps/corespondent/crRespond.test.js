@@ -71,9 +71,8 @@ describe(modulePath, () => {
     ];
 
     it('should render contents when previousCaseId is not specified', () => {
-      return content(CrRespond, {
-        originalPetition: { }
-      }, {
+      const session = { originalPetition: { d8: [] } };
+      return content(CrRespond, session, {
         ignoreContent,
         specificContent: ['readApp']
       });
@@ -82,6 +81,7 @@ describe(modulePath, () => {
     it('should render contents when previousCaseId is null', () => {
       return content(CrRespond, {
         originalPetition: {
+          d8: [],
           previousCaseId: null
         }
       }, {
@@ -93,6 +93,7 @@ describe(modulePath, () => {
     it('should render contents when previousCaseId is specified', () => {
       return content(CrRespond, {
         originalPetition: {
+          d8: [],
           previousCaseId: '12345'
         }
       }, {
@@ -105,6 +106,7 @@ describe(modulePath, () => {
   describe('court address details', () => {
     describe('when divorce unit handles case', () => {
       const session = buildSessionWithCourtsInfo('westMidlands');
+      session.originalPetition = { d8: [] };
 
       it('should render the divorce unit info', () => {
         return custom(CrRespond)
@@ -122,6 +124,7 @@ describe(modulePath, () => {
 
     describe('when service centre handles case', () => {
       const session = buildSessionWithCourtsInfo('serviceCentre');
+      session.originalPetition = { d8: [] };
 
       it('some contents should exist', () => {
         return custom(CrRespond)
@@ -138,6 +141,7 @@ describe(modulePath, () => {
 
     describe('when RDC handles case', () => {
       const session = buildSessionWithCourtsInfo('northWest');
+      session.originalPetition = { d8: [] };
 
       it('some contents should exist', () => {
         return custom(CrRespond)
@@ -190,12 +194,30 @@ describe(modulePath, () => {
               .and.to.include('How to respond to a divorce application')
               .and.to.include('Get a divorce')
               .and.to.include('Download your documents')
-              .and.to.include('Divorce application (PDF)')
-              .and.to.include('Respondent\'s answers (PDF)')
+              .and.to.include('Divorce application')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });
       });
+    });
+  });
+
+  it('shows content for files if they exsist', () => {
+    const session = {
+      originalPetition: {
+        d8: [
+          {
+            id: '88217833-f74f-4cc3-ae73-882178332ccd',
+            fileName: 'd8petition1539017559370699.pdf'
+          }
+        ]
+      }
+    };
+    return content(CrRespond, session, {
+      specificContent: [
+        'downloadableFiles',
+        'files.dpetition'
+      ]
     });
   });
 });

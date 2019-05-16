@@ -74,6 +74,30 @@
         <p>{{ content.tooLateToRespond.info }}</p>
     {% endif %}
 
+    {% if  progressBarContent === progressStates.awaitingPronouncementHearingDataFuture %}
+        <h2 class="heading-medium">{{ content.awaitingPronouncementHearingDataFuture.title }}</h2>
+        <p>{{ content.awaitingPronouncementHearingDataFuture.districtJudge }}</p>
+        {% if coRespondentPaysCosts %}
+            <p>{{ content.awaitingPronouncementHearingDataFuture.orderPayDivorceCosts }}</p>
+        {% endif %}
+        <div class="panel panel-border-wide">
+            <p>{{ content.awaitingPronouncementHearingDataFuture.divorceOnlyComplete }}</p>
+        </div>
+
+        <h2 class="heading-medium">{{ content.awaitingPronouncementHearingDataFuture.theHearing }}</h2>
+        <p>{{ content.awaitingPronouncementHearingDataFuture.findMoreDetails | safe }}</p>
+        {% if coRespondentPaysCosts %}
+            <div class="notice">
+                <em class="icon icon-important">
+                    <span class="visually-hidden">Warning</span>
+                </em>
+                <strong class="bold-xsmall">{{ content.awaitingPronouncementHearingDataFuture.wantToObject }}</strong>
+            </div>
+        {% endif %}
+        <br>
+        <p>{{ content.awaitingPronouncementHearingDataFuture.attendTheHearing }}</p>
+    {% endif %}
+
 {% endblock %}
 
 {% block one_third %}
@@ -93,6 +117,12 @@
             </li>
             {% include "includes/sideMenuCourtDetails.html" %}
         </ul>
+        {% if (downloadableFiles.length > 0) %}
+            <h3 class="heading-small" id="subsection-title">{{ content.downloadableFiles }}</h3>
+
+            {{ documentList(downloadableFiles, content.files) }}
+        {% endif %}
+
         {% if (downloadableFiles.length > 0) %}
             <h3 class="heading-small" id="subsection-title">{{ content.downloadableFiles }}</h3>
 

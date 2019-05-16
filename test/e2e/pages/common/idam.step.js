@@ -138,6 +138,13 @@ function loginAsCoRespTooLateToRespond() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsCoRespAwaitingPronouncementHearingDataFuture() {
+  const I = this;
+
+  I.click(content.en.fields.success.coRespAwaitingPronouncementHearingDataFuture);
+  I.click(commonContent.en.continue);
+}
+
 function loginAndThrowError() {
   const I = this;
 
@@ -165,5 +172,6 @@ module.exports = {
   loginAsCoRespDefendingWaitingAnswer,
   loginAsCoRespDefendingSubmittedAnswer,
   loginAsCoRespTooLateToRespond,
+  loginAsCoRespAwaitingPronouncementHearingDataFuture,
   loginAndThrowError
 };

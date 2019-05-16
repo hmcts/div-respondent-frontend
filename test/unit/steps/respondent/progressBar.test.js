@@ -164,8 +164,14 @@ describe(modulePath, () => {
     const session = {
       caseState: 'AosSubmittedAwaitingAnswer',
       originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'corespemail'
+          }
+        },
         d8: [
           {
+            id: 'test-01',
             createdBy: 0,
             createdOn: null,
             lastModifiedBy: 0,
@@ -176,12 +182,13 @@ describe(modulePath, () => {
             status: null
           },
           {
+            id: 'test-02',
             createdBy: 0,
             createdOn: null,
             lastModifiedBy: 0,
             modifiedOn: null,
-            fileName: 'respondentAnswers.pdf',
-            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            fileName: 'respondentAnswers12312412.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/respondentAnswers',
             mimeType: null,
             status: null
           }

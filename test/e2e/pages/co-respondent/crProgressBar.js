@@ -43,9 +43,11 @@ function seePetitionToDownload() {
   I.see(content.en.files.dpetition);
 }
 
-function seeRespondentAnswersToDownload() {
+function seeCoRespAwaitingPronouncementHearingDataFuture() {
   const I = this;
-  I.see(content.en.files.respondentAnswers);
+
+  I.see(content.en.awaitingPronouncementHearingDataFuture.title);
+  I.see(content.en.awaitingPronouncementHearingDataFuture.districtJudge);
 }
 
 module.exports = {
@@ -55,5 +57,5 @@ module.exports = {
   seeContentForNotDefendingSubmittedAnswer,
   seeContentForTooLateToRespond,
   seePetitionToDownload,
-  seeRespondentAnswersToDownload
+  seeCoRespAwaitingPronouncementHearingDataFuture
 };
