@@ -1,71 +1,145 @@
 environment: development
 NODE_ENV: development
 
-node:
-  port: 3000
-  baseUrl: https://localhost:3000
+# Node anchors (i.e. re-usable values)
 
-session:
-  secret: sessionSecret
-  secure: true
-  expires: 3600000 # 60 minutes
+fiveYearSeparation: &fiveYearSeparation
+  fiveYearSeparation: 'separation-5-years'
 
-ssl:
-  hpkp:
-    maxAge: 3600
-    sha256s: AbCdEf123=
-    sha256sBackup: ZyXwVu456=
+twoYearSeparation: &twoYearSeparation
+  twoYearSeparation: 'separation-2-years'
+
+yesOrNo:
+  yes: &yes 'Yes'
+  no: &no 'No'
+
+# Node anchors - user actions
+
+chooseAResponse: &chooseAResponse
+  proceed: 'proceed'
+  defend: 'defend'
+  yes: *yes
+  no: *no
+
+confirmDefence: &confirmDefence
+  confirm: 'confirm'
+  changeResponse: 'changeResponse'
+
+reviewApplication: &reviewApplication
+  yes: *yes
+  adultery: 'adultery'
+
+
+# User actions
+
+admitAdultery:
+  admit: 'admit'
+  doNotAdmit: 'doNotAdmit'
+  yes: *yes
+  no: *no
+
+agreeToPayCosts:
+  differentAmount: DifferentAmount
+
+captureCaseAndPin:
+  referenceNumberLength: 16
+  securityAccessCodeLength: 8
+
+coRespChooseAResponse: 
+  <<: *chooseAResponse
+  coRespondent: 'correspondent'
+
+coRespConfirmDefence:
+  <<: *confirmDefence
+  coRespondent: 'correspondent'
+
+coRespReviewApplication: 
+  <<: *reviewApplication
+
+respChooseAResponse:
+  <<: *chooseAResponse
+  <<: *fiveYearSeparation
+  proceedButDisagree: 'proceedButDisagree'
+  notAccept: 'NoNoAdmission'
+  behavior: 'unreasonable-behaviour'
+  desertion: 'desertion'
+
+respConfirmDefence:
+  <<: *confirmDefence
+  <<: *twoYearSeparation
+  <<: *fiveYearSeparation
+
+respReviewApplication:
+  <<: *reviewApplication
+  <<: *twoYearSeparation
+
+# States and App configs
+
+caseStates:
+  AosAwaiting: 'AosAwaiting'
+  AosCompleted: 'AosCompleted'
+  AosStarted: 'AosStarted'
+  AosOverdue: 'AosOverdue'
+  AosSubmittedAwaitingAnswer: 'AosSubmittedAwaitingAnswer'
+  AmendPetition: 'AmendPetition'
+  AwaitingClarification: 'AwaitingClarification'
+  AwaitingConsideration: 'AwaitingConsideration'
+  AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
+  AwaitingDecreeNisi: 'AwaitingDecreeNisi'
+  DNAwaiting: 'DNAwaiting'
+  AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
+  AwaitingPronouncement: 'AwaitingPronouncement'
+  AwaitingReissue: 'AwaitingReissue'
+  DefendedDivorce: 'DefendedDivorce'
+  DivorceGranted: 'DivorceGranted'
+
+coRespProgressStates:
+  notDefending: 'notDefending'
+  defendingAwaitingAnswer: 'defendingAwaitingAnswer'
+  defendingSubmittedAnswer: 'defendingSubmittedAnswer'
+  tooLateToRespond: 'tooLateToRespond'
+
+coRespRespondableStates: [
+  'AosAwaiting',
+  'AosStarted',
+  'AosOverdue',
+  'AosCompleted',
+  'AosSubmittedAwaitingAnswer',
+  'DefendedDivorce',
+  'AwaitingDecreeNisi',
+  'DNAwaiting',
+  'AwaitingLegalAdvisorReferral'
+]
+
+document:
+  sessionPath: 'originalPetition.d8'
+  documentNamePath: 'fileName'
+  filesWhiteList:
+    coRespondent:
+    - 'd8petition'
+    - 'respondentAnswers'
+    - 'coRespondentAnswers'
+    respondent:
+    - 'd8petition'
+    - 'respondentAnswers'
+    - 'coRespondentAnswers'
+
+features:
+  idam: false
+  agreeToCosts:
+    differentAmount:
+      enabled: false
 
 health:
   timeout: 10000
   deadline: 15000
 
-service:
-  name: 'divorce-respondent-frontend'
+journey:
+  timeoutDelay: 300
 
-services:
-  redis:
-    url: redis://127.0.0.1:6379
-    useSSL: false
-    encryptionAtRestKey: encryptionAtRestKey
-  idam:
-    apiHealth: https://localhost:8001/health
-    authenticationHealth: https://localhost:3000/health
-    apiUrl: http://localhost:3001/idam
-    secret: '123456'
-    loginUrl: https://localhost:3000/idam-mock-login
-    clientId: 'divorce'
-  sourceLabs:
-    browser: 'chrome'
-    username: 'username'
-    key: 'privatekey'
-    tunnelId: ''
-    waitForTimeout: 30000
-  googleAnalytics:
-    id: TBD
-    trackingUrl: https://localhost:3000/
-  applicationInsights:
-    instrumentationKey: 'dummy-key'
-  rateLimiter:
-    total: 3600 # 1 req/s on average per hour
-    expire: 3600000
-    enabled: false
-  caseOrchestration:
-    baseUrl: http://localhost:3001/case-orchestration
-    health: http://localhost:3001/health
-  dnFrontend:
-    url: https://localhost:4000
-    landing: /authenticated
-  caseMaintenance:
-    baseUrl: http://localhost:3001/case-maintenance
-  feesAndPayments:
-    baseUrl: http://localhost:3001
-    health: http://localhost:3001/health
-  proxyUrl: ''
-  evidenceManagement:
-    baseUrl: http://localhost:3001/evidence-management
-    health: http://localhost:3001/health
-    downloadEndpoint: /emclientapi/version/1/download
+node:
+  port: 3000
+  baseUrl: https://localhost:3000
 
 paths:
   health: /health
@@ -108,6 +182,81 @@ paths:
     contactDetails: /co-respondent/contact-details
     checkYourAnswers: /co-respondent/check-your-answers
     done: /co-respondent/done
+
+respProgressStates:
+  awaitingAnswer: 'awaitingAnswer'
+  defendedDivorce: 'defendedDivorce'
+  other: 'other'
+  progressedNoAos: 'progressedNoAos'
+  progressedUndefended: 'progressedUndefended'
+
+saucelabs:
+  browser: 'chrome'
+  username: 'username'
+  key: 'privatekey'
+  tunnelId: 'reformtunnel'
+  waitForTimeout: 60000
+  smartWait: 45000
+
+service:
+  name: 'divorce-respondent-frontend'
+
+services:
+  redis:
+    url: redis://127.0.0.1:6379
+    useSSL: false
+    encryptionAtRestKey: encryptionAtRestKey
+  idam:
+    apiHealth: https://localhost:8001/health
+    authenticationHealth: https://localhost:3000/health
+    apiUrl: http://localhost:3001/idam
+    secret: '123456'
+    loginUrl: https://localhost:3000/idam-mock-login
+    clientId: 'divorce'
+  sourceLabs:
+    browser: 'chrome'
+    username: 'username'
+    key: 'privatekey'
+    tunnelId: ''
+    waitForTimeout: 30000
+  googleAnalytics:
+    id: TBD
+    trackingUrl: https://localhost:3000/
+  applicationInsights:
+    instrumentationKey: 'dummy-key'
+  rateLimiter:
+    total: 3600 # 1 req/s on average per hour
+    expire: 3600000
+    enabled: false
+  caseOrchestration:
+    baseUrl: http://localhost:3001/case-orchestration
+    health: http://localhost:3001/health
+  dnFrontend:
+    url: https://localhost:4000
+    landing: /authenticated
+  caseMaintenance:
+    baseUrl: http://localhost:3001/case-maintenance
+  feesAndPayments:
+    baseUrl: http://localhost:3001
+    health: http://localhost:3001/health
+    feeCodeEndpoint: /fees-and-payments/version/1/
+  proxyUrl: ''
+  evidenceManagement:
+    baseUrl: http://localhost:3001/evidence-management
+    health: http://localhost:3001/health
+    downloadEndpoint: /emclientapi/version/1/download
+
+session:
+  secret: sessionSecret
+  secure: true
+  expires: 3600000 # 60 minutes
+
+ssl:
+  hpkp:
+    maxAge: 3600
+    sha256s: AbCdEf123=
+    sha256sBackup: ZyXwVu456=
+
 tests:
   e2e:
     show: false
@@ -126,71 +275,3 @@ tests:
       idamTestUserGroup:
       idamTestLevelOfAccess:
       idamTestSupportCreateAccountEndpoint:
-
-coRespRespondableStates: [
-  'AosAwaiting',
-  'AosStarted',
-  'AosOverdue',
-  'AosCompleted',
-  'AosSubmittedAwaitingAnswer',
-  'DefendedDivorce',
-  'AwaitingDecreeNisi',
-  'DNAwaiting',
-  'AwaitingLegalAdvisorReferral'
-]
-
-caseStates:
-  AosAwaiting: 'AosAwaiting'
-  AosCompleted: 'AosCompleted'
-  AosStarted: 'AosStarted'
-  AosOverdue: 'AosOverdue'
-  AosSubmittedAwaitingAnswer: 'AosSubmittedAwaitingAnswer'
-  AmendPetition: 'AmendPetition'
-  AwaitingClarification: 'AwaitingClarification'
-  AwaitingConsideration: 'AwaitingConsideration'
-  AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
-  AwaitingDecreeNisi: 'AwaitingDecreeNisi'
-  DNAwaiting: 'DNAwaiting'
-  AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
-  AwaitingPronouncement: 'AwaitingPronouncement'
-  AwaitingReissue: 'AwaitingReissue'
-  DefendedDivorce: 'DefendedDivorce'
-  DivorceGranted: 'DivorceGranted'
-
-progressStates:
-  awaitingAnswer: 'awaitingAnswer'
-  defendedDivorce: 'defendedDivorce'
-  other: 'other'
-  progressedNoAos: 'progressedNoAos'
-  progressedUndefended: 'progressedUndefended'
-
-features:
-  idam: false
-  agreeToCosts:
-    differentAmount:
-      enabled: false
-
-journey:
-  timeoutDelay: 300
-
-document:
-  sessionPath: 'originalPetition.d8'
-  documentNamePath: 'fileName'
-  filesWhiteList:
-    coRespondent:
-    - 'd8petition'
-    - 'respondentAnswers'
-    - 'coRespondentAnswers'
-    respondent:
-    - 'd8petition'
-    - 'respondentAnswers'
-    - 'coRespondentAnswers'
-
-saucelabs:
-  browser: 'chrome'
-  username: 'username'
-  key: 'privatekey'
-  tunnelId: 'reformtunnel'
-  waitForTimeout: 60000
-  smartWait: 45000
-

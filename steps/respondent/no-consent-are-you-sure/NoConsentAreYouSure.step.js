@@ -7,11 +7,6 @@ const idam = require('services/idam');
 const config = require('config');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-const constValues = {
-  yes: 'Yes',
-  no: 'No'
-};
-
 class NoConsentAreYouSure extends Question {
   static get path() {
     return config.paths.respondent.noConsentAreYouSure;
@@ -26,7 +21,7 @@ class NoConsentAreYouSure extends Question {
   }
 
   get const() {
-    return constValues;
+    return config.yesOrNo;
   }
 
   get form() {

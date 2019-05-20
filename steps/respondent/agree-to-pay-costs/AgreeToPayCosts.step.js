@@ -8,9 +8,9 @@ const config = require('config');
 const content = require('./AgreeToPayCosts.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-const yes = 'Yes';
-const no = 'No';
-const differentAmount = 'DifferentAmount';
+const yes = config.yesOrNo.yes;
+const no = config.yesOrNo.no;
+const differentAmount = config.agreeToPayCosts.differentAmount;
 
 class AgreeToPayCosts extends Question {
   static get path() {

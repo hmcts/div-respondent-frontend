@@ -8,8 +8,8 @@ const config = require('config');
 const content = require('./DefendFinancialHardship.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-const yes = 'Yes';
-const no = 'No';
+const yes = config.yesOrNo.yes;
+const no = config.yesOrNo.no;
 
 class DefendFinancialHardship extends Question {
   static get path() {

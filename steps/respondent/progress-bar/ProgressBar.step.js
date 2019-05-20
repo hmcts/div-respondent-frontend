@@ -1,15 +1,11 @@
 /* eslint-disable operator-linebreak */
+/* eslint-disable max-len */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
 const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
-
-const values = {
-  yes: 'Yes',
-  no: 'No'
-};
 
 const caseStateMap = [
   {
@@ -22,12 +18,7 @@ const caseStateMap = [
   },
   {
     template: './sections/TwoCircleFilledIn.html',
-    state: [
-      config.caseStates.AosSubmittedAwaitingAnswer, config.caseStates.DefendedDivorce,
-      config.caseStates.AwaitingLegalAdvisorReferral, config.caseStates.AmendPetition,
-      config.caseStates.AwaitingConsideration, config.caseStates.AwaitingClarification,
-      config.caseStates.AwaitingPronouncement, config.caseStates.AosCompleted
-    ]
+    state: [config.caseStates.AosSubmittedAwaitingAnswer, config.caseStates.DefendedDivorce, config.caseStates.AwaitingLegalAdvisorReferral, config.caseStates.AmendPetition, config.caseStates.AwaitingConsideration, config.caseStates.AwaitingClarification, config.caseStates.AwaitingPronouncement, config.caseStates.AosCompleted]
   },
   {
     template: './sections/TwoCircleFilledInBold.html',
@@ -53,7 +44,7 @@ class ProgressBar extends Interstitial {
   }
 
   get progressStates() {
-    return config.progressStates;
+    return config.respProgressStates;
   }
 
   get downloadableFiles() {
@@ -86,7 +77,7 @@ class ProgressBar extends Interstitial {
   }
 
   progressedUndefended(caseState) {
-    return this.caseBeyondAos(caseState) && this.session.originalPetition.respWillDefendDivorce === values.no;
+    return this.caseBeyondAos(caseState) && this.session.originalPetition.respWillDefendDivorce === config.yesOrNo.no;
   }
 
   awaitingAnswer(caseState) {
@@ -112,7 +103,7 @@ class ProgressBar extends Interstitial {
   }
 
   get isDefending() {
-    return this.session.originalPetition.respWillDefendDivorce === values.yes;
+    return this.session.originalPetition.respWillDefendDivorce === config.yesOrNo.yes;
   }
 
   get middleware() {

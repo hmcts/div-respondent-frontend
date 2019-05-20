@@ -7,18 +7,13 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./Jurisdiction.content');
 
-const validValues = {
-  yes: 'Yes',
-  no: 'No'
-};
-
 class Jurisdiction extends Question {
   static get path() {
     return config.paths.respondent.jurisdiction;
   }
 
   get validValues() {
-    return validValues;
+    return config.yesOrNo;
   }
 
   get session() {

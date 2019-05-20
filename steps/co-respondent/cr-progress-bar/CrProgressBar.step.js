@@ -5,18 +5,6 @@ const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddlew
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
 
-const values = {
-  yes: 'Yes',
-  no: 'No'
-};
-
-const progressStates = {
-  notDefending: 'notDefending',
-  defendingAwaitingAnswer: 'defendingAwaitingAnswer',
-  defendingSubmittedAnswer: 'defendingSubmittedAnswer',
-  tooLateToRespond: 'tooLateToRespond'
-};
-
 class CrProgressBar extends Interstitial {
   static get path() {
     return config.paths.coRespondent.progressBar;
@@ -27,19 +15,19 @@ class CrProgressBar extends Interstitial {
   }
 
   receivedAosFromCoResp() {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.aos && this.session.originalPetition.coRespondentAnswers.aos.received === values.yes;
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.aos && this.session.originalPetition.coRespondentAnswers.aos.received === config.yesOrNo.yes;
   }
 
   coRespDefendsDivorce() {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.defendsDivorce === values.yes;
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.defendsDivorce === config.yesOrNo.yes;
   }
 
   receivedAnswerFromCoResp() {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.answer && this.session.originalPetition.coRespondentAnswers.answer.received === values.yes;
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.answer && this.session.originalPetition.coRespondentAnswers.answer.received === config.yesOrNo.yes;
   }
 
   get progressStates() {
-    return progressStates;
+    return config.coRespProgressStates;
   }
 
   get feesDefendDivorce() {

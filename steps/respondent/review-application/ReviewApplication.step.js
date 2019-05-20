@@ -10,12 +10,6 @@ const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddlew
 
 const { replace, endsWith } = require('lodash');
 
-const values = {
-  yes: 'Yes',
-  adultery: 'adultery',
-  twoYearSeparation: 'separation-2-years'
-};
-
 /**
  *  Review Application content should be same for DN, AOS Respondent and co-respondent journey.
  *  Any change to Mini petition should be made across all the Apps
@@ -26,7 +20,7 @@ class ReviewApplication extends Question {
   }
 
   get const() {
-    return values;
+    return config.respReviewApplication;
   }
 
   get session() {

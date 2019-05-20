@@ -6,9 +6,6 @@ const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
 
-const referenceNumberLength = 16;
-const securityAccessCode = 8;
-
 class CaptureCaseAndPin extends Question {
   static get path() {
     return config.paths.captureCaseAndPin;
@@ -28,7 +25,7 @@ class CaptureCaseAndPin extends Question {
         errors.referenceNumberRequired,
         Joi.string()
           .replace(/\D/gi, '')
-          .length(referenceNumberLength)
+          .length(config.captureCaseAndPin.referenceNumberLength)
           .required());
   }
 
@@ -37,7 +34,7 @@ class CaptureCaseAndPin extends Question {
     return text.joi(
       errors.securityAccessCodeRequired,
       Joi.string()
-        .length(securityAccessCode)
+        .length(config.captureCaseAndPin.securityAccessCodeLength)
         .required())
       .joi(
         errors.securityAccessCodeAlphanumericOnly,

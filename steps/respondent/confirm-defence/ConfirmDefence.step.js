@@ -8,21 +8,13 @@ const config = require('config');
 const content = require('./ConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-
-const values = {
-  confirm: 'confirm',
-  changeResponse: 'changeResponse',
-  twoYearSeparation: 'separation-2-years',
-  fiveYearSeparation: 'separation-5-years'
-};
-
 class ConfirmDefence extends Question {
   static get path() {
     return config.paths.respondent.confirmDefence;
   }
 
   get const() {
-    return values;
+    return config.respConfirmDefence;
   }
 
   get session() {

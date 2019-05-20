@@ -7,7 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./CrContactDetails.content');
 
-const yes = 'Yes';
+const yes = config.yesOrNo.yes;
 
 class CrContactDetails extends Question {
   static get path() {

@@ -8,25 +8,13 @@ const config = require('config');
 const content = require('./ChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-const consts = {
-  proceed: 'proceed',
-  proceedButDisagree: 'proceedButDisagree',
-  defend: 'defend',
-  yes: 'Yes',
-  no: 'No',
-  notAccept: 'NoNoAdmission',
-  behavior: 'unreasonable-behaviour',
-  desertion: 'desertion',
-  separation5yrs: 'separation-5-years'
-};
-
 class ChooseAResponse extends Question {
   static get path() {
     return config.paths.respondent.chooseAResponse;
   }
 
   get consts() {
-    return consts;
+    return config.respChooseAResponse;
   }
 
   get session() {
@@ -39,16 +27,16 @@ class ChooseAResponse extends Question {
 
   get isBehaviourOrDesertion() {
     const reasonForDivorce = this.session.originalPetition.reasonForDivorce;
-    return reasonForDivorce === consts.behavior || reasonForDivorce === consts.desertion;
+    return reasonForDivorce === this.consts.behavior || reasonForDivorce === this.consts.desertion;
   }
 
   get isSeparation5yrs() {
     const reasonForDivorce = this.session.originalPetition.reasonForDivorce;
-    return reasonForDivorce === consts.separation5yrs;
+    return reasonForDivorce === this.consts.fiveYearSeparation;
   }
 
   get form() {
-    const constants = consts;
+    const constants = this.consts;
     const answers = [
       constants.proceed,
       constants.proceedButDisagree,
@@ -70,18 +58,18 @@ class ChooseAResponse extends Question {
 
     if (this.isBehaviourOrDesertion) {
       switch (response) {
-      case consts.proceed:
-        return { respWillDefendDivorce: consts.no };
-      case consts.proceedButDisagree:
-        return { respWillDefendDivorce: consts.notAccept };
-      case consts.defend:
-        return { respWillDefendDivorce: consts.yes };
+      case this.consts.proceed:
+        return { respWillDefendDivorce: this.consts.no };
+      case this.consts.proceedButDisagree:
+        return { respWillDefendDivorce: this.consts.notAccept };
+      case this.consts.defend:
+        return { respWillDefendDivorce: this.consts.yes };
       default:
         throw new Error(`Unknown response to behavior or desertion: '${response}'`);
       }
     }
 
-    const respWillDefendDivorce = response === consts.proceed ? consts.no : consts.yes;
+    const respWillDefendDivorce = response === this.consts.proceed ? this.consts.no : this.consts.yes;
     return { respWillDefendDivorce };
   }
 
@@ -109,9 +97,9 @@ class ChooseAResponse extends Question {
 
   next() {
     const response = this.fields.response;
-    const isDefend = response.value === consts.defend;
-    const isProceed = response.value === consts.proceed;
-    const fiveYearSeparation = this.session.originalPetition.reasonForDivorce === consts.separation5yrs;
+    const isDefend = response.value === this.consts.defend;
+    const isProceed = response.value === this.consts.proceed;
+    const fiveYearSeparation = this.session.originalPetition.reasonForDivorce === this.consts.fiveYearSeparation;
 
     return branch(
       redirectTo(this.journey.steps.ConfirmDefence)

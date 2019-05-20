@@ -7,8 +7,8 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./LegalProceedings.content');
 
-const yes = 'Yes';
-const no = 'No';
+const yes = config.yesOrNo.yes;
+const no = config.yesOrNo.no;
 
 class LegalProceedings extends Question {
   static get path() {

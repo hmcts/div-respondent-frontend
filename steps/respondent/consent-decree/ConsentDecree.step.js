@@ -8,18 +8,13 @@ const config = require('config');
 const content = require('./ConsentDecree.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-const constValues = {
-  yes: 'Yes',
-  no: 'No'
-};
-
 class ConsentDecree extends Question {
   static get path() {
     return config.paths.respondent.consentDecree;
   }
 
   get const() {
-    return constValues;
+    return config.yesOrNo;
   }
 
   get session() {

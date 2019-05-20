@@ -8,21 +8,13 @@ const config = require('config');
 const content = require('./CrChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-const consts = {
-  proceed: 'proceed',
-  defend: 'defend',
-  yes: 'Yes',
-  no: 'No',
-  coRespondent: 'correspondent'
-};
-
 class CrChooseAResponse extends Question {
   static get path() {
     return config.paths.coRespondent.chooseAResponse;
   }
 
   get consts() {
-    return consts;
+    return config.coRespChooseAResponse;
   }
 
   get session() {
@@ -34,7 +26,7 @@ class CrChooseAResponse extends Question {
   }
 
   get form() {
-    const constants = consts;
+    const constants = this.consts;
     const answers = [
       constants.proceed,
       constants.defend
@@ -54,10 +46,10 @@ class CrChooseAResponse extends Question {
     const response = this.fields.response.value;
 
     switch (response) {
-    case consts.proceed:
-      return { defendsDivorce: consts.no };
-    case consts.defend:
-      return { defendsDivorce: consts.yes };
+    case this.consts.proceed:
+      return { defendsDivorce: this.consts.no };
+    case this.consts.defend:
+      return { defendsDivorce: this.consts.yes };
     default:
       throw new Error(`Unknown response : '${response}'`);
     }
@@ -87,10 +79,10 @@ class CrChooseAResponse extends Question {
 
   next() {
     const response = this.fields.response;
-    const isDefend = response.value === consts.defend;
+    const isDefend = response.value === this.consts.defend;
     const costClaim = this.req.session.originalPetition.claimsCostsFrom;
 
-    const condition = costClaim && costClaim.includes(consts.coRespondent);
+    const condition = costClaim && costClaim.includes(this.consts.coRespondent);
 
     return branch(
       redirectTo(this.journey.steps.CrConfirmDefence)

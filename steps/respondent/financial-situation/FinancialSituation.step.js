@@ -7,18 +7,13 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./FinancialSituation.content');
 
-const constValues = {
-  yes: 'Yes',
-  no: 'No'
-};
-
 class FinancialSituation extends Question {
   static get path() {
     return config.paths.respondent.financialSituation;
   }
 
   get const() {
-    return constValues;
+    return config.yesOrNo;
   }
 
   get session() {

@@ -7,20 +7,13 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./AdmitAdultery.content');
 
-const constValues = {
-  admit: 'admit',
-  doNotAdmit: 'doNotAdmit',
-  yes: 'Yes',
-  no: 'No'
-};
-
 class AdmitAdultery extends Question {
   static get path() {
     return config.paths.respondent.admitAdultery;
   }
 
   get const() {
-    return constValues;
+    return config.admitAdultery;
   }
 
   get caseData() {
