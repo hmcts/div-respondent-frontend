@@ -50,8 +50,6 @@ function seeCoRespondentAnswersToDownload() {
   I.see(content.en.files.coRespondentAnswers);
 }
 
-
-
 module.exports = {
   seeProgressBarPage,
   seeContentForAosNotCompleted,
