@@ -29,11 +29,18 @@
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
+{% from "back-link/macro.njk" import govukBackLink %}
 
 {% block breadcrumbs %}
   {{ phaseBanner(phase, feedbackLink) }}
   {% block back %}
-    <a class="link-back" href="#" onclick="history.go(-1); return false;">{{ content.backLink }}</a>
+    {{ govukBackLink({
+      attributes: {
+        onclick: "history.go(-1);"
+      },
+      text: "Back",
+      href: "#"
+    }) }}
   {% endblock %}
   {{ languageSwitch(currentLang, availableLangs) }}
 {% endblock %}

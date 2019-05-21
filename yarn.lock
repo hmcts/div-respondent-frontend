@@ -255,10 +255,9 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.2.2.tgz#f91cce16015dde13ff750a57ab54d1e9412079e0"
-  integrity sha512-9Y70kfIE7KiCzeTEqCiNSdJXfX2bU5xXiiQgz8Zvr6Hz/1sMK4lGIRR07QuEDABrcszqmTFIeqjG5RUku2oy3Q==
+"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#7bb2d02b41de25ec82bbc2d731db7be1f11ffcc1":
+  version "2.2.3"
+  resolved "https://github.com/hmcts/look-and-feel.git#7bb2d02b41de25ec82bbc2d731db7be1f11ffcc1"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -274,15 +273,14 @@
     express "^4.15.3"
     express-nunjucks "^2.2.3"
     extract-text-webpack-plugin "^3.0.0"
-    govuk-elements-sass "^3.1.1"
+    govuk-frontend "^2.6.0"
     govuk_frontend_toolkit "^8.1.0"
-    govuk_template_jinja "^0.23.0"
     hard-source-webpack-plugin "^0.13.1"
     imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
     jquery "^3.2.1"
     js-yaml "^3.9.1"
-    node-sass "^4.5.3"
-    nunjucks "^3.0.1"
+    node-sass "^4.12.0"
+    nunjucks "^3.1.7"
     sass-loader "^6.0.6"
     serve-static "^1.13.2"
     style-loader "^0.20.1"
@@ -307,13 +305,12 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@^3.0.2":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#20fa4d157c8937b76755ac76e8bbf9691ae2e02":
   version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-3.0.2.tgz#9141e190caa638f260931458861039d7264b38d1"
-  integrity sha512-2oqOsgM1hFmKbeuT0gA9O7ryIRtxoZkDhihfZ8Cq5VcNnvWh1fiA74UKbasEqVbCHNZu4BUMK4PZxpGk1KMM3g==
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#20fa4d157c8937b76755ac76e8bbf9691ae2e021"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
-    "@hmcts/look-and-feel" "^2.2.2"
+    "@hmcts/look-and-feel" "https://github.com/hmcts/look-and-feel.git#7bb2d02b41de25ec82bbc2d731db7be1f11ffcc1"
     "@hmcts/one-per-page" "^5.0.0"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
@@ -5510,7 +5507,7 @@ govuk-elements-sass@^3.1.1, govuk-elements-sass@^3.1.2:
   dependencies:
     govuk_frontend_toolkit "^7.1.0"
 
-govuk-frontend@^2.11.0:
+govuk-frontend@^2.11.0, govuk-frontend@^2.6.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-2.11.0.tgz#f9eb4497a55d22b7eab8364323266680e17be188"
   integrity sha512-kZR0ZrSju+Jqh8o5niKklj8/m5XmsNNUSQLL4M4urnMcrLypwW2dU3RkR8UCnzS2DDy4BTHb7CZw0VjQPoi3jg==
@@ -8393,6 +8390,11 @@ nan@^2.10.0, nan@^2.9.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.13.1.tgz#a15bee3790bde247e8f38f1d446edcdaeb05f2dd"
   integrity sha512-I6YB/YEuDeUZMmhscXKxGgZlFnhsn5y0hgOZBadkzfTRrZBtJDZeg6eQf7PYMIEclwmorTKK8GztsyOUSVBREA==
 
+nan@^2.13.2:
+  version "2.13.2"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.13.2.tgz#f51dc7ae66ba7d5d55e1e6d4d8092e802c9aefe7"
+  integrity sha512-TghvYc72wlMGMVMluVo9WRJc0mB8KxxF/gZ4YYFy7V2ZQX9l7rgbPg7vjS9mt6U5HXODVFVI2bOduCzwOMv/lw==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -8581,6 +8583,29 @@ node-pre-gyp@^0.10.0:
     rimraf "^2.6.1"
     semver "^5.3.0"
     tar "^4"
+
+node-sass@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.12.0.tgz#0914f531932380114a30cc5fa4fa63233a25f017"
+  integrity sha512-A1Iv4oN+Iel6EPv77/HddXErL2a+gZ4uBeZUy+a8O35CFYTXhgA8MgLCWBtwpGZdCvTvQ9d+bQxX/QC36GDPpQ==
+  dependencies:
+    async-foreach "^0.1.3"
+    chalk "^1.1.1"
+    cross-spawn "^3.0.0"
+    gaze "^1.0.0"
+    get-stdin "^4.0.1"
+    glob "^7.0.3"
+    in-publish "^2.0.0"
+    lodash "^4.17.11"
+    meow "^3.7.0"
+    mkdirp "^0.5.1"
+    nan "^2.13.2"
+    node-gyp "^3.8.0"
+    npmlog "^4.0.0"
+    request "^2.88.0"
+    sass-graph "^2.2.4"
+    stdout-stream "^1.4.0"
+    "true-case-path" "^1.0.2"
 
 node-sass@^4.5.3, node-sass@^4.8.3:
   version "4.11.0"
@@ -8790,6 +8815,17 @@ nunjucks@^3.0.1:
   version "3.1.7"
   resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.1.7.tgz#0bd25f29ef9d11826350e762836286c518c98706"
   integrity sha512-MrjI68cobXQnyMK/LeY7BgYZ+7o4xn1UNGOe1y8ACVo4cn/1FXc1S4ySqHbmzFqxq/qtMWrehysTuXdbTvf7JA==
+  dependencies:
+    a-sync-waterfall "^1.0.0"
+    asap "^2.0.3"
+    yargs "^3.32.0"
+  optionalDependencies:
+    chokidar "^2.0.0"
+
+nunjucks@^3.1.7:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.2.0.tgz#53e95f43c9555e822e8950008a201b1002d49933"
+  integrity sha512-YS/qEQ6N7qCnUdm6EoYRBfJUdWNT0PpKbbRnogV2XyXbBm2STIP1O6yrdZHgwMVK7fIYUx7i8+yatEixnXSB1w==
   dependencies:
     a-sync-waterfall "^1.0.0"
     asap "^2.0.3"

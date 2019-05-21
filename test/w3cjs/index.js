@@ -29,7 +29,10 @@ const filteredWarnings = r => {
 /* eslint-disable */
 // FIXME - Ignored errors (temporarily)
 const excludedErrors = [
-  'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)'
+  'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)',
+  'Attribute “src” not allowed on element “image” at this point.',
+  'Element “image” is missing required attribute “height”.',
+  'Element “image” is missing required attribute “width”.'
 ];
 /* eslint-enable */
 const filteredErrors = r => {
