@@ -38,7 +38,7 @@ const caseStateMap = [
   },
   {
     template: './sections/TwoCircleFilledInBold.html',
-    state: ['AwaitingDecreeNisi', 'DNAwaiting']
+    state: ['AwaitingDecreeNisi', 'AwaitingDecreeNisi']
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
@@ -163,6 +163,7 @@ class ProgressBar extends Interstitial {
       caseState === config.caseStates.AwaitingDecreeAbsolute ||
       caseState === config.caseStates.DNPronounced ||
       caseState === config.caseStates.DNAwaiting ||
+      caseState === config.caseStates.AwaitingDecreeNisi ||
       caseState === config.caseStates.AwaitingReissue ||
       caseState === config.caseStates.DivorceGranted ||
       caseState === config.caseStates.AwaitingPronouncement
