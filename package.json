@@ -30,7 +30,7 @@
   "dependencies": {
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.4.0",
-    "@hmcts/look-and-feel": "https://github.com/hmcts/look-and-feel.git#7bb2d02b41de25ec82bbc2d731db7be1f11ffcc1",
+    "@hmcts/look-and-feel": "https://github.com/hmcts/look-and-feel.git#ae7765e2110aa83f9f1d0f33e42eeb9515983934",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.2.1",
