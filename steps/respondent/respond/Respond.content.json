@@ -29,7 +29,8 @@
     },
     "downloadableFiles": "Download your documents",
     "files": {
-      "dpetition": "Divorce application"
+      "dpetition": "Divorce application",
+      "respondentAnswers": "Your answers"
     }
   }
 }
