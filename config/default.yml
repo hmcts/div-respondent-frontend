@@ -135,7 +135,6 @@ coRespRespondableStates: [
   'AosSubmittedAwaitingAnswer',
   'DefendedDivorce',
   'AwaitingDecreeNisi',
-  'DNAwaiting',
   'AwaitingLegalAdvisorReferral'
 ]
 
@@ -148,7 +147,7 @@ caseStates:
   AwaitingClarification: 'AwaitingClarification'
   AwaitingConsideration: 'AwaitingConsideration'
   AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
-  DNAwaiting: 'DNAwaiting'
+  AwaitingDecreeNisi: 'AwaitingDecreeNisi'
   AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
   AwaitingPronouncement: 'AwaitingPronouncement'
   AwaitingReissue: 'AwaitingReissue'
