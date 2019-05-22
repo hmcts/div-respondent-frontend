@@ -32,7 +32,9 @@ const excludedErrors = [
   'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)',
   'Attribute “src” not allowed on element “image” at this point.',
   'Element “image” is missing required attribute “height”.',
-  'Element “image” is missing required attribute “width”.'
+  'Element “image” is missing required attribute “width”.',
+  // Sonar doesnt allow <b> tags so <strong> tags used
+  'Element “stong” not allowed as child of element “p” in this context. (Suppressing further errors from this subtree.)'
 ];
 /* eslint-enable */
 const filteredErrors = r => {
