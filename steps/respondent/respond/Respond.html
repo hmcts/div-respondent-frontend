@@ -12,8 +12,8 @@
 
 {% block main_content %}
   <p class="govuk-body-s">
-    <strong class="govuk-!-font-size-16">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference | safe }}<br>
-    <strong class="govuk-!-font-size-16">{{ content.name }}:</strong> &nbsp;&nbsp;
+    <strong class="govuk-!-font-size-16 govuk-!-font-weight-bol">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference | safe }}<br>
+    <strong class="govuk-!-font-size-16 govuk-!-font-weight-bol">{{ content.name }}:</strong> &nbsp;&nbsp;
     {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
   </p>
 
