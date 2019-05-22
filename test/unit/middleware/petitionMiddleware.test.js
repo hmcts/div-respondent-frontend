@@ -45,6 +45,46 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
+  it('redirects to capture case and pin if case found, state: AosAwaiting', done => {
+    // given
+    const req = {
+      cookies: { '__auth-token': 'test' },
+      get: sinon.stub(),
+      session: {}
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+    const next = sinon.stub();
+
+    const response = {
+      statusCode: 200,
+      body: {
+        state: 'AosAwaiting',
+        caseId: 1234,
+        data: { // eslint-disable-line id-blacklist
+          marriageIsSameSexCouple: 'No',
+          divorceWho: 'husband',
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
+          }
+        }
+      }
+    };
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves(response);
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
 
   it('should redirect to Co-respondent respond page if user is Co-respondent', done => {
     // given
@@ -199,6 +239,7 @@ describe(modulePath, () => {
       body: {
         state: 'AosStarted',
         caseId: 1234,
+        caseReference: 'LV17D80999',
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
           divorceWho: 'husband',

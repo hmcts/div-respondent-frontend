@@ -4,8 +4,18 @@ const config = require('config');
 const idam = require('services/idam');
 const petitionMiddleware = require('middleware/petitionMiddleware');
 const redirectMiddleware = require('middleware/redirectMiddleware');
+const { createUris } = require('@hmcts/div-document-express-handler');
+const { documentWhiteList } = require('services/documentHandler');
 
 class Respond extends Interstitial {
+  get downloadableFiles() {
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: documentWhiteList(this.req)
+    };
+    return createUris(this.session.originalPetition.d8 || [], docConfig);
+  }
+
   static get path() {
     return config.paths.respondent.respond;
   }

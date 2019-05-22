@@ -5,7 +5,9 @@ module.exports = {
   buildSessionWithCourtsInfo(chosenDivorceCenter) {
     // Simulate what the petitionMiddleware does
     const req = {
-      session: {}
+      session: {
+        originalPetition: { }
+      }
     };
     req.session.serviceCentreName = courtsList[chosenDivorceCenter].serviceCentreName;
     req.session.divorceCenterName = courtsList[chosenDivorceCenter].divorceCentre;

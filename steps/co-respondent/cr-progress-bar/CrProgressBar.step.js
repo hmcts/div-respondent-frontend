@@ -2,6 +2,8 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const { createUris } = require('@hmcts/div-document-express-handler');
+const { documentWhiteList } = require('services/documentHandler');
 
 const values = {
   yes: 'Yes',
@@ -42,6 +44,14 @@ class CrProgressBar extends Interstitial {
 
   get feesDefendDivorce() {
     return this.res.locals.applicationFee['defended-petition-fee'].amount;
+  }
+
+  get downloadableFiles() {
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: documentWhiteList(this.req)
+    };
+    return createUris(this.session.originalPetition.d8 || [], docConfig);
   }
 
   getProgressBarContent() {

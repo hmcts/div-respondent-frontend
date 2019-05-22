@@ -62,6 +62,10 @@ services:
     baseUrl: http://localhost:3001
     health: http://localhost:3001/health
   proxyUrl: ''
+  evidenceManagement:
+    baseUrl: http://localhost:3001/evidence-management
+    health: http://localhost:3001/health
+    downloadEndpoint: /emclientapi/version/1/download
 
 paths:
   health: /health
@@ -110,9 +114,10 @@ tests:
     waitForTimeout: 10000
     waitForAction: 1000
     smartWait: 5000
-    outputDir: ../../functional-output
+    outputDir: './functional-output'
     proxy: ''
     proxyByPass: ''
+    addWaitForCrossBrowser: false
     idam:
       idamTestUsername:
       idamTestPassword:
@@ -134,7 +139,7 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral'
 ]
 
-caseStates: 
+caseStates:
   AosAwaiting: 'AosAwaiting'
   AosStarted: 'AosStarted'
   AosOverdue: 'AosOverdue'
@@ -158,3 +163,23 @@ features:
 
 journey:
   timeoutDelay: 300
+
+document:
+  sessionPath: 'originalPetition.d8'
+  documentNamePath: 'fileName'
+  filesWhiteList:
+    coRespondent:
+    - 'd8petition'
+    - 'respondentAnswers'
+    respondent:
+    - 'd8petition'
+    - 'respondentAnswers'
+
+saucelabs:
+  browser: 'chrome'
+  username: 'username'
+  key: 'privatekey'
+  tunnelId: 'reformtunnel'
+  waitForTimeout: 60000
+  smartWait: 45000
+
