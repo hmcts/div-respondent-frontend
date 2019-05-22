@@ -117,11 +117,6 @@
             </li>
             {% include "includes/sideMenuCourtDetails.html" %}
         </ul>
-        {% if (downloadableFiles.length > 0) %}
-            <h3 class="heading-small" id="subsection-title">{{ content.downloadableFiles }}</h3>
-
-            {{ documentList(downloadableFiles, content.files) }}
-        {% endif %}
 
         {% if (downloadableFiles.length > 0) %}
             <h3 class="heading-small" id="subsection-title">{{ content.downloadableFiles }}</h3>
