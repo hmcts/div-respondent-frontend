@@ -5,7 +5,7 @@
       "referenceNumber": "Reference number",
       "name": "Name"
     },
-    "downloadableFiles": "Download your documents",
+    "downloadDocuments": "Download your documents",
     "files": {
       "dpetition": "Divorce application",
       "respondentAnswers": "Respondent's answers",

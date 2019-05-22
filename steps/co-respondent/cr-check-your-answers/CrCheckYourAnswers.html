@@ -7,6 +7,10 @@
 <p class="govuk-body">{{ content.statementOfTruth | safe }}</p>
 {% endblock %}
 
+{% set pageContent = {
+    title: content.title
+} %}
+
 {% block full_width %}
     <div id="divorce-check-your-answers">
         {{ super() }}
