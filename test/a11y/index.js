@@ -15,6 +15,12 @@ const stepIsPostable = step => {
   return typeof stepInstance.parse === 'function';
 };
 
+// Ignored Errors
+const excludedErrors = [ 'WCAG2AA.Principle1.Guideline1_3.1_3_1.F92,ARIA4' ];
+const filteredErrors = r => {
+  return !excludedErrors.includes(r.code);
+};
+
 // set up step with valid idam creds
 const session = { IdamLogin: { success: 'yes' } };
 const getAgent = step => {
@@ -62,7 +68,8 @@ steps
         before(() => {
           return validateAccessibility(step, 'GET')
             .then(results => {
-              errors = results.errors;
+              errors = results.errors
+                .filter(filteredErrors);
               warnings = results.warnings;
             })
             .catch(error => {
@@ -84,7 +91,8 @@ steps
           before(() => {
             return validateAccessibility(step, 'POST')
               .then(results => {
-                errors = results.errors;
+                errors = results.errors
+                  .filter(filteredErrors);
                 warnings = results.warnings;
               })
               .catch(error => {

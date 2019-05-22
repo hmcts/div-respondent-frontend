@@ -59,7 +59,9 @@
 
 {% block two_thirds -%}
   {% block title %}
-    {{ header(title, size=titleSize) }}
+    {% if (title) %}
+      {{ header(title, size=titleSize) }}
+    {% endif %}
   {% endblock %}
   {% block main_content %}
   {% endblock %}

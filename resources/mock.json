@@ -2,6 +2,8 @@
   "divorceWho": "husband",
   "divorceCenterName": "East Midlands Regional Divorce Centre",
   "referenceNumber": 5555555555555555,
+  "state": "DNAwaiting",
+  "caseState": "DNAwaiting",
   "originalPetition": {
     "issueDate" : "2006-02-02T00:00:00.000+0000",
     "caseReference": "LV18D81234",
@@ -220,6 +222,7 @@
             "PaymentSiteId" : "AA00"
         }
     }],
-    "respEmailAddress" : "respondent@email.address"
+    "respEmailAddress" : "respondent@email.address",
+    "respWillDefendDivorce": "No"
    }
 }

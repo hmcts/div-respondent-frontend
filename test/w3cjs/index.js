@@ -120,7 +120,7 @@ steps
       });
 
       it('should not have any html warnings', () => {
-        expect(warnings.length).to.equal(0, JSON.stringify(filteredWarnings, null, 2));
+        expect(warnings.length).to.equal(0, JSON.stringify(warnings, null, 2));
       });
     });
   });
