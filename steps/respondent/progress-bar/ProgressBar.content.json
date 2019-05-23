@@ -5,6 +5,11 @@
     "youMustRespond": "You must respond",
     "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
     "madeFinal": "Divorce is complete",
+    "downloadableFiles": "Download your documents",
+    "files": {
+      "dpetition": "Divorce application",
+      "respondentAnswers": "Your answers"
+    },
     "details": {
       "referenceNumber": "Reference number",
       "name": "Name"

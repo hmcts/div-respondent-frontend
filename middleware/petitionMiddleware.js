@@ -60,6 +60,10 @@ const loadMiniPetition = (req, res, next) => {
         if (idamUserIsCorespondent) {
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }
+        if (caseState === config.caseStates.AosAwaiting) {
+          logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
+          return res.redirect(CaptureCaseAndPin.path);
+        }
         if (caseState !== config.caseStates.AosStarted) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
