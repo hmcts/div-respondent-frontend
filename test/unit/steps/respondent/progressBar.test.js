@@ -162,12 +162,34 @@ describe(modulePath, () => {
 
   describe('right hand side menu rendering', () => {
     const session = {
-      caseState: 'AwaitingReissue',
+      caseState: 'AosSubmittedAwaitingAnswer',
       originalPetition: {
+        d8: [
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'd8petition1539017559370699.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
+          },
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'respondentAnswers.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
+          }
+        ]
       }
     };
 
-    it('should render guidance links', () => {
+    it('should render guidance and document links', () => {
       return custom(ProgressBar)
         .withSession(session)
         .get()
@@ -178,6 +200,9 @@ describe(modulePath, () => {
             .and.to.include('Responding to a divorce application')
             .and.to.include('Decree nisi')
             .and.to.include('Decree absolute')
+            .and.to.include('Download your documents')
+            .and.to.include('Divorce application (PDF)')
+            .and.to.include('Your answers (PDF)')
             .and.to.include('Children and divorce')
             .and.to.include('Money and property');
         });

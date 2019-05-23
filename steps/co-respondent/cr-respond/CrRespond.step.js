@@ -3,6 +3,8 @@ const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const { createUris } = require('@hmcts/div-document-express-handler');
+const { documentWhiteList } = require('services/documentHandler');
 
 class CrRespond extends Interstitial {
   static get path() {
@@ -24,6 +26,14 @@ class CrRespond extends Interstitial {
 
   get feesIssueApplication() {
     return this.res.locals.applicationFee['petition-issue-fee'].amount;
+  }
+
+  get downloadableFiles() {
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: documentWhiteList(this.req)
+    };
+    return createUris(this.session.originalPetition.d8 || [], docConfig);
   }
 
   get middleware() {

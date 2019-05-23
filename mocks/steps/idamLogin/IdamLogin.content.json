@@ -22,10 +22,10 @@
         "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
         "no": "No",
         "petitionerRedirect": "Set user to petitioner",
-        "corespondentLogin": "Set user to Co-respondent to continue journey",
+        "corespondentLogin": "Set user to Co-respondent to continue journey (+ resp answers doc)",
         "corespondentAmendedCaseLogin": "Set user to Co-respondent to continue journey - with amended case",
         "coRespNotDefending": "Co-respondent user responded - not defending",
-        "coRespDefendingWaitingAnswer": "Co-respondent user responded - defending waiting answer",
+        "coRespDefendingWaitingAnswer": "Co-respondent user responded - defending waiting answer (has docs)",
         "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer",
         "coRespTooLateToRespond": "Co-respondent not responded - Divorce Granted",
         "throwError": "Simulate 500 server error"
