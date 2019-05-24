@@ -255,9 +255,9 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#bd263223817c8760bd1c0bc433a6779122d16e21":
+"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f":
   version "3.0.0"
-  resolved "https://github.com/hmcts/look-and-feel.git#bd263223817c8760bd1c0bc433a6779122d16e21"
+  resolved "https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -274,7 +274,6 @@
     express-nunjucks "^2.2.3"
     extract-text-webpack-plugin "^3.0.0"
     govuk-frontend "^2.6.0"
-    govuk_frontend_toolkit "^8.1.0"
     hard-source-webpack-plugin "^0.13.1"
     imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
     jquery "^3.2.1"
@@ -305,12 +304,12 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#6cf23ba27acad426a944ccea3dcdc912ffea727e":
-  version "3.0.3"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#6cf23ba27acad426a944ccea3dcdc912ffea727e"
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#91442c7897ea80f3d512875cbe3773574b574775":
+  version "4.0.0"
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#91442c7897ea80f3d512875cbe3773574b574775"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
-    "@hmcts/look-and-feel" "https://github.com/hmcts/look-and-feel.git#bd263223817c8760bd1c0bc433a6779122d16e21"
+    "@hmcts/look-and-feel" "https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f"
     "@hmcts/one-per-page" "^5.0.0"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
@@ -5516,11 +5515,6 @@ govuk_frontend_toolkit@^7.1.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/govuk_frontend_toolkit/-/govuk_frontend_toolkit-7.6.0.tgz#b09a60631afbba4bfac76a8b7c02e72419c29cf5"
   integrity sha1-sJpgYxr7ukv6x2qLfALnJBnCnPU=
-
-govuk_frontend_toolkit@^8.1.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/govuk_frontend_toolkit/-/govuk_frontend_toolkit-8.2.0.tgz#6f23bd9bbce02b22c82f4ebba6cd4b07a2141fd7"
-  integrity sha512-USdHnptTl7HPHb9XZbyEK63lL66bzPl/pQLNMURFIXhhZCbW2gJglwMzTMHxdkgkWfKERiDocjsiukClHZ+opw==
 
 govuk_template_jinja@^0.23.0:
   version "0.23.3"
