@@ -5,12 +5,13 @@ const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./AgreeToPayCosts.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
-const yes = config.yesOrNo.yes;
-const no = config.yesOrNo.no;
-const differentAmount = config.agreeToPayCosts.differentAmount;
+const yes = constants.userActions.yesOrNo.yes;
+const no = constants.userActions.yesOrNo.no;
+const differentAmount = constants.userActions.differentAmount;
 
 class AgreeToPayCosts extends Question {
   static get path() {

@@ -5,6 +5,7 @@ const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./ConsentDecree.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
@@ -14,7 +15,7 @@ class ConsentDecree extends Question {
   }
 
   get const() {
-    return config.yesOrNo;
+    return constants.userActions.yesOrNo;
   }
 
   get session() {

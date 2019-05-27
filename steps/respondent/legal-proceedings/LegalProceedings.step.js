@@ -5,10 +5,11 @@ const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./LegalProceedings.content');
 
-const yes = config.yesOrNo.yes;
-const no = config.yesOrNo.no;
+const yes = constants.userActions.yesOrNo.yes;
+const no = constants.userActions.yesOrNo.no;
 
 class LegalProceedings extends Question {
   static get path() {

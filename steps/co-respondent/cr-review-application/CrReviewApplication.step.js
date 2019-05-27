@@ -3,6 +3,7 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
+const constants = require('common/constants');
 const idam = require('services/idam');
 const Joi = require('joi');
 const content = require('./CrReviewApplication.content').en;
@@ -18,7 +19,10 @@ class CrReviewApplication extends Question {
   }
 
   get const() {
-    return config.coRespReviewApplication;
+    return {
+      yes: constants.userActions.yesOrNo.yes,
+      adultery: constants.caseFacts.adultery
+    };
   }
 
   get session() {

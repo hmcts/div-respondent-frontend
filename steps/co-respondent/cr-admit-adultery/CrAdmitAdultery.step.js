@@ -5,6 +5,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./CrAdmitAdultery.content');
 
 class CrAdmitAdultery extends Question {
@@ -13,7 +14,12 @@ class CrAdmitAdultery extends Question {
   }
 
   get const() {
-    return config.admitAdultery;
+    return {
+      admit: constants.userActions.admit,
+      doNotAdmit: constants.userActions.doNotAdmit,
+      yes: constants.userActions.yesOrNo.yes,
+      no: constants.userActions.yesOrNo.no
+    };
   }
 
   get caseData() {

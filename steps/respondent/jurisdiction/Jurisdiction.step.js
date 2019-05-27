@@ -5,6 +5,7 @@ const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./Jurisdiction.content');
 
 class Jurisdiction extends Question {
@@ -13,7 +14,7 @@ class Jurisdiction extends Question {
   }
 
   get validValues() {
-    return config.yesOrNo;
+    return constants.userActions.yesOrNo;
   }
 
   get session() {

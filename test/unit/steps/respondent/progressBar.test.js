@@ -4,7 +4,7 @@ const progressBarContent = require('steps/respondent/progress-bar/ProgressBar.co
 const idam = require('services/idam');
 const { custom, expect, middleware,
   sinon, content, stepAsInstance } = require('@hmcts/one-per-page-test-suite');
-const config = require('config');
+const constants = require('common/constants');
 const httpStatus = require('http-status-codes');
 const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
@@ -114,7 +114,7 @@ describe(modulePath, () => {
 
   describe('court address details - undefended divorce', () => {
     const basicSession = {
-      caseState: config.caseStates.AosSubmittedAwaitingAnswer,
+      caseState: constants.caseStates.AosSubmittedAwaitingAnswer,
       originalPetition: {
         respWillDefendDivorce: undefined
       }

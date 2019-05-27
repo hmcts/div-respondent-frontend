@@ -5,6 +5,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./CrConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
@@ -14,7 +15,11 @@ class CrConfirmDefence extends Question {
   }
 
   get const() {
-    return config.coRespConfirmDefence;
+    return {
+      confirm: constants.userActions.confirm,
+      changeResponse: constants.userActions.changeResponse,
+      coRespondent: constants.caseFacts.coRespondent
+    };
   }
 
   get session() {

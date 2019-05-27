@@ -5,6 +5,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 class NoConsentAreYouSure extends Question {
@@ -21,7 +22,7 @@ class NoConsentAreYouSure extends Question {
   }
 
   get const() {
-    return config.yesOrNo;
+    return constants.userActions.yesOrNo;
   }
 
   get form() {

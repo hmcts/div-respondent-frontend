@@ -1,5 +1,5 @@
 const caseOrchestration = require('services/caseOrchestration');
-const config = require('config');
+const constants = require('common/constants');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
@@ -40,7 +40,7 @@ function storePetitionInSession(req, response) {
 
 function findCoRespPath(coRespAnswers, caseState) {
   const receivedAOSRespFromCoResp = coRespAnswers && coRespAnswers.aos && coRespAnswers.aos.received === 'Yes';
-  if (!receivedAOSRespFromCoResp && config.coRespRespondableStates.includes(caseState)) {
+  if (!receivedAOSRespFromCoResp && constants.coRespRespondableStates.includes(caseState)) {
     return crRespond.path;
   }
   return crProgressBar.path;
@@ -60,11 +60,11 @@ const loadMiniPetition = (req, res, next) => {
         if (idamUserIsCorespondent) {
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }
-        if (caseState === config.caseStates.AosAwaiting) {
+        if (caseState === constants.caseStates.AosAwaiting) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
           return res.redirect(CaptureCaseAndPin.path);
         }
-        if (caseState !== config.caseStates.AosStarted) {
+        if (caseState !== constants.caseStates.AosStarted) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
         }

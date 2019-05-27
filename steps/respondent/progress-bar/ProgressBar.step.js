@@ -1,8 +1,8 @@
 /* eslint-disable operator-linebreak */
-/* eslint-disable max-len */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
+const constants = require('common/constants');
 const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
@@ -10,27 +10,36 @@ const { documentWhiteList } = require('services/documentHandler');
 const caseStateMap = [
   {
     template: './sections/OneCircleFilledIn.html',
-    state: [config.caseStates.AwaitingReissue]
+    state: [constants.caseStates.AwaitingReissue]
   },
   {
     template: './sections/OneCircleFilledInBold.html',
-    state: [config.caseStates.AosAwaiting, config.caseStates.AosStarted, config.caseStates.AosOverdue]
+    state: [constants.caseStates.AosAwaiting, constants.caseStates.AosStarted, constants.caseStates.AosOverdue]
   },
   {
     template: './sections/TwoCircleFilledIn.html',
-    state: [config.caseStates.AosSubmittedAwaitingAnswer, config.caseStates.DefendedDivorce, config.caseStates.AwaitingLegalAdvisorReferral, config.caseStates.AmendPetition, config.caseStates.AwaitingConsideration, config.caseStates.AwaitingClarification, config.caseStates.AwaitingPronouncement, config.caseStates.AosCompleted]
+    state: [
+      constants.caseStates.AosSubmittedAwaitingAnswer,
+      constants.caseStates.DefendedDivorce,
+      constants.caseStates.AwaitingLegalAdvisorReferral,
+      constants.caseStates.AmendPetition,
+      constants.caseStates.AwaitingConsideration,
+      constants.caseStates.AwaitingClarification,
+      constants.caseStates.AwaitingPronouncement,
+      constants.caseStates.AosCompleted
+    ]
   },
   {
     template: './sections/TwoCircleFilledInBold.html',
-    state: [config.caseStates.AwaitingDecreeNisi, config.caseStates.DNAwaiting]
+    state: [constants.caseStates.AwaitingDecreeNisi, constants.caseStates.DNAwaiting]
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
-    state: [config.caseStates.AwaitingDecreeAbsolute]
+    state: [constants.caseStates.AwaitingDecreeAbsolute]
   },
   {
     template: './sections/FourCircleFilledIn.html',
-    state: [config.caseStates.DivorceGranted]
+    state: [constants.caseStates.DivorceGranted]
   }
 ];
 
@@ -44,7 +53,7 @@ class ProgressBar extends Interstitial {
   }
 
   get progressStates() {
-    return config.respProgressStates;
+    return constants.respProgressStates;
   }
 
   get downloadableFiles() {
@@ -77,33 +86,33 @@ class ProgressBar extends Interstitial {
   }
 
   progressedUndefended(caseState) {
-    return this.caseBeyondAos(caseState) && this.session.originalPetition.respWillDefendDivorce === config.yesOrNo.no;
+    return this.caseBeyondAos(caseState) && this.session.originalPetition.respWillDefendDivorce === constants.userActions.yesOrNo.no;
   }
 
   awaitingAnswer(caseState) {
-    return caseState === config.caseStates.AosSubmittedAwaitingAnswer;
+    return caseState === constants.caseStates.AosSubmittedAwaitingAnswer;
   }
 
   defendedDivorce(caseState) {
-    return caseState === config.caseStates.DefendedDivorce;
+    return caseState === constants.caseStates.DefendedDivorce;
   }
 
   caseBeyondAos(caseState) {
     return (
-      caseState === config.caseStates.AwaitingLegalAdvisorReferral ||
-      caseState === config.caseStates.AmendPetition ||
-      caseState === config.caseStates.AwaitingClarification ||
-      caseState === config.caseStates.AwaitingConsideration ||
-      caseState === config.caseStates.AwaitingDecreeAbsolute ||
-      caseState === config.caseStates.DNAwaiting ||
-      caseState === config.caseStates.AwaitingReissue ||
-      caseState === config.caseStates.DivorceGranted ||
-      caseState === config.caseStates.AwaitingPronouncement
+      caseState === constants.caseStates.AwaitingLegalAdvisorReferral ||
+      caseState === constants.caseStates.AmendPetition ||
+      caseState === constants.caseStates.AwaitingClarification ||
+      caseState === constants.caseStates.AwaitingConsideration ||
+      caseState === constants.caseStates.AwaitingDecreeAbsolute ||
+      caseState === constants.caseStates.DNAwaiting ||
+      caseState === constants.caseStates.AwaitingReissue ||
+      caseState === constants.caseStates.DivorceGranted ||
+      caseState === constants.caseStates.AwaitingPronouncement
     );
   }
 
   get isDefending() {
-    return this.session.originalPetition.respWillDefendDivorce === config.yesOrNo.yes;
+    return this.session.originalPetition.respWillDefendDivorce === constants.userActions.yesOrNo.yes;
   }
 
   get middleware() {

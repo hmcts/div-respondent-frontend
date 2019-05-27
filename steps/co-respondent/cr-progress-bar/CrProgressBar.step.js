@@ -1,5 +1,6 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
+const constants = require('common/constants');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
@@ -15,19 +16,19 @@ class CrProgressBar extends Interstitial {
   }
 
   receivedAosFromCoResp() {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.aos && this.session.originalPetition.coRespondentAnswers.aos.received === config.yesOrNo.yes;
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.aos && this.session.originalPetition.coRespondentAnswers.aos.received === constants.userActions.yesOrNo.yes;
   }
 
   coRespDefendsDivorce() {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.defendsDivorce === config.yesOrNo.yes;
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.defendsDivorce === constants.userActions.yesOrNo.yes;
   }
 
   receivedAnswerFromCoResp() {
-    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.answer && this.session.originalPetition.coRespondentAnswers.answer.received === config.yesOrNo.yes;
+    return this.session.originalPetition.coRespondentAnswers && this.session.originalPetition.coRespondentAnswers.answer && this.session.originalPetition.coRespondentAnswers.answer.received === constants.userActions.yesOrNo.yes;
   }
 
   get progressStates() {
-    return config.coRespProgressStates;
+    return constants.coRespProgressStates;
   }
 
   get feesDefendDivorce() {

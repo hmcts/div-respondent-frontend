@@ -5,6 +5,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./CrChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
@@ -14,7 +15,13 @@ class CrChooseAResponse extends Question {
   }
 
   get consts() {
-    return config.coRespChooseAResponse;
+    return {
+      proceed: constants.userActions.proceed,
+      defend: constants.userActions.defend,
+      yes: constants.userActions.yesOrNo.yes,
+      no: constants.userActions.yesOrNo.no,
+      coRespondent: constants.caseFacts.coRespondent
+    };
   }
 
   get session() {
@@ -26,10 +33,9 @@ class CrChooseAResponse extends Question {
   }
 
   get form() {
-    const constants = this.consts;
     const answers = [
-      constants.proceed,
-      constants.defend
+      this.consts.proceed,
+      this.consts.defend
     ];
 
     const validAnswers = Joi.string()

@@ -3,6 +3,7 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
+const constants = require('common/constants');
 const idam = require('services/idam');
 const Joi = require('joi');
 const content = require('./ReviewApplication.content').en;
@@ -20,7 +21,11 @@ class ReviewApplication extends Question {
   }
 
   get const() {
-    return config.respReviewApplication;
+    return {
+      yes: constants.userActions.yesOrNo.yes,
+      adultery: constants.caseFacts.adultery,
+      twoYearSeparation: constants.caseFacts.twoYearSeparation
+    };
   }
 
   get session() {

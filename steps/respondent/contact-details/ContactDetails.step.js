@@ -5,9 +5,10 @@ const { form, text, object } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./ContactDetails.content');
 
-const yes = config.yesOrNo.yes;
+const yes = constants.userActions.yesOrNo.yes;
 
 class ContactDetails extends Question {
   static get path() {

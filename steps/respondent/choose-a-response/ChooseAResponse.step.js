@@ -5,6 +5,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
+const constants = require('common/constants');
 const content = require('./ChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
@@ -14,7 +15,17 @@ class ChooseAResponse extends Question {
   }
 
   get consts() {
-    return config.respChooseAResponse;
+    return {
+      proceed: constants.userActions.proceed,
+      defend: constants.userActions.defend,
+      yes: constants.userActions.yesOrNo.yes,
+      no: constants.userActions.yesOrNo.no,
+      proceedButDisagree: constants.userActions.proceedButDisagree,
+      notAccept: constants.userActions.notAccept,
+      fiveYearSeparation: constants.caseFacts.fiveYearSeparation,
+      behavior: constants.caseFacts.behavior,
+      desertion: constants.caseFacts.desertion
+    };
   }
 
   get session() {
@@ -36,11 +47,10 @@ class ChooseAResponse extends Question {
   }
 
   get form() {
-    const constants = this.consts;
     const answers = [
-      constants.proceed,
-      constants.proceedButDisagree,
-      constants.defend
+      this.consts.proceed,
+      this.consts.proceedButDisagree,
+      this.consts.defend
     ];
 
     const validAnswers = Joi.string()
