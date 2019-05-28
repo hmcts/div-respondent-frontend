@@ -7,6 +7,7 @@ Scenario('Should display content for co-respondent - Not defending response', I 
   I.seeCrProgressBarPage();
   I.seeContentForNotDefending();
   I.seePetitionToDownload();
+  I.seeCoRespAnswersToDownload();
 }).retry(2);
 
 Scenario('Should display content for co-respondent - Defending awaiting answer', I => {
@@ -16,7 +17,7 @@ Scenario('Should display content for co-respondent - Defending awaiting answer',
   I.seeCrProgressBarPage();
   I.seeContentForDefendingAwaitingAnswer();
   I.seePetitionToDownload();
-  I.seeRespondentAnswersToDownload();
+  I.seeRespAnswersToDownload();
 }).retry(2);
 
 Scenario('Should display content for co-respondent - Defending submitted answer', I => {
@@ -26,6 +27,7 @@ Scenario('Should display content for co-respondent - Defending submitted answer'
   I.seeCrProgressBarPage();
   I.seeContentForNotDefendingSubmittedAnswer();
   I.seePetitionToDownload();
+  I.seeCoRespAnswersToDownload();
 }).retry(2);
 
 Scenario('Should display content for co-respondent - Too late to Respond', I => {
