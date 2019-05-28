@@ -237,6 +237,16 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/a060ba13-d5da-45b0-a181-1c2ace891904",
         "mimeType": null,
         "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "coRespondentAnswers.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/corespondentAnswers",
+        "mimeType": null,
+        "status": null
       }
     ],
     "previousCaseId": "12345",
