@@ -43,9 +43,14 @@ function seePetitionToDownload() {
   I.see(content.en.files.dpetition);
 }
 
-function seeRespondentAnswersToDownload() {
+function seeRespAnswersToDownload() {
   const I = this;
   I.see(content.en.files.respondentAnswers);
+}
+
+function seeCoRespAnswersToDownload() {
+  const I = this;
+  I.see(content.en.files.coRespondentAnswers);
 }
 
 module.exports = {
@@ -55,5 +60,6 @@ module.exports = {
   seeContentForNotDefendingSubmittedAnswer,
   seeContentForTooLateToRespond,
   seePetitionToDownload,
-  seeRespondentAnswersToDownload
+  seeRespAnswersToDownload,
+  seeCoRespAnswersToDownload
 };
