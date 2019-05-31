@@ -22,6 +22,8 @@ nodejs:
         EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
         EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT: "/emclientapi/version/1/download"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
+        FEATURE_RESP_SOLICITOR_DETAILS: "true"
+        
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}

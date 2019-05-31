@@ -80,6 +80,8 @@ paths:
   mock:
     idamLogin: /idam-mock-login
   respondent:
+    solicitorDetails: /solicitor-details
+    solicitorRepresentation: /resp-has-solicitor
     financialSituation: /delay-the-decree
     respond: /respond
     reviewApplication: /review-application
@@ -160,6 +162,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
+  respSolicitorDetails: true
 
 journey:
   timeoutDelay: 300
