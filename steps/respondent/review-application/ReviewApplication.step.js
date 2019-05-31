@@ -1,5 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
+const { parseBool } = require('@hmcts/one-per-page');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
@@ -45,6 +46,10 @@ class ReviewApplication extends Question {
     return this.res.locals.applicationFee['application-financial-order-fee'].amount;
   }
 
+  get isRespondentSolEnabled() {
+    return parseBool(config.features.respSolicitorDetails);
+  }
+
   get form() {
     const answers = [this.const.yes];
     const validAnswers = Joi.string()
@@ -88,6 +93,9 @@ class ReviewApplication extends Question {
   }
 
   next() {
+    if (this.isRespondentSolEnabled) {
+      return goTo(this.journey.steps.SolicitorRepresentation);
+    }
     const petition = this.session.originalPetition;
     const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
     const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;

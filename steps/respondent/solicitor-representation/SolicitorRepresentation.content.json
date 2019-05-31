@@ -1,0 +1,17 @@
+{
+  "en": {
+    "title": "Are you being represented by a solicitor?",
+    "subHeading": "Do you have a solicitor that will submit your response on your behalf?",
+    "fields": {
+      "hasSolicitor": {
+        "label": "Yes"
+      },
+      "noSolicitor": {
+        "label": "No"
+      }
+    },
+    "errors": {
+      "required": "Confirm whether you have a solicitor representing you or not"
+    }
+  }
+}
