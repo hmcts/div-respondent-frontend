@@ -288,6 +288,17 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/88217833-f74f-4cc3-ae73-f66d61f7f4d4",
         "mimeType": null,
         "status": null
+      },
+      {
+        "id": "1230fjasdhascertificateOfEntitlement10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "certificateOfEntitlement1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/certificateOfEntitlement",
+        "mimeType": null,
+        "status": null
       }
     ]
   }
