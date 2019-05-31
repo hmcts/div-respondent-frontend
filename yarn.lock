@@ -255,9 +255,9 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f":
+"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#f8848f0b4b533bd62ee8a3de57f45950fc67af6c":
   version "3.0.0"
-  resolved "https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f"
+  resolved "https://github.com/hmcts/look-and-feel.git#f8848f0b4b533bd62ee8a3de57f45950fc67af6c"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -304,12 +304,12 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#91442c7897ea80f3d512875cbe3773574b574775":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#1b0a8cc40cfdcd9e5c5a0480cf1f60100cf85e30":
   version "4.0.0"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#91442c7897ea80f3d512875cbe3773574b574775"
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#1b0a8cc40cfdcd9e5c5a0480cf1f60100cf85e30"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
-    "@hmcts/look-and-feel" "https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f"
+    "@hmcts/look-and-feel" "https://github.com/hmcts/look-and-feel.git#f8848f0b4b533bd62ee8a3de57f45950fc67af6c"
     "@hmcts/one-per-page" "^5.0.0"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"

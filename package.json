@@ -30,7 +30,7 @@
   "dependencies": {
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.4.0",
-    "@hmcts/look-and-feel": "https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f",
+    "@hmcts/look-and-feel": "https://github.com/hmcts/look-and-feel.git#f8848f0b4b533bd62ee8a3de57f45950fc67af6c",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.2.1",
@@ -56,7 +56,7 @@
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.5.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#0.1",
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#91442c7897ea80f3d512875cbe3773574b574775",
+    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#1b0a8cc40cfdcd9e5c5a0480cf1f60100cf85e30",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
