@@ -6,7 +6,10 @@ const reviewApplicationContent = require(`${moduleRootName}.content`);
 
 const ReviewApplication = require(modulePath);
 const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
+const SolicitorRepresentation = require('steps/respondent/solicitor-representation/SolicitorRepresentation.step');
+const config = require('config');
 const idam = require('services/idam');
+const { parseBool } = require('@hmcts/one-per-page');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
@@ -67,6 +70,9 @@ describe(modulePath, () => {
         reasonForDivorceClaimingAdultery: false
       }
     };
+    if (parseBool(config.features.respSolicitorDetails)) {
+      return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
+    }
     return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
   });
 
