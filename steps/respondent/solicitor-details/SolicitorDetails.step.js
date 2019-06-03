@@ -23,22 +23,21 @@ class SolicitorDetails extends Question {
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
-
     const validatePhoneNumber = Joi.string()
       .regex(/^[0-9 +().-]{9,}$/)
       .required();
-
+    const validateEmail = Joi.string()
+      .regex(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)
+      .required();
     const requiredAnswer = Joi.string()
       .required();
-
-    const errorMessageRequiredField = this.content.errors.requiredField;
+    const errorMessageRequiredField = this.content.errors.validEmail;
 
     const fields = {
       solicitorName: text,
       firmName: text.joi(errorMessageRequiredField, requiredAnswer),
-      solicitorEmail: text.joi(errorMessageRequiredField, requiredAnswer),
-      telephone: text.joi(this.content.errors.requireValidTelephoneNo,
-        validatePhoneNumber),
+      solicitorEmail: text.joi(errorMessageRequiredField, validateEmail),
+      telephone: text.joi(this.content.errors.requireValidTelephoneNo, validatePhoneNumber),
       solicitorRefNumber: text.joi(errorMessageRequiredField, requiredAnswer),
       consent: text.joi(this.content.errors.requireConsent, validAnswers)
     };

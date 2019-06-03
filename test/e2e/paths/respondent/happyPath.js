@@ -1,6 +1,7 @@
 const content = require('common/content');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
 const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page');
 
 Feature('Happy path');
 
@@ -19,6 +20,7 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   if (config.tests.e2e.addWaitForCrossBrowser) {
     I.wait(5);
   }
+
   I.seeRespondPage();
   I.wait(5);
   I.navByClick(content.en.continue);
@@ -27,6 +29,11 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.wait(5);
   I.acknowledgeApplication();
   I.navByClick(content.en.continue);
+
+  if (parseBool(config.features.respSolicitorDetails)) {
+    I.seeSolicitorRepPage();
+    I.selectNoSolicitor();
+  }
 
   I.seeChooseAResponsePage();
   I.chooseToProceedWithDivorce();

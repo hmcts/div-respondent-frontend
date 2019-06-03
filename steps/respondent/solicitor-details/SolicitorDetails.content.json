@@ -27,6 +27,7 @@
     "errors": {
       "requireValidTelephoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
       "requiredField": "Enter the required data",
+      "validEmail": "Please enter a valid email address",
       "requireConsent": "Please confirm that the solicitor's details are correct"
     }
   }
