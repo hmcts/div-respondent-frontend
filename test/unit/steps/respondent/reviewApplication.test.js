@@ -1,10 +1,8 @@
 /* eslint max-lines: 0 */
 
-const moduleRootName = 'steps/respondent/review-application/ReviewApplication';
-const modulePath = `${moduleRootName}.step`;
-const reviewApplicationContent = require(`${moduleRootName}.content`);
-
+const modulePath = 'steps/respondent/review-application/ReviewApplication.step';
 const ReviewApplication = require(modulePath);
+const reviewApplicationContent = require('steps/respondent/review-application/ReviewApplication.content');
 const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
 const SolicitorRepresentation = require('steps/respondent/solicitor-representation/SolicitorRepresentation.step');
 const config = require('config');
@@ -63,12 +61,12 @@ describe(modulePath, () => {
   });
 
   describe('solicitor feature off', () => {
-    const cacheConfig = config.features.respSolicitorDetails;
+    const cachedConfig = config.features.respSolicitorDetails;
     beforeEach(() => {
       config.features.respSolicitorDetails = false;
     });
     afterEach(() => {
-      config.features.respSolicitorDetails = cacheConfig;
+      config.features.respSolicitorDetails = cachedConfig;
     });
     it('redirects to choose a response page when answered and solicitor feature off', () => {
       const fields = { respConfirmReadPetition: 'Yes' };
@@ -81,13 +79,13 @@ describe(modulePath, () => {
     });
   });
 
-  describe('solicitor feature off', () => {
-    const cacheConfig = config.features.respSolicitorDetails;
+  describe('solicitor feature on', () => {
+    const cachedConfig = config.features.respSolicitorDetails;
     beforeEach(() => {
       config.features.respSolicitorDetails = true;
     });
     afterEach(() => {
-      config.features.respSolicitorDetails = cacheConfig;
+      config.features.respSolicitorDetails = cachedConfig;
     });
     it('redirects to solicitor question page when solicitor feature on', () => {
       const fields = { respConfirmReadPetition: 'Yes' };
