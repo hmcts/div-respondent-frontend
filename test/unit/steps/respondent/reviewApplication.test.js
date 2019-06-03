@@ -9,7 +9,6 @@ const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseARespo
 const SolicitorRepresentation = require('steps/respondent/solicitor-representation/SolicitorRepresentation.step');
 const config = require('config');
 const idam = require('services/idam');
-const { parseBool } = require('@hmcts/one-per-page');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
@@ -63,17 +62,27 @@ describe(modulePath, () => {
     return question.testErrors(ReviewApplication, session);
   });
 
-  it('redirects to choose a response page when answered', () => {
+  it('redirects to choose a response page when answered and solicitor feature off', () => {
     const fields = { respConfirmReadPetition: 'Yes' };
     const session = {
       originalPetition: {
         reasonForDivorceClaimingAdultery: false
       }
     };
-    if (parseBool(config.features.respSolicitorDetails)) {
-      return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
-    }
+    config.features.respSolicitorDetails = false;
     return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
+  });
+
+  it('redirects to solicitor question page when solicitor feature on', () => {
+    const fields = { respConfirmReadPetition: 'Yes' };
+    const session = {
+      originalPetition: {
+        reasonForDivorceClaimingAdultery: false
+      }
+    };
+    config.features.respSolicitorDetails = true;
+
+    return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
   });
 
   describe('Behaviour Details', () => {
