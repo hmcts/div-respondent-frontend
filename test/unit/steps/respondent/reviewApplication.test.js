@@ -62,27 +62,43 @@ describe(modulePath, () => {
     return question.testErrors(ReviewApplication, session);
   });
 
-  it('redirects to choose a response page when answered and solicitor feature off', () => {
-    const fields = { respConfirmReadPetition: 'Yes' };
-    const session = {
-      originalPetition: {
-        reasonForDivorceClaimingAdultery: false
-      }
-    };
-    config.features.respSolicitorDetails = false;
-    return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
+  describe('solicitor feature off', () => {
+    const cacheConfig = config.features.respSolicitorDetails;
+    beforeEach(() => {
+      config.features.respSolicitorDetails = false;
+    });
+    afterEach(() => {
+      config.features.respSolicitorDetails = cacheConfig;
+    });
+    it('redirects to choose a response page when answered and solicitor feature off', () => {
+      const fields = { respConfirmReadPetition: 'Yes' };
+      const session = {
+        originalPetition: {
+          reasonForDivorceClaimingAdultery: false
+        }
+      };
+      return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
+    });
   });
 
-  it('redirects to solicitor question page when solicitor feature on', () => {
-    const fields = { respConfirmReadPetition: 'Yes' };
-    const session = {
-      originalPetition: {
-        reasonForDivorceClaimingAdultery: false
-      }
-    };
-    config.features.respSolicitorDetails = true;
+  describe('solicitor feature off', () => {
+    const cacheConfig = config.features.respSolicitorDetails;
+    beforeEach(() => {
+      config.features.respSolicitorDetails = true;
+    });
+    afterEach(() => {
+      config.features.respSolicitorDetails = cacheConfig;
+    });
+    it('redirects to solicitor question page when solicitor feature on', () => {
+      const fields = { respConfirmReadPetition: 'Yes' };
+      const session = {
+        originalPetition: {
+          reasonForDivorceClaimingAdultery: false
+        }
+      };
 
-    return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
+      return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
+    });
   });
 
   describe('Behaviour Details', () => {
