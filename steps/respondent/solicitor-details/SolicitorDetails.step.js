@@ -31,14 +31,13 @@ class SolicitorDetails extends Question {
       .required();
     const requiredAnswer = Joi.string()
       .required();
-    const errorMessageRequiredField = this.content.errors.validEmail;
 
     const fields = {
       solicitorName: text,
-      firmName: text.joi(errorMessageRequiredField, requiredAnswer),
-      solicitorEmail: text.joi(errorMessageRequiredField, validateEmail),
+      firmName: text.joi(this.content.errors.requiredField, requiredAnswer),
+      solicitorEmail: text.joi(this.content.errors.validEmail, validateEmail),
       telephone: text.joi(this.content.errors.requireValidTelephoneNo, validatePhoneNumber),
-      solicitorRefNumber: text.joi(errorMessageRequiredField, requiredAnswer),
+      solicitorRefNumber: text.joi(this.content.errors.requiredField, requiredAnswer),
       consent: text.joi(this.content.errors.requireConsent, validAnswers)
     };
 

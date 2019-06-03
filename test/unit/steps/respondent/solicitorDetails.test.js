@@ -29,7 +29,7 @@ describe(modulePath, () => {
     const fields = {
       'solicitorDetails.solicitorName': 'John Johnes',
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'Yes'
@@ -38,11 +38,11 @@ describe(modulePath, () => {
     return question.redirectWithField(SolicitorDetails, fields, CheckYourAnswers);
   });
 
-  it('redirects to next page when all details except Solicitor Name,are supplied', () => {
+  it('redirects to next page when all details except Solicitor Name, are supplied', () => {
     const fields = {
       'solicitorDetails.solicitorName': '',
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'Yes'
@@ -54,7 +54,7 @@ describe(modulePath, () => {
   it('shows error when invalid phone number supplied', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
       'solicitorDetails.telephone': '0',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'Yes'
@@ -67,12 +67,25 @@ describe(modulePath, () => {
   it('shows error when consent is not yes', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'No'
     };
     const onlyErrors = ['requireConsent'];
+
+    return question.testErrors(SolicitorDetails, {}, fields, { onlyErrors });
+  });
+
+  it('shows error when email is not valid', () => {
+    const fields = {
+      'solicitorDetails.firmName': 'Test Firm Name',
+      'solicitorDetails.solicitorEmail': '',
+      'solicitorDetails.telephone': '2222222222',
+      'solicitorDetails.solicitorRefNumber': '11111111111',
+      'solicitorDetails.consent': 'Yes'
+    };
+    const onlyErrors = ['validEmail'];
 
     return question.testErrors(SolicitorDetails, {}, fields, { onlyErrors });
   });
@@ -85,7 +98,7 @@ describe(modulePath, () => {
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'Yes'
     };
-    const onlyErrors = ['requiredField'];
+    const onlyErrors = ['validEmail'];
 
     return question.testErrors(SolicitorDetails, {}, fields, { onlyErrors });
   });
@@ -93,7 +106,7 @@ describe(modulePath, () => {
   it('shows error when solicitor reference is not filled', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@frim.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '',
       'solicitorDetails.consent': 'Yes'
