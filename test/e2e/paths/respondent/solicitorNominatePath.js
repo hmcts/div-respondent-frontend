@@ -4,7 +4,7 @@ const { parseBool } = require('@hmcts/one-per-page');
 
 Feature('Respondent Solicitor');
 
-Scenario('@Pipeline If I nominate a solicitor I submit their details and do not respond', I => {
+Scenario('If I nominate a solicitor I submit their details and do not respond', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
