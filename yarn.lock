@@ -255,9 +255,10 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#f8848f0b4b533bd62ee8a3de57f45950fc67af6c":
+"@hmcts/look-and-feel@^3.0.0":
   version "3.0.0"
-  resolved "https://github.com/hmcts/look-and-feel.git#f8848f0b4b533bd62ee8a3de57f45950fc67af6c"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-3.0.0.tgz#d53e3252559606f8bee689c152e1e5e7b2c1a347"
+  integrity sha512-JnHYIQ9ZxJ1jehcBhUH0oeHThQHQ4I0umF0QKsAKxMm8AhYwJHqg0yc5yoyTec4V5v9+6YLhGc6Gv5cdFn15Nw==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -304,12 +305,13 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#1b0a8cc40cfdcd9e5c5a0480cf1f60100cf85e30":
+"@hmcts/one-per-page-test-suite@^4.0.0":
   version "4.0.0"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#1b0a8cc40cfdcd9e5c5a0480cf1f60100cf85e30"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-4.0.0.tgz#9ba6705dfecde0f18f04522de0c74f61498b388f"
+  integrity sha512-saFop3hgoNQcMEUaftwXSjZ/mIAUTzkaP0AVxiyaWLud10CM1UUucXSCfjv0VS+YReWqrTEn2b3KIPwlMhYGTw==
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
-    "@hmcts/look-and-feel" "https://github.com/hmcts/look-and-feel.git#f8848f0b4b533bd62ee8a3de57f45950fc67af6c"
+    "@hmcts/look-and-feel" "^3.0.0"
     "@hmcts/one-per-page" "^5.0.0"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
@@ -10446,9 +10448,9 @@ referrer-policy@1.2.0:
   resolved "https://registry.yarnpkg.com/referrer-policy/-/referrer-policy-1.2.0.tgz#b99cfb8b57090dc454895ef897a4cc35ef67a98e"
   integrity sha512-LgQJIuS6nAy1Jd88DCQRemyE3mS+ispwlqMk3b0yjZ257fI1v9c+/p6SD5gP5FGyXUIgrNOAfmyioHwZtYv2VA==
 
-"reform-pattern-library@https://github.com/hmcts/reform-pattern-library.git":
+"reform-pattern-library@git+https://github.com/hmcts/reform-pattern-library.git":
   version "1.0.0"
-  resolved "https://github.com/hmcts/reform-pattern-library.git#4c75c1e9352e08eb0ed939221203ef1db35b4a54"
+  resolved "git+https://github.com/hmcts/reform-pattern-library.git#4c75c1e9352e08eb0ed939221203ef1db35b4a54"
   dependencies:
     body-parser "^1.18.2"
     browser-sync "^2.18.13"
