@@ -33,6 +33,7 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   if (parseBool(config.features.respSolicitorDetails)) {
     I.seeSolicitorRepPage();
     I.selectNoSolicitor();
+    I.click(content.en.continue);
   }
 
   I.seeChooseAResponsePage();

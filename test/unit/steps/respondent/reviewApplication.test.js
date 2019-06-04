@@ -60,41 +60,24 @@ describe(modulePath, () => {
     return question.testErrors(ReviewApplication, session);
   });
 
-  describe('solicitor feature off', () => {
-    const cachedConfig = config.features.respSolicitorDetails;
-    beforeEach(() => {
-      config.features.respSolicitorDetails = false;
-    });
+  describe('solicitor feature redirect', () => {
+    const cachedSetting = config.features.respSolicitorDetails;
+    const fields = { respConfirmReadPetition: 'Yes' };
+    const session = {
+      originalPetition: {
+        reasonForDivorceClaimingAdultery: false
+      }
+    };
     afterEach(() => {
-      config.features.respSolicitorDetails = cachedConfig;
+      config.features.respSolicitorDetails = cachedSetting;
     });
     it('redirects to choose a response page when answered and solicitor feature off', () => {
-      const fields = { respConfirmReadPetition: 'Yes' };
-      const session = {
-        originalPetition: {
-          reasonForDivorceClaimingAdultery: false
-        }
-      };
+      config.features.respSolicitorDetails = false;
       return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
     });
-  });
 
-  describe('solicitor feature on', () => {
-    const cachedConfig = config.features.respSolicitorDetails;
-    beforeEach(() => {
-      config.features.respSolicitorDetails = true;
-    });
-    afterEach(() => {
-      config.features.respSolicitorDetails = cachedConfig;
-    });
     it('redirects to solicitor question page when solicitor feature on', () => {
-      const fields = { respConfirmReadPetition: 'Yes' };
-      const session = {
-        originalPetition: {
-          reasonForDivorceClaimingAdultery: false
-        }
-      };
-
+      config.features.respSolicitorDetails = true;
       return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
     });
   });
