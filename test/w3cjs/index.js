@@ -1,5 +1,5 @@
 const w3cjs = require('w3cjs');
-const steps = require('steps')();
+const steps = require('steps')(false);
 const { sinon, custom, expect, middleware } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');

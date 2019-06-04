@@ -1,4 +1,4 @@
-const steps = require('steps')();
+const steps = require('steps')(false);
 const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const a11y = require('./a11y');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');

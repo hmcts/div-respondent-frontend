@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block statement_of_truth_fields %}
-    <div class="confirmation-container">
+    <div class="confirmation-container govuk-!-padding-bottom-1">
         {% call formSection() %}
             {{ selectionButtons(
                 fields.respStatementOfTruth,
@@ -43,17 +43,15 @@
             <li>{{ content.facts | safe }}</li>
         </uL>
 
-        <details class="govuk-details govuk-!-margin-bottom-0">
+        <details class="govuk-details">
             <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
                 <span class="govuk-details__summary-text">{{ content.whatTheseStatements | safe }}</span>
             </summary>
-            <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+            <div class="govuk-details__text " id="details-content-0" aria-hidden="true">
                 <p class="govuk-body">{{ content.statementsExplanation | safe }}</p>
             </div>
         </details>
     </div>
-
-    <br>
 
     <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
 {%- endblock %}
