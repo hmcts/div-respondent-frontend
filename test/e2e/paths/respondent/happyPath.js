@@ -1,6 +1,6 @@
 const content = require('common/content');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
-const config = require('config');
+const config = require('@hmcts/properties-volume').addTo(require('config'));
 const { parseBool } = require('@hmcts/one-per-page');
 
 Feature('Happy path');
