@@ -30,6 +30,11 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.acknowledgeApplication();
   I.navByClick(content.en.continue);
 
+  // eslint-disable-next-line
+  console.log('@@@@@ LOGGING CONFIG config.features.respSolicitorDetails', config.features.respSolicitorDetails);
+  // eslint-disable-next-line
+  console.log('@@@@@ LOGGING ENV VAR process.env.FEATURE_RESP_SOLICITOR_DETAILS;', process.env.FEATURE_RESP_SOLICITOR_DETAILS);
+
   if (parseBool(config.features.respSolicitorDetails)) {
     I.seeSolicitorRepPage();
     I.selectNoSolicitor();
