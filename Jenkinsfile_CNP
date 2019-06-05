@@ -45,6 +45,7 @@ withPipeline("nodejs", product, component) {
 
   before('functionalTest:aks') {
     env.NODE_ENV= 'ci'
+    env.FEATURE_RESP_SOLICITOR_DETAILS = 'true'
     sh 'printenv'
   }
 
