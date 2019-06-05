@@ -1,5 +1,5 @@
 /* eslint-disable no-process-env */
-const config = require('@hmcts/properties-volume').addTo(require('config'));
+const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 const waitForAction = config.tests.e2e.waitForAction;
