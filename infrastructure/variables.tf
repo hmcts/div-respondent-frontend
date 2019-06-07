@@ -159,6 +159,11 @@ variable "capacity" {
   default = "1"
 }
 
+variable "instance_size" {
+  default = "I2"
+}
+
+
 variable "google_analytics_tracking_id" {}
 
 variable "google_analytics_tracking_url" {
