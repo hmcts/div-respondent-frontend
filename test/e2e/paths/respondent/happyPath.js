@@ -1,7 +1,6 @@
 const content = require('common/content');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
 const config = require('config');
-const config2 = require('@hmcts/properties-volume').addTo(require('config'));
 const { parseBool } = require('@hmcts/one-per-page');
 
 Feature('Happy path');
@@ -30,13 +29,6 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.wait(5);
   I.acknowledgeApplication();
   I.navByClick(content.en.continue);
-
-  // eslint-disable-next-line
-  console.log('@@@@@ LOGGING CONFIG config.features.respSolicitorDetails', config.features.respSolicitorDetails);
-  // eslint-disable-next-line
-  console.log('@@@@@ LOGGING other CONFIG2 config.features.respSolicitorDetails', config2.features.respSolicitorDetails);
-  // eslint-disable-next-line
-  console.log('@@@@@ LOGGING ENV VAR process.env.FEATURE_RESP_SOLICITOR_DETAILS;', process.env.FEATURE_RESP_SOLICITOR_DETAILS);
 
   if (parseBool(config.features.respSolicitorDetails)) {
     I.seeSolicitorRepPage();
