@@ -94,7 +94,7 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.respondentSolicitorRepresented).to.equal('Yes');
+    expect(values.respondentSolicitorRepresented).to.equal(yes);
   });
 
   it('returns the correct values object, with no for disputing adultery', () => {
@@ -110,6 +110,18 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.respondentSolicitorRepresented).to.equal('No');
+    expect(values.respondentSolicitorRepresented).to.equal('no');
+  });
+
+  describe('watches', () => {
+    it('removes solicitor details if changes answer to no', () => {
+      const instance = new SolicitorRepresentation({ journey: {} });
+      const remove = sinon.stub();
+
+      const watch = instance.watches['SolicitorRepresentation.respondentSolicitorRepresented'];
+      watch(yes, no, remove);
+
+      expect(remove).calledWith('SolicitorDetails.solicitorDetails');
+    });
   });
 });

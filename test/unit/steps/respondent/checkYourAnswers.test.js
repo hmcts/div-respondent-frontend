@@ -28,8 +28,17 @@ describe(modulePath, () => {
     return question.redirectWithField(CheckYourAnswers, fields, doneStep);
   });
 
+  it('redirects to next page if solicitor representing and acknowledges answers', () => {
+    const fields = { respSolicitorRepStatement: 'Yes' };
+    return question.redirectWithField(CheckYourAnswers, fields, doneStep, { SolicitorRepresentation: { response: 'yes' } });
+  });
+
   it('shows error if does not answer question', () => {
     return question.testErrors(CheckYourAnswers);
+  });
+
+  it('shows error if does not answer solicitor acknowledge answers', () => {
+    return question.testErrors(CheckYourAnswers, { SolicitorRepresentation: { response: 'yes' } });
   });
 
   it('renders the content', () => {

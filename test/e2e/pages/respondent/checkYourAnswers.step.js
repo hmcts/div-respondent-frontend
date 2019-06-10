@@ -10,7 +10,7 @@ function seeCheckYourAnswersPage() {
 
 function confirmInformationIsTrue() {
   const I = this;
-  I.click(content.en.fields.statementOfTruth.yes);
+  I.click(content.en.fields.respSolicitorRepStatement.yes);
 }
 
 function submitApplication() {
