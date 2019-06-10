@@ -14,7 +14,7 @@
 ] %}
 
 {% if isLoggedIn %}
-  {% set serviceLinks = [
+  {% set serviceLinks = serviceLinks or [
       {
         href: "/end",
         text: "Sign out"
