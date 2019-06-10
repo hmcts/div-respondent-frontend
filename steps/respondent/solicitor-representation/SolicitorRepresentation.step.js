@@ -29,7 +29,7 @@ class SolicitorRepresentation extends Question {
 
   values() {
     const hasSolicitor = this.fields.response.value === this.const.yes;
-    return { respondentSolicitorRepresented: hasSolicitor ? 'Yes' : 'No' };
+    return { respondentSolicitorRepresented: hasSolicitor ? values.yes : values.no };
   }
 
   get form() {
@@ -61,6 +61,16 @@ class SolicitorRepresentation extends Question {
       ...super.middleware,
       idam.protect()
     ];
+  }
+
+  get watches() {
+    return {
+      'SolicitorRepresentation.respondentSolicitorRepresented': (previousValue, currentValue, remove) => {
+        if (currentValue === values.no) {
+          remove('SolicitorDetails.solicitorDetails');
+        }
+      }
+    };
   }
 
   next() {
