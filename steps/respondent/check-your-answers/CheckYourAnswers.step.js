@@ -6,6 +6,9 @@ const caseOrchestration = require('services/caseOrchestration');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CheckYourAnswers.content');
+const { parseBool } = require('@hmcts/one-per-page');
+
+const yesValue = 'Yes';
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -22,10 +25,18 @@ class CheckYourAnswers extends CYA {
   }
 
   get form() {
+    if (this.req.session.SolicitorRepresentation && this.req.session.SolicitorRepresentation.response === 'yes') {
+      return form({
+        respSolicitorRepStatement: text.joi(
+          this.errorMessage,
+          Joi.required().valid(yesValue)
+        )
+      });
+    }
     return form({
       respStatementOfTruth: text.joi(
         this.errorMessage,
-        Joi.required().valid('Yes')
+        Joi.required().valid(yesValue)
       )
     });
   }
@@ -34,9 +45,23 @@ class CheckYourAnswers extends CYA {
     return content.en.errors.required;
   }
 
+  get isRespondentSolEnabled() {
+    return parseBool(config.features.respSolicitorDetails);
+  }
+
+  get isRepresentedBySol() {
+    const respondentAnswers = this.journey.values;
+    return respondentAnswers.respondentSolicitorRepresented === yesValue;
+  }
+
   sendToAPI(req) {
-    const json = this.journey.values;
-    return caseOrchestration.sendAosResponse(req, json);
+    const respondentAnswers = this.journey.values;
+    if (this.isRepresentedBySol && this.isRespondentSolEnabled) {
+      respondentAnswers.contactMethodIsDigital = 'No';
+      respondentAnswers.consentToReceivingEmails = 'No';
+      respondentAnswers.respStatementOfTruth = 'No';
+    }
+    return caseOrchestration.sendAosResponse(req, respondentAnswers);
   }
 
   next() {

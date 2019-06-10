@@ -29,26 +29,43 @@
 {% block statement_of_truth_fields %}
     <div class="confirmation-container">
         {% call formSection() %}
-            {{ selectionButtons(
-                fields.respStatementOfTruth,
-                content.fields.statementOfTruth.yes,
-                options = [
-                    { label: content.fields.statementOfTruth.yes, value: "Yes" }
-                ],
-                hint=false,
-                hideQuestion=true,
-                inline=false,
-                type='checkbox'
-            ) }}
+            {% if isRepresentedBySol %}
+                {{ selectionButtons(
+                    fields.respSolicitorRepStatement,
+                    content.fields.respondentSolicitorRepresented.yes,
+                    options = [
+                        { label: content.fields.respondentSolicitorRepresented.yes, value: "Yes" }
+                    ],
+                    hint=false,
+                    hideQuestion=true,
+                    inline=false,
+                    type='checkbox'
+                ) }}
+            {% else %}
+                {{ selectionButtons(
+                    fields.respStatementOfTruth,
+                    content.fields.statementOfTruth.yes,
+                    options = [
+                        { label: content.fields.statementOfTruth.yes, value: "Yes" }
+                    ],
+                    hint=false,
+                    hideQuestion=true,
+                    inline=false,
+                    type='checkbox'
+                ) }}
+            {% endif %}
         {% endcall %}
 
         <ul class="list-bullet">
+            {% if not isRepresentedBySol %}
             <li>{{ content.respondentConfirmation | safe }}</li>
+            {% endif %}
             <li>{{ content.facts | safe }}</li>
         </uL>
 
         <br>
 
+        {% if not isRepresentedBySol %}
         <details>
             <summary aria-controls="details-content-0" aria-expanded="false">
                 <span class="summary">{{ content.whatTheseStatements | safe }}</span>
@@ -57,10 +74,11 @@
                 <p class="text">{{ content.statementsExplanation | safe }}</p>
             </div>
         </details>
+        {% endif %}
     </div>
 
     <br>
-    
+
     <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
 {%- endblock %}
 
