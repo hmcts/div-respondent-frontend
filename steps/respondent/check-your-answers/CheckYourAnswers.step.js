@@ -25,7 +25,7 @@ class CheckYourAnswers extends CYA {
   }
 
   get form() {
-    if (this.req.session.SolicitorRepresentation.response === 'yes') {
+    if (this.req.session.SolicitorRepresentation && this.req.session.SolicitorRepresentation.response === 'yes') {
       return form({
         respSolicitorRepStatement: text.joi(
           this.errorMessage,
