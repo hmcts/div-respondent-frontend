@@ -2,14 +2,19 @@
 
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
 
+{% block head %}
+    {% include "includes/head.html" %}
+{% endblock %}
+
+{% set pageContent = {
+    title: content.title,
+    sendApplication: content.submit
+} %}
+
 {% block statement_of_truth_content %}
 {{ header(content.confirm, size='m') }}
 <p class="govuk-body">{{ content.statementOfTruth | safe }}</p>
 {% endblock %}
-
-{% set pageContent = {
-    title: content.title
-} %}
 
 {% block full_width %}
     <div id="divorce-check-your-answers">
@@ -18,7 +23,7 @@
 {% endblock %}
 
 {% block statement_of_truth_fields %}
-    <div class="confirmation-container">
+    <div class="confirmation-container govuk-!-padding-bottom-1">
         {% call formSection() %}
             {{ selectionButtons(
                 fields.statementOfTruth,
