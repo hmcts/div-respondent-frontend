@@ -41,7 +41,6 @@ yarn mocks
 yarn test:e2e
 ```
 
-
 #### Running tests locally against a PR/AAT
 
 * Connect to the VPN
