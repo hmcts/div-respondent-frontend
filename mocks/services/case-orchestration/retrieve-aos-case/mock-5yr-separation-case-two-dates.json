@@ -236,6 +236,17 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/a060ba13-d5da-45b0-a181-1c2ace891904",
         "mimeType": null,
         "status": null
+      },
+      {
+        "id": "1230fjasdhascertificateOfEntitlement10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "certificateOfEntitlement1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/certificateOfEntitlement",
+        "mimeType": null,
+        "status": null
       }
     ]
   }
