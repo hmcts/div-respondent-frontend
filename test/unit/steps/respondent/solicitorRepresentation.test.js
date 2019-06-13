@@ -94,7 +94,7 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.respondentSolicitorRepresented).to.equal('Yes');
+    expect(values.respondentSolicitorRepresented).to.equal(yes);
   });
 
   it('returns the correct values object, with no for disputing adultery', () => {
