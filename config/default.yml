@@ -170,9 +170,13 @@ document:
     coRespondent:
     - 'd8petition'
     - 'respondentAnswers'
+    - 'coRespondentAnswers'
+    - 'certificateOfEntitlement'
     respondent:
     - 'd8petition'
     - 'respondentAnswers'
+    - 'coRespondentAnswers'
+    - 'certificateOfEntitlement'
 
 saucelabs:
   browser: 'chrome'

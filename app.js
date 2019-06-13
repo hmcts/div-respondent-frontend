@@ -15,6 +15,7 @@ const documentHandler = require('services/documentHandler');
 const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
+const httpStatus = require('http-status-codes');
 
 const app = express();
 
@@ -69,10 +70,21 @@ app.use(setLocals.idamLoggedin);
 
 app.set('trust proxy', 1);
 
+const getSession = {
+  bind: theApp => {
+    if (config.NODE_ENV !== 'production') {
+      theApp.get('/session', (req, res) => {
+        res.writeHead(httpStatus.OK, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(req.session));
+      });
+    }
+  }
+};
+
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
-  routes: [ documentHandler ],
+  routes: [ documentHandler, getSession ],
   errorPages: {
     serverError: {
       template: 'errors/server-error',

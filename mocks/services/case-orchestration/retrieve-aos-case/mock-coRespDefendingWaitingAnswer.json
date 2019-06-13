@@ -213,7 +213,7 @@
         "poBox": "PO Box 10447",
         "postCode": "NG2 9QN",
         "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
-        "email": "divorcecase@justice.gov.uk",
+        "email": "contactdivorce@justice.gov.uk",
         "phoneNumber": "0300 303 0642",
         "siteId": "AA01"
       }
@@ -299,6 +299,17 @@
         "modifiedOn": null,
         "fileName": "respondentAnswers.pdf",
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/resp-answers",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "1230fjasdhascertificateOfEntitlement10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "certificateOfEntitlement1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/certificateOfEntitlement",
         "mimeType": null,
         "status": null
       }

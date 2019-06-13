@@ -8,7 +8,9 @@
     "downloadableFiles": "Download your documents",
     "files": {
       "dpetition": "Divorce application",
-      "respondentAnswers": "Respondent's answers"
+      "respondentAnswers": "Respondent's answers",
+      "coRespondentAnswers": "Your answers",
+      "certificateOfEntitlement": "Certificate Of Entitlement"
     },
     "tooLateToRespond": {
       "heading": "Contact the Courts and Tribunals Service Centre",
