@@ -5,12 +5,14 @@ const config = require('config');
 const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
+const { get } = require('lodash');
 
 const progressStates = {
   progressedNoAos: 'progressedNoAos',
   progressedUndefended: 'progressedUndefended',
   awaitingAnswer: 'awaitingAnswer',
   defendedDivorce: 'defendedDivorce',
+  awaitingPronouncement: 'awaitingPronouncement',
   other: 'other'
 };
 
@@ -67,10 +69,36 @@ class ProgressBar extends Interstitial {
     return createUris(this.session.originalPetition.d8 || [], docConfig);
   }
 
+  get certificateOfEntitlementFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'certificateOfEntitlement';
+    });
+  }
+
+  awaitingPronouncement(caseState) {
+    const isAwaitingPronouncement = caseState === config.caseStates.AwaitingPronouncement;
+    const hearingDate = get(this.session, 'originalPetition.hearingDate') || [];
+
+    return isAwaitingPronouncement && hearingDate.length;
+  }
+
+  get respondentPaysCosts() {
+    const costOrder = get(this.session, 'originalPetition.costsClaimGranted');
+
+    if (costOrder === 'Yes') {
+      const whoPays = get(this.session, 'originalPetition.whoPaysCosts');
+      return ['respondent', 'respondent and correspondent'].includes(whoPays);
+    }
+
+    return false;
+  }
+
   getProgressBarContent() {
     const caseState = this.session.caseState;
 
-    if (this.progressedNoAos(caseState)) {
+    if (this.awaitingPronouncement(caseState)) {
+      return this.progressStates.awaitingPronouncement;
+    } else if (this.progressedNoAos(caseState)) {
       return this.progressStates.progressedNoAos;
     } else if (this.progressedUndefended(caseState)) {
       return this.progressStates.progressedUndefended;
