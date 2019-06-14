@@ -12,7 +12,7 @@ function fillInSolicitorForm() {
   const I = this;
   I.fillField('solicitorDetails.solicitorName', 'Solicitors Inc');
   I.fillField('solicitorDetails.firmName', 'John Lennon Associates');
-  I.fillField('solicitorDetails.solicitorEmail', 'contact@solicitors.com');
+  I.fillField('solicitorDetails.solicitorEmail', 'contact@localhost.local');
   I.fillField('solicitorDetails.telephone', '01985673345');
   I.fillField('solicitorDetails.solicitorRefNumber', '1568ALT3212');
   I.click(content.en.fields.statementOfTruth.yes);

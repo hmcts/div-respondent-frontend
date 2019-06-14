@@ -61,23 +61,33 @@ describe(modulePath, () => {
   });
 
   describe('solicitor feature redirect', () => {
-    const cachedSetting = config.features.respSolicitorDetails;
+    let sandbox = {};
     const fields = { respConfirmReadPetition: 'Yes' };
     const session = {
       originalPetition: {
         reasonForDivorceClaimingAdultery: false
       }
     };
-    afterEach(() => {
-      config.features.respSolicitorDetails = cachedSetting;
+
+    before(() => {
+      sandbox = sinon.sandbox.create();
     });
+
+    after(() => {
+      sandbox.restore();
+    });
+
     it('redirects to choose a response page when answered and solicitor feature off', () => {
-      config.features.respSolicitorDetails = false;
+      sandbox.stub(config, 'features').value({
+        respSolicitorDetails: false
+      });
       return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
     });
 
     it('redirects to solicitor question page when solicitor feature on', () => {
-      config.features.respSolicitorDetails = true;
+      sandbox.stub(config, 'features').value({
+        respSolicitorDetails: true
+      });
       return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
     });
   });

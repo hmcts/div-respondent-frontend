@@ -27,7 +27,7 @@ class SolicitorDetails extends Question {
       .regex(/^[0-9 +().-]{9,}$/)
       .required();
     const validateEmail = Joi.string()
-      .regex(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)
+      .email({ minDomainSegments: 2 })
       .required();
     const requiredAnswer = Joi.string()
       .required();
@@ -63,6 +63,7 @@ class SolicitorDetails extends Question {
     values.respondentSolicitorEmail = solicitorEmailAddress;
     values.respondentSolicitorPhoneNumber = phoneNo;
     values.respondentSolicitorReference = solicitorReferenceNumber;
+    values.respondentCorrespondenceSendToSolicitor = 'yes';
 
     return values;
   }
