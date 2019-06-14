@@ -87,7 +87,7 @@ class ProgressBar extends Interstitial {
 
     if (costOrder === 'Yes') {
       const whoPays = get(this.session, 'originalPetition.whoPaysCosts');
-      return ['respondent', 'respondent and correspondent'].includes(whoPays);
+      return ['respondent', 'respondentAndCoRespondent'].includes(whoPays);
     }
 
     return false;

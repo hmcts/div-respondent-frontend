@@ -137,6 +137,22 @@ describe(modulePath, () => {
         specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
       });
     });
+
+    it('cost order', () => {
+      // case has progressed with AoS, court has received respondents defence answer
+      const session = {
+        caseState: 'AwaitingPronouncement',
+        originalPetition: {
+          costsClaimGranted: 'Yes',
+          hearingDate: [ '2222-01-01T00:00:00.000+0000' ],
+          whoPaysCosts: 'respondentAndCoRespondent'
+        }
+      };
+
+      return content(ProgressBar, session, {
+        specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
+      });
+    });
   });
 
   it('renders the content for unhandled state', () => {
