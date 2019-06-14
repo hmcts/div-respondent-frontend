@@ -4,6 +4,7 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
+const { get } = require('lodash');
 
 const values = {
   yes: 'Yes',
@@ -14,7 +15,8 @@ const progressStates = {
   notDefending: 'notDefending',
   defendingAwaitingAnswer: 'defendingAwaitingAnswer',
   defendingSubmittedAnswer: 'defendingSubmittedAnswer',
-  tooLateToRespond: 'tooLateToRespond'
+  tooLateToRespond: 'tooLateToRespond',
+  awaitingPronouncementHearingDate: 'awaitingPronouncementHearingDate'
 };
 
 class CrProgressBar extends Interstitial {
@@ -54,9 +56,35 @@ class CrProgressBar extends Interstitial {
     return createUris(this.session.originalPetition.d8 || [], docConfig);
   }
 
+  get certificateOfEntitlementFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'certificateOfEntitlement';
+    });
+  }
+
+  get coRespondentPaysCosts() {
+    const costOrder = get(this.session, 'originalPetition.costsClaimGranted');
+
+    if (costOrder === 'Yes') {
+      const whoPays = get(this.session, 'originalPetition.whoPaysCosts');
+      return ['co-respondent', 'respondentAndCoRespondent'].includes(whoPays);
+    }
+
+    return false;
+  }
+
+  awaitingPronouncementAndHearingDate() {
+    const caseStateIsAwaitingPronouncement = this.session.caseState === config.caseStates.AwaitingPronouncement;
+    const hearingDates = get(this.session, 'originalPetition.hearingDate') || [];
+
+    return caseStateIsAwaitingPronouncement && hearingDates.length;
+  }
+
   getProgressBarContent() {
     if (this.receivedAosFromCoResp()) {
-      if (!this.coRespDefendsDivorce()) {
+      if (this.awaitingPronouncementAndHearingDate()) {
+        return this.progressStates.awaitingPronouncementHearingDate;
+      } else if (!this.coRespDefendsDivorce()) {
         return this.progressStates.notDefending;
       } else if (this.coRespDefendsDivorce() && !this.receivedAnswerFromCoResp()) {
         return this.progressStates.defendingAwaitingAnswer;
