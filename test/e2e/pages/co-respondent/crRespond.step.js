@@ -8,4 +8,14 @@ function seeCrRespondPage() {
   I.waitForText(content.en.title);
 }
 
-module.exports = { seeCrRespondPage };
+function seeCrDocumentsForDownload() {
+  const I = this;
+  I.waitForText(content.en.files.dpetition);
+  I.waitForText(content.en.files.respondentAnswers);
+  I.waitForText(content.en.files.certificateOfEntitlement);
+}
+
+module.exports = {
+  seeCrRespondPage,
+  seeCrDocumentsForDownload
+};

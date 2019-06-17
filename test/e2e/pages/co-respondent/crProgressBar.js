@@ -38,10 +38,28 @@ function seeContentForTooLateToRespond() {
   I.see(content.en.tooLateToRespond.info);
 }
 
+function seePetitionToDownload() {
+  const I = this;
+  I.see(content.en.files.dpetition);
+}
+
+function seeRespAnswersToDownload() {
+  const I = this;
+  I.see(content.en.files.respondentAnswers);
+}
+
+function seeCoRespAnswersToDownload() {
+  const I = this;
+  I.see(content.en.files.coRespondentAnswers);
+}
+
 module.exports = {
   seeCrProgressBarPage,
   seeContentForNotDefending,
   seeContentForDefendingAwaitingAnswer,
   seeContentForNotDefendingSubmittedAnswer,
-  seeContentForTooLateToRespond
+  seeContentForTooLateToRespond,
+  seePetitionToDownload,
+  seeRespAnswersToDownload,
+  seeCoRespAnswersToDownload
 };

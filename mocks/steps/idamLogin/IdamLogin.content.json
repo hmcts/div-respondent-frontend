@@ -7,8 +7,8 @@
     "fields": {
       "success": {
         "yesCaseStarted": "Yes - case started - unreasonable behaviour",
-        "yesAdultery": "Yes - case started - adultery",
-        "yesAdulteryAmendedCase": "Yes - amended case started - adultery",
+        "yesAdultery": "Yes - case started - adultery (+ co-resp answers doc)",
+        "yesAdulteryAmendedCase": "Yes - amended case started - adultery (+ co-resp answers doc)",
         "yes2yrSeparation": "Yes - case started - two year separation",
         "yes5yrSeparation": "Yes - case started - five year separation",
         "yes5yrSeparationTwoDates": "Yes - case started - five year separation with two dates",
@@ -22,11 +22,11 @@
         "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
         "no": "No",
         "petitionerRedirect": "Set user to petitioner",
-        "corespondentLogin": "Set user to Co-respondent to continue journey",
+        "corespondentLogin": "Set user to Co-respondent to continue journey (+ resp answers doc)",
         "corespondentAmendedCaseLogin": "Set user to Co-respondent to continue journey - with amended case",
-        "coRespNotDefending": "Co-respondent user responded - not defending",
-        "coRespDefendingWaitingAnswer": "Co-respondent user responded - defending waiting answer",
-        "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer",
+        "coRespNotDefending": "Co-respondent user responded - not defending (+ co-resp answers doc)",
+        "coRespDefendingWaitingAnswer": "Co-respondent user responded - defending waiting answer (has resp doc)",
+        "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer(   (+ co-resp answers doc)",
         "coRespTooLateToRespond": "Co-respondent not responded - Divorce Granted",
         "throwError": "Simulate 500 server error"
       }

@@ -35,10 +35,28 @@ function seeContentForAosCompleteDefending() {
   I.see(content.en.defendedDivorce.para1);
 }
 
+function seePetitionToDownload() {
+  const I = this;
+  I.see(content.en.files.dpetition);
+}
+
+function seeRespondentAnswersToDownload() {
+  const I = this;
+  I.see(content.en.files.respondentAnswers);
+}
+
+function seeCoRespondentAnswersToDownload() {
+  const I = this;
+  I.see(content.en.files.coRespondentAnswers);
+}
+
 module.exports = {
   seeProgressBarPage,
   seeContentForAosNotCompleted,
   seeContentForAosCompleteNotDefending,
   seeContentForAosCompleteAwaitingAnswer,
-  seeContentForAosCompleteDefending
+  seeContentForAosCompleteDefending,
+  seePetitionToDownload,
+  seeRespondentAnswersToDownload,
+  seeCoRespondentAnswersToDownload
 };

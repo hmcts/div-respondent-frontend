@@ -173,7 +173,49 @@ describe(modulePath, () => {
           answer: {
             received: 'Yes'
           }
-        }
+        },
+        d8: [
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'd8petition1539017559370699.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
+          },
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'respondentAnswers.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
+          },
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'coRespondentAnswers.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
+          },
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'certificateOfEntitlement1539017559370699.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
+          }
+        ]
       }
     };
 
@@ -239,6 +281,11 @@ describe(modulePath, () => {
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
               .and.to.include('How to respond to a divorce application')
               .and.to.include('Get a divorce')
+              .and.to.include('Download your documents')
+              .and.to.include('Divorce application (PDF)')
+              .and.to.include('Respondent\'s answers (PDF)')
+              .and.to.include('Your answers (PDF)')
+              .and.to.include('Certificate Of Entitlement (PDF)')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });

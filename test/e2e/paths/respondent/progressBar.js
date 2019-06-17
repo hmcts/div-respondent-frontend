@@ -6,6 +6,8 @@ Scenario('Should display content for respondent that has not submitted AoS in ti
   I.loginAsCaseProgressedNoAos();
   I.seeProgressBarPage();
   I.seeContentForAosNotCompleted();
+  I.seePetitionToDownload();
+  I.seeCoRespondentAnswersToDownload();
 }).retry(2);
 
 Scenario('Should display content for respondent that has submitted AoS and is not defending', I => {
@@ -14,6 +16,9 @@ Scenario('Should display content for respondent that has submitted AoS and is no
   I.loginAsCaseProgressedNotDefending();
   I.seeProgressBarPage();
   I.seeContentForAosCompleteNotDefending();
+  I.seePetitionToDownload();
+  I.seeRespondentAnswersToDownload();
+  I.seeCoRespondentAnswersToDownload();
 }).retry(2);
 
 Scenario('Should display content for respondent that has defended, awaiting answer', I => {
@@ -22,6 +27,9 @@ Scenario('Should display content for respondent that has defended, awaiting answ
   I.loginAsCaseProgressedAwaitingAnswer();
   I.seeProgressBarPage();
   I.seeContentForAosCompleteAwaitingAnswer();
+  I.seePetitionToDownload();
+  I.seeRespondentAnswersToDownload();
+  I.seeCoRespondentAnswersToDownload();
 }).retry(2);
 
 Scenario('Should display content for respondent that has defended, and has answered', I => {
@@ -30,4 +38,7 @@ Scenario('Should display content for respondent that has defended, and has answe
   I.loginAsCaseProgressedDefending();
   I.seeProgressBarPage();
   I.seeContentForAosCompleteDefending();
+  I.seePetitionToDownload();
+  I.seeRespondentAnswersToDownload();
+  I.seeCoRespondentAnswersToDownload();
 }).retry(2);

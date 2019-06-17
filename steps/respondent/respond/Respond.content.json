@@ -29,7 +29,10 @@
     },
     "downloadableFiles": "Download your documents",
     "files": {
-      "dpetition": "Divorce application"
+      "dpetition": "Divorce application",
+      "respondentAnswers": "Your answers",
+      "coRespondentAnswers": "Co-Respondent's answers",
+      "certificateOfEntitlement": "Certificate Of Entitlement"
     }
   }
 }

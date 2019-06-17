@@ -5,7 +5,9 @@ module.exports = {
   buildSessionWithCourtsInfo(chosenDivorceCenter) {
     // Simulate what the petitionMiddleware does
     const req = {
-      session: {}
+      session: {
+        originalPetition: { }
+      }
     };
     req.session.serviceCentreName = courtsList[chosenDivorceCenter].serviceCentreName;
     req.session.divorceCenterName = courtsList[chosenDivorceCenter].divorceCentre;
@@ -44,7 +46,7 @@ module.exports = {
       .and.to.include('NG2 9QN');
 
     if (verifyContactDetails) {
-      expect(html).to.include('divorcecase@justice.gov.uk')
+      expect(html).to.include('contactdivorce@justice.gov.uk')
         .and.to.include('0300 303 0642');
     }
   },
