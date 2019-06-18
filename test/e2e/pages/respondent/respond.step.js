@@ -13,6 +13,7 @@ function seeDocumentsForDownload() {
   I.waitForText(content.en.files.dpetition);
   I.waitForText(content.en.files.coRespondentAnswers);
   I.waitForText(content.en.files.certificateOfEntitlement);
+  I.waitForText(content.en.files.costsOrder);
 }
 
 module.exports = { seeRespondPage, seeDocumentsForDownload };

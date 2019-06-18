@@ -245,6 +245,17 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/certificateOfEntitlement",
         "mimeType": null,
         "status": null
+      },
+      {
+        "id": "1230fjasdhascostOrder10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "costsOrder1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/costOrder",
+        "mimeType": null,
+        "status": null
       }
     ]
   }

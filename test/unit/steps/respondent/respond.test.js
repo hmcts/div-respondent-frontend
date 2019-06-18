@@ -185,6 +185,16 @@ describe(modulePath, () => {
               fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
               mimeType: null,
               status: null
+            },
+            {
+              createdBy: 0,
+              createdOn: null,
+              lastModifiedBy: 0,
+              modifiedOn: null,
+              fileName: 'costsOrder1539017559370699.pdf',
+              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+              mimeType: null,
+              status: null
             }
           ]
         }
@@ -206,6 +216,7 @@ describe(modulePath, () => {
               .and.to.include('Divorce application (PDF)')
               .and.to.include('Co-Respondent\'s answers (PDF)')
               .and.to.include('Certificate Of Entitlement (PDF)')
+              .and.to.include('Cost Order (PDF)')
               .and.to.include('Money and property');
           });
       });
