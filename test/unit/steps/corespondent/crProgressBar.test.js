@@ -204,6 +204,16 @@ describe(modulePath, () => {
             fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
             mimeType: null,
             status: null
+          },
+          {
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'certificateOfEntitlement1539017559370699.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
+            mimeType: null,
+            status: null
           }
         ]
       }
@@ -275,6 +285,7 @@ describe(modulePath, () => {
               .and.to.include('Divorce application (PDF)')
               .and.to.include('Respondent\'s answers (PDF)')
               .and.to.include('Your answers (PDF)')
+              .and.to.include('Certificate Of Entitlement (PDF)')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });
