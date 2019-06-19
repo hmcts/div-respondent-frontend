@@ -13,7 +13,7 @@
         <section class="email">
             <h2 class="heading-medium">{{ content.contactMethods.email.heading }}</h2>
             <p class="text">
-                {{ content.contactMethods.email.intro | safe }} <strong>{{ session.originalPetition.respEmailAddress }}</strong>.
+                {{ content.contactMethods.email.intro | safe }} <span class="bold-small">{{ session.originalPetition.respEmailAddress }}</span>.
             </p>
 
             {% call formSection() %}

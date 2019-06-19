@@ -12,6 +12,7 @@ function seeDocumentsForDownload() {
   const I = this;
   I.waitForText(content.en.files.dpetition);
   I.waitForText(content.en.files.coRespondentAnswers);
+  I.waitForText(content.en.files.certificateOfEntitlement);
 }
 
 module.exports = { seeRespondPage, seeDocumentsForDownload };

@@ -57,20 +57,20 @@
     <p class="text">{{ content.financialSituationText2 }} <span>{{ content.financialSituationFormLink | safe }}</span></p>
     <p class="text">{{ content.financialSituationText3 }}</p>
 
-    <p class="text">
+    <ul class="list bold-small">
       {% if session.serviceCentreName %}
-        {{ session.serviceCentreName }}<br/>
+        <li>{{ session.serviceCentreName }}</li>
       {% endif %}
-      {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
+        <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
       {% if session.divorceCenterPoBox %}
-          {{ session.divorceCenterPoBox }}<br/>
+        <li>{{ session.divorceCenterPoBox }}</li>
       {% endif %}
       {% if session.divorceCenterStreet %}
-          {{ session.divorceCenterStreet }}<br/>
+        <li>{{ session.divorceCenterStreet }}</li>
       {% endif %}
-      {{ session.divorceCenterCourtCity }}<br/>
-      {{ session.divorceCenterPostCode }}<br/>
-    </p>
+        <li>{{ session.divorceCenterCourtCity }}</li>
+      <li>{{ session.divorceCenterPostCode }}</li>
+    </ul>
 
   {% endif %}
 
