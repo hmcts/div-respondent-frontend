@@ -99,6 +99,62 @@ describe(modulePath, () => {
     });
   });
 
+  describe('content for Awaiting Pronouncement and hearing date', () => {
+    it('no cost order', () => {
+      // case has progressed with AoS, court has received respondents defence answer
+      const session = {
+        caseState: 'AwaitingPronouncement',
+        originalPetition: {
+          hearingDate: [ '2222-01-01T00:00:00.000+0000' ]
+        }
+      };
+
+      return content(ProgressBar, session, {
+        specificContent: [
+          'decreeNisiAnnouncement.heading',
+          'decreeNisiAnnouncement.districtJudge',
+          'decreeNisiAnnouncement.secondStage',
+          'decreeNisiAnnouncement.theHearing',
+          'decreeNisiAnnouncement.moreDetails',
+          'decreeNisiAnnouncement.dontNeedToCome',
+          'decreeNisiAnnouncement.wantToAttend'
+        ]
+      });
+    });
+
+    it('cost order', () => {
+      // case has progressed with AoS, court has received respondents defence answer
+      const session = {
+        caseState: 'AwaitingPronouncement',
+        originalPetition: {
+          costsClaimGranted: 'Yes',
+          hearingDate: [ '2222-01-01T00:00:00.000+0000' ],
+          whoPaysCosts: 'respondent'
+        }
+      };
+
+      return content(ProgressBar, session, {
+        specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
+      });
+    });
+
+    it('cost order', () => {
+      // case has progressed with AoS, court has received respondents defence answer
+      const session = {
+        caseState: 'AwaitingPronouncement',
+        originalPetition: {
+          costsClaimGranted: 'Yes',
+          hearingDate: [ '2222-01-01T00:00:00.000+0000' ],
+          whoPaysCosts: 'respondentAndCoRespondent'
+        }
+      };
+
+      return content(ProgressBar, session, {
+        specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
+      });
+    });
+  });
+
   it('renders the content for unhandled state', () => {
     const session = {
       caseState: 'AwaitingReissue',
@@ -296,6 +352,17 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(ProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.divorceGranted);
+    });
+  });
+
+  describe('CCD state: awaitingPronouncement', () => {
+    const session = {
+      caseState: 'AwaitingPronouncement'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedDivorce);
     });
   });
 });
