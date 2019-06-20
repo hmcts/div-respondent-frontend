@@ -20,6 +20,7 @@
         "yesCaseProgressedUndefended": "Yes - case progressed undefended",
         "yesCaseProgressedAwaitingAnswer": "Yes - case progressed, defended & awaiting answer",
         "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
+        "yesDecreeNisiPronouncement": "Yes - Awaiting Pronouncement and date of hearing assigned",
         "no": "No",
         "petitionerRedirect": "Set user to petitioner",
         "corespondentLogin": "Set user to Co-respondent to continue journey (+ resp answers doc)",
