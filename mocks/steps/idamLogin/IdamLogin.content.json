@@ -29,6 +29,7 @@
         "coRespDefendingWaitingAnswer": "Co-respondent user responded - defending waiting answer (has resp doc)",
         "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer(   (+ co-resp answers doc)",
         "coRespTooLateToRespond": "Co-respondent not responded - Divorce Granted",
+        "coRespAwaitingPronouncementHearingDataFuture": "Co-respondent - Awaiting Pronouncement and Hearing data in future",
         "throwError": "Simulate 500 server error"
       }
     }

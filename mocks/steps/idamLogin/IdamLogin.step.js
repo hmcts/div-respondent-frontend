@@ -34,6 +34,7 @@ class IdamLogin extends Question {
       'coRespDefendingWaitingAnswer',
       'coRespDefendingSubmittedAnswer',
       'coRespTooLateToRespond',
+      'coRespAwaitingPronouncementHearingDataFuture',
       'throwError',
       'yesDecreeNisiPronouncement'
     ];
