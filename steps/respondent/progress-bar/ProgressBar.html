@@ -102,6 +102,56 @@
         <p>{{ content.decreeNisiAnnouncement.wantToAttend }}</p>
     {% endif %}
 
+    {% if progressBarContent === progressStates.awaitingDecreeAbsolute %}
+        <h2 class="heading-medium">{{ content.decreeNisiGranted.heading }}</h2>
+
+        <p class="test">{{ content.decreeNisiGranted.dateGranted }}</p>
+        <ul class="list-bullet">
+            <li>{{ content.decreeNisiGranted.decreeNisi }}</li>
+            {% if (costsOrderFile) %}
+                <li>{{ content.decreeNisiGranted.costsOrder }}</li>
+            {% endif %}
+        </ul>
+
+        <br>
+
+        <div class="notice-padding">
+            <div class="notice">
+                <i class="icon icon-important">
+                    <span class="visually-hidden">{{ content.decreeNisiGranted.warning }}</span>
+                </i>
+                <strong class="bold-small">
+                    {{ content.decreeNisiGranted.notDivorcedYet | safe }}
+                </strong>
+            </div>
+        </div>
+
+        <h2 class="heading-medium">{{ content.decreeNisiGranted.divorceComplete }}</h2>
+
+        <p class="text">{{ content.decreeNisiGranted.sixWeeks }}</p>
+        <p class="text">{{ content.decreeNisiGranted.courtCancel }}</p>
+        <p class="text">{{ content.decreeNisiGranted.applyForDecreeAbsolute }}</p>
+        <p class="text">{{ content.decreeNisiGranted.downloadDecreeNisi | safe }}</p>
+
+        {% if (costsOrderFile) %}
+            <h2 class="heading-medium">{{ content.decreeNisiGranted.whatCostsOrder }}</h2>
+
+            {% if (session.originalPetition.whoPaysCosts === 'respondent') %}
+                <p class="text">{{ content.decreeNisiGranted.orderWillStateRespondent }}</p>
+            {% endif %}
+
+            {% if (session.originalPetition.whoPaysCosts === 'coRespondent') %}
+                <p class="text">{{ content.decreeNisiGranted.orderWillStateCoRespondent }}</p>
+            {% endif %}
+
+            {% if (session.originalPetition.whoPaysCosts === 'respondentAndCoRespondent') %}
+                <p class="text">{{ content.decreeNisiGranted.orderWillStateRespondentAndCoRespondent }}</p>
+            {% endif %}
+
+            <p class="text">{{ content.decreeNisiGranted.downloadCostsOrder | safe }}</p>
+        {% endif %}
+    {% endif %}
+
     {% if  progressBarContent === progressStates.other %}
         <br />
         <br />

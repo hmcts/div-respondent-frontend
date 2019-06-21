@@ -177,6 +177,8 @@ document:
     - 'respondentAnswers'
     - 'coRespondentAnswers'
     - 'certificateOfEntitlement'
+    - 'costsOrder'
+    - 'decreeNisi'
 
 saucelabs:
   browser: 'chrome'
