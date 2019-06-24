@@ -44,19 +44,16 @@ describe(modulePath, () => {
       sandbox.stub(config, 'features').value({
         respSolicitorDetails: true
       });
-      const session = {
-        SolicitorRepresentation: { respondentSolicitorRepresented: 'yes', response: 'yes' }
-      };
-      return question.redirectWithField(CheckYourAnswers, fields, doneStep, session);
+      return question.redirectWithField(CheckYourAnswers, fields, doneStep, { SolicitorRepresentation: { response: 'yes' } });
+    });
+
+    it('shows error if does not answer solicitor acknowledge answers', () => {
+      return question.testErrors(CheckYourAnswers, { SolicitorRepresentation: { response: 'yes' } });
     });
   });
 
   it('shows error if does not answer question', () => {
     return question.testErrors(CheckYourAnswers);
-  });
-
-  it('shows error if does not answer solicitor acknowledge answers', () => {
-    return question.testErrors(CheckYourAnswers, { SolicitorRepresentation: { response: 'yes' } });
   });
 
   it('renders the content', () => {
