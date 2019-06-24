@@ -21,7 +21,8 @@ const excludedWarnings = [
   'The “main” role is unnecessary for element “main”.',
   'The “contentinfo” role is unnecessary for element “footer”.',
   'The “complementary” role is unnecessary for element “aside”.',
-  'The “navigation” role is unnecessary for element “nav”.'
+  'The “navigation” role is unnecessary for element “nav”.',
+  'Possible misuse of “aria-label”. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)' // eslint-disable-line max-len
 ];
 const filteredWarnings = r => {
   return !excludedWarnings.includes(r.message);
