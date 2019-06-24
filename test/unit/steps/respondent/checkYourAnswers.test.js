@@ -3,6 +3,7 @@ const CheckYourAnswers = require(modulePath);
 const doneStep = require('steps/respondent/done/Done.step');
 const idam = require('services/idam');
 const caseOrchestration = require('services/caseOrchestration');
+const config = require('config');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
@@ -28,9 +29,26 @@ describe(modulePath, () => {
     return question.redirectWithField(CheckYourAnswers, fields, doneStep);
   });
 
-  it('redirects to next page if solicitor representing and acknowledges answers', () => {
-    const fields = { respSolicitorRepStatement: 'Yes' };
-    return question.redirectWithField(CheckYourAnswers, fields, doneStep, { SolicitorRepresentation: { response: 'yes' } });
+  describe('with solicitor', () => {
+    let sandbox = {};
+    before(() => {
+      sandbox = sinon.sandbox.create();
+    });
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    it('redirects to next page if solicitor representing and acknowledges answers', () => {
+      const fields = { respSolicitorRepStatement: 'Yes' };
+      sandbox.stub(config, 'features').value({
+        respSolicitorDetails: true
+      });
+      const session = {
+        SolicitorRepresentation: { respondentSolicitorRepresented: 'yes', response: 'yes' }
+      };
+      return question.redirectWithField(CheckYourAnswers, fields, doneStep, session);
+    });
   });
 
   it('shows error if does not answer question', () => {

@@ -50,8 +50,7 @@ class CheckYourAnswers extends CYA {
   }
 
   get isRepresentedBySol() {
-    const respondentAnswers = this.journey.values;
-    return respondentAnswers.respondentSolicitorRepresented === yesValue;
+    return this.req.session.SolicitorRepresentation.response === 'yes';
   }
 
   sendToAPI(req) {
