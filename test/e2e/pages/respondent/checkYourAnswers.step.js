@@ -1,5 +1,7 @@
 const CheckYourAnswersPage = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
 const content = require('steps/respondent/check-your-answers/CheckYourAnswers.content');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page');
 
 function seeCheckYourAnswersPage() {
   const I = this;
@@ -10,7 +12,11 @@ function seeCheckYourAnswersPage() {
 
 function confirmInformationIsTrue() {
   const I = this;
-  I.click(content.en.fields.respSolicitorRepStatement.yes);
+  if (parseBool(config.features.respSolicitorDetails)) {
+    I.click(content.en.fields.respSolicitorRepStatement.yes);
+  } else {
+    I.click(content.en.fields.statementOfTruth.yes);
+  }
 }
 
 function submitApplication() {

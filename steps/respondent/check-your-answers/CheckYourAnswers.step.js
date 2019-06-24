@@ -29,14 +29,14 @@ class CheckYourAnswers extends CYA {
       return form({
         respSolicitorRepStatement: text.joi(
           this.errorMessage,
-          Joi.required().valid('Yes')
+          Joi.required().valid(yesValue)
         )
       });
     }
     return form({
       respStatementOfTruth: text.joi(
         this.errorMessage,
-        Joi.required().valid('Yes')
+        Joi.required().valid(yesValue)
       )
     });
   }
