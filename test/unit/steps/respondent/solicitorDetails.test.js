@@ -29,7 +29,7 @@ describe(modulePath, () => {
     const fields = {
       'solicitorDetails.solicitorName': 'John Johnes',
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@test.local',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'Yes'
@@ -42,7 +42,7 @@ describe(modulePath, () => {
     const fields = {
       'solicitorDetails.solicitorName': '',
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@test.local',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'Yes'
@@ -54,7 +54,7 @@ describe(modulePath, () => {
   it('shows error when invalid phone number supplied', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@test.local',
       'solicitorDetails.telephone': '0',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'Yes'
@@ -67,7 +67,7 @@ describe(modulePath, () => {
   it('shows error when consent is not yes', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@test.local',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '11111111111',
       'solicitorDetails.consent': 'No'
@@ -106,7 +106,7 @@ describe(modulePath, () => {
   it('shows error when solicitor reference is not filled', () => {
     const fields = {
       'solicitorDetails.firmName': 'Test Firm Name',
-      'solicitorDetails.solicitorEmail': 'solicitor@firm.com',
+      'solicitorDetails.solicitorEmail': 'solicitor@test.local',
       'solicitorDetails.telephone': '2222222222',
       'solicitorDetails.solicitorRefNumber': '',
       'solicitorDetails.consent': 'Yes'
@@ -119,9 +119,10 @@ describe(modulePath, () => {
   it('when all details are supplied return correct value', () => {
     const solicitorName = 'Test name';
     const firmName = 'Solicitor Firm Test Name';
-    const solicitorEmail = 'solicitor@firm.com';
+    const solicitorEmail = 'solicitor@test.local';
     const telephone = '07777777777';
     const solicitorRefNumber = '111111111';
+    const sendCorrespondenceToSol = 'yes';
 
     const fields = {
       solicitorDetails: {
@@ -147,12 +148,13 @@ describe(modulePath, () => {
     expect(_values).to.have.property('respondentSolicitorEmail', solicitorEmail);
     expect(_values).to.have.property('respondentSolicitorPhoneNumber', telephone);
     expect(_values).to.have.property('respondentSolicitorReference', solicitorRefNumber);
+    expect(_values).to.have.property('respondentCorrespondenceSendToSolicitor', sendCorrespondenceToSol);
   });
 
   it('when when the name is not supplied return correct value', () => {
     const solicitorName = '';
     const firmName = 'Solicitor Firm Test Name';
-    const solicitorEmail = 'solicitor@firm.com';
+    const solicitorEmail = 'solicitor@test.local';
     const telephone = '07777777777';
     const solicitorRefNumber = '111111111';
 

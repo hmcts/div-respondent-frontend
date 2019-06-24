@@ -1,8 +1,11 @@
 {
   "caseId": "1550848268807298",
   "courts": "serviceCentre",
-  "state": "AosAwaiting",
+  "state": "AwaitingPronouncement",
   "data": {
+    "hearingDate": ["3000-01-01T00:00:00.000+0000"],
+    "costsClaimGranted": "Yes",
+    "whoPaysCosts": "respondent and correspondent",
     "expires": 0,
     "caseReference": "LV17D80100",
     "screenHasMarriageBroken": "Yes",
@@ -213,7 +216,7 @@
         "poBox": "PO Box 10447",
         "postCode": "NG2 9QN",
         "openingHours": "Telephone Enquiries from: 8.30am to 5pm",
-        "email": "contactdivorce@justice.gov.uk",
+        "email": "divorcecase@justice.gov.uk",
         "phoneNumber": "0300 303 0642",
         "siteId": "AA01"
       }
@@ -256,10 +259,7 @@
         "letterHolderId": "755791",
         "dateReceived": "2019-02-22"
       },
-      "defendsDivorce": "Yes",
-      "answer": {
-        "received": "No"
-      }
+      "defendsDivorce": "No"
     },
     "d8": [
       {
@@ -293,23 +293,13 @@
         "status": null
       },
       {
-        "createdBy": 0,
-        "createdOn": null,
-        "lastModifiedBy": 0,
-        "modifiedOn": null,
-        "fileName": "respondentAnswers.pdf",
-        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/resp-answers",
-        "mimeType": null,
-        "status": null
-      },
-      {
-        "id": "1230fjasdhascertificateOfEntitlement10231283123",
+        "id": "88217833-f74f-4cc3-ae73-882178332ccd",
         "createdBy": 0,
         "createdOn": null,
         "lastModifiedBy": 0,
         "modifiedOn": null,
         "fileName": "certificateOfEntitlement1539017559370699.pdf",
-        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/certificateOfEntitlement",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/88217833-f74f-4cc3-ae73-asdasfasd21",
         "mimeType": null,
         "status": null
       }

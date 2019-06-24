@@ -162,7 +162,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
-  respSolicitorDetails: true
+  respSolicitorDetails: false
 
 journey:
   timeoutDelay: 300
@@ -173,12 +173,13 @@ document:
   filesWhiteList:
     coRespondent:
     - 'd8petition'
-    - 'respondentAnswers'
     - 'coRespondentAnswers'
+    - 'certificateOfEntitlement'
     respondent:
     - 'd8petition'
     - 'respondentAnswers'
     - 'coRespondentAnswers'
+    - 'certificateOfEntitlement'
 
 saucelabs:
   browser: 'chrome'

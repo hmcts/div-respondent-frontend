@@ -155,6 +155,81 @@ describe(modulePath, () => {
     });
   });
 
+  describe('content for awaiting pronouncement and hearing date', () => { // eslint-disable-line max-len
+    const session = {
+      caseState: 'AwaitingPronouncement',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          },
+          aos: {
+            received: 'Yes',
+            letterHolderId: '755791',
+            dateReceived: '2019-02-22'
+          },
+          defendsDivorce: 'Yes',
+          answer: {
+            received: 'Yes'
+          }
+        },
+        hearingDate: ['3000-01-01T00:00:00.000+0000'],
+        d8: [
+          {
+            id: '88217833-f74f-4cc3-ae73-882178332ccd',
+            fileName: 'd8petition1539017559370699.pdf'
+          }
+        ]
+      }
+    };
+
+    it('shows costs content', () => {
+      session.originalPetition.costsClaimGranted = 'Yes';
+      session.originalPetition.whoPaysCosts = 'respondentAndCoRespondent';
+      return content(CrProgressBar, session, {
+        specificContent: [
+          'awaitingPronouncementHearingDate.title',
+          'awaitingPronouncementHearingDate.districtJudge',
+          'awaitingPronouncementHearingDate.orderPayDivorceCosts',
+          'awaitingPronouncementHearingDate.divorceOnlyComplete',
+          'awaitingPronouncementHearingDate.theHearing',
+          'awaitingPronouncementHearingDate.findMoreDetails',
+          'awaitingPronouncementHearingDate.wantToObject',
+          'awaitingPronouncementHearingDate.attendTheHearing'
+        ]
+      });
+    });
+
+    it('doesnt show costs content', () => {
+      session.originalPetition.costsClaimGranted = 'No';
+      return content(CrProgressBar, session, {
+        specificContentToNotExist: [
+          'awaitingPronouncementHearingDate.orderPayDivorceCosts',
+          'awaitingPronouncementHearingDate.wantToObject'
+        ]
+      });
+    });
+  });
+
+  it('renders the content for awaiting Pronouncement and Hearing Data in the Future - Too late to respond', () => { // eslint-disable-line max-len
+    const session = {
+      caseState: 'DivorceGranted',
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          }
+        }
+      }
+    };
+    return content(CrProgressBar, session, {
+      specificValues: [
+        CrProgressBarContent.en.tooLateToRespond.heading,
+        CrProgressBarContent.en.tooLateToRespond.info
+      ]
+    });
+  });
+
 
   describe('court address details', () => {
     const basicSession = {
@@ -190,7 +265,7 @@ describe(modulePath, () => {
             createdOn: null,
             lastModifiedBy: 0,
             modifiedOn: null,
-            fileName: 'respondentAnswers.pdf',
+            fileName: 'coRespondentAnswers.pdf',
             fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
             mimeType: null,
             status: null
@@ -200,7 +275,7 @@ describe(modulePath, () => {
             createdOn: null,
             lastModifiedBy: 0,
             modifiedOn: null,
-            fileName: 'coRespondentAnswers.pdf',
+            fileName: 'certificateOfEntitlement1539017559370699.pdf',
             fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
             mimeType: null,
             status: null
@@ -273,8 +348,8 @@ describe(modulePath, () => {
               .and.to.include('Get a divorce')
               .and.to.include('Download your documents')
               .and.to.include('Divorce application (PDF)')
-              .and.to.include('Respondent\'s answers (PDF)')
               .and.to.include('Your answers (PDF)')
+              .and.to.include('Certificate Of Entitlement (PDF)')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });
