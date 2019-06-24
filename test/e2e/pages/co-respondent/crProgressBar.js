@@ -53,6 +53,13 @@ function seeCoRespAnswersToDownload() {
   I.see(content.en.files.coRespondentAnswers);
 }
 
+function seeCoRespAwaitingPronouncementHearingDataFuture() {
+  const I = this;
+
+  I.see(content.en.awaitingPronouncementHearingDataFuture.title);
+  I.see(content.en.awaitingPronouncementHearingDataFuture.districtJudge);
+}
+
 module.exports = {
   seeCrProgressBarPage,
   seeContentForNotDefending,
@@ -61,5 +68,6 @@ module.exports = {
   seeContentForTooLateToRespond,
   seePetitionToDownload,
   seeRespAnswersToDownload,
-  seeCoRespAnswersToDownload
+  seeCoRespAnswersToDownload,
+  seeCoRespAwaitingPronouncementHearingDataFuture
 };

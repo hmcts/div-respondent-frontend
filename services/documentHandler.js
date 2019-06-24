@@ -10,7 +10,7 @@ const documentWhiteList = req => {
     'session.originalPetition.coRespondentAnswers.contactInfo.emailAddress'
   );
 
-  const isCorespondent = idamEmailAddress === coRespondentEmailAddress;
+  const isCorespondent = idamEmailAddress && idamEmailAddress === coRespondentEmailAddress;
 
   // return files corespondent is able to view
   if (isCorespondent) {
