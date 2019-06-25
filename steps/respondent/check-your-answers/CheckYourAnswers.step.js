@@ -50,7 +50,7 @@ class CheckYourAnswers extends CYA {
   }
 
   get isRepresentedBySol() {
-    return this.req.session.SolicitorRepresentation.response === 'yes';
+    return this.req.session.SolicitorRepresentation && this.req.session.SolicitorRepresentation.response === 'yes';
   }
 
   sendToAPI(req) {
