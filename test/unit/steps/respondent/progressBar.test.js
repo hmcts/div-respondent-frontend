@@ -181,6 +181,7 @@ describe(modulePath, () => {
       session = {
         caseState: 'AwaitingDecreeAbsolute',
         originalPetition: {
+          decreeNisiGrantedDate: '2222-01-01T00:00:00.000+0000',
           whoPaysCosts: 'respondent',
           d8: [
             {

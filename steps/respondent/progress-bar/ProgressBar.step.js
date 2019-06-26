@@ -136,7 +136,8 @@ class ProgressBar extends Interstitial {
   }
 
   awaitingDecreeAbsolute(caseState) {
-    return caseState === config.caseStates.AwaitingDecreeAbsolute;
+    const decreeNisiGrantedDate = get(this.session, 'originalPetition.decreeNisiGrantedDate');
+    return caseState === config.caseStates.AwaitingDecreeAbsolute && decreeNisiGrantedDate;
   }
 
   awaitingAnswer(caseState) {
