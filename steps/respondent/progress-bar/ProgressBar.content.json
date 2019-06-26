@@ -54,7 +54,7 @@
     },
     "decreeNisiGranted": {
       "heading": "Your {{ session.divorceWho }} has been granted a decree nisi",
-      "dateGranted": "On {{ case.decreeNisiGrantedDate | date }} the court granted your {{ session.divorceWho }} a:",
+      "dateGranted": "On {{ session.originalPetition.decreeNisiGrantedDate | date }} the court granted your {{ session.divorceWho }} a:",
       "decreeNisi": "decree nisi - the first stage of the decree ending your marriage",
       "costsOrder": "costs order - giving your {{ session.divorceWho }} the right to claim their divorce costs",
 
