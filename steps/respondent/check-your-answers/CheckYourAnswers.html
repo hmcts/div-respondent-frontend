@@ -31,8 +31,8 @@
         {% call formSection() %}
             {% if isRepresentedBySol %}
                 {{ selectionButtons(
-                    label=fields.respSolicitorRepStatement,
-                    value=content.fields.respondentSolicitorRepresented.yes,
+                    fields.respSolicitorRepStatement,
+                    content.fields.respondentSolicitorRepresented.yes,
                     options = [
                         { label: content.fields.respondentSolicitorRepresented.yes, value: consts.YES_VALUE }
                     ],
@@ -43,8 +43,8 @@
                 ) }}
             {% else %}
                 {{ selectionButtons(
-                    label=fields.respStatementOfTruth,
-                    value=content.fields.statementOfTruth.yes,
+                    fields.respStatementOfTruth,
+                    content.fields.statementOfTruth.yes,
                     options = [
                         { label: content.fields.statementOfTruth.yes, value: consts.YES_VALUE }
                     ],
