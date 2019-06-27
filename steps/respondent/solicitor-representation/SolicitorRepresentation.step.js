@@ -8,8 +8,8 @@ const config = require('config');
 const content = require('./SolicitorRepresentation.content');
 
 const values = {
-  yes: 'yes',
-  no: 'no',
+  yes: 'Yes',
+  no: 'No',
   twoYearSeparation: 'separation-2-years',
   adultery: 'adultery'
 };

@@ -44,11 +44,11 @@ describe(modulePath, () => {
       sandbox.stub(config, 'features').value({
         respSolicitorDetails: true
       });
-      return question.redirectWithField(CheckYourAnswers, fields, doneStep, { SolicitorRepresentation: { response: 'yes' } });
+      return question.redirectWithField(CheckYourAnswers, fields, doneStep, { SolicitorRepresentation: { response: 'Yes' } });
     });
 
     it('shows error if does not answer solicitor acknowledge answers', () => {
-      return question.testErrors(CheckYourAnswers, { SolicitorRepresentation: { response: 'yes' } });
+      return question.testErrors(CheckYourAnswers, { SolicitorRepresentation: { response: 'Yes' } });
     });
   });
 
