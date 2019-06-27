@@ -1,6 +1,6 @@
 <li>
     <strong class="bold-xsmall">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
-    {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
+    {{ session.divorceCenterName }}<br/>
     {% if session.divorceCenterPoBox %}
         {{ session.divorceCenterPoBox }}<br/>
     {% endif %}

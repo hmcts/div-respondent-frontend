@@ -61,7 +61,7 @@
       {% if session.serviceCentreName %}
         <li>{{ session.serviceCentreName }}</li>
       {% endif %}
-        <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+        <li>{{ session.divorceCenterName }}</li>
       {% if session.divorceCenterPoBox %}
         <li>{{ session.divorceCenterPoBox }}</li>
       {% endif %}
@@ -114,7 +114,7 @@
         <li>{{ session.serviceCentreName }}</li>
       {% endif %}
 
-      <li>{{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}</li>
+      <li>{{ session.divorceCenterName }}</li>
 
       {% if session.divorceCenterPoBox %}
         <li>{{ session.divorceCenterPoBox }}</li>
