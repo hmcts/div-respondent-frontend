@@ -13,7 +13,7 @@ function seeCheckYourAnswersPage() {
 function confirmInformationIsTrue() {
   const I = this;
   if (parseBool(config.features.respSolicitorDetails)) {
-    I.click(content.en.fields.respSolicitorRepStatement.yes);
+    I.click(content.en.fields.respondentSolicitorRepresented.yes);
   } else {
     I.click(content.en.fields.statementOfTruth.yes);
   }
