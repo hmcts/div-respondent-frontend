@@ -1,38 +1,51 @@
-# Divorce Respondent Frontend
+# Divorce Respondent Frontend [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The Apply for Divorce Respondent Frontend.
+This repo builds the frontend for the respondent journey. Once the petitioner has gone through their journey and applied for a divorce, the respondent will then respond to the divorce and this repo builds used to display the journey.
 
-## Getting started
+## Setup
 
-####Install dependencies:
+**Install dependencies:**
 
-`yarn install`
+```
+yarn install
+```
 
-####Start application:
+**Start application:**
 
-`docker-compose up`
 
-`yarn mocks`
+Run the following to start the redis server:
 
-`yarn dev`
+```
+docker-compose up
+```
+
+Then run the following in seperate terminals
+
+```
+yarn mocks
+```
+
+```
+yarn dev
+```
 
 The application will now be running on ```https://localhost:3000```.
 
-### Running tests:
+## Testing
 
-* Unit
+**Unit**
 
 ```
 yarn test:unit
 ```
 
-* Validation
+**Validation**
 
 ```
 yarn test:validation
 ```
 
-* E2E
+**E2E**
 
 Run the following, each in a separate terminal window
 ```
@@ -41,7 +54,7 @@ yarn mocks
 yarn test:e2e
 ```
 
-#### Running tests locally against a PR/AAT
+**Running tests locally against a PR/AAT**
 
 * Connect to the VPN
 
@@ -52,3 +65,6 @@ yarn test:e2e
 * If you want to point to a PR, modify `tests.e2e.url` accordingly.
 
 * Run ```NODE_ENV=aat yarn test:functional```. This would your tests to pick up the new `local-aat.yml`.
+
+## Licensing
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
