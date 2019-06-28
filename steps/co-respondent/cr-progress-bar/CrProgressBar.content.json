@@ -63,7 +63,8 @@
       "theHearing": "The hearing",
       "findMoreDetails": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Certificate Of Entitlement PDF.\">Certificate Of Entitlement</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
       "wantToObject": "You don’t need to come to the hearing unless you want to object to the costs order.",
-      "attendTheHearing": "If you want to attend the hearing, you need to email the court before the hearing date. If you want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date."
+      "attendTheHearing": "If you want to attend the hearing, you need to email the court before the hearing date.",
+      "attendTheHearingCosts": " If you want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date."
     }
   }
 }
