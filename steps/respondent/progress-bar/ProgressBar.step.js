@@ -13,6 +13,7 @@ const progressStates = {
   awaitingAnswer: 'awaitingAnswer',
   defendedDivorce: 'defendedDivorce',
   awaitingPronouncement: 'awaitingPronouncement',
+  awaitingDecreeAbsolute: 'awaitingDecreeAbsolute',
   other: 'other'
 };
 
@@ -93,11 +94,25 @@ class ProgressBar extends Interstitial {
     return false;
   }
 
+  get costsOrderFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'costsOrder';
+    });
+  }
+
+  get decreeNisiFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'decreeNisi';
+    });
+  }
+
   getProgressBarContent() {
     const caseState = this.session.caseState;
 
     if (this.awaitingPronouncement(caseState)) {
       return this.progressStates.awaitingPronouncement;
+    } else if (this.awaitingDecreeAbsolute(caseState)) {
+      return this.progressStates.awaitingDecreeAbsolute;
     } else if (this.progressedNoAos(caseState)) {
       return this.progressStates.progressedNoAos;
     } else if (this.progressedUndefended(caseState)) {
@@ -118,6 +133,11 @@ class ProgressBar extends Interstitial {
 
   progressedUndefended(caseState) {
     return this.caseBeyondAos(caseState) && this.session.originalPetition.respWillDefendDivorce === values.no;
+  }
+
+  awaitingDecreeAbsolute(caseState) {
+    const decreeNisiGrantedDate = get(this.session, 'originalPetition.decreeNisiGrantedDate');
+    return caseState === config.caseStates.AwaitingDecreeAbsolute && decreeNisiGrantedDate;
   }
 
   awaitingAnswer(caseState) {
