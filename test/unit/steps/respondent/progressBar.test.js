@@ -100,44 +100,36 @@ describe(modulePath, () => {
   });
 
   describe('content for Awaiting Pronouncement and hearing date', () => {
-    it('no cost order', () => {
+    describe('no cost order', () => {
       // case has progressed with AoS, court has received respondents defence answer
       const session = {
         caseState: 'AwaitingPronouncement',
         originalPetition: {
-          hearingDate: [ '2222-01-01T00:00:00.000+0000' ],
-          costsClaimGranted: 'Yes',
-          whoPaysCosts: 'respondent'
+          hearingDate: [ '2222-01-01T00:00:00.000+0000' ]
         }
       };
 
-      return content(ProgressBar, session, {
-        specificContent: [
-          'decreeNisiAnnouncement.heading',
-          'decreeNisiAnnouncement.districtJudge',
-          'decreeNisiAnnouncement.secondStage',
-          'decreeNisiAnnouncement.theHearing',
-          'decreeNisiAnnouncement.moreDetails',
-          'decreeNisiAnnouncement.dontNeedToCome',
-          'decreeNisiAnnouncement.wantToAttend',
-          'decreeNisiAnnouncement.wantToAttendCosts'
-        ]
+      it('show correct content', () => {
+        return content(ProgressBar, session, {
+          specificContent: [
+            'decreeNisiAnnouncement.heading',
+            'decreeNisiAnnouncement.districtJudge',
+            'decreeNisiAnnouncement.secondStage',
+            'decreeNisiAnnouncement.theHearing',
+            'decreeNisiAnnouncement.moreDetails',
+            'decreeNisiAnnouncement.dontNeedToCome',
+            'decreeNisiAnnouncement.wantToAttend'
+          ]
+        });
       });
-    });
 
-    it('cost order', () => {
-      // case has progressed with AoS, court has received respondents defence answer
-      const session = {
-        caseState: 'AwaitingPronouncement',
-        originalPetition: {
-          costsClaimGranted: 'Yes',
-          hearingDate: [ '2222-01-01T00:00:00.000+0000' ],
-          whoPaysCosts: 'respondent'
-        }
-      };
-
-      return content(ProgressBar, session, {
-        specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
+      it('not show content', () => {
+        return content(ProgressBar, session, {
+          specificContentToNotExist: [
+            'decreeNisiAnnouncement.acceptedCosts',
+            'decreeNisiAnnouncement.wantToAttendCosts'
+          ]
+        });
       });
     });
 
@@ -153,7 +145,17 @@ describe(modulePath, () => {
       };
 
       return content(ProgressBar, session, {
-        specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
+        specificContent: [
+          'decreeNisiAnnouncement.heading',
+          'decreeNisiAnnouncement.districtJudge',
+          'decreeNisiAnnouncement.secondStage',
+          'decreeNisiAnnouncement.theHearing',
+          'decreeNisiAnnouncement.moreDetails',
+          'decreeNisiAnnouncement.dontNeedToCome',
+          'decreeNisiAnnouncement.wantToAttend',
+          'decreeNisiAnnouncement.acceptedCosts',
+          'decreeNisiAnnouncement.wantToAttendCosts'
+        ]
       });
     });
   });
