@@ -49,7 +49,8 @@
       "theHearing": "The hearing",
       "moreDetails": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Certificate Of Entitlement PDF.\">Certificate Of Entitlement</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
       "dontNeedToCome": "You don’t need to come to the hearing unless you want to object to any of the court orders being made.",
-      "wantToAttend": "If you want to attend the hearing, you need to email the court before the hearing date. If you, or your {{ session.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date.",
+      "wantToAttend": "If you want to attend the hearing, you need to email the court before the hearing date.",
+      "wantToAttendCosts": " If you, or your {{ session.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date.",
       "acceptedCosts": "The court has also decided to make an order that you pay towards the divorce costs."
     },
     "decreeNisiGranted": {

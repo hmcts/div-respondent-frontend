@@ -105,7 +105,9 @@ describe(modulePath, () => {
       const session = {
         caseState: 'AwaitingPronouncement',
         originalPetition: {
-          hearingDate: [ '2222-01-01T00:00:00.000+0000' ]
+          hearingDate: [ '2222-01-01T00:00:00.000+0000' ],
+          costsClaimGranted: 'Yes',
+          whoPaysCosts: 'respondent'
         }
       };
 
@@ -117,7 +119,8 @@ describe(modulePath, () => {
           'decreeNisiAnnouncement.theHearing',
           'decreeNisiAnnouncement.moreDetails',
           'decreeNisiAnnouncement.dontNeedToCome',
-          'decreeNisiAnnouncement.wantToAttend'
+          'decreeNisiAnnouncement.wantToAttend',
+          'decreeNisiAnnouncement.wantToAttendCosts'
         ]
       });
     });

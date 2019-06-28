@@ -99,6 +99,18 @@
 
         <br>
 
+        <div class="notice">
+            <em class="icon icon-important">
+                <span class="visually-hidden">Warning</span>
+            </em>
+            <strong class="bold-small">
+                {{ content.decreeNisiAnnouncement.wantToAttend }}
+                {% if respondentPaysCosts %}
+                    {{ content.decreeNisiAnnouncement.wantToAttendCosts }}
+                {% endif %}
+            </strong>
+        </div>
+
         <p>{{ content.decreeNisiAnnouncement.wantToAttend }}</p>
     {% endif %}
 
