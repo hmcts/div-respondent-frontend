@@ -80,6 +80,8 @@ paths:
   mock:
     idamLogin: /idam-mock-login
   respondent:
+    solicitorDetails: /solicitor-details
+    solicitorRepresentation: /resp-has-solicitor
     financialSituation: /delay-the-decree
     respond: /respond
     reviewApplication: /review-application
@@ -160,6 +162,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
+  respSolicitorDetails: false
 
 journey:
   timeoutDelay: 300
@@ -177,6 +180,8 @@ document:
     - 'respondentAnswers'
     - 'coRespondentAnswers'
     - 'certificateOfEntitlement'
+    - 'costsOrder'
+    - 'decreeNisi'
 
 saucelabs:
   browser: 'chrome'

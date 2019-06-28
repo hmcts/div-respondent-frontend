@@ -10,7 +10,9 @@
       "dpetition": "Divorce application",
       "respondentAnswers": "Your answers",
       "coRespondentAnswers": "Co-Respondent's answers",
-      "certificateOfEntitlement": "Certificate Of Entitlement"
+      "certificateOfEntitlement": "Certificate Of Entitlement",
+      "costsOrder": "Costs Order",
+      "decreeNisi": "Decree Nisi"
     },
     "details": {
       "referenceNumber": "Reference number",
@@ -49,6 +51,27 @@
       "dontNeedToCome": "You don’t need to come to the hearing unless you want to object to any of the court orders being made.",
       "wantToAttend": "If you want to attend the hearing, you need to email the court before the hearing date. If you, or your {{ session.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date.",
       "acceptedCosts": "The court has also decided to make an order that you pay towards the divorce costs."
+    },
+    "decreeNisiGranted": {
+      "heading": "Your {{ session.divorceWho }} has been granted a decree nisi",
+      "dateGranted": "On {{ session.originalPetition.decreeNisiGrantedDate | date }} the court granted your {{ session.divorceWho }} a:",
+      "decreeNisi": "decree nisi - the first stage of the decree ending your marriage",
+      "costsOrder": "costs order - giving your {{ session.divorceWho }} the right to claim their divorce costs",
+
+      "warning": "Warning",
+      "notDivorcedYet": "You are not divorced yet. You will only be divorced when the second stage is complete and the decree has been made absolute.",
+
+      "divorceComplete": "When the divorce can be completed",
+      "sixWeeks": "Your {{ session.divorceWho }} must wait 6 weeks after the decree nisi is granted before they can apply for the decree absolute.",
+      "courtCancel": "The court can cancel (known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
+      "applyForDecreeAbsolute": "You can apply for the decree absolute if your {{ session.divorceWho }} doesn't. You'll need to wait an extra 3 months after the 6 week period has passed to do this.",
+      "downloadDecreeNisi": "<a href=\"{{ decreeNisiFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Decree Nisi PDF.\">Download your decree nisi</a> ({{ decreeNisiFile.fileType | upper }}).",
+
+      "whatCostsOrder": "What to do with the costs order",
+      "orderWillStateRespondent": "The order will state what the court has decided you must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "orderWillStateCoRespondent": "The order will state what the court has decided the co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "orderWillStateRespondentAndCoRespondent": "The order will state what the court has decided you and your co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "downloadCostsOrder": "<a href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Costs Order PDF.\">Download your costs order</a> ({{ costsOrderFile.fileType | upper }})."
     },
     "other": {
       "heading": "Please contact the Courts and Tribunals Service Centre for more information"

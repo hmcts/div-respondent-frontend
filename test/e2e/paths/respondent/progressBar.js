@@ -42,3 +42,16 @@ Scenario('Should display content for respondent that has defended, and has answe
   I.seeRespondentAnswersToDownload();
   I.seeCoRespondentAnswersToDownload();
 }).retry(2);
+
+Scenario('Should display content for respondent that is AwaitingDecreeAbsolute', I => {
+  I.amOnPage('/');
+  I.seeIdamLoginPage();
+  I.loginAsCaseAwaitingDecreeAbsolute();
+  I.seeProgressBarPage();
+  I.seeContentForAwaitingDecreeAbsolute();
+  I.seePetitionToDownload();
+  I.seeRespondentAnswersToDownload();
+  I.seeCoRespondentAnswersToDownload();
+  I.seeCostsOrderToDownload();
+  I.seeDecreeNisiToDownload();
+}).retry(2);
