@@ -35,6 +35,13 @@ function seeContentForAosCompleteDefending() {
   I.see(content.en.defendedDivorce.para1);
 }
 
+function seeContentForAwaitingDecreeAbsolute() {
+  const I = this;
+
+  I.see(content.en.decreeNisiGranted.notDivorcedYet);
+  I.see(content.en.decreeNisiGranted.divorceComplete);
+}
+
 function seePetitionToDownload() {
   const I = this;
   I.see(content.en.files.dpetition);
@@ -50,6 +57,16 @@ function seeCoRespondentAnswersToDownload() {
   I.see(content.en.files.coRespondentAnswers);
 }
 
+function seeCostsOrderToDownload() {
+  const I = this;
+  I.see(content.en.files.costsOrder);
+}
+
+function seeDecreeNisiToDownload() {
+  const I = this;
+  I.see(content.en.files.decreeNisi);
+}
+
 module.exports = {
   seeProgressBarPage,
   seeContentForAosNotCompleted,
@@ -58,5 +75,8 @@ module.exports = {
   seeContentForAosCompleteDefending,
   seePetitionToDownload,
   seeRespondentAnswersToDownload,
-  seeCoRespondentAnswersToDownload
+  seeCoRespondentAnswersToDownload,
+  seeContentForAwaitingDecreeAbsolute,
+  seeCostsOrderToDownload,
+  seeDecreeNisiToDownload
 };

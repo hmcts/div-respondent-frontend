@@ -199,3 +199,7 @@ variable "appinsights_instrumentation_key" {
 variable "evidence_management_download_endpoint" {
   default = "/emclientapi/version/1/download"
 }
+
+variable "feature_resp_solicitor_details" {
+  default = false
+}

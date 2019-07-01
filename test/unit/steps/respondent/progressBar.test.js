@@ -100,7 +100,7 @@ describe(modulePath, () => {
   });
 
   describe('content for Awaiting Pronouncement and hearing date', () => {
-    it('no cost order', () => {
+    describe('no cost order', () => {
       // case has progressed with AoS, court has received respondents defence answer
       const session = {
         caseState: 'AwaitingPronouncement',
@@ -109,32 +109,27 @@ describe(modulePath, () => {
         }
       };
 
-      return content(ProgressBar, session, {
-        specificContent: [
-          'decreeNisiAnnouncement.heading',
-          'decreeNisiAnnouncement.districtJudge',
-          'decreeNisiAnnouncement.secondStage',
-          'decreeNisiAnnouncement.theHearing',
-          'decreeNisiAnnouncement.moreDetails',
-          'decreeNisiAnnouncement.dontNeedToCome',
-          'decreeNisiAnnouncement.wantToAttend'
-        ]
+      it('show correct content', () => {
+        return content(ProgressBar, session, {
+          specificContent: [
+            'decreeNisiAnnouncement.heading',
+            'decreeNisiAnnouncement.districtJudge',
+            'decreeNisiAnnouncement.secondStage',
+            'decreeNisiAnnouncement.theHearing',
+            'decreeNisiAnnouncement.moreDetails',
+            'decreeNisiAnnouncement.dontNeedToCome',
+            'decreeNisiAnnouncement.wantToAttend'
+          ]
+        });
       });
-    });
 
-    it('cost order', () => {
-      // case has progressed with AoS, court has received respondents defence answer
-      const session = {
-        caseState: 'AwaitingPronouncement',
-        originalPetition: {
-          costsClaimGranted: 'Yes',
-          hearingDate: [ '2222-01-01T00:00:00.000+0000' ],
-          whoPaysCosts: 'respondent'
-        }
-      };
-
-      return content(ProgressBar, session, {
-        specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
+      it('not show content', () => {
+        return content(ProgressBar, session, {
+          specificContentToNotExist: [
+            'decreeNisiAnnouncement.acceptedCosts',
+            'decreeNisiAnnouncement.wantToAttendCosts'
+          ]
+        });
       });
     });
 
@@ -150,7 +145,161 @@ describe(modulePath, () => {
       };
 
       return content(ProgressBar, session, {
-        specificContent: [ 'decreeNisiAnnouncement.acceptedCosts' ]
+        specificContent: [
+          'decreeNisiAnnouncement.heading',
+          'decreeNisiAnnouncement.districtJudge',
+          'decreeNisiAnnouncement.secondStage',
+          'decreeNisiAnnouncement.theHearing',
+          'decreeNisiAnnouncement.moreDetails',
+          'decreeNisiAnnouncement.dontNeedToCome',
+          'decreeNisiAnnouncement.wantToAttend',
+          'decreeNisiAnnouncement.acceptedCosts',
+          'decreeNisiAnnouncement.wantToAttendCosts'
+        ]
+      });
+    });
+  });
+
+  describe('State: AwaitingDecreeAbsolute', () => {
+    const awaitingDecreeAbsoluteContent = [
+      'decreeNisiGranted.heading',
+      'decreeNisiGranted.dateGranted',
+      'decreeNisiGranted.decreeNisi',
+      'decreeNisiGranted.costsOrder',
+      'decreeNisiGranted.warning',
+      'decreeNisiGranted.notDivorcedYet',
+      'decreeNisiGranted.divorceComplete',
+      'decreeNisiGranted.sixWeeks',
+      'decreeNisiGranted.courtCancel',
+      'decreeNisiGranted.applyForDecreeAbsolute',
+      'decreeNisiGranted.downloadDecreeNisi',
+      'decreeNisiGranted.whatCostsOrder',
+      'decreeNisiGranted.orderWillStateRespondent',
+      'decreeNisiGranted.orderWillStateCoRespondent',
+      'decreeNisiGranted.orderWillStateRespondentAndCoRespondent',
+      'decreeNisiGranted.downloadCostsOrder'
+    ];
+
+    let session = {};
+
+    beforeEach(() => {
+      session = {
+        caseState: 'AwaitingDecreeAbsolute',
+        originalPetition: {
+          decreeNisiGrantedDate: '2222-01-01T00:00:00.000+0000',
+          whoPaysCosts: 'respondent',
+          d8: [
+            {
+              id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+              fileName: 'costsOrder1554740111371638.pdf',
+              // eslint-disable-next-line max-len
+              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+            },
+            {
+              id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+              fileName: 'decreeNisi1554740111371638.pdf',
+              // eslint-disable-next-line max-len
+              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+            }
+          ]
+        }
+      };
+    });
+
+    describe('costs order: respondent', () => {
+      beforeEach(() => {
+        session.originalPetition.whoPaysCosts = 'respondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.orderWillStateCoRespondent',
+        'decreeNisiGranted.orderWillStateRespondentAndCoRespondent'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent', () => {
+      beforeEach(() => {
+        session.originalPetition.whoPaysCosts = 'coRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.orderWillStateRespondent',
+        'decreeNisiGranted.orderWillStateRespondentAndCoRespondent'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent and respondent', () => {
+      beforeEach(() => {
+        session.originalPetition.whoPaysCosts = 'respondentAndCoRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.orderWillStateRespondent',
+        'decreeNisiGranted.orderWillStateCoRespondent'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('no cost order', () => {
+      beforeEach(() => {
+        delete session.originalPetition.whoPaysCosts;
+        delete session.originalPetition.d8;
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.costsOrder',
+        'decreeNisiGranted.whatCostsOrder',
+        'decreeNisiGranted.orderWillStateRespondent',
+        'decreeNisiGranted.orderWillStateCoRespondent',
+        'decreeNisiGranted.orderWillStateRespondentAndCoRespondent',
+        'decreeNisiGranted.downloadCostsOrder'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
       });
     });
   });
