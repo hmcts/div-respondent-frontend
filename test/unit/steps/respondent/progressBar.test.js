@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 const modulePath = 'steps/respondent/progress-bar/ProgressBar.step';
 const ProgressBar = require(modulePath);
 const progressBarContent = require('steps/respondent/progress-bar/ProgressBar.content');
@@ -16,6 +17,7 @@ const templates = {
   defendedDivorce: './sections/TwoCircleFilledIn.html',
   awaitingDecreeNisi: './sections/TwoCircleFilledInBold.html',
   awaitingDecreeAbsolute: './sections/ThreeCircleFilledInBold.html',
+  dnPronounced: './sections/ThreeCircleFilledInBold.html',
   divorceGranted: './sections/FourCircleFilledIn.html'
 };
 
@@ -185,6 +187,150 @@ describe(modulePath, () => {
     beforeEach(() => {
       session = {
         caseState: 'AwaitingDecreeAbsolute',
+        originalPetition: {
+          decreeNisiGrantedDate: '2222-01-01T00:00:00.000+0000',
+          whoPaysCosts: 'respondent',
+          d8: [
+            {
+              id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+              fileName: 'costsOrder1554740111371638.pdf',
+              // eslint-disable-next-line max-len
+              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+            },
+            {
+              id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+              fileName: 'decreeNisi1554740111371638.pdf',
+              // eslint-disable-next-line max-len
+              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+            }
+          ]
+        }
+      };
+    });
+
+    describe('costs order: respondent', () => {
+      beforeEach(() => {
+        session.originalPetition.whoPaysCosts = 'respondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.orderWillStateCoRespondent',
+        'decreeNisiGranted.orderWillStateRespondentAndCoRespondent'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent', () => {
+      beforeEach(() => {
+        session.originalPetition.whoPaysCosts = 'coRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.orderWillStateRespondent',
+        'decreeNisiGranted.orderWillStateRespondentAndCoRespondent'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent and respondent', () => {
+      beforeEach(() => {
+        session.originalPetition.whoPaysCosts = 'respondentAndCoRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.orderWillStateRespondent',
+        'decreeNisiGranted.orderWillStateCoRespondent'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('no cost order', () => {
+      beforeEach(() => {
+        delete session.originalPetition.whoPaysCosts;
+        delete session.originalPetition.d8;
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGranted.costsOrder',
+        'decreeNisiGranted.whatCostsOrder',
+        'decreeNisiGranted.orderWillStateRespondent',
+        'decreeNisiGranted.orderWillStateCoRespondent',
+        'decreeNisiGranted.orderWillStateRespondentAndCoRespondent',
+        'decreeNisiGranted.downloadCostsOrder'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = awaitingDecreeAbsoluteContent.filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(ProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(ProgressBar, session, { specificContentToNotExist });
+      });
+    });
+  });
+
+  describe('State: DNPronounced', () => {
+    const awaitingDecreeAbsoluteContent = [
+      'decreeNisiGranted.heading',
+      'decreeNisiGranted.dateGranted',
+      'decreeNisiGranted.decreeNisi',
+      'decreeNisiGranted.costsOrder',
+      'decreeNisiGranted.warning',
+      'decreeNisiGranted.notDivorcedYet',
+      'decreeNisiGranted.divorceComplete',
+      'decreeNisiGranted.sixWeeks',
+      'decreeNisiGranted.courtCancel',
+      'decreeNisiGranted.applyForDecreeAbsolute',
+      'decreeNisiGranted.downloadDecreeNisi',
+      'decreeNisiGranted.whatCostsOrder',
+      'decreeNisiGranted.orderWillStateRespondent',
+      'decreeNisiGranted.orderWillStateCoRespondent',
+      'decreeNisiGranted.orderWillStateRespondentAndCoRespondent',
+      'decreeNisiGranted.downloadCostsOrder'
+    ];
+
+    let session = {};
+
+    beforeEach(() => {
+      session = {
+        caseState: 'DNPronounced',
         originalPetition: {
           decreeNisiGrantedDate: '2222-01-01T00:00:00.000+0000',
           whoPaysCosts: 'respondent',
@@ -479,6 +625,17 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(ProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingDecreeNisi);
+    });
+  });
+
+  describe('CCD state: DNPronounced', () => {
+    const session = {
+      caseState: 'DNPronounced'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingDecreeAbsolute);
     });
   });
 

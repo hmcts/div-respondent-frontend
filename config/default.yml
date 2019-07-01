@@ -150,6 +150,7 @@ caseStates:
   AwaitingClarification: 'AwaitingClarification'
   AwaitingConsideration: 'AwaitingConsideration'
   AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
+  DNPronounced: 'DNPronounced'
   DNAwaiting: 'DNAwaiting'
   AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
   AwaitingPronouncement: 'AwaitingPronouncement'

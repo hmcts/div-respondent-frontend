@@ -14,6 +14,7 @@ const progressStates = {
   defendedDivorce: 'defendedDivorce',
   awaitingPronouncement: 'awaitingPronouncement',
   awaitingDecreeAbsolute: 'awaitingDecreeAbsolute',
+  dnPronounced: 'dnPronounced',
   other: 'other'
 };
 
@@ -41,7 +42,7 @@ const caseStateMap = [
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
-    state: ['AwaitingDecreeAbsolute']
+    state: ['AwaitingDecreeAbsolute', 'DNPronounced']
   },
   {
     template: './sections/FourCircleFilledIn.html',
@@ -113,6 +114,8 @@ class ProgressBar extends Interstitial {
       return this.progressStates.awaitingPronouncement;
     } else if (this.awaitingDecreeAbsolute(caseState)) {
       return this.progressStates.awaitingDecreeAbsolute;
+    } else if (this.dnPronounced(caseState)) {
+      return this.progressStates.dnPronounced;
     } else if (this.progressedNoAos(caseState)) {
       return this.progressStates.progressedNoAos;
     } else if (this.progressedUndefended(caseState)) {
@@ -140,6 +143,10 @@ class ProgressBar extends Interstitial {
     return caseState === config.caseStates.AwaitingDecreeAbsolute && decreeNisiGrantedDate;
   }
 
+  dnPronounced(caseState) {
+    return caseState === config.caseStates.DNPronounced;
+  }
+
   awaitingAnswer(caseState) {
     return caseState === config.caseStates.AosSubmittedAwaitingAnswer;
   }
@@ -155,6 +162,7 @@ class ProgressBar extends Interstitial {
       caseState === config.caseStates.AwaitingClarification ||
       caseState === config.caseStates.AwaitingConsideration ||
       caseState === config.caseStates.AwaitingDecreeAbsolute ||
+      caseState === config.caseStates.DNPronounced ||
       caseState === config.caseStates.DNAwaiting ||
       caseState === config.caseStates.AwaitingReissue ||
       caseState === config.caseStates.DivorceGranted ||
