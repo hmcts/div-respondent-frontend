@@ -195,7 +195,8 @@ describe(modulePath, () => {
           'awaitingPronouncementHearingDate.theHearing',
           'awaitingPronouncementHearingDate.findMoreDetails',
           'awaitingPronouncementHearingDate.wantToObject',
-          'awaitingPronouncementHearingDate.attendTheHearing'
+          'awaitingPronouncementHearingDate.attendTheHearing',
+          'awaitingPronouncementHearingDate.attendTheHearingCosts'
         ]
       });
     });

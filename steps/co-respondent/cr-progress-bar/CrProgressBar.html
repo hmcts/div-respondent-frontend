@@ -95,7 +95,17 @@
             </div>
         {% endif %}
         <br>
-        <p>{{ content.awaitingPronouncementHearingDate.attendTheHearing }}</p>
+        <div class="notice">
+            <em class="icon icon-important">
+                <span class="visually-hidden">{{ content.awaitingPronouncementHearingDate.warning }}</span>
+            </em>
+            <strong class="bold-small">
+                {{ content.awaitingPronouncementHearingDate.attendTheHearing }}
+                {% if coRespondentPaysCosts %}
+                    {{ content.awaitingPronouncementHearingDate.attendTheHearingCosts }}
+                {% endif %}
+            </strong>
+        </div>
     {% endif %}
 
 {% endblock %}

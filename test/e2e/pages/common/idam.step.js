@@ -102,6 +102,20 @@ function loginAsCaseProgressedDefending() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsCaseAwaitingDecreeAbsolute() {
+  const I = this;
+
+  I.click(content.en.fields.success.awaitingDecreeAbsolute);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCaseDNPronounced() {
+  const I = this;
+
+  I.click(content.en.fields.success.dnPronounced);
+  I.click(commonContent.en.continue);
+}
+
 function loginAsCorespondent() {
   const I = this;
 
@@ -173,5 +187,7 @@ module.exports = {
   loginAsCoRespDefendingSubmittedAnswer,
   loginAsCoRespTooLateToRespond,
   loginAsCoRespAwaitingPronouncementHearingDataFuture,
-  loginAndThrowError
+  loginAndThrowError,
+  loginAsCaseAwaitingDecreeAbsolute,
+  loginAsCaseDNPronounced
 };
