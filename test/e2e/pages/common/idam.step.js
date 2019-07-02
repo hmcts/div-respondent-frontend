@@ -109,6 +109,13 @@ function loginAsCaseAwaitingDecreeAbsolute() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsCaseDNPronounced() {
+  const I = this;
+
+  I.click(content.en.fields.success.dnPronounced);
+  I.click(commonContent.en.continue);
+}
+
 function loginAsCorespondent() {
   const I = this;
 
@@ -181,5 +188,6 @@ module.exports = {
   loginAsCoRespTooLateToRespond,
   loginAsCoRespAwaitingPronouncementHearingDataFuture,
   loginAndThrowError,
-  loginAsCaseAwaitingDecreeAbsolute
+  loginAsCaseAwaitingDecreeAbsolute,
+  loginAsCaseDNPronounced
 };
