@@ -3,7 +3,6 @@ const CheckYourAnswers = require(modulePath);
 const doneStep = require('steps/respondent/done/Done.step');
 const idam = require('services/idam');
 const caseOrchestration = require('services/caseOrchestration');
-const config = require('config');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
@@ -30,25 +29,25 @@ describe(modulePath, () => {
   });
 
   describe('with solicitor', () => {
-    let sandbox = {};
-    before(() => {
-      sandbox = sinon.sandbox.create();
-    });
-
-    after(() => {
-      sandbox.restore();
-    });
+    const session = { SolicitorRepresentation: { response: 'Yes' } };
 
     it('redirects to next page if solicitor representing and acknowledges answers', () => {
       const fields = { respSolicitorRepStatement: 'Yes' };
-      sandbox.stub(config, 'features').value({
-        respSolicitorDetails: true
-      });
-      return question.redirectWithField(CheckYourAnswers, fields, doneStep, { SolicitorRepresentation: { response: 'Yes' } });
+      return question.redirectWithField(CheckYourAnswers, fields, doneStep, session);
     });
 
     it('shows error if does not answer solicitor acknowledge answers', () => {
-      return question.testErrors(CheckYourAnswers, { SolicitorRepresentation: { response: 'Yes' } });
+      return question.testErrors(CheckYourAnswers, session);
+    });
+
+    it('renders correct content', () => {
+      return content(CheckYourAnswers, session, {
+        specificContentToNotExist: [
+          'facts',
+          'whatTheseStatements',
+          'statementsExplanation'
+        ]
+      });
     });
   });
 

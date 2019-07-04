@@ -57,10 +57,10 @@
         {% endcall %}
 
         <ul class="list-bullet">
-            {% if not isRepresentedBySol %}
             <li>{{ content.respondentConfirmation | safe }}</li>
+            {% if not isRepresentedBySol %}
+                <li>{{ content.facts | safe }}</li>
             {% endif %}
-            <li>{{ content.facts | safe }}</li>
         </uL>
 
         <br>
