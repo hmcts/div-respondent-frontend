@@ -10,21 +10,21 @@
 
     <div id="admit-adultery">
 
-        <p>{{ content.detailsText | safe }}</p>
+        <p class="govuk-body">{{ content.detailsText | safe }}</p>
 
         {% if caseData.reasonForDivorceAdulteryKnowWhere === 'Yes' %}
-            <h2 class="heading-small">{{ content.whereAdultery.heading }}</h2>
-            <p class="text">"{{ caseData.reasonForDivorceAdulteryWhereDetails }}"</p>
+            <h2 class="govuk-heading-s">{{ content.whereAdultery.heading }}</h2>
+            <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhereDetails }}"</p>
         {% endif %}
 
         {% if caseData.reasonForDivorceAdulteryKnowWhen === 'Yes' %}
-            <h2 class="heading-small">{{ content.whenAdultery.heading }}</h2>
-            <p class="text">"{{ caseData.reasonForDivorceAdulteryWhenDetails }}"</p>
+            <h2 class="govuk-heading-s">{{ content.whenAdultery.heading }}</h2>
+            <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhenDetails }}"</p>
         {% endif %}
 
         {% if caseData.reasonForDivorceAdulteryDetails %}
-            <h2 class="heading-small">{{ content.details.heading }}</h2>
-            <p class="text">"{{ caseData.reasonForDivorceAdulteryDetails }}"</p>
+            <h2 class="govuk-heading-s">{{ content.details.heading }}</h2>
+            <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryDetails }}"</p>
         {% endif %}
 
         {% call formSection() %}

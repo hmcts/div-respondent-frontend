@@ -5,7 +5,7 @@
       "referenceNumber": "Reference number",
       "name": "Name"
     },
-    "downloadableFiles": "Download your documents",
+    "downloadDocuments": "Download your documents",
     "files": {
       "dpetition": "Divorce application",
       "coRespondentAnswers": "Your answers",
@@ -21,7 +21,7 @@
     },
     "defendingAwaitingAnswer": {
       "heading": "You need to submit your answer",
-      "para1": "You must now submit the '<a href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">answer to a divorce application</a>' form. The deadline for the court to receive this is 21 days from the date that you first signed in to respond to the application.",
+      "para1": "You must now submit the '<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">answer to a divorce application</a>' form. The deadline for the court to receive this is 21 days from the date that you first signed in to respond to the application.",
       "para2": "Download and fill in the paper form.",
       "para3": "Post the form to:",
       "para4": "You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form.",
@@ -34,26 +34,6 @@
       "para2": "The court will now decide whether you will need to attend a hearing. You may be contacted for more information to help make that decision.",
       "para3": "If you do need to attend a hearing, you’ll be sent a letter in the post telling you when and where the hearing is."
     },
-    "yourCourt": "Your divorce centre",
-    "careOfAbbreviation": "c/o",
-    "helpHeading": "If you need help",
-    "helpContent": "You can contact the service centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>.",
-    "improveHeading": "Help us improve this service",
-    "improveContent": "Please help us improve this service by <a href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">leaving your feedback</a>.",
-    "contactDetails": {
-      "heading": "Getting help",
-      "yourCourt": "Your divorce centre",
-      "email": "Email",
-      "phone": "Phone",
-      "divorceCenterHours": "(Monday to Friday, 8.30am to 5pm)"
-    },
-    "guidance": {
-      "title": "Guidance on GOV.UK",
-      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How to respond to a divorce application</a>",
-      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Get a divorce</a>",
-      "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
-      "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
-    },
     "awaitingPronouncementHearingDate": {
       "warning": "Warning",
       "title": "The application for a decree nisi has been accepted",
@@ -61,10 +41,28 @@
       "orderPayDivorceCosts": "The court has also decided to make an order that you pay towards the divorce costs.",
       "divorceOnlyComplete": "The divorce is only complete when the decree absolute has been granted.",
       "theHearing": "The hearing",
-      "findMoreDetails": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Certificate Of Entitlement PDF.\">Certificate Of Entitlement</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
+      "findMoreDetails": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a class=\"govuk-link\" href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Certificate Of Entitlement PDF.\">Certificate Of Entitlement</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
       "wantToObject": "You don’t need to come to the hearing unless you want to object to the costs order.",
       "attendTheHearing": "If you want to attend the hearing, you need to email the court before the hearing date.",
       "attendTheHearingCosts": " If you want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date."
+    },
+    "yourCourt": "Your divorce centre",
+    "careOfAbbreviation": "c/o",
+    "helpHeading": "If you need help",
+    "helpContent": "You can contact the service centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>.",
+    "improveHeading": "Help us improve this service",
+    "improveContent": "Please help us improve this service by <a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">leaving your feedback</a>.",
+    "help": "Getting help",
+    "yourCourt": "Your divorce centre",
+    "email": "Email",
+    "phone": "Phone",
+    "divorceCenterHours": "(Monday to Friday, 8.30am to 5pm)",
+    "guidance": {
+      "title": "Guidance on GOV.UK",
+      "howWifeHusbandResponds": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How to respond to a divorce application</a>",
+      "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Get a divorce</a>",
+      "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
     }
   }
 }

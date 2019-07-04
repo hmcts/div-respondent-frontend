@@ -112,7 +112,7 @@ describe(modulePath, () => {
           .get()
           .expect(httpStatus.OK)
           .html($ => {
-            const rightHandSideMenu = $('.column-one-third').html();
+            const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
             expect(rightHandSideMenu).to.include('Your divorce centre');
             testDivorceUnitDetailsRender(rightHandSideMenu);
@@ -129,7 +129,7 @@ describe(modulePath, () => {
           .get()
           .expect(httpStatus.OK)
           .html($ => {
-            const rightHandSideMenu = $('.column-one-third').html();
+            const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
             testCTSCDetailsRender(rightHandSideMenu);
           });
@@ -145,7 +145,7 @@ describe(modulePath, () => {
           .get()
           .expect(httpStatus.OK)
           .html($ => {
-            const rightHandSideMenu = $('.column-one-third').html();
+            const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
             testDivorceUnitWithStreetDetailsRender(rightHandSideMenu);
           });
       });
@@ -195,7 +195,7 @@ describe(modulePath, () => {
           .get()
           .expect(httpStatus.OK)
           .html($ => {
-            const rightHandSideMenu = $('.column-one-third').html();
+            const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
               .and.to.include('How to respond to a divorce application')
               .and.to.include('Get a divorce')

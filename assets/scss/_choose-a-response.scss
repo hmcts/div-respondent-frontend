@@ -4,7 +4,7 @@
     margin-bottom: 10px;
   }
 
-  .multiple-choice {
+  .govuk-radios__item {
     border: 1px solid #dee0e2;
     padding: 11px 20px 8px 54px;
     background: #dee0e2;
@@ -17,13 +17,14 @@
       font-weight: bold;
     }
 
-    .choice-description {
+    .govuk-hint {
+      color: #000000;
       display: block;
       font-weight: normal;
     }
   }
 
-  .multiple-choice [type=radio] + label::before {
+  .govuk-fieldset [type=radio] + label::before {
     border: 2px solid;
     width: 34px;
     height: 34px;
@@ -31,11 +32,11 @@
     left: 15px;
   }
 
-  .multiple-choice [type=radio] + label::after {
+  .govuk-fieldset [type=radio] + label::after {
     border: 10px solid;
     width: 0;
     height: 0;
-    top: 27px;
-    left: 24px;
+    top: 25px;
+    left: 22px;
   }
 }

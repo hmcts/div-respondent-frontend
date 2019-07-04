@@ -30,7 +30,7 @@
   "dependencies": {
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.4.0",
-    "@hmcts/look-and-feel": "^2.2.2",
+    "@hmcts/look-and-feel": "^3.0.2",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.2.1",
@@ -41,6 +41,7 @@
     "express": "^4.16.3",
     "express-limiter": "^1.6.1",
     "glob": "^7.1.2",
+    "govuk-frontend": "^2.11.0",
     "helmet": "^3.12.0",
     "i18next": "^11.3.1",
     "ioredis": "^3.2.2",
@@ -55,7 +56,7 @@
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.5.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#0.1",
-    "@hmcts/one-per-page-test-suite": "^3.0.2",
+    "@hmcts/one-per-page-test-suite": "^4.0.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",

@@ -24,18 +24,8 @@
 
 {% set serviceName = content.serviceName %}
 
-{% extends "look-and-feel/layouts/question.html" %}
+{% extends "look-and-feel/layouts/check_your_answers.html" %}
 
 {% block head %}
-  {% include "includes/head.html" %}
-{% endblock %}
-
-{% block bodyStart %}
-    <noscript>
-        <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
-    </noscript>
-{% endblock %}
-
-{% block after_form %}
-    {% include "includes/problem_with_this_page.html" %}
+    {% include "includes/head.html" %}
 {% endblock %}
