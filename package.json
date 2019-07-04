@@ -22,7 +22,9 @@
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/w3cjs --timeout 15000",
     "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
     "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci LOG_LEVEL=DEBUG node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/e2e/saucelabs.conf.js --steps --grep '@Pipeline' --reporter mochawesome",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "pre-commit": [
     "lint"
@@ -50,7 +52,8 @@
     "paths": "^0.1.1",
     "redis": "^2.8.0",
     "request": "^2.85.0",
-    "request-promise-native": "^1.0.5"
+    "request-promise-native": "^1.0.5",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.5.0",
@@ -106,5 +109,6 @@
       "test/**/*",
       "mocks/**/*"
     ]
-  }
+  },
+  "snyk": true
 }
