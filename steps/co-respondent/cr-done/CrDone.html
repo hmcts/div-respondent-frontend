@@ -2,43 +2,36 @@
 
 {% from "look-and-feel/components/progress-list.njk" import progressList %}
 
+{% from "panel/macro.njk" import govukPanel %}
+
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
-{% block proposition_header %}
-<div class="header-proposition">
-    <div class="content">
-        <nav id="proposition-menu">
-            <a href="/" id="proposition-name">
-                {{ content.serviceName }}
-            </a>
-        </nav>
-    </div>
-</div>
-{% endblock %}
 
 {% block main_content %}
 
-<div class="govuk-box-highlight">
-    <h1 class="bold-large">{{ content.responseSent }}</h1>
-    <p class="text-reference">
-        {{ content.referenceNumber }}<br>
-        <strong class="text-reference-number" aria-label="{{ session.originalPetition.caseReference | a11yCharSeparator | safe }}">{{ session.originalPetition.caseReference | safe }}</strong>
-    </p>
-</div>
+{% set html %}
+    {{ content.referenceNumber }}<br>
+    <strong aria-label="{{ session.originalPetition.caseReference | a11yCharSeparator | safe }}">{{ session.originalPetition.caseReference | safe }}</strong>
+{% endset %}
 
-<p class="text">{{ content.emailConfirmation }}
-    <span class="bold-small">{{ coRespEmailAddress | safe }}</span>
+{{ govukPanel({
+    titleText: content.responseSent,
+    html: html
+}) }}
+
+<p class="govuk-body">{{ content.emailConfirmation }}
+    <span class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ coRespEmailAddress | safe }}</span>
 </p>
 
 {% if session.CrChooseAResponse.response == "defend" %}
 
-    <h2 class="heading-medium">{{ content.whatYouNeedToDoNow }}</h2>
+    <h2 class="govuk-heading-m">{{ content.whatYouNeedToDoNow }}</h2>
 
-    <p class="text">{{ content.submitAnswerToDivorce | safe }}</p>
-    <p class="text">{{ content.fillInPaperForm }}</p>
-    <p class="text">{{ content.postFormTo }}</p>
+    <p class="govuk-body">{{ content.submitAnswerToDivorce | safe }}</p>
+    <p class="govuk-body">{{ content.fillInPaperForm }}</p>
+    <p class="govuk-body">{{ content.postFormTo }}</p>
 
-    <ul class="list bold-small">
+    <ul class="govuk-list govuk-list--bullet govuk-!-font-weight-bold">
         {% if session.serviceCentreName %}
             <li>{{ session.serviceCentreName }}</li>
         {% endif %}
@@ -55,52 +48,36 @@
         <li>{{ session.divorceCenterPostCode }}</li>
     </ul>
 
-    <p class="text">{{ content.feeToPay | safe }}</p>
-    <p class="text">{{ content.hearingAboutDivorce }}</p>
-    <p class="text">{{ content.dontSubmitAnswer }}</p>
+    <p class="govuk-body">{{ content.feeToPay | safe }}</p>
+    <p class="govuk-body">{{ content.hearingAboutDivorce }}</p>
+    <p class="govuk-body">{{ content.dontSubmitAnswer }}</p>
 
 {% else %}
 
-    <h2 class="heading-medium">{{ content.whatHappensNext }}</h2>
-    <p class="text">{{ content.yourResponse }}</p>
+    <h2 class="govuk-heading-m">{{ content.whatHappensNext }}</h2>
+    <p class="govuk-body">{{ content.yourResponse }}</p>
 
 {% endif %}
 
 {% if session.originalPetition.claimsCosts == "Yes" %}
-<h2 class="heading-medium">{{ content.claimedCostsTitle }}</h2>
-<p>{{ content.claimedCostsText }}</p>
+<h2 class="govuk-heading-m">{{ content.claimedCostsTitle }}</h2>
+<p class="govuk-body">{{ content.claimedCostsText }}</p>
 
-<h3 class="heading-small">{{ content.objectingToCostsOrderTitle }}</h3>
-<p>{{ content.objectingToCostsOrderText1 }}</p>
-<p class="text">{{ content.objectingToCostsOrderText2 }}</p>
+<h3 class="govuk-heading-s">{{ content.objectingToCostsOrderTitle }}</h3>
+<p class="govuk-body">{{ content.objectingToCostsOrderText1 }}</p>
+<p class="govuk-body">{{ content.objectingToCostsOrderText2 }}</p>
 {% endif %}
 
-<h2 class="heading-medium">{{ content.ifYouNeedHelp }}</h2>
-<p class="text">{{ content.ifYouNeedHelpText | safe }}</p>
+<h2 class="govuk-heading-m">{{ content.ifYouNeedHelp }}</h2>
+<p class="govuk-body">{{ content.ifYouNeedHelpText | safe }}</p>
 
-<h2 class="heading-medium">{{ content.helpImproveHeading }}</h2>
-<p class="text">{{ content.helpImproveText | safe }}</p>
+<h2 class="govuk-heading-m">{{ content.helpImproveHeading }}</h2>
+<p class="govuk-body">{{ content.helpImproveText | safe }}</p>
 
 {% block problems_with_this_page -%}
 {%- endblock %}
 {% endblock %}
 
 {% block one_third %}
-<aside class="govuk-related-items" role="complementary">
-    <h3 class="heading-small">{{ content.gettingHelp }}</h3>
-    <ul class="font-xsmall">
-        <li>
-            <strong class="bold-xsmall">{{ content.email }}</strong><br>
-            {{ session.divorceCenterEmail | safe }}
-            <br>
-        </li>
-        <li>
-            <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-            {{ session.divorceCenterPhoneNumber | safe }}<br>
-            {{ content.divorceCenterHours }}<br>
-        </li>
-        {% include "includes/sideMenuCourtDetails.html" %}
-    </ul>
-    {% include "includes/sideMenuGuidanceLinksForCoRespondent.html" %}
-</aside>
+    {% include "includes/sideMenuCoRespondent.html" %}
 {% endblock %}

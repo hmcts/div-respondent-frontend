@@ -1,7 +1,7 @@
 {% if nextSteps %}
-    <p>
+    <p class="govuk-body">
         You can either:
-    <ul class="list list-bullet">
+    <ul class="govuk-list govuk-list--bullet">
         {% for option in nextSteps %}
             <li>{{ option | safe }}</li>
         {% endfor %}
@@ -10,13 +10,13 @@
 {% endif %}
 
 {% if error %}
-    {% if settings.env == 'development' %}
-        <div class="form-group-error">
-            <label>
-                <span class="form-label-bold">Error Message</span>
-                <span class="form-hint">The error message will only display in development mode</span>
-                <span>{{ error }}</span>
-            </label>
-        </div>
+    {% if settings.env != 'prod' %}
+    <div class="govuk-form-group--error">
+        <label class="govuk-error-message">
+            <span class="form-label-bold">Error Message</span>
+            <span class="form-hint">The error message will <strong>NOT</strong> display in production mode</span>
+            <span>{{ error }}</span>
+        </label>
+    </div>
     {% endif %}
 {% endif %}

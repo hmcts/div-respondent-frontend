@@ -5,7 +5,7 @@
   "data": {
     "hearingDate": ["3000-01-01T00:00:00.000+0000"],
     "costsClaimGranted": "Yes",
-    "whoPaysCosts": "respondent and correspondent",
+    "whoPaysCosts": "respondentAndCoRespondent",
     "expires": 0,
     "caseReference": "LV17D80100",
     "screenHasMarriageBroken": "Yes",

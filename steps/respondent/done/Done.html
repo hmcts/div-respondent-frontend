@@ -4,30 +4,20 @@
 
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
-{% block proposition_header %}
-  <div class="header-proposition">
-    <div class="content">
-      <nav id="proposition-menu">
-        <a href="/" id="proposition-name">
-              {{ content.serviceName }}
-        </a>
-      </nav>
-    </div>
-  </div>
-{% endblock %}
 
 {% block main_content %}
-
-  <div class="govuk-box-highlight">
-    <h1 class="bold-large">{{ content.responseSent }}</h1>
-    <p class="text-reference">
-      {{ content.referenceNumber }}<br>
-      <strong class="text-reference-number" aria-label="{{ session.originalPetition.caseReference | a11yCharSeparator | safe }}">{{ session.originalPetition.caseReference | safe }}</strong>
+  <div class="govuk-panel govuk-panel--confirmation">
+    <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.responseSent | safe}}</h1>
+    <p class="govuk-panel__body govuk-!-margin-0 govuk-!-margin-top-2">
+      <span class="govuk-!-font-size-19">{{ content.referenceNumber | safe }}</span>
+      <br>
+      <strong class="govuk-body-reference-number" aria-label="{{ session.originalPetition.caseReference | a11yCharSeparator | safe }}">
+        {{ session.originalPetition.caseReference | safe }}
+      </strong>
     </p>
   </div>
 
-  <p class="text">{{ content.emailConfirmation }} <span class="bold-small">{{ session.originalPetition.respEmailAddress | safe }}</span>
-  </p>
+  <p class="govuk-body">{{ content.emailConfirmation }} <span class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ session.originalPetition.respEmailAddress | safe }}</span></p>
 
   {{
     progressList({
@@ -51,13 +41,13 @@
 
   {% if session.FinancialSituation.respConsiderFinancialSituation == "Yes" %}
 
-    <h2 class="heading-medium">{{ content.financialSituationHeading }}</h2>
+    <h2 class="govuk-heading-m">{{ content.financialSituationHeading }}</h2>
 
-    <p class="text">{{ content.financialSituationText1 }}</p>
-    <p class="text">{{ content.financialSituationText2 }} <span>{{ content.financialSituationFormLink | safe }}</span></p>
-    <p class="text">{{ content.financialSituationText3 }}</p>
+    <p class="govuk-body">{{ content.financialSituationText1 }}</p>
+    <p class="govuk-body">{{ content.financialSituationText2 }} <span>{{ content.financialSituationFormLink | safe }}</span></p>
+    <p class="govuk-body">{{ content.financialSituationText3 }}</p>
 
-    <ul class="list bold-small">
+    <ul class="govuk-list govuk-!-font-size-19 govuk-!-font-weight-bold">
       {% if session.serviceCentreName %}
         <li>{{ session.serviceCentreName }}</li>
       {% endif %}
@@ -76,40 +66,40 @@
 
   {% if session.ChooseAResponse.response == "proceed" or session.ChooseAResponse.response == "proceedButDisagree" or session.ConsentDecree.response.consentDecree == "Yes" %}
 
-    <h2 class="heading-medium">{{ content.notDefendedHeading }}</h2>
+    <h2 class="govuk-heading-m">{{ content.notDefendedHeading }}</h2>
 
     {% if session.originalPetition.reasonForDivorce == "adultery" and session.AdmitAdultery.response == "doNotAdmit" %}
 
-      <p class="text">{{ content.notDefendedAdultery1 }}</p>
-      <p class="text">{{ content.notDefendedAdultery2 }}</p>
-      <ul class="bullet list-bullet">
+      <p class="govuk-body">{{ content.notDefendedAdultery1 }}</p>
+      <p class="govuk-body">{{ content.notDefendedAdultery2 }}</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.notDefendedAdulteryLi1 }}</li>
         <li>{{ content.notDefendedAdulteryLi2 }}</li>
       </ul>
-      <p>{{ content.notDefendedAdultery3 }}</p>
+      <p class="govuk-body">{{ content.notDefendedAdultery3 }}</p>
 
     {% else %}
 
-      <p class="text">{{ content.notDefendedText1 }}</p>
-      <p class="text">{{ content.notDefendedText2 }}</p>
-      <ol class="list list-number">
+      <p class="govuk-body">{{ content.notDefendedText1 }}</p>
+      <p class="govuk-body">{{ content.notDefendedText2 }}</p>
+      <ol class="govuk-list govuk-list--number">
         <li>{{ content.notDefendedListItem1 }}</li>
         <li>{{ content.notDefendedListItem2 }}</li>
       </ol>
-      <p class="text">{{ content.notDefendedText3 }}</p>
-      <p class="text">{{ content.notDefendedText4 }}</p>
-      <p class="text">{{ content.notDefendedText5 }}</p>
+      <p class="govuk-body">{{ content.notDefendedText3 }}</p>
+      <p class="govuk-body">{{ content.notDefendedText4 }}</p>
+      <p class="govuk-body">{{ content.notDefendedText5 }}</p>
 
     {% endif %}
 
   {% endif %}
 
   {% if session.ChooseAResponse.response == "defend" or  session.ConsentDecree.response.willDefend == "Yes" %}
-    <h2 class="heading-medium">{{ content.defendedHeading }}</h2>
-    <p class="text">{{ content.defendedText1 | safe }}</p>
-    <p class="text">{{ content.defendedText2 }}</p>
-    <p class="text">{{ content.defendedText3 }}</p>
-    <ul class="list bold-small">
+    <h2 class="govuk-heading-m">{{ content.defendedHeading }}</h2>
+    <p class="govuk-body">{{ content.defendedText1 | safe }}</p>
+    <p class="govuk-body">{{ content.defendedText2 }}</p>
+    <p class="govuk-body">{{ content.defendedText3 }}</p>
+    <ul class="govuk-list govuk-!-font-size-19 govuk-!-font-weight-bold">
       {% if session.serviceCentreName %}
         <li>{{ session.serviceCentreName }}</li>
       {% endif %}
@@ -127,52 +117,34 @@
       <li>{{ session.divorceCenterCourtCity }}</li>
       <li>{{ session.divorceCenterPostCode }}</li>
     </ul>
-    <p class="text">{{ content.defendedText4 }} {{ content.defendedText4Link | safe }}</p>
-    <p class="text">{{ content.defendedText5 }}</p>
-    <p class="text">{{ content.defendedText6 }}</p>
+    <p class="govuk-body">{{ content.defendedText4 }} {{ content.defendedText4Link | safe }}</p>
+    <p class="govuk-body">{{ content.defendedText5 }}</p>
+    <p class="govuk-body">{{ content.defendedText6 }}</p>
   {% endif %}
 
   {% if session.originalPetition.reasonForDivorce == "separation-2-years" and session.ConsentDecree.response.consentDecree == "No" and session.ConsentDecree.response.willDefend == "No" %}
 
-    <h2 class="heading-medium">{{ content.notDefendedHeading }}</h2>
-    <p class="text">{{ content.notDefended2YearsNoConsent }}</p>
-    <p class="text">{{ content.notDefended2YearsNoConsent1 }}</p>
-    <p class="text">{{ content.notDefended2YearsNoConsent2 }}</p>
-    <p class="text">{{ content.notDefended2YearsNoConsent3 }}</p>
-    <h2 class="heading-medium">{{ content.notDefended2YearsNoConsentH2 }}</h2>
-    <p class="text">{{ content.notDefended2YearsNoConsent4 }}</p>
+    <h2 class="govuk-heading-m">{{ content.notDefendedHeading }}</h2>
+    <p class="govuk-body">{{ content.notDefended2YearsNoConsent }}</p>
+    <p class="govuk-body">{{ content.notDefended2YearsNoConsent1 }}</p>
+    <p class="govuk-body">{{ content.notDefended2YearsNoConsent2 }}</p>
+    <p class="govuk-body">{{ content.notDefended2YearsNoConsent3 }}</p>
+    <h2 class="govuk-heading-m">{{ content.notDefended2YearsNoConsentH2 }}</h2>
+    <p class="govuk-body">{{ content.notDefended2YearsNoConsent4 }}</p>
 
   {% endif %}
 
 
-  <h2 class="heading-medium">{{ content.ifYouNeedHelp }}</h2>
-  <p class="text">{{ content.ifYouNeedHelpText | safe }}</p>
+  <h2 class="govuk-heading-m">{{ content.ifYouNeedHelp }}</h2>
+  <p class="govuk-body">{{ content.ifYouNeedHelpText | safe }}</p>
 
-  <h2 class="heading-medium">{{ content.helpImproveHeading }}</h2>
-  <p class="text">{{ content.helpImproveText | safe }}</p>
+  <h2 class="govuk-heading-m">{{ content.helpImproveHeading }}</h2>
+  <p class="govuk-body">{{ content.helpImproveText | safe }}</p>
 
   {% block problems_with_this_page -%}
   {%- endblock %}
 {% endblock %}
 
 {% block one_third %}
-  <aside class="govuk-related-items" role="complementary">
-    <h3 class="heading-small">{{ content.gettingHelp }}</h3>
-
-    <ul class="font-xsmall">
-      <li>
-        <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        {{ session.divorceCenterEmail | safe }}
-        <br>
-      </li>
-      <li>
-        <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ session.divorceCenterPhoneNumber | safe }}<br>
-        {{ content.divorceCenterHours }}<br>
-      </li>
-      {% include "includes/sideMenuCourtDetails.html" %}
-    </ul>
-
-    {% include "includes/sideMenuGuidanceLinks.html" %}
-  </aside>
+  {% include "includes/sideMenu.html" %}
 {% endblock %}

@@ -9,7 +9,7 @@
 {% block fields %}
     {% if session.temp.linkCaseError %}
         <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h1 class="heading-medium error-summary-heading" id="error-summary-heading">
+            <h1 class="govuk-heading-m error-summary-heading" id="error-summary-heading">
                 {{ content.thereWasAProblem }}
             </h1>
             <ul class="error-summary-list">
@@ -21,10 +21,10 @@
             </ul>
         </div>
     {% endif %}
-    <p>{{ content.instructions }}</p>
+    <p class="govuk-body">{{ content.instructions }}</p>
     {% call formSection() %}
         {{ textbox(fields.referenceNumber, content.referenceNumber, content.referenceNumberLabel) }}
         {{ textbox(fields.securityAccessCode, content.securityAccessCode, content.securityAccessCodeLabel) }}
     {% endcall %}
-    <p class="bold-small">{{ content.infoAboutSetup }}</p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-font-weight-bold">{{ content.infoAboutSetup }}</p>
 {% endblock %}

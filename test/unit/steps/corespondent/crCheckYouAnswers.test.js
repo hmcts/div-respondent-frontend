@@ -20,7 +20,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [ 'continue' ];
+    const ignoreContent = [ 'continue', 'submit' ];
     const session = { case: { caseData: {} } };
     return content(CrCheckYourAnswers, session, { ignoreContent });
   });

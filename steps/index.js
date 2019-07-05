@@ -1,7 +1,7 @@
 const glob = require('glob');
 const config = require('config');
 
-const getSteps = () => {
+const getSteps = (mockSteps = true) => {
   const steps = [];
 
   glob.sync('steps/**/*.step.js').forEach(file => {
@@ -10,7 +10,7 @@ const getSteps = () => {
     steps.push(step);
   });
 
-  if (['development', 'testing'].includes(config.environment)) {
+  if (['development', 'testing'].includes(config.environment) && mockSteps) {
     glob.sync('mocks/steps/**/*.step.js').forEach(file => {
       const step = require(file); // eslint-disable-line global-require
 

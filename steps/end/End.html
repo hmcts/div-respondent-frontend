@@ -1,20 +1,20 @@
 {% extends "page.njk" %}
 
+{% set serviceLinks = [] %}
+
 {% block back %}{% endblock %}
 
-{% block proposition_header %}{% endblock %}
-
-{% set titleSize = 'large' %}
+{% set titleSize = 'l' %}
 
 {% set title  %}
   {{ content.title | safe }}
 {% endset %}
 
 {% block main_content %}
-    <p>{{ content.progressNotSaved | safe }}</p>
-    <p>{{ content.signInToReturn | safe }}</p>
-    <p>{{ content.ifYouNeedHelp | safe }}</p>
-    <p>{{ content.phoneToCallIfProblems | safe }}</p>
-    <p>{{ content.emailIfProblems | safe }}</p>
+    <p class="govuk-body">{{ content.progressNotSaved | safe }}</p>
+    <p class="govuk-body">{{ content.signInToReturn | safe }}</p>
+    <p class="govuk-body">{{ content.ifYouNeedHelp | safe }}</p>
+    <p class="govuk-body">{{ content.phoneToCallIfProblems | safe }}</p>
+    <p class="govuk-body">{{ content.emailIfProblems | safe }}</p>
 
 {% endblock %}

@@ -10,9 +10,9 @@
 
 <div id="legal-proceedings">
 
-  <p>{{ content.summary | safe }}</p>
+  <p class="govuk-body">{{ content.summary | safe }}</p>
 
-  <ul class="bullet list-bullet">
+  <ul class="govuk-list govuk-list--bullet">
     <li>{{ content.info.options.relatedToMarriage | safe }}</li>
     <li>{{ content.info.options.affectsValidity | safe }}</li>
   </ul>
@@ -31,13 +31,13 @@
 
     <div id="case-details" class="panel js-hidden">
 
-      <h4 class="heading-small">{{ content.fields.yes.details.title | safe }}</h4>
+      <h4 class="govuk-heading-s">{{ content.fields.yes.details.title | safe }}</h4>
 
-      <p class="text">
+      <p class="govuk-body">
         {{ content.fields.yes.details.summary | safe }}
       </p>
 
-      <ul class="list list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.fields.yes.details.includes.caseNumbers | safe }}</li>
         <li>{{ content.fields.yes.details.includes.aboutWhat | safe }}</li>
         <li>{{ content.fields.yes.details.includes.namesInvolved | safe }}</li>
