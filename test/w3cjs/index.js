@@ -1,5 +1,5 @@
 const w3cjs = require('w3cjs');
-const steps = require('steps')();
+const steps = require('steps')(false);
 const { sinon, custom, expect, middleware } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
@@ -22,7 +22,8 @@ const excludedWarnings = [
   'The “contentinfo” role is unnecessary for element “footer”.',
   'The “complementary” role is unnecessary for element “aside”.',
   'The “navigation” role is unnecessary for element “nav”.',
-  'Possible misuse of “aria-label”. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)' // eslint-disable-line max-len
+  'The “button” role is unnecessary for element “button”.',
+  'Possible misuse of “aria-label”. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)' // eslint-disable-line
 ];
 const filteredWarnings = r => {
   return !excludedWarnings.includes(r.message);
@@ -30,7 +31,12 @@ const filteredWarnings = r => {
 /* eslint-disable */
 // FIXME - Ignored errors (temporarily)
 const excludedErrors = [
-  'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)'
+  'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)',
+  'Attribute “src” not allowed on element “image” at this point.',
+  'Element “image” is missing required attribute “height”.',
+  'Element “image” is missing required attribute “width”.',
+  // Sonar doesnt allow <b> tags so <strong> tags used
+  'Element “stong” not allowed as child of element “p” in this context. (Suppressing further errors from this subtree.)'
 ];
 /* eslint-enable */
 const filteredErrors = r => {
@@ -118,7 +124,7 @@ steps
       });
 
       it('should not have any html warnings', () => {
-        expect(warnings.length).to.equal(0, JSON.stringify(filteredWarnings, null, 2));
+        expect(warnings.length).to.equal(0, JSON.stringify(warnings, null, 2));
       });
     });
   });

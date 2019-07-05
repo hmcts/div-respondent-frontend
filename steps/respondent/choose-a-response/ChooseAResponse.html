@@ -23,33 +23,33 @@
 
     <div id="choose-a-response">
 
-        <p>{{ content.action | safe }}</p>
+        <p class="govuk-body govuk-!-font-weight-bold">{{ content.action | safe }}</p>
 
-        <details>
-            <summary>
-                <span class="summary">{{ content.info.heading | safe }}</span>
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">{{ content.info.heading | safe }}</span>
             </summary>
-            <div class="panel panel-border-narrow">
-                <h2 class="heading-small">{{ content.info.options.proceed.heading | safe }}</h2>
-                <p class="text">{{ content.info.options.proceed.summary | safe }}</p>
+            <div class="govuk-details__text">
+                <h2 class="govuk-heading-s">{{ content.info.options.proceed.heading | safe }}</h2>
+                <p class="govuk-body">{{ content.info.options.proceed.summary | safe }}</p>
 
                 {% if isBehaviourOrDesertion %}
-                    <h2 class="heading-small">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
-                    <p class="text">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
+                    <h2 class="govuk-heading-s">{{ content.info.options.proceedButDisagree.heading | safe }}</h2>
+                    <p class="govuk-body">{{ content.info.options.proceedButDisagree.summary | safe }}</p>
                 {% endif %}
 
-                <h2 class="heading-small">{{ content.info.options.defend.heading | safe }}</h2>
-                <p class="text">{{ content.info.options.defend.summary | safe }}</p>
+                <h2 class="govuk-heading-s">{{ content.info.options.defend.heading | safe }}</h2>
+                <p class="govuk-body">{{ content.info.options.defend.summary | safe }}</p>
 
                 {% if isSeparation5yrs %}
-                    <h2 class="heading-small">{{ content.info.options.hardship.heading | safe }}</h2>
-                    <p class="text">{{ content.info.options.hardship.text1 | safe }}</p>
-                    <p class="text">{{ content.info.options.hardship.text2 | safe }}</p>
-                    <p class="text">{{ content.info.options.hardship.text3 | safe }}</p>
-                    <p class="text">{{ content.info.options.hardship.text4 | safe }}</p>
-                    <p class="text">{{ content.info.options.hardship.text5 | safe }}</p>
-                    <p class="text">{{ content.info.options.hardship.text6 | safe }}</p>
-                    <p class="text">{{ content.info.options.hardship.text7 | safe }}</p>
+                    <h2 class="govuk-heading-s">{{ content.info.options.hardship.heading | safe }}</h2>
+                    <p class="govuk-body">{{ content.info.options.hardship.text1 | safe }}</p>
+                    <p class="govuk-body">{{ content.info.options.hardship.text2 | safe }}</p>
+                    <p class="govuk-body">{{ content.info.options.hardship.text3 | safe }}</p>
+                    <p class="govuk-body">{{ content.info.options.hardship.text4 | safe }}</p>
+                    <p class="govuk-body">{{ content.info.options.hardship.text5 | safe }}</p>
+                    <p class="govuk-body">{{ content.info.options.hardship.text6 | safe }}</p>
+                    <p class="govuk-body">{{ content.info.options.hardship.text7 | safe }}</p>
                 {% endif %}
             </div>
         </details>

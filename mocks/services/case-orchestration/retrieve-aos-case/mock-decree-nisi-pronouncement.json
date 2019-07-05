@@ -4,6 +4,8 @@
   "state": "AwaitingPronouncement",
   "data": {
     "hearingDate": ["2222-01-01T00:00:00.000+0000"],
+    "costsClaimGranted": "Yes",
+    "whoPaysCosts": "respondentAndCoRespondent",
     "expires": 0,
     "caseReference": "LV17D80999",
     "screenHasMarriageBroken": "Yes",

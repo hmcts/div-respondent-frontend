@@ -98,7 +98,7 @@ describe(modulePath, () => {
         CrReviewApplication,
         session,
         {
-          specificValues: [ session.caseReference ]
+          specificValues: [ session.originalPetition.caseReference ]
         }
       );
     });
@@ -206,6 +206,7 @@ describe(modulePath, () => {
           reasonForDivorceAdulteryDetails: 'Here are some adultery details',
           reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
           reasonForDivorceAdulteryWhenDetails: 'When the adultery happened',
+          reasonForDivorceAdulterySecondHandInfo: 'Yes',
           reasonForDivorceAdulterySecondHandInfoDetails: 'Information from another person'
         }
       };
@@ -217,7 +218,7 @@ describe(modulePath, () => {
             session.originalPetition.reasonForDivorceAdulteryDetails,
             session.originalPetition.reasonForDivorceAdulteryWhereDetails,
             session.originalPetition.reasonForDivorceAdulteryWhenDetails,
-            session.originalPetition.reasonForDivorceAdulterySecondHandInfo
+            session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails
           ]
         }
       );

@@ -192,7 +192,7 @@ describe(modulePath, () => {
         ReviewApplication,
         session,
         {
-          specificValues: [session.caseReference]
+          specificValues: [session.originalPetition.caseReference]
         }
       );
     });

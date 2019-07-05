@@ -1,6 +1,7 @@
 {% extends "question.njk" %}
 
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorsFor, textarea, errorClass %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -9,40 +10,34 @@
 {% block fields %}
 
 <div id="agree-to-pay-costs">
-  <p>{{ content.summary | safe }}</p>
+  <p class="govuk-body">{{ content.summary | safe }}</p>
 
-  <div class="notice-padding">
-    <div class="notice">
-      <i class="icon icon-important">
-        <span class="visually-hidden">Warning</span>
-      </i>
-      <strong class="bold-small">
-        {{ content.notice | safe }}
-      </strong>
-    </div>
-  </div>
+  {{ warningText({
+    text: content.notice,
+    iconFallbackText: content.warning
+  }) }}
 
-  <details>
-    <summary>
-      <span class="summary">{{ content.info.heading | safe }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">{{ content.info.heading | safe }}</span>
     </summary>
 
-    <div class="panel panel-border-narrow">
-      <h2 class="heading-small">{{ content.info.options.amountToPay.heading | safe }}</h2>
-      <p class="text">{{ content.info.options.amountToPay.summary1 | safe }}</p>
-      <p class="text">{{ content.info.options.amountToPay.summary2 | safe }}</p>
+    <div class="govuk-details__text">
+      <h2 class="govuk-heading-s">{{ content.info.options.amountToPay.heading | safe }}</h2>
+      <p class="govuk-body">{{ content.info.options.amountToPay.summary1 | safe }}</p>
+      <p class="govuk-body">{{ content.info.options.amountToPay.summary2 | safe }}</p>
 
-      <h2 class="heading-small">{{ content.info.options.whatNow.heading | safe }}</h2>
-      <p class="text">{{ content.info.options.whatNow.summary1 | safe }}</p>
-      <p class="text">{{ content.info.options.whatNow.summary2 | safe }}</p>
-      <p class="text">{{ content.info.options.whatNow.summary3 | safe }}</p>
+      <h2 class="govuk-heading-s">{{ content.info.options.whatNow.heading | safe }}</h2>
+      <p class="govuk-body">{{ content.info.options.whatNow.summary1 | safe }}</p>
+      <p class="govuk-body">{{ content.info.options.whatNow.summary2 | safe }}</p>
+      <p class="govuk-body">{{ content.info.options.whatNow.summary3 | safe }}</p>
 
-      <h2 class="heading-small">{{ content.info.options.doNotAcceptCost.heading | safe }}</h2>
-      <p class="text">{{ content.info.options.doNotAcceptCost.summary | safe }}</p>
+      <h2 class="govuk-heading-s">{{ content.info.options.doNotAcceptCost.heading | safe }}</h2>
+      <p class="govuk-body">{{ content.info.options.doNotAcceptCost.summary | safe }}</p>
     </div>
   </details>
 
-  <h2 class="heading-medium">{{ content.question | safe }}</h2>
+  <h2 class="govuk-heading-m">{{ content.question | safe }}</h2>
 
   {% call formSection() %}
     <div class="form-group {{ errorClass(fields.crAgreeToPayCosts.agree) }}">
@@ -68,5 +63,7 @@
       </div>
     </div>
   {% endcall %}
+
+  <br>
 </div>
 {% endblock %}

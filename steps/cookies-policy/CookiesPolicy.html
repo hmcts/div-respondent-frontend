@@ -7,117 +7,117 @@
 {% endset %}
 
 {% block main_content %}
-<p class="text">{{ content.info }}</p>
-<p class="text">{{ content.thisServiceUsesThemTo | safe }}</p>
-<ul class="list list-bullet">
+<p class="govuk-body">{{ content.info }}</p>
+<p class="govuk-body">{{ content.thisServiceUsesThemTo | safe }}</p>
+<ul class="govuk-list govuk-list--bullet">
     <li>{{ content.measureHow | safe }}</li>
     <li>{{ content.rememberNotifications | safe }}</li>
     <li>{{ content.temporarilyStore | safe }}</li>
 </ul>
-<p class="text">{{ content.moreInformation | safe }}</p>
+<p class="govuk-body">{{ content.moreInformation | safe }}</p>
 
-<h2 class="heading-medium">{{ content.howCookiesAreUsed | safe }}</h2>
-<h3 class="heading-small">{{ content.toMeasureWebsiteUsage | safe }}</h3>
-<p class="text">{{ content.ga1 | safe }}</p>
-<p class="text">{{ content.ga2 | safe }}</p>
-<ul class="list list-bullet">
+<h2 class="govuk-heading-m">{{ content.howCookiesAreUsed | safe }}</h2>
+<h3 class="govuk-heading-s">{{ content.toMeasureWebsiteUsage | safe }}</h3>
+<p class="govuk-body">{{ content.ga1 | safe }}</p>
+<p class="govuk-body">{{ content.ga2 | safe }}</p>
+<ul class="govuk-list govuk-list--bullet">
     <li>{{ content.ga3 | safe }}</li>
     <li>{{ content.ga4 | safe }}</li>
     <li>{{ content.ga5 | safe }}</li>
     <li>{{ content.ga6 | safe }}</li>
 </ul>
-<p class="text">{{ content.ga7 | safe }}</p>
-<p class="text">{{ content.ga8 | safe }}</p>
-<p class="text">{{ content.ga9 | safe }}</p>
-<table>
-    <tr>
-        <th>{{ content.gaTableName | safe }}</th>
-        <th>{{ content.gaTablePurpose | safe }}</th>
-        <th>{{ content.gaTableExpires | safe }}</th>
+<p class="govuk-body">{{ content.ga7 | safe }}</p>
+<p class="govuk-body">{{ content.ga8 | safe }}</p>
+<p class="govuk-body">{{ content.ga9 | safe }}</p>
+<table class="govuk-table">
+    <tr class="govuk-table__row">
+        <th class="govuk-table__header">{{ content.gaTableName | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTablePurpose | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTableExpires | safe }}</th>
     </tr>
-    <tr>
-        <td>{{ content.gaCookie1_name | safe }}</td>
-        <td>{{ content.gaCookie1_desc | safe }}</td>
-        <td>{{ content.gaCookie1_duration | safe }}</td>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.gaCookie1_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.gaCookie1_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.gaCookie1_duration | safe }}</td>
     </tr>
-    <tr>
-        <td>{{ content.gaCookie2_name | safe }}</td>
-        <td>{{ content.gaCookie2_desc | safe }}</td>
-        <td>{{ content.gaCookie2_duration | safe }}</td>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.gaCookie2_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.gaCookie2_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.gaCookie2_duration | safe }}</td>
     </tr>
-    <tr>
-        <td>{{ content.gaCookie3_name | safe }}</td>
-        <td>{{ content.gaCookie3_desc | safe }}</td>
-        <td>{{ content.gaCookie3_duration | safe }}</td>
-    </tr>
-</table>
-
-
-<h3 class="heading-small">{{ content.turnOffIntroductoryMessage | safe }}</h3>
-<p class="text">{{ content.youMaySeeAPopUp | safe }}</p>
-<table>
-    <tr>
-        <th>{{ content.gaTableName | safe }}</th>
-        <th>{{ content.gaTablePurpose | safe }}</th>
-        <th>{{ content.gaTableExpires | safe }}</th>
-    </tr>
-    <tr>
-        <td>{{ content.popupCookie_name | safe }}</td>
-        <td>{{ content.popupCookie_desc | safe }}</td>
-        <td>{{ content.popupCookie_duration | safe }}</td>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.gaCookie3_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.gaCookie3_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.gaCookie3_duration | safe }}</td>
     </tr>
 </table>
 
 
-<h3 class="heading-small">{{ content.toStoreThAnswers | safe }}</h3>
-<p class="text">{{ content.sessionCookiesAreStored | safe }}</p>
-<table>
-    <tr>
-        <th>{{ content.gaTableName | safe }}</th>
-        <th>{{ content.gaTablePurpose | safe }}</th>
-        <th>{{ content.gaTableExpires | safe }}</th>
+<h3 class="govuk-heading-s">{{ content.turnOffIntroductoryMessage | safe }}</h3>
+<p class="govuk-body">{{ content.youMaySeeAPopUp | safe }}</p>
+<table class="govuk-table">
+    <tr class="govuk-table__row">
+        <th class="govuk-table__header">{{ content.gaTableName | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTablePurpose | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTableExpires | safe }}</th>
     </tr>
-    <tr>
-        <td>{{ content.sessionCookie_name | safe }}</td>
-        <td>{{ content.sessionCookie_desc | safe }}</td>
-        <td>{{ content.sessionCookie_duration | safe }}</td>
-    </tr>
-</table>
-
-
-<h3 class="heading-small">{{ content.toIdentifyYouWhen | safe }}</h3>
-<p class="text">{{ content.weUseAuthenticationCookies | safe }}</p>
-<table>
-    <tr>
-        <th>{{ content.gaTableName | safe }}</th>
-        <th>{{ content.gaTablePurpose | safe }}</th>
-        <th>{{ content.gaTableExpires | safe }}</th>
-    </tr>
-    <tr>
-        <td>{{ content.authCookie_name | safe }}</td>
-        <td>{{ content.authCookie_desc | safe }}</td>
-        <td>{{ content.authCookie_duration | safe }}</td>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.popupCookie_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.popupCookie_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.popupCookie_duration | safe }}</td>
     </tr>
 </table>
 
 
-<h3 class="heading-small">{{ content.toMakeServiceMoreSecure | safe }}</h3>
-<p class="text">{{ content.weSetCookiesWhichPrevent | safe }}</p>
-<table>
-    <tr>
-        <th>{{ content.gaTableName | safe }}</th>
-        <th>{{ content.gaTablePurpose | safe }}</th>
-        <th>{{ content.gaTableExpires | safe }}</th>
+<h3 class="govuk-heading-s">{{ content.toStoreThAnswers | safe }}</h3>
+<p class="govuk-body">{{ content.sessionCookiesAreStored | safe }}</p>
+<table class="govuk-table">
+    <tr class="govuk-table__row">
+        <th class="govuk-table__header">{{ content.gaTableName | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTablePurpose | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTableExpires | safe }}</th>
     </tr>
-    <tr>
-        <td>{{ content.tamperingCookie_name | safe }}</td>
-        <td>{{ content.tamperingCookie_desc | safe }}</td>
-        <td>{{ content.tamperingCookie_duration | safe }}</td>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.sessionCookie_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.sessionCookie_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.sessionCookie_duration | safe }}</td>
     </tr>
-    <tr>
-        <td>{{ content.stateCookie_name | safe }}</td>
-        <td>{{ content.stateCookie_desc | safe }}</td>
-        <td>{{ content.stateCookie_duration | safe }}</td>
+</table>
+
+
+<h3 class="govuk-heading-s">{{ content.toIdentifyYouWhen | safe }}</h3>
+<p class="govuk-body">{{ content.weUseAuthenticationCookies | safe }}</p>
+<table class="govuk-table">
+    <tr class="govuk-table__row">
+        <th class="govuk-table__header">{{ content.gaTableName | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTablePurpose | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTableExpires | safe }}</th>
+    </tr>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.authCookie_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.authCookie_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.authCookie_duration | safe }}</td>
+    </tr>
+</table>
+
+
+<h3 class="govuk-heading-s">{{ content.toMakeServiceMoreSecure | safe }}</h3>
+<p class="govuk-body">{{ content.weSetCookiesWhichPrevent | safe }}</p>
+<table class="govuk-table">
+    <tr class="govuk-table__row">
+        <th class="govuk-table__header">{{ content.gaTableName | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTablePurpose | safe }}</th>
+        <th class="govuk-table__header">{{ content.gaTableExpires | safe }}</th>
+    </tr>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.tamperingCookie_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.tamperingCookie_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.tamperingCookie_duration | safe }}</td>
+    </tr>
+    <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ content.stateCookie_name | safe }}</td>
+        <td class="govuk-table__cell">{{ content.stateCookie_desc | safe }}</td>
+        <td class="govuk-table__cell">{{ content.stateCookie_duration | safe }}</td>
     </tr>
 </table>
 {% endblock %}

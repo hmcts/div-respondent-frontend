@@ -168,7 +168,6 @@ describe(modulePath, () => {
       'decreeNisiGranted.dateGranted',
       'decreeNisiGranted.decreeNisi',
       'decreeNisiGranted.costsOrder',
-      'decreeNisiGranted.warning',
       'decreeNisiGranted.notDivorcedYet',
       'decreeNisiGranted.divorceComplete',
       'decreeNisiGranted.sixWeeks',
@@ -312,7 +311,6 @@ describe(modulePath, () => {
       'decreeNisiGranted.dateGranted',
       'decreeNisiGranted.decreeNisi',
       'decreeNisiGranted.costsOrder',
-      'decreeNisiGranted.warning',
       'decreeNisiGranted.notDivorcedYet',
       'decreeNisiGranted.divorceComplete',
       'decreeNisiGranted.sixWeeks',
@@ -481,8 +479,8 @@ describe(modulePath, () => {
           .get()
           .expect(httpStatus.OK)
           .html($ => {
-            const rightHandSideMenu = $('.column-one-third').html();
-            const mainPage = $('.column-two-thirds').html();
+            const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
+            const mainPage = $('.govuk-grid-column-two-thirds').html();
 
             expect(rightHandSideMenu).to.include('Your divorce centre');
             testDivorceUnitDetailsRender(rightHandSideMenu);
@@ -501,8 +499,8 @@ describe(modulePath, () => {
           .get()
           .expect(httpStatus.OK)
           .html($ => {
-            const rightHandSideMenu = $('.column-one-third').html();
-            const mainPage = $('.column-two-thirds').html();
+            const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
+            const mainPage = $('.govuk-grid-column-two-thirds').html();
 
             testCTSCDetailsRender(rightHandSideMenu);
             testCTSCDetailsRender(mainPage);
@@ -566,7 +564,7 @@ describe(modulePath, () => {
         .get()
         .expect(httpStatus.OK)
         .html($ => {
-          const rightHandSideMenu = $('.column-one-third').html();
+          const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
           expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
             .and.to.include('Responding to a divorce application')
             .and.to.include('Decree nisi')

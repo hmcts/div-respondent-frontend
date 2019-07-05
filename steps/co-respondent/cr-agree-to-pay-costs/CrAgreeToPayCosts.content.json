@@ -2,12 +2,13 @@
   "en": {
     "title": "Paying for the divorce",
     "poundSymbol": "£",
+    "warning": "Warning",
     "cya": {
       "agree" : "Do you agree to pay the costs as decided by the court?",
       "noReason": "Why don't you agree to pay the suggested costs?"
     },
     "summary": "The applicant asked the court that you pay some or all of the costs of the divorce. It's up to the court to decide if you should pay any costs and how much.",
- 
+
     "question": "Do you agree to pay the costs?",
     "notice": "A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.",
 
