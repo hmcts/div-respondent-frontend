@@ -25,33 +25,53 @@
 {% block statement_of_truth_fields %}
     <div class="confirmation-container govuk-!-padding-bottom-1">
         {% call formSection() %}
-            {{ selectionButtons(
-                fields.respStatementOfTruth,
-                content.fields.statementOfTruth.yes,
-                options = [
-                    { label: content.fields.statementOfTruth.yes, value: "Yes" }
-                ],
-                hint=false,
-                hideQuestion=true,
-                inline=false,
-                type='checkbox'
-            ) }}
+            {% if isRepresentedBySol %}
+                {{ selectionButtons(
+                    fields.respSolicitorRepStatement,
+                    content.fields.respondentSolicitorRepresented.yes,
+                    options = [
+                        { label: content.fields.respondentSolicitorRepresented.yes, value: consts.YES_VALUE }
+                    ],
+                    hint=false,
+                    hideQuestion=true,
+                    inline=false,
+                    type='checkbox'
+                ) }}
+            {% else %}
+                {{ selectionButtons(
+                    fields.respStatementOfTruth,
+                    content.fields.statementOfTruth.yes,
+                    options = [
+                        { label: content.fields.statementOfTruth.yes, value: consts.YES_VALUE }
+                    ],
+                    hint=false,
+                    hideQuestion=true,
+                    inline=false,
+                    type='checkbox'
+                ) }}
+            {% endif %}
         {% endcall %}
 
         <ul class="govuk-list govuk-list--bullet">
             <li>{{ content.respondentConfirmation | safe }}</li>
-            <li>{{ content.facts | safe }}</li>
+            {% if not isRepresentedBySol %}
+                <li>{{ content.facts | safe }}</li>
+            {% endif %}
         </uL>
 
-        <details class="govuk-details">
-            <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
-                <span class="govuk-details__summary-text">{{ content.whatTheseStatements | safe }}</span>
-            </summary>
-            <div class="govuk-details__text " id="details-content-0" aria-hidden="true">
-                <p class="govuk-body">{{ content.statementsExplanation | safe }}</p>
-            </div>
-        </details>
+        {% if not isRepresentedBySol %}
+            <details class="govuk-details">
+                <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+                    <span class="govuk-details__summary-text">{{ content.whatTheseStatements | safe }}</span>
+                </summary>
+                <div class="govuk-details__text " id="details-content-0" aria-hidden="true">
+                    <p class="govuk-body">{{ content.statementsExplanation | safe }}</p>
+                </div>
+            </details>
+        {% endif %}
     </div>
+
+    <br>
 
     <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
 {%- endblock %}

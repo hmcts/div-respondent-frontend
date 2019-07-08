@@ -8,8 +8,8 @@ const AdmitAdultery = require('steps/respondent/admit-adultery/AdmitAdultery.ste
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
-const yes = 'yes';
-const no = 'no';
+const yes = 'Yes';
+const no = 'No';
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -110,7 +110,7 @@ describe(modulePath, () => {
     step.retrieve()
       .validate();
     const values = step.values();
-    expect(values.respondentSolicitorRepresented).to.equal('no');
+    expect(values.respondentSolicitorRepresented).to.equal(no);
   });
 
   describe('watches', () => {
