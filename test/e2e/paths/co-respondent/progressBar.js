@@ -46,3 +46,20 @@ Scenario('Should display content for co-respondent - awaiting pronouncement and 
   I.seeCrProgressBarPage();
   I.seeCoRespAwaitingPronouncementHearingDataFuture();
 }).retry(2);
+
+Scenario('Should display content for co-respondent - DNPronounced with costs orde', I => { // eslint-disable-line max-len
+  I.amOnPage('/');
+  I.seeIdamLoginPage();
+  I.loginAsCoRespDNPronouncedAndCostsOrder();
+  I.seeCrProgressBarPage();
+  I.seeCoRespDNPronouncedAndCosts();
+  I.seeCoRespCostsOrderToDownload();
+}).retry(2);
+
+Scenario('Should display content for co-respondent - DNPronounced without costs order', I => { // eslint-disable-line max-len
+  I.amOnPage('/');
+  I.seeIdamLoginPage();
+  I.loginAsCoRespDNPronouncedWithoutCostsOrder();
+  I.seeCrProgressBarPage();
+  I.seeCoRespDNPronouncedWithoutCosts();
+}).retry(2);

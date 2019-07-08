@@ -105,6 +105,25 @@
         }) }}
     {% endif %}
 
+    {% if progressBarContent === progressStates.dnPronounced %}
+        <h2 class="govuk-heading-m">{{ content.decreeNisiGranted.heading }}</h2>
+
+        <p class="govuk-body">{{ content.decreeNisiGranted.dateGranted }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ content.decreeNisiGranted.decreeNisi }}</li>
+            {% if (coRespondentPaysCosts) %}
+                <li>{{ content.decreeNisiGranted.costsOrder }}</li>
+            {% endif %}
+        </ul>
+
+        {% if (coRespondentPaysCosts) %}
+            <h2 class="govuk-heading-m">{{ content.decreeNisiGranted.whatCostsOrder }}</h2>
+            <p class="govuk-body">{{ content.decreeNisiGranted.costOrderDetails }}</p>
+            <p class="govuk-body">{{ content.decreeNisiGranted.downloadCostsOrder | safe }}</p>
+        {% endif %}
+
+    {% endif %}
+
 {% endblock %}
 
 {% block one_third %}

@@ -53,11 +53,30 @@ function seeCoRespAnswersToDownload() {
   I.see(content.en.files.coRespondentAnswers);
 }
 
+function seeCoRespCostsOrderToDownload() {
+  const I = this;
+  I.see(content.en.files.costsOrder);
+}
+
 function seeCoRespAwaitingPronouncementHearingDataFuture() {
   const I = this;
 
   I.see(content.en.awaitingPronouncementHearingDataFuture.title);
   I.see(content.en.awaitingPronouncementHearingDataFuture.districtJudge);
+}
+
+function seeCoRespDNPronouncedAndCosts() {
+  const I = this;
+
+  I.see(content.en.decreeNisiGranted.heading);
+  I.see(content.en.decreeNisiGranted.decreeNisi);
+}
+
+function seeCoRespDNPronouncedWithoutCosts() {
+  const I = this;
+
+  I.see(content.en.notDefending.heading);
+  I.see(content.en.notDefending.info);
 }
 
 module.exports = {
@@ -69,5 +88,8 @@ module.exports = {
   seePetitionToDownload,
   seeRespAnswersToDownload,
   seeCoRespAnswersToDownload,
-  seeCoRespAwaitingPronouncementHearingDataFuture
+  seeCoRespCostsOrderToDownload,
+  seeCoRespAwaitingPronouncementHearingDataFuture,
+  seeCoRespDNPronouncedAndCosts,
+  seeCoRespDNPronouncedWithoutCosts
 };

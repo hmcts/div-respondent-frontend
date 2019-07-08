@@ -16,7 +16,12 @@ const progressStates = {
   defendingAwaitingAnswer: 'defendingAwaitingAnswer',
   defendingSubmittedAnswer: 'defendingSubmittedAnswer',
   tooLateToRespond: 'tooLateToRespond',
-  awaitingPronouncementHearingDate: 'awaitingPronouncementHearingDate'
+  awaitingPronouncementHearingDate: 'awaitingPronouncementHearingDate',
+  dnPronounced: 'dnPronounced'
+};
+
+const isCostsOrderFile = file => {
+  return file.type === 'costsOrder';
 };
 
 class CrProgressBar extends Interstitial {
@@ -53,7 +58,19 @@ class CrProgressBar extends Interstitial {
       documentNamePath: config.document.documentNamePath,
       documentWhiteList: documentWhiteList(this.req)
     };
-    return createUris(this.session.originalPetition.d8 || [], docConfig);
+    const uris = createUris(this.session.originalPetition.d8 || [], docConfig);
+
+    if (!this.coRespondentPaysCosts) {
+      return uris.filter(file => {
+        return !isCostsOrderFile(file);
+      });
+    }
+
+    return uris;
+  }
+
+  get costsOrderFile() {
+    return this.downloadableFiles.find(isCostsOrderFile);
   }
 
   get certificateOfEntitlementFile() {
@@ -80,9 +97,15 @@ class CrProgressBar extends Interstitial {
     return caseStateIsAwaitingPronouncement && hearingDates.length;
   }
 
+  dnPronouncedAndPaysCosts() {
+    return this.coRespondentPaysCosts && this.session.caseState === config.caseStates.DNPronounced;
+  }
+
   getProgressBarContent() {
     if (this.receivedAosFromCoResp()) {
-      if (this.awaitingPronouncementAndHearingDate()) {
+      if (this.dnPronouncedAndPaysCosts()) {
+        return this.progressStates.dnPronounced;
+      } else if (this.awaitingPronouncementAndHearingDate()) {
         return this.progressStates.awaitingPronouncementHearingDate;
       } else if (!this.coRespDefendsDivorce()) {
         return this.progressStates.notDefending;
