@@ -231,6 +231,122 @@ describe(modulePath, () => {
     });
   });
 
+  describe('handle state DNPronounced and co respondent pays costs', () => {
+    const basicSession = {
+      caseState: 'DNPronounced',
+      originalPetition: {
+        costsClaimGranted: 'Yes',
+        whoPaysCosts: 'respondentAndCoRespondent',
+        decreeNisiGrantedDate: '2019-07-01T00:00:00.000+0000',
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          },
+          aos: {
+            received: 'Yes',
+            letterHolderId: '755791',
+            dateReceived: '2019-02-22'
+          },
+          defendsDivorce: 'Yes',
+          answer: {
+            received: 'Yes'
+          }
+        },
+        d8: [
+          {
+            id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+            fileName: 'costsOrder1554740111371638.pdf',
+            // eslint-disable-next-line max-len
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+          }
+        ]
+      }
+    };
+
+    it('shows correct content', () => {
+      content(CrProgressBar, basicSession, {
+        specificContent: [
+          'decreeNisiGranted.heading',
+          'decreeNisiGranted.dateGranted',
+          'decreeNisiGranted.decreeNisi',
+          'decreeNisiGranted.costsOrder',
+          'decreeNisiGranted.whatCostsOrder',
+          'decreeNisiGranted.costOrderDetails',
+          'decreeNisiGranted.downloadCostsOrder'
+        ]
+      });
+    });
+
+    it('shows costs order file', () => {
+      return custom(CrProgressBar)
+        .withSession(basicSession)
+        .get()
+        .expect(httpStatus.OK)
+        .html($ => {
+          const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
+
+          expect(rightHandSideMenu).to.include('Cost order');
+        });
+    });
+  });
+
+  describe('handle state DNPronounced and co respondent does not pays costs', () => {
+    const basicSession = {
+      caseState: 'DNPronounced',
+      originalPetition: {
+        costsClaimGranted: 'Yes',
+        whoPaysCosts: 'respondent',
+        decreeNisiGrantedDate: '2019-07-01T00:00:00.000+0000',
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'user@email.com'
+          },
+          aos: {
+            received: 'Yes',
+            letterHolderId: '755791',
+            dateReceived: '2019-02-22'
+          },
+          defendsDivorce: 'Yes',
+          answer: {
+            received: 'Yes'
+          }
+        },
+        d8: [
+          {
+            id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+            fileName: 'costsOrder1554740111371638.pdf',
+            // eslint-disable-next-line max-len
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+          }
+        ]
+      }
+    };
+
+    it('shows correct content', () => {
+      content(CrProgressBar, basicSession, {
+        specificContent: [
+          'notDefending.heading',
+          'notDefending.info',
+          'helpHeading',
+          'helpContent',
+          'improveHeading',
+          'improveContent'
+        ]
+      });
+    });
+
+    it('shows costs order file', () => {
+      return custom(CrProgressBar)
+        .withSession(basicSession)
+        .get()
+        .expect(httpStatus.OK)
+        .html($ => {
+          const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
+
+          expect(rightHandSideMenu).to.not.include('Cost order');
+        });
+    });
+  });
 
   describe('court address details', () => {
     const basicSession = {

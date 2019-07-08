@@ -159,6 +159,20 @@ function loginAsCoRespAwaitingPronouncementHearingDataFuture() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsCoRespDNPronouncedAndCostsOrder() {
+  const I = this;
+
+  I.click(content.en.fields.success.coRespDNPronouncedWithCosts);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCoRespDNPronouncedWithoutCostsOrder() {
+  const I = this;
+
+  I.click(content.en.fields.success.coRespDNPronouncedWithoutCosts);
+  I.click(commonContent.en.continue);
+}
+
 function loginAndThrowError() {
   const I = this;
 
@@ -187,6 +201,8 @@ module.exports = {
   loginAsCoRespDefendingSubmittedAnswer,
   loginAsCoRespTooLateToRespond,
   loginAsCoRespAwaitingPronouncementHearingDataFuture,
+  loginAsCoRespDNPronouncedAndCostsOrder,
+  loginAsCoRespDNPronouncedWithoutCostsOrder,
   loginAndThrowError,
   loginAsCaseAwaitingDecreeAbsolute,
   loginAsCaseDNPronounced
