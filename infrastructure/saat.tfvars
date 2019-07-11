@@ -14,3 +14,4 @@ google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
 
 decree_nisi_frontend_url = "https://div-dn-saat.service.core-compute-saat.internal"
+decree_absolute_frontend_url = "https://div-da-saat.service.core-compute-saat.internal"

@@ -12,6 +12,7 @@ const redirectOnCondition = (req, res, next) => {
   const originalPetition = req.session.originalPetition;
 
   const idamUserIsRespondent = req.idam.userDetails.email === originalPetition.respEmailAddress;
+
   if (!idamUserIsRespondent) {
     const appLandingPage = `${config.services.dnFrontend.url}${config.services.dnFrontend.landing}`;
     const queryString = `?${authTokenString}=${req.cookies[authTokenString]}`;

@@ -122,13 +122,16 @@ variable "idam_authentication_login_endpoint" {
 variable "idam_api_url" {
   type = "string"
 }
+variable "frontend_service_name" {
+  default = "divorce-respondent-frontend"
+}
 
 variable "decree_nisi_frontend_url" {
   type = "string"
 }
 
-variable "frontend_service_name" {
-  default = "divorce-respondent-frontend"
+variable "decree_absolute_frontend_url" {
+  default = ""
 }
 
 variable "s2s_microservice_name" {
