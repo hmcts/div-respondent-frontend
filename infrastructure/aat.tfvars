@@ -17,3 +17,4 @@ capacity = "2"
 rate_limiter_enabled = false
 
 decree_nisi_frontend_url = "https://div-dn-aat.service.core-compute-aat.internal"
+decree_absolute_frontend_url = "https://div-da-aat.service.core-compute-aat.internal"

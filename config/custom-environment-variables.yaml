@@ -57,6 +57,8 @@ services:
     health: COS_HEALTHCHECK_URL
   dnFrontend:
     url: DECREE_NISI_FRONTEND_URL
+  daFrontend:
+    url: DECREE_ABSOLUTE_FRONTEND_URL
   caseMaintenance:
     baseUrl: CASE_MAINTENANCE_BASE_URL
   feesAndPayments:

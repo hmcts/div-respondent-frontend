@@ -7,6 +7,8 @@ const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
 
+const authTokenString = '__auth-token';
+
 function storePetitionInSession(req, response) {
   req.session.referenceNumber = response.body.caseId;
   req.session.caseState = response.body.state;
@@ -48,6 +50,7 @@ function findCoRespPath(coRespAnswers, caseState) {
 
 const loadMiniPetition = (req, res, next) => {
   return caseOrchestration.getPetition(req)
+  // eslint-disable-next-line complexity
     .then(response => {
       if (response.statusCode === httpStatus.OK) {
         storePetitionInSession(req, response);
@@ -58,7 +61,16 @@ const loadMiniPetition = (req, res, next) => {
         const coRespAnswers = originalPetition && originalPetition.coRespondentAnswers;
         const idamUserIsCorespondent = coRespAnswers && coRespAnswers.contactInfo && req.idam.userDetails.email === coRespAnswers.contactInfo.emailAddress;
         if (idamUserIsCorespondent) {
+          logger.infoWithReq(req, 'user_is_coresp', 'User is corespondent, redirecting to find CoRespPath');
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
+        }
+        if (caseState === config.caseStates.DivorceGranted) {
+          const daAppLandingPage = `${config.services.daFrontend.url}${config.services.daFrontend.landing}`;
+          const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
+
+          logger.infoWithReq(req, 'redirect_to_da', 'User is respondent and divorce is granted, redirecting to DA');
+          logger.infoWithReq(req, `${daAppLandingPage}${daQueryString}`);
+          return res.redirect(`${daAppLandingPage}${daQueryString}`);
         }
         if (caseState === config.caseStates.AosAwaiting) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
