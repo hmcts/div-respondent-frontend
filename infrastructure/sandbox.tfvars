@@ -12,3 +12,6 @@ idam_api_url = "http://idam-api-idam-sandbox.service.core-compute-idam-sandbox.i
 
 google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
+
+decree_nisi_frontend_url = "https://div-dn-sandbox.service.core-compute-sandbox.internal"
+decree_absolute_frontend_url = "https://div-da-sandbox.service.core-compute-sandbox.internal"

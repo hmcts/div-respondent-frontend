@@ -14,3 +14,4 @@ google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
 
 decree_nisi_frontend_url = "https://div-dn-demo.service.core-compute-demo.internal"
+decree_absolute_frontend_url = "https://div-da-demo.service.core-compute-demo.internal"

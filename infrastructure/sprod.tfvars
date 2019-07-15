@@ -13,4 +13,5 @@ idam_api_url = "http://idam-api-idam-sprod.service.core-compute-idam-sprod.inter
 google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = true
 
-decree_nisi_frontend_url = "https://www.div-dn-sprod.service.core-compute-sprod.internal"
+decree_nisi_frontend_url = "https://div-dn-sprod.service.core-compute-sprod.internal"
+decree_absolute_frontend_url = "https://div-da-sprod.service.core-compute-sprod.internal"
