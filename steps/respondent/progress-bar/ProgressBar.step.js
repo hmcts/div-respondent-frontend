@@ -42,7 +42,7 @@ const caseStateMap = [
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
-    state: ['AwaitingDecreeAbsolute', 'DNPronounced']
+    state: ['AwaitingDecreeAbsolute', 'DNPronounced', 'DARequested']
   },
   {
     template: './sections/FourCircleFilledIn.html',
@@ -111,7 +111,7 @@ class ProgressBar extends Interstitial {
 
     if (this.awaitingPronouncement(caseState)) {
       return this.progressStates.awaitingPronouncement;
-    } else if (this.awaitingDecreeAbsolute(caseState)) {
+    } else if (this.awaitingDecreeAbsolute(caseState) || this.daRequested(caseState)) {
       return this.progressStates.awaitingDecreeAbsolute;
     } else if (this.dnPronounced(caseState)) {
       return this.progressStates.dnPronounced;
@@ -146,6 +146,10 @@ class ProgressBar extends Interstitial {
     return caseState === config.caseStates.DNPronounced;
   }
 
+  daRequested(caseState) {
+    return caseState === config.caseStates.DARequested;
+  }
+
   awaitingAnswer(caseState) {
     return caseState === config.caseStates.AosSubmittedAwaitingAnswer;
   }
@@ -154,6 +158,7 @@ class ProgressBar extends Interstitial {
     return caseState === config.caseStates.DefendedDivorce;
   }
 
+  // eslint-disable-next-line complexity
   caseBeyondAos(caseState) {
     return (
       caseState === config.caseStates.AwaitingLegalAdvisorReferral ||
@@ -161,6 +166,7 @@ class ProgressBar extends Interstitial {
       caseState === config.caseStates.AwaitingClarification ||
       caseState === config.caseStates.AwaitingConsideration ||
       caseState === config.caseStates.AwaitingDecreeAbsolute ||
+      caseState === config.caseStates.DARequested ||
       caseState === config.caseStates.DNPronounced ||
       caseState === config.caseStates.DNAwaiting ||
       caseState === config.caseStates.AwaitingReissue ||

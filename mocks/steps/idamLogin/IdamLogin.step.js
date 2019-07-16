@@ -27,6 +27,7 @@ class IdamLogin extends Question {
       'yesCaseProgressedAwaitingAnswer',
       'yesCaseProgressedDefending',
       'awaitingDecreeAbsolute',
+      'daRequested',
       'dnPronounced',
       'no',
       'petitionerRedirect',

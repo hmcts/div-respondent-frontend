@@ -17,6 +17,7 @@ const templates = {
   defendedDivorce: './sections/TwoCircleFilledIn.html',
   awaitingDecreeNisi: './sections/TwoCircleFilledInBold.html',
   awaitingDecreeAbsolute: './sections/ThreeCircleFilledInBold.html',
+  daRequested: './sections/ThreeCircleFilledInBold.html',
   dnPronounced: './sections/ThreeCircleFilledInBold.html',
   divorceGranted: './sections/FourCircleFilledIn.html'
 };
@@ -645,6 +646,17 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(ProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingDecreeAbsolute);
+    });
+  });
+
+  describe('CCD state: DARequested', () => {
+    const session = {
+      caseState: 'DARequested'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.daRequested);
     });
   });
 

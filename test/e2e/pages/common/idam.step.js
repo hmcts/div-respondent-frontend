@@ -116,6 +116,13 @@ function loginAsCaseDNPronounced() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsCaseDaRequested() {
+  const I = this;
+
+  I.click(content.en.fields.success.daRequested);
+  I.click(commonContent.en.continue);
+}
+
 function loginAsCorespondent() {
   const I = this;
 
@@ -189,5 +196,6 @@ module.exports = {
   loginAsCoRespAwaitingPronouncementHearingDataFuture,
   loginAndThrowError,
   loginAsCaseAwaitingDecreeAbsolute,
-  loginAsCaseDNPronounced
+  loginAsCaseDNPronounced,
+  loginAsCaseDaRequested
 };

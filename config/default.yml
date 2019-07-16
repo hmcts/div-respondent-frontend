@@ -154,6 +154,7 @@ caseStates:
   AwaitingConsideration: 'AwaitingConsideration'
   AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
   DNPronounced: 'DNPronounced'
+  DARequested: 'DARequested'
   DNAwaiting: 'DNAwaiting'
   AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
   AwaitingPronouncement: 'AwaitingPronouncement'

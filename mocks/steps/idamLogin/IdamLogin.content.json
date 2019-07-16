@@ -22,6 +22,7 @@
         "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
         "yesDecreeNisiPronouncement": "Yes - Awaiting Pronouncement and date of hearing assigned",
         "awaitingDecreeAbsolute": "Respondent AwaitingDecreeAbsolute",
+        "daRequested": "Respondent DARequested",
         "dnPronounced": "Respondent DNPronounced",
         "no": "No",
         "petitionerRedirect": "Set user to petitioner",
