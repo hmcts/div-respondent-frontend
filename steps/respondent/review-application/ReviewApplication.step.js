@@ -50,6 +50,10 @@ class ReviewApplication extends Question {
     return parseBool(config.features.respSolicitorDetails);
   }
 
+  get claimsCostsFromArray() {
+    return this.req.session.originalPetition.claimsCostsFrom || [];
+  }
+
   get form() {
     const answers = [this.const.yes];
     const validAnswers = Joi.string()

@@ -478,6 +478,21 @@ describe(modulePath, () => {
           session,
           { specificContent: ['costsPetitionerPayedByRespondent'] });
       });
+
+      it('when claims costs is null', () => {
+        const session = {
+          originalPetition: {
+            jurisdictionConnection: {},
+            claimsCosts: 'Yes',
+            financialOrder: 'Yes',
+            financialOrderFor: []
+          }
+        };
+        return content(
+          ReviewApplication,
+          session,
+          { specificContent: ['costsPetitionerPayedByRespondent'] });
+      });
     });
 
     context('claim costs only', () => {
@@ -518,6 +533,20 @@ describe(modulePath, () => {
             claimsCosts: 'Yes',
             financialOrder: 'No',
             claimsCostsFrom: []
+          }
+        };
+        return content(
+          ReviewApplication,
+          session,
+          { specificContent: ['costsPetitionerDivorceCostsByRespondent'] });
+      });
+
+      it('when claims costs is null', () => {
+        const session = {
+          originalPetition: {
+            jurisdictionConnection: {},
+            claimsCosts: 'Yes',
+            financialOrder: 'No'
           }
         };
         return content(

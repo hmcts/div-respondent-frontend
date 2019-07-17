@@ -16,17 +16,17 @@
   {% endif %}
   <p class="govuk-body">
     {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrder == "Yes" %}
-      {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
+      {% if "respondent" in claimsCostsFromArray and "correspondent" in claimsCostsFromArray %}
         {{ content.costsPetitionerPayedByRespondentAndCorrespondent | safe }}
-      {% elseif "correspondent" in session.originalPetition.claimsCostsFrom  %}
+      {% elseif "correspondent" in claimsCostsFromArray  %}
         {{ content.costsPetitionerPayedByCorrespondent | safe }}
       {% else %}
         {{ content.costsPetitionerPayedByRespondent | safe }}
       {% endif %}
     {% elseif session.originalPetition.claimsCosts == "Yes" %}
-      {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
+      {% if "respondent" in claimsCostsFromArray and "correspondent" in claimsCostsFromArray %}
         {{ content.costsPetitionerDivorceCostsByRespondentAndCorespondent | safe }}
-      {% elseif "correspondent" in session.originalPetition.claimsCostsFrom %}
+      {% elseif "correspondent" in claimsCostsFromArray %}
         {{ content.costsPetitionerDivorceCostsByCorespondent | safe }}
       {% else %}
         {{ content.costsPetitionerDivorceCostsByRespondent | safe }}
@@ -390,9 +390,9 @@
 
   <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.costOrder }}</h3>
   {% if session.originalPetition.claimsCosts == "Yes" %}
-    {% if "respondent" in session.originalPetition.claimsCostsFrom and "correspondent" in session.originalPetition.claimsCostsFrom %}
+    {% if "respondent" in claimsCostsFromArray and "correspondent" in claimsCostsFromArray %}
       <p class="govuk-body">{{ content.claimingCostsFromRespondentCoRespondent }}</p>
-    {% elseif "correspondent" in session.originalPetition.claimsCostsFrom %}
+    {% elseif "correspondent" in claimsCostsFromArray %}
       <p class="govuk-body">{{ content.claimingCostsFromCoRespondent }}</p>
     {% else %}
       <p class="govuk-body">{{ content.claimingCostsFromRespondent }}</p>
