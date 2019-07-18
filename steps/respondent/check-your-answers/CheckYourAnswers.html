@@ -1,13 +1,9 @@
-{% extends "look-and-feel/layouts/check_your_answers.html" %}
+{% extends "check_your_answers.njk" %}
 
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
 
 {% block head %}
     {% include "includes/head.html" %}
-{% endblock %}
-
-{% block proposition_header %}
-    {% include "includes/propositional_navigation.html" %}
 {% endblock %}
 
 {% set pageContent = {
@@ -16,8 +12,8 @@
 } %}
 
 {% block statement_of_truth_content %}
-{{ header(content.confirm, size='medium') }}
-<p>{{ content.statementOfTruth | safe }}</p>
+{{ header(content.confirm, size='m') }}
+<p class="govuk-body">{{ content.statementOfTruth | safe }}</p>
 {% endblock %}
 
 {% block full_width %}
@@ -27,40 +23,56 @@
 {% endblock %}
 
 {% block statement_of_truth_fields %}
-    <div class="confirmation-container">
+    <div class="confirmation-container govuk-!-padding-bottom-1">
         {% call formSection() %}
-            {{ selectionButtons(
-                fields.respStatementOfTruth,
-                content.fields.statementOfTruth.yes,
-                options = [
-                    { label: content.fields.statementOfTruth.yes, value: "Yes" }
-                ],
-                hint=false,
-                hideQuestion=true,
-                inline=false,
-                type='checkbox'
-            ) }}
+            {% if isRepresentedBySol %}
+                {{ selectionButtons(
+                    fields.respSolicitorRepStatement,
+                    content.fields.respondentSolicitorRepresented.yes,
+                    options = [
+                        { label: content.fields.respondentSolicitorRepresented.yes, value: consts.YES_VALUE }
+                    ],
+                    hint=false,
+                    hideQuestion=true,
+                    inline=false,
+                    type='checkbox'
+                ) }}
+            {% else %}
+                {{ selectionButtons(
+                    fields.respStatementOfTruth,
+                    content.fields.statementOfTruth.yes,
+                    options = [
+                        { label: content.fields.statementOfTruth.yes, value: consts.YES_VALUE }
+                    ],
+                    hint=false,
+                    hideQuestion=true,
+                    inline=false,
+                    type='checkbox'
+                ) }}
+            {% endif %}
         {% endcall %}
 
-        <ul class="list-bullet">
+        <ul class="govuk-list govuk-list--bullet">
             <li>{{ content.respondentConfirmation | safe }}</li>
-            <li>{{ content.facts | safe }}</li>
+            {% if not isRepresentedBySol %}
+                <li>{{ content.facts | safe }}</li>
+            {% endif %}
         </uL>
 
-        <br>
-
-        <details>
-            <summary aria-controls="details-content-0" aria-expanded="false">
-                <span class="summary">{{ content.whatTheseStatements | safe }}</span>
-            </summary>
-            <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-                <p class="text">{{ content.statementsExplanation | safe }}</p>
-            </div>
-        </details>
+        {% if not isRepresentedBySol %}
+            <details class="govuk-details">
+                <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+                    <span class="govuk-details__summary-text">{{ content.whatTheseStatements | safe }}</span>
+                </summary>
+                <div class="govuk-details__text " id="details-content-0" aria-hidden="true">
+                    <p class="govuk-body">{{ content.statementsExplanation | safe }}</p>
+                </div>
+            </details>
+        {% endif %}
     </div>
 
     <br>
-    
+
     <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
 {%- endblock %}
 
@@ -68,12 +80,4 @@
     <div>
         {% include "includes/problem_with_this_page.html" %}
     </div>
-{% endblock %}
-
-{% block footer_support_links %}
-<ul>
-    <li><a href="/cookie">Cookies</a></li>
-    <li><a href="/terms-and-conditions">Terms and conditions</a></li>
-    <li><a href="/privacy-policy">Privacy Policy</a></li>
-</ul>
 {% endblock %}

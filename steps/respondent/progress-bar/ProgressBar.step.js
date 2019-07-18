@@ -14,6 +14,7 @@ const progressStates = {
   defendedDivorce: 'defendedDivorce',
   awaitingPronouncement: 'awaitingPronouncement',
   awaitingDecreeAbsolute: 'awaitingDecreeAbsolute',
+  dnPronounced: 'dnPronounced',
   other: 'other'
 };
 
@@ -41,7 +42,7 @@ const caseStateMap = [
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
-    state: ['AwaitingDecreeAbsolute']
+    state: ['AwaitingDecreeAbsolute', 'DNPronounced']
   },
   {
     template: './sections/FourCircleFilledIn.html',
@@ -85,7 +86,6 @@ class ProgressBar extends Interstitial {
 
   get respondentPaysCosts() {
     const costOrder = get(this.session, 'originalPetition.costsClaimGranted');
-
     if (costOrder === 'Yes') {
       const whoPays = get(this.session, 'originalPetition.whoPaysCosts');
       return ['respondent', 'respondentAndCoRespondent'].includes(whoPays);
@@ -113,6 +113,8 @@ class ProgressBar extends Interstitial {
       return this.progressStates.awaitingPronouncement;
     } else if (this.awaitingDecreeAbsolute(caseState)) {
       return this.progressStates.awaitingDecreeAbsolute;
+    } else if (this.dnPronounced(caseState)) {
+      return this.progressStates.dnPronounced;
     } else if (this.progressedNoAos(caseState)) {
       return this.progressStates.progressedNoAos;
     } else if (this.progressedUndefended(caseState)) {
@@ -123,7 +125,7 @@ class ProgressBar extends Interstitial {
       return this.progressStates.defendedDivorce;
     }
 
-    logger.errorWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
+    logger.warnWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
     return this.progressStates.other;
   }
 
@@ -138,6 +140,10 @@ class ProgressBar extends Interstitial {
   awaitingDecreeAbsolute(caseState) {
     const decreeNisiGrantedDate = get(this.session, 'originalPetition.decreeNisiGrantedDate');
     return caseState === config.caseStates.AwaitingDecreeAbsolute && decreeNisiGrantedDate;
+  }
+
+  dnPronounced(caseState) {
+    return caseState === config.caseStates.DNPronounced;
   }
 
   awaitingAnswer(caseState) {
@@ -155,6 +161,7 @@ class ProgressBar extends Interstitial {
       caseState === config.caseStates.AwaitingClarification ||
       caseState === config.caseStates.AwaitingConsideration ||
       caseState === config.caseStates.AwaitingDecreeAbsolute ||
+      caseState === config.caseStates.DNPronounced ||
       caseState === config.caseStates.DNAwaiting ||
       caseState === config.caseStates.AwaitingReissue ||
       caseState === config.caseStates.DivorceGranted ||

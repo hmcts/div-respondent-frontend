@@ -3,6 +3,7 @@
     "title": "Confirm that you intend to defend the divorce",
     "defenceFeeDetails": "You'll need to submit another form (known as the 'answer') with your reason for defending the divorce. You'll also have to pay another £{{ feesDefendDivorce }} fee. You may also have to go to a hearing with a judge.",
     "legalAdviceWarn": "You should get legal advice if you're not sure.",
+    "warning": "Warning",
     "info": {
       "readMore": "Read more about defending",
       "summary1": "You have 28 days to submit your answer from the date you first signed into the divorce account.",

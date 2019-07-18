@@ -56,6 +56,9 @@ services:
   dnFrontend:
     url: https://localhost:4000
     landing: /authenticated
+  daFrontend:
+    url: https://localhost:3000
+    landing: /authenticated
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
@@ -150,6 +153,7 @@ caseStates:
   AwaitingClarification: 'AwaitingClarification'
   AwaitingConsideration: 'AwaitingConsideration'
   AwaitingDecreeAbsolute: 'AwaitingDecreeAbsolute'
+  DNPronounced: 'DNPronounced'
   DNAwaiting: 'DNAwaiting'
   AwaitingLegalAdvisorReferral: 'AwaitingLegalAdvisorReferral'
   AwaitingPronouncement: 'AwaitingPronouncement'
@@ -190,4 +194,3 @@ saucelabs:
   tunnelId: 'reformtunnel'
   waitForTimeout: 60000
   smartWait: 45000
-

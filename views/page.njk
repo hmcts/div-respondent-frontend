@@ -1,44 +1,67 @@
+{% set footerLinks = [
+    {
+        href: "/cookie",
+        text: "Cookies"
+    },
+    {
+        href: "/terms-and-conditions",
+        text: "Terms and conditions"
+    },
+    {
+        href: "/privacy-policy",
+        text: "Privacy Policy"
+    }
+] %}
+
+{% if isLoggedIn %}
+  {% set serviceLinks = serviceLinks or [
+      {
+        href: "/end",
+        text: "Sign out"
+      }
+  ] %}
+{% endif %}
+
+{% set serviceName = content.serviceName %}
+
 {% extends "look-and-feel/layouts/two_thirds.html" %}
+
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
-{% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
+{% from "back-link/macro.njk" import govukBackLink %}
 
 {% block breadcrumbs %}
   {{ phaseBanner(phase, feedbackLink) }}
   {% block back %}
-    <a class="link-back" href="#" onclick="history.go(-1); return false;">{{ content.backLink }}</a>
+    {{ govukBackLink({
+      attributes: {
+        onclick: "history.go(-1);"
+      },
+      text: "Back",
+      href: "#"
+    }) }}
   {% endblock %}
   {{ languageSwitch(currentLang, availableLangs) }}
 {% endblock %}
 
-{% set titleSize = titleSize | default('xlarge') %}
+{% set titleSize = titleSize | default('xl') %}
 
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
 
-{% block body_start %}
+{% block bodyStart %}
   <noscript>
     <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
   </noscript>
 {% endblock %}
 
-{% block footer_support_links %}
-  <ul>
-    <li><a href="/cookie">Cookies</a></li>
-    <li><a href="/terms-and-conditions">Terms and conditions</a></li>
-    <li><a href="/privacy-policy">Privacy Policy</a></li>
-  </ul>
-{% endblock %}
-
-{% block proposition_header %}
-  {% include "includes/propositional_navigation.html" %}
-{% endblock %}
-
 {% block two_thirds -%}
   {% block title %}
-    {{ header(title, size=titleSize) }}
+    {% if (title) %}
+      {{ header(title, size=titleSize) }}
+    {% endif %}
   {% endblock %}
   {% block main_content %}
   {% endblock %}

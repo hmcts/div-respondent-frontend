@@ -10,17 +10,17 @@
 
     <div id="confirm-defence">
 
-        <p>{{ content.infoPara1 }}</p>
-        <p>{{ content.infoPara2 }}</p>
+        <p class="govuk-body">{{ content.infoPara1 }}</p>
+        <p class="govuk-body">{{ content.infoPara2 }}</p>
 
-        <details>
-            <summary>
-                <span class="summary">{{ content.expandingPanel.heading }}</span>
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">{{ content.expandingPanel.heading }}</span>
             </summary>
-            <div class="panel panel-border-narrow">
-                <p class="text">{{ content.expandingPanel.contentPara1 }}</p>
-                <p class="text">{{ content.expandingPanel.contentPara2 }}</p>
-                <p class="text">{{ content.expandingPanel.contentPara3 }}</p>
+            <div class="govuk-details__text">
+                <p class="govuk-body">{{ content.expandingPanel.contentPara1 }}</p>
+                <p class="govuk-body">{{ content.expandingPanel.contentPara2 }}</p>
+                <p class="govuk-body">{{ content.expandingPanel.contentPara3 }}</p>
             </div>
         </details>
 

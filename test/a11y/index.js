@@ -1,4 +1,4 @@
-const steps = require('steps')();
+const steps = require('steps')(false);
 const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const a11y = require('./a11y');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
@@ -13,6 +13,12 @@ const filterSteps = step => {
 const stepIsPostable = step => {
   const stepInstance = new step({ journey: {} });
   return typeof stepInstance.parse === 'function';
+};
+
+// Ignored Errors
+const excludedErrors = [ 'WCAG2AA.Principle1.Guideline1_3.1_3_1.F92,ARIA4' ];
+const filteredErrors = r => {
+  return !excludedErrors.includes(r.code);
 };
 
 // set up step with valid idam creds
@@ -62,7 +68,8 @@ steps
         before(() => {
           return validateAccessibility(step, 'GET')
             .then(results => {
-              errors = results.errors;
+              errors = results.errors
+                .filter(filteredErrors);
               warnings = results.warnings;
             })
             .catch(error => {
@@ -84,7 +91,8 @@ steps
           before(() => {
             return validateAccessibility(step, 'POST')
               .then(results => {
-                errors = results.errors;
+                errors = results.errors
+                  .filter(filteredErrors);
                 warnings = results.warnings;
               })
               .catch(error => {

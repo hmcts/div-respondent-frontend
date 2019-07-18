@@ -1,0 +1,47 @@
+<aside class="govuk-related-items" role="complementary">
+
+    <h3 class="govuk-heading-s">{{ content.help }}</h3>
+
+    <ul class="govuk-list govuk-body govuk-!-font-size-16 help">
+        <li>
+            <strong class="govuk-!-font-size-16">{{ content.email }}</strong><br>
+            {{ session.divorceCenterEmail | safe }}
+        </li>
+        <li>
+            <strong>{{ content.phone }}</strong><br>
+            {{ session.divorceCenterPhoneNumber | safe }} <br>
+            {{ content.divorceCenterHours }} <br>
+        </li>
+        <li>
+            <strong class="govuk-!-font-size-16">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
+            {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
+            {% if session.divorceCenterPoBox %}
+                {{ session.divorceCenterPoBox }}<br/>
+            {% endif %}
+            {% if session.divorceCenterStreet %}
+                {{ session.divorceCenterStreet }}<br/>
+            {% endif %}
+            {{ session.divorceCenterCourtCity }}<br/>
+            {{ session.divorceCenterPostCode }}<br/>
+        </li>
+    </ul>
+
+    {% if (downloadableFiles.length > 0) %}
+        <h3 class="govuk-heading-s">{{ content.downloadDocuments }}</h3>
+
+        {{ documentList(downloadableFiles, content.files) }}
+    {% endif %}
+
+    <h3 class="govuk-heading-s" id="subsection-title">{{ content.guidance.title }}</h3>
+
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list govuk-body govuk-!-font-size-16">
+        <li>{{ content.guidance.howWifeHusbandResponds | safe }}</li>
+        <li>{{ content.guidance.decreeNisiLink | safe }}</li>
+        <li>{{ content.guidance.decreeAbsoluteLink | safe }}</li>
+        <li>{{ content.guidance.childrenAndDivorceLink | safe }}</li>
+        <li>{{ content.guidance.moneyAndPropertyLink | safe }}</li>
+     </ul>
+    </nav>
+
+</aside>

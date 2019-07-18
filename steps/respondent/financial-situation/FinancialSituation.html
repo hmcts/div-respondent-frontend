@@ -7,21 +7,21 @@
 {% endset %}
 
 {% block fields %}
-    <p>{{ content.description }}</p>
-    <p>{{ content.theCourtMayDelay }}</p>
+    <p class="govuk-body">{{ content.description }}</p>
+    <p class="govuk-body">{{ content.theCourtMayDelay }}</p>
 
-    <details>
-        <summary>
-            <span class="summary">{{ content.readMore }}</span>
+    <details class="govuk-details">
+        <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">{{ content.readMore }}</span>
         </summary>
-        <div class="panel panel-border-narrow">
-            <p class="text">{{ content.readMoreParagraph1 }}</p>
-            <ul class="list list-bullet">
+        <div class="govuk-details__text">
+            <p class="govuk-body">{{ content.readMoreParagraph1 }}</p>
+            <ul class="govuk-list govuk-list--bullet">
                 <li>{{ content.readMoreParagraph2 }}</li>
                 <li>{{ content.readMoreParagraph3 }}</li>
             </ul>
-            <p class="text">{{ content.readMoreParagraph4 }}</p>
-            <p class="text">{{ content.readMoreParagraph5 }}</p>
+            <p class="govuk-body">{{ content.readMoreParagraph4 }}</p>
+            <p class="govuk-body">{{ content.readMoreParagraph5 }}</p>
         </div>
     </details>
 
@@ -38,8 +38,8 @@
                 type='radio'
             ) }}
         {% endcall %}
-        <div class="panel panel-border-wide js-hidden" id="consider-yes">
-            <p class="text">{{ content.formB }}</p>
+        <div class="govuk-inset-text js-hidden" id="consider-yes">
+            <p class="govuk-body">{{ content.formB }}</p>
         </div>
     </div>
 {% endblock %}

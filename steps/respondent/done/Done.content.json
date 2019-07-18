@@ -32,37 +32,37 @@
     "notDefended2YearsNoConsent4": "You can change your mind and give your consent to the divorce at any time. You'll need to do this in writing. Contact the divorce centre if you want to do this.",
 
     "defendedHeading":"What to do now",
-    "defendedText1":"You have 21 days to submit the '<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\">answer to a divorce application</a>' form from the date that you first signed into your divorce account.",
+    "defendedText1":"You have 21 days to submit the '<a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\">answer to a divorce application</a>' form from the date that you first signed into your divorce account.",
     "defendedText2":"Download and fill in the paper form.",
     "defendedText3":"Post the form to:",
     "defendedText4":"You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to ",
-    "defendedText4Link": "<a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get help with paying this fee</a>",
+    "defendedText4Link": "<a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get help with paying this fee</a>",
     "defendedText5":"You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
     "defendedText6":" If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defend the divorce.",
 
     "ifYouNeedHelp": "If you need help",
-    "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\">solicitor or legal adviser</a>.",
+    "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\">solicitor or legal adviser</a>.",
     "helpImproveHeading": "Help us improve this service",
-    "helpImproveText": "Please help us improve this service by <a href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\">leaving your feedback</a>.",
+    "helpImproveText": "Please help us improve this service by <a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\">leaving your feedback</a>.",
 
     "yourCourt": "Your divorce centre",
     "email": "Email",
-    "gettingHelp": "Getting help",
+    "help": "Getting help",
     "careOfAbbreviation": "c/o",
     "phone": "Phone",
     "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
     "guidance": {
       "title": "Guidance on GOV.UK",
-      "howWifeHusbandResponds": "<a href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Responding to a divorce application</a>",
-      "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
-      "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
-      "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
-      "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+      "howWifeHusbandResponds": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Responding to a divorce application</a>",
+      "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
+      "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+      "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
     },
     "financialSituationHeading": "What you need to do now",
     "financialSituationText1": "You need to fill in another form and send it to the court if you want it to consider your financial situation after the divorce.",
     "financialSituationText2": "Download and complete",
     "financialSituationText3": "Post the form to:",
-    "financialSituationFormLink": "<a href=\"https://www.gov.uk/government/publications/form-b-notice-of-application-to-consider-the-financial-position-of-the-respondent-after-divorce-dissolution\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Form B: Notice of application to consider the financial position of the respondent after divorce</a>."
+    "financialSituationFormLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-b-notice-of-application-to-consider-the-financial-position-of-the-respondent-after-divorce-dissolution\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Form B: Notice of application to consider the financial position of the respondent after divorce</a>."
   }
 }

@@ -55,3 +55,16 @@ Scenario('Should display content for respondent that is AwaitingDecreeAbsolute',
   I.seeCostsOrderToDownload();
   I.seeDecreeNisiToDownload();
 }).retry(2);
+
+Scenario('Should display content for respondent that is DNPronounced', I => {
+  I.amOnPage('/');
+  I.seeIdamLoginPage();
+  I.loginAsCaseDNPronounced();
+  I.seeProgressBarPage();
+  I.seeContentForDNPronounced();
+  I.seePetitionToDownload();
+  I.seeRespondentAnswersToDownload();
+  I.seeCoRespondentAnswersToDownload();
+  I.seeCostsOrderToDownload();
+  I.seeDecreeNisiToDownload();
+}).retry(2);

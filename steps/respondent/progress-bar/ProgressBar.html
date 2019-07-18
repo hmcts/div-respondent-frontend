@@ -1,19 +1,20 @@
 {% extends "page.njk" %}
 
 {% from "look-and-feel/components/document-list.njk" import documentList %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {% block back %}
 {% endblock %}
 
 {% set title %}
-    {{ content.title | safe }}
+  {{ content.title | safe }}
 {% endset %}
 
 {% block main_content %}
-    <p class="font-xsmall">
-        <strong class="bold-xsmall">{{ content.details.referenceNumber }}
+    <p class="govuk-body-s">
+        <strong class="govuk-!-font-size-16">{{ content.details.referenceNumber }}
             :</strong>&nbsp;&nbsp;&nbsp; {{ session.originalPetition.caseReference }}<br>
-        <strong class="bold-xsmall">{{ content.details.name }}:</strong> &nbsp;&nbsp;
+        <strong class="govuk-!-font-size-16">{{ content.details.name }}:</strong> &nbsp;&nbsp;
         {{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}
     </p>
 
@@ -21,28 +22,30 @@
 
     {% set progressBarContent = getProgressBarContent() %}
 
-    {% if  progressBarContent === progressStates.progressedNoAos %}
-        <h2 class="heading-medium">{{ content.progressedNoAos.heading }}</h2>
-        <p>{{ content.progressedNoAos.info }}</p>
+    <br>
+
+    {% if progressBarContent === progressStates.progressedNoAos %}
+        <h2 class="govuk-heading-m">{{ content.progressedNoAos.heading }}</h2>
+        <p class="govuk-body">{{ content.progressedNoAos.info }}</p>
     {% endif %}
 
     {% if  progressBarContent === progressStates.progressedUndefended %}
-        <h2 class="heading-medium">{{ content.progressedUndefended.heading }}</h2>
-        <p>{{ content.progressedUndefended.info }}</p>
+        <h2 class="govuk-heading-m">{{ content.progressedUndefended.heading }}</h2>
+        <p class="govuk-body">{{ content.progressedUndefended.info }}</p>
 
-        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
-        <p>{{ content.helpContent | safe }}</p>
+        <h2 class="govuk-heading-m">{{ content.helpHeading }}</h2>
+        <p class="govuk-body">{{ content.helpContent | safe }}</p>
 
-        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
-        <p>{{ content.improveContent | safe }}</p>
+        <h2 class="govuk-heading-m">{{ content.improveHeading }}</h2>
+        <p class="govuk-body">{{ content.improveContent | safe }}</p>
     {% endif %}
 
     {% if  progressBarContent === progressStates.awaitingAnswer %}
-        <h2 class="heading-medium">{{ content.awaitingAnswer.heading }}</h2>
-        <p>{{ content.awaitingAnswer.para1 | safe }}</p>
-        <p>{{ content.awaitingAnswer.para2 | safe }}</p>
-        <p>{{ content.awaitingAnswer.para3 | safe }}</p>
-        <ul class="list bold-small">
+        <h2 class="govuk-heading-m">{{ content.awaitingAnswer.heading }}</h2>
+        <p class="govuk-body">{{ content.awaitingAnswer.para1 | safe }}</p>
+        <p class="govuk-body">{{ content.awaitingAnswer.para2 | safe }}</p>
+        <p class="govuk-body">{{ content.awaitingAnswer.para3 | safe }}</p>
+        <ul class="govuk-list govuk-!-font-size-19 govuk-!-font-weight-bold">
             {% if session.serviceCentreName %}
                 <li>{{ session.serviceCentreName }}</li>
             {% endif %}
@@ -58,51 +61,99 @@
             <li>{{ session.divorceCenterCourtCity }}</li>
             <li>{{ session.divorceCenterPostCode }}</li>
         </ul>
-        <p>{{ content.awaitingAnswer.para4 | safe }}</p>
-        <p>{{ content.awaitingAnswer.para5 | safe }}</p>
-        <p>{{ content.awaitingAnswer.para6 | safe }}</p>
+        <p class="govuk-body">{{ content.awaitingAnswer.para4 | safe }}</p>
+        <p class="govuk-body">{{ content.awaitingAnswer.para5 | safe }}</p>
+        <p class="govuk-body">{{ content.awaitingAnswer.para6 | safe }}</p>
 
-        <h2 class="heading-medium">{{ content.helpHeading }}</h2>
-        <p>{{ content.helpContent | safe }}</p>
+        <h2 class="govuk-heading-m">{{ content.helpHeading }}</h2>
+        <p class="govuk-body">{{ content.helpContent | safe }}</p>
 
-        <h2 class="heading-medium">{{ content.improveHeading }}</h2>
-        <p>{{ content.improveContent | safe }}</p>
+        <h2 class="govuk-heading-m">{{ content.improveHeading }}</h2>
+        <p class="govuk-body">{{ content.improveContent | safe }}</p>
     {% endif %}
 
     {% if  progressBarContent === progressStates.defendedDivorce %}
-        <h2 class="heading-medium">{{ content.defendedDivorce.heading }}</h2>
-        <p>{{ content.defendedDivorce.para1 }}</p>
-        <p>{{ content.defendedDivorce.para2 }}</p>
-        <p>{{ content.defendedDivorce.para3 }}</p>
-        <p>{{ content.defendedDivorce.para4 }}</p>
+        <h2 class="govuk-heading-m">{{ content.defendedDivorce.heading }}</h2>
+        <p class="govuk-body">{{ content.defendedDivorce.para1 }}</p>
+        <p class="govuk-body">{{ content.defendedDivorce.para2 }}</p>
+        <p class="govuk-body">{{ content.defendedDivorce.para3 }}</p>
+        <p class="govuk-body">{{ content.defendedDivorce.para4 }}</p>
     {% endif %}
 
     {% if progressBarContent === progressStates.awaitingPronouncement %}
-        <h2 class="heading-medium">{{ content.decreeNisiAnnouncement.heading }}</h2>
-        <p>{{ content.decreeNisiAnnouncement.districtJudge }}</p>
+        <h2 class="govuk-heading-m">{{ content.decreeNisiAnnouncement.heading }}</h2>
+        <p class="govuk-body">{{ content.decreeNisiAnnouncement.districtJudge }}</p>
         {% if respondentPaysCosts %}
-            <p>{{ content.decreeNisiAnnouncement.acceptedCosts }}</p>
+            <p class="govuk-body">{{ content.decreeNisiAnnouncement.acceptedCosts }}</p>
         {% endif %}
-        <div class="panel panel-border-wide">
-            <p>{{ content.decreeNisiAnnouncement.secondStage }}</p>
+        <div class="govuk-inset-text">
+            <p class="govuk-body">{{ content.decreeNisiAnnouncement.secondStage }}</p>
         </div>
 
-        <h2 class="heading-medium">{{ content.decreeNisiAnnouncement.theHearing }}</h2>
-        <p>{{ content.decreeNisiAnnouncement.moreDetails | safe }}</p>
+        <h2 class="govuk-heading-m">{{ content.decreeNisiAnnouncement.theHearing }}</h2>
+        <p class="govuk-body">{{ content.decreeNisiAnnouncement.moreDetails | safe }}</p>
 
-        <div class="notice">
-            <em class="icon icon-important">
-                <span class="visually-hidden">Warning</span>
-            </em>
-            <strong class="bold-small">{{ content.decreeNisiAnnouncement.dontNeedToCome }}</strong>
-        </div>
+        {{ warningText({
+          text: content.decreeNisiAnnouncement.dontNeedToCome,
+          iconFallbackText: content.warning
+        }) }}
 
-        <br>
+        {% set hearingText = content.decreeNisiAnnouncement.wantToAttend | string %}
+        {% if respondentPaysCosts %}
+          {% set hearingText = content.decreeNisiAnnouncement.wantToAttend | string + content.decreeNisiAnnouncement.wantToAttendCosts | string %}
+        {% endif %}
 
-        <p>{{ content.decreeNisiAnnouncement.wantToAttend }}</p>
+        {{ warningText({
+          text: hearingText,
+          iconFallbackText: content.warning
+        }) }}
+
+        <p class="govuk-body">{{ content.decreeNisiAnnouncement.wantToAttend }}</p>
     {% endif %}
 
     {% if progressBarContent === progressStates.awaitingDecreeAbsolute %}
+        <h2 class="govuk-heading-m">{{ content.decreeNisiGranted.heading }}</h2>
+
+        <p class="govuk-body">{{ content.decreeNisiGranted.dateGranted }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ content.decreeNisiGranted.decreeNisi }}</li>
+            {% if (costsOrderFile) %}
+                <li>{{ content.decreeNisiGranted.costsOrder }}</li>
+            {% endif %}
+        </ul>
+
+        {{ warningText({
+          text: content.decreeNisiGranted.notDivorcedYet,
+          iconFallbackText: content.warning
+        }) }}
+
+        <h2 class="govuk-heading-m">{{ content.decreeNisiGranted.divorceComplete }}</h2>
+
+        <p class="govuk-body">{{ content.decreeNisiGranted.sixWeeks }}</p>
+        <p class="govuk-body">{{ content.decreeNisiGranted.courtCancel }}</p>
+        <p class="govuk-body">{{ content.decreeNisiGranted.applyForDecreeAbsolute }}</p>
+        <p class="govuk-body">{{ content.decreeNisiGranted.downloadDecreeNisi | safe }}</p>
+
+        {% if (costsOrderFile) %}
+            <h2 class="govuk-heading-m">{{ content.decreeNisiGranted.whatCostsOrder }}</h2>
+
+            {% if (session.originalPetition.whoPaysCosts === 'respondent') %}
+                <p class="govuk-body">{{ content.decreeNisiGranted.orderWillStateRespondent }}</p>
+            {% endif %}
+
+            {% if (session.originalPetition.whoPaysCosts === 'coRespondent') %}
+                <p class="govuk-body">{{ content.decreeNisiGranted.orderWillStateCoRespondent }}</p>
+            {% endif %}
+
+            {% if (session.originalPetition.whoPaysCosts === 'respondentAndCoRespondent') %}
+                <p class="govuk-body">{{ content.decreeNisiGranted.orderWillStateRespondentAndCoRespondent }}</p>
+            {% endif %}
+
+            <p class="govuk-body">{{ content.decreeNisiGranted.downloadCostsOrder | safe }}</p>
+        {% endif %}
+    {% endif %}
+
+    {% if progressBarContent === progressStates.dnPronounced %}
         <h2 class="heading-medium">{{ content.decreeNisiGranted.heading }}</h2>
 
         <p class="test">{{ content.decreeNisiGranted.dateGranted }}</p>
@@ -118,7 +169,7 @@
         <div class="notice-padding">
             <div class="notice">
                 <em class="icon icon-important">
-                    <span class="visually-hidden">{{ content.decreeNisiGranted.warning }}</span>
+                    <span class="visually-hidden">{{ content.warning }}</span>
                 </em>
                 <strong class="bold-small">
                     {{ content.decreeNisiGranted.notDivorcedYet | safe }}
@@ -155,35 +206,11 @@
     {% if  progressBarContent === progressStates.other %}
         <br />
         <br />
-        <p>{{ content.other.heading }}</p>
+        <p class="govuk-body">{{ content.other.heading }}</p>
     {% endif %}
 
 {% endblock %}
 
 {% block one_third %}
-    <aside class="govuk-related-items" role="complementary">
-        <h3 class="heading-small">{{ content.contactDetails.heading }}</h3>
-
-        <ul class="font-xsmall">
-            <li>
-                <strong class="bold-xsmall">{{ content.contactDetails.email }}</strong><br>
-                {{ session.divorceCenterEmail | safe }}
-                <br>
-            </li>
-            <li>
-                <strong class="bold-xsmall">{{ content.contactDetails.phone }}</strong><br>
-                {{ session.divorceCenterPhoneNumber | safe }}<br>
-                {{ content.contactDetails.divorceCenterHours }}<br>
-            </li>
-            {% include "includes/sideMenuCourtDetails.html" %}
-        </ul>
-
-        {% if (downloadableFiles.length > 0) %}
-            <h3 class="heading-small" id="subsection-title">{{ content.downloadableFiles }}</h3>
-
-            {{ documentList(downloadableFiles, content.files) }}
-        {% endif %}
-
-        {% include "includes/sideMenuGuidanceLinks.html" %}
-    </aside>
+    {% include "includes/sideMenu.html" %}
 {% endblock %}

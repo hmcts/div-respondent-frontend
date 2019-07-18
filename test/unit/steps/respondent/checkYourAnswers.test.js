@@ -28,6 +28,29 @@ describe(modulePath, () => {
     return question.redirectWithField(CheckYourAnswers, fields, doneStep);
   });
 
+  describe('with solicitor', () => {
+    const session = { SolicitorRepresentation: { response: 'Yes' } };
+
+    it('redirects to next page if solicitor representing and acknowledges answers', () => {
+      const fields = { respSolicitorRepStatement: 'Yes' };
+      return question.redirectWithField(CheckYourAnswers, fields, doneStep, session);
+    });
+
+    it('shows error if does not answer solicitor acknowledge answers', () => {
+      return question.testErrors(CheckYourAnswers, session);
+    });
+
+    it('renders correct content', () => {
+      return content(CheckYourAnswers, session, {
+        specificContentToNotExist: [
+          'facts',
+          'whatTheseStatements',
+          'statementsExplanation'
+        ]
+      });
+    });
+  });
+
   it('shows error if does not answer question', () => {
     return question.testErrors(CheckYourAnswers);
   });
