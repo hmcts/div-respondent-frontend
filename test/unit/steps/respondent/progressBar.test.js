@@ -16,6 +16,7 @@ const templates = {
   aosAwaiting: './sections/OneCircleFilledInBold.html',
   defendedDivorce: './sections/TwoCircleFilledIn.html',
   awaitingDecreeNisi: './sections/TwoCircleFilledInBold.html',
+  dnDrafted: './sections/TwoCircleFilledInBold.html',
   awaitingDecreeAbsolute: './sections/ThreeCircleFilledInBold.html',
   dnPronounced: './sections/ThreeCircleFilledInBold.html',
   divorceGranted: './sections/FourCircleFilledIn.html',
@@ -645,6 +646,17 @@ describe(modulePath, () => {
       return content(ProgressBar, session, {
         specificValues: [progressBarContent.en.aosAwaitingSol.heading]
       });
+    });
+  });
+
+  describe('CCD state: DNDrafted', () => {
+    const session = {
+      caseState: 'DNDrafted'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.dnDrafted);
     });
   });
 

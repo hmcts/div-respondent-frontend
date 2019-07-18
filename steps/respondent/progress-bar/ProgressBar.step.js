@@ -43,7 +43,7 @@ const caseStateMap = [
   },
   {
     template: './sections/TwoCircleFilledInBold.html',
-    state: ['AwaitingDecreeNisi', 'DNAwaiting']
+    state: ['AwaitingDecreeNisi', 'DNDrafted', 'DNAwaiting']
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
