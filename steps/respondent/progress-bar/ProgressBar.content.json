@@ -3,6 +3,7 @@
     "title": "Your divorce",
     "husbandWifeApplied": "Your {{ session.divorceWho }} applies",
     "youMustRespond": "You must respond",
+    "solicitorMustRespond": "Your solicitor must respond",
     "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
     "madeFinal": "Divorce is complete",
     "downloadDocuments": "Download your documents",
@@ -73,6 +74,12 @@
       "orderWillStateCoRespondent": "The order will state what the court has decided the co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
       "orderWillStateRespondentAndCoRespondent": "The order will state what the court has decided you and your co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
       "downloadCostsOrder": "<a class=\"govuk-link\" href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Costs Order PDF.\">Download your costs order</a> ({{ costsOrderFile.fileType | upper }})."
+    },
+    "aosAwaitingSol": {
+      "heading": "You have nominated a solicitor",
+      "nominatedSol": "You have nominated a solicitor to respond to your {{ session.divorceWho }}'s divorce application on your behalf.",
+      "subHeading": "What happens next",
+      "nextDetails": "Your solicitor will receive instructions on how  to respond on your behalf. They must respond  to the application within 7 days. If they don't, your {{ session.divorceWho }} can ask the court to move the divorce forward without you. You may have to pay extra fees if this happens."
     },
     "other": {
       "heading": "Please contact the Courts and Tribunals Service Centre for more information"
