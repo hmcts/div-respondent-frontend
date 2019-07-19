@@ -111,6 +111,8 @@
 
   {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
     <ul class="govuk-list govuk-list--bullet">
+  {% else %}
+    <p class="govuk-body">
   {% endif %}
 
     {% if "A" in session.originalPetition.jurisdictionConnection %}
@@ -199,6 +201,8 @@
 
   {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
     </ul>
+  {% else %}
+    </p>
   {% endif %}
 
   <br>
