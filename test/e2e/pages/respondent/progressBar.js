@@ -49,6 +49,13 @@ function seeContentForDNPronounced() {
   I.see(content.en.decreeNisiGranted.divorceComplete);
 }
 
+function seeContentForAosAwaitingSol() {
+  const I = this;
+
+  I.see(content.en.aosAwaitingSol.heading);
+  I.see(content.en.aosAwaitingSol.nominatedSol);
+}
+
 function seePetitionToDownload() {
   const I = this;
   I.see(content.en.files.dpetition);
@@ -86,5 +93,6 @@ module.exports = {
   seeContentForAwaitingDecreeAbsolute,
   seeContentForDNPronounced,
   seeCostsOrderToDownload,
-  seeDecreeNisiToDownload
+  seeDecreeNisiToDownload,
+  seeContentForAosAwaitingSol
 };

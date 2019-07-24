@@ -17,27 +17,50 @@
     </p>
   </div>
 
-  <p class="govuk-body">{{ content.emailConfirmation }} <span class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ session.originalPetition.respEmailAddress | safe }}</span></p>
 
-  {{
-    progressList({
-      one: {
-        label: content.husbandWifeApplied,
-        complete: true
-      },
-      two: {
-        label: content.youMustRespond,
-        complete: true
-      },
-      three: {
-        label: content.getDecreeNisi,
-        current: true
-      },
-      four: {
-        label: content.madeFinal
-      }
-    })
-  }}
+  {% from "look-and-feel/components/progress-list.njk" import progressList %}
+  {% if session.SolicitorRepresentation.response == "Yes" %}
+    <p class="govuk-body">{{ content.emailConfirmation }} <span class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ session.SolicitorDetails.solicitorDetails.solicitorEmail | safe }}</span></p>
+    {{
+      progressList({
+        one: {
+          label: content.husbandWifeApplied,
+          complete: true
+        },
+        two: {
+          label: content.solicitorMustRespond,
+          current: true
+        },
+        three: {
+          label: content.getDecreeNisi
+        },
+        four: {
+          label: content.madeFinal
+        }
+      })
+    }}
+  {% else %}
+    <p class="govuk-body">{{ content.emailConfirmation }} <span class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ session.originalPetition.respEmailAddress | safe }}</span></p>
+    {{
+      progressList({
+        one: {
+          label: content.husbandWifeApplied,
+          complete: true
+        },
+        two: {
+          label: content.youMustRespond,
+          complete: true
+        },
+        three: {
+          label: content.getDecreeNisi,
+          current: true
+        },
+        four: {
+          label: content.madeFinal
+        }
+      })
+    }}
+  {% endif %}
 
   {% if session.FinancialSituation.respConsiderFinancialSituation == "Yes" %}
 
@@ -134,6 +157,14 @@
 
   {% endif %}
 
+  {% if session.SolicitorRepresentation.response == "Yes" %}
+
+    <h2 class="govuk-heading-m">{{ content.solHeading }}</h2>
+    <p class="govuk-body">{{ content.nominatedSol }}</p>
+    <h2 class="govuk-heading-m">{{ content.solSubHeading }}</h2>
+    <p class="govuk-body">{{ content.solNextDetails }}</p>
+
+  {% endif %}
 
   <h2 class="govuk-heading-m">{{ content.ifYouNeedHelp }}</h2>
   <p class="govuk-body">{{ content.ifYouNeedHelpText | safe }}</p>
