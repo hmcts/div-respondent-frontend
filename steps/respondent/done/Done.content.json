@@ -6,6 +6,7 @@
 
     "husbandWifeApplied": "Your {{ session.divorceWho }} applies",
     "youMustRespond": "You must respond",
+    "solicitorMustRespond": "Your solicitor must respond",
     "getDecreeNisi": "Your {{ session.divorceWho }} gets a decree nisi",
     "madeFinal": "Divorce is complete",
 
@@ -44,6 +45,11 @@
     "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\">solicitor or legal adviser</a>.",
     "helpImproveHeading": "Help us improve this service",
     "helpImproveText": "Please help us improve this service by <a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\">leaving your feedback</a>.",
+
+    "solHeading": "You have nominated a solicitor",
+    "nominatedSol": "You have nominated a solicitor to respond to your {{ session.divorceWho }}'s divorce application on your behalf.",
+    "solSubHeading": "What happens next",
+    "solNextDetails": "Your solicitor will receive instructions on how  to respond on your behalf. They must respond  to the application within 7 days. If they don't, your {{ session.divorceWho }} can ask the court to move the divorce forward without you. You may have to pay extra fees if this happens.",
 
     "yourCourt": "Your divorce centre",
     "email": "Email",

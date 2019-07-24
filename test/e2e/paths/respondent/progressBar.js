@@ -68,3 +68,13 @@ Scenario('Should display content for respondent that is DNPronounced', I => {
   I.seeCostsOrderToDownload();
   I.seeDecreeNisiToDownload();
 }).retry(2);
+
+
+Scenario('Should display content for respondent if the case state is aosAwaitingSol', I => {
+  I.amOnPage('/');
+  I.seeIdamLoginPage();
+  I.loginAsCaseAosAwaitingSol();
+  I.seeProgressBarPage();
+  I.seeContentForAosAwaitingSol();
+  I.seePetitionToDownload();
+}).retry(2);

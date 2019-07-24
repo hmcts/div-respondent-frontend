@@ -160,6 +160,7 @@ caseStates:
   AwaitingReissue: 'AwaitingReissue'
   DefendedDivorce: 'DefendedDivorce'
   DivorceGranted: 'DivorceGranted'
+  AosAwaitingSol: 'AosAwaitingSol'
 
 features:
   idam: false

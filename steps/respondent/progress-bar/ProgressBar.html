@@ -203,6 +203,13 @@
         {% endif %}
     {% endif %}
 
+    {% if  progressBarContent === progressStates.aosAwaitingSol %}
+        <h2 class="govuk-heading-m">{{ content.aosAwaitingSol.heading }}</h2>
+        <p class="govuk-body">{{ content.aosAwaitingSol.nominatedSol }}</p>
+        <h2 class="govuk-heading-m">{{ content.aosAwaitingSol.subHeading }}</h2>
+        <p class="govuk-body">{{ content.aosAwaitingSol.nextDetails }}</p>
+    {% endif %}
+
     {% if  progressBarContent === progressStates.other %}
         <br />
         <br />
