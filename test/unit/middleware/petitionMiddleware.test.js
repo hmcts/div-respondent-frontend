@@ -28,7 +28,6 @@ describe(modulePath, () => {
   });
 
   it('redirects to capture case and pin if no case is found', done => {
-    // given
     const req = sinon.stub();
     const res = {
       redirect: sinon.spy()
@@ -49,7 +48,6 @@ describe(modulePath, () => {
   });
 
   it('redirects to capture case and pin if case found, state: AosAwaiting', done => {
-    // given
     const req = {
       cookies: { '__auth-token': 'test' },
       get: sinon.stub(),
@@ -81,7 +79,6 @@ describe(modulePath, () => {
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves(response);
 
-    // when
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce).to.be.true;
@@ -91,7 +88,6 @@ describe(modulePath, () => {
 
 
   it('redirects to Decree Absolute FE if case found, state: DivorceGranted', done => {
-    // given
     const req = {
       cookies: { '__auth-token': 'test' },
       get: sinon.stub(),
@@ -124,11 +120,9 @@ describe(modulePath, () => {
     const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
     const expectedUrl = `${daAppLandingPage}${daQueryString}`;
 
-
     sinon.stub(caseOrchestration, 'getPetition')
       .resolves(response);
 
-    // when
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(res.redirect.calledWith(expectedUrl)).to.equal(true);
@@ -137,7 +131,6 @@ describe(modulePath, () => {
   });
 
   it('should redirect to Co-respondent respond page if user is Co-respondent', done => {
-    // given
     const email = 'user@email.com';
     const req = {
       cookies: { '__auth-token': 'authToken' },
@@ -158,7 +151,6 @@ describe(modulePath, () => {
         body: coRespondentMock
       });
 
-    // when
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
@@ -167,7 +159,6 @@ describe(modulePath, () => {
   });
 
   it('To Co-resp progress page if CoResp user submitted response', done => {
-    // given
     const email = 'user@email.com';
     const req = {
       cookies: { '__auth-token': 'authToken' },
@@ -187,7 +178,6 @@ describe(modulePath, () => {
         body: coRespondentNotDefendingMock
       });
 
-    // when
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(res.redirect.withArgs(crProgressBar.path).calledOnce).to.be.true;
@@ -196,7 +186,6 @@ describe(modulePath, () => {
   });
 
   it('calls correct methods based on caseOrchestration service calls', done => {
-    // given
     const req = sinon.stub();
     const res = {
       redirect: sinon.spy()
@@ -210,7 +199,6 @@ describe(modulePath, () => {
         body: completedMock
       });
 
-    // when
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(res.redirect.withArgs(ProgressBar.path).calledOnce).to.be.true;
@@ -219,7 +207,6 @@ describe(modulePath, () => {
   });
 
   it('throws an error on unexpected response', done => {
-    // given
     const req = sinon.stub();
     const res = sinon.stub();
     const next = sinon.spy();
@@ -229,7 +216,6 @@ describe(modulePath, () => {
         statusCode: httpStatus.INTERNAL_SERVER_ERROR
       });
 
-    // when
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(next.calledOnce).to.be.true;

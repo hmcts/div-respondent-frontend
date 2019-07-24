@@ -60,15 +60,17 @@ const loadMiniPetition = (req, res, next) => {
 
         const coRespAnswers = originalPetition && originalPetition.coRespondentAnswers;
         const idamUserIsCorespondent = coRespAnswers && coRespAnswers.contactInfo && req.idam.userDetails.email === coRespAnswers.contactInfo.emailAddress;
+        const caseIsInDaEligibleState = config.validDaStates.includes(caseState);
+
         if (idamUserIsCorespondent) {
           logger.infoWithReq(req, 'user_is_coresp', 'User is corespondent, redirecting to find CoRespPath');
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }
-        if (caseState === config.caseStates.DivorceGranted) {
+        if (caseIsInDaEligibleState) {
           const daAppLandingPage = `${config.services.daFrontend.url}${config.services.daFrontend.landing}`;
           const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
 
-          logger.infoWithReq(req, 'redirect_to_da', 'User is respondent and divorce is granted, redirecting to DA');
+          logger.infoWithReq(req, 'redirect_to_da', 'User is respondent and is in DA case state, redirecting to DA');
           logger.infoWithReq(req, `${daAppLandingPage}${daQueryString}`);
           return res.redirect(`${daAppLandingPage}${daQueryString}`);
         }

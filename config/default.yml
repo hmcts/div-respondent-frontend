@@ -161,6 +161,12 @@ caseStates:
   DefendedDivorce: 'DefendedDivorce'
   DivorceGranted: 'DivorceGranted'
 
+validDaStates:
+  - 'AwaitingDecreeAbsolute'
+  - 'DARequested'
+  - 'DAOverdue'
+  - 'DivorceGranted'
+
 features:
   idam: false
   agreeToCosts:
