@@ -17,3 +17,4 @@ capacity = "2"
 rate_limiter_enabled = true
 
 decree_nisi_frontend_url = "https://www.decree-nisi.apply-divorce.service.gov.uk"
+decree_absolute_frontend_url = "https://www.decree-absolute.apply-divorce.service.gov.uk"

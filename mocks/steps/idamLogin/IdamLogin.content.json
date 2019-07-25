@@ -23,6 +23,7 @@
         "yesDecreeNisiPronouncement": "Yes - Awaiting Pronouncement and date of hearing assigned",
         "awaitingDecreeAbsolute": "Respondent AwaitingDecreeAbsolute",
         "dnPronounced": "Respondent DNPronounced",
+        "aosAwaitingSol": "AOS Awaiting Solicitor",
         "no": "No",
         "petitionerRedirect": "Set user to petitioner",
         "corespondentLogin": "Set user to Co-respondent to continue journey (+ resp answers doc)",

@@ -15,6 +15,7 @@ const progressStates = {
   awaitingPronouncement: 'awaitingPronouncement',
   awaitingDecreeAbsolute: 'awaitingDecreeAbsolute',
   dnPronounced: 'dnPronounced',
+  aosAwaitingSol: 'aosAwaitingSol',
   other: 'other'
 };
 
@@ -31,6 +32,10 @@ const caseStateMap = [
   {
     template: './sections/OneCircleFilledInBold.html',
     state: ['AosAwaiting', 'AosStarted', 'AosOverdue']
+  },
+  {
+    template: './sections/SolicitorOneCircleFilledInBold.html',
+    state: ['AosAwaitingSol']
   },
   {
     template: './sections/TwoCircleFilledIn.html',
@@ -123,6 +128,8 @@ class ProgressBar extends Interstitial {
       return this.progressStates.awaitingAnswer;
     } else if (this.defendedDivorce(caseState)) {
       return this.progressStates.defendedDivorce;
+    } else if (this.aosAwaitingSol(caseState)) {
+      return this.progressStates.aosAwaitingSol;
     }
 
     logger.warnWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
@@ -152,6 +159,10 @@ class ProgressBar extends Interstitial {
 
   defendedDivorce(caseState) {
     return caseState === config.caseStates.DefendedDivorce;
+  }
+
+  aosAwaitingSol(caseState) {
+    return caseState === config.caseStates.AosAwaitingSol;
   }
 
   caseBeyondAos(caseState) {

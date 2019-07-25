@@ -1,4 +1,5 @@
 const modulePath = 'middleware/petitionMiddleware';
+const config = require('config');
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition: petitionMiddleware } = require(modulePath);
 const caseOrchestration = require('services/caseOrchestration');
@@ -18,6 +19,8 @@ const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
+
+const authTokenString = '__auth-token';
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -82,6 +85,53 @@ describe(modulePath, () => {
     petitionMiddleware(req, res, next)
       .then(() => {
         expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
+
+  it('redirects to Decree Absolute FE if case found, state: DivorceGranted', done => {
+    // given
+    const req = {
+      cookies: { '__auth-token': 'test' },
+      get: sinon.stub(),
+      session: {}
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+    const next = sinon.stub();
+
+    const response = {
+      statusCode: 200,
+      body: {
+        state: 'DivorceGranted',
+        caseId: 1234,
+        data: { // eslint-disable-line id-blacklist
+          marriageIsSameSexCouple: 'No',
+          divorceWho: 'husband',
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
+          }
+        }
+      }
+    };
+
+    const daAppLandingPage = `${config.services.daFrontend.url}${config.services.daFrontend.landing}`;
+    const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
+    const expectedUrl = `${daAppLandingPage}${daQueryString}`;
+
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves(response);
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(res.redirect.calledWith(expectedUrl)).to.equal(true);
       })
       .then(done, done);
   });
@@ -227,6 +277,7 @@ describe(modulePath, () => {
 
     petitionMiddleware(req, {}, next);
   });
+
   it('sets the case id, court name, po box, city, post code and street', done => {
     const req = {
       cookies: { '__auth-token': 'test' },

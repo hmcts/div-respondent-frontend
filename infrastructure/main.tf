@@ -116,8 +116,8 @@ module "frontend" {
     FEATURE_IDAM                               = "${var.feature_idam}"
     FEATURE_RESP_SOLICITOR_DETAILS             = "${var.feature_resp_solicitor_details}"
 
-    // Decree Nisi Frontend Url
     DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"
+    DECREE_ABSOLUTE_FRONTEND_URL = "${var.decree_absolute_frontend_url}"
     FEES_AND_PAYMENTS_URL = "${local.div_fps_url}"
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.div_fps_url}${var.health_endpoint}"
     EVIDENCE_MANAGEMENT_CLIENT_API_URL = "${local.div_emca_url}"

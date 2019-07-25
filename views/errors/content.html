@@ -10,7 +10,7 @@
 {% endif %}
 
 {% if error %}
-    {% if settings.env != 'prod' %}
+    {% if (settings.env != 'prod') and (settings.env != 'production') %}
     <div class="govuk-form-group--error">
         <label class="govuk-error-message">
             <span class="form-label-bold">Error Message</span>
