@@ -38,6 +38,8 @@ class IdamLogin extends Question {
       'coRespDefendingSubmittedAnswer',
       'coRespTooLateToRespond',
       'coRespAwaitingPronouncementHearingDataFuture',
+      'coRespDNPronouncedWithCosts',
+      'coRespDNPronouncedWithoutCosts',
       'throwError',
       'yesDecreeNisiPronouncement'
     ];

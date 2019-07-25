@@ -180,6 +180,7 @@ document:
     - 'd8petition'
     - 'coRespondentAnswers'
     - 'certificateOfEntitlement'
+    - 'costsOrder'
     respondent:
     - 'd8petition'
     - 'respondentAnswers'

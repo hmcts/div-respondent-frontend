@@ -33,6 +33,8 @@
         "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer(   (+ co-resp answers doc)",
         "coRespTooLateToRespond": "Co-respondent not responded - Divorce Granted",
         "coRespAwaitingPronouncementHearingDataFuture": "Co-respondent - Awaiting Pronouncement and Hearing data in future",
+        "coRespDNPronouncedWithCosts": "Co-respondent - DNPronounced with costs",
+        "coRespDNPronouncedWithoutCosts": "Co-respondent - DNPronounced without costs",
         "throwError": "Simulate 500 server error"
       }
     }
