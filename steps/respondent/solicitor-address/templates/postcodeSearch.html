@@ -6,12 +6,6 @@
     <div class="govuk-form-group {{ errorClass(field) }}">
         <label class="govuk-label" for="{{ fields.postcode.id }}">{{ content.fields.postcode.label }}</label>
 
-        {%- if hint %}
-          <span class="govuk-hint">
-            {{ hint }}
-          </span>
-        {%- endif %}
-
         {{ errorsFor(fields.postcode) }}
         <input class="govuk-input govuk-!-width-one-third"
                id="{{ fields.postcode.id }}"
