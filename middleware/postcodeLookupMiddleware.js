@@ -1,7 +1,10 @@
 const postcodeLookup = require('services/postcodeLookup');
 
 const getAddressFromPostcode = (req, res, next) => {
-  if (req.body.postcode && req.body.postcode.length) {
+  const isPost = req.method === 'POST';
+  const hasPostcode = req.body && req.body.postcode && req.body.postcode.length;
+
+  if (isPost && hasPostcode) {
     return postcodeLookup.postcodeLookup(req.body.postcode)
       .then(response => {
         req.body = Object.assign(req.body, { postcodeList: response });
