@@ -18,3 +18,5 @@ rate_limiter_enabled = true
 
 decree_nisi_frontend_url = "https://www.decree-nisi.apply-divorce.service.gov.uk"
 decree_absolute_frontend_url = "https://www.decree-absolute.apply-divorce.service.gov.uk"
+
+post_code_url = "https://api.ordnancesurvey.co.uk/places/v1"

@@ -33,7 +33,7 @@
     "@hmcts/look-and-feel": "^3.0.2",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
-    "@hmcts/one-per-page": "^5.2.1",
+    "@hmcts/one-per-page": "^5.2.3",
     "@hmcts/properties-volume": "^0.0.9",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
@@ -56,7 +56,7 @@
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.5.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#0.1",
-    "@hmcts/one-per-page-test-suite": "^4.0.0",
+    "@hmcts/one-per-page-test-suite": "^4.0.2",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",

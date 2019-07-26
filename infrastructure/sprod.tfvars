@@ -15,3 +15,5 @@ rate_limiter_enabled = true
 
 decree_nisi_frontend_url = "https://div-dn-sprod.service.core-compute-sprod.internal"
 decree_absolute_frontend_url = "https://div-da-sprod.service.core-compute-sprod.internal"
+
+post_code_url = "https://api.ordnancesurvey.co.uk/places/v1"

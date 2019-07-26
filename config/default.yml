@@ -69,6 +69,9 @@ services:
     baseUrl: http://localhost:3001/evidence-management
     health: http://localhost:3001/health
     downloadEndpoint: /emclientapi/version/1/download
+  postcode:
+    baseUrl: http://localhost:3001/postcode-lookup
+    token:
 
 paths:
   health: /health
@@ -102,6 +105,7 @@ paths:
     noConsentAreYouSure: /no-consent-are-you-sure
     progressBar: /progress-bar
     done: /done
+    solicitorAddress: /solicitor-address
   coRespondent:
     respond: /co-respondent/progress-bar/respond
     progressBar: /co-respondent/progress-bar

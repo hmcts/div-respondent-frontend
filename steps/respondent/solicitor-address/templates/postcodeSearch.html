@@ -1,0 +1,24 @@
+{% call form(
+    postUrl=postUrlPostcodeSearch,
+    submitButton=false
+    ) %}
+
+    <div class="govuk-form-group {{ errorClass(field) }}">
+        <label class="govuk-label" for="{{ fields.postcode.id }}">{{ content.fields.postcode.label }}</label>
+
+        {%- if hint %}
+          <span class="govuk-hint">
+            {{ hint }}
+          </span>
+        {%- endif %}
+
+        {{ errorsFor(fields.postcode) }}
+        <input class="govuk-input govuk-!-width-one-third"
+               id="{{ fields.postcode.id }}"
+               name="{{ fields.postcode.id }}"
+               type="text"
+               {% if fields.postcode.value %}value="{{ fields.postcode.value }}"{% endif %}>
+
+        <input class="govuk-button govuk-button--secondary govuk-!-margin-0" type="submit" value="{{ defaultAddressContent.searchPostcodeSubmit }}">
+    </div>
+{% endcall %}

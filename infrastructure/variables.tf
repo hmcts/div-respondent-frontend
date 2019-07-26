@@ -206,3 +206,7 @@ variable "evidence_management_download_endpoint" {
 variable "feature_resp_solicitor_details" {
   default = false
 }
+
+variable "post_code_url" {
+  default = "https://api.ordnancesurvey.co.uk/places/v1"
+}

@@ -16,4 +16,6 @@ rate_limiter_enabled = false
 decree_nisi_frontend_url = "https://div-dn-aat.service.core-compute-aat.internal"
 decree_absolute_frontend_url = "https://div-da-aat.service.core-compute-aat.internal"
 
+post_code_url = "https://api.ordnancesurvey.co.uk/places/v1"
+
 feature_resp_solicitor_details = true

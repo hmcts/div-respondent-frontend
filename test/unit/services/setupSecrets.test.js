@@ -18,7 +18,8 @@ describe(modulePath, () => {
         div: {
           'session-secret': 'sessionValue',
           'redis-secret': 'redisValue',
-          'idam-secret': 'idamValue'
+          'idam-secret': 'idamValue',
+          'os-places-token': 'osPlacesValue'
         }
       };
 
@@ -33,6 +34,8 @@ describe(modulePath, () => {
         .to.equal(mockConfig.secrets.div['redis-secret']);
       expect(mockConfig.services.idam.secret)
         .to.equal(mockConfig.secrets.div['idam-secret']);
+      expect(mockConfig.services.postcode.token)
+        .to.equal(mockConfig.secrets.div['os-places-token']);
     });
 
     it('should not set config values when secrets path is not set', () => {

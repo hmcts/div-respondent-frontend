@@ -127,6 +127,10 @@ module "frontend" {
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
     WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
+
+    // Post code Lookup
+    POST_CODE_URL          = "${var.post_code_url}"
+    POST_CODE_ACCESS_TOKEN = "${data.azurerm_key_vault_secret.post_code_token.value}"
   }
 }
 
@@ -147,5 +151,10 @@ data "azurerm_key_vault_secret" "session_secret" {
 
 data "azurerm_key_vault_secret" "redis_secret" {
   name      = "redis-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "post_code_token" {
+  name      = "os-places-token"
   vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
 }

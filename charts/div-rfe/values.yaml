@@ -11,6 +11,7 @@ nodejs:
         RATE_LIMITER_EXPIRE: "3600000"
         LOG_LEVEL: "DEBUG"
         PROXY_URL: "http://proxyout.reform.hmcts.net:8080"
+        POST_CODE_URL: "https://api.ordnancesurvey.co.uk/places/v1"
 
     keyVaults:
         "div":
@@ -19,6 +20,7 @@ nodejs:
                 - session-secret
                 - redis-secret
                 - idam-secret
+                - os-places-token
 
 redis:
     cluster:

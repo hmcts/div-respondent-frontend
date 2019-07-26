@@ -1,0 +1,91 @@
+{% extends "page.njk" %}
+
+{% from "look-and-feel/components/header.njk" import header %}
+{% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
+{% from "look-and-feel/components/errors.njk" import errorSummary %}
+{% from "look-and-feel/components/i18n.njk" import languageSwitch %}
+
+{% from "look-and-feel/components/fields.njk" import selectionButtons, textbox, errorClass, errorsFor, select, textarea %}
+{% from "select/macro.njk" import govukSelect %}
+
+{% set defaultAddressContent = {
+    pageTitle: pageContent.pageTitle if pageContent.pageTitle else 'What is the address?',
+    confirmAddressSubmit: pageContent.confirmAddressSubmit if pageContent.confirmAddressSubmit else 'Continue',
+    confirmAddressTitle: pageContent.confirmAddressTitle if pageContent.confirmAddressTitle else 'Confirm address',
+    searchPostcodeSubmit: pageContent.searchPostcodeSubmit if pageContent.searchPostcodeSubmit else 'Find address',
+    selectAddressSubmit: pageContent.selectAddressSubmit if pageContent.selectAddressSubmit else 'Select address',
+    selectAddressSubmitUpdate: pageContent.selectAddressSubmitUpdate if pageContent.selectAddressSubmitUpdate else 'Update address',
+    addressLineLabelPreNum: pageContent.addressLineLabelPreNum if pageContent.addressLineLabelPreNum else 'Address line',
+    editAddressLinesSubmit: pageContent.editAddressLinesSubmit if pageContent.editAddressLinesSubmit else 'Continue',
+    noUkPostcodeLinkTitle: pageContent.noUkPostcodeLinkTitle if pageContent.noUkPostcodeLinkTitle else 'I can’t enter a UK postcode',
+    manualAddressTitle: pageContent.manualAddressTitle if pageContent.manualAddressTitle else 'Enter full address',
+    manualAddressSubmit: pageContent.manualAddressSubmit if pageContent.manualAddressSubmit else 'Continue',
+    enterUkPostcode: pageContent.enterUkPostcode if pageContent.enterUkPostcode else 'Enter a uk postcode'
+}
+%}
+
+{% set title %}
+    {{ defaultAddressContent.pageTitle | safe }}
+{% endset %}
+
+{% if isConfirmAddress %}
+    {% set title %}
+        {{ defaultAddressContent.confirmAddressTitle | safe }}
+    {% endset %}
+{% endif %}
+
+{% macro form(postUrl=path, submitValue='Submit', submitClass='', submitButton=true, submitNoJSOnly=false) %}
+    <form
+      enctype="{{ enc_type | default('application/x-www-form-urlencoded') }}"
+      action="{{ postUrl | default(path if path else url) }}"
+      method="post"
+      class="form"
+      autocomplete="off"
+    >
+        {{ caller() }}
+
+        {% if csurfCsrfToken %}
+            <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
+        {% endif %}
+
+        {% if submitButton %}
+          {% if submitNoJSOnly %}<noscript>{% endif %}
+          <input class="govuk-button {{ submitClass }}" type="submit" value="{{ submitValue }}">
+          {% if submitNoJSOnly %}</noscript>{% endif %}
+        {% endif %}
+    </form>
+{% endmacro %}
+
+{% block title %}
+  {{ errorSummary(fields) }}
+
+  {% if (title) %}
+    {{ header(title, size=titleSize) }}
+  {% endif %}
+{% endblock %}
+
+{% block main_content %}
+
+    {% if isConfirmAddress %}
+
+        {% include './confirmAddress.html' %}
+
+    {% elseif isManualAddress %}
+
+        {% include './manualAddress.html' %}
+
+    {% else %}
+
+        {% include './postcodeSearch.html' %}
+
+        {% include './selectAddress.html' %}
+
+        {% include './editAddress.html' %}
+
+        <a href="{{ postManualAddress }}" class="govuk-link">{{ defaultAddressContent.noUkPostcodeLinkTitle }}</a>
+
+        <br><br>
+
+    {% endif %}
+
+{% endblock %}
