@@ -18,7 +18,7 @@
       <select class="govuk-select" id="{{ fields.selectedAddress.id }}" name="{{ fields.selectedAddress.id }}" onchange="this.form.submit()">
         <option value="-1">{{ fields.postcodeList.value|length }} Addresses found</option>
         {% for fieldName, item in fields.postcodeList.fields %}
-            <option {% if fields.selectedAddress.value === item.value %}selected{% endif %} value="{{ item.value | safe }}">{{ item.value | safe }}</option>
+            <option {% if fields.selectedAddress.value === item.value %}selected{% endif %} value="{{ item.value | safe }}">{{ item.value | lineBreakToComma | safe }}</option>
         {% endfor %}
       </select>
     </div>

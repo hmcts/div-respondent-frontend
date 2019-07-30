@@ -52,6 +52,58 @@ describe(modulePath, () => {
 
       expect(address).to.eql('2 &amp; 3, WILBERFORCE ROAD\r\nLONDON\r\nN4 2SW');
     });
+
+    it('should format addresses correctly for EC1V 2PD', () => {
+      const testAddress = {
+        DPA: {
+          ADDRESS: 'MOORFIELDS EYE HOSPITAL, 162, CITY ROAD, LONDON, EC1V 2PD',
+          ORGANISATION_NAME: 'MOORFIELDS EYE HOSPITAL',
+          BUILDING_NUMBER: '162',
+          THOROUGHFARE_NAME: 'CITY ROAD',
+          POST_TOWN: 'LONDON',
+          POSTCODE: 'EC1V 2PD',
+          CLASSIFICATION_CODE_DESCRIPTION: 'Hospital'
+        }
+      };
+
+      const address = postcodeLookupService.formatAddress(testAddress);
+
+      expect(address).to.eql('MOORFIELDS EYE HOSPITAL\r\n162 , CITY ROAD\r\nLONDON\r\nEC1V 2PD');
+    });
+
+    it('should format addresses correctly for IG1 1BE', () => {
+      const testAddress = {
+        DPA: {
+          ADDRESS: 'FEET FIRST PARTNERSHIP, 91, CLEMENTS ROAD, ILFORD, IG1 1BE',
+          ORGANISATION_NAME: 'FEET FIRST PARTNERSHIP',
+          BUILDING_NUMBER: '91',
+          THOROUGHFARE_NAME: 'CLEMENTS ROAD',
+          POST_TOWN: 'ILFORD',
+          POSTCODE: 'IG1 1BE'
+        }
+      };
+
+      const address = postcodeLookupService.formatAddress(testAddress);
+
+      expect(address).to.eql('FEET FIRST PARTNERSHIP\r\n91 , CLEMENTS ROAD\r\nILFORD\r\nIG1 1BE');
+    });
+
+    it('should format addresses correctly for MK17 9QU', () => {
+      const testAddress = {
+        DPA: {
+          ADDRESS: '1, ELEANOR CLOSE, WOBURN, MILTON KEYNES, MK17 9QU',
+          BUILDING_NUMBER: '1',
+          THOROUGHFARE_NAME: 'ELEANOR CLOSE',
+          DEPENDENT_LOCALITY: 'WOBURN',
+          POST_TOWN: 'MILTON KEYNES',
+          POSTCODE: 'MK17 9QU'
+        }
+      };
+
+      const address = postcodeLookupService.formatAddress(testAddress);
+
+      expect(address).to.eql('1, ELEANOR CLOSE\r\nWOBURN\r\nMILTON KEYNES\r\nMK17 9QU');
+    });
   });
 
   describe('#postcodeLookup', () => {
