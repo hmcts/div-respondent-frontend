@@ -22,7 +22,7 @@ const setupHelmet = app => {
   const maxAge = config.ssl.hpkp.maxAge;
   const sha256s = [ config.ssl.hpkp.sha256s, config.ssl.hpkp.sha256sBackup ];
 
-  // Helmet HTTP public key pinning
+  // HTTP public key pinning
   app.use(hpkp({ maxAge, sha256s }));
 
   // Helmet referrer policy
