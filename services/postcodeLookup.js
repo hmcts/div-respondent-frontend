@@ -1,7 +1,7 @@
 const config = require('config');
 const request = require('request-promise-native');
 const logger = require('services/logger').getLogger(__filename);
-const Entities = require('html-entities').XmlEntities;
+const Entities = require('html-entities').AllHtmlEntities;
 
 const entities = new Entities();
 
