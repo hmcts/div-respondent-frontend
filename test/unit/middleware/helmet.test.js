@@ -1,9 +1,12 @@
 const modulePath = 'middleware/helmet';
 
+const proxyquire = require('proxyquire');
 const helmet = require('helmet');
 const config = require('config');
-const setupHelmet = require(modulePath);
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
+
+const hpkpStub = sinon.stub();
+const setupHelmet = proxyquire(modulePath, { hpkp: hpkpStub });
 
 const app = {};
 
@@ -42,15 +45,12 @@ describe(modulePath, () => {
   });
 
   it('adds hpkp helmet to app middleware', () => {
-    const hpkpStub = sinon.stub(helmet, 'hpkp');
     const maxAge = config.ssl.hpkp.maxAge;
     const sha256s = [ config.ssl.hpkp.sha256s, config.ssl.hpkp.sha256sBackup ];
 
     setupHelmet(app);
 
     sinon.assert.calledWith(hpkpStub, { maxAge, sha256s });
-
-    hpkpStub.restore();
   });
 
   it('adds referrerPolicy helmet to app middleware', () => {

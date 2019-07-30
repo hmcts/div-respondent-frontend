@@ -30,7 +30,7 @@
         "corespondentAmendedCaseLogin": "Set user to Co-respondent to continue journey - with amended case",
         "coRespNotDefending": "Co-respondent user responded - not defending (+ co-resp answers doc)",
         "coRespDefendingWaitingAnswer": "Co-respondent user responded - defending waiting answer (has resp doc)",
-        "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer(   (+ co-resp answers doc)",
+        "coRespDefendingSubmittedAnswer": "Co-respondent user responded - defending submitted answer (+ co-resp answers doc)",
         "coRespTooLateToRespond": "Co-respondent not responded - Divorce Granted",
         "coRespAwaitingPronouncementHearingDataFuture": "Co-respondent - Awaiting Pronouncement and Hearing data in future",
         "coRespDNPronouncedWithCosts": "Co-respondent - DNPronounced with costs",

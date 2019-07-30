@@ -51,9 +51,11 @@ function seeContentForDNPronounced() {
 
 function seeContentForAosAwaitingSol() {
   const I = this;
+  // Mockdata uses husband as divorceWho
+  const formattedNominatedSolString = content.en.aosAwaitingSol.nominatedSol.replace('{{ session.divorceWho }}', 'husband');
 
   I.see(content.en.aosAwaitingSol.heading);
-  I.see(content.en.aosAwaitingSol.nominatedSol);
+  I.see(formattedNominatedSolString);
 }
 
 function seePetitionToDownload() {

@@ -264,7 +264,7 @@ describe(modulePath, () => {
     };
 
     it('shows correct content', () => {
-      content(CrProgressBar, basicSession, {
+      return content(CrProgressBar, basicSession, {
         specificContent: [
           'decreeNisiGranted.heading',
           'decreeNisiGranted.dateGranted',
@@ -323,14 +323,12 @@ describe(modulePath, () => {
     };
 
     it('shows correct content', () => {
-      content(CrProgressBar, basicSession, {
+      return content(CrProgressBar, basicSession, {
         specificContent: [
-          'notDefending.heading',
-          'notDefending.info',
-          'helpHeading',
-          'helpContent',
-          'improveHeading',
-          'improveContent'
+          'defendingSubmittedAnswer.heading',
+          'defendingSubmittedAnswer.para1',
+          'defendingSubmittedAnswer.para2',
+          'defendingSubmittedAnswer.para3'
         ]
       });
     });
