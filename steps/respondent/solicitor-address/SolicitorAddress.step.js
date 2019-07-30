@@ -17,6 +17,11 @@ const paths = {
   enterManualAddress: '/manual-address'
 };
 
+const constants = {
+  yes: 'yes',
+  no: 'no'
+};
+
 class SolicitorAddress extends Question {
   static get path() {
     return config.paths.respondent.solicitorAddress;
@@ -154,7 +159,7 @@ class SolicitorAddress extends Question {
   }
 
   get confirmAddressForm() {
-    const confirmAddressAnswers = ['yes', 'no'];
+    const confirmAddressAnswers = [constants.yes, constants.no];
     let confirmAddressValidAnswers = Joi.string();
 
     const isPostOrHasErrors = this.isPostRequest || this.hasError('confirmAddress');
