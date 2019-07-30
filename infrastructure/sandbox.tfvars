@@ -15,5 +15,3 @@ rate_limiter_enabled = false
 
 decree_nisi_frontend_url = "https://div-dn-sandbox.service.core-compute-sandbox.internal"
 decree_absolute_frontend_url = "https://div-da-sandbox.service.core-compute-sandbox.internal"
-
-post_code_url = "https://api.ordnancesurvey.co.uk/places/v1"
