@@ -6,7 +6,7 @@
     <p class="govuk-body">
         {% for fieldName, item in fields.address.fields %}
           {% if item %}
-            {{ item.value }}<br>
+            {{ item.value | safe }}<br>
           {% endif %}
         {% endfor %}
     </p>

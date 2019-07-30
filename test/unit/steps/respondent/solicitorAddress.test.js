@@ -16,9 +16,9 @@ const paths = {
 };
 
 const mockAddresses = [
-  '1, WILBERFORCE ROAD, LONDON, N4 2SW',
-  '2, WILBERFORCE ROAD, LONDON, N4 2SW',
-  '3, WILBERFORCE ROAD, LONDON, N4 2SW'
+  '1\r\nWILBERFORCE ROAD\r\nLONDON\r\nN4 2SW',
+  '2\r\nWILBERFORCE ROAD\r\nLONDON\r\nN4 2SW',
+  '3\r\nWILBERFORCE ROAD\r\nLONDON\r\nN4 2SW'
 ];
 
 const customPost = (path, session, fields) => {
@@ -124,7 +124,7 @@ describe(modulePath, () => {
 
       it('shows address in seperate fields', () => {
         const fields = { selectedAddress: mockAddresses[0] };
-        const addressAsArray = mockAddresses[0].split(', ');
+        const addressAsArray = mockAddresses[0].split('\r\n');
 
         const testFieldsInPage = res => {
           addressAsArray.forEach(addressLine => {
@@ -169,7 +169,7 @@ describe(modulePath, () => {
     });
 
     it('sets address in session', () => {
-      const addressAsArray = mockAddresses[0].split(', ');
+      const addressAsArray = mockAddresses[0].split('\r\n');
       const fields = {
         'address[0]': addressAsArray[0],
         'address[1]': 'custom line',
@@ -190,7 +190,7 @@ describe(modulePath, () => {
     });
 
     it('removes a line from address if empty', () => {
-      const addressAsArray = mockAddresses[0].split(', ');
+      const addressAsArray = mockAddresses[0].split('\r\n');
       const fields = {
         'address[0]': addressAsArray[0],
         'address[1]': '',
@@ -213,7 +213,7 @@ describe(modulePath, () => {
     });
 
     it('navigates to confirm address', () => {
-      const addressAsArray = mockAddresses[0].split(', ');
+      const addressAsArray = mockAddresses[0].split('\r\n');
       const fields = {
         'address[0]': addressAsArray[0],
         'address[1]': addressAsArray[1],
@@ -296,7 +296,7 @@ describe(modulePath, () => {
     let session = {};
 
     beforeEach(() => {
-      session = { [SolicitorAddress.name]: { address: mockAddresses[0].split(', ') } };
+      session = { [SolicitorAddress.name]: { address: mockAddresses[0].split('\r\n') } };
     });
 
     describe('content', () => {
@@ -372,10 +372,10 @@ describe(modulePath, () => {
   });
 
   it('Returns correct answers', () => {
-    const stepData = { address: mockAddresses[0].split(', ') };
+    const stepData = { address: mockAddresses[0].split('\r\n') };
     const expectedContent = [
       SolicitorAddressContent.en.title,
-      ...mockAddresses[0].split(', ')
+      ...mockAddresses[0].split('\r\n')
     ];
 
     return question.answers(SolicitorAddress, stepData, expectedContent);
@@ -410,7 +410,7 @@ describe(modulePath, () => {
       const remove = sinon.stub();
 
       const watch = instance.watches[`[${SolicitorAddress.name}].address`];
-      watch('', mockAddresses[0].split(', '), remove);
+      watch('', mockAddresses[0].split('\r\n'), remove);
 
       expect(remove).calledWith(`[${SolicitorAddress.name}].confirmAddress`);
     });
@@ -450,7 +450,7 @@ describe(modulePath, () => {
   });
 
   it('returns correct values when #values is called', () => {
-    const address = mockAddresses[0].split(', ');
+    const address = mockAddresses[0].split('\r\n');
 
     const req = {
       journey: {},
@@ -469,7 +469,7 @@ describe(modulePath, () => {
   });
 
   it('returns correct values when #values is called with { super: true }', () => {
-    const address = mockAddresses[0].split(', ');
+    const address = mockAddresses[0].split('\r\n');
 
     const req = {
       journey: {},

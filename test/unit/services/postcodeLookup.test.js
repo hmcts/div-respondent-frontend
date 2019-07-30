@@ -9,13 +9,20 @@ const mockAddressResponse = {
   results: [
     {
       DPA: {
+        BUILDING_NUMBER: '1',
+        THOROUGHFARE_NAME: 'WILBERFORCE ROAD',
+        POST_TOWN: 'LONDON',
+        POSTCODE: 'N4 2SW',
         ADDRESS: '1, WILBERFORCE ROAD, LONDON, N4 2SW'
       }
     },
     {
       DPA: {
-        ADDRESS: '2, WILBERFORCE ROAD, LONDON, N4 2SW',
-        BUILDING_NUMBER: '2'
+        BUILDING_NUMBER: '2',
+        THOROUGHFARE_NAME: 'WILBERFORCE ROAD',
+        POST_TOWN: 'LONDON',
+        POSTCODE: 'N4 2SW',
+        ADDRESS: '2, WILBERFORCE ROAD, LONDON, N4 2SW'
       }
     }
   ]
@@ -25,28 +32,25 @@ const mockAddressResponse = {
 describe(modulePath, () => {
   describe('#formatAddress', () => {
     it('returns address as string', () => {
-      const testAddress = {
-        DPA: {
-          ADDRESS: '1, WILBERFORCE ROAD, LONDON, N4 2SW'
-        }
-      };
+      const address = postcodeLookupService.formatAddress(mockAddressResponse.results[0]);
 
-      const address = postcodeLookupService.formatAddress(testAddress);
-
-      expect(address).to.eql('1, WILBERFORCE ROAD, LONDON, N4 2SW');
+      expect(address).to.eql('1, WILBERFORCE ROAD\r\nLONDON\r\nN4 2SW');
     });
 
-    it('merges building number and line 1', () => {
+    it('encodes html entities', () => {
       const testAddress = {
         DPA: {
-          ADDRESS: '1, WILBERFORCE ROAD, LONDON, N4 2SW',
-          BUILDING_NUMBER: '1'
+          BUILDING_NUMBER: '2 & 3',
+          THOROUGHFARE_NAME: 'WILBERFORCE ROAD',
+          POST_TOWN: 'LONDON',
+          POSTCODE: 'N4 2SW',
+          ADDRESS: '2, WILBERFORCE ROAD, LONDON, N4 2SW'
         }
       };
 
       const address = postcodeLookupService.formatAddress(testAddress);
 
-      expect(address).to.eql('1 WILBERFORCE ROAD, LONDON, N4 2SW');
+      expect(address).to.eql('2 &amp; 3, WILBERFORCE ROAD\r\nLONDON\r\nN4 2SW');
     });
   });
 
@@ -68,8 +72,8 @@ describe(modulePath, () => {
         .then(addresses => {
           sinon.assert.calledWith(request.get, { uri, json: true });
           expect(addresses).to.eql([
-            '1, WILBERFORCE ROAD, LONDON, N4 2SW',
-            '2 WILBERFORCE ROAD, LONDON, N4 2SW'
+            '1, WILBERFORCE ROAD\r\nLONDON\r\nN4 2SW',
+            '2, WILBERFORCE ROAD\r\nLONDON\r\nN4 2SW'
           ]);
         })
         .then(done, done);

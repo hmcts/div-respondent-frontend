@@ -227,7 +227,7 @@ class SolicitorAddress extends Question {
 
   parseSelectedAddress() {
     // split selected address into array to populate address field
-    const address = this.fields.selectedAddress.value.split(', ');
+    const address = this.fields.selectedAddress.value.split('\r\n');
     this.parseNewFieldData({ address });
   }
 

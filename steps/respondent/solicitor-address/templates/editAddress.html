@@ -15,7 +15,7 @@
                        id="{{ safeId(item.id) }}"
                        name="{{ item.id }}"
                        type="text"
-                       value="{{ item.value }}">
+                       value="{{ item.value | safe }}">
             </div>
           {% endif %}
         {% endfor %}
