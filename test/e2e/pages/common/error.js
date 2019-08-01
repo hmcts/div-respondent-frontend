@@ -3,7 +3,6 @@ const errorContent = require('views/errors/error-content');
 function seeServerErrorContent() {
   const I = this;
 
-  I.see(errorContent.serviceName);
   I.see(errorContent.tryAgain);
   I.see(errorContent.canContact);
   I.see(errorContent.isThereAProblemWithThisPagePhone);
