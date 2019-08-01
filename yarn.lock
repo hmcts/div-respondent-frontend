@@ -255,6 +255,38 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
+"@hmcts/look-and-feel@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-3.0.4.tgz#2eef24f78545a7d24b0a6de7192fd3b5ed398123"
+  integrity sha512-opc4UlWbbOLt7VIRDBfxfgHWFL+WfQRPa8bernKK98ZP3l4DZszwQiesi2rbmYlv5PTsLEK5l0vACAeL35qFyg==
+  dependencies:
+    babel-core "^6.26.0"
+    babel-loader "^7.1.2"
+    babel-preset-env "^1.6.0"
+    check-types "^7.3.0"
+    colors "^1.1.2"
+    config "^1.26.1"
+    copy-webpack-plugin "^4.0.1"
+    css-loader "^3.0.0"
+    deepmerge "2.0.1"
+    diff-so-fancy "^1.1.1"
+    exports-loader "^0.7.0"
+    express "^4.15.3"
+    express-nunjucks "^2.2.3"
+    extract-text-webpack-plugin "^3.0.0"
+    govuk-frontend "^2.6.0"
+    hard-source-webpack-plugin "^0.13.1"
+    imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
+    jquery "^3.2.1"
+    js-yaml "^3.9.1"
+    node-sass "^4.12.0"
+    nunjucks "^3.1.7"
+    sass-loader "^6.0.6"
+    serve-static "^1.13.2"
+    style-loader "^0.20.1"
+    webpack "^3.4.1"
+    webpack-dev-middleware "^2.0.4"
+
 "@hmcts/nodejs-healthcheck@^1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@hmcts/nodejs-healthcheck/-/nodejs-healthcheck-1.5.1.tgz#4d99f9e3041e11fcfacf0bec82eb8a2463fcea01"
