@@ -114,3 +114,12 @@ textarea.form-control {
   font-weight: normal;
   display: block;
 }
+
+@media (min-width: 40.0625em) {
+  .govuk-panel__title {
+    font-size: 2.5rem;
+  }
+  .govuk-panel__body {
+    font-size: 2rem;
+  }
+}
