@@ -13,12 +13,15 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.seeIdamLoginPage();
   await I.createAUser();
   I.login();
+  if (config.tests.e2e.addWaitForCrossBrowser) {
+    I.wait(5);
+  }
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content.en.continue);
 
   if (config.tests.e2e.addWaitForCrossBrowser) {
-    I.wait(5);
+    I.wait(10);
   }
 
   I.seeRespondPage();
