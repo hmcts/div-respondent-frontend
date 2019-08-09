@@ -62,7 +62,7 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.navByClick(content.en.continue);
 
   I.seeCheckYourAnswersPage();
-  I.confirmInformtestationIsTrue();
+  I.confirmInformationIsTrue();
   I.submitApplication();
 
   I.seeDonePage();
