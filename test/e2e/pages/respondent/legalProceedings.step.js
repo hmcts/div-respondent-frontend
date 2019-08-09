@@ -6,7 +6,7 @@ function seeLegalProceedingPage() {
 
   I.waitInUrl(LegalProceedingPage.path, 5);
   I.seeCurrentUrlEquals(LegalProceedingPage.path);
-  I.waitForText(content.en.title, 2);
+  I.waitForText(content.en.title, 5);
 }
 
 function chooseNoLegalProceedings() {

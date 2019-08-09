@@ -6,7 +6,7 @@ function seeJurisdictionPage() {
 
   I.waitInUrl(Jurisdiction.path, 5);
   I.seeCurrentUrlEquals(Jurisdiction.path);
-  I.waitForText(content.en.title, 2);
+  I.waitForText(content.en.title, 5);
 }
 
 function chooseAgreeToJurisdiction() {
