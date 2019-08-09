@@ -48,7 +48,7 @@ const supportedBrowsers = {
       browserName: 'safari',
       name: 'DIV_SAFARI_11',
       platform: 'macOS 10.13',
-      version: '12.0',
+      version: '11.1',
       avoidProxy: true
     }
   }
