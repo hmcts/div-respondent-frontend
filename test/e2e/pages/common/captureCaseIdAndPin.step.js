@@ -5,9 +5,9 @@ const caseConfigHelper = require('test/e2e//helpers/caseConfigHelper.js');
 
 function seeCaptureCaseAndPinPage() {
   const I = this;
-  I.waitInUrl(CaptureCaseAndPinPage.path,30);
+  I.waitInUrl(CaptureCaseAndPinPage.path, 30);
   I.seeCurrentUrlEquals(CaptureCaseAndPinPage.path);
-  I.waitForText(content.en.title,2);
+  I.waitForText(content.en.title, 5);
 }
 
 function fillInReferenceNumberAndPinCode(referenceNumber, pinCode) {

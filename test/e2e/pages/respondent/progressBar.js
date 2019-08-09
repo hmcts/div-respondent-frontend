@@ -3,9 +3,9 @@ const content = require('steps/respondent/progress-bar/ProgressBar.content');
 
 function seeProgressBarPage() {
   const I = this;
-  I.waitInUrl(ProgressBar.path,10);
+  I.waitInUrl(ProgressBar.path, 10);
   I.seeCurrentUrlEquals(ProgressBar.path);
-  I.waitForText(content.en.title,2);
+  I.waitForText(content.en.title, 2);
 }
 
 function seeContentForAosNotCompleted() {

@@ -41,8 +41,8 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.chooseAgreeToJurisdiction();
   if (config.tests.e2e.addWaitForCrossBrowser) {
     I.click(contentJurisdiction.en.fields.disagree.heading);
-    I.fillField('jurisdiction.reason','what to try something diff for crossbrowser');
-    I.fillField('jurisdiction.country','USA');
+    I.fillField('jurisdiction.reason', 'what to try something diff for crossbrowser');
+    I.fillField('jurisdiction.country', 'USA');
   }
 
   I.navByClick(content.en.continue);

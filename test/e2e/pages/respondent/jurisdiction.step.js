@@ -4,14 +4,13 @@ const content = require('steps/respondent/jurisdiction/Jurisdiction.content');
 function seeJurisdictionPage() {
   const I = this;
 
-  I.waitInUrl(Jurisdiction.path,5);
+  I.waitInUrl(Jurisdiction.path, 5);
   I.seeCurrentUrlEquals(Jurisdiction.path);
-  I.waitForText(content.en.title,2);
+  I.waitForText(content.en.title, 2);
 }
 
 function chooseAgreeToJurisdiction() {
   this.click(content.en.fields.agree.heading);
-
 }
 
 module.exports = {
