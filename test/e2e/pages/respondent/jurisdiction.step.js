@@ -4,8 +4,9 @@ const content = require('steps/respondent/jurisdiction/Jurisdiction.content');
 function seeJurisdictionPage() {
   const I = this;
 
+  I.waitInUrl(Jurisdiction.path, 5);
   I.seeCurrentUrlEquals(Jurisdiction.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content.en.title, 5);
 }
 
 function chooseAgreeToJurisdiction() {

@@ -3,9 +3,9 @@ const content = require('steps/respondent/contact-details/ContactDetails.content
 
 function seeContactDetailsPage() {
   const I = this;
-
+  I.waitInUrl(ContactDetails.path, 5);
   I.seeCurrentUrlEquals(ContactDetails.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content.en.title, 5);
 }
 
 function consentToSendingNotifications() {
