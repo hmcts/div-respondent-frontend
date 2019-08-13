@@ -4,16 +4,16 @@
 
     <ul class="govuk-list govuk-body govuk-!-font-size-16 help">
         <li>
-            <strong class="govuk-!-font-size-16">{{ content.email }}</strong><br>
+            <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.email }}</h4>
             {{ session.divorceCenterEmail | safe }}
         </li>
         <li>
-            <strong>{{ content.phone }}</strong><br>
+            <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.phone }}</h4>
             {{ session.divorceCenterPhoneNumber | safe }} <br>
             {{ content.divorceCenterHours }} <br>
         </li>
         <li>
-            <strong class="govuk-!-font-size-16">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</strong><br/>
+            <h4 class="govuk-heading-xs govuk-!-margin-0">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</h4>
             {{ content.careOfAbbreviation if session.serviceCentreName }} {{ session.divorceCenterName }}<br/>
             {% if session.divorceCenterPoBox %}
                 {{ session.divorceCenterPoBox }}<br/>
