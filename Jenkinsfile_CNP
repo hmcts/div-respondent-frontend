@@ -32,7 +32,6 @@ withPipeline("nodejs", product, component) {
   }
 
   loadVaultSecrets(secrets)
-  setVaultName('div')
 
   after('test') {
     yarnBuilder.yarn('test:validation')
