@@ -12,7 +12,7 @@
 } %}
 
 {% block statement_of_truth_content %}
-{{ header(content.confirm, size='m') }}
+<h2 class="govuk-heading-m">{{ content.confirm | safe }}</h2>
 <p class="govuk-body">{{ content.statementOfTruth | safe }}</p>
 {% endblock %}
 
