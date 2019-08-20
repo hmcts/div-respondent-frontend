@@ -1,3 +1,4 @@
+/* eslint complexity: ["error", 12] */
 /* eslint-disable operator-linebreak */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const logger = require('services/logger').getLogger(__filename);
@@ -43,7 +44,7 @@ const caseStateMap = [
   },
   {
     template: './sections/TwoCircleFilledInBold.html',
-    state: ['AwaitingDecreeNisi', 'DNAwaiting']
+    state: ['AwaitingDecreeNisi', 'DNAwaiting', 'DNDrafted']
   },
   {
     template: './sections/ThreeCircleFilledInBold.html',
@@ -114,26 +115,19 @@ class ProgressBar extends Interstitial {
   getProgressBarContent() {
     const caseState = this.session.caseState;
 
-    if (this.awaitingPronouncement(caseState)) {
-      return this.progressStates.awaitingPronouncement;
-    } else if (this.awaitingDecreeAbsolute(caseState)) {
-      return this.progressStates.awaitingDecreeAbsolute;
-    } else if (this.dnPronounced(caseState)) {
-      return this.progressStates.dnPronounced;
-    } else if (this.progressedNoAos(caseState)) {
-      return this.progressStates.progressedNoAos;
-    } else if (this.progressedUndefended(caseState)) {
-      return this.progressStates.progressedUndefended;
-    } else if (this.awaitingAnswer(caseState)) {
-      return this.progressStates.awaitingAnswer;
-    } else if (this.defendedDivorce(caseState)) {
-      return this.progressStates.defendedDivorce;
-    } else if (this.aosAwaitingSol(caseState)) {
-      return this.progressStates.aosAwaitingSol;
+    switch (true) {
+    case this.awaitingPronouncement(caseState): return this.progressStates.awaitingPronouncement;
+    case this.awaitingDecreeAbsolute(caseState): return this.progressStates.awaitingDecreeAbsolute;
+    case this.dnPronounced(caseState): return this.progressStates.dnPronounced;
+    case this.progressedNoAos(caseState): return this.progressStates.progressedNoAos;
+    case this.progressedUndefended(caseState): return this.progressStates.progressedUndefended;
+    case this.awaitingAnswer(caseState): return this.progressStates.awaitingAnswer;
+    case this.defendedDivorce(caseState): return this.progressStates.defendedDivorce;
+    case this.aosAwaitingSol(caseState): return this.progressStates.aosAwaitingSol;
+    default:
+      logger.warnWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
+      return this.progressStates.other;
     }
-
-    logger.warnWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
-    return this.progressStates.other;
   }
 
   progressedNoAos(caseState) {
@@ -165,6 +159,7 @@ class ProgressBar extends Interstitial {
     return caseState === config.caseStates.AosAwaitingSol;
   }
 
+
   caseBeyondAos(caseState) {
     return (
       caseState === config.caseStates.AwaitingLegalAdvisorReferral ||
@@ -174,6 +169,7 @@ class ProgressBar extends Interstitial {
       caseState === config.caseStates.AwaitingDecreeAbsolute ||
       caseState === config.caseStates.DNPronounced ||
       caseState === config.caseStates.DNAwaiting ||
+      caseState === config.caseStates.DNDrafted ||
       caseState === config.caseStates.AwaitingReissue ||
       caseState === config.caseStates.DivorceGranted ||
       caseState === config.caseStates.AwaitingPronouncement
