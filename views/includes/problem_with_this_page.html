@@ -3,8 +3,21 @@
         <span class="govuk-details__summary-text govuk-!-font-size-16">{{ content.isThereAProblemWithThisPage | safe }}</span>
     </summary>
     <div class="govuk-details__text">
-        <p class="govuk-body">{{ content.isThereAProblemWithThisPageParagraph | safe }}</p>
-        <p class="govuk-body">{{ content.isThereAProblemWithThisPagePhone | safe }}</p>
-        <p class="govuk-body">{{ content.isThereAProblemWithThisPageEmail | safe }}</p>
+        {% if features.webchat %}
+            <p class="govuk-body">{{ content.pleaseEmailOrCallDivorceCourtWebchat | safe }}</p>
+        {% else %}
+            <p class="govuk-body">{{ content.pleaseEmailOrCallDivorceCourt | safe }}</p>
+        {% endif %}
+
+        <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.phoneTitle | safe }}</p>
+        <p class="govuk-body">{{ content.phoneToCallIfProblems | safe }}</p>
+
+        <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.emailTitle | safe }}</p>
+        <p class="govuk-body">{{ content.emailIfProblems | safe }}</p>
+
+        {% if features.webchat %}
+            <p class="govuk-heading-s govuk-!-margin-bottom-1" id="ctsc-web-chat-header">{{ content.webChatTitle | safe }}</p>
+            <div id="ctsc-web-chat"></div>
+        {% endif %}
     </div>
 </details>
