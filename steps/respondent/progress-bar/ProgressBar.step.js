@@ -115,19 +115,26 @@ class ProgressBar extends Interstitial {
   getProgressBarContent() {
     const caseState = this.session.caseState;
 
-    switch (true) {
-    case this.awaitingPronouncement(caseState): return this.progressStates.awaitingPronouncement;
-    case this.awaitingDecreeAbsolute(caseState): return this.progressStates.awaitingDecreeAbsolute;
-    case this.dnPronounced(caseState): return this.progressStates.dnPronounced;
-    case this.progressedNoAos(caseState): return this.progressStates.progressedNoAos;
-    case this.progressedUndefended(caseState): return this.progressStates.progressedUndefended;
-    case this.awaitingAnswer(caseState): return this.progressStates.awaitingAnswer;
-    case this.defendedDivorce(caseState): return this.progressStates.defendedDivorce;
-    case this.aosAwaitingSol(caseState): return this.progressStates.aosAwaitingSol;
-    default:
-      logger.warnWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
-      return this.progressStates.other;
+    if (this.awaitingPronouncement(caseState)) {
+      return this.progressStates.awaitingPronouncement;
+    } else if (this.awaitingDecreeAbsolute(caseState)) {
+      return this.progressStates.awaitingDecreeAbsolute;
+    } else if (this.dnPronounced(caseState)) {
+      return this.progressStates.dnPronounced;
+    } else if (this.progressedNoAos(caseState)) {
+      return this.progressStates.progressedNoAos;
+    } else if (this.progressedUndefended(caseState)) {
+      return this.progressStates.progressedUndefended;
+    } else if (this.awaitingAnswer(caseState)) {
+      return this.progressStates.awaitingAnswer;
+    } else if (this.defendedDivorce(caseState)) {
+      return this.progressStates.defendedDivorce;
+    } else if (this.aosAwaitingSol(caseState)) {
+      return this.progressStates.aosAwaitingSol;
     }
+
+    logger.warnWithReq(this.req, 'progress_bar_content', 'No valid case state for ProgressBar page', caseState);
+    return this.progressStates.other;
   }
 
   progressedNoAos(caseState) {
@@ -158,7 +165,6 @@ class ProgressBar extends Interstitial {
   aosAwaitingSol(caseState) {
     return caseState === config.caseStates.AosAwaitingSol;
   }
-
 
   caseBeyondAos(caseState) {
     return (
