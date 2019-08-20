@@ -2,10 +2,19 @@
   "en": {
     "continue": "Continue",
     "serviceName": "Respond to a divorce application",
-    "isThereAProblemWithThisPage": "Is there a problem with this page?",
-    "isThereAProblemWithThisPageParagraph": "You can call or email us if you’re having problems with this service.",
-    "isThereAProblemWithThisPagePhone": "Phone: 0300 303 0642 (Open between 8:30am to 5pm, Monday to Friday)",
-    "isThereAProblemWithThisPageEmail": "Email: divorcecase@justice.gov.uk",
-    "backLink": "Back"
+    "backLink": "Back",
+    "pleaseEmailOrCallDivorceCourtWebchat": "You can call, email or web chat with us if you’re having problems with this service.",
+    "phoneTitle": "Phone",
+    "phoneToCallIfProblems": "0300 303 0642 (Monday to Friday, 8.30am to 5pm)",
+    "emailTitle": "Email",
+    "emailIfProblems": "divorcecase@justice.gov.uk",
+    "webChatTitle": "Web chat",
+    "chatDown": "The web chat service is temporarily unavailable, please try again later.",
+    "chatWithAnAgent": "Chat online with an agent",
+    "noAgentsAvailable": "No agents are available, please try again later.",
+    "allAgentsBusy": "All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
+    "chatClosed": "Web chat is now closed.\\nOpening hours are Monday to Friday, 9:30am to 5pm.",
+    "chatAlreadyOpen": "A web chat window is already open.",
+    "chatOpeningHours": "Monday to Friday, 9:30am to 5pm."
   }
 }
