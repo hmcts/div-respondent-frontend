@@ -12,7 +12,6 @@ properties([
 def product = "div"
 def component = "rfe"
 
-def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 def secrets = [
   'div-${env}': [
