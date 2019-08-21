@@ -12,11 +12,16 @@ properties([
 def product = "div"
 def component = "rfe"
 
-List<LinkedHashMap<String, Object>> secrets = [
-  secret('session-secret', 'SESSION_SECRET'),
-  secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
-  secret('idam-secret', 'IDAM_SECRET')
+def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
+
+def secrets = [
+  'div-${env}': [
+    secret('session-secret', 'SESSION_SECRET'),
+    secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
+    secret('idam-secret', 'IDAM_SECRET')
+  ]
 ]
+
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
   [ $class: 'AzureKeyVaultSecret',
@@ -32,7 +37,7 @@ withNightlyPipeline("nodejs", product, component) {
     env.NODE_ENV= 'ci'
 
     loadVaultSecrets(secrets)
-    setVaultName('div')
+
 
     enableCrossBrowserTest()
     enableSecurityScan()
