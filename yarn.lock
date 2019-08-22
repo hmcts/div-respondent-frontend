@@ -291,10 +291,10 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.3.tgz#4f82e0d44dc52f12a86b24a32546966a34c737f1"
-  integrity sha512-2FBmT0V8oqO9aQA5Mmbyj+uFhGyCD4VAPCiMr9UAJUU2VhXcXcTyPvUXej77ilJTfapcJkyKov/kLZyIM/zZlA==
+"@hmcts/look-and-feel@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.4.tgz#b817c453658b5cf72ec58e40a239a38541446b0a"
+  integrity sha512-OzQKUUfH+IXf2dZr7hoqXdscvsSfWe4ANynrtmFOsFCsASqKTBPoNE5Kt5qivDEO18HUeVdUoYL8KrkPNTY6XQ==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
