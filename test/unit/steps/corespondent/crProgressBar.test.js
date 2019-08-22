@@ -460,7 +460,7 @@ describe(modulePath, () => {
             const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
               .and.to.include('How to respond to a divorce application')
-              .and.to.include('Get a divorce')
+              .and.to.include('Decree nisi')
               .and.to.include('Download your documents')
               .and.to.include('Divorce application (PDF)')
               .and.to.include('Your answers (PDF)')

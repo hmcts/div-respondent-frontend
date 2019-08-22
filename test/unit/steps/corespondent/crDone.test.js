@@ -172,7 +172,7 @@ describe(modulePath, () => {
             const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
             expect(rightHandSideMenu).to.include('Guidance on GOV.UK')
               .and.to.include('How to respond to a divorce application')
-              .and.to.include('Get a divorce')
+              .and.to.include('Decree nisi')
               .and.to.include('Children and divorce')
               .and.to.include('Money and property');
           });
