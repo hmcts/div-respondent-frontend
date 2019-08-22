@@ -1,51 +1,231 @@
-<?xml version="1.0"?><OWASPZAPReport version="D-2019-04-29" generated="Thu, 2 May 2019 15:12:14">
+<?xml version="1.0"?><OWASPZAPReport version="D-2019-08-19" generated="Wed, 21 Aug 2019 21:27:29">
     <site name="https://div-rfe-aat.service.core-compute-aat.internal" host="div-rfe-aat.service.core-compute-aat.internal" port="443" ssl="true"><alerts><alertitem>
-        <pluginid>10055</pluginid>
-        <alert>CSP Scanner: script-src unsafe-inline</alert>
-        <name>CSP Scanner: script-src unsafe-inline</name>
-        <riskcode>2</riskcode>
-        <confidence>2</confidence>
-        <riskdesc>Medium (Medium)</riskdesc>
-        <desc>&lt;p&gt;script-src includes unsafe-inline.&lt;/p&gt;</desc>
+        <pluginid>10096</pluginid>
+        <alert>Timestamp Disclosure - Unix</alert>
+        <name>Timestamp Disclosure - Unix</name>
+        <riskcode>0</riskcode>
+        <confidence>1</confidence>
+        <riskdesc>Informational (Low)</riskdesc>
+        <desc>&lt;p&gt;A timestamp was disclosed by the application/web server - Unix&lt;/p&gt;</desc>
         <instances>
             <instance>
-                <uri>https://div-rfe-aat.service.core-compute-aat.internal/sitemap.xml</uri>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/favicon.ico</uri>
                 <method>GET</method>
-                <param>Content-Security-Policy</param>
-                <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                <evidence>00000000</evidence>
             </instance>
             <instance>
-                <uri>https://div-rfe-aat.service.core-compute-aat.internal/cookie</uri>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
                 <method>GET</method>
-                <param>Content-Security-Policy</param>
-                <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                <evidence>20110525</evidence>
             </instance>
             <instance>
-                <uri>https://div-rfe-aat.service.core-compute-aat.internal/noJS.png</uri>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/favicon.ico</uri>
                 <method>GET</method>
-                <param>Content-Security-Policy</param>
-                <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                <evidence>20000000</evidence>
             </instance>
             <instance>
-                <uri>https://div-rfe-aat.service.core-compute-aat.internal/privacy-policy</uri>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/favicon.ico</uri>
                 <method>GET</method>
-                <param>Content-Security-Policy</param>
-                <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                <evidence>200000001</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
+                <method>GET</method>
+                <evidence>20030331</evidence>
             </instance>
             <instance>
                 <uri>https://div-rfe-aat.service.core-compute-aat.internal/terms-and-conditions</uri>
                 <method>GET</method>
-                <param>Content-Security-Policy</param>
-                <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                <evidence>93824767</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
+                <method>GET</method>
+                <evidence>20110929</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
+                <method>GET</method>
+                <evidence>233028270</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/cookie</uri>
+                <method>GET</method>
+                <evidence>93824767</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/favicon.ico</uri>
+                <method>GET</method>
+                <evidence>0000000002</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/privacy-policy</uri>
+                <method>GET</method>
+                <evidence>93824767</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/favicon.ico</uri>
+                <method>GET</method>
+                <evidence>00000010</evidence>
+            </instance>
+            <instance>
+                <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/favicon.ico</uri>
+                <method>GET</method>
+                <evidence>000000000</evidence>
             </instance>
         </instances>
-        <count>5</count>
-        <solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.&lt;/p&gt;</solution>
-        <reference>&lt;p&gt;http://www.w3.org/TR/CSP2/&lt;/p&gt;&lt;p&gt;http://www.w3.org/TR/CSP/&lt;/p&gt;&lt;p&gt;http://caniuse.com/#search=content+security+policy&lt;/p&gt;&lt;p&gt;http://content-security-policy.com/&lt;/p&gt;&lt;p&gt;https://github.com/shapesecurity/salvation&lt;/p&gt;</reference>
-        <cweid>16</cweid>
-        <wascid>15</wascid>
+        <count>13</count>
+        <solution>&lt;p&gt;Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.&lt;/p&gt;</solution>
+        <otherinfo>&lt;p&gt;00000000, which evaluates to: 1970-01-01 00:00:00&lt;/p&gt;</otherinfo>
+        <reference>&lt;p&gt;https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure&lt;/p&gt;&lt;p&gt;http://projects.webappsec.org/w/page/13246936/Information%20Leakage&lt;/p&gt;</reference>
+        <cweid>200</cweid>
+        <wascid>13</wascid>
         <sourceid>3</sourceid>
     </alertitem>
+        <alertitem>
+            <pluginid>10037</pluginid>
+            <alert>Server Leaks Information via &quot;X-Powered-By&quot; HTTP Response Header Field(s)</alert>
+            <name>Server Leaks Information via &quot;X-Powered-By&quot; HTTP Response Header Field(s)</name>
+            <riskcode>1</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Low (Medium)</riskdesc>
+            <desc>&lt;p&gt;The web/application server is leaking information via one or more &quot;X-Powered-By&quot; HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.&lt;/p&gt;</desc>
+            <instances>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/favicon.ico</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/sitemap.xml</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/govuk-apple-touch-icon-180x180.png</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/cookie</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/robots.txt</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.css</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/govuk-apple-touch-icon.png</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/terms-and-conditions</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/govuk-apple-touch-icon-152x152.png</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/govuk-apple-touch-icon-167x167.png</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/privacy-policy</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/govuk-mask-icon.svg</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/noJS.png</uri>
+                    <method>GET</method>
+                    <evidence>X-Powered-By: ASP.NET</evidence>
+                </instance>
+            </instances>
+            <count>16</count>
+            <solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to suppress &quot;X-Powered-By&quot; headers.&lt;/p&gt;</solution>
+            <reference>&lt;p&gt;http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx&lt;/p&gt;&lt;p&gt;http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html&lt;/p&gt;</reference>
+            <cweid>200</cweid>
+            <wascid>13</wascid>
+            <sourceid>3</sourceid>
+        </alertitem>
+        <alertitem>
+            <pluginid>10055</pluginid>
+            <alert>CSP Scanner: script-src unsafe-inline</alert>
+            <name>CSP Scanner: script-src unsafe-inline</name>
+            <riskcode>2</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Medium (Medium)</riskdesc>
+            <desc>&lt;p&gt;script-src includes unsafe-inline.&lt;/p&gt;</desc>
+            <instances>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param>Content-Security-Policy</param>
+                    <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/cookie</uri>
+                    <method>GET</method>
+                    <param>Content-Security-Policy</param>
+                    <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/noJS.png</uri>
+                    <method>GET</method>
+                    <param>Content-Security-Policy</param>
+                    <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/privacy-policy</uri>
+                    <method>GET</method>
+                    <param>Content-Security-Policy</param>
+                    <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                </instance>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/terms-and-conditions</uri>
+                    <method>GET</method>
+                    <param>Content-Security-Policy</param>
+                    <evidence>font-src &apos;self&apos; data:; script-src &apos;self&apos; &apos;unsafe-inline&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk www.googletagmanager.com; connect-src &apos;self&apos;; media-src &apos;self&apos;; frame-src &apos;none&apos;; img-src &apos;self&apos; www.google-analytics.com hmctspiwik.useconnect.co.uk</evidence>
+                </instance>
+            </instances>
+            <count>5</count>
+            <solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.&lt;/p&gt;</solution>
+            <reference>&lt;p&gt;http://www.w3.org/TR/CSP2/&lt;/p&gt;&lt;p&gt;http://www.w3.org/TR/CSP/&lt;/p&gt;&lt;p&gt;http://caniuse.com/#search=content+security+policy&lt;/p&gt;&lt;p&gt;http://content-security-policy.com/&lt;/p&gt;&lt;p&gt;https://github.com/shapesecurity/salvation&lt;/p&gt;</reference>
+            <cweid>16</cweid>
+            <wascid>15</wascid>
+            <sourceid>3</sourceid>
+        </alertitem>
         <alertitem>
             <pluginid>20012</pluginid>
             <alert>Anti CSRF Tokens Scanner</alert>
@@ -170,130 +350,13 @@
             <sourceid>3</sourceid>
         </alertitem>
         <alertitem>
-            <pluginid>10037</pluginid>
-            <alert>Server Leaks Information via &quot;X-Powered-By&quot; HTTP Response Header Field(s)</alert>
-            <name>Server Leaks Information via &quot;X-Powered-By&quot; HTTP Response Header Field(s)</name>
-            <riskcode>1</riskcode>
-            <confidence>2</confidence>
-            <riskdesc>Low (Medium)</riskdesc>
-            <desc>&lt;p&gt;The web/application server is leaking information via one or more &quot;X-Powered-By&quot; HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.&lt;/p&gt;</desc>
-            <instances>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/sitemap.xml</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/apple-touch-icon-167x167.png?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/gov.uk_logotype_crown.svg?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/stylesheets/govuk-template-ie8.css?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/cookie</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/robots.txt</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/gov.uk_logotype_crown_invert_trans.png?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.css</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/stylesheets/govuk-template-print.css?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/terms-and-conditions</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/stylesheets/fonts.css?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/stylesheets/govuk-template-ie6.css?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/stylesheets/govuk-template-ie7.css?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/apple-touch-icon-180x180.png?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/images/apple-touch-icon.png?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/javascripts/govuk-template.js?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/stylesheets/govuk-template.css?0.23.3</uri>
-                    <method>GET</method>
-                    <evidence>X-Powered-By: ASP.NET</evidence>
-                </instance>
-            </instances>
-            <count>25</count>
-            <solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to suppress &quot;X-Powered-By&quot; headers.&lt;/p&gt;</solution>
-            <reference>&lt;p&gt;http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx&lt;/p&gt;&lt;p&gt;http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html&lt;/p&gt;</reference>
-            <cweid>200</cweid>
-            <wascid>13</wascid>
-            <sourceid>3</sourceid>
-        </alertitem>
-        <alertitem>
             <pluginid>10055</pluginid>
             <alert>CSP Scanner: Wildcard Directive</alert>
             <name>CSP Scanner: Wildcard Directive</name>
             <riskcode>2</riskcode>
             <confidence>2</confidence>
             <riskdesc>Medium (Medium)</riskdesc>
-            <desc>&lt;p&gt;The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: &lt;/p&gt;&lt;p&gt;style-src, frame-ancestor, object-src, manifest-src, prefetch-src&lt;/p&gt;</desc>
+            <desc>&lt;p&gt;The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: &lt;/p&gt;&lt;p&gt;style-src, style-src-elem, style-src-attr, frame-ancestor, object-src, manifest-src, prefetch-src&lt;/p&gt;</desc>
             <instances>
                 <instance>
                     <uri>https://div-rfe-aat.service.core-compute-aat.internal/terms-and-conditions</uri>
@@ -331,75 +394,6 @@
             <reference>&lt;p&gt;http://www.w3.org/TR/CSP2/&lt;/p&gt;&lt;p&gt;http://www.w3.org/TR/CSP/&lt;/p&gt;&lt;p&gt;http://caniuse.com/#search=content+security+policy&lt;/p&gt;&lt;p&gt;http://content-security-policy.com/&lt;/p&gt;&lt;p&gt;https://github.com/shapesecurity/salvation&lt;/p&gt;</reference>
             <cweid>16</cweid>
             <wascid>15</wascid>
-            <sourceid>3</sourceid>
-        </alertitem>
-        <alertitem>
-            <pluginid>10096</pluginid>
-            <alert>Timestamp Disclosure - Unix</alert>
-            <name>Timestamp Disclosure - Unix</name>
-            <riskcode>0</riskcode>
-            <confidence>1</confidence>
-            <riskdesc>Informational (Low)</riskdesc>
-            <desc>&lt;p&gt;A timestamp was disclosed by the application/web server - Unix&lt;/p&gt;</desc>
-            <instances>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
-                    <method>GET</method>
-                    <evidence>20030331</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/terms-and-conditions</uri>
-                    <method>GET</method>
-                    <evidence>93824767</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
-                    <method>GET</method>
-                    <evidence>20110929</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/cookie</uri>
-                    <method>GET</method>
-                    <evidence>93824767</evidence>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/privacy-policy</uri>
-                    <method>GET</method>
-                    <evidence>93824767</evidence>
-                </instance>
-            </instances>
-            <count>5</count>
-            <solution>&lt;p&gt;Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.&lt;/p&gt;</solution>
-            <otherinfo>&lt;p&gt;20030331, which evaluates to: 1970-08-20 19:58:51&lt;/p&gt;</otherinfo>
-            <reference>&lt;p&gt;https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure&lt;/p&gt;&lt;p&gt;http://projects.webappsec.org/w/page/13246936/Information%20Leakage&lt;/p&gt;</reference>
-            <cweid>200</cweid>
-            <wascid>13</wascid>
-            <sourceid>3</sourceid>
-        </alertitem>
-        <alertitem>
-            <pluginid>10027</pluginid>
-            <alert>Information Disclosure - Suspicious Comments</alert>
-            <name>Information Disclosure - Suspicious Comments</name>
-            <riskcode>0</riskcode>
-            <confidence>2</confidence>
-            <riskdesc>Informational (Medium)</riskdesc>
-            <desc>&lt;p&gt;The response appears to contain suspicious comments which may help an attacker.&lt;/p&gt;</desc>
-            <instances>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
-                    <method>GET</method>
-                </instance>
-                <instance>
-                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/javascripts/ie.js?0.23.3</uri>
-                    <method>GET</method>
-                </instance>
-            </instances>
-            <count>2</count>
-            <solution>&lt;p&gt;Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.&lt;/p&gt;</solution>
-            <otherinfo>&lt;p&gt;        // For CommonJS and CommonJS-like environments where a proper `window`&lt;/p&gt;&lt;p&gt;       // Return just the one element from the set&lt;/p&gt;&lt;p&gt;  select,&lt;/p&gt;&lt;p&gt;      // We use this for POS matching in `select`&lt;/p&gt;&lt;p&gt;  rinputs = /^(?:input|select|textarea|button)$/i,&lt;/p&gt;&lt;p&gt; // Return early from calls with invalid selector or context&lt;/p&gt;&lt;p&gt;          // (excepting DocumentFragment context, where the methods don&apos;t exist)&lt;/p&gt;&lt;p&gt;                          // TODO: identify versions&lt;/p&gt;&lt;p&gt;                       // TODO: identify versions&lt;/p&gt;&lt;p&gt;   return select( selector.replace( rtrim, &quot;$1&quot; ), context, results, seed );&lt;/p&gt;&lt;p&gt;      // Remove from its parent by default&lt;/p&gt;&lt;p&gt;                 // Where there is no isDisabled, check manually&lt;/p&gt;&lt;p&gt;  // documentElement is verified for cases where it doesn&apos;t yet exist&lt;/p&gt;&lt;p&gt; // We allow this because of a bug in IE8/9 that throws an error&lt;/p&gt;&lt;p&gt;  // See https://bugs.jquery.com/ticket/13378&lt;/p&gt;&lt;p&gt;      // Regex strategy adopted from Diego Perini&lt;/p&gt;&lt;p&gt;          // Select is set to empty string on purpose&lt;/p&gt;&lt;p&gt;          // https://bugs.jquery.com/ticket/12359&lt;/p&gt;&lt;p&gt;              &quot;&lt;select id=&apos;&quot; + expando + &quot;-\r\\&apos; msallowcapture=&apos;&apos;&gt;&quot; +&lt;/p&gt;&lt;p&gt;               &quot;&lt;option selected=&apos;&apos;&gt;&lt;/option&gt;&lt;/select&gt;&quot;;&lt;/p&gt;&lt;p&gt;          // IE8 throws error here and will not see later tests&lt;/p&gt;&lt;p&gt;            // https://bugs.webkit.org/show_bug.cgi?id=136851&lt;/p&gt;&lt;p&gt;                &quot;&lt;select disabled=&apos;disabled&apos;&gt;&lt;option/&gt;&lt;/select&gt;&quot;;&lt;/p&gt;&lt;p&gt;          // IE8 throws error here and will not see later tests&lt;/p&gt;&lt;p&gt;    // Can be adjusted by the user&lt;/p&gt;&lt;p&gt;           /* matches from matchExpr[&quot;CHILD&quot;]&lt;/p&gt;&lt;p&gt;         // Strip excess characters from unquoted arguments&lt;/p&gt;&lt;p&gt;               // Get excess from tokenize (recursively)&lt;/p&gt;&lt;p&gt;                            // Seek `elem` from a previously-cached index&lt;/p&gt;&lt;p&gt;                                // Fallback to seeking `elem` from the start&lt;/p&gt;&lt;p&gt;                             // Use the same loop as above to seek `elem` from the start&lt;/p&gt;&lt;p&gt;          // Remember that setFilters inherits from pseudos&lt;/p&gt;&lt;p&gt;            // The user may use createPseudo to indicate that&lt;/p&gt;&lt;p&gt;            // We can&apos;t set arbitrary data on XML nodes, so they don&apos;t benefit from combinator caching&lt;/p&gt;&lt;p&gt;         // Get initial elements from seed or context&lt;/p&gt;&lt;p&gt;             // Move matched elements from seed to results to keep them synchronized&lt;/p&gt;&lt;p&gt;      // The foundational matcher ensures that elements are reachable from top-level context(s)&lt;/p&gt;&lt;p&gt;            // case, which will result in a &quot;00&quot; `matchedCount` that differs from `i` but is also&lt;/p&gt;&lt;p&gt;select = Sizzle.select = function( selector, context, results, seed ) {&lt;/p&gt;&lt;p&gt;// Give the init function the jQuery prototype for later instantiation&lt;/p&gt;&lt;p&gt;   // Methods guaranteed to produce a unique set when starting from a unique set&lt;/p&gt;&lt;p&gt;    // Convert options from String-formatted to Object-formatted if needed&lt;/p&gt;&lt;p&gt;                   // If we have memory from a past run, we should fire after adding&lt;/p&gt;&lt;p&gt;            // Remove a callback from the list&lt;/p&gt;&lt;p&gt;           // Remove all callbacks from the list&lt;/p&gt;&lt;p&gt;                            // Re-resolve promises immediately to dodge false rejection from&lt;/p&gt;&lt;p&gt;// Catch cases where $(document).ready() is called&lt;/p&gt;&lt;p&gt;        // In cases where either:&lt;/p&gt;&lt;p&gt;            // from DOM nodes, so set to undefined instead&lt;/p&gt;&lt;p&gt;           // https://bugs.chromium.org/p/chromium/issues/detail?id=378607 (bug restricted)&lt;/p&gt;&lt;p&gt;//   3. Use the same single mechanism to support &quot;private&quot; and &quot;user&quot; data.&lt;/p&gt;&lt;p&gt;// 4. _Never_ expose &quot;private&quot; data to user code (TODO: Drop _data, _removeData)&lt;/p&gt;&lt;p&gt;//    5. Avoid exposing implementation details on user objects (eg. expando properties)&lt;/p&gt;&lt;p&gt;    // data from the HTML5 data-* attribute&lt;/p&gt;&lt;p&gt;          // Make sure we set the data so it isn&apos;t changed later&lt;/p&gt;&lt;p&gt;  // TODO: Now that all calls to _data and _removeData have been replaced&lt;/p&gt;&lt;p&gt;              // Attempt to get data from the cache&lt;/p&gt;&lt;p&gt;            // Add a progress sentinel to prevent the fx queue from being&lt;/p&gt;&lt;p&gt;        // isHiddenWithinTree might be called from jQuery#filter function;&lt;/p&gt;&lt;p&gt;       // Halve the iteration target value to prevent interference from CSS upper bounds (gh-2144)&lt;/p&gt;&lt;p&gt;      // Iteratively approximate from a nonzero starting point&lt;/p&gt;&lt;p&gt;     // Make sure we update the tween properties later on&lt;/p&gt;&lt;p&gt; option: [ 1, &quot;&lt;select multiple=&apos;multiple&apos;&gt;&quot;, &quot;&lt;/select&gt;&quot; ],&lt;/p&gt;&lt;p&gt;    // Remove wrapper from fragment&lt;/p&gt;&lt;p&gt;      // Make sure that the handler has a unique ID, used to find/remove it later&lt;/p&gt;&lt;p&gt;  // Detach an event or set of events from an element&lt;/p&gt;&lt;p&gt;      // Make a writable jQuery.Event from the native event object&lt;/p&gt;&lt;p&gt;         // Prevent triggered image.load events from bubbling to window.load&lt;/p&gt;&lt;p&gt;// https://bugs.chromium.org/p/chromium/issues/detail?id=470258&lt;/p&gt;&lt;p&gt;// for the description of the bug (it existed in older Chrome versions as well).&lt;/p&gt;&lt;p&gt; // 2. Copy user data&lt;/p&gt;&lt;p&gt;// Fix IE bugs, see support tests&lt;/p&gt;&lt;p&gt;                 // Keep references to cloned scripts for later restoration&lt;/p&gt;&lt;p&gt;       // Copy the events from the original to the clone&lt;/p&gt;&lt;p&gt;                    // We should always get a number back from opacity&lt;/p&gt;&lt;p&gt;       // want to query the value if it is a CSS custom property&lt;/p&gt;&lt;p&gt;        // since they are user-defined.&lt;/p&gt;&lt;p&gt;              // Fixes bug #9237&lt;/p&gt;&lt;p&gt;           // If a hook was provided get the non-computed value from there&lt;/p&gt;&lt;p&gt;          // Otherwise just get the value from the style object&lt;/p&gt;&lt;p&gt;        // since they are user-defined.&lt;/p&gt;&lt;p&gt;      // If a hook was provided get the computed value from there&lt;/p&gt;&lt;p&gt;          // Use .style if available and use plain properties where available.&lt;/p&gt;&lt;p&gt;             // there is still data from a stopped show/hide&lt;/p&gt;&lt;p&gt;      // from identically-valued overflowX and overflowY and Edge just mirrors&lt;/p&gt;&lt;p&gt;             // Archaic crash bug won&apos;t allow us to use `1 - ( 0.5 || 0 )` (#12497)&lt;/p&gt;&lt;p&gt;  // Attach callbacks from options&lt;/p&gt;&lt;p&gt;     select = document.createElement( &quot;select&quot; ),&lt;/p&gt;&lt;p&gt;       opt = select.appendChild( document.createElement( &quot;option&quot; ) );&lt;/p&gt;&lt;p&gt;    // Must access selectedIndex to make default options select&lt;/p&gt;&lt;p&gt;          // Avoid an infinite loop by temporarily removing this function from the getter&lt;/p&gt;&lt;p&gt;var rfocusable = /^(?:input|select|textarea|button)$/i,&lt;/p&gt;&lt;p&gt;                // Handle cases where value is null/undef or number&lt;/p&gt;&lt;p&gt;      select: {&lt;/p&gt;&lt;p&gt;                    one = elem.type === &quot;select-one&quot;,&lt;/p&gt;&lt;p&gt;              // Don&apos;t do default actions on window, that&apos;s where global variables be (#6170)&lt;/p&gt;&lt;p&gt;// Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857&lt;/p&gt;&lt;p&gt; rsubmittable = /^(?:input|select|textarea|keygen)/i;&lt;/p&gt;&lt;p&gt;// key/values into a query string&lt;/p&gt;&lt;p&gt;         // Convert response if prev dataType is non-auto and differs from current&lt;/p&gt;&lt;p&gt;                                error: conv ? e : &quot;No conversion from &quot; + prev + &quot; to &quot; + current&lt;/p&gt;&lt;p&gt;        username: null,&lt;/p&gt;&lt;p&gt;      // and/or If-None-Match header later on&lt;/p&gt;&lt;p&gt;              // Extract error from statusText and normalize for non-aborts&lt;/p&gt;&lt;p&gt;        // Make this explicit, since user can override this through ajaxSetup (#11264)&lt;/p&gt;&lt;p&gt;                   options.username,&lt;/p&gt;&lt;p&gt;// https://bugs.webkit.org/show_bug.cgi?id=137337&lt;/p&gt;&lt;p&gt;        // Stop scripts or inline event handlers from being executed immediately&lt;/p&gt;&lt;p&gt;         // user can override it through ajaxSetup method&lt;/p&gt;&lt;p&gt;     // position:fixed elements are offset from the viewport, which itself always has zero offset&lt;/p&gt;&lt;p&gt;// Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084&lt;/p&gt;&lt;p&gt;// Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347&lt;/p&gt;&lt;p&gt; &quot;change select submit keydown keypress keyup contextmenu&quot; ).split( &quot; &quot; ),&lt;/p&gt;&lt;p&gt;// derived from file names, and jQuery is normally delivered in a lowercase&lt;/p&gt;&lt;p&gt;/*** IMPORTS FROM imports-loader ***/&lt;/p&gt;&lt;p&gt;      // Select content for this control&lt;/p&gt;&lt;p&gt;/*** EXPORTS FROM exports-loader ***/&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</otherinfo>
-            <reference>&lt;p&gt;&lt;/p&gt;</reference>
-            <cweid>200</cweid>
-            <wascid>13</wascid>
             <sourceid>3</sourceid>
         </alertitem>
         <alertitem>
@@ -483,6 +477,28 @@
             <wascid>15</wascid>
             <sourceid>3</sourceid>
         </alertitem>
+        <alertitem>
+            <pluginid>10027</pluginid>
+            <alert>Information Disclosure - Suspicious Comments</alert>
+            <name>Information Disclosure - Suspicious Comments</name>
+            <riskcode>0</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Informational (Medium)</riskdesc>
+            <desc>&lt;p&gt;The response appears to contain suspicious comments which may help an attacker.&lt;/p&gt;</desc>
+            <instances>
+                <instance>
+                    <uri>https://div-rfe-aat.service.core-compute-aat.internal/assets/main.js</uri>
+                    <method>GET</method>
+                </instance>
+            </instances>
+            <count>1</count>
+            <solution>&lt;p&gt;Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.&lt;/p&gt;</solution>
+            <otherinfo>&lt;p&gt;		// For CommonJS and CommonJS-like environments where a proper `window`&lt;/p&gt;&lt;p&gt;		// Return just the one element from the set&lt;/p&gt;&lt;p&gt;	select,&lt;/p&gt;&lt;p&gt;		// We use this for POS matching in `select`&lt;/p&gt;&lt;p&gt;	rinputs = /^(?:input|select|textarea|button)$/i,&lt;/p&gt;&lt;p&gt;	// Return early from calls with invalid selector or context&lt;/p&gt;&lt;p&gt;			// (excepting DocumentFragment context, where the methods don&apos;t exist)&lt;/p&gt;&lt;p&gt;							// TODO: identify versions&lt;/p&gt;&lt;p&gt;						// TODO: identify versions&lt;/p&gt;&lt;p&gt;	return select( selector.replace( rtrim, &quot;$1&quot; ), context, results, seed );&lt;/p&gt;&lt;p&gt;		// Remove from its parent by default&lt;/p&gt;&lt;p&gt;					// Where there is no isDisabled, check manually&lt;/p&gt;&lt;p&gt;	// https://bugs.jquery.com/ticket/4833&lt;/p&gt;&lt;p&gt;	// We allow this because of a bug in IE8/9 that throws an error&lt;/p&gt;&lt;p&gt;	// See https://bugs.jquery.com/ticket/13378&lt;/p&gt;&lt;p&gt;		// Regex strategy adopted from Diego Perini&lt;/p&gt;&lt;p&gt;			// Select is set to empty string on purpose&lt;/p&gt;&lt;p&gt;			// https://bugs.jquery.com/ticket/12359&lt;/p&gt;&lt;p&gt;				&quot;&lt;select id=&apos;&quot; + expando + &quot;-\r\\&apos; msallowcapture=&apos;&apos;&gt;&quot; +&lt;/p&gt;&lt;p&gt;				&quot;&lt;option selected=&apos;&apos;&gt;&lt;/option&gt;&lt;/select&gt;&quot;;&lt;/p&gt;&lt;p&gt;			// IE8 throws error here and will not see later tests&lt;/p&gt;&lt;p&gt;			// https://bugs.webkit.org/show_bug.cgi?id=136851&lt;/p&gt;&lt;p&gt;				&quot;&lt;select disabled=&apos;disabled&apos;&gt;&lt;option/&gt;&lt;/select&gt;&quot;;&lt;/p&gt;&lt;p&gt;			// IE8 throws error here and will not see later tests&lt;/p&gt;&lt;p&gt;	// Can be adjusted by the user&lt;/p&gt;&lt;p&gt;			/* matches from matchExpr[&quot;CHILD&quot;]&lt;/p&gt;&lt;p&gt;			// Strip excess characters from unquoted arguments&lt;/p&gt;&lt;p&gt;				// Get excess from tokenize (recursively)&lt;/p&gt;&lt;p&gt;							// Seek `elem` from a previously-cached index&lt;/p&gt;&lt;p&gt;								// Fallback to seeking `elem` from the start&lt;/p&gt;&lt;p&gt;								// Use the same loop as above to seek `elem` from the start&lt;/p&gt;&lt;p&gt;			// Remember that setFilters inherits from pseudos&lt;/p&gt;&lt;p&gt;			// The user may use createPseudo to indicate that&lt;/p&gt;&lt;p&gt;			// We can&apos;t set arbitrary data on XML nodes, so they don&apos;t benefit from combinator caching&lt;/p&gt;&lt;p&gt;			// Get initial elements from seed or context&lt;/p&gt;&lt;p&gt;				// Move matched elements from seed to results to keep them synchronized&lt;/p&gt;&lt;p&gt;		// The foundational matcher ensures that elements are reachable from top-level context(s)&lt;/p&gt;&lt;p&gt;			// case, which will result in a &quot;00&quot; `matchedCount` that differs from `i` but is also&lt;/p&gt;&lt;p&gt;select = Sizzle.select = function( selector, context, results, seed ) {&lt;/p&gt;&lt;p&gt;// Give the init function the jQuery prototype for later instantiation&lt;/p&gt;&lt;p&gt;	// Methods guaranteed to produce a unique set when starting from a unique set&lt;/p&gt;&lt;p&gt;	// Convert options from String-formatted to Object-formatted if needed&lt;/p&gt;&lt;p&gt;					// If we have memory from a past run, we should fire after adding&lt;/p&gt;&lt;p&gt;			// Remove a callback from the list&lt;/p&gt;&lt;p&gt;			// Remove all callbacks from the list&lt;/p&gt;&lt;p&gt;							// Re-resolve promises immediately to dodge false rejection from&lt;/p&gt;&lt;p&gt;// Catch cases where $(document).ready() is called&lt;/p&gt;&lt;p&gt;		// In cases where either:&lt;/p&gt;&lt;p&gt;			// from DOM nodes, so set to undefined instead&lt;/p&gt;&lt;p&gt;			// https://bugs.chromium.org/p/chromium/issues/detail?id=378607 (bug restricted)&lt;/p&gt;&lt;p&gt;//	3. Use the same single mechanism to support &quot;private&quot; and &quot;user&quot; data.&lt;/p&gt;&lt;p&gt;//	4. _Never_ expose &quot;private&quot; data to user code (TODO: Drop _data, _removeData)&lt;/p&gt;&lt;p&gt;//	5. Avoid exposing implementation details on user objects (eg. expando properties)&lt;/p&gt;&lt;p&gt;	// data from the HTML5 data-* attribute&lt;/p&gt;&lt;p&gt;			// Make sure we set the data so it isn&apos;t changed later&lt;/p&gt;&lt;p&gt;	// TODO: Now that all calls to _data and _removeData have been replaced&lt;/p&gt;&lt;p&gt;				// Attempt to get data from the cache&lt;/p&gt;&lt;p&gt;			// Add a progress sentinel to prevent the fx queue from being&lt;/p&gt;&lt;p&gt;		// isHiddenWithinTree might be called from jQuery#filter function;&lt;/p&gt;&lt;p&gt;		// Halve the iteration target value to prevent interference from CSS upper bounds (gh-2144)&lt;/p&gt;&lt;p&gt;		// Iteratively approximate from a nonzero starting point&lt;/p&gt;&lt;p&gt;		// Make sure we update the tween properties later on&lt;/p&gt;&lt;p&gt;	option: [ 1, &quot;&lt;select multiple=&apos;multiple&apos;&gt;&quot;, &quot;&lt;/select&gt;&quot; ],&lt;/p&gt;&lt;p&gt;	// Remove wrapper from fragment&lt;/p&gt;&lt;p&gt;// https://bugs.jquery.com/ticket/13393&lt;/p&gt;&lt;p&gt;		// Make sure that the handler has a unique ID, used to find/remove it later&lt;/p&gt;&lt;p&gt;	// Detach an event or set of events from an element&lt;/p&gt;&lt;p&gt;		// Make a writable jQuery.Event from the native event object&lt;/p&gt;&lt;p&gt;			// Prevent triggered image.load events from bubbling to window.load&lt;/p&gt;&lt;p&gt;				// from an async native handler (gh-4350)&lt;/p&gt;&lt;p&gt;				// (focus or blur), assume that the surrogate already propagated from triggering the&lt;/p&gt;&lt;p&gt;				// native event and prevent that from happening again here.&lt;/p&gt;&lt;p&gt;// https://bugs.chromium.org/p/chromium/issues/detail?id=470258&lt;/p&gt;&lt;p&gt;// for the description of the bug (it existed in older Chrome versions as well).&lt;/p&gt;&lt;p&gt;	// 2. Copy user data&lt;/p&gt;&lt;p&gt;// Fix IE bugs, see support tests&lt;/p&gt;&lt;p&gt;					// Keep references to cloned scripts for later restoration&lt;/p&gt;&lt;p&gt;		// Copy the events from the original to the clone&lt;/p&gt;&lt;p&gt;		// Where available, offsetWidth/offsetHeight approximate border box dimensions.&lt;/p&gt;&lt;p&gt;		// Where not available (e.g., SVG), assume unreliable box-sizing and interpret the&lt;/p&gt;&lt;p&gt;					// We should always get a number back from opacity&lt;/p&gt;&lt;p&gt;		// want to query the value if it is a CSS custom property&lt;/p&gt;&lt;p&gt;		// since they are user-defined.&lt;/p&gt;&lt;p&gt;				// Fixes bug #9237&lt;/p&gt;&lt;p&gt;			// If a hook was provided get the non-computed value from there&lt;/p&gt;&lt;p&gt;			// Otherwise just get the value from the style object&lt;/p&gt;&lt;p&gt;		// since they are user-defined.&lt;/p&gt;&lt;p&gt;		// If a hook was provided get the computed value from there&lt;/p&gt;&lt;p&gt;			// Use .style if available and use plain properties where available.&lt;/p&gt;&lt;p&gt;				// there is still data from a stopped show/hide&lt;/p&gt;&lt;p&gt;		// from identically-valued overflowX and overflowY and Edge just mirrors&lt;/p&gt;&lt;p&gt;				// Archaic crash bug won&apos;t allow us to use `1 - ( 0.5 || 0 )` (#12497)&lt;/p&gt;&lt;p&gt;	// Attach callbacks from options&lt;/p&gt;&lt;p&gt;		select = document.createElement( &quot;select&quot; ),&lt;/p&gt;&lt;p&gt;		opt = select.appendChild( document.createElement( &quot;option&quot; ) );&lt;/p&gt;&lt;p&gt;	// Must access selectedIndex to make default options select&lt;/p&gt;&lt;p&gt;			// Avoid an infinite loop by temporarily removing this function from the getter&lt;/p&gt;&lt;p&gt;var rfocusable = /^(?:input|select|textarea|button)$/i,&lt;/p&gt;&lt;p&gt;				// Handle cases where value is null/undef or number&lt;/p&gt;&lt;p&gt;		select: {&lt;/p&gt;&lt;p&gt;					one = elem.type === &quot;select-one&quot;,&lt;/p&gt;&lt;p&gt;				// Don&apos;t do default actions on window, that&apos;s where global variables be (#6170)&lt;/p&gt;&lt;p&gt;// Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857&lt;/p&gt;&lt;p&gt;	rsubmittable = /^(?:input|select|textarea|keygen)/i;&lt;/p&gt;&lt;p&gt;// key/values into a query string&lt;/p&gt;&lt;p&gt;			// Convert response if prev dataType is non-auto and differs from current&lt;/p&gt;&lt;p&gt;								error: conv ? e : &quot;No conversion from &quot; + prev + &quot; to &quot; + current&lt;/p&gt;&lt;p&gt;		username: null,&lt;/p&gt;&lt;p&gt;		// and/or If-None-Match header later on&lt;/p&gt;&lt;p&gt;				// Extract error from statusText and normalize for non-aborts&lt;/p&gt;&lt;p&gt;		// Make this explicit, since user can override this through ajaxSetup (#11264)&lt;/p&gt;&lt;p&gt;					options.username,&lt;/p&gt;&lt;p&gt;// https://bugs.webkit.org/show_bug.cgi?id=137337&lt;/p&gt;&lt;p&gt;		// Stop scripts or inline event handlers from being executed immediately&lt;/p&gt;&lt;p&gt;			// user can override it through ajaxSetup method&lt;/p&gt;&lt;p&gt;		// position:fixed elements are offset from the viewport, which itself always has zero offset&lt;/p&gt;&lt;p&gt;// Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084&lt;/p&gt;&lt;p&gt;// Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347&lt;/p&gt;&lt;p&gt;	&quot;change select submit keydown keypress keyup contextmenu&quot; ).split( &quot; &quot; ),&lt;/p&gt;&lt;p&gt;// derived from file names, and jQuery is normally delivered in a lowercase&lt;/p&gt;&lt;p&gt; * TODO: Ideally this would be a NodeList.prototype.forEach polyfill&lt;/p&gt;&lt;p&gt;// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Object/defineProperty/detect.js&lt;/p&gt;&lt;p&gt;// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Object.defineProperty&amp;flags=always&lt;/p&gt;&lt;p&gt;		// Where native support exists, assume it&lt;/p&gt;&lt;p&gt;  // Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Function/prototype/bind/detect.js&lt;/p&gt;&lt;p&gt;  // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Function.prototype.bind&amp;flags=always&lt;/p&gt;&lt;p&gt;          var isCallable; /* inlined from https://npmjs.com/is-callable */ var fnToStr = Function.prototype.toString, tryFunctionObject = function tryFunctionObject(value) { try { fnToStr.call(value); return true; } catch (e) { return false; } }, fnClass = &apos;[object Function]&apos;, genClass = &apos;[object GeneratorFunction]&apos;; isCallable = function isCallable(value) { if (typeof value !== &apos;function&apos;) { return false; } if (hasToStringTag) { return tryFunctionObject(value); } var strClass = to_string.call(value); return strClass === fnClass || strClass === genClass; };&lt;/p&gt;&lt;p&gt;          // XXX slicedArgs will stand in for &quot;A&quot; if used&lt;/p&gt;&lt;p&gt;          // XXX Build a dynamic function with desired amount of arguments is the only&lt;/p&gt;&lt;p&gt;          // In environments where Content Security Policies enabled (Chrome extensions,&lt;/p&gt;&lt;p&gt;          // TODO&lt;/p&gt;&lt;p&gt;          // TODO&lt;/p&gt;&lt;p&gt;          // TODO&lt;/p&gt;&lt;p&gt;          // XXX can&apos;t delete prototype in pure-js.&lt;/p&gt;&lt;p&gt;    // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/master/packages/polyfill-library/polyfills/DOMTokenList/detect.js&lt;/p&gt;&lt;p&gt;    // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/master/packages/polyfill-library/polyfills/DOMTokenList/polyfill.js&lt;/p&gt;&lt;p&gt;// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Document/detect.js&lt;/p&gt;&lt;p&gt;// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Document&amp;flags=always&lt;/p&gt;&lt;p&gt;// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Element/detect.js&lt;/p&gt;&lt;p&gt;// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element&amp;flags=always&lt;/p&gt;&lt;p&gt;    // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/8717a9e04ac7aff99b4980fbedead98036b0929a/packages/polyfill-library/polyfills/Element/prototype/classList/detect.js&lt;/p&gt;&lt;p&gt;    // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element.prototype.classList&amp;flags=always&lt;/p&gt;&lt;p&gt;          /** Prevent this from firing twice for some reason. What the hell, IE. */&lt;/p&gt;&lt;p&gt;           * select lists).&lt;/p&gt;&lt;p&gt;  // Copy all attributes (https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes) from $span to $button&lt;/p&gt;&lt;p&gt;      // Only set the state when both `contentId` and `contentState` are taken from the DOM.&lt;/p&gt;&lt;p&gt;// Read the state of the accordions from sessionStorage&lt;/p&gt;&lt;p&gt;// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Window/detect.js&lt;/p&gt;&lt;p&gt;// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Window&amp;flags=always&lt;/p&gt;&lt;p&gt;// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Event/detect.js&lt;/p&gt;&lt;p&gt;// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Event&amp;flags=always&lt;/p&gt;&lt;p&gt; * will tell a user to press space on a &apos;button&apos;, so this functionality needs to be shimmed&lt;/p&gt;&lt;p&gt;  // If the timer is still running then we want to prevent the click from submitting the form&lt;/p&gt;&lt;p&gt;* this will help listening for later inserted elements with a role=&quot;button&quot;&lt;/p&gt;&lt;p&gt;        // Prevent space from scrolling the page&lt;/p&gt;&lt;p&gt;        // and enter from submitting a form&lt;/p&gt;&lt;p&gt;* Remove the click event from the node element&lt;/p&gt;&lt;p&gt;  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/detect.js&lt;/p&gt;&lt;p&gt;  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/polyfill.js&lt;/p&gt;&lt;p&gt;  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/detect.js&lt;/p&gt;&lt;p&gt;    // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/polyfill.js&lt;/p&gt;&lt;p&gt; * or legends appear above the input, this means the user will be presented with&lt;/p&gt;&lt;p&gt;  // Prefer using the history API where possible, as updating&lt;/p&gt;&lt;p&gt; * Get fragment from URL&lt;/p&gt;&lt;p&gt; * Extract the fragment (everything after the hash) from a URL, but not including&lt;/p&gt;&lt;p&gt; * @returns {string} Fragment from URL, without the hash&lt;/p&gt;&lt;p&gt; * Returns the first element that exists from this list:&lt;/p&gt;&lt;p&gt;  // so the page doesn&apos;t jump when a user clicks a tab (which changes the hash)&lt;/p&gt;&lt;p&gt;  // Allow the user to initialise GOV.UK Frontend in only certain sections of the page&lt;/p&gt;&lt;p&gt;      // Select content for this control&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</otherinfo>
+            <reference>&lt;p&gt;&lt;/p&gt;</reference>
+            <cweid>200</cweid>
+            <wascid>13</wascid>
+            <sourceid>3</sourceid>
+        </alertitem>
     </alerts></site><site name="https://idam-web-public.aat.platform.hmcts.net" host="idam-web-public.aat.platform.hmcts.net" port="443" ssl="true"><alerts><alertitem>
     <pluginid>10016</pluginid>
     <alert>Web Browser XSS Protection Not Enabled</alert>
@@ -493,7 +509,7 @@
     <desc>&lt;p&gt;Web Browser XSS Protection is not enabled, or is disabled by the configuration of the &apos;X-XSS-Protection&apos; HTTP response header on the web server&lt;/p&gt;</desc>
     <instances>
         <instance>
-            <uri>https://idam-web-public.aat.platform.hmcts.net/login?client_id=divorce&amp;redirect_uri=https%3A%2F%2Fdiv-rfe-aat.service.core-compute-aat.internal%2Fauthenticated&amp;response_type=code&amp;state=7fa999d3-61c0-4141-91e9-b7f8d20ea792</uri>
+            <uri>https://idam-web-public.aat.platform.hmcts.net/login?client_id=divorce&amp;redirect_uri=https%3A%2F%2Fdiv-rfe-aat.service.core-compute-aat.internal%2Fauthenticated&amp;response_type=code&amp;state=2e27d0cf-3745-4816-ac64-04b2c8761bda</uri>
             <method>GET</method>
             <param>X-XSS-Protection</param>
         </instance>
