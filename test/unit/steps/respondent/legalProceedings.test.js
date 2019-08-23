@@ -179,6 +179,18 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(LegalProceedings, {}, { ignoreContent: ['info', 'cya'] });
+    const ignoreContent = [
+      'info',
+      'cya',
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+    return content(LegalProceedings, {}, { ignoreContent });
   });
 });

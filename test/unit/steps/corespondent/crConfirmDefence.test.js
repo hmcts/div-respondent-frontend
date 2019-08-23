@@ -112,6 +112,18 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(CrConfirmDefence, {}, { ignoreContent: [ 'info' ] });
+    const ignoreContent = [
+      'info',
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+
+    return content(CrConfirmDefence, {}, { ignoreContent });
   });
 });

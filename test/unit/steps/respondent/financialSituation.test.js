@@ -41,7 +41,17 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(FinancialSituation);
+    const ignoreContent = [
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+    return content(FinancialSituation, {}, { ignoreContent });
   });
 
   itParam('sets respConsiderFinancialSituation to answer', answers, answer => {
