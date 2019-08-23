@@ -6,7 +6,16 @@ const { question, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   it('renders the page on GET', () => {
-    return content(IdamLogin, {}, { ignoreContent: ['serviceName'] });
+    return content(IdamLogin, {}, { ignoreContent: [
+      'serviceName',
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen', 'chatOpeningHours'
+    ] });
   });
 
   it('redirects to Authenticated if answer is no', () => {

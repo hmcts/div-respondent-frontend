@@ -59,7 +59,15 @@ describe(modulePath, () => {
     return content(CheckYourAnswers, {}, {
       ignoreContent: [
         'continue',
-        'serviceName'
+        'serviceName',
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours'
       ]
     });
   });
