@@ -1,4 +1,3 @@
-/* eslint complexity: ["error", 12] */
 /* eslint-disable operator-linebreak */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const logger = require('services/logger').getLogger(__filename);
@@ -7,54 +6,8 @@ const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
 const { get } = require('lodash');
+const { progressStates, values, caseStateMap, caseStatesBeyondAos } = require('./ProgressBar.config');
 
-const progressStates = {
-  progressedNoAos: 'progressedNoAos',
-  progressedUndefended: 'progressedUndefended',
-  awaitingAnswer: 'awaitingAnswer',
-  defendedDivorce: 'defendedDivorce',
-  awaitingPronouncement: 'awaitingPronouncement',
-  awaitingDecreeAbsolute: 'awaitingDecreeAbsolute',
-  dnPronounced: 'dnPronounced',
-  aosAwaitingSol: 'aosAwaitingSol',
-  other: 'other'
-};
-
-const values = {
-  yes: 'Yes',
-  no: 'No'
-};
-
-const caseStateMap = [
-  {
-    template: './sections/OneCircleFilledIn.html',
-    state: ['AwaitingReissue']
-  },
-  {
-    template: './sections/OneCircleFilledInBold.html',
-    state: ['AosAwaiting', 'AosStarted', 'AosOverdue']
-  },
-  {
-    template: './sections/SolicitorOneCircleFilledInBold.html',
-    state: ['AosAwaitingSol']
-  },
-  {
-    template: './sections/TwoCircleFilledIn.html',
-    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted']
-  },
-  {
-    template: './sections/TwoCircleFilledInBold.html',
-    state: ['AwaitingDecreeNisi', 'DNAwaiting', 'DNDrafted']
-  },
-  {
-    template: './sections/ThreeCircleFilledInBold.html',
-    state: ['AwaitingDecreeAbsolute', 'DNPronounced']
-  },
-  {
-    template: './sections/FourCircleFilledIn.html',
-    state: ['DivorceGranted']
-  }
-];
 
 class ProgressBar extends Interstitial {
   static get path() {
@@ -167,19 +120,7 @@ class ProgressBar extends Interstitial {
   }
 
   caseBeyondAos(caseState) {
-    return (
-      caseState === config.caseStates.AwaitingLegalAdvisorReferral ||
-      caseState === config.caseStates.AmendPetition ||
-      caseState === config.caseStates.AwaitingClarification ||
-      caseState === config.caseStates.AwaitingConsideration ||
-      caseState === config.caseStates.AwaitingDecreeAbsolute ||
-      caseState === config.caseStates.DNPronounced ||
-      caseState === config.caseStates.DNAwaiting ||
-      caseState === config.caseStates.DNDrafted ||
-      caseState === config.caseStates.AwaitingReissue ||
-      caseState === config.caseStates.DivorceGranted ||
-      caseState === config.caseStates.AwaitingPronouncement
-    );
+    return caseStatesBeyondAos.includes(caseState);
   }
 
   get isDefending() {
