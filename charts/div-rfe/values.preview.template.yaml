@@ -1,6 +1,3 @@
-tags:
-  idam-pr: true
-
 idam-pr:
   redirect_uris:
     divorce:
@@ -31,3 +28,6 @@ nodejs:
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
+
+tags:
+  - idam-pr
