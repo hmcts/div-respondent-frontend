@@ -14,4 +14,4 @@ services:
 
 features:
   idam: true
-
+  respSolicitorDetails: true
