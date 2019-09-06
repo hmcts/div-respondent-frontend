@@ -1,4 +1,4 @@
-<?xml version="1.0"?><OWASPZAPReport version="D-2019-08-19" generated="Wed, 21 Aug 2019 21:27:29">
+<?xml version="1.0"?><OWASPZAPReport version="D-2019-09-02" generated="Fri, 6 Sep 2019 11:03:36">
     <site name="https://div-rfe-aat.service.core-compute-aat.internal" host="div-rfe-aat.service.core-compute-aat.internal" port="443" ssl="true"><alerts><alertitem>
         <pluginid>10096</pluginid>
         <alert>Timestamp Disclosure - Unix</alert>
@@ -509,7 +509,7 @@
     <desc>&lt;p&gt;Web Browser XSS Protection is not enabled, or is disabled by the configuration of the &apos;X-XSS-Protection&apos; HTTP response header on the web server&lt;/p&gt;</desc>
     <instances>
         <instance>
-            <uri>https://idam-web-public.aat.platform.hmcts.net/login?client_id=divorce&amp;redirect_uri=https%3A%2F%2Fdiv-rfe-aat.service.core-compute-aat.internal%2Fauthenticated&amp;response_type=code&amp;state=2e27d0cf-3745-4816-ac64-04b2c8761bda</uri>
+            <uri>https://idam-web-public.aat.platform.hmcts.net/login?client_id=divorce&amp;redirect_uri=https%3A%2F%2Fdiv-rfe-aat.service.core-compute-aat.internal%2Fauthenticated&amp;response_type=code&amp;state=1a7c08be-cb00-4d8b-b43c-d2ce5243ed6b</uri>
             <method>GET</method>
             <param>X-XSS-Protection</param>
         </instance>
