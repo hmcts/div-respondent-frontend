@@ -70,7 +70,7 @@ describe(modulePath, () => {
     };
 
     before(() => {
-      sandbox = sinon.sandbox.create();
+      sandbox = sinon.createSandbox();
     });
 
     after(() => {

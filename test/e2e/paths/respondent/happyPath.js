@@ -2,6 +2,7 @@ const content = require('common/content');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
 const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page');
+const contentJurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.content');
 
 Feature('Happy path');
 
@@ -16,15 +17,11 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content.en.continue);
-
   if (config.tests.e2e.addWaitForCrossBrowser) {
-    I.wait(5);
+    I.wait(30);
   }
-
   I.seeRespondPage();
-  I.wait(5);
   I.navByClick(content.en.continue);
-
   I.seeReviewApplicationPage();
   I.wait(5);
   I.acknowledgeApplication();
@@ -42,10 +39,17 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
 
   I.seeJurisdictionPage();
   I.chooseAgreeToJurisdiction();
+  if (config.tests.e2e.addWaitForCrossBrowser) {
+    I.click(contentJurisdiction.en.fields.disagree.heading);
+    I.fillField('jurisdiction.reason', 'what to try something diff for crossbrowser');
+    I.fillField('jurisdiction.country', 'USA');
+  }
+
   I.navByClick(content.en.continue);
 
   I.seeLegalProceedingPage();
   I.chooseNoLegalProceedings();
+
   I.navByClick(content.en.continue);
 
   I.seeAgreeToPayCostsPage();
@@ -60,7 +64,6 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.seeCheckYourAnswersPage();
   I.confirmInformationIsTrue();
   I.submitApplication();
-  I.wait(5);
 
   I.seeDonePage();
   I.see('LV18D81234');

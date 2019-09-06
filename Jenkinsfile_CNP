@@ -5,11 +5,15 @@
 String product = "div"
 String component = "rfe"
 
-List<LinkedHashMap<String, Object>> secrets = [
-  secret('session-secret', 'SESSION_SECRET'),
-  secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
-  secret('idam-secret', 'IDAM_SECRET'),
-  secret('os-places-token', 'POST_CODE_ACCESS_TOKEN')
+def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
+
+def secrets = [
+  'div-${env}': [
+    secret('session-secret', 'SESSION_SECRET'),
+    secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
+    secret('idam-secret', 'IDAM_SECRET'),
+    secret('os-places-token', 'POST_CODE_ACCESS_TOKEN')
+  ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -29,13 +33,12 @@ withPipeline("nodejs", product, component) {
   }
 
   loadVaultSecrets(secrets)
-  setVaultName('div')
 
   after('test') {
-    sh 'yarn test:validation'
+    yarnBuilder.yarn('test:validation')
     // enable yarn audit and send message on master branch only
     try {
-      sh 'yarn audit'
+      yarnBuilder.yarn('audit')
     } catch (error) {
       onMaster {
         slackSend(channel: '#div-dev', color: 'warning', message: "Yarn Audit has detected vulnerabilities in ${env.JOB_NAME}. You can check if there are patches for them in the full report, build details here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
@@ -50,7 +53,6 @@ withPipeline("nodejs", product, component) {
   }
 
   before('functionalTest:preview') {
-    env.FEATURE_RESP_SOLICITOR_DETAILS = 'true'
     env.NODE_ENV= 'ci'
     sh 'printenv'
   }
@@ -68,9 +70,5 @@ withPipeline("nodejs", product, component) {
   after('functionalTest:aat') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-  }
-
-  onMaster {
-    enableSlackNotifications('#div-dev')
   }
 }

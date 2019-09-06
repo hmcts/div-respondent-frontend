@@ -3,9 +3,9 @@ const content = require('steps/respondent/progress-bar/ProgressBar.content');
 
 function seeProgressBarPage() {
   const I = this;
-
+  I.waitInUrl(ProgressBar.path, 10);
   I.seeCurrentUrlEquals(ProgressBar.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content.en.title, 2);
 }
 
 function seeContentForAosNotCompleted() {
@@ -51,9 +51,11 @@ function seeContentForDNPronounced() {
 
 function seeContentForAosAwaitingSol() {
   const I = this;
+  // Mock data uses husband as divorceWho
+  const formattedNominatedSolString = content.en.aosAwaitingSol.nominatedSol.replace('{{ session.divorceWho }}', 'husband');
 
   I.see(content.en.aosAwaitingSol.heading);
-  I.see(content.en.aosAwaitingSol.nominatedSol);
+  I.see(formattedNominatedSolString);
 }
 
 function seePetitionToDownload() {

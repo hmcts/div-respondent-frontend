@@ -12,7 +12,7 @@
 
   <!-- Application for divorce -->
   {% if session.originalPetition.previousCaseId %}
-    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.amendAppDetails }}</h3>
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.amendAppDetails }}</h2>
   {% endif %}
   <p class="govuk-body">
     {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrder == "Yes" %}
@@ -38,20 +38,20 @@
     {% endif %}
   </p>
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.issued }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.issued }}</h2>
   {% if session.originalPetition.previousCaseId %}
     <p class="govuk-body">{{ session.originalPetition.previousIssueDate | date }}</p>
   {% else %}
     <p class="govuk-body">{{ session.originalPetition.issueDate | date }}</p>
   {% endif %}
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.caseReference }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.caseReference }}</h2>
   <p class="govuk-body">{{ session.originalPetition.caseReference }}</p>
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.applicant }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.applicant }}</h2>
   <p class="govuk-body">{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }}</p>
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.respondent }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.respondent }}</h2>
   <p class="govuk-body">{{ session.originalPetition.respondentFirstName }} {{ session.originalPetition.respondentLastName }}</p>
 
   <!-- EOF Application for divorce -->
@@ -59,7 +59,7 @@
   <!-- CoRespondent -->
 
   {% if session.originalPetition.reasonForDivorce == "adultery" and session.originalPetition.reasonForDivorceAdulteryWishToName == "Yes" %}
-    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.coRespondent }}</h3>
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.coRespondent }}</h2>
     <p class="govuk-body">{{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }}</p>
   {% endif %}
 
@@ -81,16 +81,16 @@
 
   <h2 class="govuk-heading-m">{{ content.aboutTheMarriage }}</h2>
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whoTheMarriage }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whoTheMarriage }}</h2>
   <p class="govuk-body">{{ content.whoTheMarriageNames | safe }}</p>
 
   {% if session.originalPetition.placeOfMarriage %}
-    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whereTheMarriage }}</h3>
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whereTheMarriage }}</h2>
     <p class="govuk-body">{{ session.originalPetition.placeOfMarriage }}</p>
   {% endif %}
 
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.dateOfMarriage }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.dateOfMarriage }}</h2>
   <p class="govuk-body">{{ session.originalPetition.marriageDate | date }}</p>
 
   <details class="govuk-details">
@@ -207,7 +207,7 @@
 
   <br>
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.otherCourtCases }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.otherCourtCases }}</h2>
 
   {% if session.originalPetition.legalProceedings == "No" %}
     <p class="govuk-body">{{ content.onGoingCasesNo }}</p>
@@ -223,11 +223,11 @@
     <div class="govuk-details__text" id="details-content-2" aria-hidden="true">
       <p class="govuk-body">{{ content.theCourtsOfEngland }}</p>
       <p class="govuk-body">{{ content.eachLegalStatement }}</p>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.habitualResidence }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.habitualResidence }}</h2>
       <p class="govuk-body">{{ content.habitualResidencePar1 }}</p>
       <p class="govuk-body">{{ content.habitualResidencePar2 }}</p>
       <p class="govuk-body">{{ content.habitualResidencePar3 }}</p>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.domicile }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.domicile }}</h2>
       <p class="govuk-body">{{ content.domicilePar1 }}</p>
       <p class="govuk-body">{{ content.domicilePar2 }}</p>
       <p class="govuk-body">{{ content.domicilePar3 | safe }}</p>
@@ -237,7 +237,7 @@
       </ul>
       <p class="govuk-body">{{ content.domicilePar4 | safe }}</p>
       <p class="govuk-body">{{ content.domicilePar5 }}</p>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.residualJurisdiction }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.residualJurisdiction }}</h2>
       <p class="govuk-body">{{ content.residualJurisdictionPar1 }}</p>
       <ul class="bullet govuk-list govuk-list--bullet">
         <li>{{ content.residualJurisdictionList2 }}</li>
@@ -249,7 +249,7 @@
         <li>{{ content.residualJurisdictionList5 }}</li>
         <li>{{ content.residualJurisdictionList6 }}</li>
       </ul>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.otherCourtCases }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.otherCourtCases }}</h2>
       <p class="govuk-body">{{ content. otherCourtCasesPar1 }}</p>
     </div>
   </details>
@@ -357,27 +357,27 @@
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceLegalGround }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceChosenReason }}</p>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceBehaviour }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceBehaviour }}</h2>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceBehaviourDescription1 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceBehaviourDescription2 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceBehaviourDescription3 }}</p>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceAdultery }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceAdultery }}</h2>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription1 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription2 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription3 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription4 }}</p>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYears }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYears }}</h2>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription1 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription2 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription3 }}</p>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYears }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYears }}</h2>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription1 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription2 }}</p>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceDesertion }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceDesertion }}</h2>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceDesertionDescription1 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceDesertionDescription2 }}</p>
       <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceDesertionDescription3 }}</p>
@@ -392,7 +392,7 @@
 
   <!-- Cost Orders -->
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.costOrder }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.costOrder }}</h2>
   {% if session.originalPetition.claimsCosts == "Yes" %}
     {% if "respondent" in claimsCostsFromArray and "correspondent" in claimsCostsFromArray %}
       <p class="govuk-body">{{ content.claimingCostsFromRespondentCoRespondent }}</p>
@@ -410,7 +410,7 @@
       <span class="govuk-details__summary-text">{{ content.helpWithCostOrders }}</span>
     </summary>
     <div class="govuk-details__text" id="details-content-4" aria-hidden="true">
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.claimingCosts }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.claimingCosts }}</h2>
       <p class="govuk-body">{{ content.claimingCostsPar1 }}</p>
       <p class="govuk-body">{{ content.claimingCostsPar2 }}</p>
     </div>
@@ -420,7 +420,7 @@
 
   <!-- Financial Orders -->
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.financialOrders }}</h3>
+  <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.financialOrders }}</h2>
 
   {% if session.originalPetition.financialOrder == "Yes" %}
     {% if "petitioner" in session.originalPetition.financialOrderFor and "children" in session.originalPetition.financialOrderFor %}
@@ -442,11 +442,11 @@
       <p class="govuk-body">{{ content.helpWithFinancialOrdersPar1 }}</p>
       <p class="govuk-body">{{ content.helpWithFinancialOrdersPar2 }}</p>
       <p class="govuk-body">{{ content.helpWithFinancialOrdersPar3 }}</p>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.consentOrders }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.consentOrders }}</h2>
       <p class="govuk-body">{{ content.consentOrdersPar1 }}</p>
       <p class="govuk-body">{{ content.consentOrdersPar2 }}</p>
       <p class="govuk-body">{{ content.consentOrdersPar3 }}</p>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.ordersForChildMaintenance }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.ordersForChildMaintenance }}</h2>
       <p class="govuk-body">{{ content.ordersForChildMaintenancePar }}</p>
     </div>
   </details>
@@ -493,13 +493,13 @@
 
   <!-- EOF CoRespondent Address -->
 
-  <h3 class="govuk-heading-m">{{ content.statementOfTruth }}</h3>
+  <h2 class="govuk-heading-m">{{ content.statementOfTruth }}</h2>
   <p class="govuk-body">"{{ content.statementOfTruthParagraph | safe }}"</p>
   <p class="govuk-body">
     <em>{{ session.originalPetition.petitionerFirstName }} {{ session.originalPetition.petitionerLastName }}</em>
   </p>
 
-  <h3 class="govuk-heading-l">{{ content.acknowledgement }}</h3>
+  <h2 class="govuk-heading-l">{{ content.acknowledgement }}</h2>
 
   <div class="confirmation-container" id="review-application-wrap">
     {% call formSection() %}

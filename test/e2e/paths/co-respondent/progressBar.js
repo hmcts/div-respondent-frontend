@@ -17,7 +17,6 @@ Scenario('Should display content for co-respondent - Defending awaiting answer',
   I.seeCrProgressBarPage();
   I.seeContentForDefendingAwaitingAnswer();
   I.seePetitionToDownload();
-  I.seeRespAnswersToDownload();
 }).retry(2);
 
 Scenario('Should display content for co-respondent - Defending submitted answer', I => {

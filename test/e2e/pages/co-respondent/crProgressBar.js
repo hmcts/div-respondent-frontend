@@ -43,11 +43,6 @@ function seePetitionToDownload() {
   I.see(content.en.files.dpetition);
 }
 
-function seeRespAnswersToDownload() {
-  const I = this;
-  I.see(content.en.files.respondentAnswers);
-}
-
 function seeCoRespAnswersToDownload() {
   const I = this;
   I.see(content.en.files.coRespondentAnswers);
@@ -61,8 +56,8 @@ function seeCoRespCostsOrderToDownload() {
 function seeCoRespAwaitingPronouncementHearingDataFuture() {
   const I = this;
 
-  I.see(content.en.awaitingPronouncementHearingDataFuture.title);
-  I.see(content.en.awaitingPronouncementHearingDataFuture.districtJudge);
+  I.see(content.en.awaitingPronouncementHearingDate.title);
+  I.see(content.en.awaitingPronouncementHearingDate.districtJudge);
 }
 
 function seeCoRespDNPronouncedAndCosts() {
@@ -86,7 +81,6 @@ module.exports = {
   seeContentForNotDefendingSubmittedAnswer,
   seeContentForTooLateToRespond,
   seePetitionToDownload,
-  seeRespAnswersToDownload,
   seeCoRespAnswersToDownload,
   seeCoRespCostsOrderToDownload,
   seeCoRespAwaitingPronouncementHearingDataFuture,
