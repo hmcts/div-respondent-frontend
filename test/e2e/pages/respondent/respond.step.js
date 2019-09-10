@@ -3,7 +3,7 @@ const content = require('steps/respondent/respond/Respond.content');
 
 function seeRespondPage() {
   const I = this;
-  I.waitInUrl(RespondPage.path, 5);
+  I.waitInUrl(RespondPage.path, 15);
   I.seeCurrentUrlEquals(RespondPage.path);
   I.waitForText(content.en.title, 2);
 }

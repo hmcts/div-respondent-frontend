@@ -5,7 +5,7 @@ const { parseBool } = require('@hmcts/one-per-page');
 
 function seeCheckYourAnswersPage() {
   const I = this;
-  I.waitInUrl(CheckYourAnswersPage.path, 5);
+  I.waitInUrl(CheckYourAnswersPage.path, 15);
   I.seeCurrentUrlEquals(CheckYourAnswersPage.path);
   I.waitForText(content.en.title, 5);
 }

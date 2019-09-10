@@ -3,7 +3,7 @@ const content = require('steps/respondent/contact-details/ContactDetails.content
 
 function seeContactDetailsPage() {
   const I = this;
-  I.waitInUrl(ContactDetails.path, 5);
+  I.waitInUrl(ContactDetails.path, 15);
   I.seeCurrentUrlEquals(ContactDetails.path);
   I.waitForText(content.en.title, 5);
 }
