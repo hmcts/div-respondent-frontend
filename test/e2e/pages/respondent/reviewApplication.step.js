@@ -3,7 +3,7 @@ const content = require('steps/respondent/review-application/ReviewApplication.c
 
 function seeReviewApplicationPage() {
   const I = this;
-  I.waitInUrl(ReviewApplicationPage.path, 5);
+  I.waitInUrl(ReviewApplicationPage.path, 15);
   I.seeCurrentUrlEquals(ReviewApplicationPage.path);
   I.waitForText(content.en.title, 5);
 }
