@@ -10,7 +10,19 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays correct details', () => {
-      const ignoreContent = ['continue', 'serviceName', 'backLink'];
+      const ignoreContent = [
+        'continue',
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'serviceName',
+        'backLink'
+      ];
 
       return content(TermsAndConditions, {}, { ignoreContent });
     });

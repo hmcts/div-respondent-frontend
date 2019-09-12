@@ -76,7 +76,19 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ConfirmDefence, {}, { ignoreContent: ['info'] });
+    const ignoreContent = [
+      'info',
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+
+    return content(ConfirmDefence, {}, { ignoreContent });
   });
 
   describe('redirection', () => {

@@ -186,6 +186,20 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(CrContactDetails, {}, { ignoreContent: ['info', 'contactMethods', 'question'] });
+    const ignoreContent = [
+      'info',
+      'contactMethods',
+      'question',
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+
+    return content(CrContactDetails, {}, { ignoreContent });
   });
 });

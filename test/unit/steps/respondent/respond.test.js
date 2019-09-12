@@ -51,10 +51,14 @@ describe(modulePath, () => {
 
   describe('renders the content', () => {
     const ignoreContent = [
-      'isThereAProblemWithThisPage',
-      'isThereAProblemWithThisPageParagraph',
-      'isThereAProblemWithThisPagePhone',
-      'isThereAProblemWithThisPageEmail',
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours',
       'backLink',
       'divorceCenterUrl',
       'guidance'

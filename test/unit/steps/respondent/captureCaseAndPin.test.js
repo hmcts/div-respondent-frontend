@@ -114,13 +114,25 @@ describe(modulePath, () => {
   });
 
   it('renders auth error from link case API call', () => {
+    const ignoreContent = [
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+
     return content(CaptureCaseAndPin, {
       temp: {
         linkCaseError: true,
         linkCaseAuthError: true
       }
     }, {
-      specificValues: [stepContent.en.referenceNumberOrPinDoNotMatch]
+      specificValues: [stepContent.en.referenceNumberOrPinDoNotMatch],
+      ignoreContent
     });
   });
 
@@ -137,7 +149,15 @@ describe(modulePath, () => {
         'backLink',
         'thereWasAProblem',
         'referenceNumberOrPinDoNotMatch',
-        'errorLinkingCase'
+        'errorLinkingCase',
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours'
       ]
     });
   });
