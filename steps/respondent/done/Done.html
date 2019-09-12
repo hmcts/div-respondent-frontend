@@ -171,6 +171,9 @@
 
   <h2 class="govuk-heading-m">{{ content.helpImproveHeading }}</h2>
   <p class="govuk-body">{{ content.helpImproveText | safe }}</p>
+
+  {% block problems_with_this_page -%}
+  {%- endblock %}
 {% endblock %}
 
 {% block one_third %}

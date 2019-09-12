@@ -20,19 +20,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours',
-      'continue',
-      'submit'
-    ];
-
+    const ignoreContent = [ 'continue', 'submit' ];
     const session = { case: { caseData: {} } };
     return content(CrCheckYourAnswers, session, { ignoreContent });
   });

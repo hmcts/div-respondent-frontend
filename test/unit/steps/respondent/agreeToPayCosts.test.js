@@ -264,19 +264,6 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'info',
-      'cya',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(AgreeToPayCosts, {}, { ignoreContent });
+    return content(AgreeToPayCosts, {}, { ignoreContent: ['info', 'cya'] });
   });
 });

@@ -139,20 +139,7 @@ describe(modulePath, () => {
 
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'info',
-      'cya',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(DefendFinancialHardship, {}, { ignoreContent });
+    return content(DefendFinancialHardship, {}, { ignoreContent: ['info', 'cya'] });
   });
 
   it('redirects to Jurisdiction step when answered no', () => {

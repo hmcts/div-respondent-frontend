@@ -115,7 +115,6 @@ module "frontend" {
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"
     FEATURE_RESP_SOLICITOR_DETAILS             = "${var.feature_resp_solicitor_details}"
-    FEATURE_WEBCHAT                            = "${var.feature_webchat}"
 
     DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"
     DECREE_ABSOLUTE_FRONTEND_URL = "${var.decree_absolute_frontend_url}"
@@ -128,12 +127,6 @@ module "frontend" {
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
     WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
-
-    WEBCHAT_CHAT_ID = "${var.webchat_chat_id}"
-    WEBCHAT_TENANT = "${var.webchat_tenant}"
-    WEBCHAT_BUTTON_NO_AGENTS = "${var.webchat_button_no_agents}"
-    WEBCHAT_BUTTON_AGENTS_BUSY = "${var.webchat_button_agents_busy}"
-    WEBCHAT_BUTTON_SERVICE_CLOSED = "${var.webchat_button_service_closed}"
   }
 }
 

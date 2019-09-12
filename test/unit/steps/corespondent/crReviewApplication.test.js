@@ -227,14 +227,6 @@ describe(modulePath, () => {
 
   describe('content', () => {
     const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours',
       'amendAppDetails',
       'coRespondentsCorrespondenceAddress',
       'coRespondent',

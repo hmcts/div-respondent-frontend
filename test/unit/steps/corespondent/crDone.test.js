@@ -45,18 +45,11 @@ describe(modulePath, () => {
       'whatHappensNext',
       'yourResponse',
       'continue',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours',
-      'backLink',
       'isThereAProblemWithThisPage',
-      'phoneToCallIfProblems',
-      'emailIfProblems'
+      'isThereAProblemWithThisPageParagraph',
+      'isThereAProblemWithThisPagePhone',
+      'isThereAProblemWithThisPageEmail',
+      'backLink'
     ];
 
     return content(CrDone, session, { ignoreContent });
@@ -107,17 +100,6 @@ describe(modulePath, () => {
       }
     };
 
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
     const specificContent = [
       'claimedCostsTitle',
       'claimedCostsText',
@@ -126,7 +108,7 @@ describe(modulePath, () => {
       'objectingToCostsOrderText2'
     ];
 
-    return content(CrDone, session, { specificContent, ignoreContent });
+    return content(CrDone, session, { specificContent });
   });
 
   describe('court address details', () => {

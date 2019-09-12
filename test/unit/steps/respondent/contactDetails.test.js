@@ -181,20 +181,6 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'info',
-      'contactMethods',
-      'question',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(ContactDetails, {}, { ignoreContent });
+    return content(ContactDetails, {}, { ignoreContent: ['info', 'contactMethods', 'question'] });
   });
 });

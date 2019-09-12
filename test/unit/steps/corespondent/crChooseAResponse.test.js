@@ -45,21 +45,10 @@ describe(modulePath, () => {
   });
 
   it('has getFeeFromFeesAndPayments middleware called with the proper values, and the corresponding number of times', () => { // eslint-disable-line max-len
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
     return content(
       CrChooseAResponse,
       session,
-      { specificContent: ['title'], ignoreContent }
+      { specificContent: ['title'] }
     ).then(() => {
       sinon.assert.calledOnce(feesAndPaymentsService.get);
       sinon.assert.calledWith(feesAndPaymentsService.get, 'defended-petition-fee');
@@ -100,17 +89,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-    return content(CrChooseAResponse, session, { ignoreContent });
+    return content(CrChooseAResponse, session);
   });
 
   it('sets coRespDefendsDivorce to no if response is proceed', () => {

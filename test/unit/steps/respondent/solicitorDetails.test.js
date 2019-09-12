@@ -22,17 +22,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-    return content(SolicitorDetails, {}, { ignoreContent });
+    return content(SolicitorDetails);
   });
 
   it('redirects to next page when all details are supplied', () => {

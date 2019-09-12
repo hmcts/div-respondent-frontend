@@ -21,12 +21,6 @@ const filteredErrors = r => {
   return !excludedErrors.includes(r.code);
 };
 
-// Ignored Warnings
-const excludedWarnings = [ 'WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2' ];
-const filteredWarnings = r => {
-  return !excludedWarnings.includes(r.code);
-};
-
 // set up step with valid idam creds
 const session = { IdamLogin: { success: 'yes' } };
 const getAgent = step => {
@@ -76,8 +70,7 @@ steps
             .then(results => {
               errors = results.errors
                 .filter(filteredErrors);
-              warnings = results.warnings
-                .filter(filteredWarnings);
+              warnings = results.warnings;
             })
             .catch(error => {
               expect(error).to.eql(false, `Error when validating HTML accessibility: ${error}`);
@@ -100,8 +93,7 @@ steps
               .then(results => {
                 errors = results.errors
                   .filter(filteredErrors);
-                warnings = results.warnings
-                  .filter(filteredWarnings);
+                warnings = results.warnings;
               })
               .catch(error => {
                 expect(error).to.eql(false, `Error when validating HTML accessibility: ${error}`);

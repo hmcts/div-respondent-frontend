@@ -73,36 +73,12 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'info',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(ChooseAResponse, session, { ignoreContent });
+    return content(ChooseAResponse, session, { ignoreContent: ['info'] });
   });
 
   it('does not render specific behaviour info by default', () => {
-    const ignoreContent = [
-      'info',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
     return content(ChooseAResponse, session, {
-      ignoreContent,
+      ignoreContent: ['info'],
       specificValuesToNotExist: [
         stepContent.en.info.options.proceedButDisagree.heading,
         stepContent.en.info.options.proceedButDisagree.summary
@@ -111,20 +87,8 @@ describe(modulePath, () => {
   });
 
   it('does not render specific behaviour questions by default', () => {
-    const ignoreContent = [
-      'info',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
     return content(ChooseAResponse, session, {
-      ignoreContent,
+      ignoreContent: ['info'],
       specificValuesToNotExist: [
         stepContent.en.fields.proceedButDisagree.heading,
         stepContent.en.fields.proceedButDisagree.summary
@@ -133,20 +97,8 @@ describe(modulePath, () => {
   });
 
   it('does not render specific five year info by default', () => {
-    const ignoreContent = [
-      'info',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
     return content(ChooseAResponse, session, {
-      ignoreContent,
+      ignoreContent: ['info'],
       specificValuesToNotExist: [
         stepContent.en.info.options.hardship.heading,
         stepContent.en.info.options.hardship.text1,

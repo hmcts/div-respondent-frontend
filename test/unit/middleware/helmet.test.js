@@ -32,14 +32,12 @@ describe(modulePath, () => {
           '\'unsafe-inline\'',
           'www.google-analytics.com',
           'hmctspiwik.useconnect.co.uk',
-          'www.googletagmanager.com',
-          'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'www.googletagmanager.com'
         ],
         connectSrc: ['\'self\''],
         mediaSrc: ['\'self\''],
-        frameSrc: ['\'none\'', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com'],
-        imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com']
+        frameSrc: ['\'none\''],
+        imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk']
       }
     });
 

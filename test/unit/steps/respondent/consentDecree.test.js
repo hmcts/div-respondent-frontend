@@ -96,19 +96,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'expandingPanel',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(ConsentDecree, {}, { ignoreContent });
+    return content(ConsentDecree, {}, { ignoreContent: [ 'expandingPanel' ] });
   });
 
   it('sets value for consent based on form fields', () => {
