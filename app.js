@@ -51,7 +51,9 @@ lookAndFeel.configure(app, {
     globals: {
       phase: 'BETA',
       feedbackLink: 'http://www.smartsurvey.co.uk/s/0QIL4/',
-      googleAnalyticsId: config.services.googleAnalytics.id
+      googleAnalyticsId: config.services.googleAnalytics.id,
+      webchat: config.services.webchat,
+      features: config.features
     }
   }
 });
@@ -63,6 +65,8 @@ app.use(idam.userDetails());
 app.get('/noJS.png', (req, res) => {
   res.send('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
 });
+
+app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
 
 app.use(accessLogger());
 

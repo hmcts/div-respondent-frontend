@@ -627,6 +627,17 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: DNDrafted', () => {
+    const session = {
+      caseState: 'DNDrafted'
+    };
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(ProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingDecreeNisi);
+    });
+  });
+
   describe('CCD state: AosAwaitingSol', () => {
     const session = {
       caseState: 'AosAwaitingSol',

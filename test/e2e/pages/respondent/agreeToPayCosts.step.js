@@ -3,7 +3,7 @@ const content = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.con
 
 function seeAgreeToPayCostsPage() {
   const I = this;
-  I.waitInUrl(AgreeToPayCosts.path, 5);
+  I.waitInUrl(AgreeToPayCosts.path, 15);
   I.seeCurrentUrlEquals(AgreeToPayCosts.path);
   I.waitForText(content.en.title, 2);
 }
