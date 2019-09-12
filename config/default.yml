@@ -147,6 +147,7 @@ coRespRespondableStates: [
   'DefendedDivorce',
   'AwaitingDecreeNisi',
   'DNAwaiting',
+  'DNDrafted',
   'AwaitingLegalAdvisorReferral'
 ]
 
@@ -167,6 +168,7 @@ caseStates:
   DefendedDivorce: 'DefendedDivorce'
   DivorceGranted: 'DivorceGranted'
   AosAwaitingSol: 'AosAwaitingSol'
+  DNDrafted: 'DNDrafted'
 
 features:
   idam: false

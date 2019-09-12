@@ -26,11 +26,14 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.wait(5);
   I.acknowledgeApplication();
   I.navByClick(content.en.continue);
+  if (config.tests.e2e.addWaitForCrossBrowser) {
+    I.wait(30);
 
-  if (parseBool(config.features.respSolicitorDetails)) {
-    I.seeSolicitorRepPage();
-    I.selectNoSolicitor();
-    I.click(content.en.continue);
+    if (parseBool(config.features.respSolicitorDetails)) {
+      I.seeSolicitorRepPage();
+      I.selectNoSolicitor();
+      I.click(content.en.continue);
+    }
   }
 
   I.seeChooseAResponsePage();

@@ -4,7 +4,7 @@ const content = require('steps/respondent/legal-proceedings/LegalProceedings.con
 function seeLegalProceedingPage() {
   const I = this;
 
-  I.waitInUrl(LegalProceedingPage.path, 5);
+  I.waitInUrl(LegalProceedingPage.path, 15);
   I.seeCurrentUrlEquals(LegalProceedingPage.path);
   I.waitForText(content.en.title, 5);
 }
