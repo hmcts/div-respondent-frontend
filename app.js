@@ -16,6 +16,7 @@ const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
 const httpStatus = require('http-status-codes');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const app = express();
 
@@ -53,7 +54,7 @@ lookAndFeel.configure(app, {
       feedbackLink: 'http://www.smartsurvey.co.uk/s/0QIL4/',
       googleAnalyticsId: config.services.googleAnalytics.id,
       webchat: config.services.webchat,
-      features: config.features
+      features: { webchat: parseBool(config.features.webchat) }
     }
   }
 });
