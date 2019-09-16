@@ -16,6 +16,7 @@ const setLocals = require('middleware/setLocalsMiddleware');
 const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
 const httpStatus = require('http-status-codes');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const app = express();
 
@@ -51,7 +52,9 @@ lookAndFeel.configure(app, {
     globals: {
       phase: 'BETA',
       feedbackLink: 'http://www.smartsurvey.co.uk/s/0QIL4/',
-      googleAnalyticsId: config.services.googleAnalytics.id
+      googleAnalyticsId: config.services.googleAnalytics.id,
+      webchat: config.services.webchat,
+      features: { webchat: parseBool(config.features.webchat) }
     }
   }
 });
@@ -63,6 +66,8 @@ app.use(idam.userDetails());
 app.get('/noJS.png', (req, res) => {
   res.send('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
 });
+
+app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
 
 app.use(accessLogger());
 

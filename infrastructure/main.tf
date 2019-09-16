@@ -26,7 +26,7 @@ data "azurerm_subnet" "core_infra_redis_subnet" {
 }
 
 module "redis-cache" {
-  source   = "git@github.com:hmcts/moj-module-redis?ref=master"
+  source   = "git@github.com:hmcts/cnp-module-redis?ref=master"
   product  = "${var.env != "preview" ? "${var.product}-redis" : "${var.product}-${var.reform_service_name}-redis"}"
   location = "${var.location}"
   env      = "${var.env}"
@@ -35,7 +35,7 @@ module "redis-cache" {
 }
 
 module "frontend" {
-  source                        = "git@github.com:hmcts/moj-module-webapp.git?ref=master"
+  source                        = "git@github.com:hmcts/cnp-module-webapp.git?ref=master"
   product                       = "${var.product}-${var.reform_service_name}"
   location                      = "${var.location}"
   env                           = "${var.env}"
@@ -115,6 +115,7 @@ module "frontend" {
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"
     FEATURE_RESP_SOLICITOR_DETAILS             = "${var.feature_resp_solicitor_details}"
+    FEATURE_WEBCHAT                            = "${var.feature_webchat}"
 
     DECREE_NISI_FRONTEND_URL = "${var.decree_nisi_frontend_url}"
     DECREE_ABSOLUTE_FRONTEND_URL = "${var.decree_absolute_frontend_url}"
@@ -127,6 +128,13 @@ module "frontend" {
     // Cache
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
     WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
+
+    // Webchat
+    WEBCHAT_CHAT_ID = "${var.webchat_chat_id}"
+    WEBCHAT_TENANT = "${var.webchat_tenant}"
+    WEBCHAT_BUTTON_NO_AGENTS = "${var.webchat_button_no_agents}"
+    WEBCHAT_BUTTON_AGENTS_BUSY = "${var.webchat_button_agents_busy}"
+    WEBCHAT_BUTTON_SERVICE_CLOSED = "${var.webchat_button_service_closed}"
 
     // Post code Lookup
     POST_CODE_URL          = "${var.post_code_url}"

@@ -214,6 +214,14 @@ describe(modulePath, () => {
   it('renders the content', () => {
     return content(Jurisdiction, defaultSession,
       { ignoreContent: [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
         'info',
         'cya',
         'jurisdictionConnectionBothDomiciled',
@@ -233,6 +241,14 @@ describe(modulePath, () => {
 
     return content(Jurisdiction, session,
       { ignoreContent: [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
         'info',
         'cya',
         'jurisdictionConnectionRespondent'
