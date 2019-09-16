@@ -1,10 +1,22 @@
+/* eslint-disable no-invalid-this */
 const request = require('request-promise-native');
 const CONF = require('config');
 const logger = require('services/logger').getLogger(__filename);
+const sanitizer = require('sanitizer');
+const traverse = require('traverse');
 
 const FORBIDDEN = 403;
 
 const COS_BASE_URI = `${CONF.services.caseOrchestration.baseUrl}`;
+
+const unescapeHtmlEntities = body => {
+  traverse(body).forEach(function sanitizeValue(value) {
+    if (this.isLeaf) {
+      const sanitizedValue = sanitizer.unescapeEntities(value);
+      this.update(sanitizedValue);
+    }
+  });
+};
 
 const getPetition = req => {
   const uri = `${COS_BASE_URI}/retrieve-aos-case?checkCcd=true`;
@@ -53,6 +65,9 @@ const sendCoRespondentResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-co-respondent-aos`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
+
+  unescapeHtmlEntities(body);
+
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
       logger.errorWithReq(req, 'send_response_error', 'Trying to connect to Case orchestration service error', error.message);
@@ -65,6 +80,8 @@ const sendAosResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-aos/${referenceNumber}`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
+
+  unescapeHtmlEntities(body);
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {

@@ -98,94 +98,152 @@ describe(modulePath, () => {
       });
   });
 
-  it('sends the user token and the body along with the request', () => {
-    // Arrange.
-    const body = { foo: 'bar' };
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      session: { referenceNumber: 123456789 }
-    };
+  context('respondent', () => {
+    it('sends the user token and the body along with the request', () => {
+      // Arrange.
+      const body = { foo: 'bar' };
+      const req = {
+        cookies: { '__auth-token': 'test' },
+        session: { referenceNumber: 123456789 }
+      };
 
-    sinon.stub(request, 'post')
-      .resolves({});
+      sinon.stub(request, 'post')
+        .resolves({});
 
-    // Act.
-    caseOrcestration.sendAosResponse(req, body);
-    // Assert.
-    expect(request.post.args[0][0]).to.eql({
-      uri: `${config.services.caseOrchestration.baseUrl}/submit-aos/123456789`,
-      body,
-      headers: { Authorization: 'test' },
-      json: true
+      // Act.
+      caseOrcestration.sendAosResponse(req, body);
+      // Assert.
+      expect(request.post.args[0][0]).to.eql({
+        uri: `${config.services.caseOrchestration.baseUrl}/submit-aos/123456789`,
+        body,
+        headers: { Authorization: 'test' },
+        json: true
+      });
+    });
+
+    it('unescapes any html entities', () => {
+      // Arrange.
+      const body = { foo: 'bar &amp; soap &gt;.&lt;' };
+      const expectedBody = { foo: 'bar & soap >.<' };
+      const req = {
+        cookies: { '__auth-token': 'test' },
+        session: { referenceNumber: 123456789 }
+      };
+
+      sinon.stub(request, 'post')
+        .resolves({});
+
+      // Act.
+      caseOrcestration.sendAosResponse(req, body);
+      // Assert.
+      expect(request.post.args[0][0]).to.eql({
+        uri: `${config.services.caseOrchestration.baseUrl}/submit-aos/123456789`,
+        body: expectedBody,
+        headers: { Authorization: 'test' },
+        json: true
+      });
+    });
+
+    it('throws error when send response fails', done => {
+      // Arrange.
+      const body = { foo: 'bar' };
+      const req = {
+        cookies: { '__auth-token': 'test' },
+        session: { referenceNumber: 123456789 }
+      };
+
+      sinon.stub(request, 'post')
+        .rejects({});
+
+      // Act.
+      caseOrcestration.sendAosResponse(req, body)
+        .then(() => {
+          Promise.reject(new Error('should not come here'));
+        }, () => {
+          done();
+        });
     });
   });
 
-  it('throws error when send response fails', done => {
-    // Arrange.
-    const body = { foo: 'bar' };
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      session: { referenceNumber: 123456789 }
-    };
+  context('co-respondent', () => {
+    it('sends the user token and the body along with the request', done => {
+      // given
+      const req = {
+        cookies: { '__auth-token': 'Bearer test' },
+        session: { referenceNumber: 123456789 }
+      };
+      const body = { foo: 'bar' };
 
-    sinon.stub(request, 'post')
-      .rejects({});
+      sinon.stub(request, 'post')
+        .resolves({});
 
-    // Act.
-    caseOrcestration.sendAosResponse(req, body)
-      .then(() => {
-        Promise.reject(new Error('should not come here'));
-      }, () => {
-        done();
-      });
-  });
+      // when
+      caseOrcestration.sendCoRespondentResponse(req, body)
+        .then(() => {
+          expect(request.post.calledOnce).to.be.true;
 
-  it('can  co-respondent send the petition', done => {
-    // given
-    const req = {
-      cookies: { '__auth-token': 'Bearer test' },
-      session: { referenceNumber: 123456789 }
-    };
-    const body = { foo: 'bar' };
+          expect(request.post.getCall(0).args[0])
+            .to
+            .eql({
+              headers: {
+                Authorization: 'Bearer test'
+              },
+              body,
+              json: true,
+              uri: 'http://localhost:3001/case-orchestration/submit-co-respondent-aos'
+            });
+        })
+        .then(done, done);
+    });
 
-    sinon.stub(request, 'post')
-      .resolves({});
+    it('unescapes any html entities', done => {
+      // given
+      const req = {
+        cookies: { '__auth-token': 'Bearer test' },
+        session: { referenceNumber: 123456789 }
+      };
+      const body = { foo: 'bar &amp; soap &gt;.&lt;' };
+      const expectedBody = { foo: 'bar & soap >.<' };
 
-    // when
-    caseOrcestration.sendCoRespondentResponse(req, body)
-      .then(() => {
-        expect(request.post.calledOnce).to.be.true;
+      sinon.stub(request, 'post')
+        .resolves({});
 
-        expect(request.post.getCall(0).args[0])
-          .to
-          .eql({
-            headers: {
-              Authorization: 'Bearer test'
-            },
-            body,
-            json: true,
-            uri: 'http://localhost:3001/case-orchestration/submit-co-respondent-aos'
-          });
-      })
-      .then(done, done);
-  });
+      // when
+      caseOrcestration.sendCoRespondentResponse(req, body)
+        .then(() => {
+          expect(request.post.calledOnce).to.be.true;
 
-  it('throws error when co-respondent response fails', done => {
-    const body = { foo: 'bar' };
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      session: { referenceNumber: 123456789 }
-    };
+          expect(request.post.getCall(0).args[0])
+            .to
+            .eql({
+              headers: {
+                Authorization: 'Bearer test'
+              },
+              body: expectedBody,
+              json: true,
+              uri: 'http://localhost:3001/case-orchestration/submit-co-respondent-aos'
+            });
+        })
+        .then(done, done);
+    });
 
-    sinon.stub(request, 'post')
-      .rejects({});
+    it('throws error send response fails', done => {
+      const body = { foo: 'bar' };
+      const req = {
+        cookies: { '__auth-token': 'test' },
+        session: { referenceNumber: 123456789 }
+      };
 
-    // Act.
-    caseOrcestration.sendCoRespondentResponse(req, body)
-      .then(() => {
-        Promise.reject(new Error('should not come here'));
-      }, () => {
-        done();
-      });
+      sinon.stub(request, 'post')
+        .rejects({});
+
+      // Act.
+      caseOrcestration.sendCoRespondentResponse(req, body)
+        .then(() => {
+          Promise.reject(new Error('should not come here'));
+        }, () => {
+          done();
+        });
+    });
   });
 });
