@@ -86,6 +86,7 @@ paths:
   privacyPolicy: /privacy-policy
   authenticated: /authenticated
   captureCaseAndPin: /respond-with-pin
+  accessibilityStatement: /accessibility-statement
   mock:
     idamLogin: /idam-mock-login
   respondent:
