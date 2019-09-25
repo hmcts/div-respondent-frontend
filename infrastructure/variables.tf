@@ -204,7 +204,7 @@ variable "evidence_management_download_endpoint" {
 }
 
 variable "feature_resp_solicitor_details" {
-  default = false
+  default = true
 }
 
 variable "feature_webchat" {
