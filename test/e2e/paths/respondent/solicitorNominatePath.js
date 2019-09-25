@@ -25,6 +25,14 @@ Scenario('If I nominate a solicitor I submit their details and do not respond', 
     I.fillInSolicitorForm();
     I.click(content.en.continue);
 
+    I.seeSolicitorAddressPage();
+    I.fillPostcodeSolicitorAddressForm();
+    I.click(content.en.continue);
+
+    I.seeConfirmSolicitorAddress();
+    I.confirmSolicitorAddress();
+    I.click(content.en.continue);
+
     I.seeCheckYourAnswersPage();
     I.confirmInformationIsTrue();
     I.submitApplication();

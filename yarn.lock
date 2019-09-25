@@ -350,7 +350,7 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@^4.0.0":
+"@hmcts/one-per-page-test-suite@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-4.0.2.tgz#010109e806618aba6f20f2b4fbd35e06cf0d42d4"
   integrity sha512-as8ivKnimjoEfAv5fMon/5cA40kToGPhWQFrEcJ5ROAko5RaUWINb9BlQPsNRUThvd+fcxbS6VNoGj3OCTGa3g==
@@ -380,7 +380,7 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@^5.2.1", "@hmcts/one-per-page@^5.2.3":
+"@hmcts/one-per-page@^5.2.3":
   version "5.2.3"
   resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-5.2.3.tgz#ea1cdcae5e35758c9c3f54955236299b287967e6"
   integrity sha512-N13dF3a2IlYiWr0MLzjmxtmYZJcJFZpeD2I9WaD0iVpr20KTTxk7UeJdmKW98piwXJGRXAY6S7gJkgK3hejsWw==

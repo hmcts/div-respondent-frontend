@@ -129,11 +129,16 @@ module "frontend" {
     WEBSITE_LOCAL_CACHE_OPTION = "${var.website_local_cache_option}"
     WEBSITE_LOCAL_CACHE_SIZEINMB = "${var.website_local_cache_sizeinmb}"
 
+    // Webchat
     WEBCHAT_CHAT_ID = "${var.webchat_chat_id}"
     WEBCHAT_TENANT = "${var.webchat_tenant}"
     WEBCHAT_BUTTON_NO_AGENTS = "${var.webchat_button_no_agents}"
     WEBCHAT_BUTTON_AGENTS_BUSY = "${var.webchat_button_agents_busy}"
     WEBCHAT_BUTTON_SERVICE_CLOSED = "${var.webchat_button_service_closed}"
+
+    // Post code Lookup
+    POST_CODE_URL          = "${var.post_code_url}"
+    POST_CODE_ACCESS_TOKEN = "${data.azurerm_key_vault_secret.post_code_token.value}"
   }
 }
 
@@ -154,5 +159,10 @@ data "azurerm_key_vault_secret" "session_secret" {
 
 data "azurerm_key_vault_secret" "redis_secret" {
   name      = "redis-secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "post_code_token" {
+  name      = "os-places-token"
   vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
 }

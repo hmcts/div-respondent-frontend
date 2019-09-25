@@ -1,0 +1,30 @@
+{
+  "en": {
+    "title": "What is your solicitors address?",
+    "noUkPostcode": "I can’t enter a UK postcode",
+    "confirmAddressTitle": "Is this your solicitors address?",
+    "manualAddressTitle": "Enter your solicitors full address",
+    "enterUkPostcode": "Enter a uk postcode",
+    "fields": {
+      "postcode": {
+        "label": "Enter a UK postcode"
+      },
+      "address": {},
+      "selectedAddress": {
+        "label": "Pick an address"
+      },
+      "confirmAddress": {
+        "label": "Do you want to use this address for your solicitor?",
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "errors": {
+      "postcode": "No addresses found. Enter a postcode to search again",
+      "selectedAddress": "Select an address",
+      "confirmAddress": "Do you want to use this address for your solicitor?",
+      "manualAddress": "Enter full address",
+      "editAddress": "You must fill at least 1 line of the address"
+    }
+  }
+}

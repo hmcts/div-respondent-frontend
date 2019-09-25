@@ -75,6 +75,9 @@ services:
     buttonNoAgents: 7732814745cac6f4603c4d1.53357933
     buttonAgentsBusy: 2042157415cc19c95669039.65793052
     buttonServiceClosed: 20199488815cc1a89e0861d5.73103009
+  postcode:
+    baseUrl: http://localhost:3001/postcode-lookup
+    token:
 
 paths:
   health: /health
@@ -109,6 +112,7 @@ paths:
     noConsentAreYouSure: /no-consent-are-you-sure
     progressBar: /progress-bar
     done: /done
+    solicitorAddress: /solicitor-address
   coRespondent:
     respond: /co-respondent/progress-bar/respond
     progressBar: /co-respondent/progress-bar

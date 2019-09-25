@@ -1,0 +1,25 @@
+{% if fields.selectedAddress.value and fields.selectedAddress.valid %}
+
+    {% call form(
+        postUrl=postUrlEditAddress,
+        submitValue=defaultAddressContent.editAddressLinesSubmit
+    ) %}
+
+        {% for fieldName, item in fields.address.fields %}
+          {% if item and item.value %}
+            <div class="govuk-form-group {{ errorClass(item) }}">
+                <label class="govuk-label visually-hidden" for="{{ safeId(item.id) }}">{{ defaultAddressContent.addressLineLabelPreNum }} {{ loop.index }}</label>
+
+                {{ errorsFor(item) }}
+                <input class="govuk-input govuk-input--width-20"
+                       id="{{ safeId(item.id) }}"
+                       name="{{ item.id }}"
+                       type="text"
+                       value="{{ item.value | safe }}">
+            </div>
+          {% endif %}
+        {% endfor %}
+
+    {% endcall %}
+
+{% endif %}

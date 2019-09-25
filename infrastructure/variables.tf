@@ -210,7 +210,7 @@ variable "feature_resp_solicitor_details" {
 variable "feature_webchat" {
   default = false
 }
-    
+
 variable "webchat_chat_id" {
   type = "string"
   default = "3833071605d5d4518036a09.30917386"
@@ -234,4 +234,8 @@ variable "webchat_button_agents_busy" {
 variable "webchat_button_service_closed" {
   type = "string"
   default = "20199488815cc1a89e0861d5.73103009"
+}
+
+variable "post_code_url" {
+  default = "https://api.ordnancesurvey.co.uk/places/v1"
 }
