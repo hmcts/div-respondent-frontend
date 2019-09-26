@@ -93,7 +93,8 @@
     "lodash": "^4.17.11",
     "mem": "^4.0.0",
     "marked": ">=0.7.0",
-    "assign-deep": ">=1.0.1"
+    "assign-deep": ">=1.0.1",
+    "handlebars": ">=4.3.0"
   },
   "nyc": {
     "report-dir": "coverage",
