@@ -1,0 +1,25 @@
+{% call form(
+    postUrl=postUrlConfirmAddress,
+    submitValue=defaultAddressContent.confirmAddressSubmit
+) %}
+
+    <p class="govuk-body">
+        {% for fieldName, item in fields.address.fields %}
+          {% if item %}
+            {{ item.value | safe }}<br>
+          {% endif %}
+        {% endfor %}
+    </p>
+
+    {{ selectionButtons(fields.confirmAddress, content.fields.confirmAddress.label,
+      options = [
+        { label: content.fields.confirmAddress.yes, value: "yes" },
+        { label: content.fields.confirmAddress.no, value: "no"}
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+
+{% endcall %}

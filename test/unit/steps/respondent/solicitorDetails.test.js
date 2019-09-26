@@ -1,6 +1,6 @@
 const modulePath = 'steps/respondent/solicitor-details/SolicitorDetails.step';
 const SolicitorDetails = require(modulePath);
-const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
+const SolicitorAddress = require('steps/respondent/solicitor-address/SolicitorAddress.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const SolicitorDetailsContent = require(
@@ -45,7 +45,7 @@ describe(modulePath, () => {
       'solicitorDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(SolicitorDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(SolicitorDetails, fields, SolicitorAddress);
   });
 
   it('redirects to next page when all details except Solicitor Name, are supplied', () => {
@@ -58,7 +58,7 @@ describe(modulePath, () => {
       'solicitorDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(SolicitorDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(SolicitorDetails, fields, SolicitorAddress);
   });
 
   it('shows error when invalid phone number supplied', () => {

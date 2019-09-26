@@ -44,6 +44,7 @@
     "glob": "^7.1.2",
     "helmet": "^3.12.0",
     "hpkp": "^2.0.0",
+    "html-entities": "^1.2.1",
     "i18next": "^11.3.1",
     "ioredis": "^3.2.2",
     "joi": "^13.3.0",
@@ -58,7 +59,7 @@
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.5.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#0.1",
-    "@hmcts/one-per-page-test-suite": "^4.0.0",
+    "@hmcts/one-per-page-test-suite": "^4.0.2",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
@@ -92,7 +93,8 @@
     "lodash": "^4.17.11",
     "mem": "^4.0.0",
     "marked": ">=0.7.0",
-    "assign-deep": ">=1.0.1"
+    "assign-deep": ">=1.0.1",
+    "handlebars": ">=4.3.0"
   },
   "nyc": {
     "report-dir": "coverage",
