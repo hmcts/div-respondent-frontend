@@ -145,6 +145,7 @@ tests:
 
 coRespRespondableStates: [
   'AosAwaiting',
+  'AosAwaitingSol',
   'AosStarted',
   'AosOverdue',
   'AosCompleted',
