@@ -34,7 +34,7 @@
     "@hmcts/look-and-feel": "^4.0.3",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
-    "@hmcts/one-per-page": "^5.2.3",
+    "@hmcts/one-per-page": "^5.3.0",
     "@hmcts/properties-volume": "^0.0.9",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
