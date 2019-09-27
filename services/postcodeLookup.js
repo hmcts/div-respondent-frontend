@@ -1,9 +1,6 @@
 const config = require('config');
 const request = require('request-promise-native');
 const logger = require('services/logger').getLogger(__filename);
-const Entities = require('html-entities').AllHtmlEntities;
-
-const entities = new Entities();
 
 const cleanLine = function(line) {
   return line.replace(' null', ' ').replace('null ', ' ')
@@ -73,10 +70,8 @@ const buildConcatenatedAddress = function(address) { // eslint-disable-line comp
 const formatAddress = address => {
   const addressAsArray = buildConcatenatedAddress(address);
   const addressAsString = addressAsArray.join('\r\n');
-  // ensure any html entities are encoded i.e. & becomes &amp;
-  const addressEncoded = entities.encode(addressAsString);
 
-  return addressEncoded;
+  return addressAsString;
 };
 
 const postcodeLookup = postcode => {
