@@ -37,22 +37,6 @@ describe(modulePath, () => {
       expect(address).to.eql('1, WILBERFORCE ROAD\r\nLONDON\r\nN4 2SW');
     });
 
-    it('encodes html entities', () => {
-      const testAddress = {
-        DPA: {
-          BUILDING_NUMBER: '2 & 3',
-          THOROUGHFARE_NAME: 'WILBERFORCE ROAD',
-          POST_TOWN: 'LONDON',
-          POSTCODE: 'N4 2SW',
-          ADDRESS: '2, WILBERFORCE ROAD, LONDON, N4 2SW'
-        }
-      };
-
-      const address = postcodeLookupService.formatAddress(testAddress);
-
-      expect(address).to.eql('2 &amp; 3, WILBERFORCE ROAD\r\nLONDON\r\nN4 2SW');
-    });
-
     it('should format addresses correctly for EC1V 2PD', () => {
       const testAddress = {
         DPA: {
