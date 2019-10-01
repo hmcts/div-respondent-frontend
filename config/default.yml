@@ -181,7 +181,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
-  respSolicitorDetails: false
+  respSolicitorDetails: true
   webchat: false
 
 journey:
