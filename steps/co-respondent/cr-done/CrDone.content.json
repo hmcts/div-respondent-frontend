@@ -13,9 +13,9 @@
     "objectingToCostsOrderText2":"You can contact the Courts and Tribunals Service Centre if you don't hear anything back after 6 weeks.",
 
     "ifYouNeedHelp": "If you need help",
-    "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\">solicitor or legal adviser</a>.",
+    "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\" aria-label=\"Find a legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
     "helpImproveHeading": "Help us improve this service",
-    "helpImproveText": "Please help us improve this service by <a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\">leaving your feedback</a>.",
+    "helpImproveText": "Please help us improve this service by <a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\" aria-label=\"Leave feedback link, This link will open in a new tab.\">leaving your feedback</a>.",
 
     "yourCourt": "Your divorce centre",
     "email": "Email",
@@ -25,17 +25,17 @@
     "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
     "guidance": {
       "title": "Guidance on GOV.UK",
-      "howWifeHusbandResponds": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How to respond to a divorce application</a>",
-      "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Get a divorce</a>",
-      "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
-      "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+      "howWifeHusbandResponds": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"How to respond to a divorce application, This link will open in a new tab.\">How to respond to a divorce application</a>",
+      "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
+      "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>"
     },
 
     "whatYouNeedToDoNow": "What you need to do now",
-    "submitAnswerToDivorce": "You must now submit the <a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">'answer to a divorce application'</a> form. The deadline for the court to receive this is 21 days from the date you first signed in to respond to the divorce application.",
+    "submitAnswerToDivorce": "You must now submit the <a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"Answer to a divorce application link, This link will open in a new tab.\">'answer to a divorce application'</a> form. The deadline for the court to receive this is 21 days from the date you first signed in to respond to the divorce application.",
     "fillInPaperForm": "Download and fill in the paper form.",
     "postFormTo": "Post the form to:",
-    "feeToPay": "You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get help with paying this fee</a>.",
+    "feeToPay": "You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Get help with paying this fee link, This link will open in a new tab.\">get help with paying this fee</a>.",
     "hearingAboutDivorce": "You may have to go to a hearing about the divorce.",
     "dontSubmitAnswer": "If you don't submit your answer before the deadline, then the applicant can continue the divorce as if you hadn't said that you intended to defend it."
   }
