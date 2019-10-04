@@ -1,0 +1,16 @@
+{% call form(
+    postUrl=postManualAddress,
+    submitValue=defaultAddressContent.manualAddressSubmit
+) %}
+
+    {{ textarea(
+      fields.manualAddress,
+      defaultAddressContent.manualAddressTitle,
+      bold=true
+    ) }}
+
+    <a href="{{ path }}" class="govuk-link">{{ defaultAddressContent.enterUkPostcode }}</a>
+
+    <br><br>
+
+{% endcall %}

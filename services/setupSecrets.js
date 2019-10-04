@@ -13,6 +13,7 @@ const setupSecrets = () => {
     setSecret('secrets.div.session-secret', 'session.secret');
     setSecret('secrets.div.redis-secret', 'services.redis.encryptionAtRestKey');
     setSecret('secrets.div.idam-secret', 'services.idam.secret');
+    setSecret('secrets.div.os-places-token', 'services.postcode.token');
   }
 };
 
