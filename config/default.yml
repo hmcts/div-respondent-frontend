@@ -145,6 +145,7 @@ tests:
 
 coRespRespondableStates: [
   'AosAwaiting',
+  'AosAwaitingSol',
   'AosStarted',
   'AosOverdue',
   'AosCompleted',
@@ -180,7 +181,7 @@ features:
   agreeToCosts:
     differentAmount:
       enabled: false
-  respSolicitorDetails: false
+  respSolicitorDetails: true
   webchat: false
 
 journey:

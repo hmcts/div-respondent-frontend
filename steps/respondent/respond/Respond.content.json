@@ -21,11 +21,11 @@
     "divorceCenterHours": "Monday to Friday, 8.30am to 5pm",
     "guidance": {
       "title": "Guidance on GOV.UK",
-      "howWifeHusbandResponds": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Responding to a divorce application</a>",
-      "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
-      "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
-      "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
-      "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+      "howWifeHusbandResponds": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"Responding to a divorce application link, This link will open in a new tab.\">Responding to a divorce application</a>",
+      "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
+      "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
+      "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>"
     },
     "downloadDocuments": "Download your documents",
     "files": {
