@@ -94,7 +94,7 @@ module "frontend" {
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
 
-    // Google Anayltics
+    // Google Analytics
     GOOGLE_ANALYTICS_ID           = "${var.google_analytics_tracking_id}"
     GOOGLE_ANALYTICS_TRACKING_URL = "${var.google_analytics_tracking_url}"
 
@@ -112,6 +112,10 @@ module "frontend" {
 
     //Case Maintenence
     CASE_MAINTENANCE_BASE_URL = "${local.div_cms_url}"
+
+    // Smart Survey
+    SMARTSURVEY_FEEDBACK_URL      = "${var.survey_feedback_url}"
+    SMARTSURVEY_FEEDBACK_DONE_URL = "${var.survey_feedback_done_url}"
 
     // Feature toggling through config
     FEATURE_IDAM                               = "${var.feature_idam}"

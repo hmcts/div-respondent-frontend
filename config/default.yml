@@ -79,6 +79,10 @@ services:
     baseUrl: http://localhost:3001/postcode-lookup
     token:
 
+commonProps:
+  smartSurveyFeedbackUrl: 'http://www.example.com/'
+  smartSurveyFeedbackDonePageUrl: 'http://www.example.com/'
+
 paths:
   health: /health
   index: /

@@ -44,8 +44,7 @@
     "ifYouNeedHelp": "If you need help",
     "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\" aria-label=\"Solicitor or legal adviser link, this link opens a new window.\">solicitor or legal adviser</a>.",
     "helpImproveHeading": "Help us improve this service",
-    "helpImproveText": "Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Respondent?pageurl=/done\" aria-label=\"Leaving your feedback link.\">leaving your feedback</a>.",
-
+    "helpImproveText": "Please help us improve this service by ",
     "solHeading": "You have nominated a solicitor",
     "nominatedSol": "You have nominated a solicitor to respond to your {{ session.divorceWho }}'s divorce application on your behalf.",
     "solSubHeading": "What happens next",
