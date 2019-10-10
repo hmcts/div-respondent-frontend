@@ -1,5 +1,7 @@
 nodejs:
     applicationPort: 3000
+    image: "hmctspublic.azurecr.io/div/rfe:latest"
+    ingressHost: "div-rfe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal" # override in public facing environments
     environment:
         GOOGLE_ANALYTICS_ID: ""
         GOOGLE_ANALYTICS_TRACKING_URL: "http://www.google-analytics.com/collect"
@@ -9,8 +11,7 @@ nodejs:
         RATE_LIMITER_ENABLED: "false"
         RATE_LIMITER_TOTAL: "3600"
         RATE_LIMITER_EXPIRE: "3600000"
-        LOG_LEVEL: "DEBUG"
-        PROXY_URL: "http://proxyout.reform.hmcts.net:8080"
+
         WEBCHAT_CHAT_ID: 3833071605d5d4518036a09.30917386
         WEBCHAT_TENANT: aG1jdHNzdGFnaW5nMDE
         WEBCHAT_BUTTON_NO_AGENTS: 7732814745cac6f4603c4d1.53357933
@@ -18,14 +19,25 @@ nodejs:
         WEBCHAT_BUTTON_SERVICE_CLOSED: 20199488815cc1a89e0861d5.73103009
         POST_CODE_URL: "https://api.ordnancesurvey.co.uk/places/v1"
 
+        REFORM_ENVIRONMENT: "{{ .Values.global.environment }}"
+        IDAM_API_URL: "https://idam-api.{{ .Values.global.environment }}.platform.hmcts.net"
+        IDAM_LOGIN_URL: "https://idam-web-public.{{ .Values.global.environment }}.platform.hmcts.net/login"
+        COS_BASE_URL: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
+        FEES_AND_PAYMENTS_URL: "http://div-fps-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
+        DECREE_NISI_FRONTEND_URL: "https://div-dn-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
+        DECREE_ABSOLUTE_FRONTEND_URL: "https://div-da-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
+        CASE_MAINTENANCE_BASE_URL: "http://div-cms-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
+        EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
+        EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT: "/emclientapi/version/1/download"
+
     keyVaults:
-        "div":
-            resourceGroup: div
+        div:
             secrets:
                 - session-secret
                 - redis-secret
                 - idam-secret
                 - os-places-token
+                - rfe-redis-connection-string
 
 redis:
     cluster:

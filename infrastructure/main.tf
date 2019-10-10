@@ -1,5 +1,5 @@
 provider "azurerm" {
-  version = "1.19.0"
+  version = "1.22.1"
 }
 
 locals {
@@ -23,6 +23,12 @@ data "azurerm_subnet" "core_infra_redis_subnet" {
   name                 = "core-infra-subnet-1-${var.env}"
   virtual_network_name = "core-infra-vnet-${var.env}"
   resource_group_name  = "core-infra-${var.env}"
+}
+
+resource "azurerm_key_vault_secert" "redis_connection_string" {
+  name = "${var.component}-redis-connection-string"
+  value = "redis://ignore:${urlencode(module.redis-cache.access_key)}@${module.redis-cache.host_name}:${module.redis-cache.redis_port}?tls=true"
+  key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
 }
 
 module "redis-cache" {
@@ -150,20 +156,20 @@ data "azurerm_key_vault" "div_key_vault" {
 
 data "azurerm_key_vault_secret" "idam_secret" {
   name      = "idam-secret"
-  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "session_secret" {
   name      = "session-secret"
-  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "redis_secret" {
   name      = "redis-secret"
-  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
 }
 
 data "azurerm_key_vault_secret" "post_code_token" {
   name      = "os-places-token"
-  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+  key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
 }

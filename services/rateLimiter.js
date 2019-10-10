@@ -2,8 +2,10 @@ const config = require('config');
 const redis = require('./redis');
 const expressLimiter = require('express-limiter');
 
+const { parseBool } = require('@hmcts/one-per-page/util');
+
 module.exports = app => {
-  if (!config.services.rateLimiter.enabled) {
+  if (!parseBool(config.services.rateLimiter.enabled)) {
     return false;
   }
 
