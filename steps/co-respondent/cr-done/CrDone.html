@@ -72,7 +72,9 @@
 <p class="govuk-body">{{ content.ifYouNeedHelpText | safe }}</p>
 
 <h2 class="govuk-heading-m">{{ content.helpImproveHeading }}</h2>
-<p class="govuk-body">{{ content.helpImproveText | safe }}</p>
+<p class="govuk-body">{{ content.helpImproveText | safe }}
+    <a class="govuk-link" href="{{ feedbackDoneLink }}" target="_blank" aria-label="This link will open in a new tab.">leaving your feedback</a>
+</p>
 {% endblock %}
 
 {% block one_third %}
