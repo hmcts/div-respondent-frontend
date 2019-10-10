@@ -72,7 +72,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(0).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.idam.apiHealth);
+      expect(callArgs[0]).to.eql(`${config.services.idam.apiUrl}/health`);
 
       const idamCallback = callArgs[1].callback;
       idamCallback(null, res);
@@ -86,7 +86,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(0).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.idam.apiHealth);
+      expect(callArgs[0]).to.eql(`${config.services.idam.apiUrl}/health`);
 
       const idamCallback = callArgs[1].callback;
       idamCallback('error');
@@ -102,7 +102,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(1).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.caseOrchestration.health);
+      expect(callArgs[0]).to.eql(`${config.services.caseOrchestration.baseUrl}/health`);
 
       const cosCallback = callArgs[1].callback;
       cosCallback(null, res);
@@ -116,7 +116,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(1).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.caseOrchestration.health);
+      expect(callArgs[0]).to.eql(`${config.services.caseOrchestration.baseUrl}/health`);
 
       const cosCallback = callArgs[1].callback;
       cosCallback('error');
@@ -132,7 +132,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(2).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.feesAndPayments.health);
+      expect(callArgs[0]).to.eql(`${config.services.feesAndPayments.baseUrl}/health`);
 
       const feesCallback = callArgs[1].callback;
       feesCallback(null, res);
@@ -146,7 +146,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(2).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.feesAndPayments.health);
+      expect(callArgs[0]).to.eql(`${config.services.feesAndPayments.baseUrl}/health`);
 
       const feesCallback = callArgs[1].callback;
       feesCallback('error');
@@ -162,7 +162,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(3).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.evidenceManagement.health);
+      expect(callArgs[0]).to.eql(`${config.services.evidenceManagement.baseUrl}/health`);
 
       const evidenceManagementCallback = callArgs[1].callback;
       evidenceManagementCallback(null, res);
@@ -176,7 +176,7 @@ describe(modulePath, () => {
       const callArgs = healthcheck.web.getCall(3).args;
 
       // check we are testing correct service
-      expect(callArgs[0]).to.eql(config.services.evidenceManagement.health);
+      expect(callArgs[0]).to.eql(`${config.services.evidenceManagement.baseUrl}/health`);
 
       const evidenceManagementCallback = callArgs[1].callback;
       evidenceManagementCallback('error');
