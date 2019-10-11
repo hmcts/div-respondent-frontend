@@ -35,6 +35,8 @@ class IdamHelper extends Helper {
     return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
       .then(() => {
         logger.infoWithReq(null, 'idam_user_created', 'Created IDAM test user', testEmail);
+        logger.infoWithReq(null, 'idam_args', 'IdamArgs', idamArgs);
+        logger.infoWithReq(null, 'idam_proxy', 'Proxy', config.tests.e2e.proxy);
         return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
       })
       .then(response => {
