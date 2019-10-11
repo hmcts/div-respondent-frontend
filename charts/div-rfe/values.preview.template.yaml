@@ -4,6 +4,7 @@ idam-pr:
       - https://${SERVICE_FQDN}/authenticated
 
 nodejs:
+    aadIdentityName:
     environment:
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         LOG_LEVEL: "DEBUG"
