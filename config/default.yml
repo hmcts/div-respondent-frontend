@@ -185,7 +185,7 @@ features:
     differentAmount:
       enabled: false
   respSolicitorDetails: true
-  webchat: false
+  webchat: true
 
 journey:
   timeoutDelay: 300
