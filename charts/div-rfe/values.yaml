@@ -1,5 +1,6 @@
 nodejs:
     applicationPort: 3000
+    aadIdentityName: divorce
     image: "hmctspublic.azurecr.io/div/rfe:latest"
     ingressHost: "div-rfe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal" # override in public facing environments
     environment:
@@ -38,6 +39,7 @@ nodejs:
                 - idam-secret
                 - os-places-token
                 - rfe-redis-connection-string
+                - AppInsightsInstrumentationKey
 
 redis:
     cluster:
@@ -47,3 +49,7 @@ redis:
     master:
         persistence:
             enabled: false
+
+tags:
+  idam-pr: false
+  pr: false
