@@ -9,7 +9,6 @@ nodejs:
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         LOG_LEVEL: "DEBUG"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
-        FEATURE_WEBCHAT: "true"
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
