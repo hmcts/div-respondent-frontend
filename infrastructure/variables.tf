@@ -208,7 +208,7 @@ variable "feature_resp_solicitor_details" {
 }
 
 variable "feature_webchat" {
-  default = false
+  default = true
 }
 
 variable "webchat_chat_id" {
