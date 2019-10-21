@@ -255,9 +255,10 @@
     request-promise-native "^1.0.7"
     socks5-https-client "^1.2.1"
 
-"@hmcts/div-test-harness@https://github.com/hmcts/div-test-harness#0.1":
-  version "1.0.0"
-  resolved "https://github.com/hmcts/div-test-harness#a459aaa16a92cb13e0dac35c32bf559ad79de6a6"
+"@hmcts/div-test-harness@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@hmcts/div-test-harness/-/div-test-harness-1.0.4.tgz#5da6023e1bd50ba30ddefbb202b4c9efe36cb864"
+  integrity sha512-ga3XOfSkX3DIyKclzWOJ5C8BprpJ+tyX1eUrNswY9mhyfMgMXI/M6jsKKev09jlJmPUr6wKIBDvYcTkAD2m9eQ==
   dependencies:
     "@hmcts/nodejs-logging" "^3.0.0"
     request "^2.88.0"
