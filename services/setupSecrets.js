@@ -11,9 +11,11 @@ const setSecret = (secretPath, configPath) => {
 const setupSecrets = () => {
   if (config.has('secrets.div')) {
     setSecret('secrets.div.session-secret', 'session.secret');
+    setSecret('secrets.div.rfe-redis-connection-string', 'services.redis.url');
     setSecret('secrets.div.redis-secret', 'services.redis.encryptionAtRestKey');
     setSecret('secrets.div.idam-secret', 'services.idam.secret');
     setSecret('secrets.div.os-places-token', 'services.postcode.token');
+    setSecret('secrets.div.AppInsightsInstrumentationKey', 'applicationInsights.instrumentationKey');
   }
 };
 

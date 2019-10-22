@@ -14,8 +14,8 @@
     "chatWithAnAgent": "Chat online with an agent",
     "noAgentsAvailable": "No agents are available, please try again later.",
     "allAgentsBusy": "All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
-    "chatClosed": "Web chat is now closed.\\nOpening hours are Monday to Friday, 9:30am to 5pm.",
+    "chatClosed": "Web chat is now closed.\\nOpening hours are Monday to Friday, 8:30am to 5pm.",
     "chatAlreadyOpen": "A web chat window is already open.",
-    "chatOpeningHours": "Monday to Friday, 9:30am to 5pm."
+    "chatOpeningHours": "Monday to Friday, 8:30am to 5pm."
   }
 }
