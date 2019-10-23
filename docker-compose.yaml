@@ -1,3 +1,5 @@
+app:
+  build: .
 redis:
   image: redis
   ports:
