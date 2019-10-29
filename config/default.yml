@@ -175,6 +175,7 @@ caseStates:
   DivorceGranted: 'DivorceGranted'
   AosAwaitingSol: 'AosAwaitingSol'
   DNDrafted: 'DNDrafted'
+  DNisRefused: 'DNisRefused'
 
 features:
   idam: false

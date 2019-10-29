@@ -34,7 +34,7 @@ const caseStateMap = [
   },
   {
     template: './sections/TwoCircleFilledIn.html',
-    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted']
+    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted', 'DNisRefused']
   },
   {
     template: './sections/TwoCircleFilledInBold.html',
@@ -61,7 +61,8 @@ const caseStatesBeyondAos = [
   caseStates.DNDrafted,
   caseStates.AwaitingReissue,
   caseStates.DivorceGranted,
-  caseStates.AwaitingPronouncement
+  caseStates.AwaitingPronouncement,
+  caseStates.DNisRefused
 ];
 
 module.exports = { progressStates, values, caseStateMap, caseStatesBeyondAos };

@@ -42,7 +42,8 @@ class IdamLogin extends Question {
       'coRespDNPronouncedWithCosts',
       'coRespDNPronouncedWithoutCosts',
       'throwError',
-      'yesDecreeNisiPronouncement'
+      'yesDecreeNisiPronouncement',
+      'dnIsRefused'
     ];
     const validAnswers = Joi.string()
       .valid(answers)
