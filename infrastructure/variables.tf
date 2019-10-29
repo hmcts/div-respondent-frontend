@@ -146,14 +146,6 @@ variable "hpkp_shas" {
   default = "Naw+prhcXSIkbtYJ0t7vAD+Fc92DWL9UZevVfWBvids=,klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=,grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="
 }
 
-variable "survey_feedback_url" {
-  default = "http://www.smartsurvey.co.uk/s/0QIL4"
-}
-
-variable "survey_feedback_done_url" {
-  default = "http://www.smartsurvey.co.uk/s/8RR1T"
-}
-
 variable "component" {
   type = "string"
 }
