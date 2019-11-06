@@ -1,6 +1,6 @@
 #!groovy
 
-@Library("Infrastructure")
+@Library("Infrastructure@upgrade-helm-3")
 
 String product = "div"
 String component = "rfe"
