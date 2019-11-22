@@ -28,17 +28,6 @@ while !(curl -s http://0.0.0.0:1001) > /dev/null
   curl --fail http://0.0.0.0:1001/OTHER/core/other/jsonreport/?formMethod=GET --output report.json
   cp *.* functional-output/
 
-if [ -f zapKnownIssues.xml ]; then
-
-egrep -v "<uri>|<solution>|<otherinfo>|generated.*>" zapKnownIssues.xml > zapKnownIssuesUpdated.xml
-egrep -v "<uri>|<solution>|<otherinfo>|generated.*>" functional-output/activescanReport.xml > functional-output/activescanReportUpated.xml
-
-  if diff -q zapKnownIssuesUpdated.xml functional-output/activescanReportUpated.xml --ignore-all-space > output.xml 2>&1; then
-    echo
-    echo Ignorning known vulnerabilities
-    exit 0
-  fi
-fi
 
 echo
 echo ZAP Security vulnerabilities were found that were not ignored
@@ -49,7 +38,7 @@ echo fixes and they do not apply to production, you may ignore them
 echo
 echo To ignore these vulnerabilities, add them to:
 echo
-echo "./zapKnownIssues.xml"
+echo "./audit.json"
 echo
 echo and commit the change
 
