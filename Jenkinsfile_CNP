@@ -29,6 +29,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withPipeline("nodejs", product, component) {
   enableDockerBuild()
   installCharts()
+  enableAksStagingDeployment()
 
   loadVaultSecrets(secrets)
 
