@@ -30,6 +30,7 @@ withPipeline("nodejs", product, component) {
   enableDockerBuild()
   installCharts()
   enableAksStagingDeployment()
+  disableLegacyDeployment()
 
   loadVaultSecrets(secrets)
 
