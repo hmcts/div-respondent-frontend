@@ -56,7 +56,7 @@ module "frontend" {
   asp_rg                        = "${local.asp_rg}"
   appinsights_instrumentation_key = "${var.appinsights_instrumentation_key}"
   instance_size                 = "I3"
-
+  enable_ase                    = "${var.enable_ase}"
 
   app_settings = {
 
