@@ -42,4 +42,4 @@ echo "./audit.json"
 echo
 echo and commit the change
 
-zap-cli --zap-url http://0.0.0.0 -p 1001 alerts -l Low --exit-code False
+zap-cli -p 1001 alerts -l High
