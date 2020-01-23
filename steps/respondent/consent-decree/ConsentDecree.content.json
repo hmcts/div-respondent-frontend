@@ -27,5 +27,34 @@
       "consentRequired": "Select if you consent to a divorce or not",
       "defenceRequired": "Select if you want to defend or not"
     }
+  },
+  "cy": {
+    "title": "[CY] Do you agree to a divorce?",
+    "infoPara1": "[CY] Your {{ session.divorceWho }} has based the breakdown of the marriage on the fact that you have been separated for 2 years, and that you give your consent (agreement) to a divorce.",
+    "infoPara2": "[CY] The court must have your consent for the divorce to continue on these grounds.",
+    "expandingPanel": {
+      "heading": "[CY] What happens if you don't agree",
+      "contentPara1": "[CY] If you don't agree, then the divorce won't be able to continue based on 2 years separation with consent.",
+      "contentPara2": "[CY] The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.",
+      "contentPara3": "[CY] Your {{ session.divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs."
+    },
+    "fields": {
+      "consentDecree": {
+        "header": "[CY] Do you consent to a divorce?",
+        "labelYes": "[CY] Yes, I give my consent",
+        "labelNo": "[CY] No, I don't give my consent"
+      },
+      "willDefend": {
+        "header": "[CY] Do you want to defend the divorce?",
+        "labelYes": "[CY] Yes, I want to defend",
+        "labelNo": "[CY] No, I don't want to defend",
+        "answerNo": "[CY] I will let the divorce proceed and won't try to prevent it (I don't intend to 'defend' it).",
+        "answerYes": "[CY] I will try to prevent the divorce based on this application (I intend to 'defend' it)"
+      }
+    },
+    "errors": {
+      "consentRequired": "[CY] Select if you consent to a divorce or not",
+      "defenceRequired": "[CY] Select if you want to defend or not"
+    }
   }
 }

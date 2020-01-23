@@ -28,5 +28,35 @@
       "requireValidTelephoneNo": "Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
       "requireConsent": "You must agree to receive notifications and court documents by email to use this service."
     }
+  },
+  "cy": {
+    "title": "[CY] How the court will contact you",
+    "contactMethods": {
+      "email": {
+        "heading": "[CY] By email",
+        "intro": "[CY] You need to receive emails about the divorce to use the online service. Your email address will not be shared with the applicant.<br/><br/>Your emails will be sent to: "
+      },
+      "telephone": {
+        "heading": "[CY] By phone",
+        "intro": "[CY] Provide a phone number to let court staff contact you more quickly. Your phone number will not be shared with the applicant."
+      },
+      "post": {
+        "heading": "[CY] By post",
+        "intro": "[CY] You may need to receive some correspondence by post. This will be sent to the address the applicant provided.<br/><br/>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You'll be given the divorce centre's contact details when you submit your response."
+      }
+    },
+    "fields": {
+      "email": {
+        "label": "[CY] I agree that the divorce centre can send me notifications and deliver (serve) court documents to me by email."
+      },
+      "telephone": {
+        "label": "[CY] Enter your phone number",
+        "hint": "[CY] (Optional)"
+      }
+    },
+    "errors": {
+      "requireValidTelephoneNo": "[CY] Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
+      "requireConsent": "[CY] You must agree to receive notifications and court documents by email to use this service."
+    }
   }
 }

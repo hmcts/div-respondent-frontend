@@ -30,5 +30,37 @@
       "validEmail": "Please enter a valid email address",
       "requireConsent": "Please confirm that the solicitor's details are correct"
     }
+  },
+  "cy": {
+    "title": "[CY] Your solicitor's details",
+    "enterTheDetailsOfTheSolicitor": "[CY] Enter the details of the solicitor who will be representing you during the divorce.",
+    "statementOfTruth": "[CY] Statement of Truth",
+    "fields": {
+      "solicitorName": {
+        "label": "[CY] Solicitor's name",
+        "hint": "[CY] (Optional)"
+      },
+      "firmName": {
+        "label": "[CY] Firm name"
+      },
+      "solicitorEmail": {
+        "label": "[CY] Solicitor's email address"
+      },
+      "telephone": {
+        "label": "[CY] Solicitor's phone number"
+      },
+      "solicitorRefNumber": {
+        "label": "[CY] Solicitor's reference number"
+      },
+      "statementOfTruth": {
+        "yes": "[CY] I confirm that the solicitor's details are correct"
+      }
+    },
+    "errors": {
+      "requireValidTelephoneNo": "[CY] Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
+      "requiredField": "[CY] Enter the required data",
+      "validEmail": "[CY] Please enter a valid email address",
+      "requireConsent": "[CY] Please confirm that the solicitor's details are correct"
+    }
   }
 }

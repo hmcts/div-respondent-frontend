@@ -13,5 +13,20 @@
     "errors": {
       "required": "Confirm whether you have a solicitor representing you or not"
     }
+  },
+  "cy": {
+    "title": "[CY] Are you being represented by a solicitor?",
+    "subHeading": "[CY] Do you have a solicitor that will submit your response on your behalf?",
+    "fields": {
+      "hasSolicitor": {
+        "label": "[CY] Yes"
+      },
+      "noSolicitor": {
+        "label": "[CY] No"
+      }
+    },
+    "errors": {
+      "required": "[CY] Confirm whether you have a solicitor representing you or not"
+    }
   }
 }

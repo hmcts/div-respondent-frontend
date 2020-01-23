@@ -34,5 +34,41 @@
       "coRespondentAnswers": "Co-Respondent's answers",
       "certificateOfEntitlement": "Certificate Of Entitlement"
     }
+  },
+  "cy": {
+    "title": "[CY] Your divorce",
+    "referenceNumber": "[CY] Reference number",
+    "name": "[CY] Name",
+    "respondToApplication": "[CY] Respond to your {{ session.divorceWho }}'s divorce application",
+    "respondToAmendedApplication": "[CY] Respond to your {{ session.divorceWho }}'s amended divorce application",
+    "husbandWifeApplied": "[CY] Your {{ session.divorceWho }} applies",
+    "youMustRespond": "[CY] You must respond",
+    "getDecreeNisi": "[CY] Your {{ session.divorceWho }} gets a decree nisi",
+    "madeFinal": "[CY] Divorce is complete",
+    "readApplication": "[CY] You need to read your {{ session.divorceWho }}'s application before you give your response. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
+    "responseAcknowledgement": "[CY] Your response is legally known as the 'acknowledgement of service'.",
+    "respond7Days": "[CY] You must respond to the application within 7 days of receiving the letter. If you don’t, your {{ session.divorceWho }} can ask the court to move the divorce forwards without you. You may have to pay extra fees if this happens.",
+    "continue": "[CY] Continue",
+    "yourCourt": "[CY] Your divorce centre",
+    "email": "[CY] Email",
+    "help": "[CY] Getting help",
+    "careOfAbbreviation": "[CY] c/o",
+    "phone": "[CY] Phone",
+    "divorceCenterHours": "[CY] Monday to Friday, 8.30am to 5pm",
+    "guidance": {
+      "title": "[CY] Guidance on GOV.UK",
+      "howWifeHusbandResponds": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"Responding to a divorce application link, This link will open in a new tab.\">Responding to a divorce application</a>",
+      "decreeNisiLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
+      "decreeAbsoluteLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
+      "childrenAndDivorceLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>"
+    },
+    "downloadDocuments": "[CY] Download your documents",
+    "files": {
+      "dpetition": "[CY] Divorce application",
+      "respondentAnswers": "[CY] Your answers",
+      "coRespondentAnswers": "[CY] Co-Respondent's answers",
+      "certificateOfEntitlement": "[CY] Certificate Of Entitlement"
+    }
   }
 }

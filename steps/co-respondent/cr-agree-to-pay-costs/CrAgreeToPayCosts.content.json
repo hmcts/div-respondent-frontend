@@ -4,7 +4,7 @@
     "poundSymbol": "£",
     "warning": "Warning",
     "cya": {
-      "agree" : "Do you agree to pay the costs as decided by the court?",
+      "agree": "Do you agree to pay the costs as decided by the court?",
       "noReason": "Why don't you agree to pay the suggested costs?"
     },
     "summary": "The applicant asked the court that you pay some or all of the costs of the divorce. It's up to the court to decide if you should pay any costs and how much.",
@@ -46,6 +46,55 @@
     "errors": {
       "required": "Select ‘I agree to pay the costs as decided by the court’ if you agree to pay.",
       "noReasonRequired": "Enter a reason why you should not pay the costs."
+    }
+  },
+  "cy": {
+    "title": "[CY] Paying for the divorce",
+    "poundSymbol": "[CY] £",
+    "warning": "[CY] Warning",
+    "cya": {
+      "agree": "[CY] Do you agree to pay the costs as decided by the court?",
+      "noReason": "[CY] Why don't you agree to pay the suggested costs?"
+    },
+    "summary": "[CY] The applicant asked the court that you pay some or all of the costs of the divorce. It's up to the court to decide if you should pay any costs and how much.",
+
+    "question": "[CY] Do you agree to pay the costs?",
+    "notice": "[CY] A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.",
+
+    "info": {
+      "heading": "[CY] Read more about costs orders",
+      "options": {
+        "amountToPay": {
+          "heading": "[CY] How much you may have to pay",
+          "summary1": "[CY] The applicant's costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if the applicant has legal fees (eg a solicitor) and these are also included.",
+          "summary2": "[CY] If the court decides that you should also pay the applicant's legal costs, it will usually order that you only pay what it judges to be a reasonable amount of these. However, under certain circumstances it could order you to pay more."
+        },
+        "whatNow": {
+          "heading": "[CY] What happens now",
+          "summary1": "[CY] The applicant will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
+          "summary2": "[CY] The court will then make its decision on whether you should pay any costs.",
+          "summary3": "[CY] You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
+        },
+        "doNotAcceptCost": {
+          "heading": "[CY] Objecting to the costs order",
+          "summary": "[CY] If the court grants a costs order, you can dispute it if you don't think that you should pay it. You'll need to send a letter to the court stating why you don't think you should pay at least 14 days before the hearing."
+        }
+      }
+    },
+    "fields": {
+      "agree": {
+        "heading": "[CY] I agree to pay the costs as decided by the court",
+        "answer": "[CY] I agree to pay the costs as decided by the court"
+      },
+      "disagree": {
+        "heading": "[CY] I should not pay any costs, and will give my reasons",
+        "answer": "[CY] I should not pay any costs, and will give my reasons",
+        "reason": "[CY] Provide a brief explanation of why you should not pay"
+      }
+    },
+    "errors": {
+      "required": "[CY] Select ‘I agree to pay the costs as decided by the court’ if you agree to pay.",
+      "noReasonRequired": "[CY] Enter a reason why you should not pay the costs."
     }
   }
 }

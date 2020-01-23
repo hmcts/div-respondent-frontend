@@ -17,5 +17,24 @@
     "chatClosed": "Web chat is now closed.\\nOpening hours are Monday to Friday, 8:30am to 5pm.",
     "chatAlreadyOpen": "A web chat window is already open.",
     "chatOpeningHours": "Monday to Friday, 8:30am to 5pm."
+  },
+  "cy": {
+    "continue": "[CY] Continue",
+    "serviceName": "[CY] Respond to a divorce application",
+    "backLink": "[CY] Back",
+    "isThereAProblemWithThisPage": "[CY] Contact us for help",
+    "phoneTitle": "[CY] Telephone",
+    "phoneToCallIfProblems": "[CY] 0300 303 0642<br>Monday to Friday, 8.30am to 5pm",
+    "responseTime": "[CY] We aim to get back to you within 5 days",
+    "emailTitle": "[CY] Send us a message",
+    "emailIfProblems": "[CY] <a class=\"govuk-link\" href=\"mailto:divorcecase@justice.gov.uk\" aria-label=\"Send us a message at at divorcecase@justice.gov.uk, this link opens a new email.\">Send us a message</a>",
+    "webChatTitle": "[CY] Web chat",
+    "chatDown": "[CY] The web chat service is temporarily unavailable, please try again later.",
+    "chatWithAnAgent": "[CY] Chat online with an agent",
+    "noAgentsAvailable": "[CY] No agents are available, please try again later.",
+    "allAgentsBusy": "[CY] All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
+    "chatClosed": "[CY] Web chat is now closed.\\nOpening hours are Monday to Friday, 8:30am to 5pm.",
+    "chatAlreadyOpen": "[CY] A web chat window is already open.",
+    "chatOpeningHours": "[CY] Monday to Friday, 8:30am to 5pm."
   }
 }

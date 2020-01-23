@@ -97,7 +97,6 @@
       "postcode": "NG2 9QN"
     },
     "help": "Getting help",
-    "yourCourt": "Your divorce centre",
     "email": "Email",
     "phone": "Phone",
     "divorceCenterHours": "(Monday to Friday, 8.30am to 5pm)",
@@ -108,6 +107,116 @@
       "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
       "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
       "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>"
+    }
+  },
+  "cy": {
+    "title": "[CY] Your divorce",
+    "husbandWifeApplied": "[CY] Your {{ session.divorceWho }} applies",
+    "youMustRespond": "[CY] You must respond",
+    "solicitorMustRespond": "[CY] Your solicitor must respond",
+    "getDecreeNisi": "[CY] Your {{ session.divorceWho }} gets a decree nisi",
+    "madeFinal": "[CY] Divorce is complete",
+    "downloadDocuments": "[CY] Download your documents",
+    "warning": "[CY] Warning",
+    "files": {
+      "dpetition": "[CY] Divorce application",
+      "respondentAnswers": "[CY] Your answers",
+      "coRespondentAnswers": "[CY] Co-Respondent's answers",
+      "certificateOfEntitlement": "[CY] Certificate Of Entitlement",
+      "costsOrder": "[CY] Costs Order",
+      "decreeNisi": "[CY] Decree Nisi"
+    },
+    "details": {
+      "referenceNumber": "[CY] Reference number",
+      "name": "[CY] Name"
+    },
+    "progressedNoAos": {
+      "heading": "[CY] Contact the Courts and Tribunals Service Centre",
+      "info": "[CY] You can no longer respond to this application online. Contact the Courts and Tribunals Service Centre to find out what to do next."
+    },
+    "progressedUndefended": {
+      "heading": "[CY] You have submitted your response",
+      "info": "[CY] Your response will be checked. You will be sent an email when your divorce moves forward to the next stage. Contact the Courts and Tribunals Service Centre if you don't hear anything back after 6 weeks."
+    },
+    "awaitingAnswer": {
+      "heading": "[CY] You need to submit your answer",
+      "para1": "[CY] You must now submit the '<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"Answer to a divorce application link, This link will open in a new tab.\">answer to a divorce application</a>' form. The deadline for the court to receive this is 21 days from the date that you first signed in to respond to the application.",
+      "para2": "[CY] Download and fill in the paper form.",
+      "para3": "[CY] Post the form to:",
+      "para4": "[CY] You'll have to pay a £245 fee when you submit the form.",
+      "para5": "[CY] You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
+      "para6": "[CY] If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defend the divorce."
+    },
+    "defendedDivorce": {
+      "heading": "[CY] Your answer has been received by the court",
+      "para1": "[CY] Your ‘answer’ to the divorce application has been received by the court.",
+      "para2": "[CY] The court will now decide whether you and your wife will need to attend a hearing. You may be contacted for more information to help make that decision.",
+      "para3": "[CY] If you do need to attend a hearing, you’ll be sent a letter in the post telling you when and where the hearing is.",
+      "para4": "[CY] If the court decides that the divorce can go ahead, then the rest of the divorce will be online after the hearing."
+    },
+    "decreeNisiAnnouncement": {
+      "heading": "[CY] Your {{ session.divorceWho }}'s decree nisi application has been accepted",
+      "districtJudge": "[CY] A district judge will formally announce the decree nisi at a court hearing. This is the first stage of the decree ending your marriage.",
+      "secondStage": "[CY] You'll only be divorced when the second stage is complete and the decree is made absolute.",
+      "theHearing": "[CY] The hearing",
+      "moreDetails": "[CY] You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a class=\"govuk-link\" href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Certificate Of Entitlement PDF.\">Certificate Of Entitlement</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
+      "dontNeedToCome": "[CY] You don’t need to come to the hearing unless you want to object to any of the court orders being made.",
+      "wantToAttend": "[CY] If you want to attend the hearing, you need to email the court before the hearing date.",
+      "wantToAttendCosts": "[CY]  If you, or your {{ session.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date.",
+      "acceptedCosts": "[CY] The court has also decided to make an order that you pay towards the divorce costs."
+    },
+    "decreeNisiGranted": {
+      "heading": "[CY] Your {{ session.divorceWho }} has been granted a decree nisi",
+      "dateGranted": "[CY] On {{ session.originalPetition.decreeNisiGrantedDate | date }} the court granted your {{ session.divorceWho }} a:",
+      "decreeNisi": "[CY] decree nisi - the first stage of the decree ending your marriage",
+      "costsOrder": "[CY] costs order - giving your {{ session.divorceWho }} the right to claim their divorce costs",
+
+      "notDivorcedYet": "[CY] You are not divorced yet. You will only be divorced when the second stage is complete and the decree has been made absolute.",
+
+      "divorceComplete": "[CY] When the divorce can be completed",
+      "sixWeeks": "[CY] Your {{ session.divorceWho }} must wait 6 weeks after the decree nisi is granted before they can apply for the decree absolute.",
+      "courtCancel": "[CY] The court can cancel (known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
+      "applyForDecreeAbsolute": "[CY] You can apply for the decree absolute if your {{ session.divorceWho }} doesn't. You'll need to wait an extra 3 months after the 6 week period has passed to do this.",
+      "downloadDecreeNisi": "[CY] <a class=\"govuk-link\" href=\"{{ decreeNisiFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Decree Nisi PDF.\">Download your decree nisi</a> ({{ decreeNisiFile.fileType | upper }}).",
+
+      "whatCostsOrder": "[CY] What to do with the costs order",
+      "orderWillStateRespondent": "[CY] The order will state what the court has decided you must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "orderWillStateCoRespondent": "[CY] The order will state what the court has decided the co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "orderWillStateRespondentAndCoRespondent": "[CY] The order will state what the court has decided you and your co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "downloadCostsOrder": "[CY] <a class=\"govuk-link\" href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Costs Order PDF.\">Download your costs order</a> ({{ costsOrderFile.fileType | upper }})."
+    },
+    "aosAwaitingSol": {
+      "heading": "[CY] You have nominated a solicitor",
+      "nominatedSol": "[CY] You have nominated a solicitor to respond to your {{ session.divorceWho }}'s divorce application on your behalf.",
+      "subHeading": "[CY] What happens next",
+      "nextDetails": "[CY] Your solicitor will receive instructions on how  to respond on your behalf. They must respond  to the application within 7 days. If they don't, your {{ session.divorceWho }} can ask the court to move the divorce forward without you. You may have to pay extra fees if this happens."
+    },
+    "other": {
+      "heading": "[CY] Please contact the Courts and Tribunals Service Centre for more information"
+    },
+    "yourCourt": "[CY] Your divorce centre",
+    "careOfAbbreviation": "[CY] c/o",
+    "helpHeading": "[CY] If you need help",
+    "helpContent": "[CY] You can contact the service centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>.",
+    "improveHeading": "[CY] Help us improve this service",
+    "improveContent": "[CY] Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback?pageurl=/ProgressBar\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">leaving your feedback</a>.",
+    "defendedContact": {
+      "name": "[CY] East Midlands Regional Divorce Centre",
+      "poBox": "[CY] PO Box 10447",
+      "town": "[CY] Nottingham",
+      "postcode": "[CY] NG2 9QN"
+    },
+    "help": "[CY] Getting help",
+    "email": "[CY] Email",
+    "phone": "[CY] Phone",
+    "divorceCenterHours": "[CY] (Monday to Friday, 8.30am to 5pm)",
+    "guidance": {
+      "title": "[CY] Guidance on GOV.UK",
+      "howWifeHusbandResponds": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"Responding to a divorce application link, This link will open in a new tab.\">Responding to a divorce application</a>",
+      "decreeNisiLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
+      "decreeAbsoluteLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
+      "childrenAndDivorceLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
+      "moneyAndPropertyLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>"
     }
   }
 }

@@ -6,5 +6,13 @@
     "ifYouNeedHelp": "If you need help with this service you can call or email us.",
     "phoneToCallIfProblems": "Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)",
     "emailIfProblems": "Email: divorcecase@justice.gov.uk"
+  },
+  "cy": {
+    "title": "[CY] You've been signed out",
+    "progressNotSaved": "[CY] Your progress has not been saved.",
+    "signInToReturn": "[CY] <a class=\"govuk-link\" href=\"/\" aria-label=\"Sign in link\">Sign in</a> to return to your response.",
+    "ifYouNeedHelp": "[CY] If you need help with this service you can call or email us.",
+    "phoneToCallIfProblems": "[CY] Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)",
+    "emailIfProblems": "[CY] Email: divorcecase@justice.gov.uk"
   }
 }

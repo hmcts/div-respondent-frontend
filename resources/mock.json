@@ -5,7 +5,7 @@
   "state": "DNAwaiting",
   "caseState": "DNAwaiting",
   "originalPetition": {
-    "issueDate" : "2006-02-02T00:00:00.000+0000",
+    "issueDate": "2006-02-02T00:00:00.000+0000",
     "caseReference": "LV18D81234",
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",
@@ -200,29 +200,29 @@
     "courts": "eastMidlands",
     "confirmPrayer": "Yes",
     "payment": {
-        "PaymentChannel" : "card",
-        "PaymentTransactionId" : "123456789",
-        "PaymentReference" : "DIV1$$$012345a-ffff-42e9-951d-afe599e5o5o5$$$AA00$$$X0168",
-        "PaymentDate" : "02022001",
-        "PaymentAmount" : "12000",
-        "PaymentStatus" : "success",
-        "PaymentFeeId" : "X0168",
-        "PaymentSiteId" : "AA00"
+        "PaymentChannel": "card",
+        "PaymentTransactionId": "123456789",
+        "PaymentReference": "DIV1$$$012345a-ffff-42e9-951d-afe599e5o5o5$$$AA00$$$X0168",
+        "PaymentDate": "02022001",
+        "PaymentAmount": "12000",
+        "PaymentStatus": "success",
+        "PaymentFeeId": "X0168",
+        "PaymentSiteId": "AA00"
     },
     "existingPayments": [{
-        "id" : "123456789",
+        "id": "123456789",
         "value" : {
-            "PaymentChannel" : "card",
-            "PaymentTransactionId" : "111222333",
-            "PaymentReference" : "DIV1$$$12345a-ffff-eeee-dddd-afe599e2d4d2$$$AA00$$$X0165",
-            "PaymentDate" : "2001-02-02",
-            "PaymentAmount" : "55000",
-            "PaymentStatus" : "success",
-            "PaymentFeeId" : "X0165",
-            "PaymentSiteId" : "AA00"
+            "PaymentChannel": "card",
+            "PaymentTransactionId": "111222333",
+            "PaymentReference": "DIV1$$$12345a-ffff-eeee-dddd-afe599e2d4d2$$$AA00$$$X0165",
+            "PaymentDate": "2001-02-02",
+            "PaymentAmount": "55000",
+            "PaymentStatus": "success",
+            "PaymentFeeId": "X0165",
+            "PaymentSiteId": "AA00"
         }
     }],
-    "respEmailAddress" : "respondent@email.address",
+    "respEmailAddress": "respondent@email.address",
     "respWillDefendDivorce": "No"
    }
 }

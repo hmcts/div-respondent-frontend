@@ -8,7 +8,7 @@
     "summary": "The court needs to know if there are currently any legal proceedings in a court, tribunal or other authority which are either:",
     "info": {
       "options" : {
-        "relatedToMarriage" : "related to the marriage",
+        "relatedToMarriage": "related to the marriage",
         "affectsValidity": "may affect its validity (how legally binding the marriage is)"
       }
     },
@@ -18,8 +18,8 @@
         "heading": "Yes",
         "answer": "Yes",
         "details" : {
-          "title" : "Provide further details",
-          "summary" : "You should try to include:",
+          "title": "Provide further details",
+          "summary": "You should try to include:",
           "includes" : {
             "caseNumbers": "case numbers",
             "aboutWhat": "what they are about",
@@ -40,6 +40,49 @@
     "errors": {
       "required": "Select ‘No’ if there aren’t any legal proceedings the court needs to know about.",
       "requireCaseDetails": "Enter details about the court cases"
+    }
+  },
+  "cy": {
+    "title": "[CY] Other legal proceedings outside of England and Wales",
+    "cya": {
+      "question": "[CY] Have you ever been involved in any court cases relating to your marriage, property or children?",
+      "details": "[CY] Details of the court cases"
+    },
+    "summary": "[CY] The court needs to know if there are currently any legal proceedings in a court, tribunal or other authority which are either:",
+    "info": {
+      "options" : {
+        "relatedToMarriage": "[CY] related to the marriage",
+        "affectsValidity": "[CY] may affect its validity (how legally binding the marriage is)"
+      }
+    },
+    "question": "[CY] Are there any other legal proceedings the court needs to know about?",
+    "fields": {
+      "yes": {
+        "heading": "[CY] Yes",
+        "answer": "[CY] Yes",
+        "details" : {
+          "title": "[CY] Provide further details",
+          "summary": "[CY] You should try to include:",
+          "includes" : {
+            "caseNumbers": "[CY] case numbers",
+            "aboutWhat": "[CY] what they are about",
+            "namesInvolved": "[CY] names of those involved",
+            "courtDetails": "[CY] name of the court, the tribunal, and/or the authority",
+            "country": "[CY] the country it's in",
+            "dates": "[CY] date that the proceedings began and of any future hearings",
+            "others": "[CY] anything else that might affect the application for divorce"
+          },
+          "caseDetails": "[CY] Details of the court cases"
+        }
+      },
+      "no": {
+        "heading": "[CY] No",
+        "answer": "[CY] No"
+      }
+    },
+    "errors": {
+      "required": "[CY] Select ‘No’ if there aren’t any legal proceedings the court needs to know about.",
+      "requireCaseDetails": "[CY] Enter details about the court cases"
     }
   }
 }

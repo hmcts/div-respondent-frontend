@@ -22,5 +22,29 @@
     "errors": {
       "required": "Select yes if you admit to committing the adultery"
     }
+  },
+  "cy": {
+    "title": "[CY] Do you admit to committing the adultery?",
+    "detailsText": "[CY] Your {{ session.divorceWho }} provided the following details.",
+    "whereAdultery": {
+      "heading": "[CY] Where the adultery took place"
+    },
+    "whenAdultery": {
+      "heading": "[CY] When the adultery took place"
+    },
+    "details": {
+      "heading": "[CY] Description of the adultery"
+    },
+    "fields": {
+      "admit": {
+        "label": "[CY] Yes, I admit to committing the adultery"
+      },
+      "doNotAdmit": {
+        "label": "[CY] No, I do not admit to committing the adultery"
+      }
+    },
+    "errors": {
+      "required": "[CY] Select yes if you admit to committing the adultery"
+    }
   }
 }

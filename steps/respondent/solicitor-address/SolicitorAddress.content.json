@@ -26,5 +26,33 @@
       "manualAddress": "Enter full address",
       "editAddress": "You must fill at least 1 line of the address"
     }
+  },
+  "cy": {
+    "title": "[CY] What is your solicitors address?",
+    "noUkPostcode": "[CY] I can’t enter a UK postcode",
+    "confirmAddressTitle": "[CY] Is this your solicitors address?",
+    "manualAddressTitle": "[CY] Enter your solicitors full address",
+    "enterUkPostcode": "[CY] Enter a uk postcode",
+    "fields": {
+      "postcode": {
+        "label": "[CY] Enter a UK postcode"
+      },
+      "address": {},
+      "selectedAddress": {
+        "label": "[CY] Pick an address"
+      },
+      "confirmAddress": {
+        "label": "[CY] Do you want to use this address for your solicitor?",
+        "yes": "[CY] Yes",
+        "no": "[CY] No"
+      }
+    },
+    "errors": {
+      "postcode": "[CY] No addresses found. Enter a postcode to search again",
+      "selectedAddress": "[CY] Select an address",
+      "confirmAddress": "[CY] Do you want to use this address for your solicitor?",
+      "manualAddress": "[CY] Enter full address",
+      "editAddress": "[CY] You must fill at least 1 line of the address"
+    }
   }
 }

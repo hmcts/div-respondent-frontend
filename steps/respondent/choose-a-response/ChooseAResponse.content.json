@@ -49,5 +49,56 @@
         "answer": "I will try to prevent the divorce based on this application (I intend to ‘defend’ it)"
       }
     }
+  },
+  "cy": {
+    "title": "[CY] How do you want to respond?",
+    "action": "[CY] Choose one of the following options.",
+    "info": {
+      "heading": "[CY] Read more about your options",
+      "options": {
+        "proceed": {
+          "heading": "[CY] Proceeding with the divorce",
+          "summary": "[CY] If you proceed with the divorce, you won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+        },
+        "proceedButDisagree": {
+          "heading": "[CY] Proceeding, but not accepting the allegations",
+          "summary": "[CY] If you don't agree with what your {{ session.divorceWho }} has said in their divorce application, but you don't want to try to prevent the divorce (you don't want to defend it) you can choose this option. The outcome of the divorce won't be affected if you choose this option.<br/><br/>You won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+        },
+        "defend": {
+          "heading": "[CY] Disagreeing with the application (defending)",
+          "summary": "[CY] If you choose to defend the divorce you will have to pay a fee of £{{ feesDefendDivorce }}. You may have to both attend a hearing where a judge will decide if the divorce should be granted."
+        },
+        "hardship": {
+          "heading": "[CY] Defending the divorce because it will cause you hardship",
+          "text1": "[CY] As your wife used separation for 5 years as the reason for divorce, you can try to prevent it on the basis that it will cause you severe hardship.",
+          "text2": "[CY] The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).",
+          "text3": "[CY] You'll need to convince the court that the hardship will be severe.",
+          "text4": "[CY] The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
+          "text5": "[CY] Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.",
+          "text6": "[CY] You'll need to make your case for hardship in another form (called the 'answer'). You have 21 days to submit your answer from the date that you sign in to respond to the divorce application.",
+          "text7": "[CY] You'll also have to pay another £{{ feesDefendDivorce }} fee."
+        }
+      }
+    },
+    "errors": {
+      "required": "[CY] Select ‘I will let the divorce proceed’ if you do not want to defend the divorce"
+    },
+    "fields": {
+      "proceed": {
+        "heading": "[CY] I will let the divorce proceed",
+        "summary": "[CY] Choose this option if you do not intend to defend the divorce.",
+        "answer": "[CY] I will let the divorce proceed and won’t try to prevent it (I don’t intend to ‘defend’ it)"
+      },
+      "proceedButDisagree": {
+        "heading": "[CY] I will let the divorce proceed, but I don't accept what my {{ session.divorceWho }} said about me",
+        "summary": "[CY] Choose this option if you don't accept the allegations in the application, but you do not intend to defend.",
+        "answer": "[CY] I will let the divorce proceed (I don’t intend to defend it), but I don’t accept the allegations made in the application"
+      },
+      "defend": {
+        "heading": "[CY] I disagree with the application for divorce",
+        "summary": "[CY] Choose this option if you intend to defend because you don’t agree that your marriage has irretrievably broken down; want to defend yourself against the allegations; or want to make your own application.",
+        "answer": "[CY] I will try to prevent the divorce based on this application (I intend to ‘defend’ it)"
+      }
+    }
   }
 }

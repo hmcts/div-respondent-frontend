@@ -1,4 +1,5 @@
-{"en": {
+{
+  "en": {
     "title": "Confirm that you do not wish to give your consent to the divorce",
     "detailsText": {
       "para1": "If you don't agree, then the divorce won't be able to continue based on 2 years separation with consent.",
@@ -17,6 +18,27 @@
     },
     "errors": {
       "required": "Select 'Yes' if you do not wish to give your consent to the divorce"
+    }
+  },
+  "cy": {
+    "title": "[CY] Confirm that you do not wish to give your consent to the divorce",
+    "detailsText": {
+      "para1": "[CY] If you don't agree, then the divorce won't be able to continue based on 2 years separation with consent.",
+      "para2": "[CY] The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.",
+      "para3": "[CY] Your {{ session.divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs."
+    },
+    "warning": "[CY] Warning",
+    "notice": "[CY] You should get legal advice if you're not sure.",
+    "fields": {
+      "confirm": {
+        "label": "[CY] I confirm that I do not consent to the divorce"
+      },
+      "doNotConfirm": {
+        "label": "[CY] I want to change my response"
+      }
+    },
+    "errors": {
+      "required": "[CY] Select 'Yes' if you do not wish to give your consent to the divorce"
     }
   }
 }

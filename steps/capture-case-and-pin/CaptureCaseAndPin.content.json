@@ -6,7 +6,7 @@
     "referenceNumberLabel": "This is a 16-digit number",
     "securityAccessCode": "Access code",
     "securityAccessCodeLabel": "Your code is 8 characters long",
-    "infoAboutSetup":"It may take a few minutes to link your account with this case. Please don't leave this page or refresh it.",
+    "infoAboutSetup": "It may take a few minutes to link your account with this case. Please don't leave this page or refresh it.",
     "thereWasAProblem": "There was a problem",
     "referenceNumberOrPinDoNotMatch": "The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
     "errorLinkingCase": "The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
@@ -14,6 +14,23 @@
       "referenceNumberRequired": "Enter the 16-digit reference number to continue.",
       "securityAccessCodeRequired": "Enter the access code to continue.",
       "securityAccessCodeAlphanumericOnly": "The access code contains letters and numbers only."
+    }
+  },
+  "cy": {
+    "title": "[CY] Enter these details from the letter",
+    "instructions": "[CY] Enter the reference number and access code from the court's letter.",
+    "referenceNumber": "[CY] Reference number",
+    "referenceNumberLabel": "[CY] This is a 16-digit number",
+    "securityAccessCode": "[CY] Access code",
+    "securityAccessCodeLabel": "[CY] Your code is 8 characters long",
+    "infoAboutSetup": "[CY] It may take a few minutes to link your account with this case. Please don't leave this page or refresh it.",
+    "thereWasAProblem": "[CY] There was a problem",
+    "referenceNumberOrPinDoNotMatch": "[CY] The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
+    "errorLinkingCase": "[CY] The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
+    "errors": {
+      "referenceNumberRequired": "[CY] Enter the 16-digit reference number to continue.",
+      "securityAccessCodeRequired": "[CY] Enter the access code to continue.",
+      "securityAccessCodeAlphanumericOnly": "[CY] The access code contains letters and numbers only."
     }
   }
 }

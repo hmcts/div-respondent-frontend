@@ -40,5 +40,47 @@
         "throwError": "Simulate 500 server error"
       }
     }
+  },
+  "cy": {
+    "title": "[CY] Sign in",
+    "errors": {
+      "required": "[CY] Select the an option"
+    },
+    "fields": {
+      "success": {
+        "yesCaseStarted": "[CY] Yes - case started - unreasonable behaviour",
+        "yesAdultery": "[CY] Yes - case started - adultery (+ co-resp answers doc)",
+        "yesAdulteryAmendedCase": "[CY] Yes - amended case started - adultery (+ co-resp answers doc)",
+        "yes2yrSeparation": "[CY] Yes - case started - two year separation",
+        "yes5yrSeparation": "[CY] Yes - case started - five year separation",
+        "yes5yrSeparationTwoDates": "[CY] Yes - case started - five year separation with two dates",
+        "yesDesertion": "[CY] Yes - case started - desertion",
+        "yesCaseNotLinked": "[CY] Yes - case not linked",
+        "yesCaseNotLinkedAndInvalidPin": "[CY] Yes - case not linked and invalid pin",
+        "yesCaseNotLinkedAndServerError": "[CY] Yes - case not linked and server error",
+        "yesCaseProgressedNoAos": "[CY] Yes - case progressed, no AoS",
+        "yesCaseProgressedUndefended": "[CY] Yes - case progressed undefended",
+        "yesCaseProgressedAwaitingAnswer": "[CY] Yes - case progressed, defended & awaiting answer",
+        "yesAosOverdue": "[CY] Case linked, AosOverdue",
+        "yesCaseProgressedDefending": "[CY] Yes - case progressed, defended & answered",
+        "yesDecreeNisiPronouncement": "[CY] Yes - Awaiting Pronouncement and date of hearing assigned",
+        "dnIsRefused": "[CY] Respondent - DN is refused",
+        "awaitingDecreeAbsolute": "[CY] Respondent AwaitingDecreeAbsolute",
+        "dnPronounced": "[CY] Respondent DNPronounced",
+        "aosAwaitingSol": "[CY] AOS Awaiting Solicitor",
+        "no": "[CY] No",
+        "petitionerRedirect": "[CY] Set user to petitioner",
+        "corespondentLogin": "[CY] Set user to Co-respondent to continue journey (+ resp answers doc)",
+        "corespondentAmendedCaseLogin": "[CY] Set user to Co-respondent to continue journey - with amended case",
+        "coRespNotDefending": "[CY] Co-respondent user responded - not defending (+ co-resp answers doc)",
+        "coRespDefendingWaitingAnswer": "[CY] Co-respondent user responded - defending waiting answer (has resp doc)",
+        "coRespDefendingSubmittedAnswer": "[CY] Co-respondent user responded - defending submitted answer (+ co-resp answers doc)",
+        "coRespTooLateToRespond": "[CY] Co-respondent not responded - Divorce Granted",
+        "coRespAwaitingPronouncementHearingDataFuture": "[CY] Co-respondent - Awaiting Pronouncement and Hearing data in future",
+        "coRespDNPronouncedWithCosts": "[CY] Co-respondent - DNPronounced with costs",
+        "coRespDNPronouncedWithoutCosts": "[CY] Co-respondent - DNPronounced without costs",
+        "throwError": "[CY] Simulate 500 server error"
+      }
+    }
   }
 }
