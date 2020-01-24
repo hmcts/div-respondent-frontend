@@ -301,10 +301,10 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.4.tgz#b817c453658b5cf72ec58e40a239a38541446b0a"
-  integrity sha512-OzQKUUfH+IXf2dZr7hoqXdscvsSfWe4ANynrtmFOsFCsASqKTBPoNE5Kt5qivDEO18HUeVdUoYL8KrkPNTY6XQ==
+"@hmcts/look-and-feel@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.5.tgz#2065d248c1cdea098d63a51424347a6dcca154a2"
+  integrity sha512-gRui8wNvMa9F4qA4OAqszrCkCp3NuIk15U7l0HgfyzTa3wpdG86A2XFsgGDvSrXUEYEos/uxKDL/DdUi9XmfuA==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"

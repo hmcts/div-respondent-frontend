@@ -1,19 +1,19 @@
 {% set footerLinks = [
     {
         href: "/cookie",
-        text: "Cookies"
-    },
-    {
-        href: "/terms-and-conditions",
-        text: "Terms and conditions"
+        text: content.cookies
     },
     {
         href: "/privacy-policy",
-        text: "Privacy Policy"
+        text: content.privacyPolicy
     },
     {
         href: "/accessibility-statement",
-        text: "Accessibility Statement"
+        text: content.accessibility
+    },
+    {
+        href: "/terms-and-conditions",
+        text: content.termsAndConditions
     }
 ] %}
 
@@ -21,7 +21,7 @@
   {% set serviceLinks = [
       {
         href: "/end",
-        text: "Sign out"
+        text: content.signOut
       }
   ] %}
 {% endif %}

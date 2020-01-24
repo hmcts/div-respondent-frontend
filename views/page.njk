@@ -1,19 +1,19 @@
 {% set footerLinks = [
     {
         href: "/cookie",
-        text: "Cookies"
-    },
-    {
-        href: "/terms-and-conditions",
-        text: "Terms and conditions"
+        text: content.cookies
     },
     {
         href: "/privacy-policy",
-        text: "Privacy Policy"
+        text: content.privacyPolicy
     },
     {
         href: "/accessibility-statement",
-        text: "Accessibility Statement"
+        text: content.accessibility
+    },
+    {
+        href: "/terms-and-conditions",
+        text: content.termsAndConditions
     }
 ] %}
 
@@ -21,7 +21,7 @@
   {% set serviceLinks = serviceLinks or [
       {
         href: "/end",
-        text: "Sign out"
+        text: content.signOut
       }
   ] %}
 {% endif %}
@@ -31,22 +31,22 @@
 {% extends "look-and-feel/layouts/two_thirds.html" %}
 
 {% from "look-and-feel/components/header.njk" import header %}
-{% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
+{% from "includes/phase_banner.html" import divPhaseBanner %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
 {% from "back-link/macro.njk" import govukBackLink %}
 
 {% block breadcrumbs %}
-  {{ phaseBanner(phase, feedbackLink) }}
+  {{ divPhaseBanner(phase, content.feedback, content.languageToggle) }}
+
   {% block back %}
     {{ govukBackLink({
       attributes: {
         onclick: "history.go(-1);"
       },
-      text: "Back",
+      text: common.backLink,
       href: "#"
     }) }}
   {% endblock %}
-  {{ languageSwitch(currentLang, availableLangs) }}
 {% endblock %}
 
 {% set titleSize = titleSize | default('xl') %}
