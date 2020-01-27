@@ -235,3 +235,7 @@ variable "post_code_url" {
 variable "node_version" {
   default = "10.15.2"
 }
+
+variable "enable_ase" {
+  default = false
+}
