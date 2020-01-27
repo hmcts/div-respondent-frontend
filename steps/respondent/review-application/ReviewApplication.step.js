@@ -82,7 +82,7 @@ class ReviewApplication extends Question {
         if (endsWith(item, '\r')) {
           value = replace(item, '\r', '');
         } else if (arrLength !== index + 1) {
-          value = item.concat('<br />');
+          value = item.concat('<br>');
         }
         return value;
       });

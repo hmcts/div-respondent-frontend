@@ -1,18 +1,53 @@
 {% extends "look-and-feel/layouts/error.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "includes/phase_banner.html" import divPhaseBanner %}
+{% from "footer/macro.njk" import govukFooter %}
+
+{% block breadcrumbs %}
+  {{ divPhaseBanner(phase, message.feedback) }}
+
+  {{ govukBackLink({
+    attributes: {
+      onclick: "history.go(-1);"
+    },
+    text: message.backLink,
+    href: "#"
+  }) }}
+{% endblock %}
 
 {% block two_thirds -%}
-  <a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">{{ content.backLink }}</a>
   {{ header(title, size="l") }}
   <p class="govuk-body">{{ message.tryAgain }}</p>
   <p class="govuk-body">
-    {{ message.canContact }}<br />
-    {{ message.phoneDetails }}<br />
+    {{ message.canContact }}<br>
+    {{ message.phoneDetails }}<br>
     {{ message.emailDetails }}
   </p>
 
   {% include "errors/content.html" %}
 {% endblock %}
 
-{% block footer_support_links %}
-  {% include "errors/footer.html" %}
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "/cookie",
+          text: message.cookies
+        },
+        {
+          href: "/privacy-policy",
+          text: message.privacyPolicy
+        },
+        {
+          href: "/accessibility-statement",
+          text: message.accessibility
+        },
+        {
+          href: "/terms-and-conditions",
+          text: message.termsAndConditions
+        }
+      ]
+    }
+  }) }}
 {% endblock %}

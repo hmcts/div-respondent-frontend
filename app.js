@@ -89,7 +89,7 @@ const getSession = {
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
-  routes: [ documentHandler, getSession ],
+  routes: [documentHandler, getSession],
   errorPages: {
     serverError: {
       template: 'errors/server-error',
@@ -98,7 +98,13 @@ onePerPage.journey(app, {
         canContact: errorContent.canContact,
         phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
         emailDetails: errorContent.isThereAProblemWithThisPageEmail,
-        serviceName: errorContent.serviceName
+        serviceName: errorContent.serviceName,
+        backLink: errorContent.backLink,
+        feedback: errorContent.feedback,
+        accessibility: errorContent.accessibility,
+        cookies: errorContent.cookies,
+        privacyPolicy: errorContent.privacyPolicy,
+        termsAndConditions: errorContent.termsAndConditions
       }
     },
     notFound: {
@@ -108,7 +114,13 @@ onePerPage.journey(app, {
         isThereAProblem: errorContent.isThereAProblemWithThisPageParagraph,
         phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
         emailDetails: errorContent.isThereAProblemWithThisPageEmail,
-        serviceName: errorContent.serviceName
+        serviceName: errorContent.serviceName,
+        backLink: errorContent.backLink,
+        feedback: errorContent.feedback,
+        accessibility: errorContent.accessibility,
+        cookies: errorContent.cookies,
+        privacyPolicy: errorContent.privacyPolicy,
+        termsAndConditions: errorContent.termsAndConditions
       }
     }
   },
