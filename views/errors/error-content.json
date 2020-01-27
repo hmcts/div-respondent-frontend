@@ -7,6 +7,7 @@
   "notFoundMessage": "This could be because you've followed a broken or outdated link, or there's an error on our site.",
   "tryAgain": "Please go back and try again in a few minutes.",
   "canContact": "You can contact us if the problem continues.",
+  "youCanEither": "You can either",
   "backLink": "Back",
   "feedback": "This is a new service – your <a aria-label=\"Feedback: This link will open in a new tab. You&rsquo;ll need to return to this tab to continue with your application.\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">feedback</a> will help us to improve it.",
   "languageToggle": "<a href=\"?lng=cy\" class=\"govuk-link language\">Cymraeg</a>",

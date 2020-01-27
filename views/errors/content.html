@@ -1,5 +1,5 @@
 {% if nextSteps %}
-  <p class="govuk-body">You can either:</p>
+  <p class="govuk-body">{{ message.youCanEither }}:</p>
   <ul class="govuk-list govuk-list--bullet">
     {% for option in nextSteps %}
       <li>{{ option | safe }}</li>
