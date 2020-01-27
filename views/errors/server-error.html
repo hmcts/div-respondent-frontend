@@ -1,17 +1,18 @@
 {% extends "look-and-feel/layouts/error.html" %}
 
 {% block two_thirds -%}
-    <a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">Back</a>
-    {{ header(title, size='l') }}
-    <p class="govuk-body"> {{ message.tryAgain }} </p>
-    <p class="govuk-body"> {{ message.canContact }} <br />
-        {{ message.phoneDetails }} <br />
-        {{ message.emailDetails }}
-    </p>
+  <a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">{{ content.backLink }}</a>
+  {{ header(title, size="l") }}
+  <p class="govuk-body">{{ message.tryAgain }}</p>
+  <p class="govuk-body">
+    {{ message.canContact }}<br />
+    {{ message.phoneDetails }}<br />
+    {{ message.emailDetails }}
+  </p>
 
-    {% include 'errors/content.html' %}
+  {% include "errors/content.html" %}
 {% endblock %}
 
 {% block footer_support_links %}
-    {% include 'errors/footer.html' %}
+  {% include "errors/footer.html" %}
 {% endblock %}
