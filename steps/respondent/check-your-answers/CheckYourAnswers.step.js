@@ -1,4 +1,4 @@
-const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
+const SetLanguageQuestion = require('core/SetLanguageQuestion');
 const { goTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
@@ -13,7 +13,7 @@ const constants = {
   NO_VALUE: 'No'
 };
 
-class CheckYourAnswers extends CYA {
+class CheckYourAnswers extends SetLanguageQuestion {
   static get path() {
     return config.paths.respondent.checkYourAnswers;
   }
