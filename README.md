@@ -1,6 +1,6 @@
 # Divorce Respondent Frontend [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repo builds the frontend for the respondent journey. Once the petitioner has gone through their journey and applied for a divorce, the respondent will then respond to the divorce and this repo builds used to display the journey.
+This repo is the Frontend App for the 'Acknowledgement of Service' stage of the Divorce process and allows the Respondent to respond to the initial Divorce application.
 
 ## Setup
 
