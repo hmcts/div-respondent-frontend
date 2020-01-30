@@ -19,7 +19,7 @@ Run the following to start the redis server:
 docker-compose up
 ```
 
-Then run the following in seperate terminals
+Then run the following in separate terminals
 
 ```
 yarn mocks
