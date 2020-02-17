@@ -1,6 +1,3 @@
 {
-  "10035_Strict-Transport-Security Header Not Set_https://div-rfe-staging.service.core-compute-aat.internal_GET": "ignore",
-  "10035_Strict-Transport-Security Header Not Set_https://div-rfe-staging.service.core-compute-aat.internal/sitemap.xml_GET": "ignore",
-  "10035_Strict-Transport-Security Header Not Set_https://div-rfe-staging.service.core-compute-aat.internal/robots.txt_GET": "ignore",
-  "10035_Strict-Transport-Security Header Not Set_https://div-rfe-staging.service.core-compute-aat.internal/_GET": "ignore"
+
 }
