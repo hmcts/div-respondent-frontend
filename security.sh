@@ -25,9 +25,9 @@ while !(curl -s http://0.0.0.0:1001) > /dev/null
   cp *.html functional-output/
   cp activescanReport.xml functional-output/
 
-  curl http://0.0.0.0:1001/OTHER/core/other/jsonreport/?formMethod=GET --output report.json
+  zap-cli --zap-url http://0.0.0.0 -p 1001 alerts -l Low --exit-code False
+  curl --fail http://0.0.0.0:1001/OTHER/core/other/jsonreport/?formMethod=GET --output report.json
   cp *.* functional-output/
-
 
 echo
 echo ZAP Security vulnerabilities were found that were not ignored
@@ -41,5 +41,3 @@ echo
 echo "./audit.json"
 echo
 echo and commit the change
-
-zap-cli --zap-url http://0.0.0.0 -p 1001 alerts -l High --exit-code False
