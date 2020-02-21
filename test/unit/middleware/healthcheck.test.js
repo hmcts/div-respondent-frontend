@@ -16,7 +16,7 @@ let res = {};
 
 describe(modulePath, () => {
   beforeEach(() => {
-    app.get = sinon.stub()
+    app.get = sinon.stub();
     sinon.stub(redis, 'ping').resolves('PONG');
     sinon.stub(healthcheck, 'web');
     sinon.stub(healthcheck, 'raw');
