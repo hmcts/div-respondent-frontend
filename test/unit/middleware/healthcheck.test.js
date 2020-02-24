@@ -16,7 +16,7 @@ let res = {};
 
 describe(modulePath, () => {
   beforeEach(() => {
-    app.use = sinon.stub();
+    app.get = sinon.stub();
     sinon.stub(redis, 'ping').resolves('PONG');
     sinon.stub(healthcheck, 'web');
     sinon.stub(healthcheck, 'raw');
@@ -37,7 +37,7 @@ describe(modulePath, () => {
 
   it('set a middleware on the health check endpoint', () => {
     setupHealthChecks(app);
-    sinon.assert.calledWith(app.use, config.paths.health);
+    sinon.assert.calledWith(app.get, config.paths.health);
   });
 
   describe('redis', () => {
