@@ -1,3 +1,5 @@
+// supported browsers
+
 const supportedBrowsers = {
   microsoftIE11: {
     ie11: {
