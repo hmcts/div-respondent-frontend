@@ -196,7 +196,7 @@ variable "evidence_management_download_endpoint" {
 }
 
 variable "feature_resp_solicitor_details" {
-  default = true
+  default = false
 }
 
 variable "feature_webchat" {
@@ -233,7 +233,7 @@ variable "post_code_url" {
 }
 
 variable "node_version" {
-  default = "10.15.2"
+  default = "12.14.1"
 }
 
 variable "enable_ase" {

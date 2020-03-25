@@ -46,14 +46,14 @@ const checks = () => {
 };
 
 const setupHealthChecks = app => {
-  app.use(config.paths.health, healthcheck.configure({
+  healthcheck.addTo(app, {
     checks: checks(),
     buildInfo: {
       name: config.service.name,
       host: os.hostname(),
       uptime: process.uptime()
     }
-  }));
+  });
 };
 
 module.exports = setupHealthChecks;
