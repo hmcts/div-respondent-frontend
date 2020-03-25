@@ -30,7 +30,11 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'continue',
-      'submit'
+      'submit',
+      'feedback',
+      'languageToggle',
+      'signIn',
+      'signOut'
     ];
 
     const session = { case: { caseData: {} } };

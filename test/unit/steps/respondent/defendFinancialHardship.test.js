@@ -149,7 +149,9 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut'
     ];
 
     return content(DefendFinancialHardship, {}, { ignoreContent });

@@ -82,7 +82,9 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut'
     ];
 
     return content(ChooseAResponse, session, { ignoreContent });
@@ -98,7 +100,9 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut'
     ];
 
     return content(ChooseAResponse, session, {
@@ -120,7 +124,9 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut'
     ];
 
     return content(ChooseAResponse, session, {
@@ -142,7 +148,9 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut'
     ];
 
     return content(ChooseAResponse, session, {

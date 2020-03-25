@@ -272,7 +272,9 @@ describe(modulePath, () => {
       'whereTheMarriage',
       'readConfirmationQuestion',
       'readConfirmationYes',
-      'readConfirmationNo'
+      'readConfirmationNo',
+      'signIn',
+      'signOut'
     ];
 
     it('all', () => {

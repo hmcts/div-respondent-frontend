@@ -427,7 +427,9 @@ describe(modulePath, () => {
       'readConfirmationNo',
       'reasonForDivorceSeparationFiveYearsOver',
       'reasonForDivorceSeparationFiveYearsLvingApart',
-      'reasonForDivorceSeparationFiveYears2DatesRecent'
+      'reasonForDivorceSeparationFiveYears2DatesRecent',
+      'signIn',
+      'signOut'
     ];
 
     it('all', () => {

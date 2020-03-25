@@ -21,7 +21,9 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'serviceName',
-        'backLink'
+        'backLink',
+        'signIn',
+        'signOut'
       ];
 
       return content(CookiesPolicy, {}, { ignoreContent });

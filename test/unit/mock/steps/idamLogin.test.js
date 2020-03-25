@@ -14,7 +14,9 @@ describe(modulePath, () => {
       'noAgentsAvailable',
       'allAgentsBusy',
       'chatClosed',
-      'chatAlreadyOpen', 'chatOpeningHours'
+      'chatAlreadyOpen',
+      'chatOpeningHours',
+      'signOut'
     ] });
   });
 

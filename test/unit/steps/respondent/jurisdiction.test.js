@@ -228,7 +228,9 @@ describe(modulePath, () => {
         'jurisdictionConnectionPetitioner',
         'jurisdictionConnectionRespondent',
         'jurisdictionConnectionPetitionerSixMonths',
-        'jurisdictionConnectionOther'
+        'jurisdictionConnectionOther',
+        'signIn',
+        'signOut'
       ] });
   });
 
@@ -251,7 +253,9 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'info',
         'cya',
-        'jurisdictionConnectionRespondent'
+        'jurisdictionConnectionRespondent',
+        'signIn',
+        'signOut'
       ] });
   });
 });
