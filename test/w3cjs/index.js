@@ -39,7 +39,8 @@ const excludedErrors = [
   'Element “image” is missing required attribute “height”.',
   'Element “image” is missing required attribute “width”.',
   // Sonar doesnt allow <b> tags so <strong> tags used
-  'Element “stong” not allowed as child of element “p” in this context. (Suppressing further errors from this subtree.)'
+  'Element “stong” not allowed as child of element “p” in this context. (Suppressing further errors from this subtree.)',
+  'Bad value “presentation” for attribute “role” on element “svg”.'
 ];
 /* eslint-enable */
 const filteredErrors = r => {
