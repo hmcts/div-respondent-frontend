@@ -32,35 +32,35 @@
     }
   },
   "cy": {
-    "title": "[CY] Do you admit to the adultery?",
-    "detailsText": "[CY] The applicant provided the following details.",
+    "title": "A ydych chi’n cyfaddef eich bod wedi godinebu?",
+    "detailsText": "Darparodd y ceisydd y manylion a ganlyn.",
     "whereAdultery": {
-      "heading": "[CY] Where the adultery took place"
+      "heading": "Lle y digwyddodd y godineb"
     },
     "whenAdultery": {
-      "heading": "[CY] When the adultery took place"
+      "heading": "Pryd y digwyddodd y godineb"
     },
     "details": {
-      "heading": "[CY] Description of the adultery"
+      "heading": "Disgrifiad o’r godineb"
     },
     "howYourAnswerAffect": {
-      "heading": "[CY] How your answer will affect the divorce",
-      "para1": "[CY] The court will take your answer into account in its judgement on whether the adultery took place, and therefore whether there are grounds for divorce.",
-      "para2": "[CY] You don’t have to admit to the adultery if you don’t want to. You can allow the divorce to proceed (not ‘defend’ it) and not admit to the adultery.",
-      "subHeading": "[CY] If the applicant has claimed the divorce costs",
-      "para3": "[CY] You may be liable to pay the costs regardless of whether or not you admit to the adultery. However, if you do admit to it and the applicant relies on it being proof that the adultery took place, then this may result in an order for costs being made against you. You should speak to a solicitor if you aren’t sure how to respond.",
-      "para4": "[CY] You will have a chance to respond to the costs claim later in this application. If you object to paying the costs you'll need to provide a valid reason for not paying them. If you do object, and provide a valid reason to not pay them, you may need to attend a hearing to present your case."
+      "heading": "Bydd eich ateb yn cael effaith ar yr ysgariad",
+      "para1": "Bydd y llys yn ystyried eich ateb wrth iddo farnu a fu godineb ai peidio, ac felly wrth farnu a oes sail i ysgariad.",
+      "para2": "Does dim rhaid ichi gyfaddef ichi odinebu os nad ydych chi eisiau gwneud hynny. Gallwch adael i’r ysgariad fynd yn ei flaen peidio â’i amddiffyn) heb gyfaddef i’r godineb.",
+      "subHeading": "Os yw’r ceisydd wedi hawlio costau’r ysgariad",
+      "para3": "Efallai y byddwch yn gorfod talu’r costau pa un a fyddwch yn cyfaddef i’r godineb ai peidio. Fodd bynnag, os byddwch yn cyfaddef ac os bydd y ceisydd yn dibynnu ar hynny yn brawf fod godineb wedi digwydd, efallai y gwneir gorchymyn costau yn eich erbyn. Dylech siarad â chyfreithiwr os nad ydych yn siwr sut i ymateb.",
+      "para4": "Byddwch yn cael cyfle i ymateb i’r hawliad am gostau yn nes ymlaen yn ystod y cais hwn. Os ydych yn gwrthwynebu talu’r costau bydd angen ichi ddarparu rheswm dilys dros beidio â’u talu. Os byddwch yn gwrthwynebu, ac os byddwch yn darparu rheswm dilys dros beidio â’u talu, efallai y bydd angen ichi fynychu gwrandawiad i gyflwyno eich achos."
     },
     "fields": {
       "admit": {
-        "label": "[CY] Yes, I admit to the adultery"
+        "label": "Ydw, rwy’n cyfaddef fy mod wedi godinebu"
       },
       "doNotAdmit": {
-        "label": "[CY] No, I do not admit to the adultery"
+        "label": "Nac ydw, nid wyf yn cyfaddef fy mod wedi godinebu"
       }
     },
     "errors": {
-      "required": "[CY] Select yes if you admit to the adultery"
+      "required": "Dewiswch ydw os ydych chi’n cyfaddef eich bod wedi godinebu"
     }
   }
 }

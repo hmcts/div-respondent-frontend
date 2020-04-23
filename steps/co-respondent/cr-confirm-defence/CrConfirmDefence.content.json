@@ -22,25 +22,25 @@
     }
   },
   "cy": {
-    "title": "[CY] Confirm that you intend to defend the divorce",
-    "defenceFeeDetails": "[CY] You'll need to submit another form (known as the 'answer') with your reason for defending the divorce. You'll also have to pay another £{{ feesDefendDivorce }} fee. You may also have to go to a hearing with a judge.",
-    "legalAdviceWarn": "[CY] You should get legal advice if you're not sure.",
-    "warning": "[CY] Warning",
+    "title": "Cadarnhau eich bod yn bwriadu amddiffyn yr ysgariad",
+    "defenceFeeDetails": "Bydd angen ichi gyflwyno ffurflen arall (gelwir y ffurflen honno’n ‘ateb’) gan roi eich rheswm dros wrthwynebu’r ysgariad. Bydd yn rhaid ichi dalu ffi Â£{{ feesDefendDivorce }} arall hefyd. Efallai y bydd yn rhaid ichi fynd i wrandawiad gerbron barnwr.",
+    "legalAdviceWarn": "Dylech gael cyngor cyfreithiol os nad ydych yn siwr.",
+    "warning": "Rhybudd",
     "info": {
-      "readMore": "[CY] Read more about defending",
-      "summary1": "[CY] You have 28 days to submit your answer from the date you first signed into the divorce account.",
-      "summary2": "[CY] If you don't submit the answer by the deadline, the divorce will usually continue as if you didn't defend it."
+      "readMore": "Darllenwch fwy am wrthwynebu ysgariad",
+      "summary1": "Mae gennych 28 diwrnod i gyflwyno eich ateb o’r dyddiad y gwnaethoch fewngofnodi gyntaf i’ch cyfrif ysgaru.",
+      "summary2": "Os na fyddwch yn cyflwyno ateb o fewn yr amser a ganiateir, bydd yr ysgariad yn mynd yn ei flaen fel pe na baech wedi ei wrthwynebu."
     },
     "fields": {
       "confirm": {
-        "label": "[CY] I confirm that I intend to defend the divorce"
+        "label": "Rwy’n cadarnhau fy mod yn bwriadu amddiffyn yr ysgariad"
       },
       "changeResponse": {
-        "label": "[CY] I want to change my response"
+        "label": "Rwyf eisiau newid fy ymateb"
       }
     },
     "errors": {
-      "required": "[CY] Confirm whether you intend to defend the divorce or not"
+      "required": "Cadarnhau a ydych yn bwriadu amddiffyn yr ysgariad ai peidio"
     }
   }
 }

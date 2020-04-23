@@ -31,34 +31,34 @@
     }
   },
   "cy": {
-    "title": "[CY] Respond to a divorce",
-    "referenceNumber": "[CY] Case number",
-    "name": "[CY] Name",
-    "readApp": "[CY] Read the divorce application",
-    "readAmendedApp": "[CY] Read the amended divorce application",
-    "readApplication": "[CY] You need to read the divorce application before you respond. You can find a copy in the letter that was sent to you, and a digital version with guidance on what each section means on the next screen.",
-    "responseAcknowledgement": "[CY] Your response is legally known as the 'acknowledgement of service'.",
-    "respond7Days": "[CY] You must respond to the application within 7 days. If you don’t, the divorce may move forwards without you.",
-    "namedCorespondent": "[CY] As you have been named as a co-respondent in the divorce, the applicant is allowed to claim the costs of the divorce from you. This could include the £{{ feesIssueApplication }} application fee, and their legal fees and expenses. If you don't respond, you won't have a say in whether or not you pay these costs.",
-    "continue": "[CY] Continue",
-    "yourCourt": "[CY] Your divorce centre",
-    "email": "[CY] Email",
-    "help": "[CY] Getting help",
-    "careOfAbbreviation": "[CY] c/o",
-    "phone": "[CY] Phone",
-    "divorceCenterHours": "[CY] Monday to Friday, 8.30am to 5pm",
+    "title": "Ymateb i ysgariad",
+    "referenceNumber": "Rhif yr achos",
+    "name": "Enw",
+    "readApp": "Darllen y cais am ysgariad",
+    "readAmendedApp": "Darllen y cais diwygiedig am ysgariad",
+    "readApplication": "Mae angen ichi ddarllen y cais am ysgariad cyn ichi ymateb. Gellir gweld copi yn y llythyr a anfonwyd atoch, a fersiwn ddigidol gydag eglurhad ar bob adran ar y sgrîn nesaf.",
+    "responseAcknowledgement": "Yn iaith y gyfraith, gelwir yr ymateb yn ‘gydnabyddiad cyflwyno’.",
+    "respond7Days": "Rhaid ichi ymateb i’r cais o fewn 7 diwrnod. Os na wnewch hynny, gall yr ysgariad fynd yn ei flaen heboch.",
+    "namedCorespondent": "Gan eich bod wedi cael eich enwi fel y cyd-atebydd yn yr ysgariad, caniateir i'r ceisydd hawlio costau'r ysgariad gennych. Gallai hyn gynnwys tâl o £ {{ feesIssueApplication }} am wneud y cais, a'i ffioedd cyfreithiol a'i dreuliau/threuliau. Os na fyddwch yn ymateb, ni fydd gennych ddewis ond talu'r costau hyn.",
+    "continue": "Parhau",
+    "yourCourt": "Eich canolfan ysgaru",
+    "email": "E-bost",
+    "help": "Cael cymorth",
+    "careOfAbbreviation": "dan ofal",
+    "phone": "Ffôn",
+    "divorceCenterHours": "Dydd Llun i Ddydd Gwener, 8.30am – 5pm.",
     "guidance": {
-      "title": "[CY] Guidance on GOV.UK",
-      "howWifeHusbandResponds": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"How to respond to a divorce application, This link will open in a new tab.\">How to respond to a divorce application</a>",
-      "decreeNisiLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
-      "childrenAndDivorceLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
-      "moneyAndPropertyLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>"
+      "title": "Canllawiau ar GOV.UK",
+      "howWifeHusbandResponds": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"Dolen i ymateb i gais am ysgariad. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">Ymateb i gais am ysgariad</a>",
+      "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Dolen i wneud cais am ddyfarniad nisi. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">Dyfarniad Nisi</a>",
+      "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Dolen i wybodaeth am blant ac ysgariad. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">Plant ac ysgariad</a>",
+      "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Dolen i wybodaeth am arian ac eiddo. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">Arian ac eiddo</a>"
     },
-    "downloadDocuments": "[CY] Download your documents",
+    "downloadDocuments": " Llwytho eich dogfennau i lawr",
     "files": {
-      "dpetition": "[CY] Divorce application",
-      "coRespondentAnswers": "[CY] Your answers",
-      "certificateOfEntitlement": "[CY] Certificate Of Entitlement"
+      "dpetition": " Cais am ysgariad",
+      "coRespondentAnswers": "Eich atebion",
+      "certificateOfEntitlement": "Tystysgrif Hawl"
     }
   }
 }

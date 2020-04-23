@@ -49,52 +49,50 @@
     }
   },
   "cy": {
-    "title": "[CY] Paying for the divorce",
-    "poundSymbol": "[CY] £",
-    "warning": "[CY] Warning",
+    "title": "Talu am yr ysgariad",
+    "poundSymbol": "Â£",
+    "warning": "Rhybudd",
     "cya": {
-      "agree": "[CY] Do you agree to pay the costs as decided by the court?",
-      "noReason": "[CY] Why don't you agree to pay the suggested costs?"
+      "agree" : "A ydych yn cytuno i dalu’r costau yn ôl penderfyniad y llys?",
+      "noReason": "Pam nad ydych yn cytuno i dalu’r costau a awgrymir?"
     },
-    "summary": "[CY] The applicant asked the court that you pay some or all of the costs of the divorce. It's up to the court to decide if you should pay any costs and how much.",
-
-    "question": "[CY] Do you agree to pay the costs?",
-    "notice": "[CY] A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.",
-
+    "summary": "Gofynnodd y ceisydd i’r llys orchymyn ichi dalu rhywfaint o gostau’r ysgariad neu holl gostau'r ysgariad. Y llys sydd i benderfynu a ddylech dalu unrhyw gostau a faint o gostau y dylech eu talu.",
+    "question": "Ydych chi'n cytuno i dalu’r costau?",
+    "notice": "Costau’r ysgariad yn unig y bydd gorchymyn costau yn ymorol amdanynt, ac ni fydd yn cynnwys unrhyw gostau yn ymwneud â setliad ariannol.",
     "info": {
-      "heading": "[CY] Read more about costs orders",
+      "heading": "Darllen mwy am orchmynion costau",
       "options": {
         "amountToPay": {
-          "heading": "[CY] How much you may have to pay",
-          "summary1": "[CY] The applicant's costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if the applicant has legal fees (eg a solicitor) and these are also included.",
-          "summary2": "[CY] If the court decides that you should also pay the applicant's legal costs, it will usually order that you only pay what it judges to be a reasonable amount of these. However, under certain circumstances it could order you to pay more."
+          "heading": "Y swm y geill y bydd yn rhaid ichi ei dalu",
+          "summary1": "Fel rheol bydd costau’r ceisydd yn cynnwys y ffi Â£{{ feesIssueApplication }}. Maent yn gallu cynnwys ffioedd a chostau eraill y llys yn ogystal. Gallai’r costau fod yn uwch o lawer os oes gan y ceisydd ffioedd cyfreithiol (e.e. cyfreithiwr) a gynhwysir hefyd.",
+          "summary2": "Os bydd y llys yn penderfynu y dylech dalu costau cyfreithiol y ceisydd yn ogystal, fel arfer bydd yn gwneud gorchymyn ichi dalu swm y mae’n barnu ei fod yn rhesymol. Fodd bynnag, mewn rhai amgylchiadau gallai orchymyn ichi dalu mwy."
         },
         "whatNow": {
-          "heading": "[CY] What happens now",
-          "summary1": "[CY] The applicant will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
-          "summary2": "[CY] The court will then make its decision on whether you should pay any costs.",
-          "summary3": "[CY] You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
+          "heading": "Beth sy’n digwydd nawr?",
+          "summary1": "Gofynnir i’r ceisydd gadarnhau fod arno/arni eisiau hawlio’r costau pan fydd yn gwneud cais am ddyfarniad nisi.",
+          "summary2": "Yna bydd y llys yn penderfynu a ddylech chi dalu unrhyw gostau.",
+          "summary3": "Byddwch yn cael gwybod penderfyniad y llys yr un pryd ag y byddwch yn cael gwybod a ganiateir yr ysgariad, a dyddiad y gwrandawiad lle gwneir y datganiad nisi."
         },
         "doNotAcceptCost": {
-          "heading": "[CY] Objecting to the costs order",
-          "summary": "[CY] If the court grants a costs order, you can dispute it if you don't think that you should pay it. You'll need to send a letter to the court stating why you don't think you should pay at least 14 days before the hearing."
+          "heading": "Gwrthwynebu gorchymyn costau",
+          "summary": "Os bydd y llys yn caniatáu gorchymyn costau, gallwch herio’r gorchymyn os nad ydych yn meddwl y dylech ei dalu. Bydd angen ichi anfon llythyr i’r llys yn datgan pam nad ydych yn credu y dylech dalu o leiaf 14 diwrnod cyn y gwrandawiad."
         }
       }
     },
     "fields": {
       "agree": {
-        "heading": "[CY] I agree to pay the costs as decided by the court",
-        "answer": "[CY] I agree to pay the costs as decided by the court"
+        "heading": "Rwy’n cytuno i dalu’r costau yn unol â phenderfyniad y llys",
+        "answer": "Rwy’n cytuno i dalu’r costau yn unol â phenderfyniad y llys"
       },
       "disagree": {
-        "heading": "[CY] I should not pay any costs, and will give my reasons",
-        "answer": "[CY] I should not pay any costs, and will give my reasons",
-        "reason": "[CY] Provide a brief explanation of why you should not pay"
+        "heading": "Ni ddylwn dalu unrhyw gostau a byddaf yn rhoi fy rhesymau",
+        "answer": "Ni ddylwn dalu unrhyw gostau a byddaf yn rhoi fy rhesymau",
+        "reason": "Eglurwch yn gryno pam na ddylech dalu"
       }
     },
     "errors": {
-      "required": "[CY] Select ‘I agree to pay the costs as decided by the court’ if you agree to pay.",
-      "noReasonRequired": "[CY] Enter a reason why you should not pay the costs."
+      "required": "Dewiswch ‘Rwy’n cytuno i dalu’r costau yn unol â phenderfyniad y llys’ os ydych yn cytuno i dalu.",
+      "noReasonRequired": "Rhowch reswm pam na ddylech dalu’r costau."
     }
   }
 }

@@ -30,33 +30,33 @@
     }
   },
   "cy": {
-    "title": "[CY] How the court will contact you",
+    "title": "Sut fydd y llys yn cysylltu â chi?",
     "contactMethods": {
       "email": {
-        "heading": "[CY] By email",
-        "intro": "[CY] You need to receive emails about the divorce to use the online service. Your email address will not be shared with the applicant.<br/><br/>Your emails will be sent to: "
+        "heading": "Trwy e-bost:",
+        "intro": "Bydd angen ichi dderbyn negeseuon e-bost am yr ysgariad i ddefnyddio’r gwasanaeth ar-lein. Ni fyddir yn rhannu eich cyfeiriad e-bost gyda’r ceisydd. <br/><br/>Byddir yn anfon eich e-byst i: "
       },
       "telephone": {
-        "heading": "[CY] By phone",
-        "intro": "[CY] Provide a phone number to let court staff contact you more quickly. Your phone number will not be shared with the applicant."
+        "heading": "Ffôn:",
+        "intro": "Darparwch rif ffôn er mwyn i staff y llys allu cysylltu â chi yn gynt. Ni fyddwn yn rhannu eich rhif ffôn gyda’r ceisydd."
       },
       "post": {
-        "heading": "[CY] By post",
-        "intro": "[CY] You may need to receive some correspondence by post. This will be sent to the address the applicant provided.<br/><br/>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You'll be given the divorce centre's contact details when you submit your response."
+        "heading": "Drwy’r post",
+        "intro": "Efallai y bydd angen ichi dderbyn peth gohebiaeth drwy’r post. Anfonir yr ohebiaeth i’r cyfeiriad a ddarparwyd gan y ceisydd. <br/><br/> Cysylltwch â’r ganolfan ysgaru os ydych angen diweddaru eich cyfeiriad. Gallwch ofyn inni gadw eich cyfeiriad newydd yn gyfrinachol. Byddwch yn cael manylion cyswllt y ganolfan ysgaru wedi ichi gyflwyno ymateb."
       }
     },
     "fields": {
       "email": {
-        "label": "[CY] I agree that the divorce centre can send me notifications and deliver (serve) court documents to me by email."
+        "label": "Rwy’n cydsynio i’r ganolfan ysgaru anfon hysbysiadau ataf a chyflwyno dogfennau’r llys imi drwy e-bost."
       },
       "telephone": {
-        "label": "[CY] Enter your phone number",
-        "hint": "[CY] (Optional)"
+        "label": "Rhowch eich rhif ffôn",
+        "hint": "(Dewisol)"
       }
     },
     "errors": {
-      "requireValidTelephoneNo": "[CY] Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
-      "requireConsent": "[CY] You must agree to receive notifications and court documents by email to use this service."
+      "requireValidTelephoneNo": "Rhowch rif ffôn dilys. Rhaid i rifau ffôn gynnwys o leiaf 9 rhif ac nid ddylent gynnwys unrhyw symbolau ac eithrio’r rhifau 0-9 a’r symbolau +, - , ( , ) , .",
+      "requireConsent": "Rhaid ichi gydsynio i dderbyn hysbysiadau a dogfennau’r llys drwy e-bost i ddefnyddio’r gwasanaeth hwn."
     }
   }
 }
