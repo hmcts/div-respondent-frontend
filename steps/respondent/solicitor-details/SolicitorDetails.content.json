@@ -32,35 +32,35 @@
     }
   },
   "cy": {
-    "title": "[CY] Your solicitor's details",
-    "enterTheDetailsOfTheSolicitor": "[CY] Enter the details of the solicitor who will be representing you during the divorce.",
-    "statementOfTruth": "[CY] Statement of Truth",
+    "title": "Manylion eich cyfreithiwr",
+    "enterTheDetailsOfTheSolicitor": "Rhowch fanylion y cyfreithiwr a fydd yn eich cynrychioli yn ystod yr ysgariad.",
+    "statementOfTruth": "Datganiad Gwirionedd",
     "fields": {
       "solicitorName": {
-        "label": "[CY] Solicitor's name",
-        "hint": "[CY] (Optional)"
+        "label": "Enw eich cyfreithiwr",
+        "hint": "(Dewisol)"
       },
       "firmName": {
-        "label": "[CY] Firm name"
+        "label": "Enw’r Ffyrm"
       },
       "solicitorEmail": {
-        "label": "[CY] Solicitor's email address"
+        "label": "Cyfeiriad e-bost y cyfreithiwr"
       },
       "telephone": {
-        "label": "[CY] Solicitor's phone number"
+        "label": "Rhif ffôn y cyfreithiwr"
       },
       "solicitorRefNumber": {
-        "label": "[CY] Solicitor's reference number"
+        "label": "Cyfeirnod y cyfreithiwr"
       },
       "statementOfTruth": {
-        "yes": "[CY] I confirm that the solicitor's details are correct"
+        "yes": "Rwy’n cadarnhau bod manylion y cyfreithiwr yn gywir"
       }
     },
     "errors": {
-      "requireValidTelephoneNo": "[CY] Enter a valid phone number. Phone numbers must be at least 9 digits long, and only contain the numbers 0-9 and the symbols +, - , ( , ) , .",
-      "requiredField": "[CY] Enter the required data",
-      "validEmail": "[CY] Please enter a valid email address",
-      "requireConsent": "[CY] Please confirm that the solicitor's details are correct"
+      "requireValidTelephoneNo": "Rhowch rif ffôn dilys. Rhaid i rifau ffôn gynnwys o leiaf 9 rhif ac nid ddylent gynnwys unrhyw symbolau ac eithrio’r rhifau 0-9 a’r symbolau +, - , ( , ) , .",
+      "requiredField": "Rhowch y data gofynnol",
+      "validEmail": "Rhowch gyfeiriad e-bost dilys",
+      "requireConsent": "Cadarnhewch fod manylion y cyfreithiwr yn gywir"
     }
   }
 }

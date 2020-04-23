@@ -33,36 +33,36 @@
     }
   },
   "cy": {
-    "title": "[CY] Are you defending the divorce as it would cause you severe hardship?",
+    "title": "A ydych chi’n amddiffyn yr ysgariad am y byddai’n peri caledi difrifol ichi?",
     "cya": {
-      "question": "[CY] Are you defending the divorce as it would cause you severe hardship?",
-      "details": "[CY] How will the divorce cause you severe hardship?"
+      "question": "A ydych chi’n amddiffyn yr ysgariad am y byddai’n peri caledi difrifol ichi?",
+      "details": "Sut fydd yr ysgariad yn peri caledi difrifol ichi?"
     },
-    "text1": "[CY] As your {{ session.divorceWho }} used 5 years separation as the reason for divorce, you can defend it on the basis that it will cause you severe hardship.",
-    "text2": "[CY] The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).",
+    "text1": "Gan fod eich {{ session.divorceWho }} wedi defnyddio gwahanu ers 5 mlynedd yn rheswm dros ysgaru, gallwch geisio atal yr ysgariad ar y sail y bydd yn peri caledi difrifol ichi.",
+    "text2": "Gallai’r caledi fod yn ariannol (colli eich hawl i gael pensiwn gwraig weddw, er enghraifft) neu’n galedi o fath arall (eich stigmateiddio am resymau crefyddol neu ddiwylliannol, er enghraifft).",
     "info": {
-      "heading": "[CY] Read more about hardship",
-      "summary1": "[CY] You'll need to convince the court that the hardship will be severe.",
-      "summary2": "[CY] The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
-      "summary3": "[CY] Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.",
-      "summary4": "[CY] You'll need to make your case for hardship in another form (called the 'answer') within 21 days. You'll also have to pay another £{{ feesDefendDivorce }} fee."
+      "heading": "Darllenwch fwy am galedi",
+      "summary1": "Bydd angen ichi argyhoeddi’r llys y bydd y caledi’n ddifrifol.",
+      "summary2": "Bydd y llys yn ystyried eich amgylchiadau unigol a’ch lles ac amgylchiadau unigol a lles eich gwr. Bydd hefyd yn ystyried anghenion unrhyw blant, os oes gennych blant, ac unrhyw un arall y byddai’r ysgariad yn effeithio arno.",
+      "summary3": "Anaml iawn y defnyddir caledi difrifol yn amddiffyniad dros wrthwynebu ysgariad, ac ni bydd llys yn gwrthod cais am ysgariad am y rheswm hwnnw ond yn anfynych iawn.",
+      "summary4": "Bydd angen ichi gyflwyno’r ddadl dros galedi ar ffurflen arall (gelwir y ffurflen honno yn ‘ateb’) o fewn 21 diwrnod. Bydd yn rhaid ichi dalu ffi Â£{{ feesDefendDivorce }} arall hefyd."
     },
     "fields": {
       "yes": {
-        "heading": "[CY] Yes",
-        "answer": "[CY] Yes",
+        "heading": "Ydy",
+        "answer": "Ydy",
         "details" : {
-          "title": "[CY] How will the divorce cause you severe hardship?"
+          "title" : "Sut fydd yr ysgariad yn peri caledi difrifol ichi?"
         }
       },
       "no": {
-        "heading": "[CY] No",
-        "answer": "[CY] No"
+        "heading": "Nac ydy",
+        "answer": "Nac ydy"
       }
     },
     "errors": {
-      "required": "[CY] Select 'Yes' if you are defending on the basis that it will cause you severe hardship",
-      "requireDetails": "[CY] Enter the details"
+      "required": "Dewiswch ydy os ydych yn amddiffyn  yr ysgariad ar y sail y bydd yn achosi caledi eithriadol ichi",
+      "requireDetails": "Rhowch y manylion"
     }
   }
 }

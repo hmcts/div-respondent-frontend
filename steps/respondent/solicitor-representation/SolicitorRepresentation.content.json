@@ -15,18 +15,18 @@
     }
   },
   "cy": {
-    "title": "[CY] Are you being represented by a solicitor?",
-    "subHeading": "[CY] Do you have a solicitor that will submit your response on your behalf?",
+    "title": "A oes cyfreithiwr yn eich cynrychioli?",
+    "subHeading": "A oes gennych gyfreithiwr a fydd yn cyflwyno eich ymateb ar eich rhan?",
     "fields": {
       "hasSolicitor": {
-        "label": "[CY] Yes"
+        "label": "Oes"
       },
       "noSolicitor": {
-        "label": "[CY] No"
+        "label": "Nac oes"
       }
     },
     "errors": {
-      "required": "[CY] Confirm whether you have a solicitor representing you or not"
+      "required": "Cadarnhewch a oes gennych gyfreithiwr yn eich cynrychioli ai peidio"
     }
   }
 }

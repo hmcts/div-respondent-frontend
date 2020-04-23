@@ -70,73 +70,71 @@
     }
   },
   "cy": {
-    "title": "[CY] Do you agree that the courts of England and Wales have jurisdiction?",
+    "title": "A ydych yn cytuno bod gan lysoedd Cymru a Lloegr awdurdodaeth?",
     "cya": {
-      "agree": "[CY] Do you agree that the courts of England and Wales have jurisdiction?",
-      "reason": "[CY] Why don't you agree that the court has jurisdiction?",
-      "country": "[CY] In which country is your life mainly based?"
+      "agree" : "A ydych yn cytuno bod gan lysoedd Cymru a Lloegr awdurdodaeth?",
+      "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
+      "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
     },
-    "summary": "[CY] Your {{ session.divorceWho }} has stated that the court has jurisdiction (the legal power) to grant you a divorce because:",
-    "question": "[CY] Just one of these gives the court jurisdiction.",
-
-    "jurisdictionConnectionBothResident": "[CY] both you and your {{ session.divorceWho }} are habitually resident",
-    "jurisdictionConnectionOneResides": "[CY] you and your {{ session.divorceWho }} were both last habitually resident and one of you still lives here",
-    "jurisdictionConnectionRespondent": "[CY] you are habitually resident",
-    "jurisdictionConnectionPetitioner": "[CY] your {{ session.divorceWho }}  is habitually resident and has lived here for at least 12 months",
-    "jurisdictionConnectionPetitionerSixMonths": "[CY] your {{ session.divorceWho }} is domiciled and habitually resident and has lived here for at least 6 months",
-    "jurisdictionConnectionBothDomiciled": "[CY] both you and your {{ session.divorceWho }} are domiciled",
-    "jurisdictionConnectionOther": "[CY] The courts of England and Wales have residual jurisdiction",
-
+    "summary": "Mae eich {{ session.divorceWho }} wedi dweud fod gan y llys awdurdodaeth (y pwer cyfreithiol) i ganiatáu ysgariad ichi oherwydd:",
+    "question": "Dim ond un o’r rhain sy’n rhoi awdurdodaeth i’r llys.",
+    "jurisdictionConnectionBothResident": "eich bod chi a’ch {{ session.divorceWho }} yn preswylio’n arferol yng Nghymru neu Loegr",
+    "jurisdictionConnectionOneResides": "eich bod chi a’ch {{ session.divorceWho }} yn preswylio’n arferol yma ddiwethaf ac mae un ohonoch yn byw yma o hyd",
+    "jurisdictionConnectionRespondent": "rydych yn preswylio’n arferol yng Nghymru neu Loegr",
+    "jurisdictionConnectionPetitioner": "bod eich {{ session.divorceWho }}  yn preswylio’n arferol yma ac wedi byw yma am o leiaf 12 mis",
+    "jurisdictionConnectionPetitionerSixMonths": "bod domisil eich {{ session.divorceWho }} yma, ei fod/bod yn preswylio’n arferol yma ac wedi byw yma am o leiaf 6 mis",
+    "jurisdictionConnectionBothDomiciled": "eich bod chi a’ch {{ session.divorceWho }} â’ch domisil yng Nghymru a Lloegr",
+    "jurisdictionConnectionOther": "Mae gan lysoedd Cymru a Lloegr awdurdodaeth ar sail weddillol",
     "info": {
-      "heading": "[CY] What this means",
+      "heading": "Beth yw ystyr hyn?",
       "options": {
         "habitualResidence": {
-          "heading": "[CY] Habitual residence",
-          "summary1": "[CY] If your lives are mainly based in England or Wales then you're what is legally known as 'habitually resident'.",
-          "summary2": "[CY] This may include working, owning property, having children in school, and your main family life taking place in England or Wales.",
-          "summary3": "[CY] The examples above aren't a complete list of what makes up habitual residence, and just because some of them apply to you doesn’t mean you’re habitually resident. If you’re not sure, you should get legal advice."
+          "heading": "Preswylio’n arferol",
+          "summary1": "Os ydych chi’n treulio’r ran fwyaf o’ch amser yng Nghymru a Lloegr, rydych yn ‘preswylio’n arferol’ yno yn ôl y gyfraith.",
+          "summary2": "Mae’n bosib i hyn gynnwys gweithio, bod yn berchen ar eiddo, bod â phlant mewn ysgol, a bod eich prif fywyd teuluol yng Nghymru a Lloegr.",
+          "summary3": "Nid yw’r enghreifftiau uchod yn rhestr gynhwysfawr o amgylchiadau sy’n enghreifftio preswylfa arferol, ac er y gallai rhai ohonynt fod yn berthnasol ichi, nid yw hynny o reidrwydd yn golygu eich bod yn preswylio’n arferol yn rhywle. Os nad ydych yn siwr , dylech ofyn am gyngor cyfreithiol."
         },
         "domicile": {
-          "heading": "[CY] Domicile",
-          "summary1": "[CY] Your domicile is usually the place in which you were born, regard as your permanent home and to which you have the closest ties.",
-          "summary2": "[CY] However, domicile can be more complex if you or your parents have moved countries in the past.",
-          "summary3Part1": "[CY] When you're born, you acquire a ",
-          "summary3Part2": "[CY] domicile of origin.",
-          "summary3Part3": "[CY]  This is usually:",
-          "summary3SubText1": "[CY] the country your father considered his permanent home if your parents were married",
-          "summary3SubText2": "[CY] the country your mother considered her permanent home if your parents were unmarried, or your father had died",
-          "summary4Part1": "[CY] If you leave your domicile of origin and settle in another country as an adult, the new country may become your ",
-          "summary4Part2": "[CY] domicile of choice.",
-          "summary5": "[CY] If you're not sure about your domicile you should get legal advice."
+          "heading": "Domisil",
+          "summary1": "Fel rheol, eich domisil yw’r lle y cawsoch eich geni, y lle yr ydych yn meddwl amdano fel eich cartref parhaol a’r lle mae eich teulu a’ch ffrindiau agosaf yn byw.",
+          "summary2": "Ond, gall eich domisil fod yn fwy cymhleth, er enghraifft os ydych chi neu eich rhieni wedi symud o un wlad i’r llall yn y gorffennol.",
+          "summary3Part1": "Pan rydych yn cael eich geni, rydych yn cael",
+          "summary3Part2": "Mamwlad.",
+          "summary3Part3": "Fel arfer, hon yw'r wlad:",
+          "summary3SubText1": "yr oedd eich tad yn ystyried yn gartref parhaol iddo os oedd eich rhieni wedi priodi",
+          "summary3SubText2": "yr oedd eich mam yn ystyried yn gartref parhaol iddi os nad oedd eich rhieni wedi priodi, neu os oedd eich tad wedi marw",
+          "summary4Part1": "Os byddwch yn gadael eich domisil gwreiddiol ac yn ymsefydlu mewn gwlad arall fel oedolyn, yna gallai’r wlad newydd ddod ichi’n ",
+          "summary4Part2": "ddomisil dewisol.",
+          "summary5": "Os nad ydych chi’n siwr am eich domisil, dylech ofyn am gyngor cyfreithiol."
         },
         "residualJurisdiction": {
-          "heading": "[CY] Residual Jurisdiction",
-          "intro1": "[CY] The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:",
-          "bullet1": "[CY] either you or your {{ session.divorceWho }} are domiciled in England or Wales",
-          "bullet2": "[CY] neither you nor your {{ session.divorceWho }} are able to apply (on the basis of your nationality or residence) for a divorce in another member state of the EU",
-          "intro2": "[CY] In addition, if you're married to a person of the same sex, the court may have residual jurisdiction if all the following apply:",
-          "bullet3": "[CY] you and your {{ session.divorceWho }} married each other in England or Wales",
-          "bullet4": "[CY] neither you nor your {{ session.divorceWho }} are able to apply for a divorce in any other country",
-          "bullet5": "[CY] it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ session.divorceWho }}'s home country doesn’t allow divorce between same-sex couples)."
+          "heading": "Awdurdodaeth Weddillol",
+          "intro1": "Mae’n bosib y bydd gan y llys awdurdodaeth ar sail weddillol os nad yw unrhyw un o’r cysylltiadau cyfreithiol eraill yn berthnasol, a bod y canlynol ill dau yn wir:",
+          "bullet1": "mae eich domisil chi neu ddomisil eich {{ session.divorceWho }} yng Nghymru neu Loegr",
+          "bullet2": "nid ydych chi na’ch {{ session.divorceWho }} yn gallu gwneud cais (ar sail eich cenedligrwydd neu eich preswylfan) am ysgariad yn un o aelod-wladwriaethau eraill yr UE",
+          "intro2": "At hynny, os ydych yn briod â rhywun o’r un rhyw, efallai eich bod yn gymwys ar gyfer awdurdodaeth weddillol os yw’r canlynol i gyd yn berthnasol:",
+          "bullet3": "mi wnaethoch chi a’ch {{ session.divorceWho }} briodi eich gilydd yng Nghymru neu Loegr",
+          "bullet4": "nid ydych chi na’ch {{ session.divorceWho }} yn gallu gwneud cais am ysgariad mewn unrhyw wlad arall",
+          "bullet5": "byddai er lles cyfiawnder i’r llys ystyried y cais (er enghraifft, gallai hyn fod yn berthnasol, os nad yw’r wlad lle mae eich cartref neu gartref eich {{ session.divorceWho }} yn caniatáu ysgariad rhwng cyplau o'r un rhyw)."
         }
       }
     },
     "fields": {
       "agree": {
-        "heading": "[CY] Yes, I agree that the court has jurisdiction",
-        "answer": "[CY] Yes"
+        "heading": "Ydw, rwy’n cytuno fod gan y llys awdurdodaeth",
+        "answer": "Ydy"
       },
       "disagree": {
-        "heading": "[CY] No, I don't agree that the court has jurisdiction",
-        "answer": "[CY] No",
-        "reason": "[CY] Why don't you agree that the court has jurisdiction?",
-        "country": "[CY] In which country is your life mainly based?"
+        "heading": "Na, nid wyf yn cytuno fod gan y llys awdurdodaeth",
+        "answer": "Nac ydy",
+        "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
+        "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
       }
     },
     "errors": {
-      "required": "[CY] Select ‘Yes’ if you agree to the jurisdiction",
-      "reasonRequired": "[CY] Provide a reason for why you don’t agree that the court has jurisdiction",
-      "countryRequired": "[CY] Enter the country which you mainly live in"
+      "required": "Dewiswch ydw os ydych chi’n cytuno i’r awdurdodaeth",
+      "reasonRequired": "Eglurwch pam nad ydych yn cytuno fod gan y llys awdurdodaeth",
+      "countryRequired": "Nodwch y wlad yr ydych yn byw ynddi gan mwyaf"
     }
   }
 }

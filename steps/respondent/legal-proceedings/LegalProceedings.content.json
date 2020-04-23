@@ -43,46 +43,46 @@
     }
   },
   "cy": {
-    "title": "[CY] Other legal proceedings outside of England and Wales",
+    "title": "Achos cyfreithiol arall y tu allan i Gymru a Lloegr",
     "cya": {
-      "question": "[CY] Have you ever been involved in any court cases relating to your marriage, property or children?",
-      "details": "[CY] Details of the court cases"
+      "question": "Ydych chi erioed wedi bod yn rhan o unrhyw achos llys sy’n ymwneud â’ch priodas, eich eiddo neu eich plant?",
+      "details": "Manylion yr achosion llys"
     },
-    "summary": "[CY] The court needs to know if there are currently any legal proceedings in a court, tribunal or other authority which are either:",
+    "summary": "Mae’r llys angen gwybod a oes yna achos cyfreithiol ar hyn o bryd mewn llys, tribiwnlys neu awdurdod arall:",
     "info": {
       "options" : {
-        "relatedToMarriage": "[CY] related to the marriage",
-        "affectsValidity": "[CY] may affect its validity (how legally binding the marriage is)"
+        "relatedToMarriage" : "ynglyn â’r briodas",
+        "affectsValidity": "a allai effeithio ar ei dilysrwydd (pa mor rwymol yw’r briodas yn ôl y gyfraith)"
       }
     },
-    "question": "[CY] Are there any other legal proceedings the court needs to know about?",
+    "question": "A oes yna unrhyw achos cyfreithiol arall y dylai’r llys fod yn ymwybodol ohono?",
     "fields": {
       "yes": {
-        "heading": "[CY] Yes",
-        "answer": "[CY] Yes",
+        "heading": "Oes",
+        "answer": "Oes",
         "details" : {
-          "title": "[CY] Provide further details",
-          "summary": "[CY] You should try to include:",
+          "title" : "Rhowch fwy o fanylion",
+          "summary" : "Dylech geisio cynnwys:",
           "includes" : {
-            "caseNumbers": "[CY] case numbers",
-            "aboutWhat": "[CY] what they are about",
-            "namesInvolved": "[CY] names of those involved",
-            "courtDetails": "[CY] name of the court, the tribunal, and/or the authority",
-            "country": "[CY] the country it's in",
-            "dates": "[CY] date that the proceedings began and of any future hearings",
-            "others": "[CY] anything else that might affect the application for divorce"
+            "caseNumbers": "rhifau achosion",
+            "aboutWhat": "testun yr achos",
+            "namesInvolved": "enwau’r rhai oedd yn rhan o’r achosion",
+            "courtDetails": "enw’r llys, y tribiwnlys a/neu’r awdurdod",
+            "country": "y wlad lle mae’r llys",
+            "dates": "dyddiad cychwyn yr achos a dyddiad  unrhyw wrandawiad yn y dyfodol",
+            "others": "unrhyw beth arall a allai effeithio ar y cais am ysgariad"
           },
-          "caseDetails": "[CY] Details of the court cases"
+          "caseDetails": "Manylion yr achosion llys"
         }
       },
       "no": {
-        "heading": "[CY] No",
-        "answer": "[CY] No"
+        "heading": "Nac ydy",
+        "answer": "Nac ydy"
       }
     },
     "errors": {
-      "required": "[CY] Select ‘No’ if there aren’t any legal proceedings the court needs to know about.",
-      "requireCaseDetails": "[CY] Enter details about the court cases"
+      "required": "Dewiswch nac ydy os nad oes yna unrhyw achos cyfreithiol arall y dylai’r llys fod yn ymwybodol ohono?.",
+      "requireCaseDetails": "Rhowch fanylion yr achosion llys"
     }
   }
 }

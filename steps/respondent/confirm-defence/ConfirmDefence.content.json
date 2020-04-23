@@ -30,33 +30,33 @@
     }
   },
   "cy": {
-    "title": "[CY] Confirm that you intend to defend the divorce",
-    "defenceFeeDetails": "[CY] You'll have to pay a fee and complete another form to defend the divorce. You both may have to attend a hearing where a judge will decide if the divorce should be granted.",
-    "warning": "[CY] Warning",
-    "legalAdviceWarn": "[CY] You should get legal advice if you're not sure.",
+    "title": "Cadarnhau eich bod yn bwriadu amddiffyn ysgariad",
+    "defenceFeeDetails": "Bydd yn rhaid ichi dalu ffi a llenwi ffurflen arall i amddiffyn ysgariad. Efallai y bydd gofyn i’r ddau ohonoch fynychu gwrandawiad lle bydd barnwr yn penderfynu a ddylid caniatáu’r ysgariad.",
+    "warning": "Rhybudd",
+    "legalAdviceWarn": "Dylech gael cyngor cyfreithiol os nad ydych yn siwr.",
     "info": {
-      "readMore": "[CY] Read more about defending",
+      "readMore": "Darllenwch fwy am amddiffyn ysgariad",
       "sections": {
         "intendToPrevent": {
-          "heading": "[CY] If you intend to prevent the divorce",
-          "summary": "[CY] You'll need to submit another form (known as the 'answer') with your reason for defending the divorce. You'll also have to pay another £{{ feesDefendDivorce }} fee.<br/><br/>You have 21 days to submit your answer from the date that you first signed into your divorce account.<br/><br/>If you don't submit the answer by the deadline, your {{ session.divorceWho }} will usually be able to continue with the divorce as if you didn't defend it."
+          "heading": "Os ydych yn bwriadu atal yr ysgariad",
+          "summary": "Bydd angen ichi gyflwyno ffurflen arall (gelwir y ffurflen honno’n ‘ateb’) gan roi eich rheswm dros amddiffyn yr ysgariad. Bydd gofyn ichi dalu ffi Â£{{ feesDefendDivorce }} arall hefyd.<br/><br/>Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad pan wnaethoch fewngofnodi gyntaf i’ch cyfrif ysgaru.<br/><br/>Os na fyddwch yn cyflwyno’r ateb cyn pen y 21 diwrnod,  bydd eich {{ session.divorceWho }} fel rheol yn gallu bwrw ymlaen â’r ysgariad fel pe na baech yn ei amddiffyn."
         },
         "makeOwnApplication": {
-          "heading": "[CY] Making your own application for divorce",
-          "summary": "[CY] You'll need to complete a new divorce application and pay the £{{ feesIssueApplication }} fee if you want to apply for the divorce yourself. You have 21 days to submit your answer from the date that you first signed into your divorce account."
+          "heading": "Gwneud eich cais eich hun am ysgariad",
+          "summary": "Bydd angen ichi lenwi cais newydd am ysgariad a thalu’r ffi Â£{{ feesIssueApplication }} os ydych am wneud eich cais eich hun am ysgariad. Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad y gwnaethoch fewngofnodi gyntaf i’ch cyfrif ysgaru."
         }
       }
     },
     "fields": {
       "confirm": {
-        "label": "[CY] I confirm that I intend to defend the divorce"
+        "label": "Rwy’n cadarnhau fy mod yn bwriadu amddiffyn yr ysgariad"
       },
       "changeResponse": {
-        "label": "[CY] I want to change my response"
+        "label": "Rwyf eisiau newid fy ymateb"
       }
     },
     "errors": {
-      "required": "[CY] Confirm whether you intend to defend the divorce or not"
+      "required": "Cadarnhau a ydych yn bwriadu amddiffyn yr ysgariad ai peidio"
     }
   }
 }

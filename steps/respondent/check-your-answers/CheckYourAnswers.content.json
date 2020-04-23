@@ -23,25 +23,25 @@
     }
   },
   "cy": {
-    "title": "[CY] Check your answers",
-    "confirm": "[CY] Confirm the following",
-    "confirmThat": "[CY] I confirm that:",
-    "respondentConfirmation": "[CY] I am the person named as the respondent in the application for divorce.",
-    "facts": "[CY] I believe that the facts stated in this response are true.",
-    "whatTheseStatements": "[CY] What these statements are",
-    "statementsExplanation": "[CY] The first statement is your confirmation that you're the person who should be responding to this application for divorce. The second is your statement of truth.",
-    "submit": "[CY] Submit",
-    "statementOfTruth": "[CY] You could be fined or imprisoned for contempt of court if you deliberately submit false information.",
-    "respSolicitorRepStatement": "[CY] You could be fined or imprisoned for contempt of court if you deliberately submit false information.",
+    "title": "Gwirio eich atebion",
+    "confirm": "Cadarnhau’r canlynol",
+    "confirmThat": "Rwy’n cadarnhau:",
+    "respondentConfirmation": "Fi yw’r un a enwir yn Atebydd yn y cais am ysgariad.",
+    "facts": "Credaf fod y ffeithiau a nodir yn yr ymateb hwn yn wir.",
+    "whatTheseStatements": "Beth yw’r datganiadau hyn?",
+    "statementsExplanation": "Y datganiad cyntaf yw eich cadarnhad mai chi yw’r un a ddylai ymateb i’r cais hwn am ysgariad. Yr ail yw eich datganiad gwirionedd.",
+    "submit": "Cyflwyno",
+    "statementOfTruth": "Gellir eich dirwyo neu eich carcharu am ddirmyg llys os ydych yn cyflwyno gwybodaeth y gwyddoch ei bod yn anwireddus.",
+    "respSolicitorRepStatement": "Gellir eich dirwyo neu eich carcharu am ddirmyg llys os ydych yn cyflwyno gwybodaeth y gwyddoch ei bod yn anwireddus.",
     "errors": {
-      "required": "[CY] You need to confirm that the information you've given is true"
+      "required": "Mae angen ichi gadarnhau bod yr wybodaeth a roddwyd gennych yn gywir"
     },
     "fields": {
       "statementOfTruth": {
-        "yes": "[CY] I confirm that:"
+        "yes": "Rwy’n cadarnhau:"
       },
       "respondentSolicitorRepresented": {
-        "yes": "[CY] I confirm that:"
+        "yes": "Rwy’n cadarnhau:"
       }
     }
   }
