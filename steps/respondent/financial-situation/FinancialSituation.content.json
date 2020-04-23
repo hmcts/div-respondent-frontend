@@ -4,12 +4,12 @@
     "description": "As your {{ session.divorceWho }} used separation as the reason for divorce, you can ask the court to consider what your financial position will be afterwards.",
     "theCourtMayDelay": "The court may then decide to delay the final stage of the divorce (the decree absolute) until it is satisfied with the future financial arrangements between you and your {{ session.divorceWho }}.",
     "readMore": "Read more about this",
-    "readMoreParagraph1": "If you ask the court to do this, it won't make the decree absolute unless it's satisfied that your {{ session.divorceWho }} either:",
+    "readMoreParagraph1": "If you ask the court to do this, it won’t make the decree absolute unless it’s satisfied that your {{ session.divorceWho }} either:",
     "readMoreParagraph2": "has made or will make financial provision for you that is reasonable and fair or the best that they can do under the circumstances",
-    "readMoreParagraph3": "shouldn't have to provide for you financially",
+    "readMoreParagraph3": "shouldn’t have to provide for you financially",
     "readMoreParagraph4": "When making its decision the court will take into account both of your individual circumstances (for example your ages, health, conduct, and earning capacities) and your financial position should your {{ session.divorceWho }} die first.",
-    "readMoreParagraph5": "The court may decide not to delay the divorce if there are circumstances under which it shouldn't be delayed and the court is satisfied that your {{ session.divorceWho }} will make appropriate financial provision for you.",
-    "formB": "You'll need to submit another form (form B) after you've submitted this form - you'll be given a link to it at the end of this form.",
+    "readMoreParagraph5": "The court may decide not to delay the divorce if there are circumstances under which it shouldn’t be delayed and the court is satisfied that your {{ session.divorceWho }} will make appropriate financial provision for you.",
+    "formB": "You’ll need to submit another form (form B) after you’ve submitted this form - you’ll be given a link to it at the end of this form.",
     "fields": {
       "respConsiderFinancialSituation": {
         "yes": "Yes",
@@ -21,7 +21,7 @@
     }
   },
   "cy": {
-    "title": "A ydych yn bwriadu gofyn i'r llys ohirio'r  ysgariad hyd nes y bydd yn fodlon â’ch sefyllfa ariannol?",
+    "title": "A ydych yn bwriadu gofyn i’r llys ohirio’r  ysgariad hyd nes y bydd yn fodlon â’ch sefyllfa ariannol?",
     "description": "Gan fod eich {{ session.divorceWho }} wedi defnyddio gwahanu yn rheswm dros ysgaru, gallwch ofyn i’r llys ystyried eich sefyllfa ariannol ar ôl ysgaru.",
     "theCourtMayDelay": "Yna gall y llys ystyried gohirio cam olaf yr ysgariad (y dyfarniad absoliwt) nes ei fod yn fodlon ar y trefniadau ariannol rhyngoch chi a’ch {{ session.divorceWho }}.",
     "readMore": "Darllenwch fwy am hyn",

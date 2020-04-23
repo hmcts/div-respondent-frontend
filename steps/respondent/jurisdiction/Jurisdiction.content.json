@@ -3,7 +3,7 @@
     "title": "Do you agree that the courts of England and Wales have jurisdiction?",
     "cya": {
       "agree": "Do you agree that the courts of England and Wales have jurisdiction?",
-      "reason": "Why don't you agree that the court has jurisdiction?",
+      "reason": "Why don’t you agree that the court has jurisdiction?",
       "country": "In which country is your life mainly based?"
     },
     "summary": "Your {{ session.divorceWho }} has stated that the court has jurisdiction (the legal power) to grant you a divorce because:",
@@ -22,32 +22,32 @@
       "options": {
         "habitualResidence": {
           "heading": "Habitual residence",
-          "summary1": "If your lives are mainly based in England or Wales then you're what is legally known as 'habitually resident'.",
+          "summary1": "If your lives are mainly based in England or Wales then you’re what is legally known as 'habitually resident'.",
           "summary2": "This may include working, owning property, having children in school, and your main family life taking place in England or Wales.",
-          "summary3": "The examples above aren't a complete list of what makes up habitual residence, and just because some of them apply to you doesn’t mean you’re habitually resident. If you’re not sure, you should get legal advice."
+          "summary3": "The examples above aren’t a complete list of what makes up habitual residence, and just because some of them apply to you doesn’t mean you’re habitually resident. If you’re not sure, you should get legal advice."
         },
         "domicile": {
           "heading": "Domicile",
           "summary1": "Your domicile is usually the place in which you were born, regard as your permanent home and to which you have the closest ties.",
           "summary2": "However, domicile can be more complex if you or your parents have moved countries in the past.",
-          "summary3Part1": "When you're born, you acquire a ",
+          "summary3Part1": "When you’re born, you acquire a ",
           "summary3Part2": "domicile of origin.",
-          "summary3Part3": " This is usually:",
+          "summary3Part3": "This is usually:",
           "summary3SubText1": "the country your father considered his permanent home if your parents were married",
           "summary3SubText2": "the country your mother considered her permanent home if your parents were unmarried, or your father had died",
           "summary4Part1": "If you leave your domicile of origin and settle in another country as an adult, the new country may become your ",
           "summary4Part2": "domicile of choice.",
-          "summary5": "If you're not sure about your domicile you should get legal advice."
+          "summary5": "If you’re not sure about your domicile you should get legal advice."
         },
         "residualJurisdiction": {
           "heading": "Residual Jurisdiction",
           "intro1": "The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:",
           "bullet1": "either you or your {{ session.divorceWho }} are domiciled in England or Wales",
           "bullet2": "neither you nor your {{ session.divorceWho }} are able to apply (on the basis of your nationality or residence) for a divorce in another member state of the EU",
-          "intro2": "In addition, if you're married to a person of the same sex, the court may have residual jurisdiction if all the following apply:",
+          "intro2": "In addition, if you’re married to a person of the same sex, the court may have residual jurisdiction if all the following apply:",
           "bullet3": "you and your {{ session.divorceWho }} married each other in England or Wales",
           "bullet4": "neither you nor your {{ session.divorceWho }} are able to apply for a divorce in any other country",
-          "bullet5": "it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ session.divorceWho }}'s home country doesn’t allow divorce between same-sex couples)."
+          "bullet5": "it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ session.divorceWho }}’s home country doesn’t allow divorce between same-sex couples)."
         }
       }
     },
@@ -57,9 +57,9 @@
         "answer": "Yes"
       },
       "disagree": {
-        "heading": "No, I don't agree that the court has jurisdiction",
+        "heading": "No, I don’t agree that the court has jurisdiction",
         "answer": "No",
-        "reason": "Why don't you agree that the court has jurisdiction?",
+        "reason": "Why don’t you agree that the court has jurisdiction?",
         "country": "In which country is your life mainly based?"
       }
     },
@@ -72,7 +72,7 @@
   "cy": {
     "title": "A ydych yn cytuno bod gan lysoedd Cymru a Lloegr awdurdodaeth?",
     "cya": {
-      "agree" : "A ydych yn cytuno bod gan lysoedd Cymru a Lloegr awdurdodaeth?",
+      "agree": "A ydych yn cytuno bod gan lysoedd Cymru a Lloegr awdurdodaeth?",
       "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
       "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
     },
@@ -100,7 +100,7 @@
           "summary2": "Ond, gall eich domisil fod yn fwy cymhleth, er enghraifft os ydych chi neu eich rhieni wedi symud o un wlad i’r llall yn y gorffennol.",
           "summary3Part1": "Pan rydych yn cael eich geni, rydych yn cael",
           "summary3Part2": "Mamwlad.",
-          "summary3Part3": "Fel arfer, hon yw'r wlad:",
+          "summary3Part3": "Fel arfer, hon yw’r wlad:",
           "summary3SubText1": "yr oedd eich tad yn ystyried yn gartref parhaol iddo os oedd eich rhieni wedi priodi",
           "summary3SubText2": "yr oedd eich mam yn ystyried yn gartref parhaol iddi os nad oedd eich rhieni wedi priodi, neu os oedd eich tad wedi marw",
           "summary4Part1": "Os byddwch yn gadael eich domisil gwreiddiol ac yn ymsefydlu mewn gwlad arall fel oedolyn, yna gallai’r wlad newydd ddod ichi’n ",
@@ -115,7 +115,7 @@
           "intro2": "At hynny, os ydych yn briod â rhywun o’r un rhyw, efallai eich bod yn gymwys ar gyfer awdurdodaeth weddillol os yw’r canlynol i gyd yn berthnasol:",
           "bullet3": "mi wnaethoch chi a’ch {{ session.divorceWho }} briodi eich gilydd yng Nghymru neu Loegr",
           "bullet4": "nid ydych chi na’ch {{ session.divorceWho }} yn gallu gwneud cais am ysgariad mewn unrhyw wlad arall",
-          "bullet5": "byddai er lles cyfiawnder i’r llys ystyried y cais (er enghraifft, gallai hyn fod yn berthnasol, os nad yw’r wlad lle mae eich cartref neu gartref eich {{ session.divorceWho }} yn caniatáu ysgariad rhwng cyplau o'r un rhyw)."
+          "bullet5": "byddai er lles cyfiawnder i’r llys ystyried y cais (er enghraifft, gallai hyn fod yn berthnasol, os nad yw’r wlad lle mae eich cartref neu gartref eich {{ session.divorceWho }} yn caniatáu ysgariad rhwng cyplau o’r un rhyw)."
         }
       }
     },

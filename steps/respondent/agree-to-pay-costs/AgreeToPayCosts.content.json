@@ -4,33 +4,33 @@
     "poundSymbol": "£",
     "cya": {
       "agree": "Do you agree to pay the costs?",
-      "noReason": "Why don't you agree to pay the suggested costs?",
+      "noReason": "Why don’t you agree to pay the suggested costs?",
       "newAmount": "Suggested New Amount",
-      "newAmountReason": "Why don't you agree to pay the suggested costs?"
+      "newAmountReason": "Why don’t you agree to pay the suggested costs?"
     },
     "summary1": "Your {{ session.divorceWho }} asked the court that you pay the costs of the divorce.",
     "summary2": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ session.divorceWho }} make.",
 
     "question": "Do you agree to pay the costs?",
     "warning": "Warning",
-    "notice": "A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.",
+    "notice": "A costs order will only cover the divorce costs, and won’t include any costs related to financial settlements.",
 
     "info": {
       "heading": "Read more about costs orders",
       "options": {
         "amountToPay": {
           "heading": "How much you may have to pay",
-          "summary": "The applicant's costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if your {{ session.divorceWho }} has legal fees (eg a solicitor) and these are also included."
+          "summary": "The applicant’s costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if your {{ session.divorceWho }} has legal fees (eg a solicitor) and these are also included."
         },
         "whatNow": {
           "heading": "What happens now",
           "summary1": "Your {{ session.divorceWho }} will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
-          "summary2": "The court will then make its decision on whether you should pay any costs. It will take all your circumstances into account, including your conduct, and your {{ session.divorceWho }}'s conduct, before and during the divorce.",
-          "summary3": "You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
+          "summary2": "The court will then make its decision on whether you should pay any costs. It will take all your circumstances into account, including your conduct, and your {{ session.divorceWho }}’s conduct, before and during the divorce.",
+          "summary3": "You’ll be given the court’s decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
         },
         "doNotAcceptCost": {
           "heading": "Objecting to the costs order",
-          "summary": "You can dispute the costs order if you don't think that you should pay it. You'll need to send a letter to the court stating why you don't think you should pay at least 14 days before the hearing."
+          "summary": "You can dispute the costs order if you don’t think that you should pay it. You’ll need to send a letter to the court stating why you don’t think you should pay at least 14 days before the hearing."
         }
       }
     },
@@ -62,14 +62,14 @@
     "title": "Talu am yr ysgariad",
     "poundSymbol": "Â£",
     "cya": {
-      "agree" : "Ydych chi'n cytuno i dalu’r costau?",
+      "agree": "Ydych chi’n cytuno i dalu’r costau?",
       "noReason": "Pam nad ydych yn cytuno i dalu’r costau a awgrymir?",
       "newAmount": "Swm Newydd a Awgrymir",
       "newAmountReason": "Pam nad ydych yn cytuno i dalu’r costau a awgrymir?"
     },
     "summary1": "Gofynnodd eich {{ session.divorceWho }} i’r llys orchymyn ichi dalu costau’r ysgariad.",
-    "summary2": "Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn rhoi ystyriaeth i unrhyw geisiadau a wneir gennych chi a'ch {{ session.divorceWho }}.",
-    "question": "Ydych chi'n cytuno i dalu’r costau?",
+    "summary2": "Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn rhoi ystyriaeth i unrhyw geisiadau a wneir gennych chi a’ch {{ session.divorceWho }}.",
+    "question": "Ydych chi’n cytuno i dalu’r costau?",
     "warning": "Rhybudd",
     "notice": "Costau’r ysgariad yn unig y bydd gorchymyn costau yn ymorol amdanynt, ac ni fydd yn cynnwys unrhyw gostau yn ymwneud â setliad ariannol.",
     "info": {

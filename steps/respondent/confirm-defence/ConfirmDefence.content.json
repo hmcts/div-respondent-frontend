@@ -1,19 +1,19 @@
 {
   "en": {
     "title": "Confirm that you intend to defend the divorce",
-    "defenceFeeDetails": "You'll have to pay a fee and complete another form to defend the divorce. You both may have to attend a hearing where a judge will decide if the divorce should be granted.",
+    "defenceFeeDetails": "You’ll have to pay a fee and complete another form to defend the divorce. You both may have to attend a hearing where a judge will decide if the divorce should be granted.",
     "warning": "Warning",
-    "legalAdviceWarn": "You should get legal advice if you're not sure.",
+    "legalAdviceWarn": "You should get legal advice if you’re not sure.",
     "info": {
       "readMore": "Read more about defending",
       "sections": {
         "intendToPrevent": {
           "heading": "If you intend to prevent the divorce",
-          "summary": "You'll need to submit another form (known as the 'answer') with your reason for defending the divorce. You'll also have to pay another £{{ feesDefendDivorce }} fee.<br/><br/>You have 21 days to submit your answer from the date that you first signed into your divorce account.<br/><br/>If you don't submit the answer by the deadline, your {{ session.divorceWho }} will usually be able to continue with the divorce as if you didn't defend it."
+          "summary": "You’ll need to submit another form (known as the 'answer') with your reason for defending the divorce. You’ll also have to pay another £{{ feesDefendDivorce }} fee.<br/><br/>You have 21 days to submit your answer from the date that you first signed into your divorce account.<br/><br/>If you don’t submit the answer by the deadline, your {{ session.divorceWho }} will usually be able to continue with the divorce as if you didn’t defend it."
         },
         "makeOwnApplication": {
           "heading": "Making your own application for divorce",
-          "summary": "You'll need to complete a new divorce application and pay the £{{ feesIssueApplication }} fee if you want to apply for the divorce yourself. You have 21 days to submit your answer from the date that you first signed into your divorce account."
+          "summary": "You’ll need to complete a new divorce application and pay the £{{ feesIssueApplication }} fee if you want to apply for the divorce yourself. You have 21 days to submit your answer from the date that you first signed into your divorce account."
         }
       }
     },

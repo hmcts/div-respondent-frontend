@@ -11,7 +11,7 @@
     "files": {
       "dpetition": "Divorce application",
       "respondentAnswers": "Your answers",
-      "coRespondentAnswers": "Co-Respondent's answers",
+      "coRespondentAnswers": "Co-Respondent’s answers",
       "certificateOfEntitlement": "Certificate Of Entitlement",
       "costsOrder": "Costs Order",
       "decreeNisi": "Decree Nisi"
@@ -26,16 +26,16 @@
     },
     "progressedUndefended": {
       "heading": "You have submitted your response",
-      "info": "Your response will be checked. You will be sent an email when your divorce moves forward to the next stage. Contact the Courts and Tribunals Service Centre if you don't hear anything back after 6 weeks."
+      "info": "Your response will be checked. You will be sent an email when your divorce moves forward to the next stage. Contact the Courts and Tribunals Service Centre if you don’t hear anything back after 6 weeks."
     },
     "awaitingAnswer": {
       "heading": "You need to submit your answer",
       "para1": "You must now submit the '<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"Answer to a divorce application link, This link will open in a new tab.\">answer to a divorce application</a>' form. The deadline for the court to receive this is 21 days from the date that you first signed in to respond to the application.",
       "para2": "Download and fill in the paper form.",
       "para3": "Post the form to:",
-      "para4": "You'll have to pay a £245 fee when you submit the form.",
-      "para5": "You'll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
-      "para6": "If you don't submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn't said that you intended to defend the divorce."
+      "para4": "You’ll have to pay a £245 fee when you submit the form.",
+      "para5": "You’ll probably have to go to a hearing with your {{ session.divorceWho }} to try to come to an agreement over the divorce.",
+      "para6": "If you don’t submit your answer before the deadline, then your {{ session.divorceWho }} can continue the divorce as if you hadn’t said that you intended to defend the divorce."
     },
     "defendedDivorce": {
       "heading": "Your answer has been received by the court",
@@ -45,14 +45,14 @@
       "para4": "If the court decides that the divorce can go ahead, then the rest of the divorce will be online after the hearing."
     },
     "decreeNisiAnnouncement": {
-      "heading": "Your {{ session.divorceWho }}'s decree nisi application has been accepted",
+      "heading": "Your {{ session.divorceWho }}’s decree nisi application has been accepted",
       "districtJudge": "A district judge will formally announce the decree nisi at a court hearing. This is the first stage of the decree ending your marriage.",
-      "secondStage": "You'll only be divorced when the second stage is complete and the decree is made absolute.",
+      "secondStage": "You’ll only be divorced when the second stage is complete and the decree is made absolute.",
       "theHearing": "The hearing",
       "moreDetails": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a class=\"govuk-link\" href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Certificate Of Entitlement PDF.\">Certificate Of Entitlement</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
       "dontNeedToCome": "You don’t need to come to the hearing unless you want to object to any of the court orders being made.",
       "wantToAttend": "If you want to attend the hearing, you need to email the court before the hearing date.",
-      "wantToAttendCosts": " If you, or your {{ session.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date.",
+      "wantToAttendCosts": "If you, or your {{ session.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date.",
       "acceptedCosts": "The court has also decided to make an order that you pay towards the divorce costs."
     },
     "decreeNisiGranted": {
@@ -63,20 +63,20 @@
       "notDivorcedYet": "You are not divorced yet. You will only be divorced when the second stage is complete and the decree has been made absolute.",
       "divorceComplete": "When the divorce can be completed",
       "sixWeeks": "Your {{ session.divorceWho }} must wait 6 weeks after the decree nisi is granted before they can apply for the decree absolute.",
-      "courtCancel": "The court can cancel (known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
-      "applyForDecreeAbsolute": "You can apply for the decree absolute if your {{ session.divorceWho }} doesn't. You'll need to wait an extra 3 months after the 6 week period has passed to do this.",
+      "courtCancel": "The court can cancel (known as rescind) the decree nisi at any time up until the decree absolute, if it’s presented with new evidence showing why you shouldn’t be given a divorce.",
+      "applyForDecreeAbsolute": "You can apply for the decree absolute if your {{ session.divorceWho }} doesn’t. You’ll need to wait an extra 3 months after the 6 week period has passed to do this.",
       "downloadDecreeNisi": "<a class=\"govuk-link\" href=\"{{ decreeNisiFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Decree Nisi PDF.\">Download your decree nisi</a> ({{ decreeNisiFile.fileType | upper }}).",
       "whatCostsOrder": "What to do with the costs order",
-      "orderWillStateRespondent": "The order will state what the court has decided you must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
-      "orderWillStateCoRespondent": "The order will state what the court has decided the co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
-      "orderWillStateRespondentAndCoRespondent": "The order will state what the court has decided you and your co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "orderWillStateRespondent": "The order will state what the court has decided you must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don’t pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "orderWillStateCoRespondent": "The order will state what the court has decided the co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don’t pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
+      "orderWillStateRespondentAndCoRespondent": "The order will state what the court has decided you and your co-respondent must pay your {{ session.divorceWho }}. You are required to pay them within 14 days of the order being made. If you don’t pay within that time, your {{ session.divorceWho }} can use the order to make a civil money claim against you.",
       "downloadCostsOrder": "<a class=\"govuk-link\" href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Costs Order PDF.\">Download your costs order</a> ({{ costsOrderFile.fileType | upper }})."
     },
     "aosAwaitingSol": {
       "heading": "You have nominated a solicitor",
-      "nominatedSol": "You have nominated a solicitor to respond to your {{ session.divorceWho }}'s divorce application on your behalf.",
+      "nominatedSol": "You have nominated a solicitor to respond to your {{ session.divorceWho }}’s divorce application on your behalf.",
       "subHeading": "What happens next",
-      "nextDetails": "Your solicitor will receive instructions on how  to respond on your behalf. They must respond  to the application within 7 days. If they don't, your {{ session.divorceWho }} can ask the court to move the divorce forward without you. You may have to pay extra fees if this happens."
+      "nextDetails": "Your solicitor will receive instructions on how  to respond on your behalf. They must respond  to the application within 7 days. If they don’t, your {{ session.divorceWho }} can ask the court to move the divorce forward without you. You may have to pay extra fees if this happens."
     },
     "other": {
       "heading": "Please contact the Courts and Tribunals Service Centre for more information"
@@ -112,7 +112,7 @@
     "youMustRespond": "Rhaid ichi ymateb",
     "solicitorMustRespond": "Rhaid i’ch cyfreithiwr ymateb",
     "getDecreeNisi": "Bydd eich {{ session.divorceWho }} yn cael dyfarniad nisi",
-    "madeFinal": "Mae’r ysgariad wedi'i gwblhau",
+    "madeFinal": "Mae’r ysgariad wedi’i gwblhau",
     "downloadDocuments": "Llwytho eich dogfennau i lawr",
     "warning": "Rhybudd",
     "files": {
@@ -137,11 +137,11 @@
     },
     "awaitingAnswer": {
       "heading": "Mae angen ichi gyflwyno ateb",
-      "para1": "You must now submit the '<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"Dolen i ymateb i gais am ysgariad. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">ffurflen ymateb i gais am ysgariad</a>, Rhaid i’r llys dderbyn hon o fewn 21 diwrnod i’r dyddiad y gwnaethoch fewngofnodi gyntaf i ymateb i’r cais.",
+      "para1": "You must now submit the '<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"Dolen i ymateb i gais am ysgariad. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">ffurflen ymateb i gais am ysgariad</a>', Rhaid i’r llys dderbyn hon o fewn 21 diwrnod i’r dyddiad y gwnaethoch fewngofnodi gyntaf i ymateb i’r cais.",
       "para2": " Llwytho ffurflen bapur i lawr a’i llenwi.",
       "para3": "Postiwch y ffurflen i:",
-      "para4": "Bydd rhaid i chi dalu ffi o Â£245 pan fyddwch yn cyflwyno'r ffurflen.",
-      "para5": "Mae'n debyg y bydd yn rhaid i chi fynd i wrandawiad gyda'ch {{ session.divorceWho }}  i geisio dod i gytundeb ynghylch yr ysgariad.",
+      "para4": "Bydd rhaid i chi dalu ffi o Â£245 pan fyddwch yn cyflwyno’r ffurflen.",
+      "para5": "Mae’n debyg y bydd yn rhaid i chi fynd i wrandawiad gyda’ch {{ session.divorceWho }}  i geisio dod i gytundeb ynghylch yr ysgariad.",
       "para6": "Os na fyddwch yn cyflwyno eich ateb mewn pryd, gall eich {{ session.divorceWho }}  barhau gyda’r ysgariad fel pe baech heb ddweud eich bod yn bwriadu ei amddiffyn."
     },
     "defendedDivorce": {
@@ -157,26 +157,26 @@
       "secondStage": "Dim ond pan fydd yr ail gam wedi’i gwblhau a phan wneir y dyfarniad absoliwt y byddwch wedi ysgaru.",
       "theHearing": "Y gwrandawiad",
       "moreDetails": "Gallwch gael mwy o fanylion am ddyddiad y gwrandawiad a’r gorchmynion y byddir yn eu gwneud (yn cynnwys gorchmynion costau) yn y <a class=\"govuk-link\" href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn llwytho PDF o’r Dystysgrif Hawl.\">Dystysgrif Hawl</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
-      "dontNeedToCome": "Nid oes angen ichi ddod i'r gwrandawiad oni bai eich bod am wrthwynebu unrhyw rai o'r gorchmynion llys sy'n cael eu gwneud.",
-      "wantToAttend": "Os ydych eisiau mynychu’r gwrandawiad, bydd angen ichi anfon neges e-bost i'r llys cyn dyddiad y gwrandawiad.",
-      "wantToAttendCosts": " Os ydych chi, neu’ch {{ session.divorceWho }} eisiau gwrthwynebu gorchymyn costau, rhaid i'r llys gael llythyr neu neges e-bost yn nodi'r rhesymau dros wneud hynny o leiaf 14 diwrnod cyn dyddiad y gwrandawiad.",
+      "dontNeedToCome": "Nid oes angen ichi ddod i’r gwrandawiad oni bai eich bod am wrthwynebu unrhyw rai o’r gorchmynion llys sy’n cael eu gwneud.",
+      "wantToAttend": "Os ydych eisiau mynychu’r gwrandawiad, bydd angen ichi anfon neges e-bost i’r llys cyn dyddiad y gwrandawiad.",
+      "wantToAttendCosts": "Os ydych chi, neu’ch {{ session.divorceWho }} eisiau gwrthwynebu gorchymyn costau, rhaid i’r llys gael llythyr neu neges e-bost yn nodi’r rhesymau dros wneud hynny o leiaf 14 diwrnod cyn dyddiad y gwrandawiad.",
       "acceptedCosts": "Mae’r llys wedi penderfynu gwneud gorchymyn ichi dalu tuag at gostau’r ysgariad."
     },
     "decreeNisiGranted": {
       "heading": "Mae eich {{ session.divorceWho }} wedi cael dyfarniad nisi",
       "dateGranted": "Ar {{ session.originalPetition.decreeNisiGrantedDate | date }} penderfynodd y llys y byddai eich {{ session.divorceWho }} yn cael:",
       "decreeNisi": "dyfarniad nisi - dyma gam cyntaf y dyfarniad fydd yn dod â’ch priodas i ben",
-      "costsOrder": "gorchymyn costau - sy’n rhoi'r hawl i’ch {{ session.divorceWho }} hawlio costau'r ysgariad",
+      "costsOrder": "gorchymyn costau - sy’n rhoi’r hawl i’ch {{ session.divorceWho }} hawlio costau’r ysgariad",
       "notDivorcedYet": "Nid ydych wedi ysgaru eto. Dim ond pan fydd yr ail gam wedi’i gwblhau ac y byddwch wedi cael eich dyfarniad absoliwt y byddwch wedi ysgaru.",
       "divorceComplete": "Pryd y gellir cwblhau’r ysgariad",
       "sixWeeks": "Rhaid i’ch {{ session.divorceWho }} aros am 6 wythnos ar ôl caniatáu eich datganiad nisi cyn y gall wneud cais am ddyfarniad absoliwt.",
       "courtCancel": "Gall y llys ganslo (gelwir hynny’n ‘dadwneud’) y datganiad nisi unrhyw bryd hyd at y dyfarniad absoliwt, os cyflwynir tystiolaeth newydd i’r llys yn dangos na ddylech gael ysgariad.",
       "applyForDecreeAbsolute": "Gallwch wneud cais am ddyfarniad absoliwt os na bydd eich {{ session.divorceWho }} yn gwneud hynny. Bydd angen ichi aros am 3 mis arall ar ôl i’r cyfnod o 6 wythnos ddod i ben i wneud hynny.",
       "downloadDecreeNisi": "<a class=\"govuk-link\" href=\"{{ decreeNisiFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn llwytho PDF o’r dyfarniad nisi i lawr.\">Llwytho eich dyfarniad nisi i lawr</a> ({{ decreeNisiFile.fileType | upper }}).",
-      "whatCostsOrder": "Beth i'w wneud gyda’r Gorchymyn Costau",
-      "orderWillStateRespondent": "Bydd y gorchymyn yn nodi faint mae’r llys wedi penderfynu y bydd rhaid ichi dalu i’ch {{ session.divorceWho }}. Bydd rhaid ichi dalu o fewn 14 diwrnod i ddyddiad y gorchymyn. Os na fyddwch yn talu o fewn y cyfnod hwnnw, gall eich {{ session.divorceWho }}  ddefnyddio'r gorchymyn i wneud hawliad am arian yn eich erbyn.",
-      "orderWillStateCoRespondent": "Bydd y gorchymyn yn nodi faint mae’r llys wedi penderfynu y bydd yn rhaid i’r cyd-atebydd dalu i’ch {{ session.divorceWho }} . Bydd rhaid ichi dalu o fewn 14 diwrnod i ddyddiad y gorchymyn. Os na fyddwch yn talu o fewn y cyfnod hwnnw, gall eich {{ session.divorceWho }}  ddefnyddio'r gorchymyn i wneud hawliad am arian yn eich erbyn.",
-      "orderWillStateRespondentAndCoRespondent": "Bydd y gorchymyn yn nodi faint mae’r llys wedi penderfynu y bydd yn rhaid i chi a’ch cyd-atebydd dalu i’ch {{ session.divorceWho }} . Bydd rhaid ichi dalu o fewn 14 diwrnod i ddyddiad y gorchymyn. Os na fyddwch yn talu o fewn y cyfnod hwnnw, gall eich {{ session.divorceWho }}  ddefnyddio'r gorchymyn i wneud hawliad am arian yn eich erbyn.",
+      "whatCostsOrder": "Beth i’w wneud gyda’r Gorchymyn Costau",
+      "orderWillStateRespondent": "Bydd y gorchymyn yn nodi faint mae’r llys wedi penderfynu y bydd rhaid ichi dalu i’ch {{ session.divorceWho }}. Bydd rhaid ichi dalu o fewn 14 diwrnod i ddyddiad y gorchymyn. Os na fyddwch yn talu o fewn y cyfnod hwnnw, gall eich {{ session.divorceWho }}  ddefnyddio’r gorchymyn i wneud hawliad am arian yn eich erbyn.",
+      "orderWillStateCoRespondent": "Bydd y gorchymyn yn nodi faint mae’r llys wedi penderfynu y bydd yn rhaid i’r cyd-atebydd dalu i’ch {{ session.divorceWho }} . Bydd rhaid ichi dalu o fewn 14 diwrnod i ddyddiad y gorchymyn. Os na fyddwch yn talu o fewn y cyfnod hwnnw, gall eich {{ session.divorceWho }}  ddefnyddio’r gorchymyn i wneud hawliad am arian yn eich erbyn.",
+      "orderWillStateRespondentAndCoRespondent": "Bydd y gorchymyn yn nodi faint mae’r llys wedi penderfynu y bydd yn rhaid i chi a’ch cyd-atebydd dalu i’ch {{ session.divorceWho }} . Bydd rhaid ichi dalu o fewn 14 diwrnod i ddyddiad y gorchymyn. Os na fyddwch yn talu o fewn y cyfnod hwnnw, gall eich {{ session.divorceWho }}  ddefnyddio’r gorchymyn i wneud hawliad am arian yn eich erbyn.",
       "downloadCostsOrder": "<a class=\"govuk-link\" href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn llwytho PDF o’r Gorchymyn Costau i lawr.\">Llwytho eich gorchymyn costau i lawr</a> ({{ costsOrderFile.fileType | upper }})."
     },
     "aosAwaitingSol": {
@@ -192,8 +192,8 @@
     "careOfAbbreviation": "dan ofal",
     "helpHeading": "Os oes arnoch angen cymorth",
     "helpContent": "Os ydych angen cymorth, gallwch gysylltu â’r ganolfan ysgaru. Fodd bynnag, ni all staff y llys roi cyngor cyfreithiol ichi, a dylech siarad â <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"dolen i gyfreithiwr neu gynghorydd cyfreithiol. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">chyfreithiwr neu gynghorydd cyfreithiol</a>.",
-    "improveHeading": "Helpwch ni i wella'r gwasanaeth hwn",
-    "improveContent": "Helpwch ni i wella'r gwasanaeth hwn drwy <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback?pageurl=/ProgressBar\" target=\"_blank\" aria-label=\"Dolen i roi sylwadau. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">cynnig sylwadau ar y gwasanaeth </a>.",
+    "improveHeading": "Helpwch ni i wella’r gwasanaeth hwn",
+    "improveContent": "Helpwch ni i wella’r gwasanaeth hwn drwy <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback?pageurl=/ProgressBar\" target=\"_blank\" aria-label=\"Dolen i roi sylwadau. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">cynnig sylwadau ar y gwasanaeth </a>.",
     "defendedContact": {
       "name": "Uned yr Iaith Gymraeg Canolfan Gyfiawnder Caernarfon",
       "poBox": "Ffordd Llanberis, Caernarfon,",

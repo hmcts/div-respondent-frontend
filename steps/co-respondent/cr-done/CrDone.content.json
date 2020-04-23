@@ -6,10 +6,10 @@
     "whatHappensNext": "What happens next",
     "yourResponse": "Your response will be sent to the applicant. They can then apply for the court order which will divorce them and the respondent.",
     "claimedCostsTitle": "If the applicant has claimed their costs",
-    "claimedCostsText": "The court will make a decision on this at the same time as it considers whether the divorce should be granted. You'll be sent an email when the decision has been made, and the date of the hearing at which the cost order will be made.",
+    "claimedCostsText": "The court will make a decision on this at the same time as it considers whether the divorce should be granted. You’ll be sent an email when the decision has been made, and the date of the hearing at which the cost order will be made.",
     "objectingToCostsOrderTitle": "Objecting to a costs order",
-    "objectingToCostsOrderText1": "You can object to a costs order if you don't think that you should pay it. You'll need to email the court at least 14 days before the hearing, giving your reasons.",
-    "objectingToCostsOrderText2": "You can contact the Courts and Tribunals Service Centre if you don't hear anything back after 6 weeks.",
+    "objectingToCostsOrderText1": "You can object to a costs order if you don’t think that you should pay it. You’ll need to email the court at least 14 days before the hearing, giving your reasons.",
+    "objectingToCostsOrderText2": "You can contact the Courts and Tribunals Service Centre if you don’t hear anything back after 6 weeks.",
     "ifYouNeedHelp": "If you need help",
     "ifYouNeedHelpText": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\" aria-label=\"Find a legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
     "helpImproveHeading": "Help us improve this service",
@@ -28,12 +28,12 @@
       "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>"
     },
     "whatYouNeedToDoNow": "What you need to do now",
-    "submitAnswerToDivorce": "You must now submit the <a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"Answer to a divorce application link, This link will open in a new tab.\">'answer to a divorce application'</a> form. The deadline for the court to receive this is 21 days from the date you first signed in to respond to the divorce application.",
+    "submitAnswerToDivorce": "You must now submit the '<a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"Answer to a divorce application link, This link will open in a new tab.\">answer to a divorce application</a>' form. The deadline for the court to receive this is 21 days from the date you first signed in to respond to the divorce application.",
     "fillInPaperForm": "Download and fill in the paper form.",
     "postFormTo": "Post the form to:",
-    "feeToPay": "You'll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Get help with paying this fee link, This link will open in a new tab.\">get help with paying this fee</a>.",
+    "feeToPay": "You’ll have to pay a £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Get help with paying this fee link, This link will open in a new tab.\">get help with paying this fee</a>.",
     "hearingAboutDivorce": "You may have to go to a hearing about the divorce.",
-    "dontSubmitAnswer": "If you don't submit your answer before the deadline, then the applicant can continue the divorce as if you hadn't said that you intended to defend it."
+    "dontSubmitAnswer": "If you don’t submit your answer before the deadline, then the applicant can continue the divorce as if you hadn’t said that you intended to defend it."
   },
   "cy": {
     "responseSent": "Anfonwyd yr ymateb",
@@ -48,7 +48,7 @@
     "objectingToCostsOrderText2": "Gallwch gysylltu â Chanolfan Wasanaeth y Llysoedd a’r Tribiwnlysoedd os na fyddwch wedi clywed gennym ar ôl 6 wythnos.",
     "ifYouNeedHelp": "Os oes arnoch angen cymorth",
     "ifYouNeedHelpText": "Os ydych angen cymorth, gallwch gysylltu â’r ganolfan ysgaru. Fodd bynnag, ni all staff y llys roi cyngor cyfreithiol ichi, a dylech siarad â <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"blank\" aria-label=\"Find a legal adviser link, dolen i gyfreithiwr neu gynghorydd cyfreithiol. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">chyfreithiwr neu gynghorydd cyfreithiol</a>.",
-    "helpImproveHeading": "Helpwch ni i wella'r gwasanaeth hwn",
+    "helpImproveHeading": "Helpwch ni i wella’r gwasanaeth hwn",
     "helpImproveText": " Helpwch ni i wella’r gwasanaeth hwn drwy <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Respondent?pageurl=/done\" aria-label=\"Leave feedback link, This link will open in a new tab.\" >gynnig sylwadau</a>.",
     "yourCourt": "Eich canolfan ysgaru",
     "email": "E-bost",

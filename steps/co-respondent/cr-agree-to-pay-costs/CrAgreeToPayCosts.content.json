@@ -5,30 +5,30 @@
     "warning": "Warning",
     "cya": {
       "agree": "Do you agree to pay the costs as decided by the court?",
-      "noReason": "Why don't you agree to pay the suggested costs?"
+      "noReason": "Why don’t you agree to pay the suggested costs?"
     },
-    "summary": "The applicant asked the court that you pay some or all of the costs of the divorce. It's up to the court to decide if you should pay any costs and how much.",
+    "summary": "The applicant asked the court that you pay some or all of the costs of the divorce. It’s up to the court to decide if you should pay any costs and how much.",
 
     "question": "Do you agree to pay the costs?",
-    "notice": "A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.",
+    "notice": "A costs order will only cover the divorce costs, and won’t include any costs related to financial settlements.",
 
     "info": {
       "heading": "Read more about costs orders",
       "options": {
         "amountToPay": {
           "heading": "How much you may have to pay",
-          "summary1": "The applicant's costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if the applicant has legal fees (eg a solicitor) and these are also included.",
-          "summary2": "If the court decides that you should also pay the applicant's legal costs, it will usually order that you only pay what it judges to be a reasonable amount of these. However, under certain circumstances it could order you to pay more."
+          "summary1": "The applicant’s costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if the applicant has legal fees (eg a solicitor) and these are also included.",
+          "summary2": "If the court decides that you should also pay the applicant’s legal costs, it will usually order that you only pay what it judges to be a reasonable amount of these. However, under certain circumstances it could order you to pay more."
         },
         "whatNow": {
           "heading": "What happens now",
           "summary1": "The applicant will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
           "summary2": "The court will then make its decision on whether you should pay any costs.",
-          "summary3": "You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
+          "summary3": "You’ll be given the court’s decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
         },
         "doNotAcceptCost": {
           "heading": "Objecting to the costs order",
-          "summary": "If the court grants a costs order, you can dispute it if you don't think that you should pay it. You'll need to send a letter to the court stating why you don't think you should pay at least 14 days before the hearing."
+          "summary": "If the court grants a costs order, you can dispute it if you don’t think that you should pay it. You’ll need to send a letter to the court stating why you don’t think you should pay at least 14 days before the hearing."
         }
       }
     },
@@ -53,11 +53,11 @@
     "poundSymbol": "Â£",
     "warning": "Rhybudd",
     "cya": {
-      "agree" : "A ydych yn cytuno i dalu’r costau yn ôl penderfyniad y llys?",
+      "agree": "A ydych yn cytuno i dalu’r costau yn ôl penderfyniad y llys?",
       "noReason": "Pam nad ydych yn cytuno i dalu’r costau a awgrymir?"
     },
-    "summary": "Gofynnodd y ceisydd i’r llys orchymyn ichi dalu rhywfaint o gostau’r ysgariad neu holl gostau'r ysgariad. Y llys sydd i benderfynu a ddylech dalu unrhyw gostau a faint o gostau y dylech eu talu.",
-    "question": "Ydych chi'n cytuno i dalu’r costau?",
+    "summary": "Gofynnodd y ceisydd i’r llys orchymyn ichi dalu rhywfaint o gostau’r ysgariad neu holl gostau’r ysgariad. Y llys sydd i benderfynu a ddylech dalu unrhyw gostau a faint o gostau y dylech eu talu.",
+    "question": "Ydych chi’n cytuno i dalu’r costau?",
     "notice": "Costau’r ysgariad yn unig y bydd gorchymyn costau yn ymorol amdanynt, ac ni fydd yn cynnwys unrhyw gostau yn ymwneud â setliad ariannol.",
     "info": {
       "heading": "Darllen mwy am orchmynion costau",

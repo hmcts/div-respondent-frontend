@@ -25,7 +25,7 @@
             "aboutWhat": "what they are about",
             "namesInvolved": "names of those involved",
             "courtDetails": "name of the court, the tribunal, and/or the authority",
-            "country": "the country it's in",
+            "country": "the country it’s in",
             "dates": "date that the proceedings began and of any future hearings",
             "others": "anything else that might affect the application for divorce"
           },
@@ -51,7 +51,7 @@
     "summary": "Mae’r llys angen gwybod a oes yna achos cyfreithiol ar hyn o bryd mewn llys, tribiwnlys neu awdurdod arall:",
     "info": {
       "options" : {
-        "relatedToMarriage" : "ynglyn â’r briodas",
+        "relatedToMarriage": "ynglyn â’r briodas",
         "affectsValidity": "a allai effeithio ar ei dilysrwydd (pa mor rwymol yw’r briodas yn ôl y gyfraith)"
       }
     },
@@ -61,8 +61,8 @@
         "heading": "Oes",
         "answer": "Oes",
         "details" : {
-          "title" : "Rhowch fwy o fanylion",
-          "summary" : "Dylech geisio cynnwys:",
+          "title": "Rhowch fwy o fanylion",
+          "summary": "Dylech geisio cynnwys:",
           "includes" : {
             "caseNumbers": "rhifau achosion",
             "aboutWhat": "testun yr achos",

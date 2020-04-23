@@ -7,11 +7,11 @@
       "options": {
         "proceed": {
           "heading": "Proceeding with the divorce",
-          "summary": "If you proceed with the divorce, you won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+          "summary": "If you proceed with the divorce, you won’t have to pay any more court fees related to the divorce. You’ll be divorced sooner than if you defend the divorce and you usually won’t need to attend a court hearing."
         },
         "proceedButDisagree": {
           "heading": "Proceeding, but not accepting the allegations",
-          "summary": "If you don't agree with what your {{ session.divorceWho }} has said in their divorce application, but you don't want to try to prevent the divorce (you don't want to defend it) you can choose this option. The outcome of the divorce won't be affected if you choose this option.<br/><br/>You won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing."
+          "summary": "If you don’t agree with what your {{ session.divorceWho }} has said in their divorce application, but you don’t want to try to prevent the divorce (you don’t want to defend it) you can choose this option. The outcome of the divorce won’t be affected if you choose this option.<br/><br/>You won’t have to pay any more court fees related to the divorce. You’ll be divorced sooner than if you defend the divorce and you usually won’t need to attend a court hearing."
         },
         "defend": {
           "heading": "Disagreeing with the application (defending)",
@@ -20,12 +20,12 @@
         "hardship": {
           "heading": "Defending the divorce because it will cause you hardship",
           "text1": "As your wife used separation for 5 years as the reason for divorce, you can try to prevent it on the basis that it will cause you severe hardship.",
-          "text2": "The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).",
-          "text3": "You'll need to convince the court that the hardship will be severe.",
-          "text4": "The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
-          "text5": "Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.",
-          "text6": "You'll need to make your case for hardship in another form (called the 'answer'). You have 21 days to submit your answer from the date that you sign in to respond to the divorce application.",
-          "text7": "You'll also have to pay another £{{ feesDefendDivorce }} fee."
+          "text2": "The hardship could be financial (for example, you’ll lose your rights to a widow’s pension) or another type of hardship (for example, you’ll be stigmatized for cultural or religious reasons).",
+          "text3": "You’ll need to convince the court that the hardship will be severe.",
+          "text4": "The court will take your and your husband’s individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
+          "text5": "Severe hardship is rarely used as a defence against divorce, and it’s even rarer for the court to reject a divorce application because of it.",
+          "text6": "You’ll need to make your case for hardship in another form (called the 'answer'). You have 21 days to submit your answer from the date that you sign in to respond to the divorce application.",
+          "text7": "You’ll also have to pay another £{{ feesDefendDivorce }} fee."
         }
       }
     },
@@ -39,8 +39,8 @@
         "answer": "I will let the divorce proceed and won’t try to prevent it (I don’t intend to ‘defend’ it)"
       },
       "proceedButDisagree": {
-        "heading": "I will let the divorce proceed, but I don't accept what my {{ session.divorceWho }} said about me",
-        "summary": "Choose this option if you don't accept the allegations in the application, but you do not intend to defend.",
+        "heading": "I will let the divorce proceed, but I don’t accept what my {{ session.divorceWho }} said about me",
+        "summary": "Choose this option if you don’t accept the allegations in the application, but you do not intend to defend.",
         "answer": "I will let the divorce proceed (I don’t intend to defend it), but I don’t accept the allegations made in the application"
       },
       "defend": {

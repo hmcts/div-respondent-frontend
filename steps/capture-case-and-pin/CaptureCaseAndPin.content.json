@@ -1,12 +1,12 @@
 {
   "en": {
     "title": "Enter these details from the letter",
-    "instructions": "Enter the reference number and access code from the court's letter.",
+    "instructions": "Enter the reference number and access code from the court’s letter.",
     "referenceNumber": "Reference number",
     "referenceNumberLabel": "This is a 16-digit number",
     "securityAccessCode": "Access code",
     "securityAccessCodeLabel": "Your code is 8 characters long",
-    "infoAboutSetup": "It may take a few minutes to link your account with this case. Please don't leave this page or refresh it.",
+    "infoAboutSetup": "It may take a few minutes to link your account with this case. Please don’t leave this page or refresh it.",
     "thereWasAProblem": "There was a problem",
     "referenceNumberOrPinDoNotMatch": "The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
     "errorLinkingCase": "The reference number or access code is incorrect. Please try entering these details again. You can contact the Courts and Tribunals Service Centre if you need help.",
@@ -25,8 +25,8 @@
     "securityAccessCodeLabel": "Mae eich cod yn cynnwys 8 nod",
     "infoAboutSetup": "Gallai gymryd rhai munudau i gysylltu eich cyfrif â’r achos. Peidiwch â gadael y dudalen hon na’i hadnewyddu.",
     "thereWasAProblem": "Roedd yna broblem",
-    "referenceNumberOrPinDoNotMatch": "Mae’r cyfeirnod neu’r cod mynediad yn anghywir. Ceisiwch roi’r manylion hyn eto. Gallwch gysylltu â'r Gwasanaeth Llysoedd a Thribiwnlysoedd os ydych angen cymorth.",
-    "errorLinkingCase": "Mae’r cyfeirnod neu’r cod mynediad yn anghywir. Ceisiwch roi’r manylion hyn eto. Gallwch gysylltu â'r Gwasanaeth Llysoedd a Thribiwnlysoedd os ydych angen cymorth.",
+    "referenceNumberOrPinDoNotMatch": "Mae’r cyfeirnod neu’r cod mynediad yn anghywir. Ceisiwch roi’r manylion hyn eto. Gallwch gysylltu â’r Gwasanaeth Llysoedd a Thribiwnlysoedd os ydych angen cymorth.",
+    "errorLinkingCase": "Mae’r cyfeirnod neu’r cod mynediad yn anghywir. Ceisiwch roi’r manylion hyn eto. Gallwch gysylltu â’r Gwasanaeth Llysoedd a Thribiwnlysoedd os ydych angen cymorth.",
     "errors": {
       "referenceNumberRequired": "Nodwch y cyfeirnod 16 digid i barhau.",
       "securityAccessCodeRequired": "Nodwch y cod mynediad i barhau.",
