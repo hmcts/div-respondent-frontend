@@ -8,11 +8,11 @@
     "emailIfProblems": "Email: divorcecase@justice.gov.uk"
   },
   "cy": {
-    "title": "[CY] You've been signed out",
-    "progressNotSaved": "[CY] Your progress has not been saved.",
-    "signInToReturn": "[CY] <a class=\"govuk-link\" href=\"/\" aria-label=\"Sign in link\">Sign in</a> to return to your response.",
-    "ifYouNeedHelp": "[CY] If you need help with this service you can call or email us.",
-    "phoneToCallIfProblems": "[CY] Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)",
-    "emailIfProblems": "[CY] Email: divorcecase@justice.gov.uk"
+    "title": "Rydych wedi allgofnodi",
+    "progressNotSaved": "Nid arbedwyd yr hyn yr ydych wedi’i wneud.",
+    "signInToReturn": "<a class=\"govuk-link\" href=\"/\" aria-label=\"Sign in link\">Mewngofnodwch</a> i ddychwelyd at eich ymateb.",
+    "ifYouNeedHelp": "Os oes arnoch angen help gyda’r gwasanaeth, gallwch ein ffonio neu gysylltu â ni drwy e-bost.",
+    "phoneToCallIfProblems": "Rhif ffôn: 0300 303 5171 (dydd Llun i ddydd Gwener, 8.30am to 5pm)",
+    "emailIfProblems": "E-bost: ymholiadaucymraeg@justice.gov.uk"
   }
 }
