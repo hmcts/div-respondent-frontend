@@ -160,14 +160,10 @@
     lodash.mergewith "^4.6.2"
     webdriverio "^5.15.2"
 
-"@hmcts/ctsc-web-chat@^0.3.9":
-  version "0.3.9"
-  resolved "https://registry.yarnpkg.com/@hmcts/ctsc-web-chat/-/ctsc-web-chat-0.3.9.tgz#035041bbaac45abefec98e9b1fe39df635290a57"
-  integrity sha512-72+DyrutM2CZArC/towDbVZWV/jiMXzMWLa/nuEaRBqftcBRNm5Of1T93PISc5+WoO34dVblU5fjaMmpI3mBsA==
-  dependencies:
-    "@hmcts/nodejs-logging" "^3.0.0"
-    govuk-frontend "^2.13.0"
-    node-sass "^4.12.0"
+"@hmcts/ctsc-web-chat@^0.3.11":
+  version "0.3.11"
+  resolved "https://registry.yarnpkg.com/@hmcts/ctsc-web-chat/-/ctsc-web-chat-0.3.11.tgz#b8af565e1cf6c251763843c842a95ece92aa7fea"
+  integrity sha512-w/+k+C0KeD50H3YfSdGMwGV8vHqjMtgoD1EanajWRRARR7ihr8BWh81xbRcoAw0koF2xsYFUJfCbmgKvSeclVQ==
 
 "@hmcts/div-document-express-handler@^1.1.0":
   version "1.1.0"
@@ -4728,7 +4724,7 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
-govuk-frontend@^2.13.0, govuk-frontend@^2.6.0:
+govuk-frontend@^2.6.0:
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-2.13.0.tgz#0273f7c92070abd6450c73a006ebb3ddc793463a"
   integrity sha512-6XDtTt5plSrPQvPgLFN4LCtb9ULuqoXCgkHy5c7XE/70/sVm47RPbLR11tYGPcmV8cOApBhW0wL8y8ryspHfpw==
