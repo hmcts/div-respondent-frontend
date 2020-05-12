@@ -58,12 +58,18 @@ class LegalProceedings extends Question {
 
   answers() {
     const answers = [];
-
-    answers.push(answer(this, {
-      question: content.en.cya.question,
-      answer: this.fields.legalProceedings.exists.value === yes ? content.en.fields.yes.answer : content.en.fields.no.answer
-    }));
-
+    const sessionLanguage = this.req.param('lng');
+    if (sessionLanguage === 'cy') {
+      answers.push(answer(this, {
+        question: content.cy.cya.question,
+        answer: this.fields.legalProceedings.exists.value === yes ? content.cy.fields.yes.answer : content.cy.fields.no.answer
+      }));
+    } else {
+      answers.push(answer(this, {
+        question: content.en.cya.question,
+        answer: this.fields.legalProceedings.exists.value === yes ? content.en.fields.yes.answer : content.en.fields.no.answer
+      }));
+    }
     if (this.fields.legalProceedings.exists.value === yes) {
       answers.push(answer(this, {
         question: content.en.cya.details,

@@ -61,12 +61,18 @@ class ContactDetails extends Question {
         answer: this.fields.contactDetails.telephone.value
       }));
     }
-
-    answers.push(answer(this, {
-      question: content.en.contactMethods.email.heading,
-      answer: content.en.fields.email.label
-    }));
-
+    const sessionLanguage = this.req.param('lng');
+    if (sessionLanguage === 'cy') {
+      answers.push(answer(this, {
+        question: content.cy.contactMethods.email.heading,
+        answer: content.cy.fields.email.label
+      }));
+    } else {
+      answers.push(answer(this, {
+        question: content.en.contactMethods.email.heading,
+        answer: content.en.fields.email.label
+      }));
+    }
     return answers;
   }
 

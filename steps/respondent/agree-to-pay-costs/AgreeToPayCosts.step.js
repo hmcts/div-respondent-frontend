@@ -107,25 +107,47 @@ class AgreeToPayCosts extends Question {
   answers() {
     const answers = [];
     let agreeAnswer = content.en.fields.agree.answer;
+    const sessionLanguage = this.req.param('lng');
+    let question = '';
+    if (sessionLanguage === 'cy') {
+      question = content.cy.cya.agree;
+    } else {
+      question = content.en.cya.agree;
+    }
 
     if (this.fields.agreeToPayCosts.agree.value === no) {
-      agreeAnswer = content.en.fields.disagree.answer;
+      if (sessionLanguage === 'cy') {
+        agreeAnswer = content.cy.fields.disagree.answer;
+      } else {
+        agreeAnswer = content.en.fields.disagree.answer;
+      }
     }
 
     if (this.fields.agreeToPayCosts.agree.value === differentAmount) {
-      agreeAnswer = content.en.fields.differentAmount.answer;
+      if (sessionLanguage === 'cy') {
+        agreeAnswer = content.cy.fields.differentAmount.answer;
+      } else {
+        agreeAnswer = content.en.fields.differentAmount.answer;
+      }
     }
 
     answers.push(answer(this, {
-      question: content.en.cya.agree,
+      question,
       answer: agreeAnswer
     }));
 
     if (this.fields.agreeToPayCosts.agree.value === no) {
-      answers.push(answer(this, {
-        question: content.en.cya.noReason,
-        answer: this.fields.agreeToPayCosts.noReason.value
-      }));
+      if (sessionLanguage === 'cy') {
+        answers.push(answer(this, {
+          question: content.cy.cya.noReason,
+          answer: this.fields.agreeToPayCosts.noReason.value
+        }));
+      } else {
+        answers.push(answer(this, {
+          question: content.en.cya.noReason,
+          answer: this.fields.agreeToPayCosts.noReason.value
+        }));
+      }
     }
 
     if (this.fields.agreeToPayCosts.agree.value === differentAmount) {

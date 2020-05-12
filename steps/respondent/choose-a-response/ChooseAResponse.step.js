@@ -89,8 +89,16 @@ class ChooseAResponse extends Question {
     const response = this.fields.response.value;
 
     if (response) {
-      const question = content.en.title;
-      const cyaContent = content.en.fields[response].answer;
+      const sessionLanguage = this.req.param('lng');
+      let question = '';
+      let cyaContent = '';
+      if (sessionLanguage === 'cy') {
+        question = content.cy.title;
+        cyaContent = content.cy.fields[response].answer;
+      } else {
+        question = content.en.title;
+        cyaContent = content.en.fields[response].answer;
+      }
       return answer(this, {
         question,
         answer: cyaContent

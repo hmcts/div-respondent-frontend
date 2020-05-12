@@ -84,11 +84,18 @@ class Jurisdiction extends Question {
 
   answers() {
     const answers = [];
-
-    answers.push(answer(this, {
-      question: content.en.cya.agree,
-      answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content.en.fields.agree.answer : content.en.fields.disagree.answer
-    }));
+    const sessionLanguage = this.req.param('lng');
+    if (sessionLanguage === 'cy') {
+      answers.push(answer(this, {
+        question: content.cy.cya.agree,
+        answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content.cy.fields.agree.answer : content.cy.fields.disagree.answer
+      }));
+    } else {
+      answers.push(answer(this, {
+        question: content.en.cya.agree,
+        answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content.en.fields.agree.answer : content.en.fields.disagree.answer
+      }));
+    }
 
     if (this.fields.jurisdiction.agree.value === this.validValues.no) {
       answers.push(answer(this, {

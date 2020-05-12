@@ -6,7 +6,7 @@ const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const content = require('./ReviewApplication.content').en;
+const content = require('./ReviewApplication.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 
 const { replace, endsWith } = require('lodash');
@@ -89,10 +89,16 @@ class ReviewApplication extends Question {
   }
 
   answers() {
-    const question = content.readConfirmationQuestion;
+    const sessionLanguage = this.req.param('lng');
+    if (sessionLanguage === 'cy') {
+      return answer(this, {
+        question: content.cy.readConfirmationQuestion,
+        answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content.cy.readConfirmationYes : content.cy.readConfirmationNo
+      });
+    }
     return answer(this, {
-      question,
-      answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content.readConfirmationYes : content.readConfirmationNo
+      question: content.en.readConfirmationQuestion,
+      answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content.en.readConfirmationYes : content.en.readConfirmationNo
     });
   }
 
