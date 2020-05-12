@@ -25,7 +25,7 @@
       }
   ] %}
 {% endif %}
-
+{% from "back-link/macro.njk" import govukBackLink %}
 {% from "includes/phase_banner.html" import divPhaseBanner %}
 
 {% set serviceName = content.serviceName %}
@@ -33,6 +33,16 @@
 {% extends "look-and-feel/layouts/check_your_answers.html" %}
 {% block breadcrumbs %}
   {{ divPhaseBanner(phase, content.feedback, content.languageToggle) }}
+
+  {% block back %}
+    {{ govukBackLink({
+      attributes: {
+        onclick: "history.go(-1);"
+      },
+      text: content.backLink,
+      href: "#"
+    }) }}
+  {% endblock %}
 {% endblock %}
 {% block head %}
     {% include "includes/head.html" %}
