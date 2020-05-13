@@ -215,8 +215,14 @@ describe(modulePath, () => {
 
       // then
       const values = step.answers();
-      expect(values).to.be.an('object');
-      expect(values).to.have.property('answer', stepContent.en.fields.proceed.answer);
+      const sessionLanguage = this.req.param('lng');
+      if (sessionLanguage === 'cy') {
+        expect(values).to.be.an('object');
+        expect(values).to.have.property('answer', stepContent.cy.fields.proceed.answer);
+      } else {
+        expect(values).to.be.an('object');
+        expect(values).to.have.property('answer', stepContent.en.fields.proceed.answer);
+      }
     });
 
     it('returns correct answer for proceedButDisagree', () => {
@@ -232,7 +238,12 @@ describe(modulePath, () => {
       // then
       const values = step.answers();
       expect(values).to.be.an('object');
-      expect(values).to.have.property('answer', stepContent.en.fields.proceedButDisagree.answer);
+      const sessionLanguage = this.req.param('lng');
+      if (sessionLanguage === 'cy') {
+        expect(values).to.have.property('answer', stepContent.cy.fields.proceedButDisagree.answer);
+      } else {
+        expect(values).to.have.property('answer', stepContent.en.fields.proceedButDisagree.answer);
+      }
     });
 
     it('returns correct answer for defend', () => {
@@ -248,7 +259,12 @@ describe(modulePath, () => {
       // then
       const answers = step.answers();
       expect(answers).to.be.an('object');
-      expect(answers).to.have.property('answer', stepContent.en.fields.defend.answer);
+      const sessionLanguage = this.req.param('lng');
+      if (sessionLanguage === 'cy') {
+        expect(answers).to.have.property('answer', stepContent.cy.fields.defend.answer);
+      } else {
+        expect(answers).to.have.property('answer', stepContent.en.fields.defend.answer);
+      }
     });
   });
 
