@@ -61,7 +61,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'backLink',
       'divorceCenterUrl',
-      'guidance'
+      'guidance',
+      'languageToggle'
     ];
 
     it('should render contents when previousCaseId is not specified', () => {

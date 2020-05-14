@@ -34,7 +34,8 @@ describe(modulePath, () => {
       'feedback',
       'languageToggle',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     const session = { case: { caseData: {} } };

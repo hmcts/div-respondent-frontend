@@ -429,7 +429,8 @@ describe(modulePath, () => {
       'reasonForDivorceSeparationFiveYearsLvingApart',
       'reasonForDivorceSeparationFiveYears2DatesRecent',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     it('all', () => {

@@ -6,6 +6,7 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./AdmitAdultery.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const constValues = {
   admit: 'admit',
@@ -61,7 +62,11 @@ class AdmitAdultery extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   next() {

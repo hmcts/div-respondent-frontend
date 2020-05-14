@@ -6,6 +6,7 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./CrContactDetails.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const yes = 'Yes';
 
@@ -81,7 +82,11 @@ class CrContactDetails extends Question {
 
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   next() {

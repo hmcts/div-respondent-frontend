@@ -7,6 +7,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CheckYourAnswers.content');
 const { parseBool } = require('@hmcts/one-per-page');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const constants = {
   YES_VALUE: 'Yes',
@@ -24,7 +25,11 @@ class CheckYourAnswers extends SetLanguageQuestion {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   get consts() {

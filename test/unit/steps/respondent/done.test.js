@@ -97,7 +97,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -155,7 +156,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -212,7 +214,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -276,7 +279,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -338,7 +342,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -394,7 +399,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -452,7 +458,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -527,7 +534,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -607,7 +615,8 @@ describe(modulePath, () => {
       'solNextDetails',
       'solicitorMustRespond',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -671,7 +680,8 @@ describe(modulePath, () => {
       'financialSituationText3',
       'financialSituationFormLink',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(doneStep, session, { ignoreContent });
   });

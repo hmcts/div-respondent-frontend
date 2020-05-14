@@ -6,6 +6,7 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./LegalProceedings.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const yes = 'Yes';
 const no = 'No';
@@ -75,7 +76,11 @@ class LegalProceedings extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   next() {

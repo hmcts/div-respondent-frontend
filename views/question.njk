@@ -34,7 +34,7 @@
 {% from "back-link/macro.njk" import govukBackLink %}
 
 {% block breadcrumbs %}
-  {{ divPhaseBanner(phase, content.feedback, content.languageToggle) }}
+  {{ divPhaseBanner(phase, content.feedback, content.languageToggle, session) }}
 
   {% block back %}
     {{ govukBackLink({

@@ -18,7 +18,8 @@ describe(modulePath, () => {
       'serviceName',
       'backLink',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
     return content(PrivacyPolicy, {}, { ignoreContent });
   });

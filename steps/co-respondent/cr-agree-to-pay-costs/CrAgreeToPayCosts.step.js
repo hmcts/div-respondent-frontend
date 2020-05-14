@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./CrAgreeToPayCosts.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const yes = 'Yes';
 const no = 'No';
@@ -97,7 +98,8 @@ class CrAgreeToPayCosts extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('petition-issue-fee')
+      getFeeFromFeesAndPayments('petition-issue-fee'),
+      checkWelshToggle
     ];
   }
 

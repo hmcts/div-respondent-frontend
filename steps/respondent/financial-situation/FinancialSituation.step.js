@@ -6,6 +6,7 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./FinancialSituation.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const constValues = {
   yes: 'Yes',
@@ -57,7 +58,11 @@ class FinancialSituation extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 }
 

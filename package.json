@@ -13,8 +13,8 @@
   "scripts": {
     "start": "NODE_PATH=. node server.js",
     "setup": "NODE_PATH=.",
-    "dev": "NODE_PATH=. node-dev server.js",
-    "mocks": "NODE_PATH=. node-dev mocks/index.js",
+    "dev": "NODE_ENV=dev NODE_PATH=. node-dev server.js",
+    "mocks": "NODE_ENV=dev NODE_PATH=. node-dev mocks/index.js",
     "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF nyc mocha --opts 'test/unit/mocha.opts' --exit 'test/unit/**/*.test.js' --timeout 15000",
     "test:all": "yarn lint; yarn test:unit; yarn test:a11y; yarn test:validation;",
     "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF mocha --opts 'test/unit/mocha.opts' --exit 'test/unit/**/*.test.js' --timeout 15000",
@@ -53,6 +53,7 @@
     "html-entities": "^1.2.1",
     "ioredis": "^4.14.1",
     "joi": "^14.3.1",
+    "launchdarkly-node-server-sdk": "^5.13.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "os": "^0.1.1",

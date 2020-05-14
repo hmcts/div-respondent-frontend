@@ -2,6 +2,7 @@ const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class Done extends ExitPoint {
   static get path() {
@@ -25,7 +26,8 @@ class Done extends ExitPoint {
       getFeeFromFeesAndPayments('amend-fee'),
       getFeeFromFeesAndPayments('defended-petition-fee'),
       ...super.middleware,
-      idam.logout()
+      idam.logout(),
+      checkWelshToggle
     ];
   }
 }

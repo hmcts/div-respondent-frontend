@@ -7,7 +7,7 @@ const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
 const { get } = require('lodash');
 const { progressStates, values, caseStateMap, caseStatesBeyondAos } = require('./ProgressBar.config');
-
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class ProgressBar extends Interstitial {
   static get path() {
@@ -130,7 +130,8 @@ class ProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect()
+      idam.protect(),
+      checkWelshToggle
     ];
   }
 

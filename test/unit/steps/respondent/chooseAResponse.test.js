@@ -84,7 +84,8 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     return content(ChooseAResponse, session, { ignoreContent });
@@ -102,7 +103,8 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     return content(ChooseAResponse, session, {
@@ -126,7 +128,8 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     return content(ChooseAResponse, session, {
@@ -150,7 +153,8 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     return content(ChooseAResponse, session, {

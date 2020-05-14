@@ -63,6 +63,7 @@
         ],
         "new-cap": "off",
         "no-sync": "off",
-        "max-lines": "off"
+        "max-lines": "off",
+        "object-curly-newline": "off"
     }
 }

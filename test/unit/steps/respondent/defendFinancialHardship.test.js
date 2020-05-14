@@ -151,7 +151,8 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     return content(DefendFinancialHardship, {}, { ignoreContent });

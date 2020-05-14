@@ -58,7 +58,8 @@ describe(modulePath, () => {
       'phoneToCallIfProblems',
       'emailIfProblems',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     return content(CrDone, session, { ignoreContent });

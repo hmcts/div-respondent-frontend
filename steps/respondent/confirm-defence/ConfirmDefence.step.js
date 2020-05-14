@@ -7,7 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const values = {
   confirm: 'confirm',
@@ -72,7 +72,8 @@ class ConfirmDefence extends Question {
       ...super.middleware,
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
-      getFeeFromFeesAndPayments('defended-petition-fee')
+      getFeeFromFeesAndPayments('defended-petition-fee'),
+      checkWelshToggle
     ];
   }
 

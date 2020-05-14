@@ -71,7 +71,8 @@ describe(modulePath, () => {
         'feedback',
         'languageToggle',
         'signIn',
-        'signOut'
+        'signOut',
+        'languageToggle'
       ]
     });
   });

@@ -18,7 +18,9 @@
     "max-len": ["error", {
         "code": 150
       }
-    ]
+    ],
+    "line-comment-position": "off",
+    "global-require": "off"
   },
   "globals": {
     "After": true,

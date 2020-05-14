@@ -1,9 +1,11 @@
-{% macro divPhaseBanner(phase, content, languageToggle) %}
+{% macro divPhaseBanner(phase, content, languageToggle, session) %}
   <div class="govuk-phase-banner">
     <p class="govuk-phase-banner__content">
       <strong class="govuk-tag govuk-phase-banner__content__tag ">{{ phase | safe }}</strong>
       <span class="govuk-phase-banner__text">{{ content | safe }}</span>
-      {{ languageToggle | safe  }}
+      {% if session.featureToggles.ft_welsh %}
+        {{ languageToggle | safe  }}
+      {% endif %}
     </p>
   </div>
 {% endmacro %}

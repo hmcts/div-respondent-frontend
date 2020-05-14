@@ -17,6 +17,7 @@ const getFilters = require('views/filters');
 const errorContent = require('views/errors/error-content');
 const httpStatus = require('http-status-codes');
 const { parseBool } = require('@hmcts/one-per-page/util');
+const LaunchDarkly = require('launchdarkly-node-server-sdk');
 
 const app = express();
 
@@ -85,6 +86,20 @@ const getSession = {
     }
   }
 };
+
+app.use((req, res, next) => {
+  if (['test', 'testing'].includes(app.get('env'))) {
+    res.locals.launchDarkly = {
+      client: LaunchDarkly.init(config.featureToggles.launchDarklyKey, { offline: true })
+    };
+  } else {
+    res.locals.launchDarkly = {
+      client: LaunchDarkly.init(config.featureToggles.launchDarklyKey, { diagnosticOptOut: true })
+    };
+  }
+
+  next();
+});
 
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,

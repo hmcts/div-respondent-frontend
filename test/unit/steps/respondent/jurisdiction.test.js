@@ -230,7 +230,8 @@ describe(modulePath, () => {
         'jurisdictionConnectionPetitionerSixMonths',
         'jurisdictionConnectionOther',
         'signIn',
-        'signOut'
+        'signOut',
+        'languageToggle'
       ] });
   });
 
@@ -255,7 +256,8 @@ describe(modulePath, () => {
         'cya',
         'jurisdictionConnectionRespondent',
         'signIn',
-        'signOut'
+        'signOut',
+        'languageToggle'
       ] });
   });
 });

@@ -274,7 +274,8 @@ describe(modulePath, () => {
       'readConfirmationYes',
       'readConfirmationNo',
       'signIn',
-      'signOut'
+      'signOut',
+      'languageToggle'
     ];
 
     it('all', () => {

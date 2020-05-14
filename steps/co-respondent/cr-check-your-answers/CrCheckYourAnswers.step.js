@@ -6,6 +6,7 @@ const caseOrchestration = require('services/caseOrchestration');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CrCheckYourAnswers.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class CrCheckYourAnswers extends SetLanguageQuestion {
   static get path() {
@@ -18,7 +19,11 @@ class CrCheckYourAnswers extends SetLanguageQuestion {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   get form() {

@@ -32,7 +32,8 @@ describe(modulePath, () => {
         'serviceName',
         'backLink',
         'signIn',
-        'signOut'
+        'signOut',
+        'languageToggle'
       ];
 
       return content(End, {}, { ignoreContent });
