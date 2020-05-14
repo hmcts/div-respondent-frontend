@@ -76,7 +76,7 @@
     "istanbul": "^0.4.5",
     "istanbul-api": "2.1.6",
     "istanbul-reports": "2.2.7",
-    "jest": "^25.1.0",
+    "jest": "^26.0.1",
     "mocha": "^5.2.0",
     "mochawesome": "^3.0.2",
     "mockserver": "^2.1.1",
@@ -103,6 +103,7 @@
     "handlebars": ">=4.3.0",
     "mem": "^4.0.0",
     "marked": ">=0.7.0",
+    "minimist": "^1.2.5",
     "serialize-javascript": ">=2.1.1"
   },
   "nyc": {
