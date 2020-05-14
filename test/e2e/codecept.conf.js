@@ -17,7 +17,7 @@ if (proxyByPass) {
 
 
 exports.config = {
-  tests: './paths/**/*.js',
+  tests: './paths/signout.js',
   output: config.tests.e2e.outputDir,
   helpers: {
     Puppeteer: {
