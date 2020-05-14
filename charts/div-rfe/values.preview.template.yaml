@@ -19,6 +19,8 @@ nodejs:
             - redis-secret
             - idam-secret
             - os-places-token
+            - launchdarkly-key
+
 tags:
   idam-pr: true
   pr: true
