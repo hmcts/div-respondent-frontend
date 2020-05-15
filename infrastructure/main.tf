@@ -146,6 +146,8 @@ module "frontend" {
     // Post code Lookup
     POST_CODE_URL          = "${var.post_code_url}"
     POST_CODE_ACCESS_TOKEN = "${data.azurerm_key_vault_secret.post_code_token.value}"
+
+    LAUNCHDARKLY_KEY = "${data.azurerm_key_vault_secret.launchdarkly_key.value}"
   }
 }
 
@@ -171,5 +173,10 @@ data "azurerm_key_vault_secret" "redis_secret" {
 
 data "azurerm_key_vault_secret" "post_code_token" {
   name      = "os-places-token"
+  key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
+}
+
+data "azurerm_key_vault_secret" "launchdarkly_key" {
+  name      = "launchdarkly-key"
   key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
 }
