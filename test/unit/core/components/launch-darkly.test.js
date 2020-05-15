@@ -25,7 +25,7 @@ describe('LaunchDarkly', () => {
     ld.close();
     instance = ld.getInstance();
 
-    expect(instance).to.equal(null);
+    expect(instance).to.be.undefined;
     done();
   });
 });
