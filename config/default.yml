@@ -214,6 +214,7 @@ saucelabs:
   smartWait: 45000
 
 featureToggles:
+  enabled: true
   launchDarklyKey: 'SDK_KEY'
   launchDarklyUser:
     firstName: 'Divorce'

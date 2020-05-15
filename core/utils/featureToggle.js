@@ -1,9 +1,14 @@
 'use strict';
 
 const logger = require('services/logger').getLogger(__filename);
+const LaunchDarkly = require('core/components/launch-darkly');
 const CONF = require('config');
 
 class FeatureToggle {
+  constructor() {
+    this.launchDarkly = new LaunchDarkly().getInstance();
+  }
+
   callCheckToggle(req, res, next, launchDarkly, featureToggleKey, callbackFn, redirectPage) {
     return this.checkToggle({
       req,
@@ -20,37 +25,29 @@ class FeatureToggle {
     const featureToggleKey = CONF.featureToggles[params.featureToggleKey];
     const ldUser = CONF.featureToggles.launchDarklyUser;
 
-    try {
-      return this.onceReady(params.launchDarkly, () => {
-        return params.launchDarkly.client.variation(featureToggleKey, ldUser, false, (error, showFeature) => {
-          if (error) {
-            return params.next();
-          }
+    let ldDefaultValue = false;
+    if (params.launchDarkly.ftValue && params.launchDarkly.ftValue[params.featureToggleKey]) {
+      ldDefaultValue = params.launchDarkly.ftValue[params.featureToggleKey];
+    }
 
-          logger.infoWithReq(params.req, 'check_feature_toggle', `Checking feature toggle: ${params.featureToggleKey}, isEnabled:`, showFeature);
-          return params.callbackFn({
-            req: params.req,
-            res: params.res,
-            next: params.next,
-            redirectPage: params.redirectPage,
-            isEnabled: showFeature,
-            featureToggleKey: params.featureToggleKey
-          });
+    try {
+      return this.launchDarkly.variation(featureToggleKey, ldUser, ldDefaultValue, (error, showFeature) => {
+        if (error) {
+          return params.next();
+        }
+
+        logger.infoWithReq(params.req, 'check_feature_toggle', `Checking feature toggle: ${params.featureToggleKey}, isEnabled:`, showFeature);
+        return params.callbackFn({
+          req: params.req,
+          res: params.res,
+          next: params.next,
+          redirectPage: params.redirectPage,
+          isEnabled: showFeature,
+          featureToggleKey: params.featureToggleKey
         });
       });
     } catch (error) {
       return params.next();
-    }
-  }
-
-  onceReady(ld, callbackFn) {
-    if (ld.ready) {
-      callbackFn();
-    } else {
-      ld.client.once('ready', () => {
-        ld.ready = true;
-        callbackFn();
-      });
     }
   }
 

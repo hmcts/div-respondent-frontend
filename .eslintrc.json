@@ -64,6 +64,7 @@
         "new-cap": "off",
         "no-sync": "off",
         "max-lines": "off",
-        "object-curly-newline": "off"
+        "object-curly-newline": "off",
+        "consistent-return": "off"
     }
 }
