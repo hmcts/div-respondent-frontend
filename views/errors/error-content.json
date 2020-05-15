@@ -10,7 +10,7 @@
   "youCanEither": "You can either",
   "backLink": "Back",
   "feedback": "This is a new service – your <a aria-label=\"Feedback: This link will open in a new tab. You&rsquo;ll need to return to this tab to continue with your application.\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">feedback</a> will help us to improve it.",
-  "languageToggle": "<a href=\"?lng=cy\" class=\"govuk-link language\">Cymraeg</a>",
+  "languageToggle": "",
   "accessibility": "Accessibility statement",
   "cookies": "Cookies",
   "privacyPolicy": "Privacy policy",
