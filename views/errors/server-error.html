@@ -4,7 +4,7 @@
 {% from "footer/macro.njk" import govukFooter %}
 
 {% block breadcrumbs %}
-  {{ divPhaseBanner(phase, message.feedback, session) }}
+  {{ divPhaseBanner(phase, message.feedback, message.languageToggle, session) }}
 
   {{ govukBackLink({
     attributes: {
