@@ -215,7 +215,10 @@ describe(modulePath, () => {
 
       // then
       const values = step.answers();
-      const sessionLanguage = this.req.param('lng');
+      let sessionLanguage = '';
+      if (this.req) {
+        sessionLanguage = this.req.query['lng'];
+      }
       if (sessionLanguage === 'cy') {
         expect(values).to.be.an('object');
         expect(values).to.have.property('answer', stepContent.cy.fields.proceed.answer);
@@ -238,7 +241,10 @@ describe(modulePath, () => {
       // then
       const values = step.answers();
       expect(values).to.be.an('object');
-      const sessionLanguage = this.req.param('lng');
+      let sessionLanguage = '';
+      if (this.req) {
+        sessionLanguage = this.req.query['lng'];
+      }
       if (sessionLanguage === 'cy') {
         expect(values).to.have.property('answer', stepContent.cy.fields.proceedButDisagree.answer);
       } else {
@@ -259,7 +265,10 @@ describe(modulePath, () => {
       // then
       const answers = step.answers();
       expect(answers).to.be.an('object');
-      const sessionLanguage = this.req.param('lng');
+      let sessionLanguage = '';
+      if (this.req) {
+        sessionLanguage = this.req.query['lng'];
+      }
       if (sessionLanguage === 'cy') {
         expect(answers).to.have.property('answer', stepContent.cy.fields.defend.answer);
       } else {
