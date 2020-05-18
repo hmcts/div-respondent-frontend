@@ -91,7 +91,7 @@ class ChooseAResponse extends Question {
     if (response) {
       let sessionLanguage = '';
       if (this.req.query) {
-        sessionLanguage = this.req.query['lng'];
+        sessionLanguage = this.req.query.lng;
       }
       let question = '';
       let cyaContent = '';

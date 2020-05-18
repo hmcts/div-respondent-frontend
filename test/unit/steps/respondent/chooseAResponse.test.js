@@ -217,7 +217,7 @@ describe(modulePath, () => {
       const values = step.answers();
       let sessionLanguage = '';
       if (this.req) {
-        sessionLanguage = this.req.query['lng'];
+        sessionLanguage = this.req.query.lng;
       }
       if (sessionLanguage === 'cy') {
         expect(values).to.be.an('object');
@@ -243,7 +243,7 @@ describe(modulePath, () => {
       expect(values).to.be.an('object');
       let sessionLanguage = '';
       if (this.req) {
-        sessionLanguage = this.req.query['lng'];
+        sessionLanguage = this.req.query.lng;
       }
       if (sessionLanguage === 'cy') {
         expect(values).to.have.property('answer', stepContent.cy.fields.proceedButDisagree.answer);
@@ -267,7 +267,7 @@ describe(modulePath, () => {
       expect(answers).to.be.an('object');
       let sessionLanguage = '';
       if (this.req) {
-        sessionLanguage = this.req.query['lng'];
+        sessionLanguage = this.req.query.lng;
       }
       if (sessionLanguage === 'cy') {
         expect(answers).to.have.property('answer', stepContent.cy.fields.defend.answer);
