@@ -22,14 +22,14 @@
     "test:smoke": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.smoke.conf.js --steps",
     "test:coverage": "nyc check-coverage --statements 80 --branches 80 --functions 80 --lines 80",
     "test:a11y": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/a11y --timeout 15000",
-    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
+    "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner -Dsonar.inclusions=core/SetLanguageQuestion.js",
     "test:functional": "NODE_PATH=. LOG_LEVEL=DEBUG codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Pipeline' --reporter mochawesome",
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/w3cjs --timeout 30000",
     "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
     "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci LOG_LEVEL=DEBUG node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/e2e/saucelabs.conf.js --steps --grep '@Pipeline' --reporter mochawesome",
     "lint": "eslint ."
   },
-  "pre-commit": [
+  "pre-commit":[
     "lint"
   ],
   "dependencies": {
