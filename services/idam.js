@@ -19,6 +19,7 @@ const setArgsFromRequest = req => {
   // clone args so we don't modify the global idamArgs
   const args = Object.assign({}, idamArgs);
   args.hostName = req.hostname;
+  args.language = (req.session && req.session.language) ? req.session.language : 'en';
   args.redirectUri = `https://${req.get('host') + config.paths.authenticated}`;
   return args;
 };

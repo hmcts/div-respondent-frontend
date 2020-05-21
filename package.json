@@ -35,7 +35,7 @@
   "dependencies": {
     "@hmcts/ctsc-web-chat": "^0.3.11",
     "@hmcts/div-document-express-handler": "^1.1.0",
-    "@hmcts/div-idam-express-middleware": "^6.6.0",
+    "@hmcts/div-idam-express-middleware": "^6.6.2",
     "@hmcts/look-and-feel": "^4.0.5",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.1",
