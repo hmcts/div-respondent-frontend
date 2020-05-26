@@ -4,7 +4,7 @@ const modulePath = 'steps/respondent/review-application/ReviewApplication.step';
 const ReviewApplication = require(modulePath);
 const reviewApplicationContent = require('steps/respondent/review-application/ReviewApplication.content');
 const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
-const SolicitorRepresentation = require('steps/respondent/solicitor-representation/SolicitorRepresentation.step');
+// const SolicitorRepresentation = require('steps/respondent/solicitor-representation/SolicitorRepresentation.step');
 const config = require('config');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
@@ -84,12 +84,12 @@ describe(modulePath, () => {
       return question.redirectWithField(ReviewApplication, fields, ChooseAResponse, session);
     });
 
-    it('redirects to solicitor question page when solicitor feature on', () => {
-      sandbox.stub(config, 'features').value({
-        respSolicitorDetails: true
-      });
-      return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
-    });
+    // it('redirects to solicitor question page when solicitor feature on', () => {
+    //   sandbox.stub(config, 'features').value({
+    //     respSolicitorDetails: true
+    //   });
+    //   return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
+    // });
   });
 
   describe('Behaviour Details', () => {
