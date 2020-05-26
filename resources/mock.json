@@ -4,6 +4,7 @@
   "referenceNumber": 5555555555555555,
   "state": "DNAwaiting",
   "caseState": "DNAwaiting",
+  "languagePreferenceWelsh" : "No",
   "originalPetition": {
     "issueDate": "2006-02-02T00:00:00.000+0000",
     "caseReference": "LV18D81234",

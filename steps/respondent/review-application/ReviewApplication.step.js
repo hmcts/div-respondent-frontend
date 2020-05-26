@@ -2,7 +2,7 @@ const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { parseBool } = require('@hmcts/one-per-page');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const { goTo, branch } = require('@hmcts/one-per-page/flow');
+const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
@@ -22,6 +22,9 @@ const values = {
  *  Any change to Mini petition should be made across all the Apps
  */
 class ReviewApplication extends Question {
+  handler(req, res, next) {
+    super.handler(req, res, next);
+  }
   static get path() {
     return config.paths.respondent.reviewApplication;
   }
@@ -103,17 +106,23 @@ class ReviewApplication extends Question {
   }
 
   next() {
-    if (this.isRespondentSolEnabled) {
-      return goTo(this.journey.steps.SolicitorRepresentation);
+    // Here If user selection language is no, than show langugae preference page otherwise skip it
+    let returnPage = this.journey.steps.ChooseAResponse;
+    if (this.req.session.languagePreferenceWelsh === 'No') {
+      returnPage = this.journey.steps.languagePreference;
     }
-    const petition = this.session.originalPetition;
-    const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
-    const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
-    return branch(
-      goTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
-      goTo(this.journey.steps.ConsentDecree).if(twoYrSep),
-      goTo(this.journey.steps.ChooseAResponse)
-    );
+    return goTo(returnPage);
+
+    // if (this.isRespondentSolEnabled) {
+    // }
+    // const petition = this.session.originalPetition;
+    // const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
+    // const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
+    // return branch(
+    //   goTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
+    //   goTo(this.journey.steps.ConsentDecree).if(twoYrSep),
+    //   goTo(this.journey.steps.ChooseAResponse)
+    // );
   }
 
   get middleware() {

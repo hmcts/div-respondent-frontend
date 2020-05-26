@@ -8,11 +8,13 @@ const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
 
 const authTokenString = '__auth-token';
-
+//
 function storePetitionInSession(req, response) {
+  // console.log("55555",response.body)
   req.session.referenceNumber = response.body.caseId;
   req.session.caseState = response.body.state;
   req.session.originalPetition = response.body.data;
+  req.session.languagePreferenceWelsh = response.body.data.languagePreferenceWelsh;
   /* eslint-disable */
   if (req.session.originalPetition.marriageIsSameSexCouple !== 'Yes') {
     req.session.divorceWho = req.session.originalPetition.divorceWho === 'husband'

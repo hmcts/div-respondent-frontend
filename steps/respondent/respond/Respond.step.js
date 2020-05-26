@@ -21,6 +21,11 @@ class Respond extends Interstitial {
   }
 
   get session() {
+    // Call this function on page load, it get the session data
+    // console.log("12345 : ",this.req.session)
+    // Here, it store all the session data into selt(this) session.
+    // For example If we want to get "caseReference" for html than first we need to find full path of this data.
+    // and full path of  "caseReference" is : session.originalPetition.caseReference
     return this.req.session;
   }
 
