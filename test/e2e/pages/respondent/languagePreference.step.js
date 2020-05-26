@@ -4,7 +4,6 @@ const content = require('steps/respondent/languagePreference/languagePreference.
 function seeJurisdictionPage() {
   const I = this;
 
-  I.waitInUrl(languagePreference.path, 15);
   I.seeCurrentUrlEquals(languagePreference.path);
   I.waitForText(content.en.title, 5);
 }
