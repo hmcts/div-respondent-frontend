@@ -29,24 +29,22 @@ class languagePreference extends Question {
       this.const.agree,
       this.const.disagree
     ];
-
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const response = text
-      .joi(this.content.errors.required, validAnswers);
+    const languagePreferenceWelsh = text.joi(this.content.errors.required, validAnswers);
 
-    return form({ response });
+    return form({ languagePreferenceWelsh });
   }
 
   answers() {
     const answers = [];
-    const sessionLanguage = this.req.param('lng');
+    const languagePreferenceWelsh = this.req.session.languagePreferenceWelsh ? this.req.session.languagePreferenceWelsh : 'en';
 
     answers.push(answer(this, {
-      question: content[sessionLanguage].cya.agree,
-      answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content[sessionLanguage].fields.agree.answer : content[sessionLanguage].fields.disagree.answer
+      question: content[languagePreferenceWelsh].cya.agree,
+      answer: this.fields.languagePreferenceWelsh.value === this.const.yes ? content[languagePreferenceWelsh].fields.agree.answer : content[languagePreferenceWelsh].fields.disagree.answer
     }));
 
     return answers;

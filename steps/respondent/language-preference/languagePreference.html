@@ -12,7 +12,7 @@
     <p class="govuk-body">{{ content.summary | safe }}</p>
 
     {% call formSection() %}
-      {{ selectionButtons(fields.response, content.title,
+      {{ selectionButtons(fields.languagePreferenceWelsh, content.title,
         options = [
           { label: content.fields.agree.heading, value: const.yes },
           { label: content.fields.disagree.heading, value: const.no, target: "languagePreference-no" }

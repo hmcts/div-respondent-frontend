@@ -8,7 +8,7 @@
     },
     "summary": "If you don’t need your document to be translated to Welsh language, please choose No.",
     "question": "Just one of these gives the court jurisdiction.",
-    "answerNo" : "All documnets will be in English.",
+    "answerNo" : "All documents will be in English.",
 
     "fields": {
       "agree": {
