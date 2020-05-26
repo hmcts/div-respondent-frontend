@@ -1,7 +1,7 @@
-const languagePreference = require('steps/respondent/languagePreference/languagePreference.step');
-const content = require('steps/respondent/languagePreference/languagePreference.content');
+const languagePreference = require('steps/respondent/language-preference/languagePreference.step');
+const content = require('steps/respondent/language-preference/languagePreference.content');
 
-function seeJurisdictionPage() {
+function seeLanguagePreferencePage() {
   const I = this;
 
   I.waitInUrl(languagePreference.path, 15);
@@ -9,11 +9,11 @@ function seeJurisdictionPage() {
   I.waitForText(content.en.title, 5);
 }
 
-function chooseAgreeToJurisdiction() {
+function chooseBilingualApplication() {
   this.click(content.en.fields.agree.heading);
 }
 
 module.exports = {
-  seeJurisdictionPage,
-  chooseAgreeToJurisdiction
+  seeLanguagePreferencePage,
+  chooseBilingualApplication
 };
