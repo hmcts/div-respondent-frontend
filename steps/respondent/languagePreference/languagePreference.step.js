@@ -33,7 +33,7 @@ class languagePreference extends Question {
 
     const validateDisagreeReason = ({ agree = '', reason = '' }) => {
       if (agree === this.validValues.no && !reason.trim().length) {
-        return false;
+        return true;
       }
 
       return true;
@@ -41,7 +41,7 @@ class languagePreference extends Question {
 
     const validateCountry = ({ agree = '', country = '' }) => {
       if (agree === this.validValues.no && !country.trim().length) {
-        return false;
+        return true;
       }
 
       return true;
