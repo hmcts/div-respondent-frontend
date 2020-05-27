@@ -35,7 +35,8 @@ describe(modulePath, () => {
       'languageToggle',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     const session = { case: { caseData: {} } };

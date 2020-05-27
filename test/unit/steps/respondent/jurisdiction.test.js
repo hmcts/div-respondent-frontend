@@ -231,7 +231,8 @@ describe(modulePath, () => {
         'jurisdictionConnectionOther',
         'signIn',
         'signOut',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem'
       ] });
   });
 
@@ -257,7 +258,8 @@ describe(modulePath, () => {
         'jurisdictionConnectionRespondent',
         'signIn',
         'signOut',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem'
       ] });
   });
 });

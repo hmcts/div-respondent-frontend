@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./ChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const consts = {
   proceed: 'proceed',
@@ -87,11 +88,12 @@ class ChooseAResponse extends Question {
   }
 
   answers() {
+    const sessionLanguage = i18next.language;
     const response = this.fields.response.value;
 
     if (response) {
-      const question = content.en.title;
-      const cyaContent = content.en.fields[response].answer;
+      const question = content[sessionLanguage].title;
+      const cyaContent = content[sessionLanguage].fields[response].answer;
       return answer(this, {
         question,
         answer: cyaContent

@@ -21,6 +21,7 @@ function storePetitionInSession(req, response) {
   } else {
     req.session.divorceWho = req.session.originalPetition.divorceWho;
   }
+  req.session.languagePreferenceWelsh = req.session.originalPetition.languagePreferenceWelsh;
 
   const divorceCenter = req.session.originalPetition.courts;
   req.session.serviceCentreName = req.session.originalPetition.court[divorceCenter].serviceCentreName;

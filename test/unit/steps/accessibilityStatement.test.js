@@ -19,7 +19,8 @@ describe(modulePath, () => {
       'backLink',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
     return content(PrivacyPolicy, {}, { ignoreContent });
   });

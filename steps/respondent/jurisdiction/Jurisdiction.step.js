@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./Jurisdiction.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const validValues = {
   yes: 'Yes',
@@ -85,20 +86,21 @@ class Jurisdiction extends Question {
 
   answers() {
     const answers = [];
+    const sessionLanguage = i18next.language;
 
     answers.push(answer(this, {
-      question: content.en.cya.agree,
-      answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content.en.fields.agree.answer : content.en.fields.disagree.answer
+      question: content[sessionLanguage].cya.agree,
+      answer: this.fields.jurisdiction.agree.value === this.validValues.yes ? content[sessionLanguage].fields.agree.answer : content[sessionLanguage].fields.disagree.answer
     }));
 
     if (this.fields.jurisdiction.agree.value === this.validValues.no) {
       answers.push(answer(this, {
-        question: content.en.cya.reason,
+        question: content[sessionLanguage].cya.reason,
         answer: this.fields.jurisdiction.reason.value
       }));
 
       answers.push(answer(this, {
-        question: content.en.cya.country,
+        question: content[sessionLanguage].cya.country,
         answer: this.fields.jurisdiction.country.value
       }));
     }

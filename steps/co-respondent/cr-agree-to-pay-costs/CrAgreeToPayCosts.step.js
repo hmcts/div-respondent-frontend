@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./CrAgreeToPayCosts.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const yes = 'Yes';
 const no = 'No';
@@ -73,20 +74,21 @@ class CrAgreeToPayCosts extends Question {
 
   answers() {
     const answers = [];
-    let agreeAnswer = content.en.fields.agree.answer;
+    const sessionLanguage = i18next.language;
+    let agreeAnswer = content[sessionLanguage].fields.agree.answer;
 
     if (this.fields.crAgreeToPayCosts.agree.value === no) {
-      agreeAnswer = content.en.fields.disagree.answer;
+      agreeAnswer = content[sessionLanguage].fields.disagree.answer;
     }
 
     answers.push(answer(this, {
-      question: content.en.cya.agree,
+      question: content[sessionLanguage].cya.agree,
       answer: agreeAnswer
     }));
 
     if (this.fields.crAgreeToPayCosts.agree.value === no) {
       answers.push(answer(this, {
-        question: content.en.cya.noReason,
+        question: content[sessionLanguage].cya.noReason,
         answer: this.fields.crAgreeToPayCosts.noReason.value
       }));
     }

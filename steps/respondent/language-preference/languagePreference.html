@@ -1,0 +1,30 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textarea, textbox %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <div id="languagePreference">
+    <p class="govuk-body">{{ content.summary | safe }}</p>
+
+    {% call formSection() %}
+      {{ selectionButtons(fields.languagePreferenceWelsh, content.title,
+        options = [
+          { label: content.fields.agree.heading, value: const.yes },
+          { label: content.fields.disagree.heading, value: const.no, target: "languagePreference-no" }
+        ],
+        hideQuestion=true,
+        inline=false,
+        type='radio'
+      )
+      }}
+      <div id="languagePreference-no" class="form-group panel js-hidden">
+        <p class="govuk-body">{{ content.answerNo | safe }}</p>
+      </div>
+    {% endcall %}
+  </div>
+{% endblock %}

@@ -59,7 +59,8 @@ describe(modulePath, () => {
       'emailIfProblems',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     return content(CrDone, session, { ignoreContent });

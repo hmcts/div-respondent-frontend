@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./SolicitorRepresentation.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const values = {
   yes: 'Yes',
@@ -48,9 +49,10 @@ class SolicitorRepresentation extends Question {
   }
 
   answers() {
-    const question = content.en.title;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].title;
     const doesConfirm = this.fields.response.value === this.const.yes;
-    const answerValue = doesConfirm ? content.en.fields.hasSolicitor.label : content.en.fields.noSolicitor.label;
+    const answerValue = doesConfirm ? content[sessionLanguage].fields.hasSolicitor.label : content[sessionLanguage].fields.noSolicitor.label;
     return answer(this, {
       question,
       answer: answerValue

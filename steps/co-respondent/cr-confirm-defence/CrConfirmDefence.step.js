@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./CrConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const values = {
   confirm: 'confirm',
@@ -52,9 +53,10 @@ class CrConfirmDefence extends Question {
   }
 
   answers() {
-    const question = content.en.title;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].title;
     const doesConfirm = this.fields.response.value === this.const.confirm;
-    const answerValue = doesConfirm ? content.en.fields.confirm.label : content.en.fields.changeResponse.label;
+    const answerValue = doesConfirm ? content[sessionLanguage].fields.confirm.label : content[sessionLanguage].fields.changeResponse.label;
     return answer(this, {
       question,
       answer: answerValue,

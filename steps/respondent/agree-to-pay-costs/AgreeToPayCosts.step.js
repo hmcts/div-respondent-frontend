@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./AgreeToPayCosts.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const yes = 'Yes';
 const no = 'No';
@@ -107,24 +108,25 @@ class AgreeToPayCosts extends Question {
 
   answers() {
     const answers = [];
-    let agreeAnswer = content.en.fields.agree.answer;
+    const sessionLanguage = i18next.language;
+    let agreeAnswer = content[sessionLanguage].fields.agree.answer;
 
     if (this.fields.agreeToPayCosts.agree.value === no) {
-      agreeAnswer = content.en.fields.disagree.answer;
+      agreeAnswer = content[sessionLanguage].fields.disagree.answer;
     }
 
     if (this.fields.agreeToPayCosts.agree.value === differentAmount) {
-      agreeAnswer = content.en.fields.differentAmount.answer;
+      agreeAnswer = content[sessionLanguage].fields.differentAmount.answer;
     }
 
     answers.push(answer(this, {
-      question: content.en.cya.agree,
+      question: content[sessionLanguage].cya.agree,
       answer: agreeAnswer
     }));
 
     if (this.fields.agreeToPayCosts.agree.value === no) {
       answers.push(answer(this, {
-        question: content.en.cya.noReason,
+        question: content[sessionLanguage].cya.noReason,
         answer: this.fields.agreeToPayCosts.noReason.value
       }));
     }
@@ -134,11 +136,11 @@ class AgreeToPayCosts extends Question {
       const newAmountReason = this.fields.agreeToPayCosts.newAmountReason.value;
 
       answers.push(answer(this, {
-        question: content.en.cya.newAmount,
-        answer: content.en.poundSymbol + newAmount
+        question: content[sessionLanguage].cya.newAmount,
+        answer: content[sessionLanguage].poundSymbol + newAmount
       }));
       answers.push(answer(this, {
-        question: content.en.cya.newAmountReason,
+        question: content[sessionLanguage].cya.newAmountReason,
         answer: newAmountReason
       }));
     }

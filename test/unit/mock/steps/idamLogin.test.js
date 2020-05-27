@@ -17,7 +17,8 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ] });
   });
 

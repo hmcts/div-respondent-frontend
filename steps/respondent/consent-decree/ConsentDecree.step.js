@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./ConsentDecree.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const constValues = {
   yes: 'Yes',
@@ -72,18 +73,19 @@ class ConsentDecree extends Question {
 
   answers() {
     const answers = [];
-    const questionConsent = content.en.fields.consentDecree.header;
+    const sessionLanguage = i18next.language;
+    const questionConsent = content[sessionLanguage].fields.consentDecree.header;
     const doesConsent = this.fields.response.consentDecree.value === this.const.yes;
-    const consentAnswerValue = doesConsent ? content.en.fields.consentDecree.labelYes : content.en.fields.consentDecree.labelNo;
+    const consentAnswerValue = doesConsent ? content[sessionLanguage].fields.consentDecree.labelYes : content[sessionLanguage].fields.consentDecree.labelNo;
     answers.push(answer(this, {
       question: questionConsent,
       answer: consentAnswerValue
     }));
 
     if (!doesConsent) {
-      const questionDefend = content.en.fields.willDefend.header;
+      const questionDefend = content[sessionLanguage].fields.willDefend.header;
       const willDefend = this.fields.response.willDefend.value === this.const.yes;
-      const defendValue = willDefend ? content.en.fields.willDefend.answerYes : content.en.fields.willDefend.answerNo;
+      const defendValue = willDefend ? content[sessionLanguage].fields.willDefend.answerYes : content[sessionLanguage].fields.willDefend.answerNo;
       answers.push(answer(this, {
         question: questionDefend,
         answer: defendValue

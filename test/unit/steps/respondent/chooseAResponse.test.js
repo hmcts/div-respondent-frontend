@@ -85,7 +85,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     return content(ChooseAResponse, session, { ignoreContent });
@@ -104,7 +105,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     return content(ChooseAResponse, session, {
@@ -129,7 +131,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     return content(ChooseAResponse, session, {
@@ -154,7 +157,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     return content(ChooseAResponse, session, {
