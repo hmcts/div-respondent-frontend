@@ -124,7 +124,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     return content(CrConfirmDefence, {}, { ignoreContent });

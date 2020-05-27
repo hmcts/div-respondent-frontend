@@ -214,6 +214,8 @@ saucelabs:
   waitForTimeout: 60000
   smartWait: 45000
 
+languages: ['en', 'cy']
+
 featureToggles:
   enabled: true
   launchDarklyKey: 'SDK_KEY'

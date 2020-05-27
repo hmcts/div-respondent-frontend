@@ -24,7 +24,8 @@
     "privacyPolicy": "Privacy policy",
     "termsAndConditions": "Terms and conditions",
     "signIn": "Sign in",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "thereWasAProblem": "There was a problem"
   },
   "cy": {
     "continue": "Parhau",
@@ -51,6 +52,7 @@
     "privacyPolicy": "Polisi Preifatrwydd",
     "termsAndConditions": "Telerau ac Amodau",
     "signIn": "Mewngofnodi",
-    "signOut": "Allgofnodi"
+    "signOut": "Allgofnodi",
+    "thereWasAProblem": "Roedd yna broblem"
   }
 }

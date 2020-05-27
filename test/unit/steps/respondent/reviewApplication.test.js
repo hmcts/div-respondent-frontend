@@ -430,7 +430,8 @@ describe(modulePath, () => {
       'reasonForDivorceSeparationFiveYears2DatesRecent',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     it('all', () => {

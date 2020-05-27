@@ -33,7 +33,8 @@ describe(modulePath, () => {
         'backLink',
         'signIn',
         'signOut',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem'
       ];
 
       return content(End, {}, { ignoreContent });

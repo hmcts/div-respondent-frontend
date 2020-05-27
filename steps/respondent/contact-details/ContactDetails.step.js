@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ContactDetails.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const yes = 'Yes';
 
@@ -55,17 +56,18 @@ class ContactDetails extends Question {
     const phoneNo = this.fields.contactDetails.telephone.value;
 
     const answers = [];
+    const sessionLanguage = i18next.language;
 
     if (phoneNo && phoneNo.trim().length) {
       answers.push(answer(this, {
-        question: content.en.contactMethods.telephone.heading,
+        question: content[sessionLanguage].contactMethods.telephone.heading,
         answer: this.fields.contactDetails.telephone.value
       }));
     }
 
     answers.push(answer(this, {
-      question: content.en.contactMethods.email.heading,
-      answer: content.en.fields.email.label
+      question: content[sessionLanguage].contactMethods.email.heading,
+      answer: content[sessionLanguage].fields.email.label
     }));
 
     return answers;

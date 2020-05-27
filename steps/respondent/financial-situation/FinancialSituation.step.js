@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./FinancialSituation.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const constValues = {
   yes: 'Yes',
@@ -27,9 +28,10 @@ class FinancialSituation extends Question {
   }
 
   answers() {
-    const question = content.en.title;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].title;
     const answerYes = this.fields.respConsiderFinancialSituation.value === this.const.yes;
-    const fieldValues = content.en.fields.respConsiderFinancialSituation;
+    const fieldValues = content[sessionLanguage].fields.respConsiderFinancialSituation;
     const answerText = answerYes ? fieldValues.yes : fieldValues.no;
     return answer(this, {
       question,

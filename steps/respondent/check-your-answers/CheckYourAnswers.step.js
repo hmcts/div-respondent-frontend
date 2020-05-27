@@ -8,6 +8,7 @@ const Joi = require('joi');
 const content = require('./CheckYourAnswers.content');
 const { parseBool } = require('@hmcts/one-per-page');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const constants = {
   YES_VALUE: 'Yes',
@@ -54,7 +55,8 @@ class CheckYourAnswers extends CYA {
   }
 
   get errorMessage() {
-    return content.en.errors.required;
+    const sessionLanguage = i18next.language;
+    return content[sessionLanguage].errors.required;
   }
 
   get isRespondentSolEnabled() {

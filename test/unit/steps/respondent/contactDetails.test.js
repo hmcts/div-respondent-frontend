@@ -195,7 +195,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     return content(ContactDetails, {}, { ignoreContent });

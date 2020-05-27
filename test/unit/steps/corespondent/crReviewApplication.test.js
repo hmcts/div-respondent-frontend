@@ -275,7 +275,8 @@ describe(modulePath, () => {
       'readConfirmationNo',
       'signIn',
       'signOut',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem'
     ];
 
     it('all', () => {

@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./AdmitAdultery.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const constValues = {
   admit: 'admit',
@@ -47,9 +48,10 @@ class AdmitAdultery extends Question {
   }
 
   answers() {
-    const question = content.en.title;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].title;
     const doesAdmit = this.fields.response.value === this.const.admit;
-    const answerValue = doesAdmit ? content.en.fields.admit.label : content.en.fields.doNotAdmit.label;
+    const answerValue = doesAdmit ? content[sessionLanguage].fields.admit.label : content[sessionLanguage].fields.doNotAdmit.label;
     return answer(this, {
       question,
       answer: answerValue

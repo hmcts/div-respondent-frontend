@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./languagePreference.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const constValues = {
   agree: 'Yes',
@@ -40,11 +41,11 @@ class languagePreference extends Question {
 
   answers() {
     const answers = [];
-    const languagePreferenceWelsh = this.req.session.languagePreferenceWelsh ? this.req.session.languagePreferenceWelsh : 'en';
+    const sessionLanguage = i18next.language;
 
     answers.push(answer(this, {
-      question: content[languagePreferenceWelsh].cya.agree,
-      answer: this.fields.languagePreferenceWelsh.value === this.const.yes ? content[languagePreferenceWelsh].fields.agree.answer : content[languagePreferenceWelsh].fields.disagree.answer
+      question: content[sessionLanguage].cya.agree,
+      answer: this.fields.languagePreferenceWelsh.value === this.const.yes ? content[sessionLanguage].fields.agree.answer : content[sessionLanguage].fields.disagree.answer
     }));
 
     return answers;

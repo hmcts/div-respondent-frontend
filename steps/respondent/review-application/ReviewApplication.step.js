@@ -6,10 +6,11 @@ const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const content = require('./ReviewApplication.content').en;
+const content = require('./ReviewApplication.content');
+const { replace, endsWith } = require('lodash');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
-const { replace, endsWith } = require('lodash');
+const i18next = require('i18next');
 
 const values = {
   yes: 'Yes',
@@ -89,10 +90,11 @@ class ReviewApplication extends Question {
   }
 
   answers() {
-    const question = content.readConfirmationQuestion;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].readConfirmationQuestion;
     return answer(this, {
       question,
-      answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content.readConfirmationYes : content.readConfirmationNo
+      answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content[sessionLanguage].readConfirmationYes : content[sessionLanguage].readConfirmationNo
     });
   }
 
