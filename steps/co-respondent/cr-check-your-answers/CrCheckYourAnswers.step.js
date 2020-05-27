@@ -1,4 +1,4 @@
-const SetLanguageQuestion = require('core/SetLanguageQuestion');
+const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
 const { goTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
@@ -8,7 +8,7 @@ const Joi = require('joi');
 const content = require('./CrCheckYourAnswers.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 
-class CrCheckYourAnswers extends SetLanguageQuestion {
+class CrCheckYourAnswers extends CYA {
   static get path() {
     return config.paths.coRespondent.checkYourAnswers;
   }

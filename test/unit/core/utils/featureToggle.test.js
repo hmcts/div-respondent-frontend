@@ -115,30 +115,6 @@ describe('FeatureToggle', () => {
     });
   });
 
-  describe('appwideToggles()', () => {
-    it('should return ctx when no appwide toggles are present', done => {
-      const appwideToggles = [];
-      const req = { session: { featureToggles: {} } };
-      let ctx = {};
-
-      ctx = FeatureToggle.appwideToggles(req, ctx, appwideToggles);
-
-      expect(ctx).to.deep.equal({});
-      done();
-    });
-
-    it('should add all appwide toggles to ctx when present', done => {
-      const appwideToggles = ['ft_test_toggle'];
-      const req = { session: { featureToggles: { ft_test_toggle: false } } };
-      let ctx = {};
-
-      ctx = FeatureToggle.appwideToggles(req, ctx, appwideToggles);
-
-      expect(ctx).to.deep.equal({ featureToggles: { ft_test_toggle: 'false' } });
-      done();
-    });
-  });
-
   describe('isEnabled()', () => {
     describe('should return true', () => {
       it('if the feature toggle exists and is true', done => {
