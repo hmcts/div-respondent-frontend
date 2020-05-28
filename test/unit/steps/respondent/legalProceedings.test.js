@@ -194,7 +194,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(LegalProceedings, {}, { ignoreContent });
   });

@@ -100,7 +100,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -161,7 +163,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -221,7 +225,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -288,7 +294,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -353,7 +361,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -412,7 +422,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -473,7 +485,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -551,7 +565,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -634,7 +650,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -701,7 +719,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });

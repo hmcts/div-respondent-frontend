@@ -7,6 +7,8 @@ const redirectMiddleware = require('middleware/redirectMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
+const commonContent = require('common/content');
+const i18next = require('i18next');
 
 class Respond extends Interstitial {
   get downloadableFiles() {
@@ -23,6 +25,11 @@ class Respond extends Interstitial {
 
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   handler(req, res) {

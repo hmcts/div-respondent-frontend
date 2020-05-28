@@ -8,6 +8,8 @@ const { documentWhiteList } = require('services/documentHandler');
 const { get } = require('lodash');
 const { progressStates, values, caseStateMap, caseStatesBeyondAos } = require('./ProgressBar.config');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const commonContent = require('common/content');
+const i18next = require('i18next');
 
 class ProgressBar extends Interstitial {
   static get path() {
@@ -16,6 +18,11 @@ class ProgressBar extends Interstitial {
 
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   get progressStates() {

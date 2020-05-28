@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Do you admit to committing the adultery?",
-    "detailsText": "Your {{ session.divorceWho }} provided the following details.",
+    "detailsText": "Your {{ divorceWho }} provided the following details.",
     "whereAdultery": {
       "heading": "Where the adultery took place"
     },
@@ -25,7 +25,7 @@
   },
   "cy": {
     "title": "A ydych chi’n cyfaddef eich bod wedi godinebu?",
-    "detailsText": "Darparodd eich {{ session.divorceWho }} y manylion a ganlyn.",
+    "detailsText": "Darparodd eich {{ divorceWho }} y manylion a ganlyn.",
     "whereAdultery": {
       "heading": "Lle y digwyddodd y godineb"
     },

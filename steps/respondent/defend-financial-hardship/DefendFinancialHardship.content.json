@@ -5,7 +5,7 @@
       "question": "Are you defending the divorce as it would cause you severe hardship?",
       "details": "How will the divorce cause you severe hardship?"
     },
-    "text1": "As your {{ session.divorceWho }} used 5 years separation as the reason for divorce, you can defend it on the basis that it will cause you severe hardship.",
+    "text1": "As your {{ divorceWho }} used 5 years separation as the reason for divorce, you can defend it on the basis that it will cause you severe hardship.",
     "text2": "The hardship could be financial (for example, you’ll lose your rights to a widow’s pension) or another type of hardship (for example, you’ll be stigmatized for cultural or religious reasons).",
     "info": {
       "heading": "Read more about hardship",
@@ -38,7 +38,7 @@
       "question": "A ydych chi’n amddiffyn yr ysgariad am y byddai’n peri caledi difrifol ichi?",
       "details": "Sut fydd yr ysgariad yn peri caledi difrifol ichi?"
     },
-    "text1": "Gan fod eich {{ session.divorceWho }} wedi defnyddio gwahanu ers 5 mlynedd yn rheswm dros ysgaru, gallwch geisio atal yr ysgariad ar y sail y bydd yn peri caledi difrifol ichi.",
+    "text1": "Gan fod eich {{ divorceWho }} wedi defnyddio gwahanu ers 5 mlynedd yn rheswm dros ysgaru, gallwch geisio atal yr ysgariad ar y sail y bydd yn peri caledi difrifol ichi.",
     "text2": "Gallai’r caledi fod yn ariannol (colli eich hawl i gael pensiwn gwraig weddw, er enghraifft) neu’n galedi o fath arall (eich stigmateiddio am resymau crefyddol neu ddiwylliannol, er enghraifft).",
     "info": {
       "heading": "Darllenwch fwy am galedi",

@@ -64,7 +64,9 @@ describe(modulePath, () => {
       'guidance',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
 
     it('should render contents when previousCaseId is not specified', () => {

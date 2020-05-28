@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./FinancialSituation.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const constValues = {
   yes: 'Yes',
@@ -25,6 +26,11 @@ class FinancialSituation extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   answers() {

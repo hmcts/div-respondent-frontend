@@ -6,15 +6,15 @@
       "reason": "Why don’t you agree that the court has jurisdiction?",
       "country": "In which country is your life mainly based?"
     },
-    "summary": "Your {{ session.divorceWho }} has stated that the court has jurisdiction (the legal power) to grant you a divorce because:",
+    "summary": "Your {{ divorceWho }} has stated that the court has jurisdiction (the legal power) to grant you a divorce because:",
     "question": "Just one of these gives the court jurisdiction.",
 
-    "jurisdictionConnectionBothResident": "both you and your {{ session.divorceWho }} are habitually resident",
-    "jurisdictionConnectionOneResides": "you and your {{ session.divorceWho }} were both last habitually resident and one of you still lives here",
+    "jurisdictionConnectionBothResident": "both you and your {{ divorceWho }} are habitually resident",
+    "jurisdictionConnectionOneResides": "you and your {{ divorceWho }} were both last habitually resident and one of you still lives here",
     "jurisdictionConnectionRespondent": "you are habitually resident",
-    "jurisdictionConnectionPetitioner": "your {{ session.divorceWho }}  is habitually resident and has lived here for at least 12 months",
-    "jurisdictionConnectionPetitionerSixMonths": "your {{ session.divorceWho }} is domiciled and habitually resident and has lived here for at least 6 months",
-    "jurisdictionConnectionBothDomiciled": "both you and your {{ session.divorceWho }} are domiciled",
+    "jurisdictionConnectionPetitioner": "your {{ divorceWho }}  is habitually resident and has lived here for at least 12 months",
+    "jurisdictionConnectionPetitionerSixMonths": "your {{ divorceWho }} is domiciled and habitually resident and has lived here for at least 6 months",
+    "jurisdictionConnectionBothDomiciled": "both you and your {{ divorceWho }} are domiciled",
     "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction",
 
     "info": {
@@ -42,12 +42,12 @@
         "residualJurisdiction": {
           "heading": "Residual Jurisdiction",
           "intro1": "The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:",
-          "bullet1": "either you or your {{ session.divorceWho }} are domiciled in England or Wales",
-          "bullet2": "neither you nor your {{ session.divorceWho }} are able to apply (on the basis of your nationality or residence) for a divorce in another member state of the EU",
+          "bullet1": "either you or your {{ divorceWho }} are domiciled in England or Wales",
+          "bullet2": "neither you nor your {{ divorceWho }} are able to apply (on the basis of your nationality or residence) for a divorce in another member state of the EU",
           "intro2": "In addition, if you’re married to a person of the same sex, the court may have residual jurisdiction if all the following apply:",
-          "bullet3": "you and your {{ session.divorceWho }} married each other in England or Wales",
-          "bullet4": "neither you nor your {{ session.divorceWho }} are able to apply for a divorce in any other country",
-          "bullet5": "it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ session.divorceWho }}’s home country doesn’t allow divorce between same-sex couples)."
+          "bullet3": "you and your {{ divorceWho }} married each other in England or Wales",
+          "bullet4": "neither you nor your {{ divorceWho }} are able to apply for a divorce in any other country",
+          "bullet5": "it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ divorceWho }}’s home country doesn’t allow divorce between same-sex couples)."
         }
       }
     },
@@ -76,14 +76,14 @@
       "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
       "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
     },
-    "summary": "Mae eich {{ session.divorceWho }} wedi dweud fod gan y llys awdurdodaeth (y pwer cyfreithiol) i ganiatáu ysgariad ichi oherwydd:",
+    "summary": "Mae eich {{ divorceWho }} wedi dweud fod gan y llys awdurdodaeth (y pwer cyfreithiol) i ganiatáu ysgariad ichi oherwydd:",
     "question": "Dim ond un o’r rhain sy’n rhoi awdurdodaeth i’r llys.",
-    "jurisdictionConnectionBothResident": "eich bod chi a’ch {{ session.divorceWho }} yn preswylio’n arferol yng Nghymru neu Loegr",
-    "jurisdictionConnectionOneResides": "eich bod chi a’ch {{ session.divorceWho }} yn preswylio’n arferol yma ddiwethaf ac mae un ohonoch yn byw yma o hyd",
+    "jurisdictionConnectionBothResident": "eich bod chi a’ch {{ divorceWho }} yn preswylio’n arferol yng Nghymru neu Loegr",
+    "jurisdictionConnectionOneResides": "eich bod chi a’ch {{ divorceWho }} yn preswylio’n arferol yma ddiwethaf ac mae un ohonoch yn byw yma o hyd",
     "jurisdictionConnectionRespondent": "rydych yn preswylio’n arferol yng Nghymru neu Loegr",
-    "jurisdictionConnectionPetitioner": "bod eich {{ session.divorceWho }}  yn preswylio’n arferol yma ac wedi byw yma am o leiaf 12 mis",
-    "jurisdictionConnectionPetitionerSixMonths": "bod domisil eich {{ session.divorceWho }} yma, ei fod/bod yn preswylio’n arferol yma ac wedi byw yma am o leiaf 6 mis",
-    "jurisdictionConnectionBothDomiciled": "eich bod chi a’ch {{ session.divorceWho }} â’ch domisil yng Nghymru a Lloegr",
+    "jurisdictionConnectionPetitioner": "bod eich {{ divorceWho }}  yn preswylio’n arferol yma ac wedi byw yma am o leiaf 12 mis",
+    "jurisdictionConnectionPetitionerSixMonths": "bod domisil eich {{ divorceWho }} yma, ei fod/bod yn preswylio’n arferol yma ac wedi byw yma am o leiaf 6 mis",
+    "jurisdictionConnectionBothDomiciled": "eich bod chi a’ch {{ divorceWho }} â’ch domisil yng Nghymru a Lloegr",
     "jurisdictionConnectionOther": "Mae gan lysoedd Cymru a Lloegr awdurdodaeth ar sail weddillol",
     "info": {
       "heading": "Beth yw ystyr hyn?",
@@ -110,12 +110,12 @@
         "residualJurisdiction": {
           "heading": "Awdurdodaeth Weddillol",
           "intro1": "Mae’n bosib y bydd gan y llys awdurdodaeth ar sail weddillol os nad yw unrhyw un o’r cysylltiadau cyfreithiol eraill yn berthnasol, a bod y canlynol ill dau yn wir:",
-          "bullet1": "mae eich domisil chi neu ddomisil eich {{ session.divorceWho }} yng Nghymru neu Loegr",
-          "bullet2": "nid ydych chi na’ch {{ session.divorceWho }} yn gallu gwneud cais (ar sail eich cenedligrwydd neu eich preswylfan) am ysgariad yn un o aelod-wladwriaethau eraill yr UE",
+          "bullet1": "mae eich domisil chi neu ddomisil eich {{ divorceWho }} yng Nghymru neu Loegr",
+          "bullet2": "nid ydych chi na’ch {{ divorceWho }} yn gallu gwneud cais (ar sail eich cenedligrwydd neu eich preswylfan) am ysgariad yn un o aelod-wladwriaethau eraill yr UE",
           "intro2": "At hynny, os ydych yn briod â rhywun o’r un rhyw, efallai eich bod yn gymwys ar gyfer awdurdodaeth weddillol os yw’r canlynol i gyd yn berthnasol:",
-          "bullet3": "mi wnaethoch chi a’ch {{ session.divorceWho }} briodi eich gilydd yng Nghymru neu Loegr",
-          "bullet4": "nid ydych chi na’ch {{ session.divorceWho }} yn gallu gwneud cais am ysgariad mewn unrhyw wlad arall",
-          "bullet5": "byddai er lles cyfiawnder i’r llys ystyried y cais (er enghraifft, gallai hyn fod yn berthnasol, os nad yw’r wlad lle mae eich cartref neu gartref eich {{ session.divorceWho }} yn caniatáu ysgariad rhwng cyplau o’r un rhyw)."
+          "bullet3": "mi wnaethoch chi a’ch {{ divorceWho }} briodi eich gilydd yng Nghymru neu Loegr",
+          "bullet4": "nid ydych chi na’ch {{ divorceWho }} yn gallu gwneud cais am ysgariad mewn unrhyw wlad arall",
+          "bullet5": "byddai er lles cyfiawnder i’r llys ystyried y cais (er enghraifft, gallai hyn fod yn berthnasol, os nad yw’r wlad lle mae eich cartref neu gartref eich {{ divorceWho }} yn caniatáu ysgariad rhwng cyplau o’r un rhyw)."
         }
       }
     },

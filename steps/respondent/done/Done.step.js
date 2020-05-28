@@ -2,6 +2,8 @@ const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const commonContent = require('common/content');
+const i18next = require('i18next');
 
 class Done extends ExitPoint {
   static get path() {
@@ -9,6 +11,11 @@ class Done extends ExitPoint {
   }
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   get feesAmendDivorce() {

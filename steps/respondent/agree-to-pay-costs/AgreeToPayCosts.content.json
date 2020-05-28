@@ -8,8 +8,8 @@
       "newAmount": "Suggested New Amount",
       "newAmountReason": "Why don’t you agree to pay the suggested costs?"
     },
-    "summary1": "Your {{ session.divorceWho }} asked the court that you pay the costs of the divorce.",
-    "summary2": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ session.divorceWho }} make.",
+    "summary1": "Your {{ divorceWho }} asked the court that you pay the costs of the divorce.",
+    "summary2": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ divorceWho }} make.",
 
     "question": "Do you agree to pay the costs?",
     "warning": "Warning",
@@ -20,12 +20,12 @@
       "options": {
         "amountToPay": {
           "heading": "How much you may have to pay",
-          "summary": "The applicant’s costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if your {{ session.divorceWho }} has legal fees (eg a solicitor) and these are also included."
+          "summary": "The applicant’s costs usually include the £{{ feesIssueApplication }} fee. They could also include other court fees and costs. The costs could be much higher if your {{ divorceWho }} has legal fees (eg a solicitor) and these are also included."
         },
         "whatNow": {
           "heading": "What happens now",
-          "summary1": "Your {{ session.divorceWho }} will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
-          "summary2": "The court will then make its decision on whether you should pay any costs. It will take all your circumstances into account, including your conduct, and your {{ session.divorceWho }}’s conduct, before and during the divorce.",
+          "summary1": "Your {{ divorceWho }} will be asked to confirm that they want to claim their costs when they apply for a decree nisi.",
+          "summary2": "The court will then make its decision on whether you should pay any costs. It will take all your circumstances into account, including your conduct, and your {{ divorceWho }}’s conduct, before and during the divorce.",
           "summary3": "You’ll be given the court’s decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made."
         },
         "doNotAcceptCost": {
@@ -67,8 +67,8 @@
       "newAmount": "Swm Newydd a Awgrymir",
       "newAmountReason": "Pam nad ydych yn cytuno i dalu’r costau a awgrymir?"
     },
-    "summary1": "Gofynnodd eich {{ session.divorceWho }} i’r llys orchymyn ichi dalu costau’r ysgariad.",
-    "summary2": "Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn rhoi ystyriaeth i unrhyw geisiadau a wneir gennych chi a’ch {{ session.divorceWho }}.",
+    "summary1": "Gofynnodd eich {{ divorceWho }} i’r llys orchymyn ichi dalu costau’r ysgariad.",
+    "summary2": "Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn rhoi ystyriaeth i unrhyw geisiadau a wneir gennych chi a’ch {{ divorceWho }}.",
     "question": "Ydych chi’n cytuno i dalu’r costau?",
     "warning": "Rhybudd",
     "notice": "Costau’r ysgariad yn unig y bydd gorchymyn costau yn ymorol amdanynt, ac ni fydd yn cynnwys unrhyw gostau yn ymwneud â setliad ariannol.",
@@ -77,12 +77,12 @@
       "options": {
         "amountToPay": {
           "heading": "Y swm y geill y bydd yn rhaid ichi ei dalu",
-          "summary": "Fel rheol bydd costau’r ceisydd yn cynnwys y ffi Â£{{ feesIssueApplication }}. Maent yn gallu cynnwys ffioedd a chostau eraill y llys yn ogystal. Gallai’r costau fod yn uwch o lawer os oes gan eich {{ session.divorceWho }} ffioedd cyfreithiol (e.e. cyfreithiwr) a gynhwysir hefyd."
+          "summary": "Fel rheol bydd costau’r ceisydd yn cynnwys y ffi Â£{{ feesIssueApplication }}. Maent yn gallu cynnwys ffioedd a chostau eraill y llys yn ogystal. Gallai’r costau fod yn uwch o lawer os oes gan eich {{ divorceWho }} ffioedd cyfreithiol (e.e. cyfreithiwr) a gynhwysir hefyd."
         },
         "whatNow": {
           "heading": "Beth sy’n digwydd nawr?",
-          "summary1": "Gofynnir i’ch {{ session.divorceWho }} gadarnhau fod arno/arni eisiau hawlio’r costau pan fydd yn gwneud cais am ddyfarniad nisi.",
-          "summary2": "Yna bydd y llys yn penderfynu a ddylech chi dalu unrhyw gostau. Bydd yn ystyried eich amgylchiadau yn eu cyfanrwydd, yn cynnwys eich ymddygiad, ac ymddygiad eich {{ session.divorceWho }}, cyn yr ysgariad ac yn ystod yr ysgariad.",
+          "summary1": "Gofynnir i’ch {{ divorceWho }} gadarnhau fod arno/arni eisiau hawlio’r costau pan fydd yn gwneud cais am ddyfarniad nisi.",
+          "summary2": "Yna bydd y llys yn penderfynu a ddylech chi dalu unrhyw gostau. Bydd yn ystyried eich amgylchiadau yn eu cyfanrwydd, yn cynnwys eich ymddygiad, ac ymddygiad eich {{ divorceWho }}, cyn yr ysgariad ac yn ystod yr ysgariad.",
           "summary3": "Byddwch yn cael gwybod penderfyniad y llys yr un pryd ag y byddwch yn cael gwybod a ganiateir yr ysgariad, a dyddiad y gwrandawiad lle gwneir y datganiad nisi."
         },
         "doNotAcceptCost": {

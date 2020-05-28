@@ -87,7 +87,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, { ignoreContent });
@@ -108,7 +110,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, {
@@ -135,7 +139,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, {
@@ -162,7 +168,9 @@ describe(modulePath, () => {
       'signOut',
       'languageToggle',
       'thereWasAProblem',
-      'change'
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, {

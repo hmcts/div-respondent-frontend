@@ -26,7 +26,9 @@
     "signIn": "Sign in",
     "signOut": "Sign out",
     "thereWasAProblem": "There was a problem",
-    "change": "Change"
+    "change": "Change",
+    "husband": "husband",
+    "wife": "wife"
   },
   "cy": {
     "continue": "Parhau",
@@ -55,6 +57,8 @@
     "signIn": "Mewngofnodi",
     "signOut": "Allgofnodi",
     "thereWasAProblem": "Roedd yna broblem",
-    "change": "Newid"
+    "change": "Newid",
+    "husband": "gŵr",
+    "wife": "gwraig"
   }
 }

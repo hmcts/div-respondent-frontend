@@ -1,13 +1,13 @@
 {
   "en": {
     "title": "Do you agree to a divorce?",
-    "infoPara1": "Your {{ session.divorceWho }} has based the breakdown of the marriage on the fact that you have been separated for 2 years, and that you give your consent (agreement) to a divorce.",
+    "infoPara1": "Your {{ divorceWho }} has based the breakdown of the marriage on the fact that you have been separated for 2 years, and that you give your consent (agreement) to a divorce.",
     "infoPara2": "The court must have your consent for the divorce to continue on these grounds.",
     "expandingPanel": {
       "heading": "What happens if you don’t agree",
       "contentPara1": "If you don’t agree, then the divorce won’t be able to continue based on 2 years separation with consent.",
-      "contentPara2": "The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn’t need your consent.",
-      "contentPara3": "Your {{ session.divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they’ve applied to claim their divorce costs."
+      "contentPara2": "The application will be returned to your {{ divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn’t need your consent.",
+      "contentPara3": "Your {{ divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they’ve applied to claim their divorce costs."
     },
     "fields": {
       "consentDecree": {
@@ -30,13 +30,13 @@
   },
   "cy": {
     "title": "Ydych chi’n cytuno i ysgaru?",
-    "infoPara1": "Dywed  eich {{ session.divorceWho }} i’ch priodas chwalu am eich bod wedi gwahanu ers 2 flynedd, a’ch bod chi’n cytuno i gael ysgariad.",
+    "infoPara1": "Dywed  eich {{ divorceWho }} i’ch priodas chwalu am eich bod wedi gwahanu ers 2 flynedd, a’ch bod chi’n cytuno i gael ysgariad.",
     "infoPara2": "Rhaid i’r llys gael eich cydsyniad i’r ysgariad fynd yn ei flaen ar y seiliau hyn.",
     "expandingPanel": {
       "heading": "Beth fydd yn digwydd os nad ydych yn cytuno?",
       "contentPara1": "Os nad ydych yn cytuno, ni fydd yr ysgariad yn gallu mynd yn ei flaen ar y sail eich bod wedi gwahanu ers 2 flynedd gyda chydsyniad.",
-      "contentPara2": "Dychwelir y cais i’ch {{ session.divorceWho }}. Os bydd yn dewis parhau, bydd angen iddo/iddi newid y rheswm dros ysgaru am reswm arall lle nad oes angen eich caniatâd.",
-      "contentPara3": "Bydd yn rhaid i’ch {{ session.divorceWho }} dalu Â£{{ feesAmendDivorce }} i newid y rheswm. Efallai y bydd yn rhaid iddo/iddi dalu cyfran o’r ffi ychwanegol hon, neu’r ffi yn ei chyfanrwydd, os gwnaeth gais i hawlio costau ysgaru."
+      "contentPara2": "Dychwelir y cais i’ch {{ divorceWho }}. Os bydd yn dewis parhau, bydd angen iddo/iddi newid y rheswm dros ysgaru am reswm arall lle nad oes angen eich caniatâd.",
+      "contentPara3": "Bydd yn rhaid i’ch {{ divorceWho }} dalu Â£{{ feesAmendDivorce }} i newid y rheswm. Efallai y bydd yn rhaid iddo/iddi dalu cyfran o’r ffi ychwanegol hon, neu’r ffi yn ei chyfanrwydd, os gwnaeth gais i hawlio costau ysgaru."
     },
     "fields": {
       "consentDecree": {
