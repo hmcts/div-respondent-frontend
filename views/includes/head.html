@@ -1,5 +1,21 @@
 <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
 <script type="text/javascript" src="{{ asset_path }}main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad') )
+    {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem('firstLoad');
+  }
+})();
+</script>
 
 {% if features.webchat %}
 <script src="/webchat/javascript/hmcts-webchat.js"></script>

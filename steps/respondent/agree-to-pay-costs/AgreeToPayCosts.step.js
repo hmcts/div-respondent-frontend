@@ -107,7 +107,12 @@ class AgreeToPayCosts extends Question {
   answers() {
     const answers = [];
     let agreeAnswer = content.en.fields.agree.answer;
-    const sessionLanguage = this.req.param('lng');
+    let sessionLanguage = '';
+    if (this.req.cookies.i18n === 'cy') {
+      sessionLanguage = 'cy';
+    } else {
+      sessionLanguage = 'en';
+    }
     let question = '';
     if (sessionLanguage === 'cy') {
       question = content.cy.cya.agree;

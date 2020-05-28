@@ -92,7 +92,12 @@ class ReviewApplication extends Question {
   }
 
   answers() {
-    const sessionLanguage = this.req.param('lng');
+    let sessionLanguage = '';
+    if (this.req.cookies.i18n === 'cy') {
+      sessionLanguage = 'cy';
+    } else {
+      sessionLanguage = 'en';
+    }
     if (sessionLanguage === 'cy') {
       return answer(this, {
         question: content.cy.readConfirmationQuestion,

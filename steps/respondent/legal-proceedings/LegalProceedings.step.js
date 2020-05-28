@@ -58,7 +58,12 @@ class LegalProceedings extends Question {
 
   answers() {
     const answers = [];
-    const sessionLanguage = this.req.param('lng');
+    let sessionLanguage = '';
+    if (this.req.cookies.i18n === 'cy') {
+      sessionLanguage = 'cy';
+    } else {
+      sessionLanguage = 'en';
+    }
     if (sessionLanguage === 'cy') {
       answers.push(answer(this, {
         question: content.cy.cya.question,
@@ -70,9 +75,10 @@ class LegalProceedings extends Question {
         answer: this.fields.legalProceedings.exists.value === yes ? content.en.fields.yes.answer : content.en.fields.no.answer
       }));
     }
+
     if (this.fields.legalProceedings.exists.value === yes) {
       answers.push(answer(this, {
-        question: content.en.cya.details,
+        question: sessionLanguage === 'cy' ? content.cy.cya.details : content.en.cya.details,
         answer: this.fields.legalProceedings.details.value
       }));
     }

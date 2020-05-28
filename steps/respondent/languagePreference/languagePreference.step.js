@@ -84,7 +84,12 @@ class languagePreference extends Question {
 
   answers() {
     const answers = [];
-    const sessionLanguage = this.req.param('lng');
+    let sessionLanguage = '';
+    if (this.req.cookies.i18n === 'cy') {
+      sessionLanguage = 'cy';
+    } else {
+      sessionLanguage = 'en';
+    }
     if (sessionLanguage === 'cy') {
       answers.push(answer(this, {
         question: content.cy.cya.agree,
