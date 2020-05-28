@@ -232,7 +232,8 @@ describe(modulePath, () => {
         'signIn',
         'signOut',
         'languageToggle',
-        'thereWasAProblem'
+        'thereWasAProblem',
+        'change'
       ] });
   });
 
@@ -259,7 +260,8 @@ describe(modulePath, () => {
         'signIn',
         'signOut',
         'languageToggle',
-        'thereWasAProblem'
+        'thereWasAProblem',
+        'change'
       ] });
   });
 });

@@ -63,7 +63,8 @@ describe(modulePath, () => {
       'divorceCenterUrl',
       'guidance',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
 
     it('should render contents when previousCaseId is not specified', () => {

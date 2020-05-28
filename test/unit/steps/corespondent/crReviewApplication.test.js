@@ -276,7 +276,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
 
     it('all', () => {

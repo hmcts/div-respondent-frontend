@@ -69,11 +69,11 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'feedback',
-        'languageToggle',
         'signIn',
         'signOut',
         'languageToggle',
-        'thereWasAProblem'
+        'thereWasAProblem',
+        'change'
       ]
     });
   });

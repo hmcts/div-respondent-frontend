@@ -99,7 +99,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -159,7 +160,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -218,7 +220,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -284,7 +287,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -348,7 +352,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -406,7 +411,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -466,7 +472,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -543,7 +550,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -625,7 +633,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -691,7 +700,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(doneStep, session, { ignoreContent });
   });

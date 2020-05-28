@@ -34,7 +34,8 @@ describe(modulePath, () => {
       'signIn',
       'signOut',
       'languageToggle',
-      'thereWasAProblem'
+      'thereWasAProblem',
+      'change'
     ];
     return content(SolicitorDetails, {}, { ignoreContent });
   });
