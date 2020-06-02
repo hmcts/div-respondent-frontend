@@ -4,7 +4,7 @@
     "contactMethods": {
       "email": {
         "heading": "By email",
-        "intro": "You need to receive emails about the divorce to use the online service. Your email address will not be shared with your {{ divorceWho }}.<br/><br/>Your emails will be sent to: "
+        "intro": "You need to receive emails about the divorce to use the online service. Your email address will not be shared with your {{ divorceWho }}.<br><br>Your emails will be sent to: "
       },
       "telephone": {
         "heading": "By phone",
@@ -12,7 +12,7 @@
       },
       "post": {
         "heading": "By post",
-        "intro": "You may need to receive some correspondence by post. This will be sent to the address which your {{ divorceWho }} provided.<br/><br/>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You’ll be given the divorce centre’s contact details when you submit your response."
+        "intro": "You may need to receive some correspondence by post. This will be sent to the address which your {{ divorceWho }} provided.<br><br>Contact the divorce centre if you need to update your address. You can also ask that your new address is kept confidential if you wish. You’ll be given the divorce centre’s contact details when you submit your response."
       }
     },
     "fields": {
@@ -34,7 +34,7 @@
     "contactMethods": {
       "email": {
         "heading": "Trwy e-bost:",
-        "intro": "Bydd angen ichi dderbyn negeseuon e-bost am yr ysgariad i ddefnyddio’r gwasanaeth ar-lein. Ni fyddir yn rhannu eich cyfeiriad e-bost gyda’ch {{ divorceWho }}.<br/><br/>Byddir yn anfon eich e-byst i: "
+        "intro": "Bydd angen ichi dderbyn negeseuon e-bost am yr ysgariad i ddefnyddio’r gwasanaeth ar-lein. Ni fyddir yn rhannu eich cyfeiriad e-bost gyda’ch {{ divorceWho }}.<br><br>Byddir yn anfon eich e-byst i: "
       },
       "telephone": {
         "heading": "Ffôn:",
@@ -42,7 +42,7 @@
       },
       "post": {
         "heading": "Drwy’r post",
-        "intro": "Efallai y bydd angen ichi dderbyn peth gohebiaeth drwy’r post. Anfonir yr ohebiaeth i’r cyfeiriad a ddarparwyd gan eich {{ divorceWho }}.<br/><br/>Cysylltwch â’r ganolfan ysgaru os ydych angen diweddaru eich cyfeiriad. Gallwch ofyn inni gadw eich cyfeiriad newydd yn gyfrinachol. Byddwch yn cael manylion cyswllt y ganolfan ysgaru wedi ichi gyflwyno ymateb."
+        "intro": "Efallai y bydd angen ichi dderbyn peth gohebiaeth drwy’r post. Anfonir yr ohebiaeth i’r cyfeiriad a ddarparwyd gan eich {{ divorceWho }}.<br><br>Cysylltwch â’r ganolfan ysgaru os ydych angen diweddaru eich cyfeiriad. Gallwch ofyn inni gadw eich cyfeiriad newydd yn gyfrinachol. Byddwch yn cael manylion cyswllt y ganolfan ysgaru wedi ichi gyflwyno ymateb."
       }
     },
     "fields": {
