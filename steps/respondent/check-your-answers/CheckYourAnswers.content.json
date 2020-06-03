@@ -6,12 +6,13 @@
     "respondentConfirmation": "I am the person named as the respondent in the application for divorce.",
     "facts": "I believe that the facts stated in this response are true.",
     "whatTheseStatements": "What these statements are",
-    "statementsExplanation": "The first statement is your confirmation that you're the person who should be responding to this application for divorce. The second is your statement of truth.",
+    "statementsExplanation": "The first statement is your confirmation that you’re the person who should be responding to this application for divorce. The second is your statement of truth.",
     "submit": "Submit",
     "statementOfTruth": "You could be fined or imprisoned for contempt of court if you deliberately submit false information.",
     "respSolicitorRepStatement": "You could be fined or imprisoned for contempt of court if you deliberately submit false information.",
+    "cyaTableCaption": "This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question.",
     "errors": {
-      "required": "You need to confirm that the information you've given is true"
+      "required": "You need to confirm that the information you’ve given is true"
     },
     "fields": {
       "statementOfTruth": {
@@ -19,6 +20,30 @@
       },
       "respondentSolicitorRepresented": {
         "yes": "I confirm that:"
+      }
+    }
+  },
+  "cy": {
+    "title": "Gwirio eich atebion",
+    "confirm": "Cadarnhau’r canlynol",
+    "confirmThat": "Rwy’n cadarnhau:",
+    "respondentConfirmation": "Fi yw’r un a enwir yn Atebydd yn y cais am ysgariad.",
+    "facts": "Credaf fod y ffeithiau a nodir yn yr ymateb hwn yn wir.",
+    "whatTheseStatements": "Beth yw’r datganiadau hyn?",
+    "statementsExplanation": "Y datganiad cyntaf yw eich cadarnhad mai chi yw’r un a ddylai ymateb i’r cais hwn am ysgariad. Yr ail yw eich datganiad gwirionedd.",
+    "submit": "Cyflwyno",
+    "statementOfTruth": "Gellir eich dirwyo neu eich carcharu am ddirmyg llys os ydych yn cyflwyno gwybodaeth y gwyddoch ei bod yn anwireddus.",
+    "respSolicitorRepStatement": "Gellir eich dirwyo neu eich carcharu am ddirmyg llys os ydych yn cyflwyno gwybodaeth y gwyddoch ei bod yn anwireddus.",
+    "cyaTableCaption": "Mae’r tabl hwn yn cynnwys rhestr o'ch cwestiynau a’ch atebion. Mae'r cwestiwn yn y golofn gyntaf. Mae eich ateb yn yr ail golofn ac mae’r drydedd golofn yn cynnwys dolen ichi newid eich ateb ar gyfer y cwestiwn hwnnw.",
+    "errors": {
+      "required": "Mae angen ichi gadarnhau bod yr wybodaeth a roddwyd gennych yn gywir"
+    },
+    "fields": {
+      "statementOfTruth": {
+        "yes": "Rwy’n cadarnhau:"
+      },
+      "respondentSolicitorRepresented": {
+        "yes": "Rwy’n cadarnhau:"
       }
     }
   }

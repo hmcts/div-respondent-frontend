@@ -7,7 +7,9 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const values = {
   confirm: 'confirm',
@@ -27,6 +29,11 @@ class ConfirmDefence extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   get feesIssueApplication() {
@@ -57,9 +64,10 @@ class ConfirmDefence extends Question {
   }
 
   answers() {
-    const question = content.en.title;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].title;
     const doesConfirm = this.fields.response.value === this.const.confirm;
-    const answerValue = doesConfirm ? content.en.fields.confirm.label : content.en.fields.changeResponse.label;
+    const answerValue = doesConfirm ? content[sessionLanguage].fields.confirm.label : content[sessionLanguage].fields.changeResponse.label;
     return answer(this, {
       question,
       answer: answerValue,
@@ -72,7 +80,8 @@ class ConfirmDefence extends Question {
       ...super.middleware,
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
-      getFeeFromFeesAndPayments('defended-petition-fee')
+      getFeeFromFeesAndPayments('defended-petition-fee'),
+      checkWelshToggle
     ];
   }
 

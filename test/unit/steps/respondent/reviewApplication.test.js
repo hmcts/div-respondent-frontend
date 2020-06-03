@@ -120,26 +120,26 @@ describe(modulePath, () => {
         'My wife is 6'
       ];
       const alignedBehaviourDetails = [
-        'My wife is 1<br />',
+        'My wife is 1<br>',
         'My wife is 1',
-        'My wife is 2<br />',
+        'My wife is 2<br>',
         'My wife is 1',
         'My wife\n is 2',
-        'My wife is 3<br />',
+        'My wife is 3<br>',
         'My wife is 1',
         'My wife is 2',
         'My wife is 3',
-        'My wife is 4<br />',
-        'My wife is 1',
-        'My wife is 2',
-        'My wife is 3',
-        'My wife is 4',
-        'My wife is 5<br />',
+        'My wife is 4<br>',
         'My wife is 1',
         'My wife is 2',
         'My wife is 3',
         'My wife is 4',
-        'My wife is 5<br />',
+        'My wife is 5<br>',
+        'My wife is 1',
+        'My wife is 2',
+        'My wife is 3',
+        'My wife is 4',
+        'My wife is 5<br>',
         'My wife is 6'
       ];
       const req = {
@@ -427,7 +427,14 @@ describe(modulePath, () => {
       'readConfirmationNo',
       'reasonForDivorceSeparationFiveYearsOver',
       'reasonForDivorceSeparationFiveYearsLvingApart',
-      'reasonForDivorceSeparationFiveYears2DatesRecent'
+      'reasonForDivorceSeparationFiveYears2DatesRecent',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     it('all', () => {

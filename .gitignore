@@ -31,3 +31,4 @@ remote-config.json
 config/local*
 acb.yaml
 mochawesome-report
+/config/dev.yaml

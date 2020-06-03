@@ -6,6 +6,8 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./SolicitorDetails.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const yes = 'Yes';
 
@@ -72,31 +74,32 @@ class SolicitorDetails extends Question {
     const solicitorName = this.fields.solicitorDetails.solicitorName.value;
 
     const answers = [];
+    const sessionLanguage = i18next.language;
 
     if (solicitorName && solicitorName.trim().length) {
       answers.push(answer(this, {
-        question: content.en.fields.solicitorName.label,
+        question: content[sessionLanguage].fields.solicitorName.label,
         answer: this.fields.solicitorDetails.solicitorName.value
       }));
     }
 
     answers.push(answer(this, {
-      question: content.en.fields.firmName.label,
+      question: content[sessionLanguage].fields.firmName.label,
       answer: this.fields.solicitorDetails.firmName.value
     }));
 
     answers.push(answer(this, {
-      question: content.en.fields.solicitorEmail.label,
+      question: content[sessionLanguage].fields.solicitorEmail.label,
       answer: this.fields.solicitorDetails.solicitorEmail.value
     }));
 
     answers.push(answer(this, {
-      question: content.en.fields.telephone.label,
+      question: content[sessionLanguage].fields.telephone.label,
       answer: this.fields.solicitorDetails.telephone.value
     }));
 
     answers.push(answer(this, {
-      question: content.en.fields.solicitorRefNumber.label,
+      question: content[sessionLanguage].fields.solicitorRefNumber.label,
       answer: this.fields.solicitorDetails.solicitorRefNumber.value
     }));
 
@@ -104,7 +107,11 @@ class SolicitorDetails extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   next() {

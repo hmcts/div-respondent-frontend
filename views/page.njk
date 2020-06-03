@@ -1,19 +1,19 @@
 {% set footerLinks = [
     {
         href: "/cookie",
-        text: "Cookies"
-    },
-    {
-        href: "/terms-and-conditions",
-        text: "Terms and conditions"
+        text: content.cookies
     },
     {
         href: "/privacy-policy",
-        text: "Privacy Policy"
+        text: content.privacyPolicy
     },
     {
         href: "/accessibility-statement",
-        text: "Accessibility Statement"
+        text: content.accessibility
+    },
+    {
+        href: "/terms-and-conditions",
+        text: content.termsAndConditions
     }
 ] %}
 
@@ -21,7 +21,7 @@
   {% set serviceLinks = serviceLinks or [
       {
         href: "/end",
-        text: "Sign out"
+        text: content.signOut
       }
   ] %}
 {% endif %}
@@ -31,25 +31,24 @@
 {% extends "look-and-feel/layouts/two_thirds.html" %}
 
 {% from "look-and-feel/components/header.njk" import header %}
-{% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
-{% from "look-and-feel/components/i18n.njk" import languageSwitch %}
+{% from "includes/phase_banner.html" import divPhaseBanner %}
 {% from "back-link/macro.njk" import govukBackLink %}
 
 {% block breadcrumbs %}
-  {{ phaseBanner(phase, feedbackLink) }}
+  {{ divPhaseBanner(phase, content.feedback, content.languageToggle, session) }}
+
   {% block back %}
     {{ govukBackLink({
       attributes: {
         onclick: "history.go(-1);"
       },
-      text: "Back",
+      text: content.backLink,
       href: "#"
     }) }}
   {% endblock %}
-  {{ languageSwitch(currentLang, availableLangs) }}
 {% endblock %}
 
-{% set titleSize = titleSize | default('xl') %}
+{% set titleSize = titleSize | default("xl") %}
 
 {% block head %}
   {% include "includes/head.html" %}

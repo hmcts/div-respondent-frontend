@@ -7,6 +7,9 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const consts = {
   proceed: 'proceed',
@@ -31,6 +34,11 @@ class ChooseAResponse extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   get feesDefendDivorce() {
@@ -86,11 +94,12 @@ class ChooseAResponse extends Question {
   }
 
   answers() {
+    const sessionLanguage = i18next.language;
     const response = this.fields.response.value;
 
     if (response) {
-      const question = content.en.title;
-      const cyaContent = content.en.fields[response].answer;
+      const question = content[sessionLanguage].title;
+      const cyaContent = content[sessionLanguage].fields[response].answer;
       return answer(this, {
         question,
         answer: cyaContent
@@ -103,7 +112,8 @@ class ChooseAResponse extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('defended-petition-fee')
+      getFeeFromFeesAndPayments('defended-petition-fee'),
+      checkWelshToggle
     ];
   }
 

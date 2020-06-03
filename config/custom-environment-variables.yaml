@@ -86,3 +86,6 @@ features:
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
+
+featureToggles:
+  launchDarklyKey: LAUNCHDARKLY_KEY

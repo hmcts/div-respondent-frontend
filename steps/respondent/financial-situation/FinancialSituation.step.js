@@ -6,6 +6,9 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./FinancialSituation.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const constValues = {
   yes: 'Yes',
@@ -25,10 +28,16 @@ class FinancialSituation extends Question {
     return this.req.session;
   }
 
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
+  }
+
   answers() {
-    const question = content.en.title;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].title;
     const answerYes = this.fields.respConsiderFinancialSituation.value === this.const.yes;
-    const fieldValues = content.en.fields.respConsiderFinancialSituation;
+    const fieldValues = content[sessionLanguage].fields.respConsiderFinancialSituation;
     const answerText = answerYes ? fieldValues.yes : fieldValues.no;
     return answer(this, {
       question,
@@ -57,7 +66,11 @@ class FinancialSituation extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 }
 

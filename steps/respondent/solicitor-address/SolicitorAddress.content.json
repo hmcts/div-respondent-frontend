@@ -26,5 +26,33 @@
       "manualAddress": "Enter full address",
       "editAddress": "You must fill at least 1 line of the address"
     }
+  },
+  "cy": {
+    "title": "Beth yw cyfeiriad eich cyfreithiwr?",
+    "noUkPostcode": "Nid wyf yn gallu rhoi cod post yn y DU",
+    "confirmAddressTitle": "Ai hwn yw cyfeiriad eich cyfreithiwr?",
+    "manualAddressTitle": "Rhowch gyfeiriad llawn eich cyfreithiwr",
+    "enterUkPostcode": "Rhowch god post yn y DU",
+    "fields": {
+      "postcode": {
+        "label": "Rhowch god post yn y DU"
+      },
+      "address": {},
+      "selectedAddress": {
+        "label": "Dewiswch gyfeiriad"
+      },
+      "confirmAddress": {
+        "label": "A ydych eisiau defnyddio’r cyfeiriad hwn ar gyfer eich cyfreithiwr?",
+        "yes": "Oes",
+        "no": "Nac oes"
+      }
+    },
+    "errors": {
+      "postcode": "Heb gael hyd i gyfeiriad. Rhowch god post i chwilio eto",
+      "selectedAddress": "Dewiswch gyfeiriad",
+      "confirmAddress": "A ydych eisiau defnyddio’r cyfeiriad hwn ar gyfer eich cyfreithiwr?",
+      "manualAddress": "Rhowch y cyfeiriad llawn",
+      "editAddress": "Mae’n rhaid ichi roi o leiaf un llinell o’r cyfeiriad"
+    }
   }
 }

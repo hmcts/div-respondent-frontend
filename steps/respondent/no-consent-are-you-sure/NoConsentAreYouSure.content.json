@@ -1,12 +1,13 @@
-{"en": {
+{
+  "en": {
     "title": "Confirm that you do not wish to give your consent to the divorce",
     "detailsText": {
-      "para1": "If you don't agree, then the divorce won't be able to continue based on 2 years separation with consent.",
-      "para2": "The application will be returned to your {{ session.divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.",
-      "para3": "Your {{ session.divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs."
+      "para1": "If you don’t agree, then the divorce won’t be able to continue based on 2 years separation with consent.",
+      "para2": "The application will be returned to your {{ divorceWho }}. If they choose to continue, they will need to change the reason for divorce to one that doesn’t need your consent.",
+      "para3": "Your {{ divorceWho }} will have to pay £{{ feesAmendDivorce }} to change the reason. You may have to pay some or all of this extra fee if they’ve applied to claim their divorce costs."
     },
     "warning": "Warning",
-    "notice": "You should get legal advice if you're not sure.",
+    "notice": "You should get legal advice if you’re not sure.",
     "fields": {
       "confirm": {
         "label": "I confirm that I do not consent to the divorce"
@@ -17,6 +18,27 @@
     },
     "errors": {
       "required": "Select 'Yes' if you do not wish to give your consent to the divorce"
+    }
+  },
+  "cy": {
+    "title": "Cadarnhewch nad ydych am gydsynio i’r ysgariad",
+    "detailsText": {
+      "para1": "Os nad ydych yn cytuno, ni fydd yr ysgariad yn gallu mynd yn ei flaen ar y sail eich bod wedi gwahanu ers 2 flynedd gyda chydsyniad.",
+      "para2": "Dychwelir y cais i’ch {{ divorceWho }}. Os bydd yn dewis parhau, bydd angen iddo/iddi newid y rheswm dros ysgaru am reswm arall lle nad oes angen eich caniatâd.",
+      "para3": "Bydd yn rhaid i’ch {{ divorceWho }} dalu Â£{{ feesAmendDivorce }} i newid y rheswm. Efallai y bydd yn rhaid ichi dalu cyfran o’r ffi ychwanegol hon, neu’r ffi yn ei chyfanrwydd, os gwnaeth gais i hawlio costau ysgaru."
+    },
+    "warning": "Rhybudd",
+    "notice": "Dylech gael cyngor cyfreithiol os nad ydych yn siwr.",
+    "fields": {
+      "confirm": {
+        "label": "Rwy’n cadarnhau nad wyf yn cydsynio i’r ysgariad"
+      },
+      "doNotConfirm": {
+        "label": "Rwyf eisiau newid fy ymateb"
+      }
+    },
+    "errors": {
+      "required": "Dewiswch ydw os nad ydych am gydsynio i’r ysgariad"
     }
   }
 }

@@ -167,7 +167,14 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(CrAgreeToPayCosts, {}, { ignoreContent });
   });

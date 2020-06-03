@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Do you admit to committing the adultery?",
-    "detailsText": "Your {{ session.divorceWho }} provided the following details.",
+    "detailsText": "Your {{ divorceWho }} provided the following details.",
     "whereAdultery": {
       "heading": "Where the adultery took place"
     },
@@ -21,6 +21,30 @@
     },
     "errors": {
       "required": "Select yes if you admit to committing the adultery"
+    }
+  },
+  "cy": {
+    "title": "A ydych chi’n cyfaddef eich bod wedi godinebu?",
+    "detailsText": "Darparodd eich {{ divorceWho }} y manylion a ganlyn.",
+    "whereAdultery": {
+      "heading": "Lle y digwyddodd y godineb"
+    },
+    "whenAdultery": {
+      "heading": "Pryd y digwyddodd y godineb"
+    },
+    "details": {
+      "heading": "Disgrifiad o’r godineb"
+    },
+    "fields": {
+      "admit": {
+        "label": "Ydw, rwy’n cyfaddef fy mod wedi godinebu"
+      },
+      "doNotAdmit": {
+        "label": "Nac ydw, nid wyf yn cyfaddef fy mod wedi godinebu"
+      }
+    },
+    "errors": {
+      "required": "Dewiswch ydw os ydych chi’n cyfaddef eich bod wedi godinebu"
     }
   }
 }

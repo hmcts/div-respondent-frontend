@@ -6,10 +6,12 @@ const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const content = require('./ReviewApplication.content').en;
-const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-
+const content = require('./ReviewApplication.content');
 const { replace, endsWith } = require('lodash');
+const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const values = {
   yes: 'Yes',
@@ -32,6 +34,11 @@ class ReviewApplication extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   get feesIssueApplication() {
@@ -82,23 +89,27 @@ class ReviewApplication extends Question {
         if (endsWith(item, '\r')) {
           value = replace(item, '\r', '');
         } else if (arrLength !== index + 1) {
-          value = item.concat('<br />');
+          value = item.concat('<br>');
         }
         return value;
       });
   }
 
   answers() {
-    const question = content.readConfirmationQuestion;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].readConfirmationQuestion;
     return answer(this, {
       question,
-      answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content.readConfirmationYes : content.readConfirmationNo
+      answer: this.fields.respConfirmReadPetition.value === this.const.yes ? content[sessionLanguage].readConfirmationYes : content[sessionLanguage].readConfirmationNo
     });
   }
 
   next() {
     if (this.isRespondentSolEnabled) {
       return goTo(this.journey.steps.SolicitorRepresentation);
+    }
+    if (this.req.session.languagePreferenceWelsh === 'No') {
+      return goTo(this.journey.steps.languagePreference);
     }
     const petition = this.session.originalPetition;
     const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
@@ -116,7 +127,8 @@ class ReviewApplication extends Question {
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
       getFeeFromFeesAndPayments('general-application-fee'),
-      getFeeFromFeesAndPayments('application-financial-order-fee')
+      getFeeFromFeesAndPayments('application-financial-order-fee'),
+      checkWelshToggle
     ];
   }
 }

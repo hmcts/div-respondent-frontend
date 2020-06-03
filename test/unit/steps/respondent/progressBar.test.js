@@ -573,7 +573,7 @@ describe(modulePath, () => {
             .and.to.include('Download your documents')
             .and.to.include('Divorce application (PDF)')
             .and.to.include('Your answers (PDF)')
-            .and.to.include('Co-Respondent\'s answers (PDF)')
+            .and.to.include('Co-Respondent’s answers (PDF)')
             .and.to.include('Certificate Of Entitlement (PDF)')
             .and.to.include('Children and divorce')
             .and.to.include('Money and property');

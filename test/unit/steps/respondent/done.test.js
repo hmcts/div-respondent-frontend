@@ -95,7 +95,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -151,7 +158,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -206,7 +220,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -268,7 +289,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -328,7 +356,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -382,7 +417,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -438,7 +480,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -511,7 +560,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -589,7 +645,14 @@ describe(modulePath, () => {
       'nominatedSol',
       'solSubHeading',
       'solNextDetails',
-      'solicitorMustRespond'
+      'solicitorMustRespond',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });
@@ -651,7 +714,14 @@ describe(modulePath, () => {
       'financialSituationText1',
       'financialSituationText2',
       'financialSituationText3',
-      'financialSituationFormLink'
+      'financialSituationFormLink',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(doneStep, session, { ignoreContent });
   });

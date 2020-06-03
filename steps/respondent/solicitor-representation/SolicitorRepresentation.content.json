@@ -13,5 +13,20 @@
     "errors": {
       "required": "Confirm whether you have a solicitor representing you or not"
     }
+  },
+  "cy": {
+    "title": "A oes cyfreithiwr yn eich cynrychioli?",
+    "subHeading": "A oes gennych gyfreithiwr a fydd yn cyflwyno eich ymateb ar eich rhan?",
+    "fields": {
+      "hasSolicitor": {
+        "label": "Oes"
+      },
+      "noSolicitor": {
+        "label": "Nac oes"
+      }
+    },
+    "errors": {
+      "required": "Cadarnhewch a oes gennych gyfreithiwr yn eich cynrychioli ai peidio"
+    }
   }
 }

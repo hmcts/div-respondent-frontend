@@ -5,6 +5,7 @@ const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddlew
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
 const { get } = require('lodash');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const values = {
   yes: 'Yes',
@@ -122,7 +123,8 @@ class CrProgressBar extends Interstitial {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('defended-petition-fee')
+      getFeeFromFeesAndPayments('defended-petition-fee'),
+      checkWelshToggle
     ];
   }
 }

@@ -7,6 +7,9 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./DefendFinancialHardship.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const yes = 'Yes';
 const no = 'No';
@@ -18,6 +21,11 @@ class DefendFinancialHardship extends Question {
 
   get session() {
     return this.req.session;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
   }
 
   get feesDefendDivorce() {
@@ -67,15 +75,16 @@ class DefendFinancialHardship extends Question {
 
   answers() {
     const answers = [];
+    const sessionLanguage = i18next.language;
 
     answers.push(answer(this, {
-      question: content.en.cya.question,
-      answer: this.fields.financialHardship.exists.value === yes ? content.en.fields.yes.answer : content.en.fields.no.answer
+      question: content[sessionLanguage].cya.question,
+      answer: this.fields.financialHardship.exists.value === yes ? content[sessionLanguage].fields.yes.answer : content[sessionLanguage].fields.no.answer
     }));
 
     if (this.fields.financialHardship.exists.value === yes) {
       answers.push(answer(this, {
-        question: content.en.cya.details,
+        question: content[sessionLanguage].cya.details,
         answer: this.fields.financialHardship.details.value
       }));
     }
@@ -87,7 +96,8 @@ class DefendFinancialHardship extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('defended-petition-fee')
+      getFeeFromFeesAndPayments('defended-petition-fee'),
+      checkWelshToggle
     ];
   }
 

@@ -61,7 +61,12 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'backLink',
       'divorceCenterUrl',
-      'guidance'
+      'guidance',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     it('should render contents when previousCaseId is not specified', () => {
@@ -208,7 +213,7 @@ describe(modulePath, () => {
               .and.to.include('Children and divorce')
               .and.to.include('Download your documents')
               .and.to.include('Divorce application (PDF)')
-              .and.to.include('Co-Respondent\'s answers (PDF)')
+              .and.to.include('Co-Respondent’s answers (PDF)')
               .and.to.include('Certificate Of Entitlement (PDF)')
               .and.to.include('Money and property');
           });

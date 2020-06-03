@@ -1,22 +1,20 @@
 {% if nextSteps %}
-    <p class="govuk-body">
-        You can either:
-    <ul class="govuk-list govuk-list--bullet">
-        {% for option in nextSteps %}
-            <li>{{ option | safe }}</li>
-        {% endfor %}
-    </ul>
-    </p>
+  <p class="govuk-body">{{ message.youCanEither }}:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    {% for option in nextSteps %}
+      <li>{{ option | safe }}</li>
+    {% endfor %}
+  </ul>
 {% endif %}
 
 {% if error %}
-    {% if (settings.env != 'prod') and (settings.env != 'production') %}
+  {% if (settings.env != 'prod') and (settings.env != 'production') %}
     <div class="govuk-form-group--error">
-        <label class="govuk-error-message">
-            <span class="form-label-bold">Error Message</span>
-            <span class="form-hint">The error message will <strong>NOT</strong> display in production mode</span>
-            <span>{{ error }}</span>
-        </label>
+      <label class="govuk-error-message">
+        <span class="form-label-bold">Error Message</span>
+        <span class="form-hint">The error message will <strong>NOT</strong> display in production mode</span>
+        <span>{{ error }}</span>
+      </label>
     </div>
-    {% endif %}
+  {% endif %}
 {% endif %}

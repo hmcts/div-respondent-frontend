@@ -272,7 +272,14 @@ describe(modulePath, () => {
       'whereTheMarriage',
       'readConfirmationQuestion',
       'readConfirmationYes',
-      'readConfirmationNo'
+      'readConfirmationNo',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     it('all', () => {

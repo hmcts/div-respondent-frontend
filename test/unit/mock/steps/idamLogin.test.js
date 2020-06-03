@@ -14,7 +14,14 @@ describe(modulePath, () => {
       'noAgentsAvailable',
       'allAgentsBusy',
       'chatClosed',
-      'chatAlreadyOpen', 'chatOpeningHours'
+      'chatAlreadyOpen',
+      'chatOpeningHours',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ] });
   });
 

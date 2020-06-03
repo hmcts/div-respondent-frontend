@@ -6,6 +6,8 @@ const caseOrchestration = require('services/caseOrchestration');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CrCheckYourAnswers.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 class CrCheckYourAnswers extends CYA {
   static get path() {
@@ -18,7 +20,11 @@ class CrCheckYourAnswers extends CYA {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   get form() {
@@ -31,7 +37,8 @@ class CrCheckYourAnswers extends CYA {
   }
 
   get errorMessage() {
-    return content.en.errors.required;
+    const sessionLanguage = i18next.language;
+    return content[sessionLanguage].errors.required;
   }
 
   sendToAPI(req) {

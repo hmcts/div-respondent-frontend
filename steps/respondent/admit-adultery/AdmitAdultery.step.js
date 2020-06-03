@@ -6,6 +6,9 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./AdmitAdultery.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const constValues = {
   admit: 'admit',
@@ -31,6 +34,11 @@ class AdmitAdultery extends Question {
     return this.req.session;
   }
 
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
+  }
+
   get form() {
     const answers = [
       this.const.admit,
@@ -46,9 +54,10 @@ class AdmitAdultery extends Question {
   }
 
   answers() {
-    const question = content.en.title;
+    const sessionLanguage = i18next.language;
+    const question = content[sessionLanguage].title;
     const doesAdmit = this.fields.response.value === this.const.admit;
-    const answerValue = doesAdmit ? content.en.fields.admit.label : content.en.fields.doNotAdmit.label;
+    const answerValue = doesAdmit ? content[sessionLanguage].fields.admit.label : content[sessionLanguage].fields.doNotAdmit.label;
     return answer(this, {
       question,
       answer: answerValue
@@ -61,7 +70,11 @@ class AdmitAdultery extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   next() {

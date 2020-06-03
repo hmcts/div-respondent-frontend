@@ -56,7 +56,14 @@ describe(modulePath, () => {
       'backLink',
       'isThereAProblemWithThisPage',
       'phoneToCallIfProblems',
-      'emailIfProblems'
+      'emailIfProblems',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(CrDone, session, { ignoreContent });

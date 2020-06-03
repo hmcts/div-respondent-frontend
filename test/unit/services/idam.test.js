@@ -107,6 +107,9 @@ describe(modulePath, () => {
     it('sets correct redirect uri/hostName based on request', () => {
       const req = {
         hostname: 'some-host.com',
+        query: {
+          lng: 'cy'
+        },
         get: sinon.stub()
           .withArgs('host')
           .returns('some-host.com:4000')
@@ -120,7 +123,8 @@ describe(modulePath, () => {
 
       const expected = Object.assign(idam.getIdamArgs(), {
         hostName: 'some-host.com',
-        redirectUri: 'https://some-host.com:4000/auth'
+        redirectUri: 'https://some-host.com:4000/auth',
+        language: 'cy'
       });
       sinon.assert.calledOnce(idamExpressMiddlewareMock.authenticate);
       sinon.assert.calledWith(idamExpressMiddlewareMock.authenticate, expected);

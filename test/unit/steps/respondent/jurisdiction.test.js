@@ -228,7 +228,14 @@ describe(modulePath, () => {
         'jurisdictionConnectionPetitioner',
         'jurisdictionConnectionRespondent',
         'jurisdictionConnectionPetitionerSixMonths',
-        'jurisdictionConnectionOther'
+        'jurisdictionConnectionOther',
+        'signIn',
+        'signOut',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ] });
   });
 
@@ -251,7 +258,14 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'info',
         'cya',
-        'jurisdictionConnectionRespondent'
+        'jurisdictionConnectionRespondent',
+        'signIn',
+        'signOut',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ] });
   });
 });

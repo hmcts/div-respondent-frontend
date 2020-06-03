@@ -7,6 +7,8 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./CrChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const consts = {
   proceed: 'proceed',
@@ -65,10 +67,11 @@ class CrChooseAResponse extends Question {
 
   answers() {
     const response = this.fields.response.value;
+    const sessionLanguage = i18next.language;
 
     if (response) {
-      const question = content.en.title;
-      const cyaContent = content.en.fields[response].answer;
+      const question = content[sessionLanguage].title;
+      const cyaContent = content[sessionLanguage].fields[response].answer;
       return answer(this, {
         question,
         answer: cyaContent
@@ -81,7 +84,8 @@ class CrChooseAResponse extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('defended-petition-fee')
+      getFeeFromFeesAndPayments('defended-petition-fee'),
+      checkWelshToggle
     ];
   }
 

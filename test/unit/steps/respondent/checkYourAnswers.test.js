@@ -67,7 +67,15 @@ describe(modulePath, () => {
         'allAgentsBusy',
         'chatClosed',
         'chatAlreadyOpen',
-        'chatOpeningHours'
+        'chatOpeningHours',
+        'feedback',
+        'signIn',
+        'signOut',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ]
     });
   });

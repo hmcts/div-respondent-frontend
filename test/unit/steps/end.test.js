@@ -30,7 +30,14 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'serviceName',
-        'backLink'
+        'backLink',
+        'signIn',
+        'signOut',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ];
 
       return content(End, {}, { ignoreContent });

@@ -6,6 +6,8 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./CrContactDetails.content');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
 
 const yes = 'Yes';
 
@@ -56,17 +58,18 @@ class CrContactDetails extends Question {
     const phoneNo = this.fields.contactDetails.telephone.value;
 
     const answers = [];
+    const sessionLanguage = i18next.language;
 
     if (phoneNo && phoneNo.trim().length) {
       answers.push(answer(this, {
-        question: content.en.contactMethods.telephone.heading,
+        question: content[sessionLanguage].contactMethods.telephone.heading,
         answer: this.fields.contactDetails.telephone.value
       }));
     }
 
     answers.push(answer(this, {
-      question: content.en.contactMethods.email.heading,
-      answer: content.en.fields.email.label
+      question: content[sessionLanguage].contactMethods.email.heading,
+      answer: content[sessionLanguage].fields.email.label
     }));
 
     return answers;
@@ -81,7 +84,11 @@ class CrContactDetails extends Question {
 
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   next() {

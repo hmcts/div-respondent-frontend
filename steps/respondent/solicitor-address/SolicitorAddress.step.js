@@ -8,6 +8,7 @@ const config = require('config');
 const { get } = require('lodash');
 const { getAddressFromPostcode } = require('middleware/postcodeLookupMiddleware');
 const compactPostValuesMiddleware = require('middleware/compactPostValuesMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const paths = {
   postcode: '/postcode',
@@ -303,7 +304,8 @@ class SolicitorAddress extends Question {
       ...super.middleware,
       idam.protect(),
       compactPostValuesMiddleware,
-      getAddressFromPostcode
+      getAddressFromPostcode,
+      checkWelshToggle
     ];
   }
 

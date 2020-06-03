@@ -4,8 +4,11 @@ const config = require('config');
 const idam = require('services/idam');
 const petitionMiddleware = require('middleware/petitionMiddleware');
 const redirectMiddleware = require('middleware/redirectMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
+const commonContent = require('common/content');
+const i18next = require('i18next');
 
 class Respond extends Interstitial {
   get downloadableFiles() {
@@ -24,6 +27,11 @@ class Respond extends Interstitial {
     return this.req.session;
   }
 
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.divorceWho];
+  }
+
   handler(req, res) {
     req.session.entryPoint = this.name;
     super.handler(req, res);
@@ -38,7 +46,8 @@ class Respond extends Interstitial {
       ...super.middleware,
       idam.protect(),
       petitionMiddleware.loadMiniPetition,
-      redirectMiddleware.redirectOnCondition
+      redirectMiddleware.redirectOnCondition,
+      checkWelshToggle
     ];
   }
 }

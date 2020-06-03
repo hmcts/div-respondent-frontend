@@ -104,6 +104,7 @@ paths:
     confirmDefence: /defend-are-you-sure
     defendFinancialHardship: /defend-financial-hardship
     jurisdiction: /jurisdiction
+    languagePreference: /languagePreference
     legalProceedings: /legal-proceedings
     agreeToPayCosts: /agree-to-pay-costs
     contactDetails: /contact-details
@@ -212,3 +213,14 @@ saucelabs:
   tunnelId: 'reformtunnel'
   waitForTimeout: 60000
   smartWait: 45000
+
+languages: ['en', 'cy']
+
+featureToggles:
+  enabled: true
+  launchDarklyKey: 'SDK_KEY'
+  launchDarklyUser:
+    firstName: 'Divorce'
+    lastName: 'Frontend'
+    key: 'a69bdaed-b2dd-4c54-acfa-bf3df80dbe17'
+  ft_welsh: 'divorce-welsh'

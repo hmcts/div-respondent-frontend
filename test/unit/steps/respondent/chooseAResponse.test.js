@@ -82,7 +82,14 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, { ignoreContent });
@@ -98,7 +105,14 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, {
@@ -120,7 +134,14 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, {
@@ -142,7 +163,14 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'signIn',
+      'signOut',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
 
     return content(ChooseAResponse, session, {
@@ -282,7 +310,7 @@ describe(modulePath, () => {
           }, {
             specificValues: [
               stepContent.en.fields.proceed.heading,
-              'I will let the divorce proceed, but I don\'t accept what my wife said about me',
+              'I will let the divorce proceed, but I don’t accept what my wife said about me',
               stepContent.en.fields.defend.heading
             ]
           });

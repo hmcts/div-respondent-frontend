@@ -2,8 +2,8 @@
   "en": {
     "title": "How do you want to respond?",
     "detailsText1": "The divorce will go ahead if you and the respondent do not defend it, and the court agrees to grant a divorce.",
-    "detailsText2": "It is possible for you to not defend, but still object to paying the divorce costs (if they've been claimed against you). You can do this on the next page.",
-    "detailsText3": " If you choose to defend, you will have to pay a fee of £{{ feesDefendDivorce }} and submit another form. You may also have to go to a hearing with a judge.",
+    "detailsText2": "It is possible for you to not defend, but still object to paying the divorce costs (if they’ve been claimed against you). You can do this on the next page.",
+    "detailsText3": "If you choose to defend, you will have to pay a fee of £{{ feesDefendDivorce }} and submit another form. You may also have to go to a hearing with a judge.",
     "action": "Choose one of the following options:",
     "errors": {
       "required": "Select ‘I do not dispute the allegations in the application’ if you do not want to defend the divorce."
@@ -18,6 +18,28 @@
         "heading": "I want to dispute the allegations in the application",
         "summary": "Choose this option if you intend to defend the divorce.",
         "answer": "I want to dispute the allegations in the application (I intend to defend)."
+      }
+    }
+  },
+  "cy": {
+    "title": "Sut ydych chi eisiau ymateb?",
+    "detailsText1": "Bydd yr ysgariad yn mynd yn ei flaen os na fyddwch chi a’r atebydd yn ei amddiffyn, ac os bydd y llys yn cytuno i ganiatáu ysgariad.",
+    "detailsText2": "Gallwch beidio ag amddiffyn ysgariad, ond dal i wrthwynebu talu costau’r ysgariad (os gwnaed hawliad yn eich erbyn am y costau). Gallwch wneud hyn ar y dudalen nesaf.",
+    "detailsText3": "Os byddwch yn dewis amddiffyn yr ysgariad, bydd rhaid ichi dalu ffi o Â£{{ feesDefendDivorce }} a chyflwyno ffurflen arall. Efallai y bydd yn rhaid ichi fynd i wrandawiad o flaen barnwr.",
+    "action": "Dewiswch un o’r canlynol:",
+    "errors": {
+      "required": "Dewiswch ‘Nid wyf yn anghytuno â’r honiadau yn y cais’ os nad ydych am amddiffyn yr ysgariad."
+    },
+    "fields": {
+      "proceed": {
+        "heading": "Nid wyf yn anghytuno â’r honiadau yn y cais",
+        "summary": "Dewiswch yr opsiwn hwn os nad ydych yn bwriadu amddiffyn  yr ysgariad.",
+        "answer": "Nid wyf yn anghytuno â’r honiadau yn y cais (nid wyf yn bwriadu amddiffyn)."
+      },
+      "defend": {
+        "heading": "Rwyf eisiau anghytuno â’r honiadau yn y cais",
+        "summary": "Dewiswch yr opsiwn hwn os ydych yn bwriadu amddiffyn yr ysgariad.",
+        "answer": "Rwyf eisiau anghytuno â’r honiadau yn y cais (rwyf yn bwriadu amddiffyn)."
       }
     }
   }
