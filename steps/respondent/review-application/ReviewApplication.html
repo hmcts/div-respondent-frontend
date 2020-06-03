@@ -214,6 +214,9 @@
   {% else %}
     <p class="govuk-body">{{ content.onGoingCasesYes }}</p>
     <p class="govuk-body">"{{ session.originalPetition.legalProceedingsDetails }}"</p>
+    {% if session.originalPetition.legalProceedingsDetailsTrans %}
+      <p class="govuk-body">"{{ session.originalPetition.legalProceedingsDetailsTrans }}"</p>
+    {% endif %}
   {% endif %}
 
   <details class="govuk-details">
@@ -278,20 +281,32 @@
     {% if session.originalPetition.reasonForDivorceAdulteryKnowWhere == "Yes" %}
       <p class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.reasonForDivorceAdulteryWhere }}</p>
       <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulteryWhereDetails }}"</p>
+      {% if session.originalPetition.reasonForDivorceAdulteryWhereDetailsTrans %}
+        <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulteryWhereDetailsTrans }}"</p>
+      {% endif %}
     {% endif %}
 
     {% if session.originalPetition.reasonForDivorceAdulteryKnowWhen == "Yes" %}
       <p class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.reasonForDivorceAdulteryWhen }}</p>
       <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulteryWhenDetails }}"</p>
+      {% if session.originalPetition.reasonForDivorceAdulteryWhenDetailsTrans %}
+        <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulteryWhenDetailsTrans }}"</p>
+      {% endif %}
     {% endif %}
 
     <p class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.descriptionOfAdultery }}</p>
     <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
+    {% if session.originalPetition.reasonForDivorceAdulteryDetailsTrans %}
+      <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulteryDetailsTrans }}"</p>
+    {% endif %}
 
     {% if session.originalPetition.reasonForDivorceAdulterySecondHandInfo == "Yes" and
       session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails %}
       <p class="govuk-body">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
       <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetails }}"</p>
+      {% if session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetailsTrans %}
+        <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceAdulterySecondHandInfoDetailsTrans }}"</p>
+      {% endif %}
     {% endif %}
 
   {% endif %}
@@ -311,6 +326,17 @@
             {% endif %}
           {% endfor %}
       "</p>
+
+      {% if session.originalPetition.reasonForDivorceBehaviourDetailsTrans %}
+        <p class="govuk-body">"
+          {% for item in alignSections(session.originalPetition.reasonForDivorceBehaviourDetailsTrans) %}
+            {{ item | nl2br | safe }}
+            {% if not loop.last %}
+              <br>
+            {% endif %}
+          {% endfor %}
+        "</p>
+      {% endif %}
     {% endif %}
   {% endif %}
 
@@ -347,6 +373,9 @@
     {% endif %}
     <p class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.descriptionOfDesertion }}</p>
     <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
+    {% if session.originalPetition.reasonForDivorceDesertionDetailsTrans %}
+      <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceDesertionDetailsTrans }}"</p>
+    {% endif %}
   {% endif %}
 
   <details class="govuk-details">
