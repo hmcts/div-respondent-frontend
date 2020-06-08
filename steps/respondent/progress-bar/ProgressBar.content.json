@@ -140,7 +140,7 @@
       "para1": "You must now submit the '<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d8b-answer-to-a-divorcedissolutionjudicial-separation-or-nullity-petitionapplication\" target=\"_blank\" aria-label=\"Dolen i ymateb i gais am ysgariad. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">ffurflen ymateb i gais am ysgariad</a>', Rhaid i’r llys dderbyn hon o fewn 21 diwrnod i’r dyddiad y gwnaethoch fewngofnodi gyntaf i ymateb i’r cais.",
       "para2": " Llwytho ffurflen bapur i lawr a’i llenwi.",
       "para3": "Postiwch y ffurflen i:",
-      "para4": "Bydd rhaid i chi dalu ffi o Â£245 pan fyddwch yn cyflwyno’r ffurflen.",
+      "para4": "Bydd rhaid i chi dalu ffi o £245 pan fyddwch yn cyflwyno’r ffurflen.",
       "para5": "Mae’n debyg y bydd yn rhaid i chi fynd i wrandawiad gyda’ch {{ divorceWho }}  i geisio dod i gytundeb ynghylch yr ysgariad.",
       "para6": "Os na fyddwch yn cyflwyno eich ateb mewn pryd, gall eich {{ divorceWho }}  barhau gyda’r ysgariad fel pe baech heb ddweud eich bod yn bwriadu ei amddiffyn."
     },

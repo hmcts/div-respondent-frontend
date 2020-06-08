@@ -100,7 +100,7 @@
       "para1": "Yn awr rhaid ichi gyflwyno <a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"Dolen i wybodaeth am ateb cais am ysgariad. Bydd y ddolen hon yn agor mewn ffenestr newydd.\"> ffurflen 'ateb i gais am ysgariad'</a>. Rhaid i’r llys dderbyn hon o fewn 21 diwrnod i’r dyddiad y gwnaethoch fewngofnodi gyntaf i ymateb i’r cais.",
       "para2": "Llwytho ffurflen bapur i lawr a’i llenwi.",
       "para3": "Postiwch y ffurflen i:",
-      "para4": "Bydd rhaid i chi dalu ffi o Â£{{ feesDefendDivorce }} pan fyddwch yn cyflwyno’r ffurflen.",
+      "para4": "Bydd rhaid i chi dalu ffi o £{{ feesDefendDivorce }} pan fyddwch yn cyflwyno’r ffurflen.",
       "para5": "Efallai y bydd rhaid ichi fynd i wrandawiad.",
       "para6": "Os na fyddwch yn cyflwyno eich ateb mewn pryd, bydd y ceisydd yn gallu bwrw ymlaen â’r ysgariad fel pe baech heb ddweud eich bod yn bwriadu ei amddiffyn."
     },

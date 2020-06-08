@@ -50,7 +50,7 @@
   },
   "cy": {
     "title": "Talu am yr ysgariad",
-    "poundSymbol": "Â£",
+    "poundSymbol": "£",
     "warning": "Rhybudd",
     "cya": {
       "agree": "A ydych yn cytuno i dalu’r costau yn ôl penderfyniad y llys?",
@@ -64,7 +64,7 @@
       "options": {
         "amountToPay": {
           "heading": "Y swm y geill y bydd yn rhaid ichi ei dalu",
-          "summary1": "Fel rheol bydd costau’r ceisydd yn cynnwys y ffi Â£{{ feesIssueApplication }}. Maent yn gallu cynnwys ffioedd a chostau eraill y llys yn ogystal. Gallai’r costau fod yn uwch o lawer os oes gan y ceisydd ffioedd cyfreithiol (e.e. cyfreithiwr) a gynhwysir hefyd.",
+          "summary1": "Fel rheol bydd costau’r ceisydd yn cynnwys y ffi £{{ feesIssueApplication }}. Maent yn gallu cynnwys ffioedd a chostau eraill y llys yn ogystal. Gallai’r costau fod yn uwch o lawer os oes gan y ceisydd ffioedd cyfreithiol (e.e. cyfreithiwr) a gynhwysir hefyd.",
           "summary2": "Os bydd y llys yn penderfynu y dylech dalu costau cyfreithiol y ceisydd yn ogystal, fel arfer bydd yn gwneud gorchymyn ichi dalu swm y mae’n barnu ei fod yn rhesymol. Fodd bynnag, mewn rhai amgylchiadau gallai orchymyn ichi dalu mwy."
         },
         "whatNow": {

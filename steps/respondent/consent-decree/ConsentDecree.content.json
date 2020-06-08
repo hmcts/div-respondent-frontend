@@ -36,7 +36,7 @@
       "heading": "Beth fydd yn digwydd os nad ydych yn cytuno?",
       "contentPara1": "Os nad ydych yn cytuno, ni fydd yr ysgariad yn gallu mynd yn ei flaen ar y sail eich bod wedi gwahanu ers 2 flynedd gyda chydsyniad.",
       "contentPara2": "Dychwelir y cais i’ch {{ divorceWho }}. Os bydd yn dewis parhau, bydd angen iddo/iddi newid y rheswm dros ysgaru am reswm arall lle nad oes angen eich caniatâd.",
-      "contentPara3": "Bydd yn rhaid i’ch {{ divorceWho }} dalu Â£{{ feesAmendDivorce }} i newid y rheswm. Efallai y bydd yn rhaid iddo/iddi dalu cyfran o’r ffi ychwanegol hon, neu’r ffi yn ei chyfanrwydd, os gwnaeth gais i hawlio costau ysgaru."
+      "contentPara3": "Bydd yn rhaid i’ch {{ divorceWho }} dalu £{{ feesAmendDivorce }} i newid y rheswm. Efallai y bydd yn rhaid iddo/iddi dalu cyfran o’r ffi ychwanegol hon, neu’r ffi yn ei chyfanrwydd, os gwnaeth gais i hawlio costau ysgaru."
     },
     "fields": {
       "consentDecree": {
