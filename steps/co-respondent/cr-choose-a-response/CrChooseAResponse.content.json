@@ -25,7 +25,7 @@
     "title": "Sut ydych chi eisiau ymateb?",
     "detailsText1": "Bydd yr ysgariad yn mynd yn ei flaen os na fyddwch chi a’r atebydd yn ei amddiffyn, ac os bydd y llys yn cytuno i ganiatáu ysgariad.",
     "detailsText2": "Gallwch beidio ag amddiffyn ysgariad, ond dal i wrthwynebu talu costau’r ysgariad (os gwnaed hawliad yn eich erbyn am y costau). Gallwch wneud hyn ar y dudalen nesaf.",
-    "detailsText3": "Os byddwch yn dewis amddiffyn yr ysgariad, bydd rhaid ichi dalu ffi o Â£{{ feesDefendDivorce }} a chyflwyno ffurflen arall. Efallai y bydd yn rhaid ichi fynd i wrandawiad o flaen barnwr.",
+    "detailsText3": "Os byddwch yn dewis amddiffyn yr ysgariad, bydd rhaid ichi dalu ffi o £{{ feesDefendDivorce }} a chyflwyno ffurflen arall. Efallai y bydd yn rhaid ichi fynd i wrandawiad o flaen barnwr.",
     "action": "Dewiswch un o’r canlynol:",
     "errors": {
       "required": "Dewiswch ‘Nid wyf yn anghytuno â’r honiadau yn y cais’ os nad ydych am amddiffyn yr ysgariad."

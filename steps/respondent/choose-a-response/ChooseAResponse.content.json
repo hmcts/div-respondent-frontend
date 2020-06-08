@@ -66,7 +66,7 @@
         },
         "defend": {
           "heading": "Anghytuno â’r cais (amddiffyn)",
-          "summary": "Os byddwch yn dewis amddiffyn  yr ysgariad, bydd rhaid ichi dalu ffi o Â£{{ feesDefendDivorce }}. Efallai y bydd gofyn i’r ddau ohonoch fynychu gwrandawiad lle bydd barnwr yn penderfynu a ddylid caniatáu’r ysgariad."
+          "summary": "Os byddwch yn dewis amddiffyn  yr ysgariad, bydd rhaid ichi dalu ffi o £{{ feesDefendDivorce }}. Efallai y bydd gofyn i’r ddau ohonoch fynychu gwrandawiad lle bydd barnwr yn penderfynu a ddylid caniatáu’r ysgariad."
         },
         "hardship": {
           "heading": "Amddiffyn yr ysgariad gan y bydd yn peri caledi ichi",
@@ -76,7 +76,7 @@
           "text4": "Bydd y llys yn ystyried eich amgylchiadau unigol a’ch lles ac amgylchiadau unigol a lles eich gwr. Bydd hefyd yn ystyried anghenion unrhyw blant, os oes gennych blant, ac unrhyw un arall y byddai’r ysgariad yn effeithio arno.",
           "text5": "Anaml iawn y defnyddir caledi difrifol yn amddiffyniad dros wrthwynebu ysgariad, ac ni bydd llys yn gwrthod cais am ysgariad am y rheswm hwnnw ond yn anfynych iawn.",
           "text6": "Bydd angen ichi gyflwyno’r ddadl dros galedi ar ffurflen arall (gelwir y ffurflen honno yn ‘ateb’). Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad y byddwch yn mewngofnodi i ymateb i’r cais am ysgariad.",
-          "text7": "Bydd yn rhaid ichi dalu ffi Â£{{ feesDefendDivorce }} arall hefyd."
+          "text7": "Bydd yn rhaid ichi dalu ffi £{{ feesDefendDivorce }} arall hefyd."
         }
       }
     },

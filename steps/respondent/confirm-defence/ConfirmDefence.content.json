@@ -39,11 +39,11 @@
       "sections": {
         "intendToPrevent": {
           "heading": "Os ydych yn bwriadu atal yr ysgariad",
-          "summary": "Bydd angen ichi gyflwyno ffurflen arall (gelwir y ffurflen honno’n ‘ateb’) gan roi eich rheswm dros amddiffyn yr ysgariad. Bydd gofyn ichi dalu ffi Â£{{ feesDefendDivorce }} arall hefyd.<br><br>Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad pan wnaethoch fewngofnodi gyntaf i’ch cyfrif ysgaru.<br><br>Os na fyddwch yn cyflwyno’r ateb cyn pen y 21 diwrnod,  bydd eich {{ divorceWho }} fel rheol yn gallu bwrw ymlaen â’r ysgariad fel pe na baech yn ei amddiffyn."
+          "summary": "Bydd angen ichi gyflwyno ffurflen arall (gelwir y ffurflen honno’n ‘ateb’) gan roi eich rheswm dros amddiffyn yr ysgariad. Bydd gofyn ichi dalu ffi £{{ feesDefendDivorce }} arall hefyd.<br><br>Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad pan wnaethoch fewngofnodi gyntaf i’ch cyfrif ysgaru.<br><br>Os na fyddwch yn cyflwyno’r ateb cyn pen y 21 diwrnod,  bydd eich {{ divorceWho }} fel rheol yn gallu bwrw ymlaen â’r ysgariad fel pe na baech yn ei amddiffyn."
         },
         "makeOwnApplication": {
           "heading": "Gwneud eich cais eich hun am ysgariad",
-          "summary": "Bydd angen ichi lenwi cais newydd am ysgariad a thalu’r ffi Â£{{ feesIssueApplication }} os ydych am wneud eich cais eich hun am ysgariad. Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad y gwnaethoch fewngofnodi gyntaf i’ch cyfrif ysgaru."
+          "summary": "Bydd angen ichi lenwi cais newydd am ysgariad a thalu’r ffi £{{ feesIssueApplication }} os ydych am wneud eich cais eich hun am ysgariad. Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad y gwnaethoch fewngofnodi gyntaf i’ch cyfrif ysgaru."
         }
       }
     },
