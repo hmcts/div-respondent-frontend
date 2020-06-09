@@ -67,7 +67,7 @@
     "submitAnswerToDivorce": "Yn awr rhaid ichi gyflwyno <a class=\"govuk-link\"href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651\" target=\"_blank\" aria-label=\"Dolen i wybodaeth am ateb cais am ysgariad. Bydd y ddolen hon yn agor mewn ffenestr newydd.\"> ffurflen 'ateb i gais am ysgariad'</a>. Rhaid i’r llys dderbyn hon o fewn 21 diwrnod i’r dyddiad y gwnaethoch fewngofnodi gyntaf i ymateb i’r cais am ysgariad.",
     "fillInPaperForm": "Llwytho ffurflen bapur i lawr a’i llenwi.",
     "postFormTo": "Postiwch y ffurflen i:",
-    "feeToPay": "Bydd rhaid i chi dalu ffi o Â£{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Dolen i wybodaeth am gael help i dalu’r ffi hon. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">cael cymorth i dalu’r ffi hon</a>.",
+    "feeToPay": "Bydd rhaid i chi dalu ffi o £{{ feesDefendDivorce }} fee when you submit the form. If you have little or no savings, are on certain benefits or have a low income you may be able to <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Dolen i wybodaeth am gael help i dalu’r ffi hon. Bydd y ddolen hon yn agor mewn ffenestr newydd.\">cael cymorth i dalu’r ffi hon</a>.",
     "hearingAboutDivorce": "Efallai y bydd yn rhaid ichi fynd i wrandawiad ynglyn â’r ysgariad.",
     "dontSubmitAnswer": "Os na fyddwch yn cyflwyno eich ateb mewn pryd, gall y ceisydd barhau gyda’r ysgariad fel pe baech heb ddweud eich bod yn bwriadu ei amddiffyn."
   }

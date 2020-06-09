@@ -23,7 +23,7 @@
   },
   "cy": {
     "title": "Cadarnhau eich bod yn bwriadu amddiffyn yr ysgariad",
-    "defenceFeeDetails": "Bydd angen ichi gyflwyno ffurflen arall (gelwir y ffurflen honno’n ‘ateb’) gan roi eich rheswm dros wrthwynebu’r ysgariad. Bydd yn rhaid ichi dalu ffi Â£{{ feesDefendDivorce }} arall hefyd. Efallai y bydd yn rhaid ichi fynd i wrandawiad gerbron barnwr.",
+    "defenceFeeDetails": "Bydd angen ichi gyflwyno ffurflen arall (gelwir y ffurflen honno’n ‘ateb’) gan roi eich rheswm dros wrthwynebu’r ysgariad. Bydd yn rhaid ichi dalu ffi £{{ feesDefendDivorce }} arall hefyd. Efallai y bydd yn rhaid ichi fynd i wrandawiad gerbron barnwr.",
     "legalAdviceWarn": "Dylech gael cyngor cyfreithiol os nad ydych yn siwr.",
     "warning": "Rhybudd",
     "info": {

@@ -191,7 +191,7 @@
     "helpWithCostOrders": "Help i dalu gorchmynion costau",
     "claimingCosts": "Hawlio costau",
     "claimingCostsPar1": "Gofynnwyd i’r ceisydd a oedd eisiau i’r llys orchymyn ichi dalu rhywfaint o gostau’r ysgariad neu holl gostau’r ysgariad. Os yw’r ceisydd yn defnyddio godineb yn rheswm dros ysgaru ac os yw wedi dewis enwi cyd-atebydd, gellir gofyn i’r cyd-atebydd dalu rhywfaint o’r costau.",
-    "claimingCostsPar2": "Gallai hyn gynnwys yr holl ffioedd sy’n rhaid i chi eu talu yn ystod yr ysgariad, megis y ffi gwneud cais o Â£{{ feesIssueApplication }}, ffioedd cyfreithiwr, ac unrhyw ffioedd ychwanegol i’r llys.",
+    "claimingCostsPar2": "Gallai hyn gynnwys yr holl ffioedd sy’n rhaid i chi eu talu yn ystod yr ysgariad, megis y ffi gwneud cais o £{{ feesIssueApplication }}, ffioedd cyfreithiwr, ac unrhyw ffioedd ychwanegol i’r llys.",
     "financialOrders": "Gorchmynion ariannol",
     "petitionerCorrespondenceAddressHeading": "Cyfeiriad ar gyfer gohebiaeth y Ceisydd",
     "respondentCorrespondenceAddressHeading": "Cyfeiriad ar gyfer gohebiaeth yr Atebydd",
