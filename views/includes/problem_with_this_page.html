@@ -3,7 +3,7 @@
         <span class="govuk-details__summary-text govuk-!-font-size-16">{{ content.isThereAProblemWithThisPage | safe }}</span>
     </summary>
     <div class="govuk-details__text">
-        {% if features.webchat %}
+        {% if features.webchat and i18n.currentLanguage == "en" %}
             <p class="govuk-heading-s govuk-!-margin-bottom-1" id="ctsc-web-chat-header">{{ content.webChatTitle | safe }}</p>
             <div id="ctsc-web-chat"></div><br>
         {% endif %}
