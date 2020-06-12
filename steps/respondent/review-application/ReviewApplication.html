@@ -328,14 +328,7 @@
       "</p>
 
       {% if session.originalPetition.reasonForDivorceBehaviourDetailsTrans %}
-        <p class="govuk-body">"
-          {% for item in alignSections(session.originalPetition.reasonForDivorceBehaviourDetailsTrans) %}
-            {{ item | nl2br | safe }}
-            {% if not loop.last %}
-              <br>
-            {% endif %}
-          {% endfor %}
-        "</p>
+        <p class="govuk-body">"{{ session.originalPetition.reasonForDivorceBehaviourDetailsTrans | nl2br | safe }}"</p>
       {% endif %}
     {% endif %}
   {% endif %}
