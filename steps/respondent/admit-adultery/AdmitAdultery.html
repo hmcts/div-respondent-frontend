@@ -15,25 +15,25 @@
         {% if caseData.reasonForDivorceAdulteryKnowWhere === 'Yes' %}
             <h2 class="govuk-heading-s">{{ content.whereAdultery.heading }}</h2>
             <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhereDetails | nl2br | safe }}"</p>
-            {% if caseData.reasonForDivorceAdulteryWhereDetailsTrans %}
-                <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhereDetailsTrans | nl2br | safe }}"</p>
-            {% endif %}
+{#            {% if caseData.reasonForDivorceAdulteryWhereDetailsTrans %}#}
+{#                <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhereDetailsTrans | nl2br | safe }}"</p>#}
+{#            {% endif %}#}
           {% endif %}
 
         {% if caseData.reasonForDivorceAdulteryKnowWhen === 'Yes' %}
             <h2 class="govuk-heading-s">{{ content.whenAdultery.heading }}</h2>
             <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhenDetails | nl2br | safe }}"</p>
-            {% if caseData.reasonForDivorceAdulteryWhenDetailsTrans %}
-                <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhenDetailsTrans | nl2br | safe }}"</p>
-            {% endif %}
+{#            {% if caseData.reasonForDivorceAdulteryWhenDetailsTrans %}#}
+{#                <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryWhenDetailsTrans | nl2br | safe }}"</p>#}
+{#            {% endif %}#}
         {% endif %}
 
         {% if caseData.reasonForDivorceAdulteryDetails %}
             <h2 class="govuk-heading-s">{{ content.details.heading }}</h2>
             <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryDetails | nl2br | safe }}"</p>
-            {% if caseData.reasonForDivorceAdulteryDetailsTrans %}
-                <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryDetailsTrans | nl2br | safe }}"</p>
-            {% endif %}
+{#            {% if caseData.reasonForDivorceAdulteryDetailsTrans %}#}
+{#                <p class="govuk-body">"{{ caseData.reasonForDivorceAdulteryDetailsTrans | nl2br | safe }}"</p>#}
+{#            {% endif %}#}
         {% endif %}
 
         {% call formSection() %}
