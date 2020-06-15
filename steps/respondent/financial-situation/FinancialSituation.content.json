@@ -33,8 +33,8 @@
     "formB": "Bydd angen ichi gyflwyno ffurflen arall (ffurflen B) ar ôl ichi gyflwyno’r ffurflen hon - bydd dolen i’r ffurflen honno ar ddiwedd y ffurflen hon.",
     "fields": {
       "respConsiderFinancialSituation": {
-        "yes": "Ydy",
-        "no": "Nac ydy"
+        "yes": "Ydw",
+        "no": "Nac ydw"
       }
     },
     "errors": {
