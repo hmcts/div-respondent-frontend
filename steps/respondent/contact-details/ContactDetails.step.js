@@ -94,9 +94,8 @@ class ContactDetails extends Question {
   next() {
     if (this.req.session.pcq.invoke) {
       return redirectTo(this.journey.steps.Equality);
-    } else {
-      return redirectTo(this.journey.steps.CheckYourAnswers);
     }
+    return redirectTo(this.journey.steps.CheckYourAnswers);
   }
 }
 

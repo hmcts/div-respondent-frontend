@@ -32,7 +32,6 @@ class Equality extends BaseStep {
 
     res.redirect(`${config.services.equalityAndDiversity.url}${config.services.equalityAndDiversity.path}?${qs}`);
   }
-
 }
 
 module.exports = Equality;

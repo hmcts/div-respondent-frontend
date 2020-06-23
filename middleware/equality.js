@@ -15,7 +15,7 @@ const doNotInvoke = (req, next) => {
 };
 
 const equality = (req, res, next) => {
-  if (!!req.session.featureToggles['ft_pcq'] && !get(req.session.pcq, 'id', false)) {
+  if (Boolean(req.session.featureToggles.ft_pcq) && !get(req.session.pcq, 'id', false)) {
     const uri = `${CONF.services.equalityAndDiversity.url}/health`;
     request.get({ uri, json: true })
       .then(json => {
@@ -23,7 +23,7 @@ const equality = (req, res, next) => {
           req.session.pcq = {
             id: uuidv4(),
             invoke: true
-          }
+          };
 
           // Need to post pcqId to ccd here
 

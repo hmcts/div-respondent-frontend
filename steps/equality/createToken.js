@@ -7,7 +7,7 @@ const logger = require('services/logger')
 
 const algorithm = 'aes-256-cbc';
 const bufferSize = 16;
-const iv = Buffer.alloc(bufferSize, 0); // Initialization vector.
+const iv = Buffer.alloc(bufferSize, 0);
 const keyLen = 32;
 
 const createToken = params => {

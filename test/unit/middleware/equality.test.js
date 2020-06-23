@@ -7,7 +7,7 @@ const modulePath = 'middleware/equality';
 const equalityMiddleware = require(modulePath);
 
 const timoutMs = 100;
-let req, res, next = {};
+let req = {}, res = {}, next = {};
 
 const testPcqSkipped = done => {
   setTimeout(() => {
@@ -28,12 +28,12 @@ describe(modulePath, () => {
     req = {
       session: {
         pcq: {},
-        featureToggles: { 'ft_pcq': true }
+        featureToggles: { ft_pcq: true }
       }
-    }
-    res = { redirect: sinon.stub() }
-    next = sinon.stub()
-  })
+    };
+    res = { redirect: sinon.stub() };
+    next = sinon.stub();
+  });
 
   afterEach(() => {
     nock.cleanAll();
@@ -65,7 +65,7 @@ describe(modulePath, () => {
       .get('/health')
       .reply(httpStatus.OK, { status: 'UP' });
 
-    req.session.featureToggles['ft_pcq'] = false;
+    req.session.featureToggles.ft_pcq = false;
 
     equalityMiddleware(req, res, next);
     testPcqSkipped(done);
