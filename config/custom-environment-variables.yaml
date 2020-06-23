@@ -78,6 +78,9 @@ services:
   postcode:
     baseUrl: POST_CODE_URL
     token: POST_CODE_ACCESS_TOKEN
+  equalityAndDiversity:
+    url: EQUALITY_URL
+    tokenKey: DIV_TOKEN_KEY
 
 features:
   idam: FEATURE_IDAM

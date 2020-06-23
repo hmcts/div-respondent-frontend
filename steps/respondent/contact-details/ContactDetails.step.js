@@ -1,12 +1,14 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text, object } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./ContactDetails.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const checkEqualityToggle = require('middleware/checkEqualityToggle');
+const equality = require('middleware/equality');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -83,12 +85,18 @@ class ContactDetails extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      checkWelshToggle
+      checkWelshToggle,
+      checkEqualityToggle,
+      equality
     ];
   }
 
   next() {
-    return goTo(this.journey.steps.CheckYourAnswers);
+    if (this.req.session.pcq.invoke) {
+      return redirectTo(this.journey.steps.Equality);
+    } else {
+      return redirectTo(this.journey.steps.CheckYourAnswers);
+    }
   }
 }
 

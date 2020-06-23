@@ -2,6 +2,8 @@ const modulePath = 'steps/respondent/contact-details/ContactDetails.step';
 const ContactDetails = require(modulePath);
 const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
 const idam = require('services/idam');
+const checkEqualityToggle = require('middleware/checkEqualityToggle');
+const equality = require('middleware/equality');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const ContactDetailsContent = require('steps/respondent/contact-details/ContactDetails.content');
 
@@ -17,6 +19,14 @@ describe(modulePath, () => {
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(ContactDetails, [idam.protect()]);
+  });
+
+  it('has checkEqualityToggle middleware', () => {
+    return middleware.hasMiddleware(ContactDetails, [checkEqualityToggle]);
+  });
+
+  it('has equality middleware', () => {
+    return middleware.hasMiddleware(ContactDetails, [equality]);
   });
 
   it('when phone number is not supplied return correct value', () => {

@@ -60,7 +60,8 @@
     "paths": "^0.1.1",
     "redis": "^2.8.0",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.8"
+    "request-promise-native": "^1.0.8",
+    "uuid": "^8.1.0"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.6.0",
@@ -73,6 +74,7 @@
     "domino": "^2.1.4",
     "eslint": "^4.19.1",
     "eslint-plugin-mocha": "^5.0.0",
+    "http-status-codes": "^1.4.0",
     "ioredis-mock": "^4.19.0",
     "istanbul": "^0.4.5",
     "istanbul-api": "2.1.6",
@@ -81,6 +83,7 @@
     "mocha": "^5.2.0",
     "mochawesome": "^3.0.2",
     "mockserver": "^2.1.1",
+    "nock": "^12.0.3",
     "node-dev": "^4.0.0",
     "nyc": "^15.0.0",
     "pa11y": "^4.0.1",
