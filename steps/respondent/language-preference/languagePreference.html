@@ -7,9 +7,9 @@
 {% endset %}
 
 {% block fields %}
-
   <div id="languagePreference">
-    <p class="govuk-body">{{ content.summary | safe }}</p>
+    <p class="govuk-body">{{ content.line1 | safe }}</p>
+    <p class="govuk-body">{{ content.line2 | safe }}</p>
 
     {% call formSection() %}
       {{ selectionButtons(fields.languagePreferenceWelsh, content.title,
