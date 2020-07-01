@@ -111,7 +111,7 @@ class ReviewApplication extends Question {
     const petition = this.session.originalPetition;
 
     if (petition.languagePreferenceWelsh !== 'Yes') {
-      return goTo(this.journey.steps.languagePreference);
+      return goTo(this.journey.steps.LanguagePreference);
     }
 
     const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;

@@ -16,7 +16,7 @@ const constValues = {
   no: 'No'
 };
 
-class languagePreference extends Question {
+class LanguagePreference extends Question {
   static get path() {
     return config.paths.respondent.languagePreference;
   }
@@ -64,4 +64,4 @@ class languagePreference extends Question {
   }
 }
 
-module.exports = languagePreference;
+module.exports = LanguagePreference;
