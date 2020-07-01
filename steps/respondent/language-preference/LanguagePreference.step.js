@@ -5,7 +5,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
-const content = require('./LanguagePreference.content.json');
+const content = require('./LanguagePreference.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 
