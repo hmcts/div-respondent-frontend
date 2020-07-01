@@ -65,7 +65,8 @@ describe(modulePath, () => {
     const fields = { respConfirmReadPetition: 'Yes' };
     const session = {
       originalPetition: {
-        reasonForDivorceClaimingAdultery: false
+        reasonForDivorceClaimingAdultery: false,
+        languagePreferenceWelsh: 'Yes'
       }
     };
 
