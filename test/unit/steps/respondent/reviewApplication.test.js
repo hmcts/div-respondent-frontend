@@ -5,6 +5,7 @@ const ReviewApplication = require(modulePath);
 const reviewApplicationContent = require('steps/respondent/review-application/ReviewApplication.content');
 const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
 const SolicitorRepresentation = require('steps/respondent/solicitor-representation/SolicitorRepresentation.step');
+const LanguagePreference = require('steps/respondent/language-preference/LanguagePreference.step');
 const config = require('config');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
@@ -50,7 +51,6 @@ describe(modulePath, () => {
     });
   });
 
-
   it('shows error if statement of truth not answered', () => {
     const session = {
       originalPetition: {
@@ -90,6 +90,29 @@ describe(modulePath, () => {
         respSolicitorDetails: true
       });
       return question.redirectWithField(ReviewApplication, fields, SolicitorRepresentation, session);
+    });
+  });
+
+  describe('language question redirect', () => {
+    it('redirects to the language question if language preference not present in session', () => {
+      const fields = { respConfirmReadPetition: 'Yes' };
+      const session = {
+        originalPetition: {
+          reasonForDivorceClaimingAdultery: false
+        }
+      };
+      return question.redirectWithField(ReviewApplication, fields, LanguagePreference, session);
+    });
+
+    it('redirects to the language question if the petitioner answered No', () => {
+      const fields = { respConfirmReadPetition: 'Yes' };
+      const session = {
+        originalPetition: {
+          reasonForDivorceClaimingAdultery: false,
+          languagePreferenceWelsh: 'No'
+        }
+      };
+      return question.redirectWithField(ReviewApplication, fields, LanguagePreference, session);
     });
   });
 
