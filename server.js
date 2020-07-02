@@ -1,10 +1,11 @@
-require('./services/app-insights')();
 const logger = require('services/logger').getLogger(__filename);
 const config = require('@hmcts/properties-volume').addTo(require('config'));
 const setupSecrets = require('services/setupSecrets');
 
 // Setup secrets before loading the app
 setupSecrets();
+
+require('./services/app-insights')();
 
 const app = require('./app');
 const path = require('path');
