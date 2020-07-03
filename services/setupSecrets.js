@@ -15,7 +15,7 @@ const setupSecrets = () => {
     setSecret('secrets.div.redis-secret', 'services.redis.encryptionAtRestKey');
     setSecret('secrets.div.idam-secret', 'services.idam.secret');
     setSecret('secrets.div.os-places-token', 'services.postcode.token');
-    setSecret('secrets.div.AppInsightsInstrumentationKey', 'applicationInsights.instrumentationKey');
+    setSecret('secrets.div.AppInsightsInstrumentationKey', 'services.applicationInsights.instrumentationKey');
     setSecret('secrets.div.launchdarkly-key', 'featureToggles.launchDarklyKey');
   }
 };

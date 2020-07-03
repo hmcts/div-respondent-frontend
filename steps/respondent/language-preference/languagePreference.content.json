@@ -6,7 +6,8 @@
       "reason": "Why don’t you agree that the court has jurisdiction?",
       "country": "In which country is your life mainly based?"
     },
-    "summary": "If you don’t need your document to be translated to Welsh language, please choose No.",
+    "line1": "If you don’t need your documents to be in the Welsh language, please choose ‘No’.",
+    "line2": "Select ‘Yes’ if you need your documents to be in the Welsh language.",
     "question": "Just one of these gives the court jurisdiction.",
     "answerNo" : "All documents will be in English.",
 
@@ -33,7 +34,8 @@
       "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
       "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
     },
-    "summary": "Os nad ydych eisiau i’ch dogfennau gael eu cyfieithu i’r Gymraeg, dewiswch ‘Na’.",
+    "line1": "Os nad ydych eisiau i’ch dogfennau fod yn Gymraeg, dewiswch ‘Nac ydw’.",
+    "line2": "Dewiswch ‘Ydw’ os ydych eisiau i’ch dogfennau fod yn Gymraeg.",
     "question": "Dim ond un o’r rhain sy’n rhoi awdurdodaeth i’r llys.",
     "answerNo" :"Bydd pob documnets yn Saesneg.",
 
