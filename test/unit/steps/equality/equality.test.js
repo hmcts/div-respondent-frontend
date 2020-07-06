@@ -6,7 +6,12 @@ describe(modulePath, () => {
   it('redirects to PCQ with the correct parameters', () => {
     const req = {
       journey: {},
-      session: { pcq: { id: 'abc123' } },
+      session: {
+        respondentPcqId: 'abc123',
+        invokePcq: true,
+        referenceNumber: '123abc'
+      },
+      idam: { userDetails: { email: 'test@test.com' } },
       headers: { host: 'localhost' }
     };
     const res = {
@@ -19,7 +24,7 @@ describe(modulePath, () => {
     expect(res.redirect.calledOnce).to.equal(true);
     expect(res.redirect.args[0][0]).to.satisfy(str => str.startsWith(
       // eslint-disable-next-line max-len
-      'http://localhost:4000/service-endpoint?serviceId=DIVORCE&actor=RESPONDENT&pcqId=abc123&partyId=todo&returnUrl=localhost/check-your-answers&language=en&token='
+      'http://localhost:4000/service-endpoint?serviceId=DIVORCE&actor=RESPONDENT&pcqId=abc123&ccdCaseId=123abc&partyId=test@test.com&returnUrl=localhost/check-your-answers&language=en&token='
     ));
   });
 });

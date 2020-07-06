@@ -92,7 +92,7 @@ class ContactDetails extends Question {
   }
 
   next() {
-    if (this.req.session.pcq.invoke) {
+    if (this.req.session.invokePcq) {
       return redirectTo(this.journey.steps.Equality);
     }
     return redirectTo(this.journey.steps.CheckYourAnswers);

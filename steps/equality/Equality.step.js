@@ -15,9 +15,9 @@ class Equality extends BaseStep {
     const params = {
       serviceId: 'DIVORCE',
       actor: 'RESPONDENT',
-      pcqId: req.session.pcq.id,
-      // ccdCaseId: session.form.ccdCase.id,
-      partyId: 'todo',
+      pcqId: req.session.respondentPcqId,
+      ccdCaseId: req.session.referenceNumber,
+      partyId: req.idam.userDetails.email,
       returnUrl: req.headers.host + Equality.returnPath,
       language: 'en'
     };

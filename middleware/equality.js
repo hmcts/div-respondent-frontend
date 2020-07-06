@@ -8,36 +8,37 @@ const logger = require('services/logger')
   .getLogger(__filename);
 
 const doNotInvoke = (req, next) => {
-  req.session.pcq = {
-    invoke: false
-  };
+  req.session.invokePcq = false;
+  logger.infoWithReq(req, 'complete_equality_task', 'Skipping PCQ...');
   next();
 };
 
 const equality = (req, res, next) => {
-  if (Boolean(req.session.featureToggles.ft_pcq) && !get(req.session.pcq, 'id', false)) {
-    const uri = `${CONF.services.equalityAndDiversity.url}/health`;
-    request.get({ uri, json: true })
-      .then(json => {
-        if (json.status && json.status === 'UP') {
-          req.session.pcq = {
-            id: uuidv4(),
-            invoke: true
-          };
+  if (req.method === 'POST') {
+    if (Boolean(req.session.featureToggles.ft_respondent_pcq) && !get(req.session, 'respondentPcqId', false)) {
+      const uri = `${CONF.services.equalityAndDiversity.url}/health`;
+      request.get({ uri, json: true })
+        .then(json => {
+          if (json.status && json.status === 'UP') {
+            req.session.respondentPcqId = uuidv4();
+            req.session.invokePcq = true;
 
-          // Need to post pcqId to ccd here
+            logger.infoWithReq(req, 'complete_equality_task', 'PCQ properties set...');
 
-          return next();
-        }
-        logger.errorWithReq(req, 'complete_equality_task', 'PCQ service is DOWN');
-        doNotInvoke(req, next);
-      })
-      .catch(error => {
-        logger.errorWithReq(req, 'complete_equality_task', error.message);
-        doNotInvoke(req, next);
-      });
+            return next();
+          }
+          logger.errorWithReq(req, 'complete_equality_task', 'PCQ service is DOWN');
+          doNotInvoke(req, next);
+        })
+        .catch(error => {
+          logger.errorWithReq(req, 'complete_equality_task', error.message);
+          doNotInvoke(req, next);
+        });
+    } else {
+      doNotInvoke(req, next);
+    }
   } else {
-    doNotInvoke(req, next);
+    return next();
   }
 };
 

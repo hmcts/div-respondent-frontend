@@ -17,6 +17,7 @@ const setupSecrets = () => {
     setSecret('secrets.div.os-places-token', 'services.postcode.token');
     setSecret('secrets.div.AppInsightsInstrumentationKey', 'services.applicationInsights.instrumentationKey');
     setSecret('secrets.div.launchdarkly-key', 'featureToggles.launchDarklyKey');
+    setSecret('secrets.div.pcq-token-key', 'services.equalityAndDiversity.tokenKey');
   }
 };
 

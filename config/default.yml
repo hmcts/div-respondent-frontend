@@ -83,7 +83,7 @@ services:
     url: 'http://localhost:4000'
     path: '/service-endpoint'
     port: 4000
-    tokenKey: 'DIV_TOKEN_KEY'
+    tokenKey: 'SERVICE_TOKEN_KEY'
 
 paths:
   health: /health
@@ -224,11 +224,11 @@ saucelabs:
 languages: ['en', 'cy']
 
 featureToggles:
-  enabled: false
+  enabled: true
   launchDarklyKey: 'SDK_KEY'
   launchDarklyUser:
     firstName: 'Divorce'
     lastName: 'Frontend'
     key: 'a69bdaed-b2dd-4c54-acfa-bf3df80dbe17'
   ft_welsh: 'divorce-welsh'
-  ft_pcq: 'divorce-pcq'
+  ft_respondent_pcq: 'respondent-pcq'

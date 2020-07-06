@@ -11,7 +11,7 @@ let req = {}, res = {}, next = {};
 
 const testPcqSkipped = done => {
   setTimeout(() => {
-    expect(req.session.pcq.invoke)
+    expect(req.session.invokePcq)
       .to
       .equal(false);
     expect(next.calledOnce)
@@ -27,9 +27,9 @@ describe(modulePath, () => {
   beforeEach(() => {
     req = {
       session: {
-        pcq: {},
-        featureToggles: { ft_pcq: true }
-      }
+        featureToggles: { ft_respondent_pcq: true }
+      },
+      method: 'POST'
     };
     res = { redirect: sinon.stub() };
     next = sinon.stub();
@@ -53,7 +53,7 @@ describe(modulePath, () => {
       expect(res.redirect.calledOnce)
         .to
         .equal(false);
-      expect(req.session.pcq.invoke)
+      expect(req.session.invokePcq)
         .to
         .equal(true);
       done();
@@ -65,7 +65,7 @@ describe(modulePath, () => {
       .get('/health')
       .reply(httpStatus.OK, { status: 'UP' });
 
-    req.session.featureToggles.ft_pcq = false;
+    req.session.featureToggles.ft_respondent_pcq = false;
 
     equalityMiddleware(req, res, next);
     testPcqSkipped(done);
@@ -76,7 +76,7 @@ describe(modulePath, () => {
       .get('/health')
       .reply(httpStatus.OK, { status: 'UP' });
 
-    req.session.pcq.id = 'abc123';
+    req.session.respondentPcqId = 'abc123';
 
     equalityMiddleware(req, res, next);
     testPcqSkipped(done);
