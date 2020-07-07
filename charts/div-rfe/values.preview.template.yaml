@@ -9,6 +9,7 @@ nodejs:
         LOG_LEVEL: "DEBUG"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
         CASE_ORCHESTRATION_SERVICE_URL: "http://div-cos-pr-878.service.core-compute-preview.internal"
+        EQUALITY_URL: "https://pcq-frontend-pr-98.service.core-compute-preview.internal"
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
