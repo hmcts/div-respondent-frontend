@@ -1,6 +1,7 @@
 const { BaseStep } = require('@hmcts/one-per-page');
 const config = require('config');
 const createToken = require('./createToken');
+const { continueToNext, redirectTo } = require('@hmcts/one-per-page/flow');
 
 class Equality extends BaseStep {
   static get path() {
@@ -39,6 +40,14 @@ class Equality extends BaseStep {
       .join('&');
 
     res.redirect(`${config.services.equalityAndDiversity.url}${config.services.equalityAndDiversity.path}?${qs}`);
+  }
+
+  get flowControl() {
+    return continueToNext(this);
+  }
+
+  next() {
+    return redirectTo(this.journey.steps.CheckYourAnswers);
   }
 }
 
