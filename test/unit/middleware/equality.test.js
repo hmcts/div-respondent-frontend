@@ -3,6 +3,8 @@ const nock = require('nock');
 const CONF = require('config');
 const httpStatus = require('http-status-codes');
 
+const Equality = require('steps/equality/Equality.step');
+
 const modulePath = 'middleware/equality';
 const equalityMiddleware = require(modulePath);
 
@@ -23,11 +25,12 @@ const testPcqSkipped = done => {
 
 describe(modulePath, () => {
   const pcqHost = CONF.services.equalityAndDiversity.url;
+  const journeys = ['respondent', 'co-respondent'];
 
   beforeEach(() => {
     req = {
       session: {
-        featureToggles: { ft_respondent_pcq: true }
+        IdamLogin: { success: '' }
       },
       method: 'POST'
     };
@@ -39,60 +42,69 @@ describe(modulePath, () => {
     nock.cleanAll();
   });
 
-  it('calls next if PCQ is enabled, pcqId is not set and PCQ is healthy', done => {
-    nock(pcqHost)
-      .get('/health')
-      .reply(httpStatus.OK, { status: 'UP' });
+  journeys.forEach(j => {
+    describe(j, () => {
+      beforeEach(() => {
+        req.session.IdamLogin.success = j;
+        req.session.featureToggles = { [Equality.toggleKey(req)]: true };
+      });
 
-    equalityMiddleware(req, res, next);
+      it('calls next if PCQ is enabled, pcqId is not set and PCQ is healthy', done => {
+        nock(pcqHost)
+          .get('/health')
+          .reply(httpStatus.OK, { status: 'UP' });
 
-    setTimeout(() => {
-      expect(next.calledOnce)
-        .to
-        .equal(true);
-      expect(res.redirect.calledOnce)
-        .to
-        .equal(false);
-      expect(req.session.invokePcq)
-        .to
-        .equal(true);
-      done();
-    }, timoutMs);
-  });
+        equalityMiddleware(req, res, next);
 
-  it('skips PCQ if it\'s not enabled', done => {
-    nock(pcqHost)
-      .get('/health')
-      .reply(httpStatus.OK, { status: 'UP' });
+        setTimeout(() => {
+          expect(next.calledOnce)
+            .to
+            .equal(true);
+          expect(res.redirect.calledOnce)
+            .to
+            .equal(false);
+          expect(req.session.invokePcq)
+            .to
+            .equal(true);
+          done();
+        }, timoutMs);
+      });
 
-    req.session.featureToggles.ft_respondent_pcq = false;
+      it('skips PCQ if it\'s not enabled', done => {
+        nock(pcqHost)
+          .get('/health')
+          .reply(httpStatus.OK, { status: 'UP' });
 
-    equalityMiddleware(req, res, next);
-    testPcqSkipped(done);
-  });
+        req.session.featureToggles[Equality.toggleKey(req)] = false;
 
-  it('skips PCQ if the pcqId is already in session', done => {
-    nock(pcqHost)
-      .get('/health')
-      .reply(httpStatus.OK, { status: 'UP' });
+        equalityMiddleware(req, res, next);
+        testPcqSkipped(done);
+      });
 
-    req.session.respondentPcqId = 'abc123';
+      it('skips PCQ if the pcqId is already in session', done => {
+        nock(pcqHost)
+          .get('/health')
+          .reply(httpStatus.OK, { status: 'UP' });
 
-    equalityMiddleware(req, res, next);
-    testPcqSkipped(done);
-  });
+        req.session[Equality.pcqIdPropertyName(req)] = 'abc123';
 
-  it('skips PCQ if PCQ is unhealthy', done => {
-    nock(pcqHost)
-      .get('/health')
-      .reply(httpStatus.OK, { status: 'DOWN' });
+        equalityMiddleware(req, res, next);
+        testPcqSkipped(done);
+      });
 
-    equalityMiddleware(req, res, next);
-    testPcqSkipped(done);
-  });
+      it('skips PCQ if PCQ is unhealthy', done => {
+        nock(pcqHost)
+          .get('/health')
+          .reply(httpStatus.OK, { status: 'DOWN' });
 
-  it('skips PCQ if there is an error retrieving the PCQ health', done => {
-    equalityMiddleware(req, res, next);
-    testPcqSkipped(done);
+        equalityMiddleware(req, res, next);
+        testPcqSkipped(done);
+      });
+
+      it('skips PCQ if there is an error retrieving the PCQ health', done => {
+        equalityMiddleware(req, res, next);
+        testPcqSkipped(done);
+      });
+    });
   });
 });

@@ -1,6 +1,7 @@
 'use strict';
 
 const FeatureToggle = require('core/utils/featureToggle');
+const Equality = require('steps/equality/Equality.step');
 
 const checkEqualityToggle = (req, res, next) => {
   if (!res.locals.featureToggle) {
@@ -10,7 +11,8 @@ const checkEqualityToggle = (req, res, next) => {
     res.locals.launchDarkly = {};
   }
 
-  return res.locals.featureToggle.callCheckToggle(req, res, next, res.locals.launchDarkly, 'ft_respondent_pcq', res.locals.featureToggle.toggleFeature);
+  return res.locals.featureToggle.callCheckToggle(req, res, next, res.locals.launchDarkly,
+    Equality.toggleKey(req), res.locals.featureToggle.toggleFeature);
 };
 
 module.exports = checkEqualityToggle;

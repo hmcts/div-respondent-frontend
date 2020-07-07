@@ -11,11 +11,19 @@ class Equality extends BaseStep {
     return config.paths.respondent.checkYourAnswers;
   }
 
+  static pcqIdPropertyName(req) {
+    return req.session.IdamLogin && req.session.IdamLogin.success === 'co-respondent' ? 'coRespondentPcqId' : 'respondentPcqId';
+  }
+
+  static toggleKey(req) {
+    return req.session.IdamLogin && req.session.IdamLogin.success === 'co-respondent' ? 'ft_co_respondent_pcq' : 'ft_respondent_pcq';
+  }
+
   handler(req, res) {
     const params = {
       serviceId: 'DIVORCE',
       actor: 'RESPONDENT',
-      pcqId: req.session.respondentPcqId,
+      pcqId: req.session[Equality.pcqIdPropertyName(req)],
       ccdCaseId: req.session.referenceNumber,
       partyId: req.idam.userDetails.email,
       returnUrl: req.headers.host + Equality.returnPath,
