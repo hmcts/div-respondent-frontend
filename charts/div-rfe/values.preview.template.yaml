@@ -8,6 +8,7 @@ nodejs:
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         LOG_LEVEL: "DEBUG"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
+        CASE_ORCHESTRATION_SERVICE_URL: "http://div-cos-pr-878.service.core-compute-preview.internal"
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
