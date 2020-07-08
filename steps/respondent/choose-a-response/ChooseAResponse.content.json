@@ -22,7 +22,7 @@
           "text1": "As your wife used separation for 5 years as the reason for divorce, you can try to prevent it on the basis that it will cause you severe hardship.",
           "text2": "The hardship could be financial (for example, you’ll lose your rights to a widow’s pension) or another type of hardship (for example, you’ll be stigmatized for cultural or religious reasons).",
           "text3": "You’ll need to convince the court that the hardship will be severe.",
-          "text4": "The court will take your and your husband’s individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
+          "text4": "The court will take your and your husband’s individual circumstances and interests into account. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.",
           "text5": "Severe hardship is rarely used as a defence against divorce, and it’s even rarer for the court to reject a divorce application because of it.",
           "text6": "You’ll need to make your case for hardship in another form (called the 'answer'). You have 21 days to submit your answer from the date that you sign in to respond to the divorce application.",
           "text7": "You’ll also have to pay another £{{ feesDefendDivorce }} fee."
@@ -73,7 +73,7 @@
           "text1": "Gan fod eich gwraig wedi defnyddio gwahanu ers 5 mlynedd yn rheswm dros ysgaru, gallwch geisio atal yr ysgariad ar y sail y bydd yn peri caledi difrifol ichi.",
           "text2": "Gallai’r caledi fod yn ariannol (colli eich hawl i gael pensiwn gwraig weddw, er enghraifft) neu’n galedi o fath arall (eich stigmateiddio am resymau crefyddol neu ddiwylliannol, er enghraifft).",
           "text3": "Bydd angen ichi argyhoeddi’r llys y bydd y caledi’n ddifrifol.",
-          "text4": "Bydd y llys yn ystyried eich amgylchiadau unigol a’ch lles ac amgylchiadau unigol a lles eich gwr. Bydd hefyd yn ystyried anghenion unrhyw blant, os oes gennych blant, ac unrhyw un arall y byddai’r ysgariad yn effeithio arno.",
+          "text4": "Bydd y llys yn ystyried eich amgylchiadau unigol a’ch lles ac amgylchiadau unigol a lles eich gŵr. Bydd hefyd yn ystyried anghenion unrhyw blant, os oes gennych blant, ac unrhyw un arall y byddai’r ysgariad yn effeithio arno.",
           "text5": "Anaml iawn y defnyddir caledi difrifol yn amddiffyniad dros wrthwynebu ysgariad, ac ni bydd llys yn gwrthod cais am ysgariad am y rheswm hwnnw ond yn anfynych iawn.",
           "text6": "Bydd angen ichi gyflwyno’r ddadl dros galedi ar ffurflen arall (gelwir y ffurflen honno yn ‘ateb’). Mae gennych 21 diwrnod i gyflwyno eich ateb o’r dyddiad y byddwch yn mewngofnodi i ymateb i’r cais am ysgariad.",
           "text7": "Bydd yn rhaid ichi dalu ffi £{{ feesDefendDivorce }} arall hefyd."
