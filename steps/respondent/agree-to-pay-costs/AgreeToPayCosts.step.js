@@ -21,6 +21,8 @@ class AgreeToPayCosts extends Question {
   }
 
   get session() {
+    this.req.session.respondantPcqId = 'RespondantID-HARDCODED';
+    this.req.session.coRespondantPcqId = 'CoRespondantID-HARDCODED';
     return this.req.session;
   }
 
