@@ -21,8 +21,6 @@ class AgreeToPayCosts extends Question {
   }
 
   get session() {
-    this.req.session.respondantPcqId = 'RespondantID-HARDCODED';
-    this.req.session.coRespondantPcqId = 'CoRespondantID-HARDCODED';
     return this.req.session;
   }
 
@@ -100,6 +98,7 @@ class AgreeToPayCosts extends Question {
     const newAmountReason = this.fields.agreeToPayCosts.newAmountReason.value;
 
     const values = {};
+
     values.respAgreeToCosts = agree;
 
     if (agree === no) {
@@ -110,6 +109,10 @@ class AgreeToPayCosts extends Question {
       values.respCostsAmount = newAmount;
       values.respCostsReason = newAmountReason;
     }
+
+    // Hardcoded PCQ Values
+    values.respondantPcqId = 'RespondantID-HARDCODED';
+    values.coRespondantPcqId = 'CoRespondantID-HARDCODED';
 
     return values;
   }
