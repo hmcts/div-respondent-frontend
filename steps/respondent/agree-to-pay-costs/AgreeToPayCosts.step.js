@@ -112,7 +112,6 @@ class AgreeToPayCosts extends Question {
 
     // Hardcoded PCQ Values
     values.respondentPcqId = 'RespondantID-HARDCODED';
-    values.coRespondentPcqId = 'CoRespondantID-HARDCODED';
 
     return values;
   }

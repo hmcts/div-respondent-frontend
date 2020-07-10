@@ -45,6 +45,8 @@ class CrCheckYourAnswers extends CYA {
     const json = this.journey.values;
     const coRespAnswer = {};
 
+    json.coRespondentPcqId = 'CoRespondantID-HARDCODED';
+
     coRespAnswer.coRespondentAnswers = json;
 
     return caseOrchestration.sendCoRespondentResponse(req, coRespAnswer);
