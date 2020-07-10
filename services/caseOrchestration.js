@@ -1,7 +1,6 @@
 const request = require('request-promise-native');
 const CONF = require('config');
 const logger = require('services/logger').getLogger(__filename);
-const Equality = require('steps/equality/Equality.step');
 
 const FORBIDDEN = 403;
 
@@ -51,9 +50,11 @@ const linkCase = req => {
 };
 
 const addPcqIdToBody = (req, body) => {
-  const pcqId = req.session[Equality.pcqIdPropertyName(req)];
-  if (pcqId) {
-    body[Equality.pcqIdPropertyName(req)] = pcqId;
+  if (req.session.respondentPcqId) {
+    body.respondentPcqId = req.session.respondentPcqId;
+  }
+  if (req.session.coRespondentPcqId) {
+    body.coRespondentPcqId = req.session.coRespondentPcqId;
   }
 };
 
