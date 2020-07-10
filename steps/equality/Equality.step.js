@@ -8,10 +8,6 @@ class Equality extends BaseStep {
     return config.paths.equality;
   }
 
-  static get returnPath() {
-    return config.paths.respondent.checkYourAnswers;
-  }
-
   static pcqIdPropertyName(actor) {
     return actor === 'co-respondent' ? 'coRespondentPcqId' : 'respondentPcqId';
   }
@@ -20,14 +16,19 @@ class Equality extends BaseStep {
     return actor === 'co-respondent' ? 'ft_co_respondent_pcq' : 'ft_respondent_pcq';
   }
 
+  returnPath(actor) {
+    return actor === 'co-respondent' ? config.paths.coRespondent.checkYourAnswers : config.paths.respondent.checkYourAnswers;
+  }
+
   handler(req, res) {
+    const actor = req.session.pcqActor;
     const params = {
       serviceId: 'DIVORCE',
       actor: 'RESPONDENT',
-      pcqId: req.session[Equality.pcqIdPropertyName(req)],
+      pcqId: req.session[Equality.pcqIdPropertyName(actor)],
       ccdCaseId: req.session.referenceNumber,
       partyId: req.idam.userDetails.email,
-      returnUrl: req.headers.host + Equality.returnPath,
+      returnUrl: req.headers.host + this.returnPath(actor),
       language: 'en'
     };
 
@@ -47,7 +48,9 @@ class Equality extends BaseStep {
   }
 
   next() {
-    return redirectTo(this.journey.steps.CheckYourAnswers);
+    const actor = this.req.session.pcqActor;
+    const step = actor === 'co-respondent' ? this.journey.steps.CrCheckYourAnswers : this.journey.steps.CheckYourAnswers;
+    return redirectTo(step);
   }
 }
 

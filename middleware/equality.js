@@ -19,6 +19,7 @@ const invokeEquality = (req, res, next, actor) => {
   request.get({ uri, json: true })
     .then(json => {
       if (json.status && json.status === 'UP') {
+        req.session.pcqActor = actor;
         req.session[Equality.pcqIdPropertyName(actor)] = uuidv4();
         req.session.invokePcq = true;
 
