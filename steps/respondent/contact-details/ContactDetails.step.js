@@ -11,6 +11,7 @@ const checkEqualityToggle = require('middleware/checkEqualityToggle');
 const equality = require('middleware/equality');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { curryRight } = require('lodash');
 
 const yes = 'Yes';
 
@@ -86,8 +87,8 @@ class ContactDetails extends Question {
       ...super.middleware,
       idam.protect(),
       checkWelshToggle,
-      checkEqualityToggle,
-      equality
+      curryRight(checkEqualityToggle)('respondent'),
+      curryRight(equality)('respondent')
     ];
   }
 

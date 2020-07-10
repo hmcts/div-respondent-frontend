@@ -4,6 +4,7 @@ const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourA
 const idam = require('services/idam');
 const checkEqualityToggle = require('middleware/checkEqualityToggle');
 const equality = require('middleware/equality');
+const { curryRight } = require('lodash');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const ContactDetailsContent = require('steps/respondent/contact-details/ContactDetails.content');
 
@@ -22,11 +23,11 @@ describe(modulePath, () => {
   });
 
   it('has checkEqualityToggle middleware', () => {
-    return middleware.hasMiddleware(ContactDetails, [checkEqualityToggle]);
+    return middleware.hasMiddleware(ContactDetails, [curryRight(checkEqualityToggle)('respondent')]);
   });
 
   it('has equality middleware', () => {
-    return middleware.hasMiddleware(ContactDetails, [equality]);
+    return middleware.hasMiddleware(ContactDetails, [curryRight(equality)('respondent')]);
   });
 
   it('when phone number is not supplied return correct value', () => {

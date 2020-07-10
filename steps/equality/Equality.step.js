@@ -12,12 +12,12 @@ class Equality extends BaseStep {
     return config.paths.respondent.checkYourAnswers;
   }
 
-  static pcqIdPropertyName(req) {
-    return req.session.IdamLogin && req.session.IdamLogin.success === 'co-respondent' ? 'coRespondentPcqId' : 'respondentPcqId';
+  static pcqIdPropertyName(actor) {
+    return actor === 'co-respondent' ? 'coRespondentPcqId' : 'respondentPcqId';
   }
 
-  static toggleKey(req) {
-    return req.session.IdamLogin && req.session.IdamLogin.success === 'co-respondent' ? 'ft_co_respondent_pcq' : 'ft_respondent_pcq';
+  static toggleKey(actor) {
+    return actor === 'co-respondent' ? 'ft_co_respondent_pcq' : 'ft_respondent_pcq';
   }
 
   handler(req, res) {

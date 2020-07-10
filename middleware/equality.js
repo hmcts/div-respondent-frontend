@@ -14,12 +14,12 @@ const doNotInvoke = (req, next) => {
   next();
 };
 
-const invokeEquality = (req, res, next) => {
+const invokeEquality = (req, res, next, actor) => {
   const uri = `${CONF.services.equalityAndDiversity.url}/health`;
   request.get({ uri, json: true })
     .then(json => {
       if (json.status && json.status === 'UP') {
-        req.session[Equality.pcqIdPropertyName(req)] = uuidv4();
+        req.session[Equality.pcqIdPropertyName(actor)] = uuidv4();
         req.session.invokePcq = true;
 
         logger.infoWithReq(req, 'complete_equality_task', 'PCQ properties set...');
@@ -35,10 +35,10 @@ const invokeEquality = (req, res, next) => {
     });
 };
 
-const entryPoint = (req, res, next) => {
+const entryPoint = (req, res, next, actor) => {
   if (req.method === 'POST') {
-    if (Boolean(req.session.featureToggles[Equality.toggleKey(req)]) && !get(req.session, Equality.pcqIdPropertyName(req), false)) {
-      invokeEquality(req, res, next);
+    if (Boolean(req.session.featureToggles[Equality.toggleKey(actor)]) && !get(req.session, Equality.pcqIdPropertyName(actor), false)) {
+      invokeEquality(req, res, next, actor);
     } else {
       doNotInvoke(req, next);
     }
