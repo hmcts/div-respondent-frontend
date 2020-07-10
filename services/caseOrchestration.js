@@ -1,6 +1,7 @@
 const request = require('request-promise-native');
 const CONF = require('config');
 const logger = require('services/logger').getLogger(__filename);
+const Equality = require('steps/equality/Equality.step');
 
 const FORBIDDEN = 403;
 
@@ -53,6 +54,12 @@ const sendCoRespondentResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-co-respondent-aos`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
+
+  const pcqId = req.session[Equality.pcqIdPropertyName(req)];
+  if (pcqId) {
+    body[Equality.pcqIdPropertyName(req)] = pcqId;
+  }
+
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
       logger.errorWithReq(req, 'send_response_error', 'Trying to connect to Case orchestration service error', error.message);
@@ -65,6 +72,11 @@ const sendAosResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-aos/${referenceNumber}`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
+
+  const pcqId = req.session[Equality.pcqIdPropertyName(req)];
+  if (pcqId) {
+    body[Equality.pcqIdPropertyName(req)] = pcqId;
+  }
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
