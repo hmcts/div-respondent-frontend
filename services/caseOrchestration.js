@@ -50,15 +50,19 @@ const linkCase = req => {
     });
 };
 
+const addPcqIdToBody = (req, body) => {
+  const pcqId = req.session[Equality.pcqIdPropertyName(req)];
+  if (pcqId) {
+    body[Equality.pcqIdPropertyName(req)] = pcqId;
+  }
+};
+
 const sendCoRespondentResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-co-respondent-aos`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
 
-  const pcqId = req.session[Equality.pcqIdPropertyName(req)];
-  if (pcqId) {
-    body[Equality.pcqIdPropertyName(req)] = pcqId;
-  }
+  addPcqIdToBody(req, body);
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
@@ -73,10 +77,7 @@ const sendAosResponse = (req, body) => {
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
 
-  const pcqId = req.session[Equality.pcqIdPropertyName(req)];
-  if (pcqId) {
-    body[Equality.pcqIdPropertyName(req)] = pcqId;
-  }
+  addPcqIdToBody(req, body);
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
