@@ -7,10 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./CrContactDetails.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
-const checkEqualityToggle = require('middleware/checkEqualityToggle');
-const equality = require('middleware/equality');
 const i18next = require('i18next');
-const { curryRight } = require('lodash');
 
 const yes = 'Yes';
 
@@ -90,17 +87,12 @@ class CrContactDetails extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      checkWelshToggle,
-      curryRight(checkEqualityToggle)('co-respondent'),
-      curryRight(equality)('co-respondent')
+      checkWelshToggle
     ];
   }
 
   next() {
-    if (this.req.session.invokePcq) {
-      return redirectTo(this.journey.steps.Equality);
-    }
-    return redirectTo(this.journey.steps.CrCheckYourAnswers);
+    return redirectTo(this.journey.steps.Equality);
   }
 }
 

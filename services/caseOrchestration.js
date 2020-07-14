@@ -49,21 +49,10 @@ const linkCase = req => {
     });
 };
 
-const addPcqIdToBody = (req, body) => {
-  if (req.session.respondentPcqId) {
-    body.respondentPcqId = req.session.respondentPcqId;
-  }
-  if (req.session.coRespondentPcqId) {
-    body.coRespondentPcqId = req.session.coRespondentPcqId;
-  }
-};
-
 const sendCoRespondentResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-co-respondent-aos`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
-
-  addPcqIdToBody(req, body);
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
@@ -77,8 +66,6 @@ const sendAosResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-aos/${referenceNumber}`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
-
-  addPcqIdToBody(req, body);
 
   return request.post({ uri, body, headers, json: true })
     .catch(error => {

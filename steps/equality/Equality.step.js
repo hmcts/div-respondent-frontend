@@ -1,34 +1,50 @@
-const { BaseStep } = require('@hmcts/one-per-page');
+const { Question } = require('@hmcts/one-per-page');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { form, text, object } = require('@hmcts/one-per-page/forms');
+const { v4: uuidv4 } = require('uuid');
 const config = require('config');
+const Joi = require('joi');
 const createToken = require('./createToken');
-const { continueToNext, redirectTo } = require('@hmcts/one-per-page/flow');
 
-class Equality extends BaseStep {
+class Equality extends Question {
   static get path() {
     return config.paths.equality;
   }
 
-  static pcqIdPropertyName(actor) {
-    return actor === 'co-respondent' ? 'coRespondentPcqId' : 'respondentPcqId';
+  get session() {
+    return this.req.session;
   }
 
-  static toggleKey(actor) {
-    return actor === 'co-respondent' ? 'ft_co_respondent_pcq' : 'ft_respondent_pcq';
+  get entryPoint() {
+    return this.session.entryPoint;
   }
 
-  returnPath(actor) {
-    return actor === 'co-respondent' ? config.paths.coRespondent.checkYourAnswers : config.paths.respondent.checkYourAnswers;
+  pcqIdPropertyName() {
+    return this.entryPoint === 'CrRespond' ? 'coRespondentPcqId' : 'respondentPcqId';
   }
 
-  handler(req, res) {
-    const actor = req.session.pcqActor;
+  returnPath() {
+    return this.entryPoint === 'CrRespond' ? config.paths.coRespondent.checkYourAnswers : config.paths.respondent.checkYourAnswers;
+  }
+
+  handler(req, res, next) {
+    // If enabled and not already called
+    if (config.features.equality && !req.session.Equality) {
+      this.invokePcq(req, res);
+    } else {
+      this.next().redirect(req, res, next);
+    }
+  }
+
+  invokePcq(req, res) {
+    const pcqId = uuidv4();
     const params = {
       serviceId: 'DIVORCE',
       actor: 'RESPONDENT',
-      pcqId: req.session[Equality.pcqIdPropertyName(actor)],
+      pcqId,
       ccdCaseId: req.session.referenceNumber,
       partyId: req.idam.userDetails.email,
-      returnUrl: req.headers.host + this.returnPath(actor),
+      returnUrl: req.headers.host + this.returnPath(),
       language: 'en'
     };
 
@@ -40,16 +56,37 @@ class Equality extends BaseStep {
       })
       .join('&');
 
+    const equalityForm = {
+      body: {
+        'equality.pcqId': pcqId
+      }
+    };
+    this.fields = this.form.parse(equalityForm);
+    this.store();
+
     res.redirect(`${config.services.equalityAndDiversity.url}${config.services.equalityAndDiversity.path}?${qs}`);
   }
 
-  get flowControl() {
-    return continueToNext(this);
+  get form() {
+    const fields = {
+      pcqId: text.joi('', Joi.string())
+    };
+
+    const equality = object(fields);
+
+    return form({ equality });
+  }
+
+  answers() {
+    return [];
+  }
+
+  values() {
+    return { [this.pcqIdPropertyName()]: this.fields.equality.pcqId.value };
   }
 
   next() {
-    const actor = this.req.session.pcqActor;
-    const step = actor === 'co-respondent' ? this.journey.steps.CrCheckYourAnswers : this.journey.steps.CheckYourAnswers;
+    const step = this.entryPoint === 'CrRespond' ? this.journey.steps.CrCheckYourAnswers : this.journey.steps.CheckYourAnswers;
     return redirectTo(step);
   }
 }

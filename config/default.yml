@@ -192,6 +192,7 @@ features:
       enabled: false
   respSolicitorDetails: false
   webchat: true
+  equality: true
 
 journey:
   timeoutDelay: 300
