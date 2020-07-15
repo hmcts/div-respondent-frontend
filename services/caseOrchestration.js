@@ -55,7 +55,7 @@ const sendCoRespondentResponse = (req, body) => {
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
 
   // Move the pcqid up a level
-  if (body.coRespondentAnswers.coRespondentPcqId) {
+  if (body.coRespondentAnswers && body.coRespondentAnswers.coRespondentPcqId) {
     body.coRespondentPcqId = body.coRespondentAnswers.coRespondentPcqId;
     delete body.coRespondentAnswers.coRespondentPcqId;
   }
