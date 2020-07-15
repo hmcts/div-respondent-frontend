@@ -68,9 +68,11 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
   I.consentToSendingNotifications();
   I.navByClick(content.en.continue);
 
-  I.seeEqualityPage();
-  I.completePCQs();
-  I.wait(5);
+  if (config.features.respondentEquality) {
+    I.seeEqualityPage();
+    I.completePCQs();
+    I.wait(5);
+  }
 
   I.seeCheckYourAnswersPage();
   I.confirmInformationIsTrue();
@@ -121,9 +123,11 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.consentToSendingNotifications();
   I.click(content.en.continue);
 
-  I.seeEqualityPage();
-  I.completePCQs();
-  I.wait(5);
+  if (config.features.respondentEquality) {
+    I.seeEqualityPage();
+    I.completePCQs();
+    I.wait(5);
+  }
 
   I.seeCheckYourAnswersPage();
   I.confirmInformationIsTrue();
@@ -176,9 +180,11 @@ Scenario('Disagree with divorce but change response', I => { // eslint-disable-l
   I.consentToSendingNotifications();
   I.click(content.en.continue);
 
-  I.seeEqualityPage();
-  I.completePCQs();
-  I.wait(5);
+  if (config.features.respondentEquality) {
+    I.seeEqualityPage();
+    I.completePCQs();
+    I.wait(5);
+  }
 
   I.seeCheckYourAnswersPage();
   I.confirmInformationIsTrue();

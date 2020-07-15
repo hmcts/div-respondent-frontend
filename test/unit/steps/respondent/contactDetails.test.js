@@ -1,10 +1,7 @@
 const modulePath = 'steps/respondent/contact-details/ContactDetails.step';
 const ContactDetails = require(modulePath);
-const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
+const Equality = require('steps/equality/Equality.step');
 const idam = require('services/idam');
-const checkEqualityToggle = require('middleware/checkEqualityToggle');
-const equality = require('middleware/equality');
-const { curryRight } = require('lodash');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const ContactDetailsContent = require('steps/respondent/contact-details/ContactDetails.content');
 
@@ -20,14 +17,6 @@ describe(modulePath, () => {
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(ContactDetails, [idam.protect()]);
-  });
-
-  it('has checkEqualityToggle middleware', () => {
-    return middleware.hasMiddleware(ContactDetails, [curryRight(checkEqualityToggle)('respondent')]);
-  });
-
-  it('has equality middleware', () => {
-    return middleware.hasMiddleware(ContactDetails, [curryRight(equality)('respondent')]);
   });
 
   it('when phone number is not supplied return correct value', () => {
@@ -179,7 +168,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(ContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(ContactDetails, fields, Equality);
   });
 
   it('redirects to next page when all details are supplied', () => {
@@ -188,7 +177,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(ContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(ContactDetails, fields, Equality);
   });
 
   it('renders the content', () => {
