@@ -11,25 +11,32 @@ class Equality extends Question {
     return config.paths.equality;
   }
 
-  get session() {
-    return this.req.session;
+  get entryPoint() {
+    return this.req.session.entryPoint;
   }
 
-  get entryPoint() {
-    return this.session.entryPoint;
+  get isCoRespond() {
+    return this.entryPoint === 'CrRespond';
   }
 
   pcqIdPropertyName() {
-    return this.entryPoint === 'CrRespond' ? 'coRespondentPcqId' : 'respondentPcqId';
+    return this.isCoRespond ? 'coRespondentPcqId' : 'respondentPcqId';
   }
 
   returnPath() {
-    return this.entryPoint === 'CrRespond' ? config.paths.coRespondent.checkYourAnswers : config.paths.respondent.checkYourAnswers;
+    return this.isCoRespond ? config.paths.coRespondent.checkYourAnswers : config.paths.respondent.checkYourAnswers;
+  }
+
+  isEnabled() {
+    const resp = config.features.respondentEquality;
+    const cResp = config.features.coRespondentEquality;
+
+    return this.isCoRespond ? cResp : resp;
   }
 
   handler(req, res, next) {
     // If enabled and not already called
-    if (config.features.equality && !req.session.Equality) {
+    if (this.isEnabled() && !req.session.Equality) {
       this.invokePcq(req, res);
     } else {
       this.next().redirect(req, res, next);
@@ -82,11 +89,12 @@ class Equality extends Question {
   }
 
   values() {
-    return { [this.pcqIdPropertyName()]: this.fields.equality.pcqId.value };
+    const pcqId = this.fields.equality.pcqId.value;
+    return pcqId ? { [this.pcqIdPropertyName()]: pcqId } : {};
   }
 
   next() {
-    const step = this.entryPoint === 'CrRespond' ? this.journey.steps.CrCheckYourAnswers : this.journey.steps.CheckYourAnswers;
+    const step = this.isCoRespond ? this.journey.steps.CrCheckYourAnswers : this.journey.steps.CheckYourAnswers;
     return redirectTo(step);
   }
 }
