@@ -54,7 +54,7 @@
     "ioredis": "^4.14.1",
     "joi": "^14.3.1",
     "launchdarkly-node-server-sdk": "^5.13.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "os": "^0.1.1",
     "paths": "^0.1.1",
