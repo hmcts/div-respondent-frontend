@@ -3,6 +3,9 @@ const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text, object } = require('@hmcts/one-per-page/forms');
 const { v4: uuidv4 } = require('uuid');
 const config = require('config');
+const request = require('request-promise-native');
+const logger = require('services/logger')
+  .getLogger(__filename);
 const Joi = require('joi');
 const createToken = require('./createToken');
 
@@ -35,11 +38,29 @@ class Equality extends Question {
   }
 
   handler(req, res, next) {
+    const skipPcq = () => {
+      return this.next().redirect(req, res, next);
+    };
+
     // If enabled and not already called
     if (this.isEnabled() && !req.session.Equality) {
-      this.invokePcq(req, res);
+      // Check PCQ Health
+      const uri = `${config.services.equalityAndDiversity.url}/health`;
+      request.get({ uri, json: true })
+        .then(json => {
+          if (json.status && json.status === 'UP') {
+            this.invokePcq(req, res);
+          } else {
+            logger.errorWithReq(req, 'Equality', 'PCQ service is DOWN');
+            skipPcq();
+          }
+        })
+        .catch(error => {
+          logger.errorWithReq(req, 'Equality', error.message);
+          skipPcq();
+        });
     } else {
-      this.next().redirect(req, res, next);
+      skipPcq();
     }
   }
 
