@@ -3,10 +3,12 @@ const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const a11y = require('./a11y');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 
+const excludedSteps = ['Equality'];
+
 // ensure step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
-  return stepInstance.middleware.includes(resolveTemplate);
+  return stepInstance.middleware.includes(resolveTemplate) && !excludedSteps.includes(step.name);
 };
 
 // ensure step has parse function - if it does then test POST requests
