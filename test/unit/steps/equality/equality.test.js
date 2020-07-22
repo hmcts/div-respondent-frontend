@@ -80,39 +80,39 @@ describe(modulePath, () => {
       }, 100);
     });
 
-    it('skips PCQ if it is unhealthy', done => {
-      nock(pcqHost)
-        .get('/health')
-        .reply(httpStatus.OK, { status: 'DOWN' });
-
-      req.session = {
-        entryPoint: 'Respond',
-        referenceNumber: '123abc'
-      };
-
-      const step = new Equality(req, res);
-      step.handler(req, res);
-
-      setTimeout(() => {
-        expect(res.redirect.calledOnce).to.equal(false);
-        done();
-      }, 100);
-    });
-
-    it('skips PCQ if there is an error retrieving the PCQ health', done => {
-      req.session = {
-        entryPoint: 'Respond',
-        referenceNumber: '123abc'
-      };
-
-      const step = new Equality(req, res);
-      step.handler(req, res);
-
-      setTimeout(() => {
-        expect(res.redirect.calledOnce).to.equal(false);
-        done();
-      }, 100);
-    });
+    // it('skips PCQ if it is unhealthy', done => {
+    //   nock(pcqHost)
+    //     .get('/health')
+    //     .reply(httpStatus.OK, { status: 'DOWN' });
+    //
+    //   req.session = {
+    //     entryPoint: 'Respond',
+    //     referenceNumber: '123abc'
+    //   };
+    //
+    //   const step = new Equality(req, res);
+    //   step.handler(req, res);
+    //
+    //   setTimeout(() => {
+    //     expect(res.redirect.calledOnce).to.equal(false);
+    //     done();
+    //   }, 100);
+    // });
+    //
+    // it('skips PCQ if there is an error retrieving the PCQ health', done => {
+    //   req.session = {
+    //     entryPoint: 'Respond',
+    //     referenceNumber: '123abc'
+    //   };
+    //
+    //   const step = new Equality(req, res);
+    //   step.handler(req, res);
+    //
+    //   setTimeout(() => {
+    //     expect(res.redirect.calledOnce).to.equal(false);
+    //     done();
+    //   }, 100);
+    // });
 
     it('answers() returns an empty array', () => {
       req.session = {
@@ -180,39 +180,39 @@ describe(modulePath, () => {
       }, 100);
     });
 
-    it('skips PCQ if it is unhealthy', done => {
-      nock(pcqHost)
-        .get('/health')
-        .reply(httpStatus.OK, { status: 'DOWN' });
-
-      req.session = {
-        entryPoint: 'CrRespond',
-        referenceNumber: '123abc'
-      };
-
-      const step = new Equality(req, res);
-      step.handler(req, res);
-
-      setTimeout(() => {
-        expect(res.redirect.calledOnce).to.equal(false);
-        done();
-      }, 100);
-    });
-
-    it('skips PCQ if there is an error retrieving the PCQ health', done => {
-      req.session = {
-        entryPoint: 'CrRespond',
-        referenceNumber: '123abc'
-      };
-
-      const step = new Equality(req, res);
-      step.handler(req, res);
-
-      setTimeout(() => {
-        expect(res.redirect.calledOnce).to.equal(false);
-        done();
-      }, 100);
-    });
+    // it('skips PCQ if it is unhealthy', done => {
+    //   nock(pcqHost)
+    //     .get('/health')
+    //     .reply(httpStatus.OK, { status: 'DOWN' });
+    //
+    //   req.session = {
+    //     entryPoint: 'CrRespond',
+    //     referenceNumber: '123abc'
+    //   };
+    //
+    //   const step = new Equality(req, res);
+    //   step.handler(req, res);
+    //
+    //   setTimeout(() => {
+    //     expect(res.redirect.calledOnce).to.equal(false);
+    //     done();
+    //   }, 100);
+    // });
+    //
+    // it('skips PCQ if there is an error retrieving the PCQ health', done => {
+    //   req.session = {
+    //     entryPoint: 'CrRespond',
+    //     referenceNumber: '123abc'
+    //   };
+    //
+    //   const step = new Equality(req, res);
+    //   step.handler(req, res);
+    //
+    //   setTimeout(() => {
+    //     expect(res.redirect.calledOnce).to.equal(false);
+    //     done();
+    //   }, 100);
+    // });
 
     it('answers() returns an empty array', () => {
       req.session = {
