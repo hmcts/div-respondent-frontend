@@ -5,7 +5,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
-const content = require('./languagePreference.content');
+const content = require('./LanguagePreference.content');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 
@@ -16,7 +16,7 @@ const constValues = {
   no: 'No'
 };
 
-class languagePreference extends Question {
+class LanguagePreference extends Question {
   static get path() {
     return config.paths.respondent.languagePreference;
   }
@@ -64,4 +64,4 @@ class languagePreference extends Question {
   }
 }
 
-module.exports = languagePreference;
+module.exports = LanguagePreference;

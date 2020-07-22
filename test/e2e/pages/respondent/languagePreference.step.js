@@ -1,5 +1,5 @@
-const languagePreference = require('steps/respondent/language-preference/languagePreference.step');
-const content = require('steps/respondent/language-preference/languagePreference.content');
+const languagePreference = require('steps/respondent/language-preference/LanguagePreference.step');
+const content = require('steps/respondent/language-preference/LanguagePreference.content');
 
 function seeLanguagePreferencePage() {
   const I = this;

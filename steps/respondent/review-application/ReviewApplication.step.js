@@ -108,10 +108,12 @@ class ReviewApplication extends Question {
     if (this.isRespondentSolEnabled) {
       return goTo(this.journey.steps.SolicitorRepresentation);
     }
-    if (this.req.session.languagePreferenceWelsh === 'No') {
-      return goTo(this.journey.steps.languagePreference);
-    }
     const petition = this.session.originalPetition;
+
+    if (petition.languagePreferenceWelsh !== 'Yes') {
+      return goTo(this.journey.steps.LanguagePreference);
+    }
+
     const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
     const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
     return branch(
