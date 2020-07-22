@@ -78,6 +78,9 @@ class Equality extends Question {
 
     params.token = createToken(params);
 
+    // Encode partyId
+    params.partyId = encodeURIComponent(params.partyId);
+
     const qs = Object.keys(params)
       .map(key => {
         return `${key}=${params[key]}`;
