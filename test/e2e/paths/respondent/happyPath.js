@@ -36,9 +36,9 @@ Scenario('@Pipeline Proceed with divorce with linked user', async I => {
     }
   }
 
-  // I.seeLanguagePreferencePage();
-  // I.chooseBilingualApplication();
-  // I.click(content.en.continue);
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
+  I.click(content.en.continue);
 
   I.seeChooseAResponsePage();
   I.chooseToProceedWithDivorce();
@@ -95,9 +95,9 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
-  // I.seeLanguagePreferencePage();
-  // I.chooseBilingualApplication();
-  // I.click(content.en.continue);
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
+  I.click(content.en.continue);
 
   I.seeChooseAResponsePage();
   I.chooseToDefendAgainstDivorce();
@@ -148,9 +148,9 @@ Scenario('Disagree with divorce but change response', I => { // eslint-disable-l
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
-  // I.seeLanguagePreferencePage();
-  // I.chooseBilingualApplication();
-  // I.click(content.en.continue);
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
+  I.click(content.en.continue);
 
   I.seeChooseAResponsePage();
   I.chooseToDefendAgainstDivorce();

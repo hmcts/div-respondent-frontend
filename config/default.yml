@@ -110,7 +110,7 @@ paths:
     confirmDefence: /defend-are-you-sure
     defendFinancialHardship: /defend-financial-hardship
     jurisdiction: /jurisdiction
-    languagePreference: /languagePreference
+    languagePreference: /language-preference
     legalProceedings: /legal-proceedings
     agreeToPayCosts: /agree-to-pay-costs
     contactDetails: /contact-details
