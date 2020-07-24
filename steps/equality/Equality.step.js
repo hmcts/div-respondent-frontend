@@ -31,8 +31,8 @@ class Equality extends Question {
   }
 
   isEnabled() {
-    const resp = config.features.respondentEquality;
-    const cResp = config.features.coRespondentEquality;
+    const resp = config.features.respondentEquality === 'true';
+    const cResp = config.features.coRespondentEquality === 'true';
 
     return this.isCoRespond ? cResp : resp;
   }

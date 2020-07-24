@@ -192,8 +192,8 @@ features:
       enabled: false
   respSolicitorDetails: false
   webchat: true
-  respondentEquality: true
-  coRespondentEquality: true
+  respondentEquality: 'false'
+  coRespondentEquality: 'false'
 
 journey:
   timeoutDelay: 300
