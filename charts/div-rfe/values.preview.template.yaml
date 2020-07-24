@@ -8,6 +8,7 @@ nodejs:
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         LOG_LEVEL: "DEBUG"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
+        EQUALITY_URL: "https://pcq.aat.platform.hmcts.net"
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
@@ -20,6 +21,7 @@ nodejs:
             - idam-secret
             - os-places-token
             - launchdarkly-key
+            - pcq-token-key
 
 tags:
   idam-pr: true
