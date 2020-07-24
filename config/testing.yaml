@@ -1,6 +1,2 @@
-features:
-  respondentEquality: 'true'
-  coRespondentEquality: 'true'
-
 featureToggles:
   enabled: false
