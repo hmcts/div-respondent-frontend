@@ -1,5 +1,4 @@
-// This will need to change once the PCQ-Divorce PR is merged into master
-const path = 'https://pcq.aat.platform.hmcts.net/offline';
+const path = 'https://pcq.aat.platform.hmcts.net/start-page';
 
 function seeEqualityPage() {
   const I = this;
@@ -9,8 +8,7 @@ function seeEqualityPage() {
 }
 
 function completePCQs() {
-  // This will need to change once the PCQ-Divorce PR is merged into master
-  this.click('Continue');
+  this.click('I don\'t want to answer these questions');
 }
 
 module.exports = {
