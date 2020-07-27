@@ -78,6 +78,12 @@ services:
   postcode:
     baseUrl: http://localhost:3001/postcode-lookup
     token:
+  equalityAndDiversity:
+    name: 'Equality and Diversity Service'
+    url: 'http://localhost:4000'
+    path: '/service-endpoint'
+    port: 4000
+    tokenKey: 'SERVICE_TOKEN_KEY'
 
 paths:
   health: /health
@@ -125,6 +131,7 @@ paths:
     contactDetails: /co-respondent/contact-details
     checkYourAnswers: /co-respondent/check-your-answers
     done: /co-respondent/done
+  equality: /equality-and-diversity
 tests:
   e2e:
     show: false
@@ -185,6 +192,8 @@ features:
       enabled: false
   respSolicitorDetails: false
   webchat: true
+  respondentEquality: 'false'
+  coRespondentEquality: 'false'
 
 journey:
   timeoutDelay: 300
@@ -224,3 +233,5 @@ featureToggles:
     lastName: 'Frontend'
     key: 'a69bdaed-b2dd-4c54-acfa-bf3df80dbe17'
   ft_welsh: 'divorce-welsh'
+  ft_respondent_pcq: 'respondent-pcq'
+  ft_co_respondent_pcq: 'co-respondent-pcq'

@@ -1,12 +1,11 @@
 const modulePath = 'steps/co-respondent/cr-contact-details/CrContactDetails.step';
 const CrContactDetails = require(modulePath);
-const CrCheckYourAnswers = require(
-  'steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const CrContactDetailsContent = require(
   'steps/co-respondent/cr-contact-details/CrContactDetails.content'
 );
+const Equality = require('steps/equality/Equality.step');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -173,7 +172,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(CrContactDetails, fields, CrCheckYourAnswers);
+    return question.redirectWithField(CrContactDetails, fields, Equality);
   });
 
   it('redirects to next page when all details are supplied', () => {
@@ -182,7 +181,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(CrContactDetails, fields, CrCheckYourAnswers);
+    return question.redirectWithField(CrContactDetails, fields, Equality);
   });
 
   it('renders the content', () => {

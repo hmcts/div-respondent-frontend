@@ -78,11 +78,16 @@ services:
   postcode:
     baseUrl: POST_CODE_URL
     token: POST_CODE_ACCESS_TOKEN
+  equalityAndDiversity:
+    url: EQUALITY_URL
+    tokenKey: DIV_TOKEN_KEY
 
 features:
   idam: FEATURE_IDAM
   respSolicitorDetails: FEATURE_RESP_SOLICITOR_DETAILS
   webchat: FEATURE_WEBCHAT
+  respondentEquality: FEATURE_RESP_EQUALITY
+  coRespondentEquality: FEATURE_CORESP_EQUALITY
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY

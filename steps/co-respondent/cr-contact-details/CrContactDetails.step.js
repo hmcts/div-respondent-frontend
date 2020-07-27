@@ -92,7 +92,7 @@ class CrContactDetails extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.CrCheckYourAnswers);
+    return redirectTo(this.journey.steps.Equality);
   }
 }
 

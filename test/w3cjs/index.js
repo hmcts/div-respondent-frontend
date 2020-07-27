@@ -47,10 +47,12 @@ const filteredErrors = r => {
   return !excludedErrors.includes(r.message);
 };
 
+const excludedSteps = ['Equality'];
+
 // ensure step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
-  return stepInstance.middleware.includes(resolveTemplate);
+  return stepInstance.middleware.includes(resolveTemplate) && !excludedSteps.includes(step.name);
 };
 
 const userDetails = {

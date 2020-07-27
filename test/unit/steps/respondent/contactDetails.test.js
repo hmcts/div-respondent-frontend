@@ -1,6 +1,6 @@
 const modulePath = 'steps/respondent/contact-details/ContactDetails.step';
 const ContactDetails = require(modulePath);
-const CheckYourAnswers = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
+const Equality = require('steps/equality/Equality.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 const ContactDetailsContent = require('steps/respondent/contact-details/ContactDetails.content');
@@ -168,7 +168,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(ContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(ContactDetails, fields, Equality);
   });
 
   it('redirects to next page when all details are supplied', () => {
@@ -177,7 +177,7 @@ describe(modulePath, () => {
       'contactDetails.consent': 'Yes'
     };
 
-    return question.redirectWithField(ContactDetails, fields, CheckYourAnswers);
+    return question.redirectWithField(ContactDetails, fields, Equality);
   });
 
   it('renders the content', () => {

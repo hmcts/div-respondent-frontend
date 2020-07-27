@@ -53,6 +53,13 @@ const sendCoRespondentResponse = (req, body) => {
   const uri = `${COS_BASE_URI}/submit-co-respondent-aos`;
   const authTokenString = '__auth-token';
   const headers = { Authorization: `${req.cookies[authTokenString]}` };
+
+  // Move the pcqid up a level
+  if (body.coRespondentAnswers && body.coRespondentAnswers.coRespondentPcqId) {
+    body.coRespondentPcqId = body.coRespondentAnswers.coRespondentPcqId;
+    delete body.coRespondentAnswers.coRespondentPcqId;
+  }
+
   return request.post({ uri, body, headers, json: true })
     .catch(error => {
       logger.errorWithReq(req, 'send_response_error', 'Trying to connect to Case orchestration service error', error.message);
