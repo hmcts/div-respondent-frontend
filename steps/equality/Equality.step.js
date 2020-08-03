@@ -68,7 +68,7 @@ class Equality extends Question {
     const pcqId = uuidv4();
     const params = {
       serviceId: 'DIVORCE',
-      actor: 'RESPONDENT',
+      actor: this.isCoRespond ? 'CORESPONDENT' : 'RESPONDENT',
       pcqId,
       ccdCaseId: req.session.referenceNumber,
       partyId: req.idam.userDetails.email,

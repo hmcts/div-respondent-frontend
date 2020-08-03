@@ -149,7 +149,7 @@ describe(modulePath, () => {
         expect(res.redirect.calledOnce).to.equal(true);
         expect(res.redirect.args[0][0]).to.satisfy(str => str.startsWith(
           // eslint-disable-next-line max-len
-          'http://localhost:4000/service-endpoint?serviceId=DIVORCE&actor=RESPONDENT&pcqId=cr123&ccdCaseId=123abc&partyId=test%2Btest%40test.com&returnUrl=localhost/co-respondent/check-your-answers&language=en&token='
+          'http://localhost:4000/service-endpoint?serviceId=DIVORCE&actor=CORESPONDENT&pcqId=cr123&ccdCaseId=123abc&partyId=test%2Btest%40test.com&returnUrl=localhost/co-respondent/check-your-answers&language=en&token='
         ));
         done();
       }, 100);
