@@ -1,6 +1,7 @@
 const modulePath = 'steps/respondent/language-preference/LanguagePreference.step';
 const LanguagePreference = require(modulePath);
 //  const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseAResponse.step');
+const AdmitAdultery = require('steps/respondent/admit-adultery/AdmitAdultery.step');
 const idam = require('services/idam');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const { middleware, question, sinon } = require('@hmcts/one-per-page-test-suite');
@@ -42,8 +43,8 @@ describe(modulePath, () => {
     return question.answers(LanguagePreference, stepData, expectedContent, defaultSession);
   });
 
-//  it('redirects to next page', () => {
-//    const fields = { languagePreferenceWelsh: 'Yes' };
-//    return question.redirectWithField(LanguagePreference, fields, ChooseAResponse);
-//  });
+  it('redirects to next page', () => {
+    const fields = { languagePreferenceWelsh: 'Yes' };
+    return question.redirectWithField(LanguagePreference, fields, AdmitAdultery);
+  });
 });
