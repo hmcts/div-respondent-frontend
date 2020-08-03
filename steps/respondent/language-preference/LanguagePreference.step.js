@@ -27,6 +27,10 @@ class LanguagePreference extends Question {
     return constValues;
   }
 
+  get session() {
+    return this.req.session;
+  }
+
   get form() {
     const answers = [
       this.const.agree,
