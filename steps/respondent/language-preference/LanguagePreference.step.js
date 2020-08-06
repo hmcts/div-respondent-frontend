@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { goTo, branch } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const idam = require('services/idam');
@@ -13,7 +13,9 @@ const constValues = {
   agree: 'Yes',
   disagree: 'No',
   yes: 'Yes',
-  no: 'No'
+  no: 'No',
+  adultery: 'adultery',
+  twoYearSeparation: 'separation-2-years'
 };
 
 class LanguagePreference extends Question {
@@ -23,6 +25,10 @@ class LanguagePreference extends Question {
 
   get const() {
     return constValues;
+  }
+
+  get session() {
+    return this.req.session;
   }
 
   get form() {
@@ -60,7 +66,14 @@ class LanguagePreference extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.ChooseAResponse);
+    const petition = this.session.originalPetition;
+    const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
+    const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;
+    return branch(
+      goTo(this.journey.steps.AdmitAdultery).if(isAdulteryCase),
+      goTo(this.journey.steps.ConsentDecree).if(twoYrSep),
+      goTo(this.journey.steps.ChooseAResponse)
+    );
   }
 }
 
