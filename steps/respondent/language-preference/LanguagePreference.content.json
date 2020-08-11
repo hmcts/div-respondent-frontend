@@ -14,11 +14,11 @@
     "fields": {
       "agree": {
         "heading": "English and Welsh",
-        "answer": "Yes"
+        "answer": "English and Welsh"
       },
       "disagree": {
         "heading": "English only",
-        "answer": "No",
+        "answer": "English only",
         "reason": "Why don’t you agree that the court has jurisdiction?",
         "country": "In which country is your life mainly based?"
       }
@@ -42,11 +42,11 @@
     "fields": {
       "agree": {
         "heading": "Cymraeg a Saesneg",
-        "answer": "Ydy"
+        "answer": "Cymraeg a Saesneg"
       },
       "disagree": {
         "heading": "Saesneg yn unig",
-        "answer": "Nac ydy",
+        "answer": "Saesneg yn unig",
         "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
         "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
       }
