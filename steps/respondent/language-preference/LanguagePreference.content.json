@@ -1,58 +1,58 @@
 {
   "en": {
-    "title": "Do you require your Divorce documents in English and Welsh (emails, letters, texts, certificates)?",
+    "title": "What language do you want use to use when we contact you?",
     "cya": {
-      "agree": "Do you require your Divorce documents in English and Welsh (emails, letters, texts, certificates)?",
+      "agree": "What language do you want use to use when we contact you?",
       "reason": "Why don’t you agree that the court has jurisdiction?",
       "country": "In which country is your life mainly based?"
     },
-    "line1": "If you don’t need your documents to be in the Welsh language, please choose ‘No’.",
-    "line2": "Select ‘Yes’ if you need your documents to be in the Welsh language.",
+    "line1": "We’ll send you emails and documents as we progress your case.",
+    "line2": "Choose which language you’d like these in.",
     "question": "Just one of these gives the court jurisdiction.",
     "answerNo" : "All documents will be in English.",
 
     "fields": {
       "agree": {
-        "heading": "Yes",
+        "heading": "English and Welsh",
         "answer": "Yes"
       },
       "disagree": {
-        "heading": "No",
+        "heading": "English only",
         "answer": "No",
         "reason": "Why don’t you agree that the court has jurisdiction?",
         "country": "In which country is your life mainly based?"
       }
     },
     "errors": {
-      "required": "Select yes if you need your documents to be translated to Welsh."
+      "required": "Choose the languages you want your documents and correspondence in."
     }
   },
   "cy": {
-    "title": "A ydy’ch priodas wedi chwalu’n anadferadwy (ni ellir ei hachub)?",
+    "title": "Pa iaith yr hoffech inni ei defnyddio wrth gysylltu efo chi?",
     "cya": {
-      "agree": "A ydy’ch priodas wedi chwalu’n anadferadwy (ni ellir ei hachub)?",
+      "agree": "Pa iaith yr hoffech inni ei defnyddio wrth gysylltu efo chi?",
       "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
       "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
     },
-    "line1": "Os nad ydych eisiau i’ch dogfennau fod yn Gymraeg, dewiswch ‘Nac ydw’.",
-    "line2": "Dewiswch ‘Ydw’ os ydych eisiau i’ch dogfennau fod yn Gymraeg.",
+    "line1": "Byddwn yn anfon ebyst a dogfennau atoch wrth i ni ddelio gyda’ch achos.",
+    "line2": "Dewisiwch pa iaith yr hoffech eu cael.",
     "question": "Dim ond un o’r rhain sy’n rhoi awdurdodaeth i’r llys.",
     "answerNo" :"Bydd pob documnets yn Saesneg.",
 
     "fields": {
       "agree": {
-        "heading": "Ydw",
+        "heading": "Cymraeg a Saesneg",
         "answer": "Ydy"
       },
       "disagree": {
-        "heading": "Na",
+        "heading": "Saesneg yn unig",
         "answer": "Nac ydy",
         "reason": "Pam nad ydych yn cytuno fod gan y llys awdurdodaeth?",
         "country": "Ym mha wlad ydych chi’n byw gan mwyaf?"
       }
     },
     "errors": {
-      "required": "Dewiswch do os yw eich priodas wedi chwalu’n anadferadwy"
+      "required": "Dewisiwch yr iaith yr hoffech gael eich dogfennau a’ch gohebiaeth."
     }
   }
 }

@@ -14,17 +14,14 @@
     {% call formSection() %}
       {{ selectionButtons(fields.languagePreferenceWelsh, content.title,
         options = [
-          { label: content.fields.agree.heading, value: const.yes },
-          { label: content.fields.disagree.heading, value: const.no, target: "languagePreference-no" }
+          { label: content.fields.disagree.heading, value: const.no },
+          { label: content.fields.agree.heading, value: const.yes }
         ],
         hideQuestion=true,
         inline=false,
         type='radio'
       )
       }}
-      <div id="languagePreference-no" class="form-group panel js-hidden">
-        <p class="govuk-body">{{ content.answerNo | safe }}</p>
-      </div>
     {% endcall %}
   </div>
 {% endblock %}
