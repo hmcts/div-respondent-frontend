@@ -14,7 +14,7 @@
     {% call formSection() %}
       {{ selectionButtons(fields.languagePreferenceWelsh, content.title,
         options = [
-          { label: content.fields.disagree.heading, value: const.no },
+          { label: content.fields.disagree.heading, value: const.no, defaultChecked: true },
           { label: content.fields.agree.heading, value: const.yes }
         ],
         hideQuestion=true,
