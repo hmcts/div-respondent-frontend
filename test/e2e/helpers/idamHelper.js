@@ -18,7 +18,7 @@ const idamArgs = {
 class IdamHelper extends Helper {
   createAUser() {
     const randomString = randomstring.generate({
-      length: 16,
+      length: 1,
       charset: 'numeric'
     });
     const emailName = `divorce+rfe-test-${randomString}`;
