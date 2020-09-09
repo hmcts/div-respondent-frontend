@@ -394,6 +394,17 @@ describe(modulePath, () => {
             fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/',
             mimeType: null,
             status: null
+          },
+          {
+            id: 'generalOrder10231283124',
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'generalOrder1539017559370698.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder',
+            mimeType: null,
+            status: null
           }
         ]
       }
@@ -466,7 +477,8 @@ describe(modulePath, () => {
               .and.to.include('Your answers (PDF)')
               .and.to.include('Certificate Of Entitlement (PDF)')
               .and.to.include('Children and divorce')
-              .and.to.include('Money and property');
+              .and.to.include('Money and property')
+              .and.to.include('General Order (PDF)');
           });
       });
     });

@@ -27,7 +27,8 @@
     "files": {
       "dpetition": "Divorce application",
       "coRespondentAnswers": "Your answers",
-      "certificateOfEntitlement": "Certificate Of Entitlement"
+      "certificateOfEntitlement": "Certificate Of Entitlement",
+      "generalOrder": "General Order"
     }
   },
   "cy": {
@@ -58,7 +59,8 @@
     "files": {
       "dpetition": " Cais am ysgariad",
       "coRespondentAnswers": "Eich atebion",
-      "certificateOfEntitlement": "Tystysgrif Hawl"
+      "certificateOfEntitlement": "Tystysgrif Hawl",
+      "generalOrder": "[CY] General Order"
     }
   }
 }

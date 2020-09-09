@@ -14,7 +14,8 @@
       "coRespondentAnswers": "Co-Respondent’s answers",
       "certificateOfEntitlement": "Certificate Of Entitlement",
       "costsOrder": "Costs Order",
-      "decreeNisi": "Decree Nisi"
+      "decreeNisi": "Decree Nisi",
+      "generalOrder": "General Order"
     },
     "details": {
       "referenceNumber": "Reference number",
@@ -121,7 +122,8 @@
       "coRespondentAnswers": "Atebion y Cyd-atebydd",
       "certificateOfEntitlement": "Tystysgrif Hawl",
       "costsOrder": "Gorchymyn Costau",
-      "decreeNisi": "Dyfarniad Nisi"
+      "decreeNisi": "Dyfarniad Nisi",
+      "generalOrder": "[CY] General Order"
     },
     "details": {
       "referenceNumber": "Cyfeirnod",
