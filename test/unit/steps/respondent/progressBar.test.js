@@ -10,6 +10,7 @@ const httpStatus = require('http-status-codes');
 const { buildSessionWithCourtsInfo,
   testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+const { count } = require('core/utils/utils');
 
 const templates = {
   awaitingReissue: './sections/OneCircleFilledIn.html',
@@ -565,6 +566,17 @@ describe(modulePath, () => {
             fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder',
             mimeType: null,
             status: null
+          },
+          {
+            id: 'generalOrder10231283125',
+            createdBy: 0,
+            createdOn: null,
+            lastModifiedBy: 0,
+            modifiedOn: null,
+            fileName: 'generalOrder1539017559370697.pdf',
+            fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder',
+            mimeType: null,
+            status: null
           }
         ]
       }
@@ -587,8 +599,8 @@ describe(modulePath, () => {
             .and.to.include('Co-Respondent’s answers (PDF)')
             .and.to.include('Certificate Of Entitlement (PDF)')
             .and.to.include('Children and divorce')
-            .and.to.include('Money and property')
-            .and.to.include('General Order (PDF)');
+            .and.to.include('Money and property');
+          expect(count('General Order (PDF)', rightHandSideMenu)).to.equal(2);
         });
     });
   });
