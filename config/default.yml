@@ -184,6 +184,7 @@ caseStates:
   AosAwaitingSol: 'AosAwaitingSol'
   DNDrafted: 'DNDrafted'
   DNisRefused: 'DNisRefused'
+  ServiceApplicationNotApproved: 'ServiceApplicationNotApproved'
 
 features:
   idam: false

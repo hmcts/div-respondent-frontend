@@ -1,0 +1,201 @@
+{
+  "caseId": 3242343423421111,
+  "courts": "eastMidlands",
+  "state": "ServiceApplicationNotApproved",
+  "data": {
+    "expires": 0,
+    "caseReference": "LV17D80000",
+    "screenHasMarriageBroken": "Yes",
+    "screenHasRespondentAddress": "Yes",
+    "screenHasMarriageCert": "Yes",
+    "helpWithFeesNeedHelp": "No",
+    "divorceWho": "wife",
+    "marriageIsSameSexCouple": "No",
+    "marriageDateDay": 9,
+    "marriageDateMonth": 11,
+    "marriageDateYear": 1984,
+    "marriageDate": "1984-11-09T00:00:00.000+0000",
+    "marriageCanDivorce": "true",
+    "marriedInUk": "Yes",
+    "placeOfMarriage": "United Kingdom",
+    "jurisdictionPath": [
+      "JurisdictionHabitualResidence",
+      "JurisdictionInterstitial"
+    ],
+    "jurisdictionConnection": [
+      "A",
+      "C"
+    ],
+    "connections": {
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
+      "B": null,
+      "C": "The Respondent is habitually resident in England and Wales",
+      "D": null,
+      "E": null,
+      "F": null,
+      "G": null
+    },
+    "jurisdictionPetitionerResidence": "Yes",
+    "jurisdictionRespondentResidence": "Yes",
+    "jurisdictionConfidentLegal": "Yes",
+    "petitionerContactDetailsConfidential": "share",
+    "petitionerFirstName": "Cailin",
+    "petitionerLastName": "Murphy",
+    "respondentFirstName": "Kimberly",
+    "respondentLastName": "Puckett",
+    "marriagePetitionerName": "Indigo Reynolds",
+    "marriageRespondentName": "Ross Fisher",
+    "petitionerNameDifferentToMarriageCertificate": "No",
+    "petitionerEmail": "petitioner2020sep18@mailinator.com",
+    "petitionerHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "B 1",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "9, HALLSTEAD ROAD",
+        "BIRMINGHAM",
+        "B13 0NT"
+      ]
+    },
+    "petitionerCorrespondenceUseHomeAddress": "Yes",
+    "petitionerCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "B 1",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "9, HALLSTEAD ROAD",
+        "BIRMINGHAM",
+        "B13 0NT"
+      ]
+    },
+    "livingArrangementsLiveTogether": "Yes",
+    "respondentHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "B 1",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "9, HALLSTEAD ROAD",
+        "BIRMINGHAM",
+        "B13 0NT"
+      ]
+    },
+    "respondentCorrespondenceUseHomeAddress": "Yes",
+    "respondentCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "B 1",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "9, HALLSTEAD ROAD",
+        "BIRMINGHAM",
+        "B13 0NT"
+      ]
+    },
+    "reasonForDivorce": "unreasonable-behaviour",
+    "reasonForDivorceHasMarriageDate": "true",
+    "reasonForDivorceShowAdultery": "true",
+    "reasonForDivorceShowUnreasonableBehaviour": "true",
+    "reasonForDivorceShowTwoYearsSeparation": "true",
+    "reasonForDivorceShowFiveYearsSeparation": "true",
+    "reasonForDivorceShowDesertion": "true",
+    "reasonForDivorceLimitReasons": "false",
+    "reasonForDivorceEnableAdultery": "true",
+    "reasonForDivorceBehaviourDetails": [
+      "Quia ad facilis iste",
+      "Ut est consequatur",
+      "Aut dolorum qui comm"
+    ],
+    "legalProceedings": "No",
+    "financialOrder": "No",
+    "claimsCosts": "No",
+    "courts": "serviceCentre",
+    "confirmPrayer": "Yes",
+    "payment": {
+      "PaymentChannel": "online",
+      "PaymentTransactionId": null,
+      "PaymentReference": "RC-1600-2596-1821-8113",
+      "PaymentDate": "16092020",
+      "PaymentAmount": null,
+      "PaymentStatus": "Initiated",
+      "PaymentFeeId": "FEE0002",
+      "PaymentSiteId": "AA07"
+    },
+    "marriageCertificateFiles": [],
+    "petitionerConsent": "Yes",
+    "createdDate": "2020-09-16T00:00:00.000+0000",
+    "issueDate": "2020-09-16T00:00:00.000+0000",
+    "dueDate": "2020-10-16T00:00:00.000+0000",
+    "respondentContactDetailsConfidential": "share",
+    "petitionerPcqId": "1a01e513-b9e0-4d28-909b-cfe72eeee014",
+    "respEmailAddress": "respondent2020sep18@mailinator.com",
+    "serviceApplicationType": "dispensed",
+    "serviceApplicationGranted": "No",
+    "languagePreferenceWelsh": "No",
+    "d8": [
+      {
+        "id": "692ebfe1-3871-44f5-b71b-a7dd75b86e8a",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "d8petition1600259613850779.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/692ebfe1-3871-44f5-b71b-a7dd75b86e8a",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "581f7a25-a67b-4436-aae4-b5158df1e515",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "aosinvitation1600259613850779.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/581f7a25-a67b-4436-aae4-b5158df1e515",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "36535ea7-a915-4040-93a6-7266d864c232",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "dispenseWithServiceRefused.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/36535ea7-a915-4040-93a6-7266d864c232",
+        "mimeType": null,
+        "status": null
+      }
+    ]
+  }
+}
