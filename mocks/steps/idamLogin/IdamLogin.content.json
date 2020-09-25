@@ -37,6 +37,7 @@
         "coRespAwaitingPronouncementHearingDataFuture": "Co-respondent - Awaiting Pronouncement and Hearing data in future",
         "coRespDNPronouncedWithCosts": "Co-respondent - DNPronounced with costs",
         "coRespDNPronouncedWithoutCosts": "Co-respondent - DNPronounced without costs",
+        "serviceApplicationNotApproved": "Yes - case started - serviceApplicationNotApproved",
         "throwError": "Simulate 500 server error"
       }
     }
