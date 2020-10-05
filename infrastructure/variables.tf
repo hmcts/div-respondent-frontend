@@ -66,9 +66,7 @@ variable "node_path" {
   default = "."
 }
 
-variable "additional_host_name" {
-  type = "string"
-}
+variable "additional_host_name" {}
 
 // Package details
 variable "packages_name" {
@@ -79,9 +77,7 @@ variable "packages_project" {
   default = "divorce"
 }
 
-variable "packages_environment" {
-  type = "string"
-}
+variable "packages_environment" {}
 
 variable "packages_version" {
   default = "-1"
@@ -107,24 +103,18 @@ variable "feature_idam" {
   default = true
 }
 
-variable "idam_authentication_web_url" {
-  type = "string"
-}
+variable "idam_authentication_web_url" {}
 
 variable "idam_authentication_login_endpoint" {
   default = "/login"
 }
 
-variable "idam_api_url" {
-  type = "string"
-}
+variable "idam_api_url" {}
 variable "frontend_service_name" {
   default = "divorce-respondent-frontend"
 }
 
-variable "decree_nisi_frontend_url" {
-  type = "string"
-}
+variable "decree_nisi_frontend_url" {}
 
 variable "decree_absolute_frontend_url" {
   default = ""
@@ -142,9 +132,7 @@ variable "hpkp_shas" {
   default = "Naw+prhcXSIkbtYJ0t7vAD+Fc92DWL9UZevVfWBvids=,klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=,grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="
 }
 
-variable "component" {
-  type = "string"
-}
+variable "component" {}
 
 variable "capacity" {
   default = "1"
@@ -169,16 +157,14 @@ variable "rate_limiter_enabled" {
 }
 
 variable "common_tags" {
-  type = "map"
+  type = map(string)
 }
 
 variable "website_local_cache_option" {
-  type = "string"
   default = "Never"
 }
 
 variable "website_local_cache_sizeinmb" {
-  type = "string"
   default = "0"
 }
 
@@ -200,27 +186,22 @@ variable "feature_webchat" {
 }
 
 variable "webchat_chat_id" {
-  type = "string"
   default = "3833071605d5d4518036a09.30917386"
 }
 
 variable "webchat_tenant" {
-  type = "string"
   default = "aG1jdHNzdGFnaW5nMDE"
 }
 
 variable "webchat_button_no_agents" {
-  type = "string"
   default = "7732814745cac6f4603c4d1.53357933"
 }
 
 variable "webchat_button_agents_busy" {
-  type = "string"
   default = "2042157415cc19c95669039.65793052"
 }
 
 variable "webchat_button_service_closed" {
-  type = "string"
   default = "20199488815cc1a89e0861d5.73103009"
 }
 
