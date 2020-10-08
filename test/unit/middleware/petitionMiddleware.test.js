@@ -130,6 +130,47 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
+  it('fires next() when case state: ServiceApplicationNotApproved', done => {
+    // given
+    const req = {
+      cookies: { '__auth-token': 'test' },
+      get: sinon.stub(),
+      session: {}
+    };
+    const res = {
+      redirect: sinon.spy()
+    };
+    const next = sinon.stub();
+
+    const response = {
+      statusCode: 200,
+      body: {
+        state: 'ServiceApplicationNotApproved',
+        caseId: 1234,
+        data: { // eslint-disable-line id-blacklist
+          marriageIsSameSexCouple: 'No',
+          divorceWho: 'husband',
+          courts: 'eastMidlands',
+          court: {
+            eastMidlands: {
+              divorceCentre: 'East Midlands Regional Divorce Centre'
+            }
+          }
+        }
+      }
+    };
+
+    sinon.stub(caseOrchestration, 'getPetition')
+      .resolves(response);
+
+    // when
+    petitionMiddleware(req, res, next)
+      .then(() => {
+        expect(next.calledOnce).to.be.true;
+      })
+      .then(done, done);
+  });
+
 
   it('redirects to Decree Absolute FE if case found, state: DivorceGranted', done => {
     // given
