@@ -113,7 +113,8 @@
     "marked": ">=0.7.0",
     "minimist": "^1.2.5",
     "serialize-javascript": ">=2.1.1",
-    "yargs-parser": "15.0.1"
+    "yargs-parser": ">=13.1.2 <14.0.0 || >=18.1.2  ",
+    "bl": ">=4.0.3"
   },
   "nyc": {
     "report-dir": "coverage",
