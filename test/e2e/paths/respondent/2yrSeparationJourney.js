@@ -1,10 +1,10 @@
 const content = require('common/content');
+const config = require('config');
 
 Feature('Two year separation journey');
 
-Scenario('Consent to divorce based on 2 year separation', I => {
+Before(I => {
   I.amOnPage('/');
-
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
 
@@ -15,6 +15,12 @@ Scenario('Consent to divorce based on 2 year separation', I => {
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
+  I.click(content.en.continue);
+});
+
+Scenario('@Pipeline Consent to divorce based on 2 year separation', I => {
   I.seeConsentDecreePage();
   I.clickToConsentToDivorce();
   I.click(content.en.continue);
@@ -26,21 +32,32 @@ Scenario('Consent to divorce based on 2 year separation', I => {
   I.seeJurisdictionPage();
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
+
+  I.seeLegalProceedingPage();
+  I.chooseNoLegalProceedings();
+
+  I.navByClick(content.en.continue);
+
+  I.seeContactDetailsPage();
+  I.consentToSendingNotifications();
+  I.navByClick(content.en.continue);
+
+  if (config.features.respondentEquality === 'true') {
+    I.seeEqualityPage();
+    I.completePCQs();
+  }
+
+  I.wait(5);
+
+  I.seeCheckYourAnswersPage();
+  I.confirmInformationIsTrue();
+  I.submitApplication();
+
+  I.seeDonePage();
+  I.see('LV17D80999');
 }).retry(2);
 
 Scenario('Do not consent to 2 year separation and will defend against divorce', I => {
-  I.amOnPage('/');
-
-  I.seeIdamLoginPage();
-  I.loginAs2yrSeparationCase();
-
-  I.seeRespondPage();
-  I.click(content.en.continue);
-
-  I.seeReviewApplicationPage();
-  I.acknowledgeApplication();
-  I.click(content.en.continue);
-
   I.seeConsentDecreePage();
   I.clickToNotConsentDivorce();
   I.clickToDefendDivorce();
@@ -56,18 +73,6 @@ Scenario('Do not consent to 2 year separation and will defend against divorce', 
 }).retry(2);
 
 Scenario('Do not consent to 2 year separation but will not defend against divorce, do not consider finance', I => { // eslint-disable-line
-  I.amOnPage('/');
-
-  I.seeIdamLoginPage();
-  I.loginAs2yrSeparationCase();
-
-  I.seeRespondPage();
-  I.click(content.en.continue);
-
-  I.seeReviewApplicationPage();
-  I.acknowledgeApplication();
-  I.click(content.en.continue);
-
   I.seeConsentDecreePage();
   I.clickToNotConsentDivorce();
   I.clickToNotDefendDivorce();
@@ -87,18 +92,6 @@ Scenario('Do not consent to 2 year separation but will not defend against divorc
 }).retry(2);
 
 Scenario('Initially defend then change response for 2yr separation, no consent', I => {
-  I.amOnPage('/');
-
-  I.seeIdamLoginPage();
-  I.loginAs2yrSeparationCase();
-
-  I.seeRespondPage();
-  I.click(content.en.continue);
-
-  I.seeReviewApplicationPage();
-  I.acknowledgeApplication();
-  I.click(content.en.continue);
-
   I.seeConsentDecreePage();
   I.clickToNotConsentDivorce();
   I.clickToDefendDivorce();
