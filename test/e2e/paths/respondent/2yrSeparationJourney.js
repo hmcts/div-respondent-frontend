@@ -1,13 +1,23 @@
 const content = require('common/content');
 const config = require('config');
+const twoPlusYearsDivorceSession = require('test/resources/2PlusYears-divorce-session');
 
 Feature('Two year separation journey');
 
-Before(I => {
-  I.amOnPage('/');
-  I.seeIdamLoginPage();
-  I.loginAs2yrSeparationCase();
+Scenario('@Pipeline Consent to divorce based on 2 year separation', async I => {
+  await I.createAUser();
+  I.createAosCaseForUser(twoPlusYearsDivorceSession);
+  await I.amOnLoadedPage('/');
 
+  I.seeIdamLoginPage();
+  await I.createAUser();
+  I.login();
+  I.seeCaptureCaseAndPinPage();
+  I.fillInReferenceNumberAndPinCode();
+  I.navByClick(content.en.continue);
+  if (config.tests.e2e.addWaitForCrossBrowser) {
+    I.wait(30);
+  }
   I.seeRespondPage();
   I.click(content.en.continue);
 
@@ -18,9 +28,7 @@ Before(I => {
   I.seeLanguagePreferencePage();
   I.chooseBilingualApplication();
   I.click(content.en.continue);
-});
 
-Scenario('@Pipeline Consent to divorce based on 2 year separation', I => {
   I.seeConsentDecreePage();
   I.clickToConsentToDivorce();
   I.click(content.en.continue);
