@@ -65,7 +65,6 @@ Scenario('@Pipeline Consent to divorce based on 5 year separation', async I => {
   I.see('LV17D80999');
 }).retry(2);
 
-
 Scenario('Do not show financial situation for 5 year separation and defend', I => {
   I.amOnPage('/');
 
