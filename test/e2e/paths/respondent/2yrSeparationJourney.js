@@ -62,7 +62,6 @@ Scenario('@Pipeline Consent to divorce based on 2 year separation', async I => {
   I.submitApplication();
 
   I.seeDonePage();
-  I.see('LV17D80999');
 }).retry(2);
 
 Scenario('Do not consent to 2 year separation and will defend against divorce', I => {

@@ -21,7 +21,7 @@ Before(I => {
   I.click(content.en.continue);
 });
 
-Scenario('@Pipeline Proceed to financial situation for 5 year separation and proceed', I => {
+Scenario('Proceed to financial situation for 5 year separation and proceed', I => {
   I.seeChooseAResponsePage();
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
