@@ -4,7 +4,7 @@ const twoPlusYearsDivorceSession = require('test/resources/2PlusYears-divorce-se
 
 Feature('Two year separation journey');
 
-Scenario('@Pipeline Consent to divorce based on 2 year separation', async I => {
+Scenario('Consent to divorce based on 2 year separation', async I => {
   await I.createAUser();
   I.createAosCaseForUser(twoPlusYearsDivorceSession);
   await I.amOnLoadedPage('/');
