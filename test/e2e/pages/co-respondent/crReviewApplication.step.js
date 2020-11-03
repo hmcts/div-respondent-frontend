@@ -7,7 +7,6 @@ function seeCrReviewApplicationPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(CrReviewApplicationPage.path);
-  I.waitForText(content.en.title);
 }
 
 function acknowledgeApplication() {
