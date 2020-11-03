@@ -1,5 +1,5 @@
 const content = require('common/content');
-const desertionSession = require('test/resources/desertion-session');
+const desertionSession = require('test/resources/desertion-divorce-session');
 const config = require('config');
 
 
