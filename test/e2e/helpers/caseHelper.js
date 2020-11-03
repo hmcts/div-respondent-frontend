@@ -9,6 +9,9 @@ let Helper = codecept_helper; // eslint-disable-line
 class CaseHelper extends Helper {
   createAosCaseForUser(caseData) {
     caseData.AosLetterHolderId = idamConfigHelper.getLetterHolderId();
+    if (caseData.D8ReasonForDivorce === 'adultery') {
+      caseData.CoRespLetterHolderId = idamConfigHelper.getLetterHolderId();
+    }
     const params = {
       baseUrl: config.services.caseMaintenance.baseUrl,
       authToken: idamConfigHelper.getTestToken(),
