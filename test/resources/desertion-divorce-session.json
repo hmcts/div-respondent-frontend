@@ -120,12 +120,13 @@
     "PostTown": null,
     "AddressLine1": null,
     "AddressLine2": null,
-    "AddressLine3": null,
-    "D8ReasonForDivorceDesertionDate" : "2006-01-12",
-    "D8ReasonForDivorceDesertionAgreed" : "NO",
-    "D8ReasonForDivorceDesertionDetails" : "Left a note and ran away"
+    "AddressLine3": null
   },
+
   "D8ReasonForDivorce": "desertion",
   "D8DerivedPetitionerCurrentFullName": "Brad Tom",
-  "D8InferredPetitionerGender": "male"
+  "D8InferredPetitionerGender": "male",
+  "D8ReasonForDivorceDesertionDate" : "2006-01-12",
+  "D8ReasonForDivorceDesertionAgreed" : "NO",
+  "D8ReasonForDivorceDesertionDetails" : "Left a note and ran away"
 }
