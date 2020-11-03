@@ -82,16 +82,6 @@
     "D8ReasonForDivorceAdulteryWhereDetails": "On a washing machine.",
     "D8ReasonForDivorceAdulteryWhenDetails": "Some time ago.",
     "D8ReasonForDivorceAdulteryIsNamed": "YES",
-    "D8ReasonForDivorceAdultery3rdAddress": {
-        "addressType": "manual",
-        "address": [
-            "Headquarters 1120 N Street Sacramento 916-654-5266\t",
-            "P.O. Box 942873 Sacramento, CA 94273-0001"
-        ],
-        "addressConfirmed": "true",
-        "addressAbroad": "Headquarters 1120 N Street Sacramento 916-654-5266\t\r\nP.O. Box 942873 Sacramento, CA 94273-0001\r\n",
-        "url": "/about-divorce/reason-for-divorce/adultery/co-respondent-address"
-    },
     "D8DerivedReasonForDivorceAdultery3rdAddr": "Headquarters 1120 N Street Sacramento 916-654-5266\t\nP.O. Box 942873 Sacramento, CA 94273-0001",
     "D8FinancialOrder": "YES",
     "D8FinancialOrderFor" : [ "petitioner", "children" ],

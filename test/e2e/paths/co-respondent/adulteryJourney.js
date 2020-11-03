@@ -1,6 +1,6 @@
 const content = require('common/content');
 const config = require('config');
-const adulteryDivorceSession = require('test/resources/adultery-divorce-session');
+const adulteryDivorceSession = require('test/resources/corespondent-divorce-session');
 
 Feature('Co-respondent Adultery journey');
 
