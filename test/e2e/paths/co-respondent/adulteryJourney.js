@@ -6,7 +6,7 @@ Feature('Co-respondent Adultery journey');
 
 Scenario('@Pipeline Proceed to adultery admission screen and admit adultery', async I => {
   await I.createAUser();
-  I.createAosCaseForUser(adulteryDivorceSession);
+  I.createAosCaseForUser(adulteryDivorceSession, true);
   await I.amOnLoadedPage('/');
 
   I.seeIdamLoginPage();

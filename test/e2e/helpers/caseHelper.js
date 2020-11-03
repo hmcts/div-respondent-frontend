@@ -7,11 +7,18 @@ const divTestHarness = require('@hmcts/div-test-harness');
 let Helper = codecept_helper; // eslint-disable-line
 
 class CaseHelper extends Helper {
-  createAosCaseForUser(caseData) {
-    caseData.AosLetterHolderId = idamConfigHelper.getLetterHolderId();
-    if (caseData.D8ReasonForDivorce === 'adultery') {
+  createAosCaseForUser(caseData, isCoRespUser = false) {
+    if (isCoRespUser) {
       caseData.CoRespLetterHolderId = idamConfigHelper.getLetterHolderId();
+    } else {
+      caseData.AosLetterHolderId = idamConfigHelper.getLetterHolderId();
     }
+    // eslint-disable-next-line no-console
+    console.log(caseData.D8ReasonForDivorce);
+    // eslint-disable-next-line no-console
+    console.log(caseData.CoRespLetterHolderId);
+    // eslint-disable-next-line no-console
+    console.log(caseData.AosLetterHolderId);
     const params = {
       baseUrl: config.services.caseMaintenance.baseUrl,
       authToken: idamConfigHelper.getTestToken(),
