@@ -107,11 +107,6 @@
         "id" : null,
         "value" : {
           "DocumentType": "other",
-          "DocumentLink" : {
-            "document_url": "http://localhost:5006/documents/7f63ca9b-c361-49ab-aa8c-8fbdb6bc2936",
-            "document_binary_url" : null,
-            "document_filename" : null
-          },
           "DocumentDateAdded": "2017-12-11",
           "DocumentComment": "",
           "DocumentFileName": "govuklogo.png",
@@ -122,11 +117,6 @@
         "id" : null,
         "value" : {
           "DocumentType": "other",
-          "DocumentLink" : {
-            "document_url": "http://localhost:5006/documents/560f4bd1-fcf2-4dc5-80d1-d7e00d861683",
-            "document_binary_url" : null,
-            "document_filename" : null
-          },
           "DocumentDateAdded": "2017-12-11",
           "DocumentComment": "",
           "DocumentFileName": "d8-eng.pdf",
