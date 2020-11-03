@@ -1,18 +1,32 @@
 const content = require('common/content');
+const config = require('config');
+const twoPlusYearsDivorceSession = require('test/resources/2PlusYears-divorce-session');
 
 Feature('Two year separation journey');
 
-Scenario('Consent to divorce based on 2 year separation', I => {
-  I.amOnPage('/');
+Scenario('@Pipeline Consent to divorce based on 2 year separation', async I => {
+  await I.createAUser();
+  I.createAosCaseForUser(twoPlusYearsDivorceSession);
+  await I.amOnLoadedPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAs2yrSeparationCase();
-
+  await I.createAUser();
+  I.login();
+  I.seeCaptureCaseAndPinPage();
+  I.fillInReferenceNumberAndPinCode();
+  I.navByClick(content.en.continue);
+  if (config.tests.e2e.addWaitForCrossBrowser) {
+    I.wait(30);
+  }
   I.seeRespondPage();
   I.click(content.en.continue);
 
   I.seeReviewApplicationPage();
   I.acknowledgeApplication();
+  I.click(content.en.continue);
+
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
   I.click(content.en.continue);
 
   I.seeConsentDecreePage();
@@ -26,6 +40,29 @@ Scenario('Consent to divorce based on 2 year separation', I => {
   I.seeJurisdictionPage();
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
+
+  I.seeLegalProceedingPage();
+  I.chooseNoLegalProceedings();
+
+  I.navByClick(content.en.continue);
+
+  I.seeContactDetailsPage();
+  I.consentToSendingNotifications();
+  I.navByClick(content.en.continue);
+
+  if (config.features.respondentEquality === 'true') {
+    I.seeEqualityPage();
+    I.completePCQs();
+  }
+
+  I.wait(5);
+
+  I.seeCheckYourAnswersPage();
+  I.confirmInformationIsTrue();
+  I.submitApplication();
+
+  I.seeDonePage();
+  I.see('LV17D80999');
 }).retry(2);
 
 Scenario('Do not consent to 2 year separation and will defend against divorce', I => {
