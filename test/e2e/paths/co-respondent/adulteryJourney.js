@@ -19,7 +19,6 @@ Scenario('@Pipeline Proceed to adultery admission screen and admit adultery', as
     I.wait(30);
   }
   I.seeCrRespondPage();
-  I.seeCrDocumentsForDownload();
   I.click(content.en.continue);
 
   I.seeCrReviewApplicationPage();
