@@ -51,8 +51,6 @@ Scenario('@Pipeline Proceed to adultery admission screen and admit adultery', as
   I.seeCrCheckYourAnswersPage();
   I.confirmInformationIsTrue();
   I.submitApplication();
-
-  I.seeDonePage();
   I.see('EZ12D91234');
 }).retry(2);
 
