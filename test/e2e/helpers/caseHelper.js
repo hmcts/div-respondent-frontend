@@ -7,8 +7,12 @@ const divTestHarness = require('@hmcts/div-test-harness');
 let Helper = codecept_helper; // eslint-disable-line
 
 class CaseHelper extends Helper {
-  createAosCaseForUser(caseData) {
-    caseData.AosLetterHolderId = idamConfigHelper.getLetterHolderId();
+  createAosCaseForUser(caseData, isCoRespUser = false) {
+    if (isCoRespUser) {
+      caseData.CoRespLetterHolderId = idamConfigHelper.getLetterHolderId();
+    } else {
+      caseData.AosLetterHolderId = idamConfigHelper.getLetterHolderId();
+    }
     const params = {
       baseUrl: config.services.caseMaintenance.baseUrl,
       authToken: idamConfigHelper.getTestToken(),
