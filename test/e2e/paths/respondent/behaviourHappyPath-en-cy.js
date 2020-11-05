@@ -16,7 +16,7 @@ async function testRespondentBehaviourJourney(I, language = 'en') {
   if (language === 'en') {
     I.login(language);
   } else {
-    I.loginCy(language)
+    I.loginCy(language);
   }
 
   I.seeCaptureCaseAndPinPage(language);
@@ -96,4 +96,4 @@ Scenario('@Pipeline EN - Behaviour Journey, Proceed divorce with linked user', a
 
 Scenario('@Pipeline CY - Behaviour Journey, Proceed divorce with linked user', async I => {
   await testRespondentBehaviourJourney(I, 'cy');
-}).retry(2).tag('e2e');
+}).retry(2);
