@@ -1,15 +1,15 @@
 const ContactDetails = require('steps/respondent/contact-details/ContactDetails.step');
 const content = require('steps/respondent/contact-details/ContactDetails.content');
 
-function seeContactDetailsPage() {
+function seeContactDetailsPage(language = 'en') {
   const I = this;
   I.waitInUrl(ContactDetails.path, 15);
   I.seeCurrentUrlEquals(ContactDetails.path);
-  I.waitForText(content.en.title, 5);
+  I.waitForText(content[language].title, 5);
 }
 
-function consentToSendingNotifications() {
-  this.click(content.en.fields.email.label);
+function consentToSendingNotifications(language = 'en') {
+  this.click(content[language].fields.email.label);
 }
 
 module.exports = {

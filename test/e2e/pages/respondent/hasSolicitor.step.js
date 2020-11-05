@@ -1,19 +1,19 @@
 const SolicitorRep = require('steps/respondent/solicitor-representation/SolicitorRepresentation.step');
 const content = require('steps/respondent/solicitor-representation/SolicitorRepresentation.content');
 
-function seeSolicitorRepPage() {
+function seeSolicitorRepPage(language = 'en') {
   const I = this;
   I.waitInUrl(SolicitorRep.path, 15);
   I.seeCurrentUrlEquals(SolicitorRep.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content[language].title);
 }
 
-function selectYesHaveSolicitor() {
-  this.click(content.en.fields.hasSolicitor.label);
+function selectYesHaveSolicitor(language = 'en') {
+  this.click(content[language].fields.hasSolicitor.label);
 }
 
-function selectNoSolicitor() {
-  this.click(content.en.fields.noSolicitor.label);
+function selectNoSolicitor(language = 'en') {
+  this.click(content[language].fields.noSolicitor.label);
 }
 
 module.exports = {

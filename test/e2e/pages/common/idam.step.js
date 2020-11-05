@@ -4,25 +4,29 @@ const content = require('mocks/steps/idamLogin/IdamLogin.content');
 const config = require('config');
 const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 
-function seeIdamLoginPage() {
+function seeIdamLoginPage(language = 'en') {
   const I = this;
   I.seeInCurrentUrl('login');
-  I.waitForText(content.en.title);
+  I.waitForText(content[language].title);
 }
 
-function login() {
+function login(language = 'en') {
   const I = this;
 
   if (config.features.idam) {
     I.seeInCurrentUrl('/login?');
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
-    I.navByClick('Sign in');
+    if (language === 'en') {
+      I.navByClick('Sign in');
+    } else {
+      I.navByClick('Mewngofnodi');
+    }
     I.wait(2);
   } else {
     I.seeCurrentUrlEquals(IdamLoginPage.path);
-    I.click(content.en.fields.success.yesCaseNotLinked);
-    I.click(commonContent.en.continue);
+    I.click(content[language].fields.success.yesCaseNotLinked);
+    I.click(commonContent[language].continue);
   }
 }
 
