@@ -9,16 +9,8 @@ async function testRespondentBehaviourJourney(I, language = 'en') {
   I.createAosCaseForUser(basicDivorceSession);
   await I.amOnLoadedPage('/', language);
 
-  I.seeIdamLoginPage(language);
-
   await I.createAUser();
-
-  if (language === 'en') {
-    I.login(language);
-  } else {
-    I.loginCy(language);
-  }
-
+  I.login(language);
   I.seeCaptureCaseAndPinPage(language);
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content[language].continue);
