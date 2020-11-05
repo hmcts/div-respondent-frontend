@@ -10,17 +10,17 @@ function seeIdamLoginPage(language = 'en') {
   I.waitForText(content[language].title);
 }
 
-function login(language = 'en') {
+function login(language) {
   const I = this;
 
   if (config.features.idam) {
     I.seeInCurrentUrl('/login?');
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
-    if (language === 'en') {
-      I.navByClick('Sign in');
-    } else {
+    if (language === 'cy') {
       I.navByClick('Mewngofnodi');
+    } else {
+      I.navByClick('Sign in');
     }
     I.wait(2);
   } else {
