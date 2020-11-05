@@ -7,7 +7,7 @@ const languages = ['en', 'cy'];
 
 const excludedSteps = ['Equality'];
 
-// ensure step has a template - if it doesnt no need to test it
+// ensure a step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
   return stepInstance.middleware.includes(resolveTemplate) && !excludedSteps.includes(step.name);
