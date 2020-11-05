@@ -12,7 +12,13 @@ async function testRespondentBehaviourJourney(I, language = 'en') {
   I.seeIdamLoginPage(language);
 
   await I.createAUser();
-  I.login(language);
+
+  if (language === 'en') {
+    I.login(language);
+  } else {
+    I.loginCy(language)
+  }
+
   I.seeCaptureCaseAndPinPage(language);
   I.fillInReferenceNumberAndPinCode();
   I.navByClick(content[language].continue);
@@ -68,7 +74,7 @@ async function testRespondentBehaviourJourney(I, language = 'en') {
   I.navByClick(content[language].continue);
 
   if (config.features.respondentEquality === 'true') {
-    I.seeEqualitysPage(language);
+    I.seeEqualityPage(language);
     I.completePCQs(language);
   }
 
@@ -86,7 +92,7 @@ Feature('Happy path');
 
 Scenario('@Pipeline EN - Behaviour Journey, Proceed divorce with linked user', async I => {
   await testRespondentBehaviourJourney(I, 'en');
-}).retry(2).tag('e2e');
+}).retry(2);
 
 Scenario('@Pipeline CY - Behaviour Journey, Proceed divorce with linked user', async I => {
   await testRespondentBehaviourJourney(I, 'cy');

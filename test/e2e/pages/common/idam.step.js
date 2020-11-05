@@ -10,18 +10,30 @@ function seeIdamLoginPage(language = 'en') {
   I.waitForText(content[language].title);
 }
 
-function login(language) {
+function login(language = 'en') {
   const I = this;
 
   if (config.features.idam) {
     I.seeInCurrentUrl('/login?');
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
-    if (language === 'cy') {
-      I.navByClick('Mewngofnodi');
-    } else {
-      I.navByClick('Sign in');
-    }
+    I.navByClick('Sign in');
+    I.wait(2);
+  } else {
+    I.seeCurrentUrlEquals(IdamLoginPage.path);
+    I.click(content[language].fields.success.yesCaseNotLinked);
+    I.click(commonContent[language].continue);
+  }
+}
+
+function loginCy(language = 'cy') {
+  const I = this;
+
+  if (config.features.idam) {
+    I.seeInCurrentUrl('/login?');
+    I.fillField('username', idamConfigHelper.getTestEmail());
+    I.fillField('password', idamConfigHelper.getTestPassword());
+    I.navByClick('Mewngofnodi');
     I.wait(2);
   } else {
     I.seeCurrentUrlEquals(IdamLoginPage.path);
@@ -195,6 +207,7 @@ function loginAndThrowError() {
 module.exports = {
   seeIdamLoginPage,
   login,
+  loginCy,
   loginAsANonLinkedUser,
   loginAsInvalidPinUser,
   loginAsALinkedUser,
