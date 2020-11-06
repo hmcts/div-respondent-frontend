@@ -9,6 +9,7 @@ const language = ['en', 'cy'];
 Feature('Happy path');
 
 for (const i of language) {
+  // eslint-disable-next-line no-undef
   Data(language).Scenario('@Pipeline Behaviour Journey, Proceed divorce with linked user', async I => {
     await I.createAUser();
     I.createAosCaseForUser(basicDivorceSession);
