@@ -9,7 +9,6 @@ const language = ['en', 'cy'];
 Feature('Happy path');
 
 for (const i of language) {
-
   Data(language).Scenario('@Pipeline Behaviour Journey, Proceed divorce with linked user', async I => {
     await I.createAUser();
     I.createAosCaseForUser(basicDivorceSession);
@@ -84,6 +83,5 @@ for (const i of language) {
 
     I.seeDonePage([i]);
     I.see('LV18D81234');
-
   }).retry(2).tag('e2e');
 }
