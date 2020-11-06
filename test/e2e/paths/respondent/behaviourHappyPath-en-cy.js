@@ -4,88 +4,85 @@ const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page');
 const contentJurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.content');
 
-async function testRespondentBehaviourJourney(I, language = 'en') {
-  await I.createAUser();
-  I.createAosCaseForUser(basicDivorceSession);
-  await I.amOnLoadedPage('/', language);
-
-  await I.createAUser();
-  I.login(language);
-  I.seeCaptureCaseAndPinPage(language);
-  I.fillInReferenceNumberAndPinCode();
-  I.navByClick(content[language].continue);
-  if (config.tests.e2e.addWaitForCrossBrowser) {
-    I.wait(30);
-  }
-  I.seeRespondPage(language);
-  I.navByClick(content[language].continue);
-  I.seeReviewApplicationPage(language);
-  I.wait(5);
-  I.acknowledgeApplication(language);
-  I.navByClick(content[language].continue);
-  if (config.tests.e2e.addWaitForCrossBrowser) {
-    I.wait(30);
-
-    if (parseBool(config.features.respSolicitorDetails)) {
-      I.seeSolicitorRepPage(language);
-      I.selectNoSolicitor(language);
-      I.click(content[language].continue);
-    }
-  }
-
-  I.seeLanguagePreferencePage(language);
-  I.chooseBilingualApplication(language);
-  I.click(content[language].continue);
-
-  I.seeChooseAResponsePage(language);
-  I.chooseToProceedWithDivorce(language);
-  I.navByClick(content[language].continue);
-
-  I.seeJurisdictionPage(language);
-  I.chooseAgreeToJurisdiction(language);
-  if (config.tests.e2e.addWaitForCrossBrowser) {
-    I.click(contentJurisdiction[language].fields.disagree.heading);
-    I.fillField('jurisdiction.reason', 'what to try something diff for crossbrowser');
-    I.fillField('jurisdiction.country', 'USA');
-  }
-
-  I.navByClick(content[language].continue);
-
-  I.seeLegalProceedingPage(language);
-  I.chooseNoLegalProceedings(language);
-
-  I.navByClick(content[language].continue);
-
-  I.seeAgreeToPayCostsPage(language);
-  I.wait(5);
-  I.chooseAgreeToPay(language);
-  I.navByClick(content[language].continue);
-
-  I.seeContactDetailsPage(language);
-  I.consentToSendingNotifications(language);
-  I.navByClick(content[language].continue);
-
-  if (config.features.respondentEquality === 'true') {
-    I.seeEqualityPage(language);
-    I.completePCQs(language);
-  }
-
-  I.wait(5);
-
-  I.seeCheckYourAnswersPage(language);
-  I.confirmInformationIsTrue(language);
-  I.submitApplication(language);
-
-  I.seeDonePage(language);
-  I.see('LV18D81234');
-}
+const language = ['en', 'cy'];
 
 Feature('Happy path');
 
-Scenario('@Pipeline EN - Behaviour Journey, Proceed divorce with linked user', async I => {
-  await testRespondentBehaviourJourney(I, 'en');
-}).retry(2);
+for (const i of language) {
 
-Scenario('@Pipeline CY - Behaviour Journey, Proceed divorce with linked user', async I => {
-  await testRespondentBehaviourJourney(I, 'cy');
-}).retry(2);
+  Data(language).Scenario('@Pipeline Behaviour Journey, Proceed divorce with linked user', async I => {
+    await I.createAUser();
+    I.createAosCaseForUser(basicDivorceSession);
+    await I.amOnLoadedPage('/', [i]);
+
+    await I.createAUser();
+    I.login([i]);
+    I.seeCaptureCaseAndPinPage([i]);
+    I.fillInReferenceNumberAndPinCode();
+    I.navByClick(content[i].continue);
+    if (config.tests.e2e.addWaitForCrossBrowser) {
+      I.wait(30);
+    }
+    I.seeRespondPage([i]);
+    I.navByClick(content[i].continue);
+    I.seeReviewApplicationPage([i]);
+    I.wait(5);
+    I.acknowledgeApplication([i]);
+    I.navByClick(content[i].continue);
+    if (config.tests.e2e.addWaitForCrossBrowser) {
+      I.wait(30);
+
+      if (parseBool(config.features.respSolicitorDetails)) {
+        I.seeSolicitorRepPage([i]);
+        I.selectNoSolicitor([i]);
+        I.click(content[i].continue);
+      }
+    }
+
+    I.seeLanguagePreferencePage([i]);
+    I.chooseBilingualApplication([i]);
+    I.click(content[i].continue);
+
+    I.seeChooseAResponsePage([i]);
+    I.chooseToProceedWithDivorce([i]);
+    I.navByClick(content[i].continue);
+
+    I.seeJurisdictionPage([i]);
+    I.chooseAgreeToJurisdiction([i]);
+    if (config.tests.e2e.addWaitForCrossBrowser) {
+      I.click(contentJurisdiction[i].fields.disagree.heading);
+      I.fillField('jurisdiction.reason', 'what to try something diff for crossbrowser');
+      I.fillField('jurisdiction.country', 'USA');
+    }
+
+    I.navByClick(content[i].continue);
+
+    I.seeLegalProceedingPage([i]);
+    I.chooseNoLegalProceedings([i]);
+
+    I.navByClick(content[i].continue);
+
+    I.seeAgreeToPayCostsPage([i]);
+    I.wait(5);
+    I.chooseAgreeToPay([i]);
+    I.navByClick(content[i].continue);
+
+    I.seeContactDetailsPage([i]);
+    I.consentToSendingNotifications([i]);
+    I.navByClick(content[i].continue);
+
+    if (config.features.respondentEquality === 'true') {
+      I.seeEqualityPage([i]);
+      I.completePCQs([i]);
+    }
+
+    I.wait(5);
+
+    I.seeCheckYourAnswersPage([i]);
+    I.confirmInformationIsTrue([i]);
+    I.submitApplication([i]);
+
+    I.seeDonePage([i]);
+    I.see('LV18D81234');
+  }).retry(2).tag('e2e');
+}
