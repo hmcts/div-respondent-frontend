@@ -84,5 +84,6 @@ for (const i of language) {
 
     I.seeDonePage([i]);
     I.see('LV18D81234');
+
   }).retry(2).tag('e2e');
 }
