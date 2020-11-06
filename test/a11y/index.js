@@ -3,9 +3,11 @@ const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const a11y = require('./a11y');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 
+const languages = ['en', 'cy'];
+
 const excludedSteps = ['Equality'];
 
-// ensure step has a template - if it doesnt no need to test it
+// ensure a step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
   return stepInstance.middleware.includes(resolveTemplate) && !excludedSteps.includes(step.name);
@@ -38,10 +40,12 @@ const getAgent = step => {
     .asServer();
 };
 
-const validateAccessibility = (step, method) => {
+const validateAccessibility = (step, method, language = 'en') => {
   return new Promise((resolve, reject) => {
     const agent = getAgent(step);
-    a11y(agent.get(step.path).url, method)
+    const url = `${step.path}?lng=${language}`;
+
+    a11y(agent.get(url).url, method)
       .then(results => {
         const errors = results
           .filter(result => result.type === 'error')
@@ -65,16 +69,45 @@ const validateAccessibility = (step, method) => {
   });
 };
 
-steps
-  .filter(filterSteps)
-  .forEach(step => {
-    describe(`Validate HTML accessibility for the page ${step.name}`, () => {
-      let errors = [];
-      let warnings = [];
 
-      describe('GET Requests', () => {
+const runTests = (step, language = 'en') => {
+  describe(`Validate HTML accessibility for the page ${step.name} - ${language}`, () => {
+    let errors = [];
+    let warnings = [];
+
+    describe('GET Requests', () => {
+      before(() => {
+        return validateAccessibility(step, 'GET', language)
+          .then(results => {
+            errors = results.errors
+              .filter(filteredErrors);
+            warnings = results.warnings
+              .filter(filteredWarnings);
+          })
+          .catch(error => {
+            expect(error)
+              .to
+              .eql(false, `Error when validating HTML accessibility: ${error}`);
+          });
+      });
+
+      it('should not generate any errors', () => {
+        expect(errors.length)
+          .to
+          .equal(0, JSON.stringify(errors, null, 2));
+      });
+
+      it('should not generate any warnings', () => {
+        expect(warnings.length)
+          .to
+          .equal(0, JSON.stringify(warnings, null, 2));
+      });
+    });
+
+    if (stepIsPostable(step)) {
+      describe('POST Requests', () => {
         before(() => {
-          return validateAccessibility(step, 'GET')
+          return validateAccessibility(step, 'POST', language)
             .then(results => {
               errors = results.errors
                 .filter(filteredErrors);
@@ -82,42 +115,33 @@ steps
                 .filter(filteredWarnings);
             })
             .catch(error => {
-              expect(error).to.eql(false, `Error when validating HTML accessibility: ${error}`);
+              expect(error)
+                .to
+                .eql(false, `Error when validating HTML accessibility: ${error}`);
             });
         });
 
         it('should not generate any errors', () => {
-          expect(errors.length).to.equal(0, JSON.stringify(errors, null, 2));
+          expect(errors.length)
+            .to
+            .equal(0, JSON.stringify(errors, null, 2));
         });
 
         it('should not generate any warnings', () => {
-          expect(warnings.length).to.equal(0, JSON.stringify(warnings, null, 2));
+          expect(warnings.length)
+            .to
+            .equal(0, JSON.stringify(warnings, null, 2));
         });
       });
+    }
+  });
+};
 
-      if (stepIsPostable(step)) {
-        describe('POST Requests', () => {
-          before(() => {
-            return validateAccessibility(step, 'POST')
-              .then(results => {
-                errors = results.errors
-                  .filter(filteredErrors);
-                warnings = results.warnings
-                  .filter(filteredWarnings);
-              })
-              .catch(error => {
-                expect(error).to.eql(false, `Error when validating HTML accessibility: ${error}`);
-              });
-          });
-
-          it('should not generate any errors', () => {
-            expect(errors.length).to.equal(0, JSON.stringify(errors, null, 2));
-          });
-
-          it('should not generate any warnings', () => {
-            expect(warnings.length).to.equal(0, JSON.stringify(warnings, null, 2));
-          });
-        });
-      }
-    });
+languages
+  .forEach(language => {
+    steps
+      .filter(filterSteps)
+      .forEach(step => {
+        runTests(step, language);
+      });
   });
