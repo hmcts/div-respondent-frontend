@@ -6,7 +6,7 @@ Feature('Happy path');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
-  Scenario(`5+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
+  Scenario(`@Pipeline 5+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
     await I.createAUser();
     I.createAosCaseForUser(fivePlusYearsDivorceSession);
     await I.amOnLoadedPage('/', language);
