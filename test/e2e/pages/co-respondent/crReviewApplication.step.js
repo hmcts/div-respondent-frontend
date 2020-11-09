@@ -1,20 +1,17 @@
-const CrReviewApplicationPage = require(
-  'steps/co-respondent/cr-review-application/CrReviewApplication.step'
-);
+const CrReviewApplicationPage = require('steps/co-respondent/cr-review-application/CrReviewApplication.step');
 const content = require('steps/co-respondent/cr-review-application/CrReviewApplication.content');
 
-function seeCrReviewApplicationPage() {
+function seeCrReviewApplicationPage(language = 'en') {
   const I = this;
-
   I.seeCurrentUrlEquals(CrReviewApplicationPage.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content[language].title);
 }
 
-function acknowledgeApplication() {
-  this.click(content.en.readConfirmation);
+function acknowledgeApplicationCr(language = 'en') {
+  this.click(content[language].readConfirmation);
 }
 
 module.exports = {
   seeCrReviewApplicationPage,
-  acknowledgeApplication
+  acknowledgeApplicationCr
 };

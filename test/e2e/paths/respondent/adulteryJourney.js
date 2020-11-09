@@ -1,93 +1,49 @@
 const content = require('common/content');
-const config = require('config');
-const adulteryDivorceSession = require('test/resources/corespondent-divorce-session');
 
-Feature('Co-respondent Adultery journey');
+Feature('Adultery journey');
 
-Scenario('@Pipeline Proceed to adultery admission screen and admit adultery', async I => {
-  await I.createAUser();
-  I.createAosCaseForUser(adulteryDivorceSession, true);
-  await I.amOnLoadedPage('/');
+Scenario('Proceed to adultery admission screen and admit adultery', I => {
+  I.amOnPage('/');
 
   I.seeIdamLoginPage();
-  await I.createAUser();
-  I.login();
-  I.seeCaptureCaseAndPinPage();
-  I.fillInReferenceNumberAndPinCode();
-  I.navByClick(content.en.continue);
-  if (config.tests.e2e.addWaitForCrossBrowser) {
-    I.wait(30);
-  }
-  I.seeCrRespondPage();
+  I.loginAsAdulteryCase();
+
+  I.seeRespondPage();
+  I.seeDocumentsForDownload();
   I.click(content.en.continue);
 
-  I.seeCrReviewApplicationPage();
+  I.seeReviewApplicationPage();
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
-  I.seeCrAdmitAdulteryPage();
-  I.clickCrToAdmitAdultery();
+  I.seeAdmitAdulteryPage();
+  I.clickToAdmitAdultery();
   I.click(content.en.continue);
 
-  I.seeCrChooseAResponsePage();
-  I.chooseCrToProceedWithDivorce();
+  I.seeChooseAResponsePage();
+  I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
-
-  I.seeCrAgreeToPayCostsPage();
-  I.chooseCrAgreeToPay();
-  I.click(content.en.continue);
-
-  I.seeCrContactDetailsPage();
-  I.consentToSendingCrNotifications();
-  I.navByClick(content.en.continue);
-
-  if (config.features.respondentEquality === 'true') {
-    I.seeEqualityPage();
-    I.completePCQs();
-  }
-
-  I.wait(5);
-
-  I.seeCrCheckYourAnswersPage();
-  I.confirmInformationIsTrue();
-  I.submitApplication();
-  I.see('EZ12D91234');
 }).retry(2);
 
 Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
-  I.loginAsCorespondent();
+  I.loginAsAdulteryCase();
 
-  I.seeCrRespondPage();
+  I.seeRespondPage();
+  I.seeDocumentsForDownload();
   I.click(content.en.continue);
 
-  I.seeCrReviewApplicationPage();
+  I.seeReviewApplicationPage();
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
-  I.seeCrAdmitAdulteryPage();
-  I.clickCrToNotAdmitAdultery();
+  I.seeAdmitAdulteryPage();
+  I.clickToNotAdmitAdultery();
   I.click(content.en.continue);
 
-  I.seeCrChooseAResponsePage();
-  I.chooseCrToDefendAgainstDivorce();
+  I.seeChooseAResponsePage();
+  I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
-
-  I.seeCrConfirmDefencePage();
-  I.clickCrToConfirmDefenceAgainstDivorce();
-  I.click(content.en.continue);
-
-  I.seeCrAgreeToPayCostsPage();
-  I.chooseCrAgreeToPay();
-  I.click(content.en.continue);
-
-  I.seeCrContactDetailsPage();
-  I.consentToSendingCrNotifications();
-  I.navByClick(content.en.continue);
-
-  I.seeCrCheckYourAnswersPage();
-  I.confirmInformationIsTrue();
-  I.submitApplication();
 }).retry(2);

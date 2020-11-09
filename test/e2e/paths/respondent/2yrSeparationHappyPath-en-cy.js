@@ -2,7 +2,7 @@ const content = require('common/content');
 const config = require('config');
 const twoPlusYearsDivorceSession = require('test/resources/2PlusYears-divorce-session');
 
-Feature('Happy path');
+Feature('2 years Separation Journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {

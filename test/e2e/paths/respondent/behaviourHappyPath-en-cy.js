@@ -4,7 +4,7 @@ const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page');
 const contentJurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.content');
 
-Feature('Happy path');
+Feature('Unreasonable Behaviour Journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
