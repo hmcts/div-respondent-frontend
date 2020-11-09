@@ -1,11 +1,11 @@
 const RespondPage = require('steps/respondent/respond/Respond.step');
 const content = require('steps/respondent/respond/Respond.content');
 
-function seeRespondPage() {
+function seeRespondPage(language = 'en') {
   const I = this;
   I.waitInUrl(RespondPage.path, 15);
   I.seeCurrentUrlEquals(RespondPage.path);
-  I.waitForText(content.en.title, 2);
+  I.waitForText(content[language].title, 2);
 }
 
 function seeDocumentsForDownload() {

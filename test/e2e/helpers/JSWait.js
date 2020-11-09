@@ -22,10 +22,10 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     }
   }
 
-  async amOnLoadedPage(url) {
+  async amOnLoadedPage(url, language = 'en') {
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
-    let newUrl = url;
+    let newUrl = `${url}?lng=${language}`;
 
     if (helperIsPuppeteer) {
       if (newUrl.indexOf('http') !== 0) {

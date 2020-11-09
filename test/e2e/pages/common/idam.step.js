@@ -10,19 +10,23 @@ function seeIdamLoginPage() {
   I.waitForText(content.en.title);
 }
 
-function login() {
+function login(language = 'en') {
   const I = this;
 
   if (config.features.idam) {
     I.seeInCurrentUrl('/login?');
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
-    I.navByClick('Sign in');
+    if (language === 'cy') {
+      I.navByClick('Mewngofnodi');
+    } else {
+      I.navByClick('Sign in');
+    }
     I.wait(2);
   } else {
     I.seeCurrentUrlEquals(IdamLoginPage.path);
-    I.click(content.en.fields.success.yesCaseNotLinked);
-    I.click(commonContent.en.continue);
+    I.click(content[language].fields.success.yesCaseNotLinked);
+    I.click(commonContent[language].continue);
   }
 }
 
