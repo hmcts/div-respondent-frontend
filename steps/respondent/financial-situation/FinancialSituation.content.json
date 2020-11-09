@@ -21,7 +21,7 @@
     }
   },
   "cy": {
-    "title": "A ydych yn bwriadu gofyn i’r llys ohirio’r  ysgariad hyd nes y bydd yn fodlon â’ch sefyllfa ariannol?",
+    "title": "A ydych yn bwriadu gofyn i’r llys ohirio’r ysgariad hyd nes y bydd yn fodlon â’ch sefyllfa ariannol?",
     "description": "Gan fod eich {{ divorceWho }} wedi defnyddio gwahanu yn rheswm dros ysgaru, gallwch ofyn i’r llys ystyried eich sefyllfa ariannol ar ôl ysgaru.",
     "theCourtMayDelay": "Yna gall y llys ystyried gohirio cam olaf yr ysgariad (y dyfarniad absoliwt) nes ei fod yn fodlon ar y trefniadau ariannol rhyngoch chi a’ch {{ divorceWho }}.",
     "readMore": "Darllenwch fwy am hyn",

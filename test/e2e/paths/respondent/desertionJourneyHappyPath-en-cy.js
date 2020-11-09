@@ -1,16 +1,14 @@
 const content = require('common/content');
-const basicDivorceSession = require('test/resources/basic-divorce-session');
+const desertionSession = require('test/resources/desertion-divorce-session');
 const config = require('config');
-const { parseBool } = require('@hmcts/one-per-page');
-const contentJurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.content');
 
-Feature('Happy path');
+Feature('Desertion journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
-  Scenario(`@Pipeline Behaviour Journey, Proceed divorce with linked user - ${language}`, async I => {
+  Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {
     await I.createAUser();
-    I.createAosCaseForUser(basicDivorceSession);
+    I.createAosCaseForUser(desertionSession);
     await I.amOnLoadedPage('/', language);
 
     await I.createAUser();
@@ -22,21 +20,11 @@ const runTests = (language = 'en') => {
       I.wait(30);
     }
     I.seeRespondPage(language);
-    I.navByClick(content[language].continue);
+    I.click(content[language].continue);
 
     I.seeReviewApplicationPage(language);
-    I.wait(5);
     I.acknowledgeApplication(language);
-    I.navByClick(content[language].continue);
-
-    if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(30);
-      if (parseBool(config.features.respSolicitorDetails)) {
-        I.seeSolicitorRepPage(language);
-        I.selectNoSolicitor(language);
-        I.click(content[language].continue);
-      }
-    }
+    I.click(content[language].continue);
 
     I.seeLanguagePreferencePage(language);
     I.chooseBilingualApplication(language);
@@ -44,24 +32,14 @@ const runTests = (language = 'en') => {
 
     I.seeChooseAResponsePage(language);
     I.chooseToProceedWithDivorce(language);
-    I.navByClick(content[language].continue);
+    I.click(content[language].continue);
 
     I.seeJurisdictionPage(language);
     I.chooseAgreeToJurisdiction(language);
-    if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.click(contentJurisdiction[language].fields.disagree.heading);
-      I.fillField('jurisdiction.reason', 'what to try something diff for crossbrowser');
-      I.fillField('jurisdiction.country', 'USA');
-    }
-    I.navByClick(content[language].continue);
+    I.click(content[language].continue);
 
     I.seeLegalProceedingPage(language);
     I.chooseNoLegalProceedings(language);
-    I.navByClick(content[language].continue);
-
-    I.seeAgreeToPayCostsPage(language);
-    I.wait(5);
-    I.chooseAgreeToPay(language);
     I.navByClick(content[language].continue);
 
     I.seeContactDetailsPage(language);
@@ -80,7 +58,7 @@ const runTests = (language = 'en') => {
     I.submitApplication(language);
 
     I.seeDonePage(language);
-    I.see('LV18D81234');
+    I.see('EZ12D81281');
   }).retry(2);
 };
 
