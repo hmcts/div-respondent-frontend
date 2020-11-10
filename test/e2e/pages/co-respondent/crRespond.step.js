@@ -1,17 +1,16 @@
 const CrRespondPage = require('steps/co-respondent/cr-respond/CrRespond.step');
 const content = require('steps/co-respondent/cr-respond/CrRespond.content');
 
-function seeCrRespondPage() {
+function seeCrRespondPage(language = 'en') {
   const I = this;
-
   I.seeCurrentUrlEquals(CrRespondPage.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content[language].title);
 }
 
-function seeCrDocumentsForDownload() {
+function seeCrDocumentsForDownload(language = 'en') {
   const I = this;
-  I.waitForText(content.en.files.dpetition);
-  I.waitForText(content.en.files.certificateOfEntitlement);
+  I.waitForText(content[language].files.dpetition);
+  I.waitForText(content[language].files.certificateOfEntitlement);
 }
 
 module.exports = {

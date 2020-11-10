@@ -1,27 +1,24 @@
-const crCheckYourAnswers = require(
-  'steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.step'
-);
-
+const crCheckYourAnswers = require('steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.step');
 const content = require('steps/co-respondent/cr-check-your-answers/CrCheckYourAnswers.content');
 
-function seeCrCheckYourAnswersPage() {
+function seeCrCheckYourAnswersPage(language = 'en') {
   const I = this;
 
   I.seeCurrentUrlEquals(crCheckYourAnswers.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content[language].title);
 }
 
-function confirmInformationIsTrue() {
+function confirmInformationIsTrueCr(language = 'en') {
   const I = this;
-  I.click(content.en.fields.statementOfTruth.yes);
+  I.click(content[language].fields.statementOfTruth.yes);
 }
 
-function submitApplication() {
-  this.click(content.en.submit);
+function submitApplicationCr(language = 'en') {
+  this.click(content[language].submit);
 }
 
 module.exports = {
   seeCrCheckYourAnswersPage,
-  confirmInformationIsTrue,
-  submitApplication
+  confirmInformationIsTrueCr,
+  submitApplicationCr
 };
