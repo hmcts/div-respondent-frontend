@@ -36,12 +36,27 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withNightlyPipeline("nodejs", product, component) {
     env.TEST_URL = params.URL_TO_TEST
     env.NODE_ENV= 'ci'
+    env.test_environment = 'aat'
 
     loadVaultSecrets(secrets)
+    enableMutationTest()
     enableCrossBrowserTest()
     enableSecurityScan()
+
+    enableFullFunctionalTest()
 
     after('crossBrowserTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
+
+  after('fullFunctionalTest') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
+  before('fullFunctionalTest') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
 }
