@@ -12,6 +12,7 @@ properties([
 def product = "div"
 def component = "rfe"
 
+def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 def secrets = [
   'div-${env}': [
@@ -46,6 +47,11 @@ withNightlyPipeline("nodejs", product, component) {
     after('crossBrowserTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
+
+  after('test') {
+    yarnBuilder.yarn('test:validation')
+    // required for running functional tests on CI
+  }
 
   after('fullFunctionalTest') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
