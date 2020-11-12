@@ -3,7 +3,7 @@
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const conf = require('config');
 
-const waitForTimeout = parseInt(conf.saucelabs.waitForTimeoutValue);
+const waitForTimeout = parseInt(conf.saucelabs.waitForTimeout);
 const smartWait = parseInt(conf.saucelabs.smartWait);
 const browser = process.env.SAUCE_BROWSER || conf.saucelabs.browser;
 const tunnelName = process.env.SAUCE_TUNNEL_IDENTIFIER || conf.saucelabs.tunnelId;
@@ -29,7 +29,7 @@ const setupConfig = {
   tests: './paths/respondent/happyPath.js',
   output: `${process.cwd()}/functional-output`,
   helpers: {
-    WebDriverIO: {
+    WebDriver: {
       url: process.env.E2E_FRONTEND_URL || conf.tests.e2e.url,
       browser,
       waitForTimeout,

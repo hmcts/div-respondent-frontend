@@ -1,6 +1,6 @@
 class JSWait extends codecept_helper { // eslint-disable-line camelcase
   _beforeStep(step) {
-    const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
+    const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
 
     // Wait for content to load before checking URL
     if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
@@ -10,7 +10,7 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
   }
 
   async navByClick(text, locator) {
-    const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
+    const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
 
     helper.click(text, locator);
@@ -23,7 +23,7 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
   }
 
   async amOnLoadedPage(url, language = 'en') {
-    const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
+    const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
     let newUrl = `${url}?lng=${language}`;
 
