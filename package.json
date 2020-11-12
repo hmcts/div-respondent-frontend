@@ -74,7 +74,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
-    "codeceptjs": "^2.4.3",
+    "codeceptjs": "^2.6.11",
     "domino": "^2.1.4",
     "eslint": "^4.19.1",
     "eslint-plugin-mocha": "^5.0.0",
@@ -95,7 +95,7 @@
     "pa11y": "^4.0.1",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.1.3",
-    "puppeteer": "^2.1.0",
+    "puppeteer": "^5.4.1",
     "randomstring": "^1.1.5",
     "require-directory": "^2.1.1",
     "rewire": "^4.0.1",
@@ -104,7 +104,7 @@
     "sonar-scanner": "^3.1.0",
     "supertest": "^3.0.0",
     "w3cjs": "^0.4.0",
-    "webdriverio": "^4.13.1",
+    "webdriverio": "^6.7.2",
     "zepto-node": "^1.0.0"
   },
   "resolutions": {
