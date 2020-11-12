@@ -43,10 +43,10 @@ const runTests = (language = 'en') => {
     I.consentToSendingCrNotifications(language);
     I.navByClick(content[language].continue);
 
-    /*if (config.features.respondentEquality === 'true') {
+    /* if (config.features.respondentEquality === 'true') {
       I.seeEqualityPage(language);
       I.completePCQs(language);
-    }*/
+    } */
 
     I.wait(5);
 
