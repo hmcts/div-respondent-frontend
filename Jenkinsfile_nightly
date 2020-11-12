@@ -39,10 +39,8 @@ withNightlyPipeline("nodejs", product, component) {
     env.test_environment = 'aat'
 
     loadVaultSecrets(secrets)
-    enableMutationTest()
     enableCrossBrowserTest()
     enableSecurityScan()
-
     enableFullFunctionalTest()
 
     after('crossBrowserTest') {
