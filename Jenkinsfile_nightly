@@ -54,9 +54,4 @@ withNightlyPipeline("nodejs", product, component) {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }
 
-  before('fullFunctionalTest') {
-    env.NODE_ENV= 'ci'
-    sh 'printenv'
-  }
-
 }
