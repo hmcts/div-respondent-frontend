@@ -4,8 +4,8 @@ const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const conf = require('config');
 const merge = require('test/e2e/helpers/caseConfigHelper').merge;
 
-const waitForTimeout = parseInt(process.env.WAIT_FOR_TIMEOUT || conf.saucelabs.waitForTimeout);
-const smartWait = parseInt(process.env.SMART_WAIT || conf.saucelabs.smartWait);
+const waitForTimeout = parseInt(conf.saucelabs.waitForTimeout);
+const smartWait = parseInt(conf.saucelabs.smartWait);
 const browser = process.env.SAUCE_BROWSER || conf.saucelabs.browser;
 const defaultSauceOptions = {
   username: process.env.SAUCE_USERNAME || conf.saucelabs.username,
