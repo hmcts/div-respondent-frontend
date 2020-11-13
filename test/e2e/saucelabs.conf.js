@@ -53,13 +53,6 @@ const setupConfig = {
     CaseHelper: { require: './helpers/caseHelper.js' }
   },
   include: { I: './pages/steps.js' },
-  // mocha: {
-  //   reporterOptions: {
-  //     reportDir: `${process.cwd()}/functional-output`,
-  //     reportName: 'index',
-  //     inlineAssets: true
-  //   }
-  // },
   mocha: {
     reporterOptions: {
       'codeceptjs-cli-reporter': {
