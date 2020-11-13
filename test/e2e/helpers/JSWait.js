@@ -36,7 +36,6 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
       await helper.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
     } else {
       await helper.amOnPage(newUrl);
-      await helper.waitInUrl(newUrl);
       await helper.waitForElement('body');
     }
   }
