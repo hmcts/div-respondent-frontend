@@ -38,6 +38,7 @@ withNightlyPipeline("nodejs", product, component) {
   env.TEST_URL = params.URL_TO_TEST
   env.NODE_ENV= 'ci'
   env.test_environment = 'aat'
+  env.E2E_ALL_LANGUAGES = 'false'
 
   before('crossBrowserTest') {
     env.FEATURE_RESP_EQUALITY = 'true'

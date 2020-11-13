@@ -5,7 +5,7 @@ const { parseBool } = require('@hmcts/one-per-page');
 const contentJurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.content');
 
 Feature('Unreasonable Behaviour Journey');
-const languages = ['en', 'cy'];
+const languages = (config.tests.e2e.allLanguages === 'true') ? ['en', 'cy'] : ['en'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline Behaviour Journey, Proceed divorce with linked user - ${language}`, async I => {

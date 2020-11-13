@@ -142,6 +142,7 @@ tests:
     proxy: ''
     proxyByPass: ''
     addWaitForCrossBrowser: false
+    allLanguages: 'true'
     idam:
       idamTestUsername:
       idamTestPassword:
