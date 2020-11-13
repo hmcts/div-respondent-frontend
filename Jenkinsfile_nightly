@@ -39,6 +39,11 @@ withNightlyPipeline("nodejs", product, component) {
   env.NODE_ENV= 'ci'
   env.test_environment = 'aat'
 
+  before('crossBrowserTest') {
+    env.FEATURE_RESP_EQUALITY = 'true'
+    env.FEATURE_CORESP_EQUALITY = 'true'
+  }
+
   loadVaultSecrets(secrets)
   enableCrossBrowserTest()
   enableSecurityScan()
