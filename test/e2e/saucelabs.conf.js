@@ -2,31 +2,38 @@
 
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const conf = require('config');
+const merge = require('test/e2e/helpers/caseConfigHelper').merge;
 
 const waitForTimeout = parseInt(conf.saucelabs.waitForTimeout);
 const smartWait = parseInt(conf.saucelabs.smartWait);
 const browser = process.env.SAUCE_BROWSER || conf.saucelabs.browser;
-const tunnelName = process.env.SAUCE_TUNNEL_IDENTIFIER || conf.saucelabs.tunnelId;
-const getBrowserConfig = browserGroup => {
+const defaultSauceOptions = {
+  username: process.env.SAUCE_USERNAME || conf.saucelabs.username,
+  accessKey: process.env.SAUCE_ACCESS_KEY || conf.saucelabs.key,
+  tunnelIdentifier: process.env.SAUCE_TUNNEL_IDENTIFIER || conf.saucelabs.tunnelId,
+  acceptSslCerts: true,
+  tags: ['RFE_divorce']
+};
+
+function getBrowserConfig(browserGroup) {
   const browserConfig = [];
   for (const candidateBrowser in supportedBrowsers[browserGroup]) {
     if (candidateBrowser) {
-      const desiredCapability = supportedBrowsers[browserGroup][candidateBrowser];
-      desiredCapability.tunnelIdentifier = tunnelName;
-      desiredCapability.tags = ['RFE_divorce'];
+      const candidateCapabilities = supportedBrowsers[browserGroup][candidateBrowser];
+      candidateCapabilities['sauce:options'] = merge(defaultSauceOptions, candidateCapabilities['sauce:options']);
       browserConfig.push({
-        browser: desiredCapability.browserName,
-        desiredCapabilities: desiredCapability
+        browser: candidateCapabilities.browserName,
+        capabilities: candidateCapabilities
       });
     } else {
       console.error('ERROR: supportedBrowsers.js is empty or incorrectly defined');
     }
   }
   return browserConfig;
-};
+}
 
 const setupConfig = {
-  tests: './paths/respondent/happyPath.js',
+  tests: './paths/**/*.js',
   output: `${process.cwd()}/functional-output`,
   helpers: {
     WebDriver: {
@@ -38,9 +45,7 @@ const setupConfig = {
       host: 'ondemand.eu-central-1.saucelabs.com',
       port: 80,
       region: 'eu',
-      user: process.env.SAUCE_USERNAME || conf.saucelabs.username,
-      key: process.env.SAUCE_ACCESS_KEY || conf.saucelabs.key,
-      desiredCapabilities: {}
+      capabilities: {}
     },
     SauceLabsReportingHelper: { require: './helpers/sauceLabsReportingHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
