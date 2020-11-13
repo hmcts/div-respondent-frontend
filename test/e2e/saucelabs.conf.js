@@ -53,11 +53,31 @@ const setupConfig = {
     CaseHelper: { require: './helpers/caseHelper.js' }
   },
   include: { I: './pages/steps.js' },
+  // mocha: {
+  //   reporterOptions: {
+  //     reportDir: `${process.cwd()}/functional-output`,
+  //     reportName: 'index',
+  //     inlineAssets: true
+  //   }
+  // },
   mocha: {
     reporterOptions: {
-      reportDir: `${process.cwd()}/functional-output`,
-      reportName: 'index',
-      inlineAssets: true
+      'codeceptjs-cli-reporter': {
+        stdout: '-',
+        options: { steps: true }
+      },
+      'mocha-junit-reporter': {
+        stdout: '-',
+        options: { mochaFile: `${process.cwd()}/functional-output/result.xml` }
+      },
+      mochawesome: {
+        stdout: './functional-output/console.log',
+        options: {
+          reportDir: `${process.cwd()}/functional-output`,
+          reportName: 'index',
+          inlineAssets: true
+        }
+      }
     }
   },
   multiple: {

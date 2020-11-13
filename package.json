@@ -27,7 +27,7 @@
     "test:fullfunctional": "NODE_PATH=. LOG_LEVEL=DEBUG codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Pipeline' --reporter mocha-multi",
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/w3cjs --timeout 30000",
     "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
-    "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci LOG_LEVEL=DEBUG node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/e2e/saucelabs.conf.js --steps --grep '@Pipeline' --reporter mochawesome",
+    "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci LOG_LEVEL=DEBUG node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/e2e/saucelabs.conf.js --steps --grep '@Pipeline' --reporter mocha-multi",
     "lint": "eslint ."
   },
   "pre-commit": [
