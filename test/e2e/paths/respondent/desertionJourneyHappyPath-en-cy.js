@@ -3,7 +3,7 @@ const desertionSession = require('test/resources/desertion-divorce-session');
 const config = require('config');
 
 Feature('Desertion journey');
-const languages = (config.tests.e2e.allLanguages === 'true') ? ['en', 'cy'] : ['en'];
+const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {

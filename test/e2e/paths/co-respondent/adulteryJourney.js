@@ -3,7 +3,7 @@ const config = require('config');
 const adulteryDivorceSession = require('test/resources/corespondent-divorce-session');
 
 Feature('Co-respondent Adultery Journey');
-const languages = (config.tests.e2e.allLanguages === 'true') ? ['en', 'cy'] : ['en'];
+const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline Proceed to adultery admission screen and admit adultery - ${language}`, async I => {

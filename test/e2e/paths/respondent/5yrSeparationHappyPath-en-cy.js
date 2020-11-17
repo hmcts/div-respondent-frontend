@@ -3,7 +3,7 @@ const config = require('config');
 const fivePlusYearsDivorceSession = require('test/resources/5PlusYears-divorce-session');
 
 Feature('5 years Separation Journey');
-const languages = (config.tests.e2e.allLanguages === 'true') ? ['en', 'cy'] : ['en'];
+const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline 5+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
