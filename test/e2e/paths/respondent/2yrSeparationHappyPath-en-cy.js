@@ -6,7 +6,7 @@ Feature('2 years Separation Journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
-  Scenario(`@Pipeline 2+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
+  Scenario(`@Pipeline2 2+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
     await I.createAUser();
     I.createAosCaseForUser(twoPlusYearsDivorceSession);
     await I.amOnLoadedPage('/', language);
@@ -51,12 +51,9 @@ const runTests = (language = 'en') => {
     I.consentToSendingNotifications(language);
     I.navByClick(content[language].continue);
 
-    if (config.features.respondentEquality === 'true') {
-      I.seeEqualityPage(language);
-      I.completePCQs(language);
-    }
-
-    I.wait(5);
+    I.seeEqualityPage(language);
+    I.completePCQs(language);
+    I.wait(3);
 
     I.seeCheckYourAnswersPage(language);
     I.confirmInformationIsTrue(language);
