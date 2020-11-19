@@ -1,27 +1,27 @@
 const ConsentDecree = require('steps/respondent/consent-decree/ConsentDecree.step');
 const content = require('steps/respondent/consent-decree/ConsentDecree.content');
 
-function seeConsentDecreePage() {
+function seeConsentDecreePage(language = 'en') {
   const I = this;
 
   I.seeCurrentUrlEquals(ConsentDecree.path);
-  I.waitForText(content.en.title);
+  I.waitForText(content[language].title);
 }
 
-function clickToConsentToDivorce() {
-  this.click(content.en.fields.consentDecree.labelYes);
+function clickToConsentToDivorce(language = 'en') {
+  this.click(content[language].fields.consentDecree.labelYes);
 }
 
-function clickToNotConsentDivorce() {
-  this.click(content.en.fields.consentDecree.labelNo);
+function clickToNotConsentDivorce(language = 'en') {
+  this.click(content[language].fields.consentDecree.labelNo);
 }
 
-function clickToDefendDivorce() {
-  this.click(content.en.fields.willDefend.labelYes);
+function clickToDefendDivorce(language = 'en') {
+  this.click(content[language].fields.willDefend.labelYes);
 }
 
-function clickToNotDefendDivorce() {
-  this.click(content.en.fields.willDefend.labelNo);
+function clickToNotDefendDivorce(language = 'en') {
+  this.click(content[language].fields.willDefend.labelNo);
 }
 
 module.exports = {

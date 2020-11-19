@@ -12,6 +12,7 @@ properties([
 def product = "div"
 def component = "rfe"
 
+def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 def secrets = [
   'div-${env}': [
@@ -34,14 +35,32 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 }
 
 withNightlyPipeline("nodejs", product, component) {
-    env.TEST_URL = params.URL_TO_TEST
-    env.NODE_ENV= 'ci'
+  env.TEST_URL = params.URL_TO_TEST
+  env.NODE_ENV= 'ci'
+  env.test_environment = 'aat'
 
-    loadVaultSecrets(secrets)
-    enableCrossBrowserTest()
-    enableSecurityScan()
+  before('crossBrowserTest') {
+    env.FEATURE_RESP_EQUALITY = 'true'
+    env.FEATURE_CORESP_EQUALITY = 'true'
+  }
 
-    after('crossBrowserTest') {
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-    }
+  loadVaultSecrets(secrets)
+  enableCrossBrowserTest()
+  enableSecurityScan()
+  enableFullFunctionalTest()
+
+  after('crossBrowserTest') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
+  after('test') {
+    yarnBuilder.yarn('test:validation')
+    // required for running functional tests on CI
+  }
+
+  after('fullFunctionalTest') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
 }

@@ -3,11 +3,11 @@ const content = require('steps/capture-case-and-pin/CaptureCaseAndPin.content');
 const idamConfigHelper = require('test/e2e/helpers/idamConfigHelper.js');
 const caseConfigHelper = require('test/e2e//helpers/caseConfigHelper.js');
 
-function seeCaptureCaseAndPinPage() {
+function seeCaptureCaseAndPinPage(language = 'en') {
   const I = this;
   I.waitInUrl(CaptureCaseAndPinPage.path, 30);
   I.seeCurrentUrlEquals(CaptureCaseAndPinPage.path);
-  I.waitForText(content.en.title, 5);
+  I.waitForText(content[language].title, 5);
 }
 
 function fillInReferenceNumberAndPinCode(referenceNumber, pinCode) {

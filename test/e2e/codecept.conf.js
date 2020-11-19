@@ -37,15 +37,40 @@ exports.config = {
   include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
-      reportDir: process.env.E2E_OUTPUT_DIR || './functional-output',
-      reportName: 'RespondentFrontendTests',
-      inlineAssets: true
+      'codeceptjs-cli-reporter': {
+        stdout: '-',
+        options: { steps: true }
+      },
+      'mocha-junit-reporter': {
+        stdout: '-',
+        options: { mochaFile: './functional-output/result.xml' }
+      },
+      mochawesome: {
+        stdout: './functional-output/console.log',
+        options: {
+          reportDir: process.env.E2E_OUTPUT_DIR || './functional-output',
+          reportName: 'index',
+          inlineAssets: true
+        }
+      }
+    }
+  },
+  multiple: {
+    parallel: {
+      chunks: 4,
+      browsers: ['chrome']
     }
   },
   plugins: {
     screenshotOnFail: {
       enabled: true,
       fullPageScreenshots: true
+    },
+    retryFailedStep: {
+      enabled: true
+    },
+    autoDelay: {
+      enabled: true
     }
   },
   name: 'Respondent Frontend Tests'

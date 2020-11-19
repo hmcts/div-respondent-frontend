@@ -26,6 +26,10 @@ tests:
       idamTestLevelOfAccess: IDAM_TEST_LEVEL_OF_ACCESS
       idamTestSupportCreateAccountEndpoint: IDAM_TEST_SUPPORT_CREATE_ACCOUNT_ENDPOINT
 
+saucelabs:
+  waitForTimeout: SAUCELABS_WAIT_FOR_TIMEOUT_VALUE
+  smartWait: SAUCELABS_SMART_WAIT_VALUE
+
 ssl:
   hpkp:
     maxAge: HPKP_MAX_AGE

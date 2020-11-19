@@ -1,15 +1,15 @@
 const ReviewApplicationPage = require('steps/respondent/review-application/ReviewApplication.step');
 const content = require('steps/respondent/review-application/ReviewApplication.content');
 
-function seeReviewApplicationPage() {
+function seeReviewApplicationPage(language = 'en') {
   const I = this;
   I.waitInUrl(ReviewApplicationPage.path, 15);
   I.seeCurrentUrlEquals(ReviewApplicationPage.path);
-  I.waitForText(content.en.title, 5);
+  I.waitForText(content[language].title, 5);
 }
 
-function acknowledgeApplication() {
-  this.click(content.en.readConfirmation);
+function acknowledgeApplication(language = 'en') {
+  this.click(content[language].readConfirmation);
 }
 
 module.exports = {
