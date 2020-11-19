@@ -45,7 +45,7 @@ withNightlyPipeline("nodejs", product, component) {
   }
 
   loadVaultSecrets(secrets)
-  enableCrossBrowserTest()
+//  enableCrossBrowserTest()
   enableSecurityScan()
   enableFullFunctionalTest()
 
