@@ -213,6 +213,84 @@
     },
     "courts": "serviceCentre",
     "respEmailAddress": "user@email.com",
+    "d8": [
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "d8petition1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/430b333a-de02-4b16-8868-e6b1130aab2b",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "1230fjasdhascertificateOfEntitlement10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "certificateOfEntitlement1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/certificateOfEntitlement",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "1230fjasdcoRespondentAnswers10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "coRespondentAnswers1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/coRespondentAnswers",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "1230fjasdhasrespondentAnswers10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "respondentAnswers1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/respondentAnswers",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "generalOrder10231283123",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "generalOrder1539017559370699.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "generalOrder10231283124",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "generalOrder1539017559370698.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "generalOrder10231283125",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "generalOrder1539017559370697.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder",
+        "mimeType": null,
+        "status": null
+      }
+    ],
     "confirmPrayer": "Yes",
     "payment": {
       "PaymentChannel": "card",

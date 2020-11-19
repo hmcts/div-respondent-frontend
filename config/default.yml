@@ -208,6 +208,7 @@ document:
     - 'coRespondentAnswers'
     - 'certificateOfEntitlement'
     - 'costsOrder'
+    - 'generalOrder'
     respondent:
     - 'd8petition'
     - 'respondentAnswers'
@@ -215,6 +216,7 @@ document:
     - 'certificateOfEntitlement'
     - 'costsOrder'
     - 'decreeNisi'
+    - 'generalOrder'
 
 saucelabs:
   browser: 'chrome'

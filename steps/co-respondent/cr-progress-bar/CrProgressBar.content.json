@@ -10,7 +10,8 @@
       "dpetition": "Divorce application",
       "coRespondentAnswers": "Your answers",
       "certificateOfEntitlement": "Certificate Of Entitlement",
-      "costsOrder": "Cost order"
+      "costsOrder": "Cost order",
+      "generalOrder": "General Order"
     },
     "tooLateToRespond": {
       "heading": "Contact the Courts and Tribunals Service Centre",
@@ -85,7 +86,8 @@
       "dpetition": "Cais am ysgariad",
       "coRespondentAnswers": "Eich atebion",
       "certificateOfEntitlement": "Tystysgrif Hawl",
-      "costsOrder": "Gorchymyn Costau"
+      "costsOrder": "Gorchymyn Costau",
+      "generalOrder": "[CY] General Order"
     },
     "tooLateToRespond": {
       "heading": "Cysylltu â Chanolfan Wasanaeth y Llysoedd a’r Tribiwnlysoedd",
