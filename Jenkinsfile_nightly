@@ -38,8 +38,16 @@ withNightlyPipeline("nodejs", product, component) {
   env.TEST_URL = params.URL_TO_TEST
   env.NODE_ENV= 'ci'
   env.test_environment = 'aat'
-  env.FEATURE_RESP_EQUALITY = 'true'
-  env.FEATURE_CORESP_EQUALITY = 'true'
+
+  before('crossBrowserTest') {
+    env.FEATURE_RESP_EQUALITY = 'true'
+    env.FEATURE_CORESP_EQUALITY = 'true'
+  }
+
+  before('fullFunctionalTest') {
+    env.FEATURE_RESP_EQUALITY = 'false'
+    env.FEATURE_CORESP_EQUALITY = 'false'
+  }
 
   loadVaultSecrets(secrets)
 //  enableCrossBrowserTest()
