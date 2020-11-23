@@ -1,6 +1,6 @@
 Feature('Progress bar page - CoRespondent');
 
-Scenario('Should display content for co-respondent - Not defending response', I => {
+Scenario('@Pipeline Should display content for co-respondent - Not defending response', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCoRespNotDefending();
@@ -10,7 +10,7 @@ Scenario('Should display content for co-respondent - Not defending response', I 
   I.seeCoRespAnswersToDownload();
 }).retry(2);
 
-Scenario('Should display content for co-respondent - Defending awaiting answer', I => {
+Scenario('@Pipeline Should display content for co-respondent - Defending awaiting answer', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCoRespDefendingWaitingAnswer();
@@ -19,7 +19,7 @@ Scenario('Should display content for co-respondent - Defending awaiting answer',
   I.seePetitionToDownload();
 }).retry(2);
 
-Scenario('Should display content for co-respondent - Defending submitted answer', I => {
+Scenario('@Pipeline Should display content for co-respondent - Defending submitted answer', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCoRespDefendingSubmittedAnswer();
@@ -29,7 +29,7 @@ Scenario('Should display content for co-respondent - Defending submitted answer'
   I.seeCoRespAnswersToDownload();
 }).retry(2);
 
-Scenario('Should display content for co-respondent - Too late to Respond', I => {
+Scenario('@Pipeline Should display content for co-respondent - Too late to Respond', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCoRespTooLateToRespond();
@@ -38,7 +38,7 @@ Scenario('Should display content for co-respondent - Too late to Respond', I => 
   I.seePetitionToDownload();
 }).retry(2);
 
-Scenario('Should display content for co-respondent - awaiting pronouncement and hearing date in the future', I => { // eslint-disable-line max-len
+Scenario('@Pipeline Should display content for co-respondent - awaiting pronouncement and hearing date in the future', I => { // eslint-disable-line max-len
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCoRespAwaitingPronouncementHearingDataFuture();
@@ -46,7 +46,7 @@ Scenario('Should display content for co-respondent - awaiting pronouncement and 
   I.seeCoRespAwaitingPronouncementHearingDataFuture();
 }).retry(2);
 
-Scenario('Should display content for co-respondent - DNPronounced with costs orde', I => { // eslint-disable-line max-len
+Scenario('@Pipeline Should display content for co-respondent - DNPronounced with costs orde', I => { // eslint-disable-line max-len
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCoRespDNPronouncedAndCostsOrder();
@@ -55,7 +55,7 @@ Scenario('Should display content for co-respondent - DNPronounced with costs ord
   I.seeCoRespCostsOrderToDownload();
 }).retry(2);
 
-Scenario('Should display content for co-respondent - DNPronounced without costs order', I => { // eslint-disable-line max-len
+Scenario('@Pipeline Should display content for co-respondent - DNPronounced without costs order', I => { // eslint-disable-line max-len
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCoRespDNPronouncedWithoutCostsOrder();

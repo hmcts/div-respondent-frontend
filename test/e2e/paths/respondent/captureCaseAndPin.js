@@ -3,7 +3,7 @@ const content = require('steps/capture-case-and-pin/CaptureCaseAndPin.content');
 
 Feature('CaptureCaseAndPin step');
 
-Scenario('Can link case using case ID/PIN code', I => {
+Scenario('@Pipeline Can link case using case ID/PIN code', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
@@ -14,7 +14,7 @@ Scenario('Can link case using case ID/PIN code', I => {
   I.seeRespondPage();
 }).retry(2);
 
-Scenario('Can link case using case ID/PIN code if ID has extra nonnumerical characters', I => {
+Scenario('@Pipeline Can link case using case ID/PIN code if ID has extra nonnumerical characters', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
@@ -25,7 +25,7 @@ Scenario('Can link case using case ID/PIN code if ID has extra nonnumerical char
   I.seeRespondPage();
 }).retry(2);
 
-Scenario('Should see an error page if PIN code is invalid', I => {
+Scenario('@Pipeline Should see an error page if PIN code is invalid', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
@@ -37,7 +37,7 @@ Scenario('Should see an error page if PIN code is invalid', I => {
   I.see(content.en.referenceNumberOrPinDoNotMatch);
 }).retry(2);
 
-Scenario('Should see a generic error page if link case fails', I => {
+Scenario('@Pipeline Should see a generic error page if link case fails', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();

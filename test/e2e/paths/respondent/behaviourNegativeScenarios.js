@@ -3,7 +3,7 @@ const config = require('config');
 
 Feature('Behaviour journeys, disagree with the divorce');
 
-Scenario('Disagree with divorce', I => { // eslint-disable-line
+Scenario('@Pipeline Disagree with divorce', I => { // eslint-disable-line
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsALinkedUser();
@@ -57,7 +57,7 @@ Scenario('Disagree with divorce', I => { // eslint-disable-line
   I.seeDonePage();
 });
 
-Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
+Scenario('@Pipeline Disagree with divorce but change response', I => { // eslint-disable-line
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsALinkedUser();

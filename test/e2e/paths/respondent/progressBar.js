@@ -1,6 +1,6 @@
 Feature('Progress bar page - AoS complete status');
 
-Scenario('Should display content for respondent that has not submitted AoS in time', I => {
+Scenario('@Pipeline Should display content for respondent that has not submitted AoS in time', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedNoAos();
@@ -10,7 +10,7 @@ Scenario('Should display content for respondent that has not submitted AoS in ti
   I.seeCoRespondentAnswersToDownload();
 }).retry(2);
 
-Scenario('Should display content for respondent that has submitted AoS and is not defending', I => {
+Scenario('@Pipeline Should display content for respondent that has submitted AoS and is not defending', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedNotDefending();
@@ -21,7 +21,7 @@ Scenario('Should display content for respondent that has submitted AoS and is no
   I.seeCoRespondentAnswersToDownload();
 }).retry(2);
 
-Scenario('Should display content for respondent that has defended, awaiting answer', I => {
+Scenario('@Pipeline Should display content for respondent that has defended, awaiting answer', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedAwaitingAnswer();
@@ -32,7 +32,7 @@ Scenario('Should display content for respondent that has defended, awaiting answ
   I.seeCoRespondentAnswersToDownload();
 }).retry(2);
 
-Scenario('Should display content for respondent that has defended, and has answered', I => {
+Scenario('@Pipeline Should display content for respondent that has defended, and has answered', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedDefending();
@@ -43,7 +43,7 @@ Scenario('Should display content for respondent that has defended, and has answe
   I.seeCoRespondentAnswersToDownload();
 }).retry(2);
 
-Scenario('Should display content for respondent that is AwaitingDecreeAbsolute', I => {
+Scenario('@Pipeline Should display content for respondent that is AwaitingDecreeAbsolute', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseAwaitingDecreeAbsolute();
@@ -56,7 +56,7 @@ Scenario('Should display content for respondent that is AwaitingDecreeAbsolute',
   I.seeDecreeNisiToDownload();
 }).retry(2);
 
-Scenario('Should display content for respondent that is DNPronounced', I => {
+Scenario('@Pipeline Should display content for respondent that is DNPronounced', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseDNPronounced();
@@ -70,7 +70,7 @@ Scenario('Should display content for respondent that is DNPronounced', I => {
 }).retry(2);
 
 
-Scenario('Should display content for respondent if the case state is aosAwaitingSol', I => {
+Scenario('@Pipeline Should display content for respondent if the case state is aosAwaitingSol', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseAosAwaitingSol();

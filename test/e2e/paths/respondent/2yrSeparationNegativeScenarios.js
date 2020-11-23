@@ -2,7 +2,7 @@ const content = require('common/content');
 
 Feature('Two year separation journey - Negative Scenarios');
 
-Scenario('Do not consent to 2 year separation and will defend against divorce', I => {
+Scenario('@Pipeline Do not consent to 2 year separation and will defend against divorce', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
@@ -29,7 +29,7 @@ Scenario('Do not consent to 2 year separation and will defend against divorce', 
   I.click(content.en.continue);
 }).retry(2);
 
-Scenario('Do not consent to 2 year separation but will not defend against divorce, do not consider finance', I => { // eslint-disable-line
+Scenario('@Pipeline Do not consent to 2 year separation but will not defend against divorce, do not consider finance', I => { // eslint-disable-line
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
@@ -60,7 +60,7 @@ Scenario('Do not consent to 2 year separation but will not defend against divorc
   I.click(content.en.continue);
 }).retry(2);
 
-Scenario('Initially defend then change response for 2yr separation, no consent', I => {
+Scenario('@Pipeline Initially defend then change response for 2yr separation, no consent', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();

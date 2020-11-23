@@ -63,7 +63,7 @@ languages
     runTests(language);
   });
 
-Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
+Scenario('@Pipeline Proceed to adultery admission screen and do not admit adultery', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();

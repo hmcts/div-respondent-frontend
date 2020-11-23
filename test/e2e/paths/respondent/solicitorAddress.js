@@ -4,7 +4,7 @@ const SolicitorAddress = require('steps/respondent/solicitor-address/SolicitorAd
 const content = require('common/content');
 const CheckYourAnswersPage = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
 
-Scenario('Fill address using postcode', I => {
+Scenario('@Pipeline Fill address using postcode', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
@@ -24,7 +24,7 @@ Scenario('Fill address using postcode', I => {
   I.seeCurrentUrlEquals(CheckYourAnswersPage.path);
 }).retry(2);
 
-Scenario('Fill address using manual address', I => {
+Scenario('@Pipeline Fill address using manual address', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();

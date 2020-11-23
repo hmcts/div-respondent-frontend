@@ -1,6 +1,6 @@
 Feature('Sign out');
 
-Scenario('Should display End Page when signed out', I => {
+Scenario('@Pipeline Should display End Page when signed out', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAs5yrSeparationCase();

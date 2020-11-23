@@ -2,7 +2,7 @@ const content = require('common/content');
 
 Feature('Adultery journey');
 
-Scenario('Proceed to adultery admission screen and admit adultery', I => {
+Scenario('@Pipeline Proceed to adultery admission screen and admit adultery', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
@@ -25,7 +25,7 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.click(content.en.continue);
 }).retry(2);
 
-Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
+Scenario('@Pipeline Proceed to adultery admission screen and do not admit adultery', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
