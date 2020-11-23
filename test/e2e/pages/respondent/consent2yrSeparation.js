@@ -4,6 +4,7 @@ const content = require('steps/respondent/consent-decree/ConsentDecree.content')
 function seeConsentDecreePage(language = 'en') {
   const I = this;
 
+  I.waitInUrl(ConsentDecree.path);
   I.seeCurrentUrlEquals(ConsentDecree.path);
   I.waitForText(content[language].title);
 }

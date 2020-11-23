@@ -3,6 +3,7 @@ const content = require('steps/co-respondent/cr-respond/CrRespond.content');
 
 function seeCrRespondPage(language = 'en') {
   const I = this;
+  I.waitInUrl(CrRespondPage.path);
   I.seeCurrentUrlEquals(CrRespondPage.path);
   I.waitForText(content[language].title);
 }

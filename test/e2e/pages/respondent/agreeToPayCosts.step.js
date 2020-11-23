@@ -3,9 +3,9 @@ const content = require('steps/respondent/agree-to-pay-costs/AgreeToPayCosts.con
 
 function seeAgreeToPayCostsPage(language = 'en') {
   const I = this;
-  I.waitInUrl(AgreeToPayCosts.path, 15);
+  I.waitInUrl(AgreeToPayCosts.path);
   I.seeCurrentUrlEquals(AgreeToPayCosts.path);
-  I.waitForText(content[language].title, 2);
+  I.waitForText(content[language].title);
 }
 
 function chooseAgreeToPay(language = 'en') {

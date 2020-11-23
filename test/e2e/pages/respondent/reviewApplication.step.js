@@ -3,9 +3,9 @@ const content = require('steps/respondent/review-application/ReviewApplication.c
 
 function seeReviewApplicationPage(language = 'en') {
   const I = this;
-  I.waitInUrl(ReviewApplicationPage.path, 15);
+  I.waitInUrl(ReviewApplicationPage.path);
   I.seeCurrentUrlEquals(ReviewApplicationPage.path);
-  I.waitForText(content[language].title, 5);
+  I.waitForText(content[language].title);
 }
 
 function acknowledgeApplication(language = 'en') {

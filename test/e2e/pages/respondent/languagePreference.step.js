@@ -4,9 +4,9 @@ const content = require('steps/respondent/language-preference/LanguagePreference
 function seeLanguagePreferencePage(language = 'en') {
   const I = this;
 
-  I.waitInUrl(languagePreference.path, 15);
+  I.waitInUrl(languagePreference.path);
   I.seeCurrentUrlEquals(languagePreference.path);
-  I.waitForText(content[language].title, 5);
+  I.waitForText(content[language].title);
 }
 
 function chooseBilingualApplication(language = 'en') {

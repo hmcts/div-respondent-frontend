@@ -2,12 +2,12 @@ const path = 'https://pcq.aat.platform.hmcts.net/start-page';
 
 function seeEqualityPage(language = 'en') {
   const I = this;
-  I.waitInUrl(path, 15);
-  I.seeCurrentUrlEquals(path);
+  I.waitInUrl(path);
+  I.seeInCurrentUrl(path);
   if (language === 'en') {
-    I.waitForText('Equality and diversity questions', 5);
+    I.waitForText('Equality and diversity questions');
   } else {
-    I.waitForText('Cwestiynau am Gydraddoldeb ac Amrywiaeth', 5);
+    I.waitForText('Cwestiynau am Gydraddoldeb ac Amrywiaeth');
   }
 }
 

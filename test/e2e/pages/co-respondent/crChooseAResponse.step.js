@@ -3,6 +3,7 @@ const content = require('steps/co-respondent/cr-choose-a-response/CrChooseARespo
 
 function seeCrChooseAResponsePage(language = 'en') {
   const I = this;
+  I.waitInUrl(CrChooseAResponsePage.path);
   I.seeCurrentUrlEquals(CrChooseAResponsePage.path);
   I.waitForText(content[language].title);
 }

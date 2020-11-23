@@ -3,7 +3,7 @@ const content = require('steps/respondent/solicitor-representation/SolicitorRepr
 
 function seeSolicitorRepPage(language = 'en') {
   const I = this;
-  I.waitInUrl(SolicitorRep.path, 15);
+  I.waitInUrl(SolicitorRep.path);
   I.seeCurrentUrlEquals(SolicitorRep.path);
   I.waitForText(content[language].title);
 }

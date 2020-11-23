@@ -3,6 +3,7 @@ const content = require('steps/co-respondent/cr-admit-adultery/CrAdmitAdultery.c
 
 function seeCrAdmitAdulteryPage(language = 'en') {
   const I = this;
+  I.waitInUrl(AdmitAdulteryPage.path);
   I.seeCurrentUrlEquals(AdmitAdulteryPage.path);
   I.waitForText(content[language].title);
 }

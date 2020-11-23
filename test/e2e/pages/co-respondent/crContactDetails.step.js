@@ -3,7 +3,7 @@ const content = require('steps/co-respondent/cr-contact-details/CrContactDetails
 
 function seeCrContactDetailsPage(language = 'en') {
   const I = this;
-
+  I.waitInUrl(CrContactDetails.path);
   I.seeCurrentUrlEquals(CrContactDetails.path);
   I.waitForText(content[language].title);
 }
