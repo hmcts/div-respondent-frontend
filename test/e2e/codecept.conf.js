@@ -18,7 +18,7 @@ if (proxyByPass) {
 
 exports.config = {
   tests: './paths/**/*.js',
-  output: config.tests.e2e.outputDir,
+  output: `${process.cwd()}/functional-output`,
   helpers: {
     Puppeteer: {
       url: config.tests.e2e.url || config.node.baseUrl,
