@@ -7,11 +7,11 @@ const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {
-    await I.createAUser();
-    I.createAosCaseForUser(desertionSession);
+    await I.retry(2).createAUser();
+    I.retry(2).createAosCaseForUser(desertionSession);
     await I.amOnLoadedPage('/', language);
 
-    await I.createAUser();
+    await I.retry(2).createAUser();
     I.login(language);
     I.seeCaptureCaseAndPinPage(language);
     I.fillInReferenceNumberAndPinCode();

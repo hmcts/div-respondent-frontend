@@ -73,6 +73,15 @@ const setupConfig = {
       }
     }
   },
+  plugins: {
+    retryFailedStep: {
+      enabled: true,
+      retries: 2
+    },
+    autoDelay: {
+      enabled: true
+    }
+  },
   multiple: {
     microsoftIE11: {
       browsers: getBrowserConfig('microsoftIE11')

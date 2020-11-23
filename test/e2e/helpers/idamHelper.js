@@ -62,9 +62,11 @@ class IdamHelper extends Helper {
   }
 
   _after() {
+    logger.infoWithReq(null, 'removing_idam_user', 'Removing IDAM test user...');
+    const testEmail = idamArgs.testEmail;
     idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
       .then(() => {
-        logger.infoWithReq(null, 'idam_user_removed', 'Removed IDAM test user', idamArgs.testEmail);
+        logger.infoWithReq(null, 'idam_user_removed', 'Removed IDAM test user', testEmail);
       })
       .catch(error => {
         logger.warnWithReq(null, 'idam_error', 'Unable to remove IDAM test user', error.message);
