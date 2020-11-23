@@ -36,6 +36,7 @@ const runTests = (language = 'en') => {
 
     I.seeJurisdictionPage(language);
     I.chooseAgreeToJurisdiction(language);
+    I.scrollPageToBottom();
     I.click(content[language].continue);
 
     I.seeLegalProceedingPage(language);

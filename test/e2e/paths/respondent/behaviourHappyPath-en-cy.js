@@ -48,6 +48,7 @@ const runTests = (language = 'en') => {
 
     I.seeJurisdictionPage(language);
     I.chooseAgreeToJurisdiction(language);
+    I.scrollPageToBottom();
     if (config.tests.e2e.addWaitForCrossBrowser) {
       I.click(contentJurisdiction[language].fields.disagree.heading);
       I.fillField('jurisdiction.reason', 'what to try something diff for crossbrowser');

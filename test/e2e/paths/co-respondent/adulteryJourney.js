@@ -53,6 +53,7 @@ const runTests = (language = 'en') => {
     I.seeCrCheckYourAnswersPage(language);
     I.confirmInformationIsTrueCr(language);
     I.submitApplicationCr(language);
+    I.seeDonePage(language);
     I.see('EZ12D91234');
   })
     .retry(2);
