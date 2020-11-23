@@ -195,6 +195,7 @@ features:
   webchat: true
   respondentEquality: 'false'
   coRespondentEquality: 'false'
+  nightlyPCQCheck: 'true'
 
 journey:
   timeoutDelay: 300

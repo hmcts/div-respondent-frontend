@@ -48,6 +48,11 @@ const runTests = (language = 'en') => {
       I.completePCQs(language);
     }
 
+    if (config.features.nightlyPCQCheck === 'true') {
+      I.seeEqualityPage(language);
+      I.completePCQs(language);
+    }
+
     I.wait(5);
 
     I.seeCrCheckYourAnswersPage(language);
