@@ -46,7 +46,12 @@ const runTests = (language = 'en') => {
     I.consentToSendingNotifications(language);
     I.navByClick(content[language].continue);
 
-    if (config.features.respondentEquality === 'true') {
+    if (config.tests.e2e.url === 'preview' || config.tests.e2e.url === 'aat') {
+      if (config.features.respondentEquality === 'true') {
+        I.seeEqualityPage(language);
+        I.completePCQs(language);
+      }
+    } else {
       I.seeEqualityPage(language);
       I.completePCQs(language);
     }

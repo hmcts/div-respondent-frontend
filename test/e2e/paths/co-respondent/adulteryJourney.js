@@ -43,12 +43,12 @@ const runTests = (language = 'en') => {
     I.consentToSendingCrNotifications(language);
     I.navByClick(content[language].continue);
 
-    if (config.features.respondentEquality === 'true') {
-      I.seeEqualityPage(language);
-      I.completePCQs(language);
-    }
-
-    if (config.features.nightlyPCQCheck === 'true') {
+    if (config.tests.e2e.url === 'preview' || config.tests.e2e.url === 'aat') {
+      if (config.features.respondentEquality === 'true') {
+        I.seeEqualityPage(language);
+        I.completePCQs(language);
+      }
+    } else {
       I.seeEqualityPage(language);
       I.completePCQs(language);
     }
