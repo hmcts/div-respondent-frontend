@@ -135,7 +135,7 @@ paths:
 tests:
   e2e:
     show: false
-    waitForTimeout: 10000
+    waitForTimeout: 15000
     waitForAction: 1000
     smartWait: 5000
     outputDir: './functional-output'
