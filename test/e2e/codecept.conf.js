@@ -27,7 +27,7 @@ exports.config = {
       show: config.tests.e2e.show,
       chrome: {
         ignoreHTTPSErrors: true,
-        args: chromeArgs
+        args: ['--headless', '--disable-gpu', '--no-sandbox', '--ignore-certificate-errors', '-disable-dev-shm-usage']
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
