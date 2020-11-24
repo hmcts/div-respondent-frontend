@@ -13,13 +13,18 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
 
-    await helper.click(text, locator);
+    // eslint-disable-next-line no-console
+    console.log(`Starting navByClick(${text}, ${locator})...`);
+    const result = await helper.click(text, locator);
 
     if (helperIsPuppeteer) {
       await helper.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
     } else {
       await helper.wait(2);
     }
+    // eslint-disable-next-line no-console
+    console.log('navByClick() result:', result);
+    return result;
   }
 
   async amOnLoadedPage(url, language = 'en') {
