@@ -5,9 +5,7 @@ function seeEqualityPage(language = 'en') {
   I.waitInUrl(path);
   I.seeInCurrentUrl(path);
   if (language === 'en') {
-    I.waitForText('Equality and diversity questions');
-  } else {
-    I.waitForText('Cwestiynau am Gydraddoldeb ac Amrywiaeth');
+    I.waitForText('Equality and diversity questions', 5);
   }
 }
 

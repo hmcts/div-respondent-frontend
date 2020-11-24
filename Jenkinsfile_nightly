@@ -42,7 +42,7 @@ withNightlyPipeline("nodejs", product, component) {
   env.FEATURE_CORESP_EQUALITY = 'true'
 
   loadVaultSecrets(secrets)
-  enableCrossBrowserTest()
+//  enableCrossBrowserTest()
   enableSecurityScan()
   enableFullFunctionalTest()
 
