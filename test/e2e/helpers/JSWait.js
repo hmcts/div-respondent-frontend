@@ -1,30 +1,25 @@
 class JSWait extends codecept_helper { // eslint-disable-line camelcase
-  async _beforeStep(step) {
+  _beforeStep(step) {
     const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
 
     // Wait for content to load before checking URL
     if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
-      await helper.waitForElement('body', 30);
+      return helper.waitForElement('body', 30);
     }
-    return step;
+    return Promise.resolve();
   }
 
   async navByClick(text, locator) {
     const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
 
-    // eslint-disable-next-line no-console
-    console.log(`Starting navByClick(${text}, ${locator})...`);
-    const result = await helper.click(text, locator);
+    helper.click(text, locator);
 
     if (helperIsPuppeteer) {
       await helper.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
     } else {
       await helper.wait(2);
     }
-    // eslint-disable-next-line no-console
-    console.log('navByClick() result:', result);
-    return result;
   }
 
   async amOnLoadedPage(url, language = 'en') {
