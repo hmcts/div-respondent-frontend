@@ -1,12 +1,12 @@
 class JSWait extends codecept_helper { // eslint-disable-line camelcase
-  _beforeStep(step) {
+  async _beforeStep(step) {
     const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
 
     // Wait for content to load before checking URL
     if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
-      return helper.waitForElement('body', 30);
+      await helper.waitForElement('body', 30);
     }
-    return Promise.resolve;
+    return step;
   }
 
   async navByClick(text, locator) {
