@@ -2,8 +2,8 @@ const path = 'https://pcq.aat.platform.hmcts.net/start-page';
 
 function seeEqualityPage(language = 'en') {
   const I = this;
-  I.waitInUrl(path, 15);
-  I.seeCurrentUrlEquals(path);
+  I.waitInUrl(path);
+  I.seeInCurrentUrl(path);
   if (language === 'en') {
     I.waitForText('Equality and diversity questions', 5);
   }

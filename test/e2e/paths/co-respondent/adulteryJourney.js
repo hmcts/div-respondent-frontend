@@ -7,11 +7,11 @@ const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline Proceed to adultery admission screen and admit adultery - ${language}`, async I => {
-    await I.createAUser();
-    I.createAosCaseForUser(adulteryDivorceSession, true);
+    await I.retry(2).createAUser();
+    I.retry(2).createAosCaseForUser(adulteryDivorceSession, true);
     await I.amOnLoadedPage('/', language);
 
-    await I.createAUser();
+    await I.retry(2).createAUser();
     I.login(language);
     I.seeCaptureCaseAndPinPage(language);
     I.fillInReferenceNumberAndPinCode();
@@ -53,6 +53,7 @@ const runTests = (language = 'en') => {
     I.seeCrCheckYourAnswersPage(language);
     I.confirmInformationIsTrueCr(language);
     I.submitApplicationCr(language);
+    I.seeDonePage(language);
     I.see('EZ12D91234');
   })
     .retry(2);

@@ -3,6 +3,7 @@ const content = require('steps/co-respondent/cr-agree-to-pay-costs/CrAgreeToPayC
 
 function seeCrAgreeToPayCostsPage(language = 'en') {
   const I = this;
+  I.waitInUrl(CrAgreeToPayCosts.path);
   I.seeCurrentUrlEquals(CrAgreeToPayCosts.path);
   I.waitForText(content[language].title);
 }

@@ -6,7 +6,7 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
       return helper.waitForElement('body', 30);
     }
-    return Promise.resolve();
+    return step;
   }
 
   async navByClick(text, locator) {

@@ -4,9 +4,9 @@ const content = require('steps/respondent/choose-a-response/ChooseAResponse.cont
 function seeChooseAResponsePage(language = 'en') {
   const I = this;
 
-  I.waitInUrl(ChooseAResponsePage.path, 15);
+  I.waitInUrl(ChooseAResponsePage.path);
   I.seeCurrentUrlEquals(ChooseAResponsePage.path);
-  I.waitForText(content[language].title, 2);
+  I.waitForText(content[language].title);
 }
 
 function chooseToProceedWithDivorce(language = 'en') {

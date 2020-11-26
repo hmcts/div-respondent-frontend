@@ -4,9 +4,9 @@ const content = require('steps/respondent/legal-proceedings/LegalProceedings.con
 function seeLegalProceedingPage(language = 'en') {
   const I = this;
 
-  I.waitInUrl(LegalProceedingPage.path, 15);
+  I.waitInUrl(LegalProceedingPage.path);
   I.seeCurrentUrlEquals(LegalProceedingPage.path);
-  I.waitForText(content[language].title, 5);
+  I.waitForText(content[language].title);
 }
 
 function chooseNoLegalProceedings(language = 'en') {

@@ -50,7 +50,8 @@ const setupConfig = {
     SauceLabsReportingHelper: { require: './helpers/sauceLabsReportingHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     IdamHelper: { require: './helpers/idamHelper.js' },
-    CaseHelper: { require: './helpers/caseHelper.js' }
+    CaseHelper: { require: './helpers/caseHelper.js' },
+    SauceLabsBrowserHelper: { require: './helpers/SauceLabsBrowserHelper.js' }
   },
   include: { I: './pages/steps.js' },
   mocha: {
@@ -71,6 +72,15 @@ const setupConfig = {
           inlineAssets: true
         }
       }
+    }
+  },
+  plugins: {
+    retryFailedStep: {
+      enabled: true,
+      retries: 2
+    },
+    autoDelay: {
+      enabled: true
     }
   },
   multiple: {

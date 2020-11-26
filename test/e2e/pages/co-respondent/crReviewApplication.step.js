@@ -3,6 +3,7 @@ const content = require('steps/co-respondent/cr-review-application/CrReviewAppli
 
 function seeCrReviewApplicationPage(language = 'en') {
   const I = this;
+  I.waitInUrl(CrReviewApplicationPage.path);
   I.seeCurrentUrlEquals(CrReviewApplicationPage.path);
   I.waitForText(content[language].title);
 }

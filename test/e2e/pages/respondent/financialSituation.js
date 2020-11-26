@@ -3,7 +3,7 @@ const content = require('steps/respondent/financial-situation/FinancialSituation
 
 function seeFinancialSituationPage(language = 'en') {
   const I = this;
-
+  I.waitInUrl(FinancialSituation.path);
   I.seeCurrentUrlEquals(FinancialSituation.path);
   I.waitForText(content[language].title);
 }

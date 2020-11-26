@@ -7,11 +7,11 @@ const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline 5+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
-    await I.createAUser();
-    I.createAosCaseForUser(fivePlusYearsDivorceSession);
+    await I.retry(2).createAUser();
+    I.retry(2).createAosCaseForUser(fivePlusYearsDivorceSession);
     await I.amOnLoadedPage('/', language);
 
-    await I.createAUser();
+    await I.retry(2).createAUser();
     I.login(language);
     I.seeCaptureCaseAndPinPage(language);
     I.fillInReferenceNumberAndPinCode();
@@ -41,6 +41,7 @@ const runTests = (language = 'en') => {
 
     I.seeJurisdictionPage(language);
     I.chooseAgreeToJurisdiction(language);
+    I.scrollPageToBottom();
     I.click(content[language].continue);
 
     I.seeLegalProceedingPage(language);

@@ -3,7 +3,7 @@ const content = require('steps/co-respondent/cr-check-your-answers/CrCheckYourAn
 
 function seeCrCheckYourAnswersPage(language = 'en') {
   const I = this;
-
+  I.waitInUrl(crCheckYourAnswers.path);
   I.seeCurrentUrlEquals(crCheckYourAnswers.path);
   I.waitForText(content[language].title);
 }

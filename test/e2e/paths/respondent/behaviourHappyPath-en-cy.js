@@ -9,11 +9,11 @@ const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   Scenario(`@Pipeline Behaviour Journey, Proceed divorce with linked user - ${language}`, async I => {
-    await I.createAUser();
-    I.createAosCaseForUser(basicDivorceSession);
+    await I.retry(2).createAUser();
+    I.retry(2).createAosCaseForUser(basicDivorceSession);
     await I.amOnLoadedPage('/', language);
 
-    await I.createAUser();
+    await I.retry(2).createAUser();
     I.login(language);
     I.seeCaptureCaseAndPinPage(language);
     I.fillInReferenceNumberAndPinCode();
@@ -48,6 +48,7 @@ const runTests = (language = 'en') => {
 
     I.seeJurisdictionPage(language);
     I.chooseAgreeToJurisdiction(language);
+    I.scrollPageToBottom();
     if (config.tests.e2e.addWaitForCrossBrowser) {
       I.click(contentJurisdiction[language].fields.disagree.heading);
       I.fillField('jurisdiction.reason', 'what to try something diff for crossbrowser');

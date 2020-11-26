@@ -14,6 +14,7 @@ function login(language = 'en') {
   const I = this;
 
   if (config.features.idam) {
+    I.waitInUrl('/login?');
     I.seeInCurrentUrl('/login?');
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
