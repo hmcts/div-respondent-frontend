@@ -13,7 +13,7 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
 
-    helper.click(text, locator);
+    await helper.click(text, locator);
 
     if (helperIsPuppeteer) {
       await helper.page.waitForNavigation({ waitUntil: 'domcontentloaded' });
