@@ -42,9 +42,9 @@ withNightlyPipeline("nodejs", product, component) {
   env.FEATURE_CORESP_EQUALITY = 'true'
 
   loadVaultSecrets(secrets)
-//  enableCrossBrowserTest()
   enableSecurityScan()
   enableFullFunctionalTest()
+  enableCrossBrowserTest()
 
   after('crossBrowserTest') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
