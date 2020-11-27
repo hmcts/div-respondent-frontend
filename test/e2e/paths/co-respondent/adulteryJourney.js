@@ -17,7 +17,7 @@ const runTests = (language = 'en') => {
     I.fillInReferenceNumberAndPinCode();
     I.navByClick(content[language].continue);
     if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(30);
+      I.wait(3);
     }
 
     I.seeCrRespondPage(language);
