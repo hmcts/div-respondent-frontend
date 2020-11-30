@@ -5,7 +5,7 @@ const caseConfigHelper = require('test/e2e//helpers/caseConfigHelper.js');
 
 function seeCaptureCaseAndPinPage(language = 'en') {
   const I = this;
-  I.waitInUrl(CaptureCaseAndPinPage.path, 30);
+  I.waitInUrl(CaptureCaseAndPinPage.path, 45);
   I.seeCurrentUrlEquals(CaptureCaseAndPinPage.path);
   I.waitForText(content[language].title);
 }

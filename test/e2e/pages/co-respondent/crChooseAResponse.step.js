@@ -9,7 +9,7 @@ function seeCrChooseAResponsePage(language = 'en') {
 }
 
 function chooseCrToProceedWithDivorce(language = 'en') {
-  this.click(content[language].fields.proceed.heading);
+  this.checkOption(content[language].fields.proceed.heading);
 }
 
 function chooseCrToDefendAgainstDivorce() {

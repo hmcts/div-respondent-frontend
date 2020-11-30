@@ -19,7 +19,7 @@ const runTests = (language = 'en') => {
     I.fillInReferenceNumberAndPinCode();
     I.navByClick(content[language].continue);
     if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(30);
+      I.wait(3);
     }
     I.seeRespondPage(language);
     I.navByClick(content[language].continue);
@@ -30,7 +30,7 @@ const runTests = (language = 'en') => {
     I.navByClick(content[language].continue);
 
     if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(30);
+      I.wait(3);
       if (parseBool(config.features.respSolicitorDetails)) {
         I.seeSolicitorRepPage(language);
         I.selectNoSolicitor(language);
