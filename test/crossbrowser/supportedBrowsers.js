@@ -57,7 +57,8 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'WIN_FIREFOX_LATEST_RESPONDENT'
+        name: 'WIN_FIREFOX_LATEST_RESPONDENT',
+        screenResolution: '1400x1050'
       }
     },
     firefox_mac_latest: {
