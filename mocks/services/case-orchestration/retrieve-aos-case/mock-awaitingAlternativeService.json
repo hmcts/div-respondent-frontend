@@ -1,0 +1,219 @@
+{
+  "caseId": 3242343423421111,
+  "courts": "eastMidlands",
+  "state": "AwaitingAlternativeService",
+  "data": {
+    "expires": 0,
+    "caseReference": "LV17D80000",
+    "screenHasMarriageBroken": "Yes",
+    "screenHasRespondentAddress": "Yes",
+    "screenHasMarriageCert": "Yes",
+    "helpWithFeesNeedHelp": "No",
+    "divorceWho": "husband",
+    "marriageIsSameSexCouple": "No",
+    "marriageDateDay": 2,
+    "marriageDateMonth": 2,
+    "marriageDateYear": 2001,
+    "marriageDate": "2001-02-02T00:00:00.000+0000",
+    "marriageCanDivorce": "true",
+    "marriedInUk": "Yes",
+    "placeOfMarriage": "London",
+    "jurisdictionPath": [
+      "JurisdictionHabitualResidence",
+      "JurisdictionInterstitial"
+    ],
+    "jurisdictionConnection": [
+      "A",
+      "C"
+    ],
+    "connections": {
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
+      "B": null,
+      "C": "The Respondent is habitually resident in England and Wales",
+      "D": null,
+      "E": null,
+      "F": null,
+      "G": null
+    },
+    "jurisdictionPetitionerResidence": "Yes",
+    "jurisdictionRespondentResidence": "Yes",
+    "jurisdictionConfidentLegal": "Yes",
+    "petitionerContactDetailsConfidential": "share",
+    "petitionerFirstName": "John",
+    "petitionerLastName": "Smith",
+    "respondentFirstName": "Jane",
+    "respondentLastName": "Jamed",
+    "marriagePetitionerName": "John Doe",
+    "marriageRespondentName": "Jenny Benny",
+    "petitionerNameDifferentToMarriageCertificate": "Yes",
+    "petitionerNameChangedHow": [
+      "marriageCertificate"
+    ],
+    "petitionerEmail": "divorce+pfe-test-3991547615337740@mailinator.com",
+    "petitionerPhoneNumber": "01234567890",
+    "petitionerHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "80, LANDOR ROAD",
+        "LONDON",
+        "SW9 9PE"
+      ]
+    },
+    "petitionerCorrespondenceUseHomeAddress": "Yes",
+    "petitionerCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "80, LANDOR ROAD",
+        "LONDON",
+        "SW9 9PE"
+      ]
+    },
+    "livingArrangementsLiveTogether": "Yes",
+    "respondentHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "80, LANDOR ROAD",
+        "LONDON",
+        "SW9 9PE"
+      ]
+    },
+    "respondentCorrespondenceUseHomeAddress": "No",
+    "respondentCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "SW9 9PE",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "80, LANDOR ROAD",
+        "LONDON",
+        "SW9 9PE"
+      ]
+    },
+    "reasonForDivorce": "unreasonable-behaviour",
+    "reasonForDivorceHasMarriageDate": "true",
+    "reasonForDivorceShowAdultery": "true",
+    "reasonForDivorceShowUnreasonableBehaviour": "true",
+    "reasonForDivorceShowTwoYearsSeparation": "true",
+    "reasonForDivorceShowFiveYearsSeparation": "true",
+    "reasonForDivorceShowDesertion": "true",
+    "reasonForDivorceLimitReasons": "false",
+    "reasonForDivorceEnableAdultery": "true",
+    "reasonForDivorceBehaviourDetails": [
+      "My wife is having an affair this week."
+    ],
+    "legalProceedings": "Yes",
+    "legalProceedingsRelated": [
+      "children"
+    ],
+    "legalProceedingsDetails": "The legal proceeding details",
+    "financialOrder": "Yes",
+    "financialOrderFor": [
+      "petitioner",
+      "children"
+    ],
+    "claimsCosts": "Yes",
+    "reasonForDivorceAdulteryIsNamed": "No",
+    "claimsCostsFrom": [
+      "respondent"
+    ],
+    "claimsCostsAppliedForFees": "true",
+    "reasonForDivorceClaiming5YearSeparation": "false",
+    "reasonForDivorceClaimingAdultery": "false",
+    "courts": "serviceCentre",
+    "confirmPrayer": "Yes",
+    "payment": {
+      "PaymentChannel": "online",
+      "PaymentTransactionId": "aerar4fq97c4slkois3pc0ehbc",
+      "PaymentReference": "RC-1607-0744-2132-5440",
+      "PaymentDate": "04122020",
+      "PaymentAmount": "55000",
+      "PaymentStatus": "Success",
+      "PaymentFeeId": "FEE0002",
+      "PaymentSiteId": "AA07"
+    },
+    "marriageCertificateFiles": [],
+    "existingPayments": [
+      {
+        "id": "159e27bb-68c1-4d00-8b13-e74d8480cc20",
+        "value": {
+          "PaymentChannel": "online",
+          "PaymentTransactionId": null,
+          "PaymentReference": "RC-1607-0744-0683-8466",
+          "PaymentDate": "2020-12-04",
+          "PaymentAmount": null,
+          "PaymentStatus": "Initiated",
+          "PaymentFeeId": "FEE0002",
+          "PaymentSiteId": "AA07"
+        }
+      }
+    ],
+    "petitionerConsent": "Yes",
+    "createdDate": "2020-12-04T00:00:00.000+0000",
+    "issueDate": "2020-12-04T00:00:00.000+0000",
+    "dueDate": "2021-01-03T00:00:00.000+0000",
+    "respondentContactDetailsConfidential": "share",
+    "petitionerPcqId": "is_in_session",
+    "languagePreferenceWelsh": "Yes",
+    "d8": [
+      {
+        "id": "7d33c70c-8015-4307-9bdf-9e514b8c5cea",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "d8petition1607074403399033.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/7d33c70c-8015-4307-9bdf-9e514b8c5cea",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "5c367445-f924-469d-a89b-238eba3990e0",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "aosinvitation1607074403399033.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/5c367445-f924-469d-a89b-238eba3990e0",
+        "mimeType": null,
+        "status": null
+      }
+    ]
+  }
+}

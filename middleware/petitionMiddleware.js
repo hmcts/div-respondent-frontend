@@ -50,7 +50,7 @@ function findCoRespPath(coRespAnswers, caseState) {
 }
 
 function isValidStateForAos(caseState) {
-  return caseState === config.caseStates.AosStarted || caseState === config.caseStates.AosOverdue || caseState === config.caseStates.ServiceApplicationNotApproved;
+  return config.respRespondableStates.includes(caseState);
 }
 
 const loadMiniPetition = (req, res, next) => {
@@ -85,7 +85,7 @@ const loadMiniPetition = (req, res, next) => {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
         }
-        logger.infoWithReq(req, 'case_state_ok', 'Case is AoS Started, AoS Overdue or Service Application Not Approved, can proceed respondent journey', response.statusCode);
+        logger.infoWithReq(req, 'case_state_ok', 'Case is in a valid state for the respondent to respond, can proceed respondent journey', response.statusCode);
         return next();
       } else if (response.statusCode === httpStatus.NOT_FOUND) {
         logger.infoWithReq(req, 'case_not_found', 'Case not found, redirecting to capture case and pin page');

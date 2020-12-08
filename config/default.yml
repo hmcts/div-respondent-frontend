@@ -165,6 +165,15 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral'
 ]
 
+respRespondableStates: [
+  'AosStarted',
+  'AosOverdue',
+  'ServiceApplicationNotApproved',
+  'AwaitingAlternativeService',
+  'AwaitingProcessServerService',
+  'AwaitingDWPResponse'
+]
+
 caseStates:
   AosAwaiting: 'AosAwaiting'
   AosStarted: 'AosStarted'
@@ -185,6 +194,9 @@ caseStates:
   DNDrafted: 'DNDrafted'
   DNisRefused: 'DNisRefused'
   ServiceApplicationNotApproved: 'ServiceApplicationNotApproved'
+  AwaitingAlternativeService: 'AwaitingAlternativeService'
+  AwaitingProcessServerService: 'AwaitingProcessServerService'
+  AwaitingDWPResponse: 'AwaitingDWPResponse'
 
 features:
   idam: false

@@ -38,6 +38,9 @@
         "coRespDNPronouncedWithCosts": "Co-respondent - DNPronounced with costs",
         "coRespDNPronouncedWithoutCosts": "Co-respondent - DNPronounced without costs",
         "serviceApplicationNotApproved": "Yes - case started - serviceApplicationNotApproved",
+        "awaitingAlternativeService": "Yes - case started - awaitingAlternativeService",
+        "awaitingProcessServerService": "Yes - case started - awaitingProcessServerService",
+        "awaitingDWPResponse": "Yes - case started - awaitingDWPResponse",
         "throwError": "Simulate 500 server error"
       }
     }
@@ -80,6 +83,10 @@
         "coRespAwaitingPronouncementHearingDataFuture": "[CY] Co-respondent - Awaiting Pronouncement and Hearing data in future",
         "coRespDNPronouncedWithCosts": "[CY] Co-respondent - DNPronounced with costs",
         "coRespDNPronouncedWithoutCosts": "[CY] Co-respondent - DNPronounced without costs",
+        "serviceApplicationNotApproved": "[CY] Yes - case started - serviceApplicationNotApproved",
+        "awaitingAlternativeService": "[CY] Yes - case started - awaitingAlternativeService",
+        "awaitingProcessServerService": "[CY] Yes - case started - awaitingProcessServerService",
+        "awaitingDWPResponse": "[CY] Yes - case started - awaitingDWPResponse",
         "throwError": "[CY] Simulate 500 server error"
       }
     }

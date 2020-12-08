@@ -130,7 +130,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('fires next() when case state: ServiceApplicationNotApproved', done => {
+  function assertFiresNextWhenStateIs(state, done) {
     // given
     const req = {
       cookies: { '__auth-token': 'test' },
@@ -145,7 +145,7 @@ describe(modulePath, () => {
     const response = {
       statusCode: 200,
       body: {
-        state: 'ServiceApplicationNotApproved',
+        state,
         caseId: 1234,
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
@@ -169,8 +169,23 @@ describe(modulePath, () => {
         expect(next.calledOnce).to.be.true;
       })
       .then(done, done);
+  }
+
+  it('fires next() when case state: ServiceApplicationNotApproved', done => {
+    assertFiresNextWhenStateIs('ServiceApplicationNotApproved', done);
   });
 
+  it('fires next() when case state: AwaitingAlternativeService', done => {
+    assertFiresNextWhenStateIs('AwaitingAlternativeService', done);
+  });
+
+  it('fires next() when case state: AwaitingProcessServerService', done => {
+    assertFiresNextWhenStateIs('AwaitingProcessServerService', done);
+  });
+
+  it('fires next() when case state: AwaitingDWPResponse', done => {
+    assertFiresNextWhenStateIs('AwaitingDWPResponse', done);
+  });
 
   it('redirects to Decree Absolute FE if case found, state: DivorceGranted', done => {
     // given
