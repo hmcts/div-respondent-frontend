@@ -44,10 +44,7 @@ class IdamLogin extends Question {
       'throwError',
       'yesDecreeNisiPronouncement',
       'dnIsRefused',
-      'serviceApplicationNotApproved',
-      'awaitingAlternativeService',
-      'awaitingProcessServerService',
-      'awaitingDWPResponse'
+      'serviceApplicationNotApproved'
     ];
     const validAnswers = Joi.string()
       .valid(answers)
