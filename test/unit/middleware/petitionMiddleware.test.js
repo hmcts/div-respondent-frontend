@@ -1,6 +1,6 @@
 const modulePath = 'middleware/petitionMiddleware';
 const config = require('config');
-const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
+const { sinon, expect, itParam } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition: petitionMiddleware } = require(modulePath);
 const caseOrchestration = require('services/caseOrchestration');
 // eslint-disable-next-line max-len
@@ -21,6 +21,32 @@ const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
 
 const authTokenString = '__auth-token';
+
+const coRespRespondableStates = [
+  'AosAwaiting',
+  'AosAwaitingSol',
+  'AosStarted',
+  'AosOverdue',
+  'AosCompleted',
+  'AosSubmittedAwaitingAnswer',
+  'DefendedDivorce',
+  'AwaitingDecreeNisi',
+  'DNAwaiting',
+  'DNDrafted',
+  'AwaitingLegalAdvisorReferral',
+  'AwaitingAlternativeService',
+  'AwaitingProcessServerService',
+  'AwaitingDWPResponse'
+];
+
+const respRespondableStates = [
+  'AosStarted',
+  'AosOverdue',
+  'ServiceApplicationNotApproved',
+  'AwaitingAlternativeService',
+  'AwaitingProcessServerService',
+  'AwaitingDWPResponse'
+];
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -89,7 +115,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('fires next() when case state: AosOverdue', done => {
+  itParam('fires next() when case state: ${value}', respRespondableStates, (done, state) => {
     // given
     const req = {
       cookies: { '__auth-token': 'test' },
@@ -104,7 +130,7 @@ describe(modulePath, () => {
     const response = {
       statusCode: 200,
       body: {
-        state: 'AosOverdue',
+        state,
         caseId: 1234,
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
@@ -129,48 +155,6 @@ describe(modulePath, () => {
       })
       .then(done, done);
   });
-
-  it('fires next() when case state: ServiceApplicationNotApproved', done => {
-    // given
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
-    const res = {
-      redirect: sinon.spy()
-    };
-    const next = sinon.stub();
-
-    const response = {
-      statusCode: 200,
-      body: {
-        state: 'ServiceApplicationNotApproved',
-        caseId: 1234,
-        data: { // eslint-disable-line id-blacklist
-          marriageIsSameSexCouple: 'No',
-          divorceWho: 'husband',
-          courts: 'eastMidlands',
-          court: {
-            eastMidlands: {
-              divorceCentre: 'East Midlands Regional Divorce Centre'
-            }
-          }
-        }
-      }
-    };
-
-    sinon.stub(caseOrchestration, 'getPetition')
-      .resolves(response);
-
-    // when
-    petitionMiddleware(req, res, next)
-      .then(() => {
-        expect(next.calledOnce).to.be.true;
-      })
-      .then(done, done);
-  });
-
 
   it('redirects to Decree Absolute FE if case found, state: DivorceGranted', done => {
     // given
@@ -218,35 +202,39 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('should redirect to Co-respondent respond page if user is Co-respondent', done => {
-    // given
-    const email = 'user@email.com';
-    const req = {
-      cookies: { '__auth-token': 'authToken' },
-      idam: {
-        userDetails: { email }
-      }
-    };
-    const res = {
-      redirect: sinon.spy()
-    };
+  itParam('should redirect to Co-respondent respond page if user is Co-respondent and state is ${value}',
+    coRespRespondableStates, (done, state) => {
+      // given
+      const email = 'user@email.com';
+      const req = {
+        cookies: { '__auth-token': 'authToken' },
+        idam: {
+          userDetails: { email }
+        }
+      };
+      const res = {
+        redirect: sinon.spy()
+      };
 
-    const next = sinon.stub();
-    req.session = {};
+      const next = sinon.stub();
+      req.session = {};
 
-    sinon.stub(caseOrchestration, 'getPetition')
-      .resolves({
-        statusCode: httpStatus.OK,
-        body: coRespondentMock
-      });
+      const body = coRespondentMock;
+      body.state = state;
 
-    // when
-    petitionMiddleware(req, res, next)
-      .then(() => {
-        expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
-      })
-      .then(done, done);
-  });
+      sinon.stub(caseOrchestration, 'getPetition')
+        .resolves({
+          statusCode: httpStatus.OK,
+          body
+        });
+
+      // when
+      petitionMiddleware(req, res, next)
+        .then(() => {
+          expect(res.redirect.withArgs(crRespond.path).calledOnce).to.be.true;
+        })
+        .then(done, done);
+    });
 
   it('To Co-resp progress page if CoResp user submitted response', done => {
     // given

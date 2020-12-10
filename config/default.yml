@@ -162,7 +162,19 @@ coRespRespondableStates: [
   'AwaitingDecreeNisi',
   'DNAwaiting',
   'DNDrafted',
-  'AwaitingLegalAdvisorReferral'
+  'AwaitingLegalAdvisorReferral',
+  'AwaitingAlternativeService',
+  'AwaitingProcessServerService',
+  'AwaitingDWPResponse'
+]
+
+respRespondableStates: [
+  'AosStarted',
+  'AosOverdue',
+  'ServiceApplicationNotApproved',
+  'AwaitingAlternativeService',
+  'AwaitingProcessServerService',
+  'AwaitingDWPResponse'
 ]
 
 caseStates:
@@ -185,6 +197,9 @@ caseStates:
   DNDrafted: 'DNDrafted'
   DNisRefused: 'DNisRefused'
   ServiceApplicationNotApproved: 'ServiceApplicationNotApproved'
+  AwaitingAlternativeService: 'AwaitingAlternativeService'
+  AwaitingProcessServerService: 'AwaitingProcessServerService'
+  AwaitingDWPResponse: 'AwaitingDWPResponse'
 
 features:
   idam: false
