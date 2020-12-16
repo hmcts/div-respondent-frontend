@@ -75,4 +75,31 @@ describe(modulePath, () => {
     expect(next.calledOnce).to.eql(false);
     expect(res.redirect.calledWith(expectedUrl)).to.eql(true);
   });
+
+  describe('Redirections to DN app', () => {
+    const stateToRedirectToDn = ['AwaitingGeneralReferralPayment', 'GeneralConsiderationComplete'];
+
+    stateToRedirectToDn.forEach(caseState => {
+      it(`should redirect to DN when state is ${caseState}`, () => {
+        const email = 'user@email.com';
+        const req = {
+          cookies: { '__auth-token': 'authToken' },
+          session: {
+            caseState,
+            originalPetition: {
+              respEmailAddress: email
+            }
+          },
+          idam: {
+            userDetails: { email }
+          }
+        };
+
+        redirectMiddleware.redirectOnCondition(req, res, next);
+
+        expect(next.calledOnce).to.eql(false);
+        expect(res.redirect.calledWith(expectedUrl)).to.eql(true);
+      });
+    });
+  });
 });

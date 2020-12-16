@@ -69,6 +69,7 @@ const loadMiniPetition = (req, res, next) => {
           logger.infoWithReq(req, 'user_is_coresp', 'User is corespondent, redirecting to find CoRespPath');
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }
+
         if (caseState === config.caseStates.DivorceGranted) {
           const daAppLandingPage = `${config.services.daFrontend.url}${config.services.daFrontend.landing}`;
           const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
@@ -77,14 +78,17 @@ const loadMiniPetition = (req, res, next) => {
           logger.infoWithReq(req, `${daAppLandingPage}${daQueryString}`);
           return res.redirect(`${daAppLandingPage}${daQueryString}`);
         }
+
         if (caseState === config.caseStates.AosAwaiting) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
           return res.redirect(CaptureCaseAndPin.path);
         }
+
         if (!isValidStateForAos(caseState)) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
         }
+
         logger.infoWithReq(req, 'case_state_ok', 'Case is in a valid state for the respondent to respond, can proceed respondent journey', response.statusCode);
         return next();
       } else if (response.statusCode === httpStatus.NOT_FOUND) {
