@@ -2,6 +2,7 @@ const modulePath = 'middleware/petitionMiddleware';
 const config = require('config');
 const { sinon, expect, itParam } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition: petitionMiddleware } = require(modulePath);
+const { getDnRedirectUrl } = require('core/utils/petitionHelper');
 const caseOrchestration = require('services/caseOrchestration');
 // eslint-disable-next-line max-len
 const completedMock = require(
@@ -403,5 +404,79 @@ describe(modulePath, () => {
     };
 
     petitionMiddleware(req, {}, next);
+  });
+
+  describe('Redirections to DN app', () => {
+    const stateToRedirectToDn = config.dnCaseStates;
+
+    itParam('should redirect respondent to DN when state is ${value}', stateToRedirectToDn, (done, state) => {
+      // given
+      const email = 'user@email.com';
+      const req = {
+        cookies: { '__auth-token': 'authToken' },
+        idam: {
+          userDetails: { email }
+        }
+      };
+      const res = {
+        redirect: sinon.spy()
+      };
+
+      const next = sinon.stub();
+      req.session = {};
+
+      const mockRespResponse = completedMock;
+      mockRespResponse.state = state;
+
+      sinon.stub(caseOrchestration, 'getPetition')
+        .resolves({
+          statusCode: httpStatus.OK,
+          body: mockRespResponse
+        });
+
+      const dnRedirectUrl = getDnRedirectUrl(req);
+
+      // when
+      petitionMiddleware(req, res, next)
+        .then(() => {
+          expect(res.redirect.withArgs(dnRedirectUrl).calledOnce).to.be.true;
+        })
+        .then(done, done);
+    });
+
+    itParam('should redirect co-respondent to DN when state is ${value}', stateToRedirectToDn, (done, state) => {
+      // given
+      const email = 'user@email.com';
+      const req = {
+        cookies: { '__auth-token': 'authToken' },
+        idam: {
+          userDetails: { email }
+        }
+      };
+      const res = {
+        redirect: sinon.spy()
+      };
+
+      const next = sinon.stub();
+      req.session = {};
+
+      const mockCoRespResponse = coRespondentMock;
+      mockCoRespResponse.state = state;
+
+      sinon.stub(caseOrchestration, 'getPetition')
+        .resolves({
+          statusCode: httpStatus.OK,
+          body: mockCoRespResponse
+        });
+
+      const dnRedirectUrl = getDnRedirectUrl(req);
+
+      // when
+      petitionMiddleware(req, res, next)
+        .then(() => {
+          expect(res.redirect.withArgs(dnRedirectUrl).calledOnce).to.be.true;
+        })
+        .then(done, done);
+    });
   });
 });

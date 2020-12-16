@@ -39,6 +39,7 @@
         "coRespDNPronouncedWithoutCosts": "Co-respondent - DNPronounced without costs",
         "serviceApplicationNotApproved": "Yes - case started - serviceApplicationNotApproved",
         "awaitingGeneralReferralPayment": "Yes - case started - awaitingGeneralReferralPayment",
+        "generalConsiderationComplete": "Co-respondent - GeneralConsiderationComplete",
         "throwError": "Simulate 500 server error"
       }
     }

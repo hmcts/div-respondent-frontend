@@ -6,8 +6,7 @@ const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar
 const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
-
-const authTokenString = '__auth-token';
+const { isStateToRedirectToDn, redirectToDn, getDaRedirectUrl } = require('core/utils/petitionHelper');
 
 function storePetitionInSession(req, response) {
   req.session.referenceNumber = response.body.caseId;
@@ -60,23 +59,23 @@ const loadMiniPetition = (req, res, next) => {
       if (response.statusCode === httpStatus.OK) {
         storePetitionInSession(req, response);
 
-        const originalPetition = req.session.originalPetition;
         const caseState = response.body.state;
+        if (isStateToRedirectToDn(caseState)) {
+          return redirectToDn(req, res, caseState);
+        }
 
+        const originalPetition = req.session.originalPetition;
         const coRespAnswers = originalPetition && originalPetition.coRespondentAnswers;
         const idamUserIsCorespondent = coRespAnswers && coRespAnswers.contactInfo && req.idam.userDetails.email === coRespAnswers.contactInfo.emailAddress;
+
         if (idamUserIsCorespondent) {
           logger.infoWithReq(req, 'user_is_coresp', 'User is corespondent, redirecting to find CoRespPath');
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }
 
         if (caseState === config.caseStates.DivorceGranted) {
-          const daAppLandingPage = `${config.services.daFrontend.url}${config.services.daFrontend.landing}`;
-          const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
-
           logger.infoWithReq(req, 'redirect_to_da', 'User is respondent and divorce is granted, redirecting to DA');
-          logger.infoWithReq(req, `${daAppLandingPage}${daQueryString}`);
-          return res.redirect(`${daAppLandingPage}${daQueryString}`);
+          return res.redirect(getDaRedirectUrl(req));
         }
 
         if (caseState === config.caseStates.AosAwaiting) {

@@ -165,9 +165,7 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral',
   'AwaitingAlternativeService',
   'AwaitingProcessServerService',
-  'AwaitingDWPResponse',
-  'AwaitingGeneralReferralPayment',
-  'GeneralConsiderationComplete'
+  'AwaitingDWPResponse'
 ]
 
 respRespondableStates: [
@@ -176,7 +174,10 @@ respRespondableStates: [
   'ServiceApplicationNotApproved',
   'AwaitingAlternativeService',
   'AwaitingProcessServerService',
-  'AwaitingDWPResponse',
+  'AwaitingDWPResponse'
+]
+
+dnCaseStates: [
   'AwaitingGeneralReferralPayment',
   'GeneralConsiderationComplete'
 ]
@@ -204,8 +205,6 @@ caseStates:
   AwaitingAlternativeService: 'AwaitingAlternativeService'
   AwaitingProcessServerService: 'AwaitingProcessServerService'
   AwaitingDWPResponse: 'AwaitingDWPResponse'
-  AwaitingGeneralReferralPayment: 'AwaitingGeneralReferralPayment'
-  GeneralConsiderationComplete: 'GeneralConsiderationComplete'
 
 features:
   idam: false
