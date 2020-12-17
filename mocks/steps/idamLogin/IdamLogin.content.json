@@ -84,6 +84,7 @@
         "coRespDNPronouncedWithoutCosts": "[CY] Co-respondent - DNPronounced without costs",
         "serviceApplicationNotApproved": "[CY] Yes - case started - serviceApplicationNotApproved",
         "awaitingGeneralReferralPayment": "[CY] Yes - case started - awaitingGeneralReferralPayment",
+        "generalConsiderationComplete": "[CY] Co-respondent - GeneralConsiderationComplete",
         "throwError": "[CY] Simulate 500 server error"
       }
     }

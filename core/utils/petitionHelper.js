@@ -12,7 +12,6 @@ const getDnRedirectUrl = req => {
   const appLandingPage = `${config.services.dnFrontend.url}${config.services.dnFrontend.landing}`;
   const queryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
   const redirectUrl = `${appLandingPage}${queryString}`;
-  logger.infoWithReq(req, redirectUrl);
   return redirectUrl;
 };
 
@@ -20,7 +19,6 @@ const getDaRedirectUrl = req => {
   const daAppLandingPage = `${config.services.daFrontend.url}${config.services.daFrontend.landing}`;
   const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
   const redirectUrl = `${daAppLandingPage}${daQueryString}`;
-  logger.infoWithReq(req, redirectUrl);
   return redirectUrl;
 };
 
