@@ -23,8 +23,10 @@ const getDaRedirectUrl = req => {
 };
 
 const redirectToDn = (req, res, caseState) => {
+  const redirectUrl = getDnRedirectUrl(req);
   logger.infoWithReq(req, 'redirect_to_dn', `case state is ${caseState}, redirecting to DN`);
-  return res.redirect(getDnRedirectUrl(req));
+  logger.infoWithReq(req, redirectUrl);
+  return res.redirect(redirectUrl);
 };
 
 module.exports = {

@@ -74,8 +74,10 @@ const loadMiniPetition = (req, res, next) => {
         }
 
         if (caseState === config.caseStates.DivorceGranted) {
+          const redirectUrl = getDaRedirectUrl(req);
           logger.infoWithReq(req, 'redirect_to_da', 'User is respondent and divorce is granted, redirecting to DA');
-          return res.redirect(getDaRedirectUrl(req));
+          logger.infoWithReq(req, redirectUrl);
+          return res.redirect(redirectUrl);
         }
 
         if (caseState === config.caseStates.AosAwaiting) {

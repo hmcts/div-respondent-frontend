@@ -11,8 +11,10 @@ const redirectOnCondition = (req, res, next) => {
   const idamUserIsRespondent = req.idam.userDetails.email === originalPetition.respEmailAddress;
 
   if (!idamUserIsRespondent) {
+    const redirectUrl = getDnRedirectUrl(req);
     logger.infoWithReq(req, 'redirect_to_dn', 'IDAM user does not match case respondent user, redirecting to DN');
-    return res.redirect(getDnRedirectUrl(req));
+    logger.infoWithReq(req, redirectUrl);
+    return res.redirect(redirectUrl);
   }
 
   return next();
