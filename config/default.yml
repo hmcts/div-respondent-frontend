@@ -177,6 +177,11 @@ respRespondableStates: [
   'AwaitingDWPResponse'
 ]
 
+dnCaseStates: [
+  'AwaitingGeneralReferralPayment',
+  'GeneralConsiderationComplete'
+]
+
 caseStates:
   AosAwaiting: 'AosAwaiting'
   AosStarted: 'AosStarted'

@@ -6,8 +6,7 @@ const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar
 const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
-
-const authTokenString = '__auth-token';
+const { isStateToRedirectToDn, redirectToDn, getDaRedirectUrl } = require('core/utils/petitionHelper');
 
 function storePetitionInSession(req, response) {
   req.session.referenceNumber = response.body.caseId;
@@ -60,31 +59,37 @@ const loadMiniPetition = (req, res, next) => {
       if (response.statusCode === httpStatus.OK) {
         storePetitionInSession(req, response);
 
-        const originalPetition = req.session.originalPetition;
         const caseState = response.body.state;
+        if (isStateToRedirectToDn(caseState)) {
+          return redirectToDn(req, res, caseState);
+        }
 
+        const originalPetition = req.session.originalPetition;
         const coRespAnswers = originalPetition && originalPetition.coRespondentAnswers;
         const idamUserIsCorespondent = coRespAnswers && coRespAnswers.contactInfo && req.idam.userDetails.email === coRespAnswers.contactInfo.emailAddress;
+
         if (idamUserIsCorespondent) {
           logger.infoWithReq(req, 'user_is_coresp', 'User is corespondent, redirecting to find CoRespPath');
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }
-        if (caseState === config.caseStates.DivorceGranted) {
-          const daAppLandingPage = `${config.services.daFrontend.url}${config.services.daFrontend.landing}`;
-          const daQueryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
 
+        if (caseState === config.caseStates.DivorceGranted) {
+          const redirectUrl = getDaRedirectUrl(req);
           logger.infoWithReq(req, 'redirect_to_da', 'User is respondent and divorce is granted, redirecting to DA');
-          logger.infoWithReq(req, `${daAppLandingPage}${daQueryString}`);
-          return res.redirect(`${daAppLandingPage}${daQueryString}`);
+          logger.infoWithReq(req, redirectUrl);
+          return res.redirect(redirectUrl);
         }
+
         if (caseState === config.caseStates.AosAwaiting) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
           return res.redirect(CaptureCaseAndPin.path);
         }
+
         if (!isValidStateForAos(caseState)) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
         }
+
         logger.infoWithReq(req, 'case_state_ok', 'Case is in a valid state for the respondent to respond, can proceed respondent journey', response.statusCode);
         return next();
       } else if (response.statusCode === httpStatus.NOT_FOUND) {

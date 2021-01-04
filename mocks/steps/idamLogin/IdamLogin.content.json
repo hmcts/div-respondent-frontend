@@ -38,6 +38,8 @@
         "coRespDNPronouncedWithCosts": "Co-respondent - DNPronounced with costs",
         "coRespDNPronouncedWithoutCosts": "Co-respondent - DNPronounced without costs",
         "serviceApplicationNotApproved": "Yes - case started - serviceApplicationNotApproved",
+        "awaitingGeneralReferralPayment": "Yes - case started - awaitingGeneralReferralPayment",
+        "generalConsiderationComplete": "Co-respondent - GeneralConsiderationComplete",
         "throwError": "Simulate 500 server error"
       }
     }
@@ -81,6 +83,8 @@
         "coRespDNPronouncedWithCosts": "[CY] Co-respondent - DNPronounced with costs",
         "coRespDNPronouncedWithoutCosts": "[CY] Co-respondent - DNPronounced without costs",
         "serviceApplicationNotApproved": "[CY] Yes - case started - serviceApplicationNotApproved",
+        "awaitingGeneralReferralPayment": "[CY] Yes - case started - awaitingGeneralReferralPayment",
+        "generalConsiderationComplete": "[CY] Co-respondent - GeneralConsiderationComplete",
         "throwError": "[CY] Simulate 500 server error"
       }
     }
