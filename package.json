@@ -118,7 +118,8 @@
     "serialize-javascript": ">=2.1.1",
     "yargs-parser": ">=13.1.2 <14.0.0 || >=18.1.2  ",
     "bl": ">=4.0.3",
-    "ini": ">=1.3.6"
+    "ini": ">=1.3.6",
+    "axios": ">=0.21.1"
   },
   "nyc": {
     "report-dir": "coverage",
