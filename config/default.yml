@@ -91,6 +91,7 @@ paths:
   entry: /entry
   end: /end
   termsAndConditions: /terms-and-conditions
+  divorceApplicationProcessing: /divorce-application-processing
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
   authenticated: /authenticated
@@ -177,7 +178,7 @@ respRespondableStates: [
   'AwaitingDWPResponse'
 ]
 
-dnCaseStates: [
+applicationProcessingCaseStates: [
   'AwaitingGeneralReferralPayment',
   'GeneralConsiderationComplete'
 ]
