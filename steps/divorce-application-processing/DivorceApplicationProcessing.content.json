@@ -1,0 +1,22 @@
+{
+  "en": {
+    "title": "Your divorce application is being processed.",
+    "info": "You can contact us about your divorce application.",
+    "contactTitle": "Contact us",
+    "email": "Email",
+    "phone": "Phone",
+    "divorceEmail": "divorcecase@justice.gov.uk",
+    "openTimes": "(Monday to Friday, 8am to 8pm, Saturday 8am to 2pm)",
+    "phoneNumber" : "0300 303 0642"
+  },
+  "cy": {
+    "title": "Mae eich cais am ysgariad yn cael ei brosesu.",
+    "info": "Gallwch gysylltu â ni i drafod eich cais am ysgariad.",
+    "contactTitle": "Cysylltu â ni",
+    "email": "E-bost",
+    "phone": "Ffôn",
+    "divorceEmail": "ymholiadaucymraeg@justice.gov.uk",
+    "openTimes": "(Dydd Llun i ddydd Gwener, 8.30am – 5pm)",
+    "phoneNumber" : "0300 303 5171"
+  }
+}
