@@ -6,12 +6,15 @@ Feature('Desertion journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
+  const numberOfTimesRetried = 10;
+
   Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {
-    await I.retry(2).createAUser();
-    I.retry(2).createAosCaseForUser(desertionSession);
+    await I.retry(numberOfTimesRetried).createAUser();
+
+    I.retry(numberOfTimesRetried).createAosCaseForUser(desertionSession);
     await I.amOnLoadedPage('/', language);
 
-    await I.retry(2).createAUser();
+    await I.retry(numberOfTimesRetried).createAUser();
     I.login(language);
     I.seeCaptureCaseAndPinPage(language);
     I.fillInReferenceNumberAndPinCode();
@@ -60,7 +63,7 @@ const runTests = (language = 'en') => {
 
     I.seeDonePage(language);
     I.see('EZ12D81281');
-  }).retry(2);
+  }).retry(numberOfTimesRetried);
 };
 
 languages
