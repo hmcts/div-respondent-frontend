@@ -7,6 +7,7 @@ const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
   const numberOfTimesRetried = 10;
+  const waitInterval = 5;
 
   Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {
     await I.retry(numberOfTimesRetried).createAUser();
@@ -20,7 +21,7 @@ const runTests = (language = 'en') => {
     I.fillInReferenceNumberAndPinCode();
     I.navByClick(content[language].continue);
     if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(3);
+      I.wait(waitInterval);
     }
     I.seeRespondPage(language);
     I.click(content[language].continue);
@@ -55,7 +56,7 @@ const runTests = (language = 'en') => {
       I.completePCQs(language);
     }
 
-    I.wait(5);
+    I.wait(waitInterval);
 
     I.seeCheckYourAnswersPage(language);
     I.confirmInformationIsTrue(language);
