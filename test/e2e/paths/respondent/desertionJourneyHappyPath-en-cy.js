@@ -6,18 +6,22 @@ Feature('Desertion journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
+  const amountOfTimesToRetry = 10;
+  const waitInterval = 5;
+
   Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {
-    await I.retry(2).createAUser();
-    I.retry(2).createAosCaseForUser(desertionSession);
+    await I.retry(amountOfTimesToRetry).createAUser();
+
+    I.retry(amountOfTimesToRetry).createAosCaseForUser(desertionSession);
     await I.amOnLoadedPage('/', language);
 
-    await I.retry(2).createAUser();
+    await I.retry(amountOfTimesToRetry).createAUser();
     I.login(language);
     I.seeCaptureCaseAndPinPage(language);
     I.fillInReferenceNumberAndPinCode();
     I.navByClick(content[language].continue);
     if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(3);
+      I.wait(waitInterval);
     }
     I.seeRespondPage(language);
     I.click(content[language].continue);
@@ -52,7 +56,7 @@ const runTests = (language = 'en') => {
       I.completePCQs(language);
     }
 
-    I.wait(5);
+    I.wait(waitInterval);
 
     I.seeCheckYourAnswersPage(language);
     I.confirmInformationIsTrue(language);
@@ -60,7 +64,7 @@ const runTests = (language = 'en') => {
 
     I.seeDonePage(language);
     I.see('EZ12D81281');
-  }).retry(2);
+  }).retry(amountOfTimesToRetry);
 };
 
 languages
