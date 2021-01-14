@@ -33,6 +33,8 @@ withPipeline("nodejs", product, component) {
 
   loadVaultSecrets(secrets)
 
+  enableSecurityScan()
+
   after('test') {
     yarnBuilder.yarn('test:validation')
     // required for running functional tests on CI

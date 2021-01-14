@@ -1,3 +1,4 @@
 {
-  "10017_Cross-Domain JavaScript Source File Inclusion_https://respond-divorce-aks.aat.platform.hmcts.net/accessibility-statement?lng=en_GET": "ignore"
+  "40024_SQL Injection - SQLite_https://respond-divorce-aks.aat.platform.hmcts.net/cookie?lng=en_GET": "ignore",
+  "40024_SQL Injection - SQLite_https://respond-divorce-aks.aat.platform.hmcts.net/terms-and-conditions?lng=en": "ignore"
 }
