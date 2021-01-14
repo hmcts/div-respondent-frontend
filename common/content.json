@@ -49,7 +49,7 @@
     "chatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
     "chatOpeningHours": "Dydd Llun i ddydd Gwener, 8.30am - 5pm.",
     "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"Adborth: Bydd y ddolen hon yn agor mewn ffenestr newydd. Bydd angen ichi ddychwelyd i&rsquo;r ffenestr hon i barhau gyda&rsquo;ch cais.\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth</a> yn ein helpu ni i&rsquo;w wella.",
-    "languageToggle": "<a href=\"?lng=en\" class=\"govuk-link language\">English</a>",
+    "languageToggle": "<a href=\"/en\" class=\"govuk-link language\">English</a>",
     "accessibility": "Datganiad Hygyrchedd",
     "cookies": "Cwcis",
     "privacyPolicy": "Polisi Preifatrwydd",
