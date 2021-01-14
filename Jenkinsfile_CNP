@@ -26,14 +26,11 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
   ]
 }
 
-
 withPipeline("nodejs", product, component) {
   enableAksStagingDeployment()
   disableLegacyDeployment()
 
   loadVaultSecrets(secrets)
-
-  enableSecurityScan()
 
   after('test') {
     yarnBuilder.yarn('test:validation')
