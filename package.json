@@ -52,7 +52,7 @@
     "handlebars": ">=4.3.0",
     "helmet": "^3.12.2",
     "hpkp": "^2.0.0",
-    "html-entities": "^1.2.1",
+    "html-entities": "^1.4.0",
     "ioredis": "^4.14.1",
     "joi": "^14.3.1",
     "launchdarkly-node-server-sdk": "^5.13.1",
