@@ -41,13 +41,12 @@
         },
         "residualJurisdiction": {
           "heading": "Residual Jurisdiction",
-          "intro1": "The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:",
-          "bullet1": "either you or your {{ divorceWho }} are domiciled in England or Wales",
-          "bullet2": "neither you nor your {{ divorceWho }} are able to apply (on the basis of your nationality or residence) for a divorce in another member state of the EU",
-          "intro2": "In addition, if you’re married to a person of the same sex, the court may have residual jurisdiction if all the following apply:",
-          "bullet3": "you and your {{ divorceWho }} married each other in England or Wales",
-          "bullet4": "neither you nor your {{ divorceWho }} are able to apply for a divorce in any other country",
-          "bullet5": "it would be in the interests of justice for the court to consider the application (for example, this may apply if you or your {{ divorceWho }}’s home country doesn’t allow divorce between same-sex couples)."
+          "summary1": "Usually, to be eligible for residual jurisdiction, you or your husband/wife must be domiciled in England or Wales, and neither of you must be nationals of, or habitually resident in, another country in the EU (except Denmark).",
+          "summary2": "In addition, if you’re married to a member of the same sex, you may be eligible for residual jurisdiction if all the following apply:",
+          "bullet1": "you married each other in England or Wales",
+          "bullet2": "neither of you are nationals of, or habitually resident in, another country in the EU (except Denmark)",
+          "bullet3": "it would be in the interests of justice for the court to consider the application (this may apply if, for example, your home country doesn’t allow divorce between same-sex couples)",
+          "summary3": "However, residual jurisdiction can be more complex. If you’re not sure if this might apply to you, you should get legal advice."
         }
       }
     },
@@ -109,13 +108,12 @@
         },
         "residualJurisdiction": {
           "heading": "Awdurdodaeth Weddillol",
-          "intro1": "Mae’n bosib y bydd gan y llys awdurdodaeth ar sail weddillol os nad yw unrhyw un o’r cysylltiadau cyfreithiol eraill yn berthnasol, a bod y canlynol ill dau yn wir:",
-          "bullet1": "mae eich domisil chi neu ddomisil eich {{ divorceWho }} yng Nghymru neu Loegr",
-          "bullet2": "nid ydych chi na’ch {{ divorceWho }} yn gallu gwneud cais (ar sail eich cenedligrwydd neu eich preswylfan) am ysgariad yn un o aelod-wladwriaethau eraill yr UE",
-          "intro2": "At hynny, os ydych yn briod â rhywun o’r un rhyw, efallai eich bod yn gymwys ar gyfer awdurdodaeth weddillol os yw’r canlynol i gyd yn berthnasol:",
-          "bullet3": "mi wnaethoch chi a’ch {{ divorceWho }} briodi eich gilydd yng Nghymru neu Loegr",
-          "bullet4": "nid ydych chi na’ch {{ divorceWho }} yn gallu gwneud cais am ysgariad mewn unrhyw wlad arall",
-          "bullet5": "byddai er lles cyfiawnder i’r llys ystyried y cais (er enghraifft, gallai hyn fod yn berthnasol, os nad yw’r wlad lle mae eich cartref neu gartref eich {{ divorceWho }} yn caniatáu ysgariad rhwng cyplau o’r un rhyw)."
+          "summary1": "Fel arfer, er mwyn bod yn gymwys ar gyfer awdurdodaeth weddilliol, rhaid i’ch domisil chi neu'ch gŵr/gwraig fod yng Nghymru neu Loegr, ac ni ddylai'r un ohonoch fod yn ddinasyddion o wlad arall yn yr UE (ac eithrio Denmarc), nac yn preswylio'n arferol ynddi.",
+          "summary2": "Yn ogystal, os ydych yn briod ag aelod o'r un rhyw, efallai y byddwch yn gymwys ar gyfer awdurdodaeth weddilliol os yw'r canlynol i gyd yn berthnasol:",
+          "bullet1": "gwnaethoch briodi eich gilydd yng Nghymru neu Loegr",
+          "bullet2": "nid yw'r un ohonoch yn ddinasyddion o wlad arall yn yr UE (ac eithrio Denmarc), neu’n preswylio'n arferol ynddi",
+          "bullet3": "byddai er budd cyfiawnder i'r llys ystyried y cais (gall hyn fod yn berthnasol os nad yw eich gwlad gartref, er enghraifft, yn caniatáu ysgariad rhwng cyplau o'r un rhyw)",
+          "summary3": "Fodd bynnag, gall awdurdodaeth weddilliol fod yn fwy cymhleth. Os nad ydych yn siŵr a yw hyn yn berthnasol i chi, dylech geisio cyngor cyfreithiol."
         }
       }
     },
