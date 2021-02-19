@@ -62,15 +62,36 @@ class IdamHelper extends Helper {
   }
 
   _after() {
-    logger.infoWithReq(null, 'removing_idam_user', 'Removing IDAM test user...');
-    const testEmail = idamArgs.testEmail;
-    idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
-      .then(() => {
-        logger.infoWithReq(null, 'idam_user_removed', 'Removed IDAM test user', testEmail);
-      })
-      .catch(error => {
-        logger.warnWithReq(null, 'idam_error', 'Unable to remove IDAM test user', error.message);
-      });
+    const MAX_ATTEMPTS = 3;
+
+    const removeUserAccount = attempts => {
+      logger.infoWithReq(null, 'removing_idam_user', 'Removing IDAM test user...');
+      const testEmail = idamArgs.testEmail;
+      idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
+        .then(() => {
+          logger.infoWithReq(null, 'idam_user_removed', 'Removed IDAM test user', testEmail);
+        })
+        .catch(error => {
+          logger.warnWithReq(
+            null,
+            'idam_error',
+            `Unable to remove IDAM test user  + ${attempts}`,
+            error.message
+          );
+          if (attempts < MAX_ATTEMPTS) {
+            removeUserAccount(attempts + 1);
+          } else {
+            logger.warnWithReq(
+              null,
+              'idam_error',
+              'Unable to remove IDAM test user too many times. TEST BROKEN',
+              error.message
+            );
+          }
+        });
+    };
+
+    removeUserAccount(1);
   }
 }
 
