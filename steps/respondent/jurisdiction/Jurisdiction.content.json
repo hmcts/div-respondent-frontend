@@ -16,6 +16,9 @@
     "jurisdictionConnectionPetitionerSixMonths": "your {{ divorceWho }} is domiciled and habitually resident and has lived here for at least 6 months",
     "jurisdictionConnectionBothDomiciled": "both you and your {{ divorceWho }} are domiciled",
     "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction",
+    "jurisdictionConnectionNewPolicyOther": "The courts of England and Wales have residual jurisdiction (Same sex marriage)",
+    "jurisdictionConnectionPetDomiciled": "The Petitioner is domiciled in England and Wales",
+    "jurisdictionConnectionResDomiciled": "The Respondent is domiciled in England and Wales",
 
     "info": {
       "heading": "What this means",
@@ -74,7 +77,10 @@
     "jurisdictionConnectionPetitioner": "bod eich {{ divorceWho }}  yn preswylio’n arferol yma ac wedi byw yma am o leiaf 12 mis",
     "jurisdictionConnectionPetitionerSixMonths": "bod domisil eich {{ divorceWho }} yma, ei fod/bod yn preswylio’n arferol yma ac wedi byw yma am o leiaf 6 mis",
     "jurisdictionConnectionBothDomiciled": "eich bod chi a’ch {{ divorceWho }} â’ch domisil yng Nghymru a Lloegr",
+    "jurisdictionConnectionPetDomiciled": "Mae domisil y Deisebydd yng Nghymru a Lloegr.",
+    "jurisdictionConnectionResDomiciled": "Mae domisil yr Atebydd yng Nghymru a Lloegr.",
     "jurisdictionConnectionOther": "Mae gan lysoedd Cymru a Lloegr awdurdodaeth ar sail weddillol",
+    "jurisdictionConnectionNewPolicyOther": "Mae gan lysoedd Cymru a Lloegr awdurdodaeth ar sail weddillol (cwpl priod o'r un rhyw)",
     "info": {
       "heading": "Beth yw ystyr hyn?",
       "options": {
