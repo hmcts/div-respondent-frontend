@@ -109,12 +109,12 @@
 
   <h2 class="govuk-heading-m">{{ content.whyTheCourtHeading }}</h2>
 
+{% if session.originalPetition.newLegalConnectionPolicy != "Yes" %}
   {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
     <ul class="govuk-list govuk-list--bullet">
   {% else %}
     <p class="govuk-body">
   {% endif %}
-
     {% if "A" in session.originalPetition.jurisdictionConnection %}
       {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
         <li>
@@ -204,6 +204,128 @@
   {% else %}
     </p>
   {% endif %}
+{% endif %}
+
+{% if session.originalPetition.newLegalConnectionPolicy == "Yes" %}
+{% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+<ul class="govuk-list govuk-list--bullet">
+  {% else %}
+  <p class="govuk-body">
+    {% endif %}
+    {% if "A" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionBothResident }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1  and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "B" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionOneResides }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "C" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionRespondent }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "D" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionPetitioner }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "E" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionPetitionerSixMonths }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "F" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionBothDomiciled }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "G" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionNewPolicyOther }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "H" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionPetDomiciled }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if "I" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  <li>
+    {% endif %}
+
+    {{ content.jurisdictionConnectionResDomiciled }}
+
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+  </li>
+  {% endif %}
+  {% endif %}
+
+  {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+</ul>
+{% else %}
+</p>
+{% endif %}
+{% endif %}
 
   <br>
 
@@ -240,18 +362,6 @@
       </ul>
       <p class="govuk-body">{{ content.domicilePar4 | safe }}</p>
       <p class="govuk-body">{{ content.domicilePar5 }}</p>
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.residualJurisdiction }}</h2>
-      <p class="govuk-body">{{ content.residualJurisdictionPar1 }}</p>
-      <ul class="bullet govuk-list govuk-list--bullet">
-        <li>{{ content.residualJurisdictionList2 }}</li>
-        <li>{{ content.residualJurisdictionList3 }}</li>
-      </ul>
-    <p class="govuk-body">{{ content.residualJurisdictionPar2 }}</p>
-      <ul class="bullet govuk-list govuk-list--bullet">
-        <li>{{ content.residualJurisdictionList4 }}</li>
-        <li>{{ content.residualJurisdictionList5 }}</li>
-        <li>{{ content.residualJurisdictionList6 }}</li>
-      </ul>
       <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.otherCourtCases }}</h2>
       <p class="govuk-body">{{ content. otherCourtCasesPar1 }}</p>
     </div>

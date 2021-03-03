@@ -187,7 +187,31 @@
       <li>
         {% endif %}
 
-        {{ content.jurisdictionConnectionOther }}
+        {{ content.jurisdictionConnectionNewPolicyOther }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "H" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetDomiciled }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "I" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionResDomiciled }}
 
         {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
       </li>

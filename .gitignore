@@ -32,3 +32,4 @@ config/local*
 acb.yaml
 mochawesome-report
 /config/dev.yaml
+/config/development.yaml
