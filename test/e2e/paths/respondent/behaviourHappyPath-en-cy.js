@@ -8,29 +8,32 @@ Feature('Unreasonable Behaviour Journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
+  const numberOfTimesRetried = 10;
+  const waitInterval = 5;
+
   Scenario(`@Pipeline Behaviour Journey, Proceed divorce with linked user - ${language}`, async I => {
-    await I.retry(2).createAUser();
-    I.retry(2).createAosCaseForUser(basicDivorceSession);
+    await I.retry(numberOfTimesRetried).createAUser();
+    I.retry(numberOfTimesRetried).createAosCaseForUser(basicDivorceSession);
     await I.amOnLoadedPage('/', language);
 
-    await I.retry(2).createAUser();
+    await I.retry(numberOfTimesRetried).createAUser();
     I.login(language);
     I.seeCaptureCaseAndPinPage(language);
     I.fillInReferenceNumberAndPinCode();
     I.navByClick(content[language].continue);
     if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(3);
+      I.wait(waitInterval);
     }
     I.seeRespondPage(language);
     I.navByClick(content[language].continue);
 
     I.seeReviewApplicationPage(language);
-    I.wait(5);
+    I.wait(waitInterval);
     I.acknowledgeApplication(language);
     I.navByClick(content[language].continue);
 
     if (config.tests.e2e.addWaitForCrossBrowser) {
-      I.wait(3);
+      I.wait(waitInterval);
       if (parseBool(config.features.respSolicitorDetails)) {
         I.seeSolicitorRepPage(language);
         I.selectNoSolicitor(language);
@@ -61,7 +64,7 @@ const runTests = (language = 'en') => {
     I.navByClick(content[language].continue);
 
     I.seeAgreeToPayCostsPage(language);
-    I.wait(5);
+    I.wait(waitInterval);
     I.chooseAgreeToPay(language);
     I.navByClick(content[language].continue);
 
@@ -74,7 +77,7 @@ const runTests = (language = 'en') => {
       I.completePCQs(language);
     }
 
-    I.wait(5);
+    I.wait(waitInterval);
 
     I.seeCheckYourAnswersPage(language);
     I.confirmInformationIsTrue(language);
@@ -82,7 +85,7 @@ const runTests = (language = 'en') => {
 
     I.seeDonePage(language);
     I.see('LV18D81234');
-  }).retry(2);
+  }).retry(numberOfTimesRetried);
 };
 
 languages

@@ -3,10 +3,11 @@ const config = require('config');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
+const DivorceApplicationProcessing = require('steps/divorce-application-processing/DivorceApplicationProcessing.step');
 const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
-const { isStateToRedirectToDn, redirectToDn, getDaRedirectUrl } = require('core/utils/petitionHelper');
+const { isApplicationProcessing, getDaRedirectUrl } = require('core/utils/petitionHelper');
 
 function storePetitionInSession(req, response) {
   req.session.referenceNumber = response.body.caseId;
@@ -60,8 +61,9 @@ const loadMiniPetition = (req, res, next) => {
         storePetitionInSession(req, response);
 
         const caseState = response.body.state;
-        if (isStateToRedirectToDn(caseState)) {
-          return redirectToDn(req, res, caseState);
+        if (isApplicationProcessing(caseState)) {
+          logger.infoWithReq(req, 'divorce_application_processing', `Case state is ${caseState}, redirecting to Divorce Application Processing detail page`);
+          return res.redirect(DivorceApplicationProcessing.path);
         }
 
         const originalPetition = req.session.originalPetition;

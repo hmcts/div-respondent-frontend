@@ -2,7 +2,6 @@ const modulePath = 'middleware/petitionMiddleware';
 const config = require('config');
 const { sinon, expect, itParam } = require('@hmcts/one-per-page-test-suite');
 const { loadMiniPetition: petitionMiddleware } = require(modulePath);
-const { getDnRedirectUrl } = require('core/utils/petitionHelper');
 const caseOrchestration = require('services/caseOrchestration');
 // eslint-disable-next-line max-len
 const completedMock = require(
@@ -19,6 +18,7 @@ const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
+const DivorceApplicationProcessing = require('steps/divorce-application-processing/DivorceApplicationProcessing.step');
 const httpStatus = require('http-status-codes');
 
 const authTokenString = '__auth-token';
@@ -407,7 +407,7 @@ describe(modulePath, () => {
   });
 
   describe('Redirections to DN app', () => {
-    const stateToRedirectToDn = config.dnCaseStates;
+    const stateToRedirectToDn = config.applicationProcessingCaseStates;
 
     itParam('should redirect respondent to DN when state is ${value}', stateToRedirectToDn, (done, state) => {
       // given
@@ -434,12 +434,10 @@ describe(modulePath, () => {
           body: mockRespResponse
         });
 
-      const dnRedirectUrl = getDnRedirectUrl(req);
-
       // when
       petitionMiddleware(req, res, next)
         .then(() => {
-          expect(res.redirect.withArgs(dnRedirectUrl).calledOnce).to.be.true;
+          expect(res.redirect.withArgs(DivorceApplicationProcessing.path).calledOnce).to.be.true;
         })
         .then(done, done);
     });
@@ -469,12 +467,10 @@ describe(modulePath, () => {
           body: mockCoRespResponse
         });
 
-      const dnRedirectUrl = getDnRedirectUrl(req);
-
       // when
       petitionMiddleware(req, res, next)
         .then(() => {
-          expect(res.redirect.withArgs(dnRedirectUrl).calledOnce).to.be.true;
+          expect(res.redirect.withArgs(DivorceApplicationProcessing.path).calledOnce).to.be.true;
         })
         .then(done, done);
     });
