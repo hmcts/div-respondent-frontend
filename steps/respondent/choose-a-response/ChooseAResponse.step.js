@@ -10,6 +10,7 @@ const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddlew
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const logger = require('services/logger').getLogger(__filename);
 
 const consts = {
   proceed: 'proceed',
@@ -76,7 +77,9 @@ class ChooseAResponse extends Question {
   values() {
     const response = this.fields.response.value;
 
+    logger.infoWithReq(null, 'respond-answers-to-ccd', `Reason: ${this.session.originalPetition.reasonForDivorce}`);
     if (this.isBehaviourOrDesertion) {
+      logger.infoWithReq(null, 'respond-answers-to-ccd', `Capture Aos Defence Values: ${response}`);
       switch (response) {
       case consts.proceed:
         return { respWillDefendDivorce: consts.no };

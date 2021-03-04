@@ -9,6 +9,7 @@ const content = require('./CheckYourAnswers.content');
 const { parseBool } = require('@hmcts/one-per-page');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
+const logger = require('services/logger').getLogger(__filename);
 
 const constants = {
   YES_VALUE: 'Yes',
@@ -74,6 +75,7 @@ class CheckYourAnswers extends CYA {
       respondentAnswers.consentToReceivingEmails = this.consts.NO_VALUE;
       respondentAnswers.respStatementOfTruth = this.consts.NO_VALUE;
     }
+    logger.infoWithReq(req, 'respond-answers-to-ccd', `sendAosResponse to CCD: ${respondentAnswers}`);
     return caseOrchestration.sendAosResponse(req, respondentAnswers);
   }
 
