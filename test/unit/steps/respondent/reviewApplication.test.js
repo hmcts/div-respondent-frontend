@@ -387,6 +387,36 @@ describe(modulePath, () => {
     });
   });
 
+  describe('Respondent Brexit policy wording', () => {
+    it('Displays new Legal policy wording for Brexit', () => {
+      const session = {
+        originalPetition: {
+          newLegalConnectionPolicy: 'Yes',
+          jurisdictionConnectionNewPolicy: ['G', 'H', 'I']
+        }
+      };
+      return content(
+        ReviewApplication,
+        session,
+        { specificContent: ['jurisdictionConnectionNewPolicyOther', 'jurisdictionConnectionPetDomiciled', 'jurisdictionConnectionResDomiciled'] }
+      );
+    });
+
+    it('Does not display new Legal policy wording for Brexit due to older case', () => {
+      const session = {
+        originalPetition: {
+          jurisdictionConnection: ['G'],
+          jurisdictionConnectionNewPolicy: ['G']
+        }
+      };
+      return content(
+        ReviewApplication,
+        session,
+        { specificContent: ['jurisdictionConnectionOther'] }
+      );
+    });
+  });
+
   describe('content', () => {
     const ignoreContent = [
       'webChatTitle',
