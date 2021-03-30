@@ -32,16 +32,16 @@ class IdamHelper extends Helper {
 
     idamConfigHelper.setTestEmail(testEmail);
     idamConfigHelper.setTestPassword(testPassword);
-    return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
+    return idamExpressTestHarness.createUser(idamArgs, null)
       .then(() => {
         logger.infoWithReq(null, 'idam_user_created', 'Created IDAM test user', testEmail);
-        return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
+        return idamExpressTestHarness.getToken(idamArgs, null);
       })
       .then(response => {
         logger.infoWithReq(null, 'idam_user_created', 'Retrieved IDAM test user token', testEmail);
         idamConfigHelper.setTestToken(response.access_token);
         idamArgs.accessToken = response.access_token;
-        return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
+        return idamExpressTestHarness.generatePin(idamArgs, null);
       })
       .then(response => {
         logger.infoWithReq(null, `Retrieved IDAM test user pin: ${testEmail}`);
@@ -67,7 +67,7 @@ class IdamHelper extends Helper {
     const removeUserAccount = attempts => {
       logger.infoWithReq(null, 'removing_idam_user', 'Removing IDAM test user...');
       const testEmail = idamArgs.testEmail;
-      idamExpressTestHarness.removeUser(idamArgs, config.tests.e2e.proxy)
+      idamExpressTestHarness.removeUser(idamArgs, null)
         .then(() => {
           logger.infoWithReq(null, 'idam_user_removed', 'Removed IDAM test user', testEmail);
         })
