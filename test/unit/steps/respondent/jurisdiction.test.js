@@ -211,6 +211,36 @@ describe(modulePath, () => {
     return question.redirectWithField(Jurisdiction, fields, LegalProceedings);
   });
 
+  describe('Co-respondent Brexit policy wording', () => {
+    it('Displays new Legal policy wording for Brexit', () => {
+      const session = {
+        originalPetition: {
+          newLegalConnectionPolicy: 'Yes',
+          jurisdictionConnectionNewPolicy: ['G', 'H', 'I']
+        }
+      };
+      return content(
+        Jurisdiction,
+        session,
+        { specificContent: ['jurisdictionConnectionNewPolicyOther', 'jurisdictionConnectionPetDomiciled', 'jurisdictionConnectionResDomiciled'] }
+      );
+    });
+
+    it('Does not display new Legal policy wording for Brexit due to older case', () => {
+      const session = {
+        originalPetition: {
+          jurisdictionConnection: ['G'],
+          jurisdictionConnectionNewPolicy: ['G']
+        }
+      };
+      return content(
+        Jurisdiction,
+        session,
+        { specificContent: ['jurisdictionConnectionOther'] }
+      );
+    });
+  });
+
   it('renders the content', () => {
     return content(Jurisdiction, defaultSession,
       { ignoreContent: [
@@ -225,6 +255,9 @@ describe(modulePath, () => {
         'info',
         'cya',
         'jurisdictionConnectionBothDomiciled',
+        'jurisdictionConnectionPetDomiciled',
+        'jurisdictionConnectionResDomiciled',
+        'jurisdictionConnectionNewPolicyOther',
         'jurisdictionConnectionPetitioner',
         'jurisdictionConnectionRespondent',
         'jurisdictionConnectionPetitionerSixMonths',
@@ -258,6 +291,9 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'info',
         'cya',
+        'jurisdictionConnectionPetDomiciled',
+        'jurisdictionConnectionResDomiciled',
+        'jurisdictionConnectionNewPolicyOther',
         'jurisdictionConnectionRespondent',
         'signIn',
         'signOut',
