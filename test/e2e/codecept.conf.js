@@ -5,17 +5,6 @@ const waitForTimeout = config.tests.e2e.waitForTimeout;
 const waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
-const proxyServer = config.tests.e2e.proxy;
-if (proxyServer) {
-  chromeArgs.push(`--proxy-server=${proxyServer}`);
-}
-
-const proxyByPass = config.tests.e2e.proxyByPass;
-if (proxyByPass) {
-  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
-}
-
-
 exports.config = {
   tests: './paths/**/*.js',
   output: `${process.cwd()}/functional-output`,
