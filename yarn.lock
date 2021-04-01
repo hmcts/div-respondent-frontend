@@ -341,10 +341,10 @@
   resolved "https://registry.yarnpkg.com/@hmcts/eslint-config/-/eslint-config-1.4.0.tgz#e713457cee3758a43394c2974913885aaae8a41b"
   integrity sha1-5xNFfO43WKQzlMKXSROIWqropBs=
 
-"@hmcts/look-and-feel@5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-5.0.5.tgz#3a49a4e2c80df3da8b06302bf071c014a7c3ac6b"
-  integrity sha512-/KP38D6gPahVnGHWfHFJlZsP77JiQDpakU/msQjokHS7R0oC6O2eyj1338BOKZ0hDlhnahpYve39VRVbouK6Xw==
+"@hmcts/look-and-feel@5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-5.0.6.tgz#a98f83c9a897e56f93c285d0b15113f981dc873a"
+  integrity sha512-imEcroiCgcirq9KIDmX8fOTFLfaxnmjOiRUPgJsMUHJpar0xYCL1kh+MhEpnmTXImuBsUn0iHg+Pb1aQtwNr/Q==
   dependencies:
     babel-core "^6.26.3"
     babel-loader "^7.1.2"
@@ -369,7 +369,7 @@
     nunjucks "^3.2.0"
     sass-loader "^6.0.6"
     serve-static "^1.14.1"
-    style-loader "^0.20.1"
+    style-loader "^0.23.1"
     webpack "^4.41.5"
     webpack-dev-middleware "^2.0.4"
 
@@ -11020,6 +11020,14 @@ style-loader@^0.20.1:
   dependencies:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
+
+style-loader@^0.23.1:
+  version "0.23.1"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
+  integrity sha512-XK+uv9kWwhZMZ1y7mysB+zoihsEj4wneFWAS5qoiLwzW0WzSqMrrsIy+a3zkQJq0ipFtBpX5W3MqyRIBF/WFGg==
+  dependencies:
+    loader-utils "^1.1.0"
+    schema-utils "^1.0.0"
 
 superagent-proxy@^1.0.2:
   version "1.0.3"
