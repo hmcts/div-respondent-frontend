@@ -7,7 +7,12 @@ const DivorceApplicationProcessing = require('steps/divorce-application-processi
 const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
-const { isApplicationProcessing, getDaRedirectUrl } = require('core/utils/petitionHelper');
+const {
+  isLinkedBailiffCase,
+  isAosAwaitingState,
+  isApplicationProcessing,
+  getDaRedirectUrl
+} = require('core/utils/petitionHelper');
 
 function storePetitionInSession(req, response) {
   req.session.referenceNumber = response.body.caseId;
@@ -55,7 +60,7 @@ function isValidStateForAos(caseState) {
 
 const loadMiniPetition = (req, res, next) => {
   return caseOrchestration.getPetition(req)
-  // eslint-disable-next-line complexity
+    // eslint-disable-next-line complexity
     .then(response => {
       if (response.statusCode === httpStatus.OK) {
         storePetitionInSession(req, response);
@@ -82,7 +87,7 @@ const loadMiniPetition = (req, res, next) => {
           return res.redirect(redirectUrl);
         }
 
-        if (caseState === config.caseStates.AosAwaiting) {
+        if (isAosAwaitingState(caseState) || !isLinkedBailiffCase(req)) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
           return res.redirect(CaptureCaseAndPin.path);
         }

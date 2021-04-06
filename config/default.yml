@@ -206,6 +206,9 @@ caseStates:
   AwaitingAlternativeService: 'AwaitingAlternativeService'
   AwaitingProcessServerService: 'AwaitingProcessServerService'
   AwaitingDWPResponse: 'AwaitingDWPResponse'
+  AwaitingBailiffReferral: 'AwaitingBailiffReferral'
+  AwaitingBailiffService: 'AwaitingBailiffService'
+  IssuedToBailiff: 'IssuedToBailiff'
 
 features:
   idam: false
