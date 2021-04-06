@@ -8,6 +8,7 @@ const logger = require('services/logger').getLogger(__filename);
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
 const {
+  isValidStateForAos,
   isLinkedBailiffCase,
   isAosAwaitingState,
   isApplicationProcessing,
@@ -54,10 +55,6 @@ function findCoRespPath(coRespAnswers, caseState) {
   return crProgressBar.path;
 }
 
-function isValidStateForAos(caseState) {
-  return config.respRespondableStates.includes(caseState);
-}
-
 const loadMiniPetition = (req, res, next) => {
   return caseOrchestration.getPetition(req)
     // eslint-disable-next-line complexity
@@ -87,7 +84,7 @@ const loadMiniPetition = (req, res, next) => {
           return res.redirect(redirectUrl);
         }
 
-        if (isAosAwaitingState(caseState) || !isLinkedBailiffCase(req)) {
+        if (isAosAwaitingState(caseState)) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
           return res.redirect(CaptureCaseAndPin.path);
         }
@@ -95,6 +92,11 @@ const loadMiniPetition = (req, res, next) => {
         if (!isValidStateForAos(caseState)) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
+        }
+
+        if (!isValidStateForAos(caseState) && !isLinkedBailiffCase(req)) {
+          logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
+          return res.redirect(CaptureCaseAndPin.path);
         }
 
         logger.infoWithReq(req, 'case_state_ok', 'Case is in a valid state for the respondent to respond, can proceed respondent journey', response.statusCode);

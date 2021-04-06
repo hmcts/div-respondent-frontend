@@ -31,10 +31,14 @@ const isBailiffCase = caseState => {
 };
 
 const isLinkedBailiffCase = req => {
-  const caseState = get(req.session, 'caseState');
   const receivedAos = get(req.session, 'originalPetition.receivedAOSfromResp');
+  const caseState = get(req.session, 'caseState');
   return isBailiffCase(caseState) && isEqual(receivedAos, constants.yes);
 };
+
+function isValidStateForAos(caseState) {
+  return config.respRespondableStates.includes(caseState);
+}
 
 const getDnRedirectUrl = req => {
   const appLandingPage = `${config.services.dnFrontend.url}${config.services.dnFrontend.landing}`;
@@ -53,6 +57,7 @@ const getDaRedirectUrl = req => {
 module.exports = {
   constants,
   isAosAwaitingState,
+  isValidStateForAos,
   isLinkedBailiffCase,
   isApplicationProcessing,
   getDnRedirectUrl,

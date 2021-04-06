@@ -2,6 +2,7 @@ const modulePath = 'middleware/petitionMiddleware';
 const config = require('config');
 const { expect, itParam } = require('@hmcts/one-per-page-test-suite');
 const {
+  isValidStateForAos,
   isLinkedBailiffCase,
   isAosAwaitingState,
   isApplicationProcessing,
@@ -83,5 +84,23 @@ describe(modulePath, () => {
       originalPetition: { receivedAOSfromResp: 'Yes' }
     };
     expect(isLinkedBailiffCase(req)).to.be.false;
+  });
+
+  it('should return false if any other linked state', () => {
+    req.session = {
+      referenceNumber: TEST_REFERENCE,
+      caseState: 'SomeOtherState',
+      originalPetition: { someOtherProperty: 'Yes' }
+    };
+    expect(isLinkedBailiffCase(req)).to.be.false;
+  });
+
+  itParam('should return true if case is a valid Aos state', config.respRespondableStates, (done, respRespondableState) => {
+    expect(isValidStateForAos(respRespondableState)).to.be.true;
+    done();
+  });
+
+  it('should return false if case is not a valid Aos state', () => {
+    expect(isValidStateForAos('SomeOtherState')).to.be.false;
   });
 });
