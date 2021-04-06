@@ -1,5 +1,6 @@
 const caseOrchestration = require('services/caseOrchestration');
 const config = require('config');
+const { get } = require('lodash');
 const CaptureCaseAndPin = require('steps/capture-case-and-pin/CaptureCaseAndPin.step');
 const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
@@ -9,6 +10,7 @@ const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
 const {
   isValidStateForAos,
+  idamUserIsCorespondent,
   isUnlinkedBailiffCase,
   isAosAwaitingState,
   isApplicationProcessing,
@@ -68,11 +70,8 @@ const loadMiniPetition = (req, res, next) => {
           return res.redirect(DivorceApplicationProcessing.path);
         }
 
-        const originalPetition = req.session.originalPetition;
-        const coRespAnswers = originalPetition && originalPetition.coRespondentAnswers;
-        const idamUserIsCorespondent = coRespAnswers && coRespAnswers.contactInfo && req.idam.userDetails.email === coRespAnswers.contactInfo.emailAddress;
-
-        if (idamUserIsCorespondent) {
+        const coRespAnswers = get(req, 'session.originalPetition.coRespondentAnswers');
+        if (idamUserIsCorespondent(req, coRespAnswers)) {
           logger.infoWithReq(req, 'user_is_coresp', 'User is corespondent, redirecting to find CoRespPath');
           return res.redirect(findCoRespPath(coRespAnswers, caseState));
         }

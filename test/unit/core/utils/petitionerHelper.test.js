@@ -1,8 +1,10 @@
 const modulePath = 'middleware/petitionMiddleware';
 const config = require('config');
+const { get } = require('lodash');
 const { expect, itParam } = require('@hmcts/one-per-page-test-suite');
 const {
   isValidStateForAos,
+  idamUserIsCorespondent,
   isUnlinkedBailiffCase,
   isAosAwaitingState,
   isApplicationProcessing,
@@ -93,5 +95,33 @@ describe(modulePath, () => {
 
   it('should return false if case is not a valid Aos state', () => {
     expect(isValidStateForAos('SomeOtherState')).to.be.false;
+  });
+
+  it('should return true when valid co-respondent session', () => {
+    req.session = {
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: email
+          }
+        }
+      }
+    };
+    const coRespAnswers = get(req, 'session.originalPetition.coRespondentAnswers');
+    expect(idamUserIsCorespondent(req, coRespAnswers)).to.be.true;
+  });
+
+  it('should return false when invalid co-respondent session', () => {
+    req.session = {
+      originalPetition: {
+        coRespondentAnswers: {
+          contactInfo: {
+            emailAddress: 'someother@emai.com'
+          }
+        }
+      }
+    };
+    const coRespAnswers = get(req, 'session.originalPetition.coRespondentAnswers');
+    expect(idamUserIsCorespondent(req, coRespAnswers)).to.be.false;
   });
 });

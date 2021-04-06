@@ -42,9 +42,13 @@ const isUnlinkedBailiffCase = req => {
   return isBailiffCase(caseState) && isEqual(receivedAos, toLower(constants.no));
 };
 
-function isValidStateForAos(caseState) {
+const isValidStateForAos = caseState => {
   return respRespondableStates.includes(caseState);
-}
+};
+
+const idamUserIsCorespondent = (req, coRespAnswers) => {
+  return get(coRespAnswers, 'contactInfo') && isEqual(req.idam.userDetails.email, coRespAnswers.contactInfo.emailAddress);
+};
 
 const getDnRedirectUrl = req => {
   const appLandingPage = `${config.services.dnFrontend.url}${config.services.dnFrontend.landing}`;
@@ -64,6 +68,7 @@ module.exports = {
   constants,
   isAosAwaitingState,
   isValidStateForAos,
+  idamUserIsCorespondent,
   isUnlinkedBailiffCase,
   isApplicationProcessing,
   getDnRedirectUrl,
