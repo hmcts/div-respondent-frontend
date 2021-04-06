@@ -1,5 +1,5 @@
 const config = require('config');
-const { isEqual, get } = require('lodash');
+const { isEqual, get, toLower } = require('lodash');
 
 const authTokenString = '__auth-token';
 const {
@@ -38,8 +38,8 @@ const isUnlinkedBailiffCase = req => {
   if (!isBailiffCase(caseState)) {
     return false;
   }
-  const receivedAos = get(req.session, 'originalPetition.receivedAosFromResp', 'No');
-  return isBailiffCase(caseState) && isEqual(receivedAos, constants.no);
+  const receivedAos = toLower(get(req.session, 'originalPetition.receivedAosFromResp', 'No'));
+  return isBailiffCase(caseState) && isEqual(receivedAos, toLower(constants.no));
 };
 
 function isValidStateForAos(caseState) {

@@ -91,7 +91,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  itParam('should redirect to capture case and pin if case found, state: ${value} and not linked', bailiffProcessingCaseStates,
+  itParam('should redirect to capture case and pin if case found, state is: ${value} and not linked', bailiffProcessingCaseStates,
     (done, caseState) => {
     // given
       const req = {
@@ -132,7 +132,7 @@ describe(modulePath, () => {
         .then(done, done);
     });
 
-  itParam('should fire next() when case state: ${value}', respRespondableStates, (done, state) => {
+  itParam('should redirect to respond page when case state is: ${value}', respRespondableStates, (done, state) => {
     // given
     const req = {
       cookies: { '__auth-token': 'test' },
@@ -152,6 +152,7 @@ describe(modulePath, () => {
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
           divorceWho: 'husband',
+          receivedAosFromResp: 'Yes',
           courts: 'eastMidlands',
           court: {
             eastMidlands: {

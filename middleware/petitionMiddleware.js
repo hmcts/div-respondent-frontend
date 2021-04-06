@@ -84,13 +84,8 @@ const loadMiniPetition = (req, res, next) => {
           return res.redirect(redirectUrl);
         }
 
-        if (isAosAwaitingState(caseState)) {
+        if (isAosAwaitingState(caseState) || isUnlinkedBailiffCase(req)) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
-          return res.redirect(CaptureCaseAndPin.path);
-        }
-
-        if (isUnlinkedBailiffCase(req)) {
-          logger.infoWithReq(req, 'case_bailiff_process', 'Case is in bailiff state but unlinked, redirecting to capture case and pin page');
           return res.redirect(CaptureCaseAndPin.path);
         }
 
