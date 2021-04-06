@@ -9,7 +9,7 @@ const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const httpStatus = require('http-status-codes');
 const {
   isValidStateForAos,
-  isLinkedBailiffCase,
+  isUnlinkedBailiffCase,
   isAosAwaitingState,
   isApplicationProcessing,
   getDaRedirectUrl
@@ -89,14 +89,14 @@ const loadMiniPetition = (req, res, next) => {
           return res.redirect(CaptureCaseAndPin.path);
         }
 
+        if (isUnlinkedBailiffCase(req)) {
+          logger.infoWithReq(req, 'case_bailiff_process', 'Case is in bailiff state but unlinked, redirecting to capture case and pin page');
+          return res.redirect(CaptureCaseAndPin.path);
+        }
+
         if (!isValidStateForAos(caseState)) {
           logger.infoWithReq(req, 'case_not_started', 'Case not started, redirecting to progress bar page');
           return res.redirect(ProgressBar.path);
-        }
-
-        if (!isLinkedBailiffCase(req) && !isValidStateForAos(caseState)) {
-          logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
-          return res.redirect(CaptureCaseAndPin.path);
         }
 
         logger.infoWithReq(req, 'case_state_ok', 'Case is in a valid state for the respondent to respond, can proceed respondent journey', response.statusCode);

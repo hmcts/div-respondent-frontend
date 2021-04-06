@@ -183,6 +183,12 @@ applicationProcessingCaseStates: [
   'GeneralConsiderationComplete'
 ]
 
+bailiffProcessingCaseStates: [
+    'AwaitingBailiffReferral',
+    'AwaitingBailiffService',
+    'IssuedToBailiff'
+]
+
 caseStates:
   AosAwaiting: 'AosAwaiting'
   AosStarted: 'AosStarted'

@@ -3,7 +3,7 @@ const config = require('config');
 const { expect, itParam } = require('@hmcts/one-per-page-test-suite');
 const {
   isValidStateForAos,
-  isLinkedBailiffCase,
+  isUnlinkedBailiffCase,
   isAosAwaitingState,
   isApplicationProcessing,
   getDnRedirectUrl,
@@ -63,18 +63,18 @@ describe(modulePath, () => {
     req.session = {
       referenceNumber: TEST_REFERENCE,
       caseState: 'AwaitingBailiffReferral',
-      originalPetition: { receivedAOSfromResp: 'Yes' }
+      originalPetition: { receivedAosFromResp: 'Yes' }
     };
-    expect(isLinkedBailiffCase(req)).to.be.true;
+    expect(isUnlinkedBailiffCase(req)).to.be.false;
   });
 
   it('should return false if bailiff case already linked', () => {
     req.session = {
       referenceNumber: TEST_REFERENCE,
       caseState: 'IssuedToBailiff',
-      originalPetition: { receivedAOSfromResp: 'No' }
+      originalPetition: { receivedAosFromResp: 'No' }
     };
-    expect(isLinkedBailiffCase(req)).to.be.false;
+    expect(isUnlinkedBailiffCase(req)).to.be.true;
   });
 
   it('should return false if any other linked state', () => {
@@ -83,16 +83,7 @@ describe(modulePath, () => {
       caseState: 'SomeOtherState',
       originalPetition: { receivedAOSfromResp: 'Yes' }
     };
-    expect(isLinkedBailiffCase(req)).to.be.false;
-  });
-
-  it('should return false if any other linked state', () => {
-    req.session = {
-      referenceNumber: TEST_REFERENCE,
-      caseState: 'SomeOtherState',
-      originalPetition: { someOtherProperty: 'Yes' }
-    };
-    expect(isLinkedBailiffCase(req)).to.be.false;
+    expect(isUnlinkedBailiffCase(req)).to.be.false;
   });
 
   itParam('should return true if case is a valid Aos state', config.respRespondableStates, (done, respRespondableState) => {

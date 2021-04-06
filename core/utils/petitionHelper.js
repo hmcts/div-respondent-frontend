@@ -2,7 +2,11 @@ const config = require('config');
 const { isEqual, get } = require('lodash');
 
 const authTokenString = '__auth-token';
-const applicationProcessingCases = config.applicationProcessingCaseStates;
+const {
+  respRespondableStates,
+  applicationProcessingCaseStates,
+  bailiffProcessingCaseStates
+} = config;
 
 const constants = {
   proceed: 'proceed',
@@ -18,7 +22,7 @@ const constants = {
 };
 
 const isApplicationProcessing = caseState => {
-  return applicationProcessingCases.includes(caseState);
+  return applicationProcessingCaseStates.includes(caseState);
 };
 
 const isAosAwaitingState = caseState => {
@@ -26,18 +30,20 @@ const isAosAwaitingState = caseState => {
 };
 
 const isBailiffCase = caseState => {
-  const bailiffStates = ['AwaitingBailiffReferral', 'AwaitingBailiffService', 'IssuedToBailiff'];
-  return bailiffStates.includes(caseState);
+  return bailiffProcessingCaseStates.includes(caseState);
 };
 
-const isLinkedBailiffCase = req => {
-  const receivedAos = get(req.session, 'originalPetition.receivedAOSfromResp');
+const isUnlinkedBailiffCase = req => {
   const caseState = get(req.session, 'caseState');
-  return isBailiffCase(caseState) && isEqual(receivedAos, constants.yes);
+  if (!isBailiffCase(caseState)) {
+    return false;
+  }
+  const receivedAos = get(req.session, 'originalPetition.receivedAosFromResp', 'No');
+  return isBailiffCase(caseState) && isEqual(receivedAos, constants.no);
 };
 
 function isValidStateForAos(caseState) {
-  return config.respRespondableStates.includes(caseState);
+  return respRespondableStates.includes(caseState);
 }
 
 const getDnRedirectUrl = req => {
@@ -58,7 +64,7 @@ module.exports = {
   constants,
   isAosAwaitingState,
   isValidStateForAos,
-  isLinkedBailiffCase,
+  isUnlinkedBailiffCase,
   isApplicationProcessing,
   getDnRedirectUrl,
   getDaRedirectUrl
