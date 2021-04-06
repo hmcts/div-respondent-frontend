@@ -94,7 +94,7 @@ const loadMiniPetition = (req, res, next) => {
           return res.redirect(ProgressBar.path);
         }
 
-        if (!isValidStateForAos(caseState) && !isLinkedBailiffCase(req)) {
+        if (!isLinkedBailiffCase(req) && !isValidStateForAos(caseState)) {
           logger.infoWithReq(req, 'case_aos_awaiting', 'Case is awaiting, redirecting to capture case and pin page');
           return res.redirect(CaptureCaseAndPin.path);
         }
