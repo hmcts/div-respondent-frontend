@@ -28,6 +28,7 @@ class IdamLogin extends Question {
       'yesAosOverdue',
       'yesCaseProgressedDefending',
       'yesCaseBailiffNotLinked',
+      'yesCaseDefendedBailiffStarted',
       'awaitingDecreeAbsolute',
       'dnPronounced',
       'aosAwaitingSol',

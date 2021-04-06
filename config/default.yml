@@ -166,7 +166,10 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral',
   'AwaitingAlternativeService',
   'AwaitingProcessServerService',
-  'AwaitingDWPResponse'
+  'AwaitingDWPResponse',
+  'AwaitingBailiffReferral',
+  'AwaitingBailiffService',
+  'IssuedToBailiff'
 ]
 
 respRespondableStates: [
@@ -175,7 +178,10 @@ respRespondableStates: [
   'ServiceApplicationNotApproved',
   'AwaitingAlternativeService',
   'AwaitingProcessServerService',
-  'AwaitingDWPResponse'
+  'AwaitingDWPResponse',
+  'AwaitingBailiffReferral',
+  'AwaitingBailiffService',
+  'IssuedToBailiff'
 ]
 
 applicationProcessingCaseStates: [

@@ -618,7 +618,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: AwaitingReissue', () => {
+  describe('CCD state: AosAwaiting', () => {
     const session = {
       caseState: 'AosAwaiting'
     };

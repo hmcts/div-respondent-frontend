@@ -23,6 +23,7 @@
         "yesCaseProgressedDefending": "Yes - case progressed, defended & answered",
         "yesDecreeNisiPronouncement": "Yes - Awaiting Pronouncement and date of hearing assigned",
         "yesCaseBailiffNotLinked": "Yes - case bailiff not linked",
+        "yesCaseDefendedBailiffStarted": "Yes - Defended case & Bailiff issued",
         "dnIsRefused": "Respondent - DN is refused",
         "awaitingDecreeAbsolute": "Respondent AwaitingDecreeAbsolute",
         "dnPronounced": "Respondent DNPronounced",

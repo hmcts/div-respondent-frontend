@@ -26,7 +26,10 @@ const caseStateMap = [
   },
   {
     template: './sections/OneCircleFilledInBold.html',
-    state: ['AosAwaiting', 'AosStarted', 'AosOverdue']
+    state: [
+      'AosAwaiting', 'AosStarted', 'AosOverdue',
+      'AwaitingBailiffReferral', 'AwaitingBailiffService', 'IssuedToBailiff'
+    ]
   },
   {
     template: './sections/SolicitorOneCircleFilledInBold.html',
@@ -34,7 +37,11 @@ const caseStateMap = [
   },
   {
     template: './sections/TwoCircleFilledIn.html',
-    state: ['AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingLegalAdvisorReferral', 'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement', 'AosCompleted', 'DNisRefused']
+    state: [
+      'AosSubmittedAwaitingAnswer', 'DefendedDivorce', 'AwaitingLegalAdvisorReferral',
+      'AmendPetition', 'AwaitingConsideration', 'AwaitingClarification', 'AwaitingPronouncement',
+      'AosCompleted', 'DNisRefused'
+    ]
   },
   {
     template: './sections/TwoCircleFilledInBold.html',

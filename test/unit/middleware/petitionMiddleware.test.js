@@ -29,7 +29,7 @@ describe(modulePath, () => {
     caseOrchestration.getPetition.restore();
   });
 
-  it('redirects to capture case and pin if no case is found', done => {
+  it('should redirect to capture case and pin if no case is found', done => {
     // given
     const req = sinon.stub();
     const res = {
@@ -50,7 +50,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('redirects to capture case and pin if case found, state: AosAwaiting', done => {
+  it('should redirect to capture case and pin if case found, state: AosAwaiting', done => {
     // given
     const req = {
       cookies: { '__auth-token': 'test' },
@@ -91,7 +91,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  itParam('redirects to capture case and pin if case found, state: ${value} and not linked', bailiffProcessingCaseStates,
+  itParam('should redirect to capture case and pin if case found, state: ${value} and not linked', bailiffProcessingCaseStates,
     (done, caseState) => {
     // given
       const req = {
@@ -132,7 +132,7 @@ describe(modulePath, () => {
         .then(done, done);
     });
 
-  itParam('fires next() when case state: ${value}', respRespondableStates, (done, state) => {
+  itParam('should fire next() when case state: ${value}', respRespondableStates, (done, state) => {
     // given
     const req = {
       cookies: { '__auth-token': 'test' },
@@ -173,7 +173,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('redirects to Decree Absolute FE if case found, state: DivorceGranted', done => {
+  it('should redirect to Decree Absolute FE if case found, state: DivorceGranted', done => {
     // given
     const req = {
       cookies: { '__auth-token': 'test' },
@@ -282,7 +282,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('calls correct methods based on caseOrchestration service calls', done => {
+  it('should call correct methods based on caseOrchestration service calls', done => {
     // given
     const req = sinon.stub();
     const res = {
@@ -305,7 +305,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('throws an error on unexpected response', done => {
+  it('should throw an error on unexpected response', done => {
     // given
     const req = sinon.stub();
     const res = sinon.stub();
@@ -328,7 +328,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('sets the opposite divorceWho if NOT same sex couple', done => {
+  it('should set the opposite divorceWho if NOT same sex couple', done => {
     const req = {
       cookies: { '__auth-token': 'test' },
       get: sinon.stub(),
@@ -365,7 +365,7 @@ describe(modulePath, () => {
     petitionMiddleware(req, {}, next);
   });
 
-  it('sets the case id, court name, po box, city, post code and street', done => {
+  it('should set the case id, court name, po box, city, post code and street', done => {
     const req = {
       cookies: { '__auth-token': 'test' },
       get: sinon.stub(),
