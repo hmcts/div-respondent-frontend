@@ -166,7 +166,10 @@ coRespRespondableStates: [
   'AwaitingLegalAdvisorReferral',
   'AwaitingAlternativeService',
   'AwaitingProcessServerService',
-  'AwaitingDWPResponse'
+  'AwaitingDWPResponse',
+  'AwaitingBailiffReferral',
+  'AwaitingBailiffService',
+  'IssuedToBailiff'
 ]
 
 respRespondableStates: [
@@ -175,12 +178,21 @@ respRespondableStates: [
   'ServiceApplicationNotApproved',
   'AwaitingAlternativeService',
   'AwaitingProcessServerService',
-  'AwaitingDWPResponse'
+  'AwaitingDWPResponse',
+  'AwaitingBailiffReferral',
+  'AwaitingBailiffService',
+  'IssuedToBailiff'
 ]
 
 applicationProcessingCaseStates: [
   'AwaitingGeneralReferralPayment',
   'GeneralConsiderationComplete'
+]
+
+bailiffProcessingCaseStates: [
+    'AwaitingBailiffReferral',
+    'AwaitingBailiffService',
+    'IssuedToBailiff'
 ]
 
 caseStates:
@@ -206,6 +218,9 @@ caseStates:
   AwaitingAlternativeService: 'AwaitingAlternativeService'
   AwaitingProcessServerService: 'AwaitingProcessServerService'
   AwaitingDWPResponse: 'AwaitingDWPResponse'
+  AwaitingBailiffReferral: 'AwaitingBailiffReferral'
+  AwaitingBailiffService: 'AwaitingBailiffService'
+  IssuedToBailiff: 'IssuedToBailiff'
 
 features:
   idam: false
