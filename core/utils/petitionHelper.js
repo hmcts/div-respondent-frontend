@@ -1,5 +1,5 @@
 const config = require('config');
-const { isEqual, get, toLower } = require('lodash');
+const { isEqual, get, toLower, isEmpty } = require('lodash');
 
 const authTokenString = '__auth-token';
 const {
@@ -47,6 +47,9 @@ const isValidStateForAos = caseState => {
 };
 
 const idamUserIsCorespondent = (req, coRespAnswers) => {
+  if (isEmpty(coRespAnswers)) {
+    return false;
+  }
   return isEqual(get(req, 'idam.userDetails.email'), get(coRespAnswers, 'contactInfo.emailAddress'));
 };
 
