@@ -22,7 +22,29 @@ const DivorceApplicationProcessing = require('steps/divorce-application-processi
 const httpStatus = require('http-status-codes');
 
 const authTokenString = '__auth-token';
+const email = 'user@email.com';
+
 const { coRespRespondableStates, respRespondableStates, bailiffProcessingCaseStates } = config;
+
+const buildRequest = () => {
+  return {
+    cookies: { '__auth-token': 'authToken' },
+    idam: {
+      userDetails: { email }
+    }
+  };
+};
+
+const buildStubRequest = () => {
+  return {
+    cookies: { '__auth-token': 'test' },
+    idam: {
+      userDetails: { email }
+    },
+    get: sinon.stub(),
+    session: {}
+  };
+};
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -52,11 +74,7 @@ describe(modulePath, () => {
 
   it('should redirect to capture case and pin if case found, state: AosAwaiting', done => {
     // given
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -93,12 +111,8 @@ describe(modulePath, () => {
 
   itParam('should redirect to capture case and pin if case found, state is: ${value} and not linked', bailiffProcessingCaseStates,
     (done, caseState) => {
-    // given
-      const req = {
-        cookies: { '__auth-token': 'test' },
-        get: sinon.stub(),
-        session: {}
-      };
+      // given
+      const req = buildStubRequest();
       const res = {
         redirect: sinon.spy()
       };
@@ -134,11 +148,7 @@ describe(modulePath, () => {
 
   itParam('should redirect to respond page when case state is: ${value}', respRespondableStates, (done, state) => {
     // given
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -176,11 +186,7 @@ describe(modulePath, () => {
 
   it('should redirect to Decree Absolute FE if case found, state: DivorceGranted', done => {
     // given
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -223,13 +229,7 @@ describe(modulePath, () => {
   itParam('should redirect to Co-respondent respond page if user is Co-respondent and state is ${value}',
     coRespRespondableStates, (done, state) => {
       // given
-      const email = 'user@email.com';
-      const req = {
-        cookies: { '__auth-token': 'authToken' },
-        idam: {
-          userDetails: { email }
-        }
-      };
+      const req = buildRequest();
       const res = {
         redirect: sinon.spy()
       };
@@ -256,13 +256,7 @@ describe(modulePath, () => {
 
   it('To Co-resp progress page if CoResp user submitted response', done => {
     // given
-    const email = 'user@email.com';
-    const req = {
-      cookies: { '__auth-token': 'authToken' },
-      idam: {
-        userDetails: { email }
-      }
-    };
+    const req = buildRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -285,7 +279,7 @@ describe(modulePath, () => {
 
   it('should call correct methods based on caseOrchestration service calls', done => {
     // given
-    const req = sinon.stub();
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -330,11 +324,7 @@ describe(modulePath, () => {
   });
 
   it('should set the opposite divorceWho if NOT same sex couple', done => {
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
 
     const response = {
       statusCode: 200,
@@ -367,11 +357,7 @@ describe(modulePath, () => {
   });
 
   it('should set the case id, court name, po box, city, post code and street', done => {
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
 
     const response = {
       statusCode: 200,
@@ -428,13 +414,7 @@ describe(modulePath, () => {
 
     itParam('should redirect respondent to DN when state is ${value}', stateToRedirectToDn, (done, state) => {
       // given
-      const email = 'user@email.com';
-      const req = {
-        cookies: { '__auth-token': 'authToken' },
-        idam: {
-          userDetails: { email }
-        }
-      };
+      const req = buildRequest();
       const res = {
         redirect: sinon.spy()
       };
@@ -461,13 +441,7 @@ describe(modulePath, () => {
 
     itParam('should redirect co-respondent to DN when state is ${value}', stateToRedirectToDn, (done, state) => {
       // given
-      const email = 'user@email.com';
-      const req = {
-        cookies: { '__auth-token': 'authToken' },
-        idam: {
-          userDetails: { email }
-        }
-      };
+      const req = buildRequest();
       const res = {
         redirect: sinon.spy()
       };

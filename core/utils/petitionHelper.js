@@ -47,7 +47,7 @@ const isValidStateForAos = caseState => {
 };
 
 const idamUserIsCorespondent = (req, coRespAnswers) => {
-  return get(coRespAnswers, 'contactInfo') && isEqual(req.idam.userDetails.email, coRespAnswers.contactInfo.emailAddress);
+  return isEqual(get(req, 'idam.userDetails.email'), get(coRespAnswers, 'contactInfo.emailAddress'));
 };
 
 const getDnRedirectUrl = req => {
