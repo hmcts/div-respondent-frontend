@@ -9,6 +9,7 @@ nodejs:
         LOG_LEVEL: "DEBUG"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
         EQUALITY_URL: "https://pcq.aat.platform.hmcts.net"
+        COS_BASE_URL: "http://div-cos-pr-1344.service.core-compute-preview.internal"
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}
