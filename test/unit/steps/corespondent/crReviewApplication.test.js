@@ -225,6 +225,36 @@ describe(modulePath, () => {
     });
   });
 
+  describe('Co-respondent Brexit policy wording', () => {
+    it('Displays new Legal policy wording for Brexit', () => {
+      const session = {
+        originalPetition: {
+          newLegalConnectionPolicy: 'Yes',
+          jurisdictionConnectionNewPolicy: ['G', 'H', 'I']
+        }
+      };
+      return content(
+        CrReviewApplication,
+        session,
+        { specificContent: ['jurisdictionConnectionNewPolicyOther', 'jurisdictionConnectionPetDomiciled', 'jurisdictionConnectionResDomiciled'] }
+      );
+    });
+
+    it('Does not display new Legal policy wording for Brexit due to older case', () => {
+      const session = {
+        originalPetition: {
+          jurisdictionConnection: ['G'],
+          jurisdictionConnectionNewPolicy: ['G']
+        }
+      };
+      return content(
+        CrReviewApplication,
+        session,
+        { specificContent: ['jurisdictionConnectionOther'] }
+      );
+    });
+  });
+
   describe('content', () => {
     const ignoreContent = [
       'webChatTitle',
@@ -262,6 +292,9 @@ describe(modulePath, () => {
       'costsPetitionerDivorceCostsByFinancialOrder',
       'jurisdictionConnectionBothResident',
       'jurisdictionConnectionBothDomiciled',
+      'jurisdictionConnectionPetDomiciled',
+      'jurisdictionConnectionResDomiciled',
+      'jurisdictionConnectionNewPolicyOther',
       'jurisdictionConnectionOneResides',
       'jurisdictionConnectionPetitioner',
       'jurisdictionConnectionRespondent',
