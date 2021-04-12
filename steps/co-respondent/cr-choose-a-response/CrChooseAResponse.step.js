@@ -9,14 +9,7 @@ const content = require('./CrChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
-
-const consts = {
-  proceed: 'proceed',
-  defend: 'defend',
-  yes: 'Yes',
-  no: 'No',
-  coRespondent: 'correspondent'
-};
+const { constants } = require('../../../core/utils/petitionHelper');
 
 class CrChooseAResponse extends Question {
   static get path() {
@@ -24,7 +17,7 @@ class CrChooseAResponse extends Question {
   }
 
   get consts() {
-    return consts;
+    return constants;
   }
 
   get session() {
@@ -36,7 +29,6 @@ class CrChooseAResponse extends Question {
   }
 
   get form() {
-    const constants = consts;
     const answers = [
       constants.proceed,
       constants.defend
@@ -56,10 +48,10 @@ class CrChooseAResponse extends Question {
     const response = this.fields.response.value;
 
     switch (response) {
-    case consts.proceed:
-      return { defendsDivorce: consts.no };
-    case consts.defend:
-      return { defendsDivorce: consts.yes };
+    case constants.proceed:
+      return { defendsDivorce: constants.no };
+    case constants.defend:
+      return { defendsDivorce: constants.yes };
     default:
       throw new Error(`Unknown response : '${response}'`);
     }
@@ -91,10 +83,10 @@ class CrChooseAResponse extends Question {
 
   next() {
     const response = this.fields.response;
-    const isDefend = response.value === consts.defend;
+    const isDefend = response.value === constants.defend;
     const costClaim = this.req.session.originalPetition.claimsCostsFrom;
 
-    const condition = costClaim && costClaim.includes(consts.coRespondent);
+    const condition = costClaim && costClaim.includes(constants.coRespondent);
 
     return branch(
       redirectTo(this.journey.steps.CrConfirmDefence)

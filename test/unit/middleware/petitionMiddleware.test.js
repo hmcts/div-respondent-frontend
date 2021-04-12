@@ -10,7 +10,6 @@ const completedMock = require(
 const coRespondentMock = require(
   'mocks/services/case-orchestration/retrieve-aos-case/mock-co-respondent'
 );
-
 const coRespondentNotDefendingMock = require(
   'mocks/services/case-orchestration/retrieve-aos-case/mock-coRespNotDefending'
 );
@@ -19,42 +18,40 @@ const ProgressBar = require('steps/respondent/progress-bar/ProgressBar.step');
 const crProgressBar = require('steps/co-respondent/cr-progress-bar/CrProgressBar.step');
 const crRespond = require('steps/co-respondent/cr-respond/CrRespond.step');
 const DivorceApplicationProcessing = require('steps/divorce-application-processing/DivorceApplicationProcessing.step');
+
 const httpStatus = require('http-status-codes');
 
 const authTokenString = '__auth-token';
+const email = 'user@email.com';
 
-const coRespRespondableStates = [
-  'AosAwaiting',
-  'AosAwaitingSol',
-  'AosStarted',
-  'AosOverdue',
-  'AosCompleted',
-  'AosSubmittedAwaitingAnswer',
-  'DefendedDivorce',
-  'AwaitingDecreeNisi',
-  'DNAwaiting',
-  'DNDrafted',
-  'AwaitingLegalAdvisorReferral',
-  'AwaitingAlternativeService',
-  'AwaitingProcessServerService',
-  'AwaitingDWPResponse'
-];
+const { coRespRespondableStates, respRespondableStates, bailiffProcessingCaseStates } = config;
 
-const respRespondableStates = [
-  'AosStarted',
-  'AosOverdue',
-  'ServiceApplicationNotApproved',
-  'AwaitingAlternativeService',
-  'AwaitingProcessServerService',
-  'AwaitingDWPResponse'
-];
+const buildRequest = () => {
+  return {
+    cookies: { '__auth-token': 'authToken' },
+    idam: {
+      userDetails: { email }
+    }
+  };
+};
+
+const buildStubRequest = () => {
+  return {
+    cookies: { '__auth-token': 'test' },
+    idam: {
+      userDetails: { email }
+    },
+    get: sinon.stub(),
+    session: {}
+  };
+};
 
 describe(modulePath, () => {
   afterEach(() => {
     caseOrchestration.getPetition.restore();
   });
 
-  it('redirects to capture case and pin if no case is found', done => {
+  it('should redirect to capture case and pin if no case is found', done => {
     // given
     const req = sinon.stub();
     const res = {
@@ -75,13 +72,9 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('redirects to capture case and pin if case found, state: AosAwaiting', done => {
+  it('should redirect to capture case and pin if case found, state: AosAwaiting', done => {
     // given
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -116,13 +109,46 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  itParam('fires next() when case state: ${value}', respRespondableStates, (done, state) => {
+  itParam('should redirect to capture case and pin if case found, state is: ${value} and not linked', bailiffProcessingCaseStates,
+    (done, caseState) => {
+      // given
+      const req = buildStubRequest();
+      const res = {
+        redirect: sinon.spy()
+      };
+      const next = sinon.stub();
+      const response = {
+        statusCode: 200,
+        body: {
+          state: caseState,
+          caseId: 1234,
+          data: { // eslint-disable-line id-blacklist
+            marriageIsSameSexCouple: 'No',
+            divorceWho: 'husband',
+            courts: 'eastMidlands',
+            court: {
+              eastMidlands: {
+                divorceCentre: 'East Midlands Regional Divorce Centre'
+              }
+            }
+          }
+        }
+      };
+
+      sinon.stub(caseOrchestration, 'getPetition')
+        .resolves(response);
+
+      // when
+      petitionMiddleware(req, res, next)
+        .then(() => {
+          expect(res.redirect.withArgs(CaptureCaseAndPin.path).calledOnce).to.be.true;
+        })
+        .then(done, done);
+    });
+
+  itParam('should redirect to respond page when case state is: ${value}', respRespondableStates, (done, state) => {
     // given
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -136,6 +162,7 @@ describe(modulePath, () => {
         data: { // eslint-disable-line id-blacklist
           marriageIsSameSexCouple: 'No',
           divorceWho: 'husband',
+          receivedAosFromResp: 'Yes',
           courts: 'eastMidlands',
           court: {
             eastMidlands: {
@@ -157,13 +184,9 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('redirects to Decree Absolute FE if case found, state: DivorceGranted', done => {
+  it('should redirect to Decree Absolute FE if case found, state: DivorceGranted', done => {
     // given
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -206,13 +229,7 @@ describe(modulePath, () => {
   itParam('should redirect to Co-respondent respond page if user is Co-respondent and state is ${value}',
     coRespRespondableStates, (done, state) => {
       // given
-      const email = 'user@email.com';
-      const req = {
-        cookies: { '__auth-token': 'authToken' },
-        idam: {
-          userDetails: { email }
-        }
-      };
+      const req = buildRequest();
       const res = {
         redirect: sinon.spy()
       };
@@ -239,13 +256,7 @@ describe(modulePath, () => {
 
   it('To Co-resp progress page if CoResp user submitted response', done => {
     // given
-    const email = 'user@email.com';
-    const req = {
-      cookies: { '__auth-token': 'authToken' },
-      idam: {
-        userDetails: { email }
-      }
-    };
+    const req = buildRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -266,9 +277,9 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('calls correct methods based on caseOrchestration service calls', done => {
+  it('should call correct methods based on caseOrchestration service calls', done => {
     // given
-    const req = sinon.stub();
+    const req = buildStubRequest();
     const res = {
       redirect: sinon.spy()
     };
@@ -289,7 +300,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('throws an error on unexpected response', done => {
+  it('should throw an error on unexpected response', done => {
     // given
     const req = sinon.stub();
     const res = sinon.stub();
@@ -312,12 +323,8 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('sets the opposite divorceWho if NOT same sex couple', done => {
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+  it('should set the opposite divorceWho if NOT same sex couple', done => {
+    const req = buildStubRequest();
 
     const response = {
       statusCode: 200,
@@ -349,12 +356,8 @@ describe(modulePath, () => {
     petitionMiddleware(req, {}, next);
   });
 
-  it('sets the case id, court name, po box, city, post code and street', done => {
-    const req = {
-      cookies: { '__auth-token': 'test' },
-      get: sinon.stub(),
-      session: {}
-    };
+  it('should set the case id, court name, po box, city, post code and street', done => {
+    const req = buildStubRequest();
 
     const response = {
       statusCode: 200,
@@ -411,13 +414,7 @@ describe(modulePath, () => {
 
     itParam('should redirect respondent to DN when state is ${value}', stateToRedirectToDn, (done, state) => {
       // given
-      const email = 'user@email.com';
-      const req = {
-        cookies: { '__auth-token': 'authToken' },
-        idam: {
-          userDetails: { email }
-        }
-      };
+      const req = buildRequest();
       const res = {
         redirect: sinon.spy()
       };
@@ -444,13 +441,7 @@ describe(modulePath, () => {
 
     itParam('should redirect co-respondent to DN when state is ${value}', stateToRedirectToDn, (done, state) => {
       // given
-      const email = 'user@email.com';
-      const req = {
-        cookies: { '__auth-token': 'authToken' },
-        idam: {
-          userDetails: { email }
-        }
-      };
+      const req = buildRequest();
       const res = {
         redirect: sinon.spy()
       };

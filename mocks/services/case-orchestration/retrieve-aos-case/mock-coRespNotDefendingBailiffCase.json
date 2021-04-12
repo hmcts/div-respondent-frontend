@@ -1,0 +1,289 @@
+{
+  "caseId": "1550848268807298",
+  "courts": "serviceCentre",
+  "state": "AwaitingBailiffService",
+  "data": {
+    "expires": 0,
+    "caseReference": "LV17D80100",
+    "screenHasMarriageBroken": "Yes",
+    "screenHasRespondentAddress": "Yes",
+    "screenHasMarriageCert": "Yes",
+    "helpWithFeesNeedHelp": "No",
+    "divorceWho": "husband",
+    "marriageIsSameSexCouple": "No",
+    "marriageDateDay": 9,
+    "marriageDateMonth": 9,
+    "marriageDateYear": 1979,
+    "marriageDate": "1979-09-09T00:00:00.000+0000",
+    "marriageCanDivorce": "true",
+    "marriedInUk": "Yes",
+    "placeOfMarriage": "London",
+    "jurisdictionConnection": [
+      "A",
+      "C"
+    ],
+    "connections": {
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
+      "B": null,
+      "C": "The Respondent is habitually resident in England and Wales",
+      "D": null,
+      "E": null,
+      "F": null,
+      "G": null
+    },
+    "jurisdictionPetitionerResidence": "Yes",
+    "jurisdictionRespondentResidence": "Yes",
+    "jurisdictionConfidentLegal": "Yes",
+    "petitionerContactDetailsConfidential": "share",
+    "petitionerFirstName": "Paloma",
+    "petitionerLastName": "Acosta",
+    "respondentFirstName": "Henry",
+    "respondentLastName": "Morrison",
+    "marriagePetitionerName": "Barbara Howell",
+    "marriageRespondentName": "Mufutau Pratt",
+    "petitionerNameDifferentToMarriageCertificate": "No",
+    "petitionerEmail": "nabyg@mailinator.com",
+    "petitionerHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "E15 3DT",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "16 Chaplin Road",
+        "London",
+        "E15 3DT"
+      ]
+    },
+    "petitionerCorrespondenceUseHomeAddress": "Yes",
+    "petitionerCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "E15 3DT",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "16 Chaplin Road",
+        "London",
+        "E15 3DT"
+      ]
+    },
+    "livingArrangementsLiveTogether": "Yes",
+    "respondentHomeAddress": {
+      "addressType": "postcode",
+      "postcode": "E15 3DT",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "16 Chaplin Road",
+        "London",
+        "E15 3DT"
+      ]
+    },
+    "respondentCorrespondenceUseHomeAddress": "Yes",
+    "respondentCorrespondenceAddress": {
+      "addressType": "postcode",
+      "postcode": "E15 3DT",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "16 Chaplin Road",
+        "London",
+        "E15 3DT"
+      ]
+    },
+    "reasonForDivorce": "adultery",
+    "reasonForDivorceHasMarriageDate": "true",
+    "reasonForDivorceShowAdultery": "true",
+    "reasonForDivorceShowUnreasonableBehaviour": "true",
+    "reasonForDivorceShowTwoYearsSeparation": "true",
+    "reasonForDivorceShowFiveYearsSeparation": "true",
+    "reasonForDivorceShowDesertion": "true",
+    "reasonForDivorceLimitReasons": "false",
+    "reasonForDivorceEnableAdultery": "true",
+    "reasonForDivorceAdulteryWishToName": "Yes",
+    "reasonForDivorceAdultery3rdPartyFirstName": "Baxter",
+    "reasonForDivorceAdultery3rdPartyLastName": "Gill",
+    "reasonForDivorceAdultery3rdAddress": {
+      "addressType": "postcode",
+      "postcode": "E15 4PT",
+      "street1": null,
+      "street2": null,
+      "town": null,
+      "postcodeManual": null,
+      "addressConfirmed": "true",
+      "addressAbroad": null,
+      "validPostcode": true,
+      "postcodeError": "false",
+      "url": null,
+      "address": [
+        "80 West Ham Lane",
+        "London",
+        "E15 4PT"
+      ]
+    },
+    "reasonForDivorceAdulteryKnowWhere": "Yes",
+    "reasonForDivorceAdulteryKnowWhen": "Yes",
+    "reasonForDivorceAdulteryDetails": "Molestias nostrum es",
+    "reasonForDivorceAdulteryWhenDetails": "Ex voluptate enim co",
+    "reasonForDivorceAdulteryWhereDetails": "Ut consequatur sed",
+    "legalProceedings": "No",
+    "financialOrder": "No",
+    "claimsCosts": "No",
+    "claimsCostsFrom": [
+      "respondent",
+      "correspondent"
+    ],
+    "reasonForDivorceAdulteryIsNamed": "Yes",
+    "claimsCostsAppliedForFees": "false",
+    "reasonForDivorceClaiming5YearSeparation": "false",
+    "reasonForDivorceClaimingAdultery": "true",
+    "court": {
+      "eastMidlands": {
+        "divorceCentre": "East Midlands Regional Divorce Centre",
+        "courtCity": "Nottingham",
+        "poBox": "PO Box 10447",
+        "postCode": "NG2 9QN",
+        "openingHours": "Telephone Enquiries from: Monday - Friday 8am to 8pm, Saturday 8am to 2pm",
+        "email": "eastmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA01"
+      },
+      "westMidlands": {
+        "divorceCentre": "West Midlands Regional Divorce Centre",
+        "courtCity": "Stoke-on-Trent",
+        "poBox": "PO Box 3650",
+        "postCode": "ST4 9NH",
+        "openingHours": "Telephone Enquiries from: Monday - Friday 8am to 8pm, Saturday 8am to 2pm",
+        "email": "westmidlandsdivorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA02"
+      },
+      "southWest": {
+        "divorceCentre": "South West Regional Divorce Centre",
+        "courtCity": "Southampton",
+        "poBox": "PO Box 1792",
+        "postCode": "SO15 9GG",
+        "openingHours": "Telephone Enquiries from: Monday - Friday 8am to 8pm, Saturday 8am to 2pm",
+        "email": "sw-region-divorce@hmcts.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA03"
+      },
+      "northWest": {
+        "divorceCentre": "North West Regional Divorce Centre",
+        "divorceCentreAddressName": "Liverpool Civil & Family Court",
+        "courtCity": "Liverpool",
+        "street": "35 Vernon Street",
+        "postCode": "L2 2BX",
+        "openingHours": "Telephone Enquiries from: Monday - Friday 8am to 8pm, Saturday 8am to 2pm",
+        "email": "family@liverpool.countycourt.gsi.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA04"
+      },
+      "serviceCentre": {
+        "serviceCentreName": "Courts and Tribunals Service Centre",
+        "divorceCentre": "East Midlands Regional Divorce Centre",
+        "courtCity": "Nottingham",
+        "poBox": "PO Box 10447",
+        "postCode": "NG2 9QN",
+        "openingHours": "Telephone Enquiries from: Monday - Friday 8am to 8pm, Saturday 8am to 2pm",
+        "email": "divorcecase@justice.gov.uk",
+        "phoneNumber": "0300 303 0642",
+        "siteId": "AA01"
+      }
+    },
+    "courts": "serviceCentre",
+    "confirmPrayer": "Yes",
+    "payment": {
+      "PaymentChannel": "online",
+      "PaymentTransactionId": "r3po2u2e4qf3ganoohb4051rb4",
+      "PaymentReference": "RC-1550-8482-8255-7754",
+      "PaymentDate": "22022019",
+      "PaymentAmount": "55000",
+      "PaymentStatus": "Success",
+      "PaymentFeeId": "FEE0002",
+      "PaymentSiteId": "AA04"
+    },
+    "marriageCertificateFiles": [
+      {
+        "createdBy": 0,
+        "createdOn": "2019-02-22T00:00:00.000+0000",
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "Screenshot 2019-02-22 at 13.09.15.png",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/c36adbbb-5fbb-4db2-baf5-e806540f5c93",
+        "mimeType": null,
+        "status": null
+      }
+    ],
+    "petitionerConsent": "Yes",
+    "createdDate": "2019-02-22T00:00:00.000+0000",
+    "issueDate": "2019-02-22T00:00:00.000+0000",
+    "dueDate": "2019-03-24T00:00:00.000+0000",
+    "respondentContactDetailsConfidential": "share",
+    "coRespondentAnswers": {
+      "contactInfo": {
+        "emailAddress": "user@email.com"
+      },
+      "defendsDivorce": "No"
+    },
+    "d8": [
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "d8petition1550848268807298.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/67c96669-07d5-4f06-a3a9-1bc2886ca4c7",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "aosinvitation1550848268807298.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/f8acddb7-b0b4-4857-8a08-3e93053e452d",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "co-respondentaosinvitation1550848268807298.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/88217833-f74f-4cc3-ae73-f66d61f7f4d4",
+        "mimeType": null,
+        "status": null
+      }
+    ]
+  }
+}

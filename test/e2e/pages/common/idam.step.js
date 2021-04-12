@@ -45,6 +45,13 @@ function loginAsANonLinkedUser() {
   I.click(commonContent.en.continue);
 }
 
+function loginAsANonLinkedUserAndIssuedToBailiff() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseBailiffNotLinked);
+  I.click(commonContent.en.continue);
+}
+
 function loginAsInvalidPinUser() {
   const I = this;
 
@@ -104,6 +111,13 @@ function loginAsCaseProgressedDefending() {
   const I = this;
 
   I.click(content.en.fields.success.yesCaseProgressedDefending);
+  I.click(commonContent.en.continue);
+}
+
+function loginAsCaseProgressedDefendingIssuedToBailiff() {
+  const I = this;
+
+  I.click(content.en.fields.success.yesCaseDefendedBailiffStarted);
   I.click(commonContent.en.continue);
 }
 
@@ -197,6 +211,7 @@ module.exports = {
   seeIdamLoginPage,
   login,
   loginAsANonLinkedUser,
+  loginAsANonLinkedUserAndIssuedToBailiff,
   loginAsInvalidPinUser,
   loginAsALinkedUser,
   loginAsNonLinkedUserAndServerError,
@@ -213,6 +228,7 @@ module.exports = {
   loginAsCoRespDefendingSubmittedAnswer,
   loginAsCoRespTooLateToRespond,
   loginAsCoRespAwaitingPronouncementHearingDataFuture,
+  loginAsCaseProgressedDefendingIssuedToBailiff,
   loginAsCoRespDNPronouncedAndCostsOrder,
   loginAsCoRespDNPronouncedWithoutCostsOrder,
   loginAndThrowError,

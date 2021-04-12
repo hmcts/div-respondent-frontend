@@ -11,97 +11,218 @@
 <div id="jurisdiction">
   <p class="govuk-body">{{ content.summary | safe }}</p>
 
-  {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-  <ul class="govuk-list govuk-list--bullet">
-    {% endif %}
-
-    {% if "A" in session.originalPetition.jurisdictionConnection %}
+  {% if session.originalPetition.newLegalConnectionPolicy != "Yes" %}
     {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <li>
+    <ul class="govuk-list govuk-list--bullet">
       {% endif %}
 
-      {{ content.jurisdictionConnectionBothResident }}
+      {% if "A" in session.originalPetition.jurisdictionConnection %}
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      <li>
+        {% endif %}
 
-      {% if session.originalPetition.jurisdictionConnection|length > 1  and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    </li>
-    {% endif %}
-    {% endif %}
+        {{ content.jurisdictionConnectionBothResident }}
 
-    {% if "B" in session.originalPetition.jurisdictionConnection %}
-    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <li>
+        {% if session.originalPetition.jurisdictionConnection|length > 1  and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      </li>
+      {% endif %}
       {% endif %}
 
-      {{ content.jurisdictionConnectionOneResides }}
+      {% if "B" in session.originalPetition.jurisdictionConnection %}
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionOneResides }}
+
+        {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "C" in session.originalPetition.jurisdictionConnection and (not ("A" in session.originalPetition.jurisdictionConnection)) %}
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionRespondent }}
+
+        {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "D" in session.originalPetition.jurisdictionConnection %}
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetitioner }}
+
+        {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "E" in session.originalPetition.jurisdictionConnection %}
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetitionerSixMonths }}
+
+        {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "F" in session.originalPetition.jurisdictionConnection %}
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionBothDomiciled }}
+
+        {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "G" in session.originalPetition.jurisdictionConnection %}
+      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionOther }}
+
+        {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
 
       {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    </li>
+    </ul>
     {% endif %}
-    {% endif %}
-
-    {% if "C" in session.originalPetition.jurisdictionConnection and (not ("A" in session.originalPetition.jurisdictionConnection)) %}
-    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionRespondent }}
-
-      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    </li>
-    {% endif %}
-    {% endif %}
-
-    {% if "D" in session.originalPetition.jurisdictionConnection %}
-    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionPetitioner }}
-
-      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    </li>
-    {% endif %}
-    {% endif %}
-
-    {% if "E" in session.originalPetition.jurisdictionConnection %}
-    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionPetitionerSixMonths }}
-
-      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    </li>
-    {% endif %}
-    {% endif %}
-
-    {% if "F" in session.originalPetition.jurisdictionConnection %}
-    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionBothDomiciled }}
-
-      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    </li>
-    {% endif %}
-    {% endif %}
-
-    {% if "G" in session.originalPetition.jurisdictionConnection %}
-    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionOther }}
-
-      {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-    </li>
-    {% endif %}
-    {% endif %}
-
-    {% if session.originalPetition.jurisdictionConnection|length > 1 and session.originalPetition.jurisdictionConnection != ["A", "C"] and session.originalPetition.jurisdictionConnection != ["C", "A"] %}
-  </ul>
   {% endif %}
+
+  {% if session.originalPetition.newLegalConnectionPolicy == "Yes" %}
+    {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+    <ul class="govuk-list govuk-list--bullet">
+      {% endif %}
+
+      {% if "A" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionBothResident }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1  and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "B" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionOneResides }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "C" in session.originalPetition.jurisdictionConnectionNewPolicy and (not ("A" in session.originalPetition.jurisdictionConnectionNewPolicy)) %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionRespondent }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "D" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetitioner }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "E" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetitionerSixMonths }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "F" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionBothDomiciled }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "G" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionNewPolicyOther }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "H" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetDomiciled }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if "I" in session.originalPetition.jurisdictionConnectionNewPolicy %}
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionResDomiciled }}
+
+        {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+      </li>
+      {% endif %}
+      {% endif %}
+
+      {% if session.originalPetition.jurisdictionConnectionNewPolicy|length > 1 and session.originalPetition.jurisdictionConnectionNewPolicy != ["A", "C"] and session.originalPetition.jurisdictionConnectionNewPolicy != ["C", "A"] %}
+    </ul>
+    {% endif %}
+  {% endif %}
+
 
   <details class="govuk-details">
     <summary class="govuk-details__summary">
@@ -127,19 +248,6 @@
 
       <p class="govuk-body">{{ content.info.options.domicile.summary4Part1 | safe }}<stong>{{ content.info.options.domicile.summary4Part2 | safe }}</stong></p>
       <p class="govuk-body">{{ content.info.options.domicile.summary5 | safe }}</p>
-
-      <h2 class="govuk-heading-s">{{ content.info.options.residualJurisdiction.heading | safe }}</h2>
-      <p class="govuk-body">{{ content.info.options.residualJurisdiction.intro1 | safe }}</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>{{ content.info.options.residualJurisdiction.bullet1 | safe }}</li>
-        <li>{{ content.info.options.residualJurisdiction.bullet2 | safe }}</li>
-      </ul>
-      <p class="govuk-body">{{ content.info.options.residualJurisdiction.intro2 | safe }}</p>
-       <ul class="govuk-list govuk-list--bullet">
-        <li>{{ content.info.options.residualJurisdiction.bullet3 | safe }}</li>
-        <li>{{ content.info.options.residualJurisdiction.bullet4 | safe }}</li>
-        <li>{{ content.info.options.residualJurisdiction.bullet5 | safe }}</li>
-       </ul>
     </div>
   </details>
 
