@@ -42,7 +42,8 @@ withNightlyPipeline("nodejs", product, component) {
   env.FEATURE_CORESP_EQUALITY = 'true'
 
   loadVaultSecrets(secrets)
-  enableCrossBrowserTest()
+
+  enableCrossBrowserTest(['microsoftIE11', 'microsoftEdge', 'firefox'])
   enableFullFunctionalTest()
 
   after('crossBrowserTest') {
