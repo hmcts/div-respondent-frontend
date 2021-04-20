@@ -13,8 +13,8 @@
 
     "fields": {
       "agree": {
-        "heading": "English and Welsh",
-        "answer": "English and Welsh"
+        "heading": "Welsh/English (bi-lingual)",
+        "answer": "Welsh/English (bi-lingual)"
       },
       "disagree": {
         "heading": "English only",
