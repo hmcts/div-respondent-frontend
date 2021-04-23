@@ -5,7 +5,8 @@ function seeCrRespondPage(language = 'en') {
   const I = this;
   I.waitInUrl(CrRespondPage.path);
   I.seeCurrentUrlEquals(CrRespondPage.path);
-  I.waitForText(content[language].readApplication);
+  I.waitForText(content[language].readApp);
+  I.wait(3);
 }
 
 function seeCrDocumentsForDownload(language = 'en') {

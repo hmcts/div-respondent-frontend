@@ -9,6 +9,8 @@ function seeCrAgreeToPayCostsPage(language = 'en') {
 }
 
 function chooseCrAgreeToPay(language = 'en') {
+  const I = this;
+  I.wait(3);
   this.click(content[language].fields.agree.heading);
 }
 
