@@ -16,6 +16,10 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
+  I.click(content.en.continue);
+
   I.seeAdmitAdulteryPage();
   I.clickToAdmitAdultery();
   I.click(content.en.continue);
@@ -39,6 +43,10 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
+  I.click(content.en.continue);
+
   I.seeAdmitAdulteryPage();
   I.clickToNotAdmitAdultery();
   I.click(content.en.continue);
@@ -60,6 +68,10 @@ Scenario('Proceed to adultery admission screen and admit adultery for IssuedToBa
 
   I.seeReviewApplicationPage();
   I.acknowledgeApplication();
+  I.click(content.en.continue);
+
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
   I.click(content.en.continue);
 
   I.seeAdmitAdulteryPage();
