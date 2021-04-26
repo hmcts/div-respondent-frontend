@@ -35,7 +35,6 @@ withPipeline("nodejs", product, component) {
   after('test') {
     yarnBuilder.yarn('test:validation')
     // required for running functional tests on CI
-    yarnBuilder.yarn('test:e2e')
   }
 
   before('functionalTest:aks') {
@@ -46,6 +45,10 @@ withPipeline("nodejs", product, component) {
   before('functionalTest:preview') {
     env.NODE_ENV= 'ci'
     sh 'printenv'
+  }
+
+  after('functionalTest:preview') {
+      yarnBuilder.yarn('test:e2e')
   }
 
   before('functionalTest:aat') {
