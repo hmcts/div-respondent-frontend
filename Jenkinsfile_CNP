@@ -49,6 +49,7 @@ withPipeline("nodejs", product, component) {
 
   after('functionalTest:preview') {
       yarnBuilder.yarn('test:e2e')
+      sh 'printenv'
   }
 
   before('functionalTest:aat') {
