@@ -1,6 +1,6 @@
 Feature('Progress bar page - AoS complete status');
 
-Scenario('Should display content for respondent that has not submitted AoS in time @cross-browser-test', I => {
+Scenario('Should display content for respondent that has not submitted AoS in time', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAsCaseProgressedNoAos();

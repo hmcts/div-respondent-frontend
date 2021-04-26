@@ -35,6 +35,7 @@ withPipeline("nodejs", product, component) {
   after('test') {
     yarnBuilder.yarn('test:validation')
     // required for running functional tests on CI
+    yarnBuilder.yarn('test:e2e')
   }
 
   before('functionalTest:aks') {

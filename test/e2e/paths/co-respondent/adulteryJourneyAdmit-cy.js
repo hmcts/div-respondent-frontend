@@ -2,8 +2,9 @@ const content = require('common/content');
 const config = require('config');
 const adulteryDivorceSession = require('test/resources/corespondent-divorce-session');
 
-Feature('Co-respondent Adultery Journey');
 const language = 'cy';
+
+Feature(`Co-respondent Adultery Journey: ${language}`);
 
 Scenario(`@Pipeline Proceed to adultery admission screen and admit adultery - ${language}`, async I => {
   await I.retry(2).createAUser();

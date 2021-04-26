@@ -1,5 +1,7 @@
 const content = require('common/content');
 
+Feature('Co-respondent Adultery Journey - No Admit');
+
 Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
   I.amOnPage('/');
 
@@ -37,4 +39,4 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.confirmInformationIsTrue();
   I.submitApplication();
 })
-  .retry(2);
+  .retry(0);
