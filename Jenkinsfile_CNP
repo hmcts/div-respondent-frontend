@@ -47,11 +47,6 @@ withPipeline("nodejs", product, component) {
     sh 'printenv'
   }
 
-  after('functionalTest:preview') {
-      yarnBuilder.yarn('test:e2e')
-      sh 'printenv'
-  }
-
   before('functionalTest:aat') {
     env.NODE_ENV= 'ci'
     sh 'printenv'
