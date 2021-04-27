@@ -6,7 +6,7 @@ const waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
 exports.config = {
-  tests: './smoke/*.js',
+  tests: './paths/**/*.js',
   output: config.tests.e2e.outputDir,
   helpers: {
     Puppeteer: {
@@ -19,8 +19,10 @@ exports.config = {
         args: chromeArgs
       }
     },
+    IdamHelper: { require: './helpers/idamHelper.js' },
     JSWait: { require: './helpers/JSWait.js' }
   },
+  include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
       'codeceptjs-cli-reporter': {
@@ -31,6 +33,18 @@ exports.config = {
         stdout: '-',
         options: { mochaFile: `${config.tests.e2e.outputDir}/smoke-result.xml` }
       }
+    }
+  },
+  plugins: {
+    screenshotOnFail: {
+      enabled: true,
+      fullPageScreenshots: true
+    },
+    retryFailedStep: {
+      enabled: true
+    },
+    autoDelay: {
+      enabled: true
     }
   },
   name: 'Frontend Smoke Tests'
