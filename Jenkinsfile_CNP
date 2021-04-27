@@ -52,16 +52,19 @@ withPipeline("nodejs", product, component) {
     sh 'printenv'
   }
 
+ before('functionalTest:preview'){
+  stage('Mock Tests') {
+      env.NODE_ENV= 'e2e'
+      env.FEATURE_IDAM=false
+      sh 'printenv'
+
+      yarnBuilder.yarn('test:e2e')
+  }
+ }
+
   after('functionalTest:preview') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-
-    env.NODE_ENV= 'e2e'
-    sh 'printenv'
-
-    stage('Test mocks') {
-      yarnBuilder.yarn('test:e2e')
-    }
   }
 
   after('functionalTest:aat') {
