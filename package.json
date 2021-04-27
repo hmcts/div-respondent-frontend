@@ -29,7 +29,8 @@
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/w3cjs --timeout 30000",
     "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
     "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci LOG_LEVEL=DEBUG node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/e2e/saucelabs.conf.js --steps --grep @cross-browser-test --reporter mocha-multi",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "dry": "(yarn mocks& 1> /dev/null) && sleep 20 && (yarn dev&) && sleep 20 && (yarn test:e2e)"
   },
   "pre-commit": [
     "lint"
