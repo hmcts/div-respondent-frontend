@@ -19,7 +19,7 @@
     "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF nyc mocha --opts 'test/unit/mocha.opts' --exit 'test/unit/**/*.test.js' --timeout 15000",
     "test:all": "yarn lint; yarn test:unit; yarn test:a11y; yarn test:validation;",
     "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF mocha --opts 'test/unit/mocha.opts' --exit 'test/unit/**/*.test.js' --timeout 15000",
-    "test:e2e": "NODE_PATH=. NODE_ENV=e2e LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.conf.js --steps --grep '@Pipeline|@cross-browser-test' --invert",
+    "test:e2e": "NODE_PATH=. NODE_ENV=e2e LOG_LEVEL=ERROR codeceptjs run-multiple parallel -c test/e2e/codecept.conf.js --steps --grep '@Pipeline|@cross-browser-test' --invert",
     "test:smoke": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/e2e/codecept.smoke.conf.js --steps",
     "test:coverage": "nyc check-coverage --statements 80 --branches 80 --functions 80 --lines 80",
     "test:a11y": "NODE_ENV=testing NODE_PATH=. LOG_LEVEL=ERROR mocha --exit test/a11y --reporter spec --recursive --timeout 15000 --exit --reporter mochawesome --reporter-options reportDir=functional-output,reportFilename=a11y",
