@@ -31,25 +31,26 @@ const runTests = (language = 'en') => {
     I.chooseBilingualApplication(language);
     I.click(content[language].continue);
 
-    I.seeChooseAResponsePage(language);
-    I.chooseToProceedWithDivorce(language);
+    I.seeConsentDecreePage(language);
+    I.clickToConsentToDivorce(language);
+    I.click(content[language].continue);
+
+    I.seeFinancialSituationPage(language);
+    I.clickToConsiderFinancialSituation(language);
     I.click(content[language].continue);
 
     I.seeJurisdictionPage(language);
     I.chooseAgreeToJurisdiction(language);
-    I.click(content[language].continue);
+    I.scrollPageToBottom();
+    I.navByClick(content[language].continue);
 
     I.seeLegalProceedingPage(language);
     I.chooseNoLegalProceedings(language);
-    I.click(content[language].continue);
-
-    I.seeAgreeToPayCostsPage(language);
-    I.chooseAgreeToPay(language);
-    I.click(content[language].continue);
+    I.navByClick(content[language].continue);
 
     I.seeContactDetailsPage(language);
     I.consentToSendingNotifications(language);
-    I.click(content[language].continue);
+    I.navByClick(content[language].continue);
 
     if (config.features.respondentEquality === 'true') {
       I.seeEqualityPage(language);
@@ -63,6 +64,7 @@ const runTests = (language = 'en') => {
     I.submitApplication(language);
 
     I.seeDonePage(language);
+    I.see('LV17D80999');
   }).retry(2);
 };
 
