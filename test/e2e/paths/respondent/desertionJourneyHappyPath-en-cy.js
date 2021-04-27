@@ -44,11 +44,15 @@ const runTests = (language = 'en') => {
 
     I.seeLegalProceedingPage(language);
     I.chooseNoLegalProceedings(language);
-    I.navByClick(content[language].continue);
+    I.click(content[language].continue);
+
+    I.seeAgreeToPayCostsPage(language);
+    I.chooseAgreeToPay(language);
+    I.click(content[language].continue);
 
     I.seeContactDetailsPage(language);
     I.consentToSendingNotifications(language);
-    I.navByClick(content[language].continue);
+    I.click(content[language].continue);
 
     if (config.features.respondentEquality === 'true') {
       I.seeEqualityPage(language);
