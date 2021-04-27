@@ -4,7 +4,7 @@ const SolicitorAddress = require('steps/respondent/solicitor-address/SolicitorAd
 const content = require('common/content');
 const CheckYourAnswersPage = require('steps/respondent/check-your-answers/CheckYourAnswers.step');
 
-Scenario('@cross-browser-test Fill address using postcode', I => {
+Scenario('Fill address using postcode', I => {
   I.amOnPage('/');
   I.seeIdamLoginPage();
   I.loginAs2yrSeparationCase();
