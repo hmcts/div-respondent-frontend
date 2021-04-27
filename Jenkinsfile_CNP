@@ -35,11 +35,6 @@ withPipeline("nodejs", product, component) {
   after('test') {
     yarnBuilder.yarn('test:validation')
     // required for running functional tests on CI
-
-     stage('Test mocks') {
-       yarnBuilder.yarn('dry')
-     }
-
   }
 
   before('functionalTest:aks') {
@@ -60,6 +55,13 @@ withPipeline("nodejs", product, component) {
   after('functionalTest:preview') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+
+    env.NODE_ENV= 'e2e'
+    sh 'printenv'
+
+    stage('Test mocks') {
+      yarnBuilder.yarn('test:e2e')
+    }
   }
 
   after('functionalTest:aat') {
