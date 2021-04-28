@@ -9,7 +9,7 @@ Scenario('Should display content for respondent that has not submitted AoS in ti
   I.seePetitionToDownload();
   I.seeCoRespondentAnswersToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for respondent that has submitted AoS and is not defending', I => {
   I.amOnPage('/');
@@ -21,7 +21,7 @@ Scenario('Should display content for respondent that has submitted AoS and is no
   I.seeRespondentAnswersToDownload();
   I.seeCoRespondentAnswersToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for respondent that has defended, awaiting answer', I => {
   I.amOnPage('/');
@@ -33,7 +33,7 @@ Scenario('Should display content for respondent that has defended, awaiting answ
   I.seeRespondentAnswersToDownload();
   I.seeCoRespondentAnswersToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for respondent that has defended, and has answered', I => {
   I.amOnPage('/');
@@ -45,7 +45,7 @@ Scenario('Should display content for respondent that has defended, and has answe
   I.seeRespondentAnswersToDownload();
   I.seeCoRespondentAnswersToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for respondent that is AwaitingDecreeAbsolute', I => {
   I.amOnPage('/');
@@ -59,7 +59,7 @@ Scenario('Should display content for respondent that is AwaitingDecreeAbsolute',
   I.seeCostsOrderToDownload();
   I.seeDecreeNisiToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for respondent that is DNPronounced', I => {
   I.amOnPage('/');
@@ -73,7 +73,7 @@ Scenario('Should display content for respondent that is DNPronounced', I => {
   I.seeCostsOrderToDownload();
   I.seeDecreeNisiToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 
 Scenario('Should display content for respondent if the case state is aosAwaitingSol', I => {
@@ -84,4 +84,4 @@ Scenario('Should display content for respondent if the case state is aosAwaiting
   I.seeContentForAosAwaitingSol();
   I.seePetitionToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');

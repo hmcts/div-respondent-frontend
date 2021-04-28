@@ -23,7 +23,7 @@ Scenario('Fill address using postcode', I => {
 
   I.seeCurrentUrlEquals(CheckYourAnswersPage.path);
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Fill address using manual address', I => {
   I.amOnPage('/');
@@ -42,4 +42,4 @@ Scenario('Fill address using manual address', I => {
 
   I.seeCurrentUrlEquals(CheckYourAnswersPage.path);
 })
-  .tag('@mocks');
+  .tag('@mock');

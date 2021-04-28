@@ -68,7 +68,7 @@ Scenario('Do not consent to 2 year separation but will not defend against divorc
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Initially defend then change response for 2yr separation, no consent', I => {
   I.amOnPage('/');
@@ -113,4 +113,4 @@ Scenario('Initially defend then change response for 2yr separation, no consent',
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
 })
-  .tag('@mocks');
+  .tag('@mock');

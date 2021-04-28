@@ -7,4 +7,4 @@ Scenario('Should display End Page when signed out', I => {
   I.click('Sign out');
   I.seeEndPage();
 })
-  .tag('@mocks');
+  .tag('@mock');

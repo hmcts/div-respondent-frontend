@@ -39,4 +39,4 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.confirmInformationIsTrue();
   I.submitApplication();
 })
-  .tag('@mocks');
+  .tag('@mock');

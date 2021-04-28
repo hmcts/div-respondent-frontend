@@ -28,7 +28,7 @@ Scenario('Proceed to adultery admission screen and admit adultery', I => {
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
   I.amOnPage('/');
@@ -56,7 +56,7 @@ Scenario('Proceed to adultery admission screen and do not admit adultery', I => 
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Proceed to adultery admission screen and admit adultery for IssuedToBailiff case', I => {
   I.amOnPage('/');
@@ -84,4 +84,4 @@ Scenario('Proceed to adultery admission screen and admit adultery for IssuedToBa
   I.chooseToProceedWithDivorce();
   I.click(content.en.continue);
 })
-  .tag('@mocks');
+  .tag('@mock');

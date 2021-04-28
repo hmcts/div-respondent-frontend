@@ -9,7 +9,7 @@ Scenario('Should display content for co-respondent - Not defending response', I 
   I.seePetitionToDownload();
   I.seeCoRespAnswersToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - Defending awaiting answer', I => {
   I.amOnPage('/');
@@ -19,7 +19,7 @@ Scenario('Should display content for co-respondent - Defending awaiting answer',
   I.seeContentForDefendingAwaitingAnswer();
   I.seePetitionToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - Defending submitted answer', I => {
   I.amOnPage('/');
@@ -30,7 +30,7 @@ Scenario('Should display content for co-respondent - Defending submitted answer'
   I.seePetitionToDownload();
   I.seeCoRespAnswersToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - Too late to Respond', I => {
   I.amOnPage('/');
@@ -40,7 +40,7 @@ Scenario('Should display content for co-respondent - Too late to Respond', I => 
   I.seeContentForTooLateToRespond();
   I.seePetitionToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - awaiting pronouncement and hearing date in the future', I => { // eslint-disable-line max-len
   I.amOnPage('/');
@@ -49,7 +49,7 @@ Scenario('Should display content for co-respondent - awaiting pronouncement and 
   I.seeCrProgressBarPage();
   I.seeCoRespAwaitingPronouncementHearingDataFuture();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - DNPronounced with costs orde', I => { // eslint-disable-line max-len
   I.amOnPage('/');
@@ -59,7 +59,7 @@ Scenario('Should display content for co-respondent - DNPronounced with costs ord
   I.seeCoRespDNPronouncedAndCosts();
   I.seeCoRespCostsOrderToDownload();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - DNPronounced without costs order', I => { // eslint-disable-line max-len
   I.amOnPage('/');
@@ -68,4 +68,4 @@ Scenario('Should display content for co-respondent - DNPronounced without costs 
   I.seeCrProgressBarPage();
   I.seeCoRespDNPronouncedWithoutCosts();
 })
-  .tag('@mocks');
+  .tag('@mock');

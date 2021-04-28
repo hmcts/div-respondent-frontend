@@ -13,7 +13,7 @@ Scenario('Can link case using case ID/PIN code', I => {
   I.click(commonContent.en.continue);
   I.seeRespondPage();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Can link case using case ID/PIN code when IssuedToBailiff', I => {
   I.amOnPage('/');
@@ -25,7 +25,7 @@ Scenario('Can link case using case ID/PIN code when IssuedToBailiff', I => {
   I.click(commonContent.en.continue);
   I.see(content.en.title);
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Can link case using case ID/PIN code if ID has extra nonnumerical characters', I => {
   I.amOnPage('/');
@@ -37,7 +37,7 @@ Scenario('Can link case using case ID/PIN code if ID has extra nonnumerical char
   I.click(commonContent.en.continue);
   I.seeRespondPage();
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should see an error page if PIN code is invalid', I => {
   I.amOnPage('/');
@@ -50,7 +50,7 @@ Scenario('Should see an error page if PIN code is invalid', I => {
   I.seeCaptureCaseAndPinPage();
   I.see(content.en.referenceNumberOrPinDoNotMatch);
 })
-  .tag('@mocks');
+  .tag('@mock');
 
 Scenario('Should see a generic error page if link case fails', I => {
   I.amOnPage('/');
@@ -63,4 +63,4 @@ Scenario('Should see a generic error page if link case fails', I => {
   I.seeCaptureCaseAndPinPage();
   I.see(content.en.errorLinkingCase);
 })
-  .tag('@mocks');
+  .tag('@mock');
