@@ -11,7 +11,7 @@ const runTests = (language = 'en') => {
   const numberOfTimesRetried = 10;
   const waitInterval = 5;
 
-  Scenario(`@Pipeline Behaviour Journey, Proceed divorce with linked user - ${language}`, async I => {
+  Scenario(`@Pipeline Behaviour Journey, Proceed divorce with linked user - ${language} @cross-browser-test`, async I => {
     await I.retry(numberOfTimesRetried).createAUser();
     I.retry(numberOfTimesRetried).createAosCaseForUser(basicDivorceSession);
     await I.amOnLoadedPage('/', language);

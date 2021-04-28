@@ -22,7 +22,7 @@ Scenario('Can link case using case ID/PIN code when IssuedToBailiff', I => {
   I.seeCaptureCaseAndPinPage();
   I.fillInReferenceNumberAndPinCode('9234567891234567', '12345678');
   I.click(commonContent.en.continue);
-  I.seeRespondPage();
+  I.see(content.en.title);
 }).retry(2);
 
 Scenario('Can link case using case ID/PIN code if ID has extra nonnumerical characters', I => {

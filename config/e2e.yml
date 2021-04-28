@@ -13,5 +13,5 @@ services:
     baseUrl: http://div-cms-aat.service.core-compute-aat.internal
 
 features:
-  idam: true
+  idam: false
   respSolicitorDetails: false

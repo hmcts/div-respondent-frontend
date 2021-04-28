@@ -71,7 +71,7 @@ yarn test:e2e
 
 * If you want to point to a PR, modify `tests.e2e.url` accordingly.
 
-* Run ```NODE_ENV=aat yarn test:functional```. This would your tests to pick up the new `local-aat.yml`.
+* Run ```NODE_ENV=aat yarn test:functional```. This would enable your tests to pick up the new `local-aat.yml`.
 
 ## Licensing
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -52,7 +52,7 @@ function seeContentForDNPronounced() {
 function seeContentForAosAwaitingSol() {
   const I = this;
   // Mock data uses husband as divorceWho
-  const formattedNominatedSolString = content.en.aosAwaitingSol.nominatedSol.replace('{{ session.divorceWho }}', 'husband');
+  const formattedNominatedSolString = content.en.aosAwaitingSol.nominatedSol.replace('{{ divorceWho }}', 'husband');
 
   I.see(content.en.aosAwaitingSol.heading);
   I.see(formattedNominatedSolString);

@@ -6,7 +6,7 @@ Feature('Desertion journey');
 const languages = ['en', 'cy'];
 
 const runTests = (language = 'en') => {
-  const amountOfTimesToRetry = 10;
+  const amountOfTimesToRetry = 2;
   const waitInterval = 5;
 
   Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {
@@ -40,7 +40,6 @@ const runTests = (language = 'en') => {
 
     I.seeJurisdictionPage(language);
     I.chooseAgreeToJurisdiction(language);
-    I.scrollPageToBottom();
     I.click(content[language].continue);
 
     I.seeLegalProceedingPage(language);
@@ -63,7 +62,6 @@ const runTests = (language = 'en') => {
     I.submitApplication(language);
 
     I.seeDonePage(language);
-    I.see('EZ12D81281');
   }).retry(amountOfTimesToRetry);
 };
 

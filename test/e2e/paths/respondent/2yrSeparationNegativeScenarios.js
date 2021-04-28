@@ -15,6 +15,10 @@ Scenario('Do not consent to 2 year separation and will defend against divorce', 
   I.acknowledgeApplication();
   I.click(content.en.continue);
 
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
+  I.click(content.en.continue);
+
   I.seeConsentDecreePage();
   I.clickToNotConsentDivorce();
   I.clickToDefendDivorce();
@@ -40,6 +44,10 @@ Scenario('Do not consent to 2 year separation but will not defend against divorc
 
   I.seeReviewApplicationPage();
   I.acknowledgeApplication();
+  I.click(content.en.continue);
+
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
   I.click(content.en.continue);
 
   I.seeConsentDecreePage();
@@ -71,6 +79,10 @@ Scenario('Initially defend then change response for 2yr separation, no consent',
 
   I.seeReviewApplicationPage();
   I.acknowledgeApplication();
+  I.click(content.en.continue);
+
+  I.seeLanguagePreferencePage();
+  I.chooseBilingualApplication();
   I.click(content.en.continue);
 
   I.seeConsentDecreePage();

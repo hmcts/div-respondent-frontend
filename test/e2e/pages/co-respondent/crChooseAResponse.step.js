@@ -9,6 +9,8 @@ function seeCrChooseAResponsePage(language = 'en') {
 }
 
 function chooseCrToProceedWithDivorce(language = 'en') {
+  const I = this;
+  I.wait(3);
   this.checkOption(content[language].fields.proceed.heading);
 }
 
