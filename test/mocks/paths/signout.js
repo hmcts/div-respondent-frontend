@@ -6,4 +6,5 @@ Scenario('Should display End Page when signed out', I => {
   I.loginAs5yrSeparationCase();
   I.click('Sign out');
   I.seeEndPage();
-}).retry(2);
+})
+  .tag('@mocks');

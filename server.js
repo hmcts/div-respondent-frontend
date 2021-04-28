@@ -19,7 +19,7 @@ if (['development'].includes(config.environment)) {
 
   const sslOptions = {
     key: fs.readFileSync(path.join(sslDirectory, 'localhost.key')),
-    cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt'))
+    cert: fs.readFileSync(path.join(sslDirectory, 'localhost-ca.crt'))
   };
 
   const server = https.createServer(sslOptions, app);

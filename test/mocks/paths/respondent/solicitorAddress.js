@@ -22,7 +22,8 @@ Scenario('Fill address using postcode', I => {
   I.click(content.en.continue);
 
   I.seeCurrentUrlEquals(CheckYourAnswersPage.path);
-}).retry(2);
+})
+  .tag('@mocks');
 
 Scenario('Fill address using manual address', I => {
   I.amOnPage('/');
@@ -40,4 +41,5 @@ Scenario('Fill address using manual address', I => {
   I.click(content.en.continue);
 
   I.seeCurrentUrlEquals(CheckYourAnswersPage.path);
-}).retry(2);
+})
+  .tag('@mocks');

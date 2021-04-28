@@ -4,7 +4,7 @@ const { parseBool } = require('@hmcts/one-per-page');
 
 Feature('Respondent Solicitor');
 
-Scenario('If I nominate a solicitor I submit their details and do not respond @cross-browser-test', I => {
+Scenario('If I nominate a solicitor I submit their details and do not respond', I => {
   I.amOnPage('/');
 
   I.seeIdamLoginPage();
@@ -40,4 +40,5 @@ Scenario('If I nominate a solicitor I submit their details and do not respond @c
     I.seeDonePage();
     I.see('LV17D80999');
   }
-});
+})
+  .tag('@mocks');
