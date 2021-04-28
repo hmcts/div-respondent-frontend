@@ -57,7 +57,7 @@ const runTests = (language = 'en') => {
     I.seeDonePage(language);
     I.see('EZ12D91234');
   })
-    .tag('@Pipeline')
+    .tag('@functional')
     .retry(2);
 };
 

@@ -63,7 +63,7 @@ const runTests = (language = 'en') => {
 
     I.seeDonePage(language);
   })
-    .tag('@Pipeline')
+    .tag('@functional')
     .retry(amountOfTimesToRetry);
 };
 

@@ -87,7 +87,7 @@ const runTests = (language = 'en') => {
     I.seeDonePage(language);
     I.see('LV18D81234');
   })
-    .tag('@Pipeline')
+    .tag('@functional')
     .retry(numberOfTimesRetried);
 };
 

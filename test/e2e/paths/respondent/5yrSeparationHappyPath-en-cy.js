@@ -67,7 +67,7 @@ const runTests = (language = 'en') => {
     I.seeDonePage(language);
     I.see('LV17D80999');
   })
-    .tag('@Pipeline')
+    .tag('@functional')
     .retry(2);
 };
 
