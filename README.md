@@ -73,11 +73,11 @@ yarn test:mocks
 
 * Run ```NODE_ENV=aat yarn test:functional```. This would enable your tests to pick up the new `local-aat.yml`.
 
-##Local Development
+## Local Development
 RFE has facility to enable you develop and test out features locally without the limitations of either login via IDAM,
 VPN connection or having to progress the case via other apps like DN or PFE.
 
-###Mocking 🤡
+### Mocking 🤡
 You can, while developing locally, mock out the case data and have the app render the expected screens
 and go through the required steps.
 
@@ -106,7 +106,7 @@ yarn test:mocks
 Make sure to run the command if you make a change in any of these files to get feedback
 
 
-###Uses
+### Uses
 * When you want to locally test the feature(s) you are developing
 * Helps with IDAM limitations or VPN, you can test and hash out features locally and have quick feedback it all holds together
 * Some features require the case to have done through many stages, PFE, DN, CCD then back to RFE, which these mocking, you can prepare your session data in expected state and carry on development
@@ -117,7 +117,7 @@ All tests of this nature are tag as `@mock`
 ⚠️ Locally mock tests are just one other tool in your tool box. You must make sure unit tests are written for all
 functions, modules and pages you add as you develop. These also run on the CI environment, you can also run unit test as described in the `Testing` section above
 
-###Functional Test 🧗🏽‍♀️
+### Functional Test 🧗🏽‍♀️
 To write your functional or e2e test, place your `Features` and `Scenarios` in the `e2e` folder in `/test/e2e`
 All tests of these nature are tagged with `@functional` for clarity and they are part of the CI build pipeline.
 They **will run** when you check in.
