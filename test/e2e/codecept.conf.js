@@ -56,7 +56,8 @@ exports.config = {
       fullPageScreenshots: true
     },
     retryFailedStep: {
-      enabled: true
+      enabled: true,
+      retries: 3
     },
     autoDelay: {
       enabled: true

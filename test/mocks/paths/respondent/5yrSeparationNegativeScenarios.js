@@ -34,4 +34,5 @@ Scenario('Do not show financial situation for 5 year separation and defend', I =
   I.seeJurisdictionPage();
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
-}).retry(2);
+})
+  .tag('@mock');

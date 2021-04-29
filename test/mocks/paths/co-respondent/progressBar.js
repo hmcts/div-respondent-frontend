@@ -8,7 +8,8 @@ Scenario('Should display content for co-respondent - Not defending response', I 
   I.seeContentForNotDefending();
   I.seePetitionToDownload();
   I.seeCoRespAnswersToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - Defending awaiting answer', I => {
   I.amOnPage('/');
@@ -17,7 +18,8 @@ Scenario('Should display content for co-respondent - Defending awaiting answer',
   I.seeCrProgressBarPage();
   I.seeContentForDefendingAwaitingAnswer();
   I.seePetitionToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - Defending submitted answer', I => {
   I.amOnPage('/');
@@ -27,7 +29,8 @@ Scenario('Should display content for co-respondent - Defending submitted answer'
   I.seeContentForNotDefendingSubmittedAnswer();
   I.seePetitionToDownload();
   I.seeCoRespAnswersToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - Too late to Respond', I => {
   I.amOnPage('/');
@@ -36,7 +39,8 @@ Scenario('Should display content for co-respondent - Too late to Respond', I => 
   I.seeCrProgressBarPage();
   I.seeContentForTooLateToRespond();
   I.seePetitionToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - awaiting pronouncement and hearing date in the future', I => { // eslint-disable-line max-len
   I.amOnPage('/');
@@ -44,7 +48,8 @@ Scenario('Should display content for co-respondent - awaiting pronouncement and 
   I.loginAsCoRespAwaitingPronouncementHearingDataFuture();
   I.seeCrProgressBarPage();
   I.seeCoRespAwaitingPronouncementHearingDataFuture();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - DNPronounced with costs orde', I => { // eslint-disable-line max-len
   I.amOnPage('/');
@@ -53,7 +58,8 @@ Scenario('Should display content for co-respondent - DNPronounced with costs ord
   I.seeCrProgressBarPage();
   I.seeCoRespDNPronouncedAndCosts();
   I.seeCoRespCostsOrderToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for co-respondent - DNPronounced without costs order', I => { // eslint-disable-line max-len
   I.amOnPage('/');
@@ -61,4 +67,5 @@ Scenario('Should display content for co-respondent - DNPronounced without costs 
   I.loginAsCoRespDNPronouncedWithoutCostsOrder();
   I.seeCrProgressBarPage();
   I.seeCoRespDNPronouncedWithoutCosts();
-}).retry(2);
+})
+  .tag('@mock');

@@ -8,7 +8,8 @@ Scenario('Should display content for respondent that has not submitted AoS in ti
   I.seeContentForAosNotCompleted();
   I.seePetitionToDownload();
   I.seeCoRespondentAnswersToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for respondent that has submitted AoS and is not defending', I => {
   I.amOnPage('/');
@@ -19,7 +20,8 @@ Scenario('Should display content for respondent that has submitted AoS and is no
   I.seePetitionToDownload();
   I.seeRespondentAnswersToDownload();
   I.seeCoRespondentAnswersToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for respondent that has defended, awaiting answer', I => {
   I.amOnPage('/');
@@ -30,7 +32,8 @@ Scenario('Should display content for respondent that has defended, awaiting answ
   I.seePetitionToDownload();
   I.seeRespondentAnswersToDownload();
   I.seeCoRespondentAnswersToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for respondent that has defended, and has answered', I => {
   I.amOnPage('/');
@@ -41,7 +44,8 @@ Scenario('Should display content for respondent that has defended, and has answe
   I.seePetitionToDownload();
   I.seeRespondentAnswersToDownload();
   I.seeCoRespondentAnswersToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for respondent that is AwaitingDecreeAbsolute', I => {
   I.amOnPage('/');
@@ -54,7 +58,8 @@ Scenario('Should display content for respondent that is AwaitingDecreeAbsolute',
   I.seeCoRespondentAnswersToDownload();
   I.seeCostsOrderToDownload();
   I.seeDecreeNisiToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Should display content for respondent that is DNPronounced', I => {
   I.amOnPage('/');
@@ -67,7 +72,8 @@ Scenario('Should display content for respondent that is DNPronounced', I => {
   I.seeCoRespondentAnswersToDownload();
   I.seeCostsOrderToDownload();
   I.seeDecreeNisiToDownload();
-}).retry(2);
+})
+  .tag('@mock');
 
 
 Scenario('Should display content for respondent if the case state is aosAwaitingSol', I => {
@@ -77,4 +83,5 @@ Scenario('Should display content for respondent if the case state is aosAwaiting
   I.seeProgressBarPage();
   I.seeContentForAosAwaitingSol();
   I.seePetitionToDownload();
-}).retry(2);
+})
+  .tag('@mock');
