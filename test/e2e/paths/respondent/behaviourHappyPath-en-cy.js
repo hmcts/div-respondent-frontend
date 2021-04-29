@@ -4,14 +4,15 @@ const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page');
 const contentJurisdiction = require('steps/respondent/jurisdiction/Jurisdiction.content');
 
-Feature('Unreasonable Behaviour Journey');
 const languages = ['en', 'cy'];
+
+Feature('Unreasonable Behaviour Journey');
 
 const runTests = (language = 'en') => {
   const numberOfTimesRetried = 10;
   const waitInterval = 5;
 
-  Scenario(`@Pipeline Behaviour Journey, Proceed divorce with linked user - ${language} @cross-browser-test`, async I => {
+  Scenario(`Behaviour Journey, Proceed divorce with linked user - ${language} @cross-browser-test`, async I => {
     await I.retry(numberOfTimesRetried).createAUser();
     I.retry(numberOfTimesRetried).createAosCaseForUser(basicDivorceSession);
     await I.amOnLoadedPage('/', language);
@@ -85,7 +86,9 @@ const runTests = (language = 'en') => {
 
     I.seeDonePage(language);
     I.see('LV18D81234');
-  }).retry(numberOfTimesRetried);
+  })
+    .tag('@functional')
+    .retry(numberOfTimesRetried);
 };
 
 languages

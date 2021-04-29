@@ -55,7 +55,8 @@ Scenario('Disagree with divorce @cross-browser-test', I => { // eslint-disable-l
   I.submitApplication();
 
   I.seeDonePage();
-});
+})
+  .tag('@mock');
 
 Scenario('Disagree with divorce but change response', I => { // eslint-disable-line
   I.amOnPage('/');
@@ -113,4 +114,5 @@ Scenario('Disagree with divorce but change response', I => { // eslint-disable-l
   I.submitApplication();
 
   I.seeDonePage();
-});
+})
+  .tag('@mock');

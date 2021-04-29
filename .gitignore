@@ -5,6 +5,7 @@
 public
 govuk_modules
 functional-output
+mock-output
 node_modules/*
 .tmuxp.*
 *.swp

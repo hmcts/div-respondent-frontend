@@ -31,7 +31,8 @@ Scenario('Do not consent to 2 year separation and will defend against divorce', 
   I.seeJurisdictionPage();
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Do not consent to 2 year separation but will not defend against divorce, do not consider finance', I => { // eslint-disable-line
   I.amOnPage('/');
@@ -66,7 +67,8 @@ Scenario('Do not consent to 2 year separation but will not defend against divorc
   I.seeJurisdictionPage();
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
-}).retry(2);
+})
+  .tag('@mock');
 
 Scenario('Initially defend then change response for 2yr separation, no consent', I => {
   I.amOnPage('/');
@@ -110,4 +112,5 @@ Scenario('Initially defend then change response for 2yr separation, no consent',
   I.seeJurisdictionPage();
   I.chooseAgreeToJurisdiction();
   I.click(content.en.continue);
-}).retry(2);
+})
+  .tag('@mock');

@@ -5,6 +5,7 @@ function seeFinancialSituationPage(language = 'en') {
   const I = this;
   I.waitInUrl(FinancialSituation.path);
   I.seeCurrentUrlEquals(FinancialSituation.path);
+  I.wait(3);
   I.waitForText(content[language].title);
 }
 

@@ -2,11 +2,12 @@ const content = require('common/content');
 const config = require('config');
 const fivePlusYearsDivorceSession = require('test/resources/5PlusYears-divorce-session');
 
-Feature('5 years Separation Journey');
 const languages = ['en', 'cy'];
 
+Feature('5 years Separation Journey');
+
 const runTests = (language = 'en') => {
-  Scenario(`@Pipeline 5+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
+  Scenario(`5+ Years Separation Journey, Proceed divorce - ${language}`, async I => {
     await I.retry(2).createAUser();
     I.retry(2).createAosCaseForUser(fivePlusYearsDivorceSession);
     await I.amOnLoadedPage('/', language);
@@ -65,7 +66,9 @@ const runTests = (language = 'en') => {
 
     I.seeDonePage(language);
     I.see('LV17D80999');
-  }).retry(2);
+  })
+    .tag('@functional')
+    .retry(2);
 };
 
 languages

@@ -9,7 +9,7 @@ const runTests = (language = 'en') => {
   const amountOfTimesToRetry = 2;
   const waitInterval = 5;
 
-  Scenario(`@Pipeline Proceed with divorce with desertion without agreement case - ${language}`, async I => {
+  Scenario(`Proceed with divorce with desertion without agreement case - ${language}`, async I => {
     await I.retry(amountOfTimesToRetry).createAUser();
 
     I.retry(amountOfTimesToRetry).createAosCaseForUser(desertionSession);
@@ -62,7 +62,9 @@ const runTests = (language = 'en') => {
     I.submitApplication(language);
 
     I.seeDonePage(language);
-  }).retry(amountOfTimesToRetry);
+  })
+    .tag('@functional')
+    .retry(amountOfTimesToRetry);
 };
 
 languages
