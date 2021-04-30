@@ -2,11 +2,12 @@ const content = require('common/content');
 const config = require('config');
 const adulteryDivorceSession = require('test/resources/corespondent-divorce-session');
 
-Feature('Co-respondent Adultery Journey');
 const languages = ['en', 'cy'];
 
+Feature('Co-respondent Adultery Journey');
+
 const runTests = (language = 'en') => {
-  Scenario(`@Pipeline Proceed to adultery admission screen and admit adultery - ${language}`, async I => {
+  Scenario(`Proceed to adultery admission screen and admit adultery - ${language}`, async I => {
     await I.retry(2).createAUser();
     I.retry(2).createAosCaseForUser(adulteryDivorceSession, true);
     await I.amOnLoadedPage('/', language);
@@ -56,6 +57,7 @@ const runTests = (language = 'en') => {
     I.seeDonePage(language);
     I.see('EZ12D91234');
   })
+    .tag('@functional')
     .retry(2);
 };
 
@@ -63,42 +65,3 @@ languages
   .forEach(language => {
     runTests(language);
   });
-
-Scenario('Proceed to adultery admission screen and do not admit adultery', I => {
-  I.amOnPage('/');
-
-  I.seeIdamLoginPage();
-  I.loginAsCorespondent();
-
-  I.seeCrRespondPage();
-  I.click(content.en.continue);
-
-  I.seeCrReviewApplicationPage();
-  I.acknowledgeApplication();
-  I.click(content.en.continue);
-
-  I.seeCrAdmitAdulteryPage();
-  I.clickCrToNotAdmitAdultery();
-  I.click(content.en.continue);
-
-  I.seeCrChooseAResponsePage();
-  I.chooseCrToDefendAgainstDivorce();
-  I.click(content.en.continue);
-
-  I.seeCrConfirmDefencePage();
-  I.clickCrToConfirmDefenceAgainstDivorce();
-  I.click(content.en.continue);
-
-  I.seeCrAgreeToPayCostsPage();
-  I.chooseCrAgreeToPay();
-  I.click(content.en.continue);
-
-  I.seeCrContactDetailsPage();
-  I.consentToSendingCrNotifications();
-  I.navByClick(content.en.continue);
-
-  I.seeCrCheckYourAnswersPage();
-  I.confirmInformationIsTrue();
-  I.submitApplication();
-})
-  .retry(2);

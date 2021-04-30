@@ -40,4 +40,5 @@ Scenario('If I nominate a solicitor I submit their details and do not respond', 
     I.seeDonePage();
     I.see('LV17D80999');
   }
-});
+})
+  .tag('@mock');

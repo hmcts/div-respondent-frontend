@@ -1,29 +1,29 @@
 /* eslint-disable no-process-env */
 const config = require('config');
 
-const waitForTimeout = config.tests.e2e.waitForTimeout;
-const waitForAction = config.tests.e2e.waitForAction;
+const waitForTimeout = 15000;
+const waitForAction = 1000;
 const chromeArgs = [ '--no-sandbox' ];
 
 exports.config = {
   tests: './paths/**/*.js',
-  output: `${process.cwd()}/functional-output`,
+  output: `${process.cwd()}/mock-output`,
   helpers: {
     Puppeteer: {
-      url: config.tests.e2e.url || config.node.baseUrl,
+      url: config.node.baseUrl,
       waitForTimeout,
       waitForAction,
-      show: config.tests.e2e.show,
+      show: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
       }
     },
-    IdamHelper: { require: './helpers/idamHelper.js' },
-    CaseHelper: { require: './helpers/caseHelper.js' },
-    JSWait: { require: './helpers/JSWait.js' }
+    IdamHelper: { require: '../e2e/helpers/idamHelper.js' },
+    CaseHelper: { require: '../e2e/helpers/caseHelper.js' },
+    JSWait: { require: '../e2e/helpers/JSWait.js' }
   },
-  include: { I: './pages/steps.js' },
+  include: { I: '../e2e/pages/steps.js' },
   mocha: {
     reporterOptions: {
       'codeceptjs-cli-reporter': {
@@ -32,12 +32,12 @@ exports.config = {
       },
       'mocha-junit-reporter': {
         stdout: '-',
-        options: { mochaFile: './functional-output/result.xml' }
+        options: { mochaFile: './mocks-output/result.xml' }
       },
       mochawesome: {
-        stdout: './functional-output/console.log',
+        stdout: './mocks-output/console.log',
         options: {
-          reportDir: process.env.E2E_OUTPUT_DIR || './functional-output',
+          reportDir: process.env.E2E_OUTPUT_DIR || './mocks-output',
           reportName: 'index',
           inlineAssets: true
         }
@@ -57,11 +57,11 @@ exports.config = {
     },
     retryFailedStep: {
       enabled: true,
-      retries: 3
+      retries: 1
     },
     autoDelay: {
       enabled: true
     }
   },
-  name: 'Respondent Frontend Tests'
+  name: 'Respondent Frontend Mock Tests'
 };

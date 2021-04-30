@@ -9,6 +9,8 @@ function seeCrAdmitAdulteryPage(language = 'en') {
 }
 
 function clickCrToAdmitAdultery(language = 'en') {
+  const I = this;
+  I.wait(3);
   this.click(content[language].fields.admit.label);
 }
 
