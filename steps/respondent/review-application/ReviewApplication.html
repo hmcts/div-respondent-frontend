@@ -534,7 +534,7 @@
       <p class="govuk-body">{{ content.claimingCostsFromRespondent }}</p>
     {% endif %}
     {% if session.originalPetition.claimsCostExplain and session.originalPetition.claimsCostExplain !== '' %}
-      <h3 class="govuk-heading-m">{{ content.costDetails }}</h3>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.costDetails }}</h2>
       <p class="govuk-body">"{{ session.originalPetition.claimsCostExplain | nl2br | safe }}"</p>
     {% endif %}
   {% else %}
