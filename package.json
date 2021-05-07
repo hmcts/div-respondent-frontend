@@ -50,7 +50,7 @@
     "express": "^4.17.1",
     "express-limiter": "^1.6.1",
     "glob": "^7.1.6",
-    "handlebars": ">=4.3.0",
+    "handlebars": ">=4.7.7",
     "helmet": "^3.12.2",
     "hpkp": "^2.0.0",
     "html-entities": "^1.2.1",
