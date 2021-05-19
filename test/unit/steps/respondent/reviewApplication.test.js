@@ -491,7 +491,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'costDetails'
     ];
 
     it('all', () => {
