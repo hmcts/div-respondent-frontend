@@ -1,6 +1,7 @@
 features:
   respondentEquality: 'true'
   coRespondentEquality: 'true'
+  madeUpFlagForDummyPr: 'true'
 
 featureToggles:
   enabled: false
