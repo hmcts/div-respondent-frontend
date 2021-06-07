@@ -55,6 +55,10 @@
 {% endblock %}
 
 {% block bodyStart %}
+  {% set serviceName = 'Divorce' %}
+  <div id="global-cookie-message">
+    {% include "cookie-manager/cookie-banner.njk" %}
+  </div>
   <noscript>
     <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
   </noscript>
@@ -78,3 +82,8 @@
 {% block one_third -%}
   {% block side_content %}{% endblock %}
 {%- endblock %}
+
+{% block footer %}
+  {{ govukFooter({}) }}
+  <script type="text/javascript" src="{{ asset_path }}main.js"></script>
+{% endblock %}

@@ -18,7 +18,8 @@ const errorContent = require('views/errors/error-content');
 const httpStatus = require('http-status-codes');
 const { parseBool } = require('@hmcts/one-per-page/util');
 
-const app = express();
+const app = express(),
+  cookieManagerComponentsPath = 'node_modules/cmc-cookies-manager/shared-component/components';
 
 setupHelmet(app);
 setupPrivacy(app);
@@ -33,18 +34,21 @@ lookAndFeel.configure(app, {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
       path.resolve(__dirname, 'steps'),
-      path.resolve(__dirname, 'views')
+      path.resolve(__dirname, 'views'),
+      path.resolve(__dirname, cookieManagerComponentsPath)
     ]
   },
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
-      path.resolve(__dirname, 'assets/scss/_choose-a-response.scss'),
-      path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
       path.resolve(__dirname, 'assets/scss/_agree-to-pay-costs.scss'),
+      path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
+      path.resolve(__dirname, 'assets/scss/_choose-a-response.scss'),
       path.resolve(__dirname, 'assets/scss/_confirm-defence.scss'),
-      path.resolve(__dirname, 'assets/scss/_review-application.scss')
+      path.resolve(__dirname, 'assets/scss/_cookies.scss'),
+      path.resolve(__dirname, 'assets/scss/_review-application.scss'),
+      path.resolve(__dirname, `${cookieManagerComponentsPath}/cookie-manager/cookies-manager.js`)
     ]
   },
   nunjucks: {

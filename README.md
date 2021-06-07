@@ -10,7 +10,7 @@ For development only config, rename the `config/dev_template.yaml` file to `conf
 This file is not version controlled so any config here will not be pushed to git.
 
 Note that the application will not work if an invalid LanuchDarkly SDK Key in provided. So either get a valid key from azure divorce key store,
-or disable it altogether by setting `featureToggles` `enabled` to `false` in `config/default.yml`.
+or disable it altogether by setting `featureToggles` `enabled` to `false` in `config/default.yml` (be careful not to commit this).
 
 **Install dependencies:**
 
