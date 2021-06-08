@@ -265,7 +265,7 @@ saucelabs:
 languages: ['en', 'cy']
 
 featureToggles:
-  enabled: false
+  enabled: true
   launchDarklyKey: 'SDK_KEY'
   launchDarklyUser:
     firstName: 'Divorce'
