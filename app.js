@@ -39,7 +39,7 @@ lookAndFeel.configure(app, {
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
-      path.resolve(__dirname, 'assets/js/cookies-manager.js'),
+      path.resolve(__dirname, 'assets/js/cookiesManager.js'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
       path.resolve(__dirname, 'assets/scss/_agree-to-pay-costs.scss'),
       path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
