@@ -17,13 +17,13 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         {% if message.headingHtml or message.headingText %}
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+        <h1 class="govuk-cookie-banner__heading govuk-heading-m">
           {%- if message.headingHtml -%}
             {{ message.headingHtml | safe }}
           {%- else -%}
             {{ message.headingText }}
           {%- endif -%}
-        </h2>
+        </h1>
         {% endif %}
 
         <div class="govuk-cookie-banner__content">

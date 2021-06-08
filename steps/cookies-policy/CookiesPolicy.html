@@ -7,13 +7,13 @@
 {% endset %}
 
 {% block bodyStart %}
-  <span style="display:none;">
+  <div class="cookies-policy-banner">
     {{ super() }}
-  </span>
+  </div>
 {% endblock %}
 
 {% block main_content %}
-<div class="cookies-page">
+<div class="cookies-policy-content">
   {% include "includes/cookies/cookie-manager/cookie-success-banner.njk" %}
   <p class="govuk-body">{{ content.info }}</p>
   <p class="govuk-body">{{ content.thisServiceUsesThemTo | safe }}</p>
