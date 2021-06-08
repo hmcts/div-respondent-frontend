@@ -116,12 +116,10 @@ describe(modulePath, () => {
           .get()
           .expect(httpStatus.OK)
           .html($ => {
-            const rightHandSideMenu = $('.govuk-grid-column-one-third')
-              .html();
+            const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
-            expect(rightHandSideMenu)
-              .to
-              .include('Your divorce centre');
+            expect(rightHandSideMenu).to.include('Your divorce centre');
+
             testDivorceUnitDetailsRender(rightHandSideMenu);
           });
       });
