@@ -6,9 +6,15 @@
   {{ content.title }}
 {% endset %}
 
+{% block bodyStart %}
+  <span style="display:none;">
+    {{ super() }}
+  </span>
+{% endblock %}
+
 {% block main_content %}
 <div class="cookies-page">
-  {% include "cookie-manager/cookie-success-banner.njk" %}
+  {% include "includes/cookies/cookie-manager/cookie-success-banner.njk" %}
   <p class="govuk-body">{{ content.info }}</p>
   <p class="govuk-body">{{ content.thisServiceUsesThemTo | safe }}</p>
   <ul class="govuk-list govuk-list--bullet">
