@@ -11,3 +11,4 @@ webpack.config.js
 Gruntfile.js
 dist
 mochawesome-report
+functional-output/*
