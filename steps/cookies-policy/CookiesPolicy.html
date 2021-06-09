@@ -28,12 +28,12 @@
   <table class="govuk-table">
     <caption class="govuk-table__caption">{{ content.cookieDetails | safe }}</caption>
     <tr class="govuk-table__row">
-      <th class="govuk-table__header">{{ content.tableName | safe }}</th>
-      <th class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
-      <th class="govuk-table__header">{{ content.tableExpires | safe }}</th>
+      <th id="cookie-header-name1" class="govuk-table__header">{{ content.tableName | safe }}</th>
+      <th id="cookie-header-purpose1" class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
+      <th id="cookie-header-expires1" class="govuk-table__header">{{ content.tableExpires | safe }}</th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.languageCookie_name | safe }}</td>
+      <td id="cookie-name-language" class="govuk-table__header">{{ content.languageCookie_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.languageCookie_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.cookieDurationOneYear | safe }}</td>
     </tr>
@@ -43,17 +43,17 @@
   <table class="govuk-table">
     <caption class="govuk-table__caption">{{ content.cookieDetails | safe }}</caption>
     <tr class="govuk-table__row">
-      <th class="govuk-table__header">{{ content.tableName | safe }}</th>
-      <th class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
-      <th class="govuk-table__header">{{ content.tableExpires | safe }}</th>
+      <th id="cookie-header-name2" class="govuk-table__header">{{ content.tableName | safe }}</th>
+      <th id="cookie-header-purpose2" class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
+      <th id="cookie-header-expires2" class="govuk-table__header">{{ content.tableExpires | safe }}</th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.policyCookie_name | safe }}</td>
+      <td id="cookie-name-policy" class="govuk-table__header">{{ content.policyCookie_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.policyCookie_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.cookieDurationOneYear | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.preferencesCookie_name | safe }}</td>
+      <td id="cookie-name-preferences" class="govuk-table__header">{{ content.preferencesCookie_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.preferencesCookie_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.cookieDurationOneYear | safe }}</td>
     </tr>
@@ -64,12 +64,12 @@
   <table class="govuk-table">
     <caption class="govuk-table__caption">{{ content.cookieDetails | safe }}</caption>
     <tr class="govuk-table__row">
-      <th class="govuk-table__header">{{ content.tableName | safe }}</th>
-      <th class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
-      <th class="govuk-table__header">{{ content.tableExpires | safe }}</th>
+      <th id="cookie-header-name3" class="govuk-table__header">{{ content.tableName | safe }}</th>
+      <th id="cookie-header-purpose3" class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
+      <th id="cookie-header-expires3" class="govuk-table__header">{{ content.tableExpires | safe }}</th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.sessionCookie_name | safe }}</td>
+      <td id="cookie-name-session" class="govuk-table__header">{{ content.sessionCookie_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.sessionCookie_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.sessionCookie_duration | safe }}</td>
     </tr>
@@ -81,12 +81,12 @@
   <table class="govuk-table">
     <caption class="govuk-table__caption">{{ content.cookieDetails | safe }}</caption>
     <tr class="govuk-table__row">
-      <th class="govuk-table__header">{{ content.tableName | safe }}</th>
-      <th class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
-      <th class="govuk-table__header">{{ content.tableExpires | safe }}</th>
+      <th id="cookie-header-name4" class="govuk-table__header">{{ content.tableName | safe }}</th>
+      <th id="cookie-header-purpose4" class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
+      <th id="cookie-header-expires4" class="govuk-table__header">{{ content.tableExpires | safe }}</th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.authCookie_name | safe }}</td>
+      <td id="cookie-name-auth" class="govuk-table__header">{{ content.authCookie_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.authCookie_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.authCookie_duration | safe }}</td>
     </tr>
@@ -97,17 +97,17 @@
   <table class="govuk-table">
     <caption class="govuk-table__caption">{{ content.cookieDetails | safe }}</caption>
     <tr class="govuk-table__row">
-      <th class="govuk-table__header">{{ content.tableName | safe }}</th>
-      <th class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
-      <th class="govuk-table__header">{{ content.tableExpires | safe }}</th>
+      <th id="cookie-header-name5" class="govuk-table__header">{{ content.tableName | safe }}</th>
+      <th id="cookie-header-purpose5" class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
+      <th id="cookie-header-expires5" class="govuk-table__header">{{ content.tableExpires | safe }}</th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.tamperingCookie_name | safe }}</td>
+      <td id="cookie-name-tempering" class="govuk-table__header">{{ content.tamperingCookie_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.tamperingCookie_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.tamperingCookie_duration | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.stateCookie_name | safe }}</td>
+      <td id="cookie-name-state" class="govuk-table__header">{{ content.stateCookie_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.stateCookie_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.stateCookie_duration | safe }}</td>
     </tr>
@@ -128,22 +128,22 @@
   <table class="govuk-table">
     <caption class="govuk-table__caption">{{ content.cookieDetails | safe }}</caption>
     <tr class="govuk-table__row">
-      <th class="govuk-table__header">{{ content.tableName | safe }}</th>
-      <th class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
-      <th class="govuk-table__header">{{ content.tableExpires | safe }}</th>
+      <th id="cookie-header-name6" class="govuk-table__header">{{ content.tableName | safe }}</th>
+      <th id="cookie-header-purpose6" class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
+      <th id="cookie-header-expires6" class="govuk-table__header">{{ content.tableExpires | safe }}</th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.gaCookie1_name | safe }}</td>
+      <td id="cookie-name-ga1" class="govuk-table__header">{{ content.gaCookie1_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.gaCookie1_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.gaCookie1_duration | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.gaCookie2_name | safe }}</td>
+      <td id="cookie-name-ga2" class="govuk-table__header">{{ content.gaCookie2_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.gaCookie2_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.gaCookie2_duration | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.gaCookie3_name | safe }}</td>
+      <td id="cookie-name-ga3" class="govuk-table__header">{{ content.gaCookie3_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.gaCookie3_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.cookieDurationOneDay | safe }}</td>
     </tr>
@@ -160,37 +160,37 @@
   <table class="govuk-table">
     <caption class="govuk-table__caption">{{ content.cookieDetails | safe }}</caption>
     <tr class="govuk-table__row">
-      <th class="govuk-table__header">{{ content.tableName | safe }}</th>
-      <th class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
-      <th class="govuk-table__header">{{ content.tableExpires | safe }}</th>
+      <th id="cookie-header-name7" class="govuk-table__header">{{ content.tableName | safe }}</th>
+      <th id="cookie-header-purpose7" class="govuk-table__header">{{ content.tablePurpose | safe }}</th>
+      <th id="cookie-header-expires7" class="govuk-table__header">{{ content.tableExpires | safe }}</th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.dnCookie1_name | safe }}</td>
+      <td id="cookie-name-dn1" class="govuk-table__header">{{ content.dnCookie1_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.dnCookie1_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.stateCookie_duration | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.dnCookie2_name | safe }}</td>
+      <td id="cookie-name-dn2" class="govuk-table__header">{{ content.dnCookie2_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.dnCookie2_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.stateCookie_duration | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.dnCookie3_name | safe }}</td>
+      <td id="cookie-name-dn3" class="govuk-table__header">{{ content.dnCookie3_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.dnCookie3_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.stateCookie_duration | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.dnCookie4_name | safe }}</td>
+      <td id="cookie-name-dn4" class="govuk-table__header">{{ content.dnCookie4_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.dnCookie4_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.stateCookie_duration | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.dnCookie5_name | safe }}</td>
+      <td id="cookie-name-dn5" class="govuk-table__header">{{ content.dnCookie5_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.dnCookie5_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.cookieDurationOneDay | safe }}</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__header">{{ content.dnCookie6_name | safe }}</td>
+      <td id="cookie-name-dn6" class="govuk-table__header">{{ content.dnCookie6_name | safe }}</td>
       <td class="govuk-table__cell">{{ content.dnCookie6_desc | safe }}</td>
       <td class="govuk-table__cell">{{ content.stateCookie_duration | safe }}</td>
     </tr>
