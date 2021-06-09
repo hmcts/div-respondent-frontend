@@ -50,3 +50,18 @@
 {% block head %}
     {% include "includes/head.html" %}
 {% endblock %}
+
+{% block bodyStart %}
+  {% set serviceName = 'Divorce' %}
+  <div id="global-cookie-message">
+    {% include "includes/cookies/cookie-manager/cookie-banner.njk" %}
+  </div>
+  <noscript>
+    <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
+  </noscript>
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+  <script type="text/javascript" src="{{ asset_path }}main.js"></script>
+{% endblock %}
