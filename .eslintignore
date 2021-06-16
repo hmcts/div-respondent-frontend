@@ -4,6 +4,7 @@ govuk_modules/*
 public/*
 app/assets/javascripts/*
 app/steps/sitemap/*
+assets/js/webchat.js
 lib/*
 coverage/*
 test/crossbrowser/reports/*

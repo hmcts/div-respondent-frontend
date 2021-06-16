@@ -27,6 +27,15 @@
   </script>
 {% endif %}
 
+{% if features.antennaWebchat and i18n.currentLanguage == "en" %}
+<script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es2015.js" type="module"
+         integrity=""
+         crossorigin="anonymous"></script>
+ <script src="https://webchat-client.ctsc.hmcts.net/chat-client/1/app-es5.js" nomodule defer
+         integrity="sha384-UCTrdyDQ7s1lM/QL5U3YvLYbXkQ2c2nyqtmJEmHNay2Z+UNnDsGmaQkq875rIjb6"
+         crossorigin="anonymous"></script>
+{% endif %}
+
 {% if googleAnalyticsId %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{googleAnalyticsId}}"></script>

@@ -2,6 +2,8 @@ nodejs:
     environment:
         # TODO - this should be changed once we deploy AAT to AKS
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
+       ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
+       ANTENNA_WEBCHAT_SERVICE: "Testing"
 
     # Don't modify below here
     image: ${IMAGE_NAME}
