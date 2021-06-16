@@ -26,7 +26,7 @@ describe(modulePath, () => {
 
     sinon.assert.calledWith(contentSecurityPolicyStub, {
       directives: {
-        defaultSrc: ['\'self\'', '\'unsafe-inline\''],
+        defaultSrc: ['\'self\''],
         fontSrc: [
           '\'self\' data:',
           'https://webchat-client.ctsc.hmcts.net',

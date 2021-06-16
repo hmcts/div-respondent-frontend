@@ -10,13 +10,54 @@ const setupHelmet = app => {
   // Helmet content security policy (CSP) to allow only assets from same domain.
   app.use(helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ['\'self\'', '\'unsafe-inline\''],
-      fontSrc: ['\'self\' data:', 'https://webchat-client.ctsc.hmcts.net', 'https://webchat-client.training.ctsc.hmcts.net', 'https://webchat.training.ctsc.hmcts.net'],
-      scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk', 'www.googletagmanager.com', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com'],
-      connectSrc: ['\'self\'', 'https://webchat-client.ctsc.hmcts.net', 'https://webchat-client.training.ctsc.hmcts.net', 'https://webchat.ctsc.hmcts.net', 'https://webchat.training.ctsc.hmcts.net', 'wss://webchat.ctsc.hmcts.net'],
-      mediaSrc: ['\'self\'', 'https://webchat-client.ctsc.hmcts.net', 'https://webchat-client.training.ctsc.hmcts.net', 'https://webchat.training.ctsc.hmcts.net'],
-      frameSrc: ['\'none\'', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com', 'https://webchat-client.ctsc.hmcts.net/chat-client/1/', 'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/', 'https://webchat.training.ctsc.hmcts.net/chat-client/1/'],
-      imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com', 'https://webchat-client.ctsc.hmcts.net/chat-client/1/', 'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/', 'https://webchat.training.ctsc.hmcts.net/chat-client/1/']
+      defaultSrc: ['\'self\''],
+      fontSrc: [
+        '\'self\' data:',
+        'https://webchat-client.ctsc.hmcts.net',
+        'https://webchat-client.training.ctsc.hmcts.net',
+        'https://webchat.training.ctsc.hmcts.net'
+      ],
+      scriptSrc: [
+        '\'self\'',
+        '\'unsafe-inline\'',
+        'www.google-analytics.com',
+        'hmctspiwik.useconnect.co.uk',
+        'www.googletagmanager.com',
+        'vcc-eu4.8x8.com',
+        'vcc-eu4b.8x8.com'
+      ],
+      connectSrc: [
+        '\'self\'',
+        'https://webchat-client.ctsc.hmcts.net',
+        'https://webchat-client.training.ctsc.hmcts.net',
+        'https://webchat.ctsc.hmcts.net',
+        'https://webchat.training.ctsc.hmcts.net',
+        'wss://webchat.ctsc.hmcts.net'
+      ],
+      mediaSrc: [
+        '\'self\'',
+        'https://webchat-client.ctsc.hmcts.net',
+        'https://webchat-client.training.ctsc.hmcts.net',
+        'https://webchat.training.ctsc.hmcts.net'
+      ],
+      frameSrc: [
+        '\'none\'',
+        'vcc-eu4.8x8.com',
+        'vcc-eu4b.8x8.com',
+        'https://webchat-client.ctsc.hmcts.net/chat-client/1/',
+        'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/',
+        'https://webchat.training.ctsc.hmcts.net/chat-client/1/'
+      ],
+      imgSrc: [
+        '\'self\'',
+        'www.google-analytics.com',
+        'hmctspiwik.useconnect.co.uk',
+        'vcc-eu4.8x8.com',
+        'vcc-eu4b.8x8.com',
+        'https://webchat-client.ctsc.hmcts.net/chat-client/1/',
+        'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/',
+        'https://webchat.training.ctsc.hmcts.net/chat-client/1/'
+      ]
     }
   }));
 
