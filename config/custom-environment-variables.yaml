@@ -79,7 +79,7 @@ services:
     buttonNoAgents: WEBCHAT_BUTTON_NO_AGENTS
     buttonAgentsBusy: WEBCHAT_BUTTON_AGENTS_BUSY
     buttonServiceClosed: WEBCHAT_BUTTON_SERVICE_CLOSED
-  antennaWebchat:
+antennaWebchat:
      url: ANTENNA_WEBCHAT_URL
      service: ANTENNA_WEBCHAT_SERVICE
   postcode:
