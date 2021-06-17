@@ -26,11 +26,11 @@ describe(modulePath, () => {
 
     sinon.assert.calledWith(contentSecurityPolicyStub, {
       directives: {
-        defaultSrc: ['*'],
         fontSrc: [
           '\'self\' data:',
           'https://webchat-client.ctsc.hmcts.net',
           'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
           'https://webchat.training.ctsc.hmcts.net'
         ],
         scriptSrc: [
