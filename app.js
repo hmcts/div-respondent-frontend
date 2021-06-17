@@ -39,8 +39,6 @@ lookAndFeel.configure(app, {
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
-      path.resolve(__dirname, 'assets/js/webchat.js'),
-      path.resolve(__dirname, 'assets/locale/locale_en-GB.json'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
       path.resolve(__dirname, 'assets/scss/_choose-a-response.scss'),
       path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
@@ -73,8 +71,8 @@ app.get('/noJS.png', (req, res) => {
 
 app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
 
-app.use('/public/locale', express.static(`${__dirname}/app/assets/locale`));
-app.use('/public/javascripts', express.static(`${__dirname}/app/assets/javascripts`));
+app.use('/public/locale', express.static(`${__dirname}/assets/locale`));
+app.use('/public/js', express.static(`${__dirname}/assets/js`));
 
 app.use(accessLogger());
 

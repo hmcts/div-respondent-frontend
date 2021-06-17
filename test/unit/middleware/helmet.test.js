@@ -26,7 +26,6 @@ describe(modulePath, () => {
 
     sinon.assert.calledWith(contentSecurityPolicyStub, {
       directives: {
-        defaultSrc: ['\'self\''],
         fontSrc: [
           '\'self\' data:',
           'https://webchat-client.ctsc.hmcts.net',
@@ -40,7 +39,11 @@ describe(modulePath, () => {
           'hmctspiwik.useconnect.co.uk',
           'www.googletagmanager.com',
           'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'vcc-eu4b.8x8.com',
+          'https://webchat-client.ctsc.hmcts.net',
+          'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
+          'https://webchat.training.ctsc.hmcts.net'
         ],
         connectSrc: [
           '\'self\'',
@@ -48,12 +51,14 @@ describe(modulePath, () => {
           'https://webchat-client.training.ctsc.hmcts.net',
           'https://webchat.ctsc.hmcts.net',
           'https://webchat.training.ctsc.hmcts.net',
-          'wss://webchat.ctsc.hmcts.net'
+          'wss://webchat.ctsc.hmcts.net',
+          'wss://webchat.training.ctsc.hmcts.net'
         ],
         mediaSrc: [
           '\'self\'',
           'https://webchat-client.ctsc.hmcts.net',
           'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
           'https://webchat.training.ctsc.hmcts.net'
         ],
         frameSrc: [
@@ -62,6 +67,7 @@ describe(modulePath, () => {
           'vcc-eu4b.8x8.com',
           'https://webchat-client.ctsc.hmcts.net/chat-client/1/',
           'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/',
+          'https://webchat.ctsc.hmcts.net',
           'https://webchat.training.ctsc.hmcts.net/chat-client/1/'
         ],
         imgSrc: [
@@ -72,7 +78,12 @@ describe(modulePath, () => {
           'vcc-eu4b.8x8.com',
           'https://webchat-client.ctsc.hmcts.net/chat-client/1/',
           'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/',
+          'https://webchat.ctsc.hmcts.net',
           'https://webchat.training.ctsc.hmcts.net/chat-client/1/'
+        ],
+        styleSrc: [
+          '\'self\'',
+          '\'unsafe-inline\''
         ]
       }
     });
