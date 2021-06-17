@@ -10,13 +10,7 @@ const setupHelmet = app => {
   // Helmet content security policy (CSP) to allow only assets from same domain.
   app.use(helmet.contentSecurityPolicy({
     directives: {
-      fontSrc: [
-        '\'self\' data:',
-        'https://webchat-client.ctsc.hmcts.net',
-        'https://webchat-client.training.ctsc.hmcts.net',
-        'https://webchat.ctsc.hmcts.net',
-        'https://webchat.training.ctsc.hmcts.net'
-      ],
+      fontSrc: ['\'self\' data:'],
       scriptSrc: [
         '\'self\'',
         '\'unsafe-inline\'',
