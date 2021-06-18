@@ -14,7 +14,7 @@
         <web-chat
           class="hidden"
           chat-title="Ask Divorce Web Chat"
-          chat-icon-url="https://webchat-client.ctsc.hmcts.net/chat-client/1/assets/icon.png"
+          chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/1/assets/icon.png"
           url="{{ antennaWebchat.url }}"
           secure-connections="true"
           api-version="1.0"
@@ -29,7 +29,6 @@
           page-name="Divorce Petitioner Front End">
         </web-chat>
         <button class="chat-button">Talk to an Agent</button>
-        <script type="text/javascript" src="/public/js/webchat.js"></script>
         {% endif %}
         
         <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.emailTitle | safe }}</p>

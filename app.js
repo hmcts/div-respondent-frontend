@@ -55,8 +55,16 @@ lookAndFeel.configure(app, {
       feedbackLink: 'https://www.smartsurvey.co.uk/s/Divorce_Feedback',
       googleAnalyticsId: config.services.googleAnalytics.id,
       webchat: config.services.webchat,
-      antennaWebchat: { url: config.services.antennaWebchat.url, service: config.services.antennaWebchat.service },
-      features: { webchat: parseBool(config.features.webchat), antennaWebchat: parseBool(config.features.antennaWebchat) }
+      antennaWebchat: {
+        url: config.services.antennaWebchat.url,
+        service: config.services.antennaWebchat.service,
+        integrityCodeEs5: config.services.antennaWebchat.integrityCodeEs5,
+        integrityCodeEs2015: config.services.antennaWebchat.integrityCodeEs2015
+      },
+      features: {
+        webchat: parseBool(config.features.webchat),
+        antennaWebchat: parseBool(config.features.antennaWebchat)
+      }
     }
   }
 });

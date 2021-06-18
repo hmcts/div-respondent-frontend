@@ -4,7 +4,9 @@ nodejs:
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
        ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
        ANTENNA_WEBCHAT_SERVICE: "Testing"
-
+       ANTENNA_WEBCHAT_INTEGRITY_CODE_ES5: "sha384-q2frIrgzQ2N01xiqrV6qtO/w01EzprxDOqVngE7cybQ/Hl4GsH15Qi0M+A0dX3Lm"
+       ANTENNA_WEBCHAT_INTEGRITY_CODE_ES2015: "sha384-iEIeVUq/ncVpaigZAlCikuomSR9QyL2yiApzGyMAsdgFi8ljx86/VPCQdyST4uhZ"
+       
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}

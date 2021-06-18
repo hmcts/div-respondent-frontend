@@ -82,6 +82,8 @@ services:
   antennaWebchat:
      url: ANTENNA_WEBCHAT_URL
      service: ANTENNA_WEBCHAT_SERVICE
+     integrityCodeEs5: ANTENNA_WEBCHAT_INTEGRITY_CODE_ES5
+     integrityCodeEs2015: ANTENNA_WEBCHAT_INTEGRITY_CODE_ES2015
   postcode:
     baseUrl: POST_CODE_URL
     token: POST_CODE_ACCESS_TOKEN
