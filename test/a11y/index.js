@@ -5,7 +5,7 @@ const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTempl
 
 const languages = ['en', 'cy'];
 
-const excludedSteps = ['Equality'];
+const excludedSteps = ['Equality', 'AvayaWebchat'];
 
 // ensure a step has a template - if it doesnt no need to test it
 const filterSteps = step => {
