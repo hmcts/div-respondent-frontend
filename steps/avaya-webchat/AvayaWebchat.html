@@ -29,8 +29,9 @@
         </web-chat>
     </div>
     <!-- Javascript -->
-    <script src="https://{{ antennaWebchat.url | webchat-client.training.ctsc.hmcts.net }}/chat-client/1/app-es2015.js" type="module"></script>
-    <script src="https://{{ antennaWebchat.url | webchat-client.training.ctsc.hmcts.net }}/chat-client/1/app-es5.js"
+    <script src="https://{{ antennaWebchat.url | default('webchat-client.ctsc.hmcts.net') }}/chat-client/1/app-es2015.js"
+            type="module" ></script>
+    <script src="https://{{ antennaWebchat.url | default('webchat-client.ctsc.hmcts.net') }}/chat-client/1/app-es5.js"
             nomodule defer></script>
 </body>
 
