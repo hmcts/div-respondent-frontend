@@ -57,9 +57,7 @@ lookAndFeel.configure(app, {
       webchat: config.services.webchat,
       antennaWebchat: {
         url: config.services.antennaWebchat.url,
-        service: config.services.antennaWebchat.service,
-        integrityCodeEs5: config.services.antennaWebchat.integrityCodeEs5,
-        integrityCodeEs2015: config.services.antennaWebchat.integrityCodeEs2015
+        service: config.services.antennaWebchat.service
       },
       features: {
         webchat: parseBool(config.features.webchat),
