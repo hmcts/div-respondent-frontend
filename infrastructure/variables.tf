@@ -206,7 +206,7 @@ variable "webchat_button_service_closed" {
 }
 
 variable "post_code_url" {
-  default = "https://api.ordnancesurvey.co.uk/places/v1"
+  default = "https://api.os.uk/search/places/v1"
 }
 
 variable "node_version" {

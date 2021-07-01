@@ -75,7 +75,7 @@ const formatAddress = address => {
 };
 
 const postcodeLookup = postcode => {
-  const uri = `${config.services.postcode.baseUrl}/addresses/postcode?postcode=${encodeURIComponent(postcode)}&key=${config.services.postcode.token}`;
+  const uri = `${config.services.postcode.baseUrl}/postcode?postcode=${encodeURIComponent(postcode)}&key=${config.services.postcode.token}`;
 
   const options = {
     uri,
