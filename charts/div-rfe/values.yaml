@@ -18,7 +18,7 @@ nodejs:
         WEBCHAT_BUTTON_NO_AGENTS: 7732814745cac6f4603c4d1.53357933
         WEBCHAT_BUTTON_AGENTS_BUSY: 2042157415cc19c95669039.65793052
         WEBCHAT_BUTTON_SERVICE_CLOSED: 20199488815cc1a89e0861d5.73103009
-        POST_CODE_URL: "https://api.ordnancesurvey.co.uk/places/v1"
+        POST_CODE_URL: "https://api.os.uk/search/places/v1"
 
         REFORM_ENVIRONMENT: "{{ .Values.global.environment }}"
         IDAM_API_URL: "https://idam-api.{{ .Values.global.environment }}.platform.hmcts.net"

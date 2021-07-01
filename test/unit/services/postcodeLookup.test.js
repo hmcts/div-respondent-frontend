@@ -101,7 +101,7 @@ describe(modulePath, () => {
 
     it('gets address from postcode', done => {
       const postcode = 'postcode';
-      const uri = `${config.services.postcode.baseUrl}/addresses/postcode?postcode=${encodeURIComponent(postcode)}&key=${config.services.postcode.token}`; // eslint-disable-line
+      const uri = `${config.services.postcode.baseUrl}/postcode?postcode=${encodeURIComponent(postcode)}&key=${config.services.postcode.token}`; // eslint-disable-line
 
       request.get.resolves(mockAddressResponse);
       postcodeLookupService.postcodeLookup(postcode)
