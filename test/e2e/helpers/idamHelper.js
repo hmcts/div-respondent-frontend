@@ -35,6 +35,8 @@ class IdamHelper extends Helper {
     return idamExpressTestHarness.createUser(idamArgs, null)
       .then(() => {
         logger.infoWithReq(null, 'idam_user_created', 'Created IDAM test user', testEmail);
+        logger.infoWithReq(null, '*****************', 'IDAM ARGS', JSON.parse(idamArgs));
+
         return idamExpressTestHarness.getToken(idamArgs, null);
       })
       .then(response => {
