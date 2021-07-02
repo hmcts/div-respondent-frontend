@@ -47,7 +47,7 @@ const filteredErrors = r => {
   return !excludedErrors.includes(r.message);
 };
 
-const excludedSteps = ['Equality'];
+const excludedSteps = ['Equality', 'AvayaWebchat'];
 
 // ensure step has a template - if it doesnt no need to test it
 const filterSteps = step => {

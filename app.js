@@ -44,7 +44,8 @@ lookAndFeel.configure(app, {
       path.resolve(__dirname, 'assets/scss/_check-your-answers.scss'),
       path.resolve(__dirname, 'assets/scss/_agree-to-pay-costs.scss'),
       path.resolve(__dirname, 'assets/scss/_confirm-defence.scss'),
-      path.resolve(__dirname, 'assets/scss/_review-application.scss')
+      path.resolve(__dirname, 'assets/scss/_review-application.scss'),
+      path.resolve(__dirname, 'assets/scss/_web-chat.scss')
     ]
   },
   nunjucks: {
@@ -54,7 +55,14 @@ lookAndFeel.configure(app, {
       feedbackLink: 'https://www.smartsurvey.co.uk/s/Divorce_Feedback',
       googleAnalyticsId: config.services.googleAnalytics.id,
       webchat: config.services.webchat,
-      features: { webchat: parseBool(config.features.webchat) }
+      antennaWebchat: {
+        url: config.services.antennaWebchat.url,
+        service: config.services.antennaWebchat.service
+      },
+      features: {
+        webchat: parseBool(config.features.webchat),
+        antennaWebchat: parseBool(config.features.antennaWebchat)
+      }
     }
   }
 });
@@ -68,6 +76,9 @@ app.get('/noJS.png', (req, res) => {
 });
 
 app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
+
+app.use('/public/locale', express.static(`${__dirname}/assets/locale`));
+app.use('/public/js', express.static(`${__dirname}/assets/js`));
 
 app.use(accessLogger());
 

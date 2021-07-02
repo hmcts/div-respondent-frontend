@@ -27,6 +27,14 @@
   </script>
 {% endif %}
 
+{% if features.antennaWebchat and i18n.currentLanguage == "en" %}
+<script src="https://{{ antennaWebchat.url | default('webchat-client.ctsc.hmcts.net') }}/chat-client/1/app-es2015.js"
+        type="module" ></script>
+<script src="https://{{ antennaWebchat.url | default('webchat-client.ctsc.hmcts.net') }}/chat-client/1/app-es5.js"
+        nomodule defer></script>
+ <script type="text/javascript" src="/public/js/webchat.js"></script>
+{% endif %}
+
 {% if googleAnalyticsId %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{googleAnalyticsId}}"></script>

@@ -30,6 +30,8 @@ nodejs:
         CASE_MAINTENANCE_BASE_URL: "http://div-cms-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT: "/emclientapi/version/1/download"
+        ANTENNA_WEBCHAT_URL: "webchat.ctsc.hmcts.net"
+        ANTENNA_WEBCHAT_SERVICE: "Divorce"
 
     keyVaults:
         div:
