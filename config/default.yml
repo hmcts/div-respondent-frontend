@@ -231,8 +231,8 @@ features:
     differentAmount:
       enabled: false
   respSolicitorDetails: false
-  webchat: false
-  antennaWebchat: true
+  webchat: true
+  antennaWebchat: false
   respondentEquality: 'false'
   coRespondentEquality: 'false'
 
