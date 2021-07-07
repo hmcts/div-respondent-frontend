@@ -92,7 +92,7 @@ paths:
   end: /end
   termsAndConditions: /terms-and-conditions
   divorceApplicationProcessing: /divorce-application-processing
-  cookiesPolicy: /cookie
+  cookiesPolicy: /cookies
   privacyPolicy: /privacy-policy
   authenticated: /authenticated
   captureCaseAndPin: /respond-with-pin

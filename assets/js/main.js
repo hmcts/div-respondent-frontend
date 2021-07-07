@@ -5,6 +5,7 @@ import govukFrontend from 'govuk-frontend/all';
 import './showHideContent';
 
 window.jQuery = $;
+window.$ = $;
 
 $(document).ready(() => {
   const showHideContent = new global.GOVUK.ShowHideContent();
