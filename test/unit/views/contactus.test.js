@@ -31,12 +31,9 @@ describe('Test contact us for help', () => {
     return content(ProgressBar, session, { specificContent });
   });
 
-  it('shows webchat content if enabled', () => {
-    const features = { webchat: true };
-
+  it('shows webchat content', () => {
     return custom(ProgressBar)
       .withSession(session)
-      .withGlobal('features', features)
       .get()
       .expect(httpStatus.OK)
       .text((pageContent, contentKeys) => {
