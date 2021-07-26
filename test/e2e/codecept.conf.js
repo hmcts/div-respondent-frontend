@@ -3,7 +3,7 @@ const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
 const waitForAction = config.tests.e2e.waitForAction;
-const chromeArgs = [ '--no-sandbox' ];
+const chromeArgs = [ '--no-sandbox', '--headless', '--disable-gpu', '--allow-running-insecure-content', '--ignore-certificate-errors' ];
 
 exports.config = {
   tests: './paths/**/*.js',
