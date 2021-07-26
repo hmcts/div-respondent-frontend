@@ -92,8 +92,7 @@ services:
 features:
   idam: FEATURE_IDAM
   respSolicitorDetails: FEATURE_RESP_SOLICITOR_DETAILS
-  webchat: FEATURE_WEBCHAT
-  antennaWebchat: FEATURE_ANTENNA_WEBCHAT
+  antennaWebchatUserAttribute: FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE
   respondentEquality: FEATURE_RESP_EQUALITY
   coRespondentEquality: FEATURE_CORESP_EQUALITY
 
