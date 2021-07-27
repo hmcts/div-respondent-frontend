@@ -11,6 +11,7 @@ nodejs:
         EQUALITY_URL: "https://pcq.aat.platform.hmcts.net"
         ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Testing"
+        FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE: "true"
         
     # Don't modify below here
     image: ${IMAGE_NAME}
