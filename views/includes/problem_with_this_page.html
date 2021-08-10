@@ -3,11 +3,32 @@
         <span class="govuk-details__summary-text govuk-!-font-size-16">{{ content.isThereAProblemWithThisPage | safe }}</span>
     </summary>
     <div class="govuk-details__text">
-        {% if features.webchat and i18n.currentLanguage == "en" %}
-            <p class="govuk-heading-s govuk-!-margin-bottom-1" id="ctsc-web-chat-header">{{ content.webChatTitle | safe }}</p>
-            <div id="ctsc-web-chat"></div><br>
+        {% if i18n.currentLanguage == "en" %}
+        <p class="govuk-heading-s govuk-!-margin-bottom-1" id="antenna-web-chat-header">{{ common.webChatTitle | safe }}</p>
+        <p id="metrics"></p>
+        <web-chat
+          class="hidden"
+          chat-title="Ask Divorce Web Chat"
+          chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/1/assets/icon.png"
+          url="{{ antennaWebchat.url }}"
+          secure-connections="true"
+          api-version="1.0"
+          metrics-polling-interval="20"
+          locale-url="/public/locale"
+          route-point-identifier="Default"
+          work-flow-type=""
+          lease-time="24"
+          priority="5"
+          language="English"
+          service="{{ antennaWebchat.service }}"
+          page-name="Respond to a Divorce Application"
+          {% if features.antennaWebchatUserAttribute %}
+          User="Chat"
+          {% endif %}>
+        </web-chat>
+        <button class="chat-button">Talk to an Agent</button>
         {% endif %}
-
+        
         <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.emailTitle | safe }}</p>
         <p class="govuk-body">{{ content.emailIfProblems | safe }}<br>{{ content.responseTime }}</p>
 
