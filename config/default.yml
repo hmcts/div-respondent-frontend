@@ -39,7 +39,6 @@ services:
     browser: 'chrome'
     username: 'username'
     key: 'privatekey'
-    tunnelId: ''
     waitForTimeout: 30000
   googleAnalytics:
     id: TBD
@@ -261,7 +260,6 @@ saucelabs:
   browser: 'chrome'
   username: 'username'
   key: 'privatekey'
-  tunnelId: 'reformtunnel'
   waitForTimeout: 30000
   smartWait: 30000
 
