@@ -10,9 +10,9 @@ const browser = process.env.SAUCE_BROWSER || conf.saucelabs.browser;
 const defaultSauceOptions = {
   username: process.env.SAUCE_USERNAME || conf.saucelabs.username,
   accessKey: process.env.SAUCE_ACCESS_KEY || conf.saucelabs.key,
-  tunnelIdentifier: process.env.SAUCE_TUNNEL_IDENTIFIER || conf.saucelabs.tunnelId,
   acceptSslCerts: true,
-  tags: ['RFE_divorce']
+  tags: ['RFE_divorce'],
+  screenResolution: '1400x1050'
 };
 
 function getBrowserConfig(browserGroup) {
