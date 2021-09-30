@@ -13,7 +13,7 @@ As an example, if you want to use LaunchDarkly locally, place the SDK Key in thi
 
 **Install dependencies:**
 
-```
+```sh
 yarn install
 ```
 
@@ -22,17 +22,17 @@ yarn install
 
 Run the following to start the redis server:
 
-```
+```sh
 docker-compose up
 ```
 
 Then run the following in separate terminals
 
-```
+```sh
 yarn mocks
 ```
 
-```
+```sh
 yarn dev
 ```
 
@@ -42,20 +42,20 @@ The application will now be running on ```https://localhost:3000```.
 
 **Unit**
 
-```
+```sh
 yarn test:unit
 ```
 
 **Validation**
 
-```
+```sh
 yarn test:validation
 ```
 
 **Mocks**
 
 Run the following, each in a separate terminal window
-```
+```sh
 yarn dev
 yarn mocks
 yarn test:mocks
