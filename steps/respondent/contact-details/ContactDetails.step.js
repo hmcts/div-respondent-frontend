@@ -78,13 +78,6 @@ class ContactDetails extends Question {
     return answers;
   }
 
-  get middleware() {
-    return [
-      ...super.middleware,
-      idam.protect()
-    ];
-  }
-
   next() {
     return redirectTo(this.journey.steps.Equality);
   }

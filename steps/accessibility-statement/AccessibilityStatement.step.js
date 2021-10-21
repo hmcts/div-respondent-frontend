@@ -9,12 +9,6 @@ class AccessibilityStatement extends Page {
   static get path() {
     return config.paths.accessibilityStatement;
   }
-
-  get middleware() {
-    return [
-      ...super.middleware
-    ];
-  }
 }
 
 module.exports = AccessibilityStatement;

@@ -8,11 +8,6 @@ class CookiesPolicy extends Page {
   static get path() {
     return config.paths.cookiesPolicy;
   }
-  get middleware() {
-    return [
-      ...super.middleware
-    ];
-  }
 }
 
 module.exports = CookiesPolicy;

@@ -8,11 +8,7 @@ class PrivacyPolicy extends Page {
   static get path() {
     return config.paths.privacyPolicy;
   }
-  get middleware() {
-    return [
-      ...super.middleware
-    ];
-  }
+
 }
 
 module.exports = PrivacyPolicy;

@@ -8,11 +8,6 @@ class TermsAndConditions extends Page {
   static get path() {
     return config.paths.termsAndConditions;
   }
-  get middleware() {
-    return [
-      ...super.middleware
-    ];
-  }
 }
 
 module.exports = TermsAndConditions;
