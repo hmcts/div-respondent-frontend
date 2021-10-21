@@ -7,7 +7,6 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConsentDecree.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -105,8 +104,7 @@ class ConsentDecree extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('amend-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('amend-fee')
     ];
   }
 

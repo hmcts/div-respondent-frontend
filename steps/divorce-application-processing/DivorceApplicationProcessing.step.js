@@ -1,6 +1,5 @@
 const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class DivorceApplicationProcessing extends Page {
   static get ignorePa11yWarnings() {
@@ -13,8 +12,7 @@ class DivorceApplicationProcessing extends Page {
 
   get middleware() {
     return [
-      ...super.middleware,
-      checkWelshToggle
+      ...super.middleware
     ];
   }
 }

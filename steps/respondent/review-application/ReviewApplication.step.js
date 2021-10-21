@@ -9,7 +9,6 @@ const Joi = require('joi');
 const content = require('./ReviewApplication.content');
 const { replace, endsWith } = require('lodash');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -129,8 +128,7 @@ class ReviewApplication extends Question {
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
       getFeeFromFeesAndPayments('general-application-fee'),
-      getFeeFromFeesAndPayments('application-financial-order-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('application-financial-order-fee')
     ];
   }
 }

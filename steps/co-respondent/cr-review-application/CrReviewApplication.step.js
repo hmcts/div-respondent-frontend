@@ -7,7 +7,6 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const content = require('./CrReviewApplication.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 
 const values = {
@@ -75,8 +74,7 @@ class CrReviewApplication extends Question {
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
       getFeeFromFeesAndPayments('general-application-fee'),
-      getFeeFromFeesAndPayments('application-financial-order-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('application-financial-order-fee')
     ];
   }
 }
