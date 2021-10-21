@@ -9,12 +9,6 @@ class DivorceApplicationProcessing extends Page {
   static get path() {
     return config.paths.divorceApplicationProcessing;
   }
-
-  get middleware() {
-    return [
-      ...super.middleware
-    ];
-  }
 }
 
 module.exports = DivorceApplicationProcessing;

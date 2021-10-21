@@ -8,7 +8,6 @@ class PrivacyPolicy extends Page {
   static get path() {
     return config.paths.privacyPolicy;
   }
-
 }
 
 module.exports = PrivacyPolicy;
