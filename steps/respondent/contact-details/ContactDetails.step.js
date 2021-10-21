@@ -3,6 +3,7 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text, object } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
+const idam = require('services/idam');
 const config = require('config');
 const content = require('./ContactDetails.content');
 const i18next = require('i18next');
@@ -75,6 +76,13 @@ class ContactDetails extends Question {
     }));
 
     return answers;
+  }
+
+  get middleware() {
+    return [
+      ...super.middleware,
+      idam.protect()
+    ];
   }
 
   next() {
