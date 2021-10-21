@@ -13,7 +13,7 @@
     "responseAcknowledgement": "Your response is legally known as the 'acknowledgement of service'.",
     "respond7Days": "You must respond to the application within 7 working days of receiving the letter. If you don’t, your {{ divorceWho }} can ask the court to move the divorce forwards without you. You may have to pay extra fees if this happens.",
     "respondMoreTime": "If you are a respondent living outside of England and Wales, then you may have more days to reply to this divorce. Please refer to this below link:",
-    "respondMoreTimeLink": "<a class=\"govuk-link\" href=\"https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part06/pd_part06b#7.1\" target=\"_blank\" aria-label=\"AOS for Respondent Abroad Time Frames out of Jurisdiction link, This link will open in a new tab.\">https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part06/pd_part06b#7.1</a>",
+    "respondMoreTimeLink": "<a class=\"govuk-link\" href=\"https://www.justice.gov.uk/courts/procedure-rules/family/practice_directions/pd_part_06b\" target=\"_blank\" aria-label=\"AOS for Respondent Abroad Time Frames out of Jurisdiction link, This link will open in a new tab.\">https://www.justice.gov.uk/courts/procedure-rules/family/practice_directions/pd_part_06b</a>",
     "continue": "Continue",
     "yourCourt": "Your divorce centre",
     "email": "Email",

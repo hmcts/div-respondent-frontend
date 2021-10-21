@@ -9,7 +9,7 @@
     "responseAcknowledgement": "Your response is legally known as the 'acknowledgement of service'.",
     "respond7Days": "You must respond to the application within 7 working days. If you don’t, the divorce may move forwards without you.",
     "respondMoreTime": "If you live outside of England and Wales, then you may have more days to reply to this divorce. Please refer to this below link:",
-    "respondMoreTimeLink": "<a class=\"govuk-link\" href=\"https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part06/pd_part06b#7.1\" target=\"_blank\" aria-label=\"AOS for Respondent Abroad Time Frames out of Jurisdiction link, This link will open in a new tab.\">https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part06/pd_part06b#7.1</a>",
+    "respondMoreTimeLink": "<a class=\"govuk-link\" href=\"https://www.justice.gov.uk/courts/procedure-rules/family/practice_directions/pd_part_06b\" target=\"_blank\" aria-label=\"AOS for Respondent Abroad Time Frames out of Jurisdiction link, This link will open in a new tab.\">https://www.justice.gov.uk/courts/procedure-rules/family/practice_directions/pd_part_06b</a>",
     "namedCorespondent": "As you have been named as a co-respondent in the divorce, the applicant is allowed to claim the costs of the divorce from you. This could include the £{{ feesIssueApplication }} application fee, and their legal fees and expenses. If you don’t respond, you won’t have a say in whether or not you pay these costs.",
     "continue": "Continue",
     "yourCourt": "Your divorce centre",

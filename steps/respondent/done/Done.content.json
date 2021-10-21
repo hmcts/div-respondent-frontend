@@ -44,7 +44,7 @@
     "solSubHeading": "What happens next",
     "solNextDetails": "Your solicitor will receive instructions on how  to respond on your behalf. They must respond  to the application within 7 working days. If they don’t, your {{ divorceWho }} can ask the court to move the divorce forward without you. You may have to pay extra fees if this happens.",
     "solNextDetailsMoreTime": "If you are a respondent living outside of England and Wales, then your solicitor may have more days to reply to this divorce. Please refer to this below link:",
-    "solNextDetailsMoreTimeLink": "<a class=\"govuk-link\" href=\"https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part06/pd_part06b#7.1\" target=\"_blank\" aria-label=\"AOS for Respondent Abroad Time Frames out of Jurisdiction link, This link will open in a new tab.\">https://www.justice.gov.uk/courts/procedure-rules/civil/rules/part06/pd_part06b#7.1</a>",
+    "solNextDetailsMoreTimeLink": "<a class=\"govuk-link\" href=\"https://www.justice.gov.uk/courts/procedure-rules/family/practice_directions/pd_part_06b\" target=\"_blank\" aria-label=\"AOS for Respondent Abroad Time Frames out of Jurisdiction link, This link will open in a new tab.\">https://www.justice.gov.uk/courts/procedure-rules/family/practice_directions/pd_part_06b</a>",
     "yourCourt": "Your divorce centre",
     "email": "Email",
     "help": "Getting help",
