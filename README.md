@@ -38,6 +38,8 @@ yarn dev
 
 The application will now be running on ```https://localhost:3000```.
 
+**NOTE**: might not work in Chrome.
+
 ## Testing
 
 **Unit**
