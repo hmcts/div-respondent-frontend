@@ -52,7 +52,7 @@ class FeatureToggle {
   }
 
   toggleFeature(params) {
-    if (!(params.req.session[Symbol('active')])) {
+    if (params.req.session[Symbol('active')] === null || params.req.session[Symbol('active')] === 'undefined') {
       return params.next();
     }
 

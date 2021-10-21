@@ -86,6 +86,7 @@ describe('FeatureToggle', () => {
           isEnabled: true,
           next: sinon.spy()
         };
+        params.req.session[Symbol('active')] = true;
         const featureToggle = new FeatureToggle();
 
         featureToggle.toggleFeature(params);
