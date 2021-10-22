@@ -7,7 +7,6 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CheckYourAnswers.content');
 const { parseBool } = require('@hmcts/one-per-page');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 
 const constants = {
@@ -28,8 +27,7 @@ class CheckYourAnswers extends CYA {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 

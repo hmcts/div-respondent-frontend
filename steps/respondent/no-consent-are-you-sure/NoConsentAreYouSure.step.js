@@ -6,7 +6,6 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const commonContent = require('common/content');
 const i18next = require('i18next');
 
@@ -68,8 +67,7 @@ class NoConsentAreYouSure extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('amend-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('amend-fee')
     ];
   }
 

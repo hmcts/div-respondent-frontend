@@ -6,7 +6,6 @@ const Joi = require('joi');
 const idam = require('services/idam');
 const config = require('config');
 const content = require('./SolicitorRepresentation.content');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 
 const values = {
@@ -62,8 +61,7 @@ class SolicitorRepresentation extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 
