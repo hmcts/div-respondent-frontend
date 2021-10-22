@@ -136,7 +136,7 @@ onePerPage.journey(app, {
     }
   },
   session: {
-    redis: { url: config.services.redis.url },
+    redis: { url: process.env.REDIS_URL || config.services.redis.url },
     cookie: {
       secure: config.session.secure,
       expires: config.session.expires
