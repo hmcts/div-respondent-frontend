@@ -7,7 +7,6 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -80,8 +79,7 @@ class ConfirmDefence extends Question {
       ...super.middleware,
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
-      getFeeFromFeesAndPayments('defended-petition-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 
