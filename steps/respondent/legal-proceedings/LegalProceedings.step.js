@@ -85,6 +85,10 @@ class LegalProceedings extends Question {
 
   next() {
     const costClaim = this.req.session.originalPetition.claimsCostsFrom;
+    // eslint-disable-next-line no-console
+    console.log('====costClaim ===> ', costClaim);
+    // eslint-disable-next-line no-console
+    console.log('==== req.session.originalPetition ===> ', this.req.session.originalPetition);
 
     const condition = costClaim && costClaim.includes('respondent');
 
