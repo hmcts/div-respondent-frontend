@@ -64,6 +64,12 @@ class LanguagePreference extends Question {
   }
 
   next() {
+    const costClaim = this.req.session.originalPetition.claimsCostsFrom;
+    // eslint-disable-next-line no-console
+    console.log('==== LANGEUE PREFERENCE costClaim ===> ', costClaim);
+    // eslint-disable-next-line no-console
+    console.log('==== req.session.originalPetition ===> ', this.req.session.originalPetition);
+
     const petition = this.session.originalPetition;
     const isAdulteryCase = petition.reasonForDivorce === this.const.adultery;
     const twoYrSep = petition.reasonForDivorce === this.const.twoYearSeparation;

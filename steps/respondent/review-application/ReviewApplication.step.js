@@ -104,6 +104,13 @@ class ReviewApplication extends Question {
   }
 
   next() {
+    const costClaim = this.req.session.originalPetition.claimsCostsFrom;
+    // eslint-disable-next-line no-console
+    console.log('====REVIEW APPLICATION costClaim ===> ', costClaim);
+    // eslint-disable-next-line no-console
+    console.log('==== req.session.originalPetition ===> ', this.req.session.originalPetition);
+
+
     if (this.isRespondentSolEnabled) {
       return goTo(this.journey.steps.SolicitorRepresentation);
     }
