@@ -39,7 +39,6 @@ services:
     browser: 'chrome'
     username: 'username'
     key: 'privatekey'
-    tunnelId: ''
     waitForTimeout: 30000
   googleAnalytics:
     id: TBD
@@ -75,6 +74,9 @@ services:
     buttonNoAgents: 7732814745cac6f4603c4d1.53357933
     buttonAgentsBusy: 2042157415cc19c95669039.65793052
     buttonServiceClosed: 20199488815cc1a89e0861d5.73103009
+  antennaWebchat:
+     url: 'webchat.training.ctsc.hmcts.net'
+     service: 'Testing'
   postcode:
     baseUrl: http://localhost:3001/postcode-lookup
     token:
@@ -228,7 +230,7 @@ features:
     differentAmount:
       enabled: false
   respSolicitorDetails: false
-  webchat: true
+  antennaWebchatUserAttribute: false
   respondentEquality: 'false'
   coRespondentEquality: 'false'
 
@@ -258,7 +260,6 @@ saucelabs:
   browser: 'chrome'
   username: 'username'
   key: 'privatekey'
-  tunnelId: 'reformtunnel'
   waitForTimeout: 30000
   smartWait: 30000
 
@@ -271,6 +272,5 @@ featureToggles:
     firstName: 'Divorce'
     lastName: 'Frontend'
     key: 'a69bdaed-b2dd-4c54-acfa-bf3df80dbe17'
-  ft_welsh: 'divorce-welsh'
   ft_respondent_pcq: 'respondent-pcq'
   ft_co_respondent_pcq: 'co-respondent-pcq'

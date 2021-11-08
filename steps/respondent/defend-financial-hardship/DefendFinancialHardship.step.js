@@ -7,7 +7,6 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./DefendFinancialHardship.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -96,8 +95,7 @@ class DefendFinancialHardship extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('defended-petition-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 

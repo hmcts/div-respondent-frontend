@@ -8,8 +8,7 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'IE11_RESPONDENT',
-        screenResolution: '1400x1050'
+        name: 'IE11_RESPONDENT'
       }
     },
     edge: {
@@ -28,8 +27,7 @@ const supportedBrowsers = {
       browserVersion: 'latest',
       'sauce:options': {
         name: 'MAC_SAFARI_LATEST_RESPONDENT',
-        seleniumVersion: '3.141.59',
-        screenResolution: '1400x1050'
+        seleniumVersion: '3.141.59'
       }
     }
   },
@@ -57,8 +55,7 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'WIN_FIREFOX_LATEST_RESPONDENT',
-        screenResolution: '1400x1050'
+        name: 'WIN_FIREFOX_LATEST_RESPONDENT'
       }
     },
     firefox_mac_latest: {
