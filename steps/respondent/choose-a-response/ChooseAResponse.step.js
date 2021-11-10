@@ -7,7 +7,6 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./ChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { constants } = require('../../../core/utils/petitionHelper');
@@ -100,8 +99,7 @@ class ChooseAResponse extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('defended-petition-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 

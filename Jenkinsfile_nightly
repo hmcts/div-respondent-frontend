@@ -45,6 +45,7 @@ withNightlyPipeline("nodejs", product, component) {
 
   enableCrossBrowserTest(['microsoftIE11', 'microsoftEdge', 'firefox'])
   enableFullFunctionalTest()
+  enableFortifyScan()
 
   after('crossBrowserTest') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
@@ -58,6 +59,10 @@ withNightlyPipeline("nodejs", product, component) {
   after('fullFunctionalTest') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
+  after('fortify-scan') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
   }
 
 }
