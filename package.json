@@ -64,7 +64,7 @@
     "moment": "^2.24.0",
     "os": "^0.1.1",
     "paths": "^0.1.1",
-    "redis": "^3.1.1",
+    "redis": "^2.8.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.8",
     "serialize-javascript": ">=2.1.1",
@@ -111,8 +111,7 @@
     "supertest": "^3.0.0",
     "w3cjs": "^0.4.0",
     "webdriverio": "^7.5.0",
-    "zepto-node": "^1.0.0",
-    "redis": "^3.1.1"
+    "zepto-node": "^1.0.0"
   },
   "resolutions": {
     "axios": "^0.21.2",
@@ -144,8 +143,7 @@
     "ansi-regex": "^5.0.1",
     "acorn": "^5.7.4",
     "normalize-url": "^4.5.1",
-    "ws": "^5.2.3",
-    "redis": "^3.1.1"
+    "ws": "^5.2.3"
   },
   "nyc": {
     "report-dir": "coverage",
