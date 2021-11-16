@@ -13,7 +13,7 @@
   "scripts": {
     "start": "NODE_PATH=. node server.js",
     "setup": "NODE_PATH=.",
-    "dev": "NODE_ENV=dev NODE_PATH=. node-dev server.js",
+    "dev": "NODE_ENV=dev REDIS_URL=redis://127.0.0.1:6379 NODE_PATH=. node-dev server.js",
     "dev-debug": "NODE_ENV=dev NODE_PATH=. node-dev --inspect=0.0.0.0:9230 server.js",
     "mocks": "NODE_ENV=dev NODE_PATH=. node-dev mocks/index.js",
     "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF nyc mocha --opts 'test/unit/mocha.opts' --exit 'test/unit/**/*.test.js' --timeout 15000",
