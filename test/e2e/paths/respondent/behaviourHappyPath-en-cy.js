@@ -14,7 +14,7 @@ const runTests = (language = 'en') => {
 
   Scenario(`Behaviour Journey, Proceed divorce with linked user - ${language} @cross-browser-test`, async I => {
     await I.retry(numberOfTimesRetried).createAUser();
-    I.retry(numberOfTimesRetried).createAosCaseForUser(basicDivorceSession);
+    await I.retry(numberOfTimesRetried).createAosCaseForUser(basicDivorceSession);
     await I.amOnLoadedPage('/', language);
 
     await I.retry(numberOfTimesRetried).createAUser();
