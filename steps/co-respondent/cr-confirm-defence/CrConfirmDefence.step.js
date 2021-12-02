@@ -7,7 +7,6 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./CrConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 
 const values = {
@@ -68,8 +67,7 @@ class CrConfirmDefence extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments('defended-petition-fee'),
-      checkWelshToggle
+      getFeeFromFeesAndPayments('defended-petition-fee')
     ];
   }
 

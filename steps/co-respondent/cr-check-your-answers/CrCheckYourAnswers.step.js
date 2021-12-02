@@ -6,7 +6,6 @@ const caseOrchestration = require('services/caseOrchestration');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CrCheckYourAnswers.content');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 
 class CrCheckYourAnswers extends CYA {
@@ -22,8 +21,7 @@ class CrCheckYourAnswers extends CYA {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 

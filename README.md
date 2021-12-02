@@ -14,7 +14,7 @@ or disable it altogether by setting `featureToggles` `enabled` to `false` in `co
 
 **Install dependencies:**
 
-```
+```sh
 yarn install
 ```
 
@@ -23,40 +23,42 @@ yarn install
 
 Run the following to start the redis server:
 
-```
+```sh
 docker-compose up
 ```
 
 Then run the following in separate terminals
 
-```
+```sh
 yarn mocks
 ```
 
-```
+```sh
 yarn dev
 ```
 
 The application will now be running on ```https://localhost:3000```.
 
+**NOTE**: might not work in Chrome.
+
 ## Testing
 
 **Unit**
 
-```
+```sh
 yarn test:unit
 ```
 
 **Validation**
 
-```
+```sh
 yarn test:validation
 ```
 
 **Mocks**
 
 Run the following, each in a separate terminal window
-```
+```sh
 yarn dev
 yarn mocks
 yarn test:mocks

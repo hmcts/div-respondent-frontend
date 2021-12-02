@@ -4,7 +4,6 @@ const ChooseAResponse = require('steps/respondent/choose-a-response/ChooseARespo
 const AdmitAdultery = require('steps/respondent/admit-adultery/AdmitAdultery.step');
 const ConsentDecree = require('steps/respondent/consent-decree/ConsentDecree.step');
 const idam = require('services/idam');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const { middleware, question, sinon } = require('@hmcts/one-per-page-test-suite');
 const LanguagePreferenceContent = require('steps/respondent/language-preference/LanguagePreference.content');
 
@@ -29,9 +28,6 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(LanguagePreference, [idam.protect()]);
   });
 
-  it('has checkWelshToggle middleware', () => {
-    return middleware.hasMiddleware(LanguagePreference, [checkWelshToggle]);
-  });
 
   it('returns correct answers if answered yes', () => {
     const expectedContent = [

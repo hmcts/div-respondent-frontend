@@ -23,6 +23,8 @@
     <p class="govuk-body">{{ content.responseAcknowledgement }}</p>
   </div>
   <p class="govuk-body">{{ content.respond7Days }}</p>
+  <p class="govuk-body">{{ content.respondMoreTime }}</p>
+  <p class="govuk-body">{{ content.respondMoreTimeLink | safe }}</p>
   <p class="govuk-body">{{ content.namedCorespondent }}</p>
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">

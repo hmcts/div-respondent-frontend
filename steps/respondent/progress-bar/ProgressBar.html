@@ -200,6 +200,8 @@
         <p class="govuk-body">{{ content.aosAwaitingSol.nominatedSol }}</p>
         <h2 class="govuk-heading-m">{{ content.aosAwaitingSol.subHeading }}</h2>
         <p class="govuk-body">{{ content.aosAwaitingSol.nextDetails }}</p>
+        <p class="govuk-body">{{ content.aosAwaitingSol.nextDetailsMoreTime }}</p>
+        <p class="govuk-body">{{ content.aosAwaitingSol.nextDetailsMoreTimeLink | safe }}</p>
     {% endif %}
 
     {% if  progressBarContent === progressStates.other %}

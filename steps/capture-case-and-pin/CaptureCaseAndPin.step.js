@@ -5,7 +5,6 @@ const caseOrchestration = require('services/caseOrchestration');
 const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const referenceNumberLength = 16;
 const securityAccessCode = 8;
@@ -55,8 +54,7 @@ class CaptureCaseAndPin extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 }

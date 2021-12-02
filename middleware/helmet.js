@@ -7,15 +7,53 @@ const setupHelmet = app => {
   // by setting HTTP headers appropriately.
   app.use(helmet());
 
+  const webchatUrl = config.services.antennaWebchat.url;
   // Helmet content security policy (CSP) to allow only assets from same domain.
   app.use(helmet.contentSecurityPolicy({
     directives: {
       fontSrc: ['\'self\' data:'],
-      scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk', 'www.googletagmanager.com', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com'],
-      connectSrc: ['\'self\''],
-      mediaSrc: ['\'self\''],
-      frameSrc: ['\'none\'', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com'],
-      imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk', 'vcc-eu4.8x8.com', 'vcc-eu4b.8x8.com']
+      scriptSrc: [
+        '\'self\'',
+        '\'unsafe-inline\'',
+        'www.google-analytics.com',
+        'hmctspiwik.useconnect.co.uk',
+        'www.googletagmanager.com',
+        'vcc-eu4.8x8.com',
+        'vcc-eu4b.8x8.com',
+        `https://${webchatUrl}`,
+        `wss://${webchatUrl}`
+      ],
+      connectSrc: [
+        '\'self\'',
+        `https://${webchatUrl}`,
+        `wss://${webchatUrl}`
+      ],
+      mediaSrc: [
+        '\'self\'',
+        `https://${webchatUrl}`,
+        `wss://${webchatUrl}`
+      ],
+      frameSrc: [
+        '\'none\'',
+        'vcc-eu4.8x8.com',
+        'vcc-eu4b.8x8.com',
+        `https://${webchatUrl}`,
+        `wss://${webchatUrl}`
+      ],
+      imgSrc: [
+        '\'self\'',
+        'www.google-analytics.com',
+        'hmctspiwik.useconnect.co.uk',
+        'vcc-eu4.8x8.com',
+        'vcc-eu4b.8x8.com',
+        `https://${webchatUrl}`,
+        `wss://${webchatUrl}`
+      ],
+      styleSrc: [
+        '\'self\'',
+        '\'unsafe-inline\''
+      ]
+
     }
   }));
 
