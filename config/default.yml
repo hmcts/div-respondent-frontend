@@ -25,7 +25,7 @@ service:
 
 services:
   redis:
-    url: redis
+    url: redis://127.0.0.1:6379
     useSSL: false
     encryptionAtRestKey: encryptionAtRestKey
   idam:
