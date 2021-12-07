@@ -27,6 +27,11 @@ $(document).ready(() => {
 // eslint-disable-next-line no-invalid-this
 }).call(this);
 
+// Convert value to string, strip CRLF, encode and return
+function encodeValue(value) {
+  return encodeURIComponent(String(value).replace(/[\n\r]+/g, ''));
+}
+
 function setCookiePreference() {
   const expiryDays = 365;
   const getAnalyticsSelectedValue = document.querySelector('input[name="analytics"]:checked');
@@ -34,7 +39,12 @@ function setCookiePreference() {
   // eslint-disable-next-line no-magic-numbers,no-use-before-define
   setCookie('cookies_preferences_set', true, expiryDays);
   // eslint-disable-next-line no-use-before-define
-  setCookie('cookies_policy', `{"essential":true,"analytics":${getAnalyticsSelectedValue.value},"apm:"${getApmSelectedValue.value}}`, expiryDays);
+  setCookie(
+    'cookies_policy',
+    `{"essential":true,"analytics":${encodeValue(getAnalyticsSelectedValue.value)},
+    "apm:"${encodeValue(getApmSelectedValue.value)}}`,
+    expiryDays
+  );
   document.getElementById('cookie-preference-success').classList.remove('govuk-visually-hidden');
   if (document.getElementById('accept-all-cookies-successs')) {
     document.getElementById('accept-all-cookies-success').classList.add('govuk-visually-hidden');
@@ -90,7 +100,14 @@ function getCookie(cname) {
   const name = `${cname}=`;
   const ca = document.cookie.split(';');
   for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
+    let c = '';
+    // try to decode cookie value
+    try {
+      c = decodeURIComponent(ca[i]);
+    } catch (decodeErr) {
+      // if decode fails use raw value
+      c = ca[i];
+    }
     // eslint-disable-next-line eqeqeq
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
