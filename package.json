@@ -48,6 +48,7 @@
     "applicationinsights-native-metrics": "^0.0.5",
     "bl": ">=4.0.3",
     "cookie-parser": "^1.4.4",
+    "connect-redis": "3.1.0",
     "cookies": "^0.8.0",
     "express": "^4.17.1",
     "express-limiter": "^1.6.1",
