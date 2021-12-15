@@ -29,4 +29,4 @@ nodejs:
 
 tags:
   idam-pr: true
-  pr: true
+  pr: false
