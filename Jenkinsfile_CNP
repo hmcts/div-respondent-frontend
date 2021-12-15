@@ -13,8 +13,7 @@ def secrets = [
     secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
     secret('idam-secret', 'IDAM_SECRET'),
     secret('os-places-token', 'POST_CODE_ACCESS_TOKEN'),
-    secret('launchdarkly-key', 'LAUNCHDARKLY_KEY'),
-    secret('rfe-redis-connection-string', 'REDISCLOUD_URL')
+    secret('launchdarkly-key', 'LAUNCHDARKLY_KEY')
   ]
 ]
 
