@@ -56,9 +56,11 @@
 
 {% block bodyStart %}
   {% set serviceName = 'Divorce' %}
+  {% if features.dynatrace %}
   <div id="global-cookie-message">
     {% include "includes/cookies/cookie-manager/cookie-banner.njk" %}
   </div>
+  {% endif %}
   <noscript>
     <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
   </noscript>

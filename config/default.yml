@@ -233,6 +233,7 @@ features:
   antennaWebchatUserAttribute: false
   respondentEquality: 'false'
   coRespondentEquality: 'false'
+  dynatrace: "false"
 
 journey:
   timeoutDelay: 300

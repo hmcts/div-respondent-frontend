@@ -95,6 +95,7 @@ features:
   antennaWebchatUserAttribute: FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE
   respondentEquality: FEATURE_RESP_EQUALITY
   coRespondentEquality: FEATURE_CORESP_EQUALITY
+  dynatrace: FEATURE_DYNATRACE
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
