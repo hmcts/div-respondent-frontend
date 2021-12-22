@@ -482,7 +482,7 @@ describe(modulePath, () => {
           .expect(httpStatus.OK)
           .html($ => {
             const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
-            const mainPage = $('.govuk-grid-column-two-thirds').eq(1).html();
+            const mainPage = $('.govuk-grid-column-two-thirds').html();
 
             expect(rightHandSideMenu).to.include('Your divorce centre');
             testDivorceUnitDetailsRender(rightHandSideMenu);
@@ -502,7 +502,7 @@ describe(modulePath, () => {
           .expect(httpStatus.OK)
           .html($ => {
             const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
-            const mainPage = $('.govuk-grid-column-two-thirds').eq(1).html();
+            const mainPage = $('.govuk-grid-column-two-thirds').html();
 
             testCTSCDetailsRender(rightHandSideMenu);
             testCTSCDetailsRender(mainPage);
