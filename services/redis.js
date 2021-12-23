@@ -17,7 +17,7 @@ client.on('error', error => {
 });
 
 function pingRedis() {
-  logger.log('redisClient => Sending Ping...');
+  logger.infoWithReq(null, 'redis_connect', 'redisClient => Sending Ping...');
   client.ping();
 }
 
