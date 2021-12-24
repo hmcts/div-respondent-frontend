@@ -1,8 +1,9 @@
 const ioRedis = require('ioredis');
 const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page');
 const logger = require('services/logger').getLogger(__filename);
 
-const timeout = 60000;
+const pingInterval = 60000;
 
 const client = ioRedis.createClient(
   process.env.REDIS_URL || config.services.redis.url
@@ -21,6 +22,8 @@ function pingRedis() {
   client.ping();
 }
 
-setInterval(pingRedis, timeout);
+if (parseBool(config.features.pingRedis)) {
+  setInterval(pingRedis, pingInterval);
+}
 
 module.exports = client;
