@@ -12,7 +12,6 @@ nodejs:
         ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Testing"
         FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE: "true"
-        FEATURE_PING_REDIS: "true"
 
     # Don't modify below here
     image: ${IMAGE_NAME}
