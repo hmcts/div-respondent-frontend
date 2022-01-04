@@ -26,7 +26,6 @@ nodejs:
             - os-places-token
             - launchdarkly-key
             - pcq-token-key
-            - rfe-redis-connection-string
 
 tags:
   idam-pr: true
