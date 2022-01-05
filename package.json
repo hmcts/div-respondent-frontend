@@ -70,7 +70,8 @@
     "tar": ">=4.4.18",
     "uuid": "^8.1.0",
     "y18n": ">=5.0.5||>=4.0.1 <5.0.0||>=3.2.2 <4.0.0",
-    "yargs-parser": ">=13.1.2 <14.0.0 || >=18.1.2  "
+    "yargs-parser": ">=13.1.2 <14.0.0 || >=18.1.2",
+    "redis": "^3.1.1"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.6.0",
@@ -142,7 +143,7 @@
     "acorn": "^5.7.4",
     "normalize-url": "^4.5.1",
     "ws": "^5.2.3",
-    "redis": ">=3.1.1"
+    "redis": "^3.1.1"
   },
   "nyc": {
     "report-dir": "coverage",
