@@ -234,6 +234,7 @@ features:
   respondentEquality: 'false'
   coRespondentEquality: 'false'
   dynatrace: "false"
+  pingRedis: false
 
 journey:
   timeoutDelay: 300

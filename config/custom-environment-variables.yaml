@@ -96,6 +96,7 @@ features:
   respondentEquality: FEATURE_RESP_EQUALITY
   coRespondentEquality: FEATURE_CORESP_EQUALITY
   dynatrace: FEATURE_DYNATRACE
+  pingRedis: FEATURE_PING_REDIS
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
