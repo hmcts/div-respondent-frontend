@@ -62,6 +62,7 @@ lookAndFeel.configure(app, {
       },
       features: {
         antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute),
+        // Dynatrace Feature Toggle
         dynatrace: parseBool(config.features.dynatrace)
       }
     }
