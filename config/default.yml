@@ -233,7 +233,7 @@ features:
   antennaWebchatUserAttribute: false
   respondentEquality: 'false'
   coRespondentEquality: 'false'
-  dynatrace: "false"
+  dynatrace: false
   pingRedis: false
 
 journey:
