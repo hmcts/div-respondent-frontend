@@ -9,7 +9,8 @@ This repo is the Frontend App for the 'Acknowledgement of Service' stage of the 
 For development only config, rename the `config/dev_template.yaml` file to `config/development.yaml`. Running the app with the node environment set to `dev` will ensure this file is used.
 This file is not version controlled so any config here will not be pushed to git.
 
-As an example, if you want to use LaunchDarkly locally, place the SDK Key in this file. You can keep the key there as this file is not version controlled.
+Note that the application will not work if an invalid LanuchDarkly SDK Key in provided. So either get a valid key from azure divorce key store,
+or disable it altogether by setting `featureToggles` `enabled` to `false` in `config/default.yml` (be careful not to commit this).
 
 **Install dependencies:**
 
