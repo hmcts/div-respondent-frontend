@@ -150,7 +150,9 @@ function checkCookie() {
   // eslint-disable-next-line eqeqeq
   if (cookiesPreferencesSet == '') {
     setCookie('cookies_preferences_set', false, expiryDays);
-    document.getElementById('cm_cookie_notification').classList.remove('govuk-visually-hidden');
+    if (document.getElementById('cm_cookie_notification')) {
+      document.getElementById('cm_cookie_notification').classList.remove('govuk-visually-hidden');
+    }
   }
   // eslint-disable-next-line eqeqeq
   if (cookiesPreferencesSet == 'false') {
