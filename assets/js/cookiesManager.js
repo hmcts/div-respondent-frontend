@@ -35,35 +35,16 @@ $(document).ready(() => {
 // eslint-disable-next-line no-invalid-this
 }).call(this);
 
-// Convert value to string, strip CRLF, encode and return
-function encodeValue(value) {
-  return encodeURIComponent(String(value).replace(/[\n\r]+/g, ''));
-}
-
-// Decode value
-function decodeValue(value) {
-  let decVal = '';
-  // try to decode cookie value
-  try {
-    decVal = decodeURIComponent(value);
-  } catch (decodeErr) {
-    // if decode fails use raw value
-    decVal = value;
-  }
-  return decVal;
-}
-
 function setCookiePreference() {
   const expiryDays = 365;
-  const getAnalyticsSelectedValue = document.querySelector('input[name="analytics"]:checked');
-  const getApmSelectedValue = document.querySelector('input[name="apm"]:checked');
+  const getAnalyticsSelectedValue = document.querySelector('input[name="analytics"]:checked') === 'true';
+  const getApmSelectedValue = document.querySelector('input[name="apm"]:checked') === 'true';
   // eslint-disable-next-line no-magic-numbers,no-use-before-define
   setCookie('cookies_preferences_set', true, expiryDays);
   // eslint-disable-next-line no-use-before-define
   setCookie(
     'cookies_policy',
-    `{"essential":true,"analytics":${encodeValue(getAnalyticsSelectedValue.value)},
-    "apm:"${encodeValue(getApmSelectedValue.value)}}`,
+    `{"essential":true,"analytics":${getAnalyticsSelectedValue}, "apm:"${getApmSelectedValue}}`,
     expiryDays
   );
   document.getElementById('cookie-preference-success').classList.remove('govuk-visually-hidden');
@@ -121,7 +102,7 @@ function getCookie(cname) {
   const name = `${cname}=`;
   const ca = document.cookie.split(';');
   for (let i = 0; i < ca.length; i++) {
-    let c = decodeValue(ca[i]);
+    let c = ca[i];
     // eslint-disable-next-line eqeqeq
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
