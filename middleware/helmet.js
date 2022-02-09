@@ -20,6 +20,7 @@ const setupHelmet = app => {
         'www.googletagmanager.com',
         'vcc-eu4.8x8.com',
         'vcc-eu4b.8x8.com',
+        'https://ajax.googleapis.com',
         `https://${webchatUrl}`,
         `wss://${webchatUrl}`
       ],
