@@ -404,7 +404,7 @@
     imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
     jquery "^3.2.1"
     js-yaml "^3.9.1"
-    node-sass "^4.12.0"
+    node-sass "^7.0.0"
     nunjucks "^3.1.7"
     sass-loader "^6.0.6"
     serve-static "^1.13.2"
@@ -7740,7 +7740,7 @@ map-visit@^1.0.0:
     object-visit "^1.0.0"
 
 marked@>=0.7.0:
-  version "2.0.3"
+  version "4.0.10"
   resolved "https://registry.yarnpkg.com/marked/-/marked-2.0.3.tgz#3551c4958c4da36897bda2a16812ef1399c8d6b0"
   integrity sha512-5otztIIcJfPc2qGTN8cVtOJEjNJZ0jwa46INMagrYfk0EvqtRuEHLsEe0LrFS0/q+ZRKT0+kXK7P2T1AN5lWRA==
 
@@ -9335,7 +9335,7 @@ postcss@^7.0.14, postcss@^7.0.32, postcss@^7.0.5, postcss@^7.0.6, postcss@^8.2.1
   integrity sha512-+ogXpdAjWGa+fdYY5BQ96V/6tAo+TdSSIMP5huJBIygdWwKtVoB5JWZ7yUd4xZ8r+8Kvvx4nyg/PQ071H4UtcQ==
   dependencies:
     colorette "^1.2.2"
-    nanoid "^3.1.23"
+    nanoid "^3.1.31"
     source-map-js "^0.6.2"
 
 pre-commit@^1.2.2:
