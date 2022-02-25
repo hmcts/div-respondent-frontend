@@ -11,9 +11,10 @@ services:
 tests:
   e2e:
     show: true
-    url: https://div-rfe-aat.service.core-compute-aat.internal
-    proxy: http://proxyout.reform.hmcts.net:8080
-    proxyByPass: '*beta*LB.reform.hmcts.net'
+    url: https://respond-divorce-aks.aat.platform.hmcts.net
+
 
 features:
   idam: true
+  respondentEquality: 'true'
+  coRespondentEquality: 'true'
