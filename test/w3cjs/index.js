@@ -71,6 +71,7 @@ const stepHtml = step => {
 
 const w3cjsValidate = html => {
   return new Promise((resolve, reject) => {
+    w3cjs.setW3cCheckUrl('https://validator.w3.org/nu/');
     w3cjs.validate({
       input: html,
       callback: (error, res) => { // eslint-disable-line id-blacklist
