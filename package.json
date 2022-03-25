@@ -144,7 +144,7 @@
     "node-fetch": "^2.6.7",
     "follow-redirects": "^1.14.7",
     "pac-resolver": "^5.0.0",
-    "nanoid": "3.1.31"
+    "nanoid": "^3.1.31"
   },
   "nyc": {
     "report-dir": "coverage",
