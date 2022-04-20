@@ -9,7 +9,7 @@
         <web-chat
           class="hidden"
           chat-title="Ask Divorce Web Chat"
-          chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/1/assets/icon.png"
+          chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/assets/icon.png"
           url="{{ antennaWebchat.url }}"
           secure-connections="true"
           api-version="1.0"
@@ -28,7 +28,7 @@
         </web-chat>
         <button class="chat-button">Talk to an Agent</button>
         {% endif %}
-        
+
         <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.emailTitle | safe }}</p>
         <p class="govuk-body">{{ content.emailIfProblems | safe }}<br>{{ content.responseTime }}</p>
 
