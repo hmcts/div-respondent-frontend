@@ -77,6 +77,7 @@ services:
   antennaWebchat:
      url: 'webchat.training.ctsc.hmcts.net'
      service: 'Testing'
+     version: '1'
   postcode:
     baseUrl: http://localhost:3001/postcode-lookup
     token:
