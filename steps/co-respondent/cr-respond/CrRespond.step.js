@@ -5,6 +5,7 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 class CrRespond extends Interstitial {
   static get path() {
@@ -39,6 +40,7 @@ class CrRespond extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee')
     ];

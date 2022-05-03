@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./Jurisdiction.content');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const validValues = {
   yes: 'Yes',
@@ -116,6 +117,7 @@ class Jurisdiction extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

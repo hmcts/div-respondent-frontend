@@ -2,6 +2,7 @@ const { EntryPoint } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class Entry extends EntryPoint {
   static get path() {
@@ -13,7 +14,11 @@ class Entry extends EntryPoint {
   }
 
   get middleware() {
-    return [...super.middleware, idam.authenticate];
+    return [
+      ...super.middleware,
+      getWebchatOpeningHours,
+      idam.authenticate
+    ];
   }
 }
 

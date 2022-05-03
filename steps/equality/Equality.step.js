@@ -8,6 +8,7 @@ const logger = require('services/logger')
   .getLogger(__filename);
 const Joi = require('joi');
 const createToken = require('./createToken');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class Equality extends Question {
   static get path() {
@@ -120,6 +121,13 @@ class Equality extends Question {
   next() {
     const step = this.isCoRespond ? this.journey.steps.CrCheckYourAnswers : this.journey.steps.CheckYourAnswers;
     return redirectTo(step);
+  }
+
+  get middleware() {
+    return [
+      ...super.middleware,
+      getWebchatOpeningHours
+    ];
   }
 }
 
