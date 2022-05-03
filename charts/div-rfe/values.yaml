@@ -29,6 +29,8 @@ nodejs:
         ANTENNA_WEBCHAT_SERVICE: "Divorce"
         ANTENNA_WEBCHAT_VERSION: "1"
 
+        FEATURE_WEBCHAT_AVAILABILITY_TOGGLE: "false"
+
         FEATURE_DYNATRACE: "false"
 
     keyVaults:
