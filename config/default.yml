@@ -89,6 +89,7 @@ services:
     tokenKey: 'SERVICE_TOKEN_KEY'
 
 webchatAvailability:
+  debug: false
   url:
     hostName: 'webchat.pp.ctsc.hmcts.net'
     path_1: '/openinghours/'
