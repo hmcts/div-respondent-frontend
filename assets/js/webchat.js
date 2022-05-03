@@ -31,7 +31,6 @@
       const ccState = metricsDetail.contactCenterState;
       const ewt = metricsDetail.ewt;
       const availableAgents = metricsDetail.availableAgents;
-      const today = new Date();
 
       if (ccState !== 'Open') {
         message.innerHTML = 'Web chat is now closed. Come back Monday to Friday 9am to 5pm. Or contact us using one of the ways below.';
