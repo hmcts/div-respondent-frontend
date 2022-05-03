@@ -1,5 +1,5 @@
 const https = require('https');
-const parseBool = require('core/utils/parseBool');
+const parseBool = require('@hmcts/one-per-page/util');
 const CONF = require('config');
 const Ajv = require('ajv');
 
