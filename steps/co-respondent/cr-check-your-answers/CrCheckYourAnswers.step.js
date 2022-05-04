@@ -7,6 +7,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const content = require('./CrCheckYourAnswers.content');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 class CrCheckYourAnswers extends CYA {
   static get path() {
@@ -21,6 +22,7 @@ class CrCheckYourAnswers extends CYA {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

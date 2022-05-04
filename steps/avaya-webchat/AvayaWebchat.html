@@ -8,31 +8,34 @@
     <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
 </head>
 <body>
-    <div class="govuk-details__text">
-        <p class="govuk-heading-s govuk-!-margin-bottom-1" id="antenna-web-chat-header">{{ common.webChatTitle | safe }}</p>
-        <p id="metrics"></p>
-        <web-chat
-                id="avayaWebchat"
-                chat-title="Ask Divorce Web Chat"
-                chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/assets/icon.png"
-                url="{{ antennaWebchat.url }}"
-                secure-connections="true"
-                api-version="1.0"
-                metrics-polling-interval="20"
-                locale-url="/public/locale"
-                route-point-identifier="Default"
-                work-flow-type=""
-                lease-time="24"
-                priority="5"
-                language="English"
-                service="{{ antennaWebchat.service }}"
-                page-name="Apply for a Divorce - Respondent"
-                {% if features.antennaWebchatUserAttribute %}
-                User="Chat"
-                {% endif %}>
-        </web-chat>
-    </div>
-    <!-- Javascript -->
+<div class="govuk-details__text">
+  <p class="govuk-heading-s govuk-!-margin-bottom-1" id="antenna-web-chat-header">{{ common.webChatTitle | safe }}</p>
+  <p id="metrics"></p>
+  {% if features.antennaWebchatAvailabilityToggle %}
+    <div class="hidden" id="webchatHours">{{ antennaWebchat_hours | safe }}</div>
+  {% endif %}
+  <web-chat
+    id="avayaWebchat"
+    chat-title="Ask Divorce Web Chat"
+    chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/assets/icon.png"
+    url="{{ antennaWebchat.url }}"
+    secure-connections="true"
+    api-version="1.0"
+    metrics-polling-interval="20"
+    locale-url="/public/locale"
+    route-point-identifier="Default"
+    work-flow-type=""
+    lease-time="24"
+    priority="5"
+    language="English"
+    service="{{ antennaWebchat.service }}"
+    page-name="Apply for a Divorce - Respondent"
+    {% if features.antennaWebchatUserAttribute %}
+    User="Chat"
+    {% endif %}>
+  </web-chat>
+</div>
+<!-- Javascript -->
     <script src="https://{{ antennaWebchat.url | default('webchat-client.ctsc.hmcts.net') }}/chat-client/{{ antennaWebchat.version }}/app-es2015.js"
             type="module" ></script>
     <script src="https://{{ antennaWebchat.url | default('webchat-client.ctsc.hmcts.net') }}/chat-client/{{ antennaWebchat.version }}/app-es5.js"

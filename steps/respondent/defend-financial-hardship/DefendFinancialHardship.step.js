@@ -9,6 +9,7 @@ const content = require('./DefendFinancialHardship.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const yes = 'Yes';
 const no = 'No';
@@ -94,6 +95,7 @@ class DefendFinancialHardship extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('defended-petition-fee')
     ];

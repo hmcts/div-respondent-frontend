@@ -1,5 +1,6 @@
 const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class DivorceApplicationProcessing extends Page {
   static get ignorePa11yWarnings() {
@@ -8,6 +9,13 @@ class DivorceApplicationProcessing extends Page {
 
   static get path() {
     return config.paths.divorceApplicationProcessing;
+  }
+
+  get middleware() {
+    return [
+      ...super.middleware,
+      getWebchatOpeningHours
+    ];
   }
 }
 

@@ -75,8 +75,8 @@ services:
     buttonAgentsBusy: 2042157415cc19c95669039.65793052
     buttonServiceClosed: 20199488815cc1a89e0861d5.73103009
   antennaWebchat:
-     url: 'webchat.training.ctsc.hmcts.net'
-     service: 'Testing'
+     url: 'webchat.pp.ctsc.hmcts.net'
+     service: 'Divorce'
      version: '1'
   postcode:
     baseUrl: http://localhost:3001/postcode-lookup
@@ -87,6 +87,35 @@ services:
     path: '/service-endpoint'
     port: 4000
     tokenKey: 'SERVICE_TOKEN_KEY'
+
+webchatAvailability:
+  debug: false
+  url:
+    hostName: 'webchat.pp.ctsc.hmcts.net'
+    path_1: '/openinghours/'
+    version: 'v1'
+    path_2: '/callcentreservice/Divorce'
+  format:
+    responseProperty: 'daysOfWeekOpen'
+    jsonSchema: {
+      type: 'array',
+      maxItems: 7,
+      items: {
+        type: 'object',
+        properties: {
+          dayOfWeek: { type: 'string' },
+          from: { type: 'string' },
+          until: { type: 'string' }
+        },
+        required: [ 'dayOfWeek', 'from', 'until' ],
+        additionalProperties: false
+      }
+    }
+    validDayNames: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+  messages:
+    defaultMessage: 'Web chat is currently closed. Please try again later.  Alternatively, contact us using one of the ways below.'
+    prefixMessage: 'Web chat is now closed. Please come back during the following hours:'
+    suffixMessage: 'Alternatively, contact us using one of the ways below.'
 
 paths:
   health: /health
@@ -232,6 +261,7 @@ features:
       enabled: false
   respSolicitorDetails: false
   antennaWebchatUserAttribute: false
+  antennaWebchatAvailabilityToggle: false
   respondentEquality: 'false'
   coRespondentEquality: 'false'
   dynatrace: false

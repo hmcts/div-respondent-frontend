@@ -8,6 +8,7 @@ const config = require('config');
 const { get } = require('lodash');
 const { getAddressFromPostcode } = require('middleware/postcodeLookupMiddleware');
 const compactPostValuesMiddleware = require('middleware/compactPostValuesMiddleware');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const paths = {
   postcode: '/postcode',
@@ -301,6 +302,7 @@ class SolicitorAddress extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       compactPostValuesMiddleware,
       getAddressFromPostcode
