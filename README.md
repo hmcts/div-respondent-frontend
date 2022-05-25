@@ -84,7 +84,7 @@ yarn test:mocks
 - ```enable_fortify_scan```
 - ```enable_all_tests_and_scans```
 
-2. Trigger a build of your PR in Jenkins.  Once the regular pipeline completes, the nightly pipeline will trigger to execute your chosen test(s).
+2. Trigger a build of your PR in Jenkins. Once the regular pipeline completes, the nightly pipeline will trigger to execute your chosen test(s).
 
 ## Local Development
 RFE has facility to enable you develop and test out features locally without the limitations of either login via IDAM,
