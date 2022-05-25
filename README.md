@@ -76,6 +76,16 @@ yarn test:mocks
 
 * Run ```NODE_ENV=aat yarn test:functional```. This would enable your tests to pick up the new `local-aat.yml`.
 
+### Running additional tests in the Jenkins PR Pipeline
+
+1. Add one or more appropriate labels to your PR in GitHub. Valid labels are:
+
+- ```enable_full_functional_test```
+- ```enable_fortify_scan```
+- ```enable_all_tests_and_scans```
+
+2. Trigger a build of your PR in Jenkins. Once the regular pipeline completes, the nightly pipeline will trigger to execute your chosen test(s).
+
 ## Local Development
 RFE has facility to enable you develop and test out features locally without the limitations of either login via IDAM,
 VPN connection or having to progress the case via other apps like DN or PFE.
