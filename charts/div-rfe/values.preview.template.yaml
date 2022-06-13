@@ -30,6 +30,11 @@ nodejs:
             - os-places-token
             - launchdarkly-key
             - pcq-token-key
+redis:
+  enabled: true
+  architecture: standalone
+  auth:
+    enabled: false
 
 tags:
   idam-pr: true
