@@ -11,6 +11,7 @@ const { replace, endsWith } = require('lodash');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const values = {
   yes: 'Yes',
@@ -125,6 +126,7 @@ class ReviewApplication extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
       getFeeFromFeesAndPayments('general-application-fee'),

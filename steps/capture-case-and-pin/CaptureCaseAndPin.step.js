@@ -5,6 +5,7 @@ const caseOrchestration = require('services/caseOrchestration');
 const Joi = require('joi');
 const config = require('config');
 const idam = require('services/idam');
+const { getWebchatOpeningHours } = require('middleware/getWebchatOpenHours');
 
 const referenceNumberLength = 16;
 const securityAccessCode = 8;
@@ -54,6 +55,7 @@ class CaptureCaseAndPin extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

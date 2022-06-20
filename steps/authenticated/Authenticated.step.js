@@ -1,5 +1,6 @@
 const { Redirect } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { getWebchatOpeningHours } = require('middleware/getWebchatOpenHours');
 const idam = require('services/idam');
 const config = require('config');
 
@@ -13,7 +14,11 @@ class Authenticated extends Redirect {
   }
 
   get middleware() {
-    return [...super.middleware, idam.landingPage];
+    return [
+      ...super.middleware,
+      getWebchatOpeningHours,
+      idam.landingPage
+    ];
   }
 }
 

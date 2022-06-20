@@ -4,12 +4,15 @@
     </summary>
     <div class="govuk-details__text">
         {% if i18n.currentLanguage == "en" %}
-        <p class="govuk-heading-s govuk-!-margin-bottom-1" id="antenna-web-chat-header">{{ common.webChatTitle | safe }}</p>
+        <p class="govuk-heading-s govuk-!-margin-bottom-1" id="antenna-web-chat-header">{{ content.webChatTitle | safe }}</p>
         <p id="metrics"></p>
+        {% if features.antennaWebchatAvailabilityToggle %}
+          <div class="hidden" id="webchatHours">{{ antennaWebchat_hours | safe }}</div>
+        {% endif %}
         <web-chat
           class="hidden"
           chat-title="Ask Divorce Web Chat"
-          chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/1/assets/icon.png"
+          chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/assets/icon.png"
           url="{{ antennaWebchat.url }}"
           secure-connections="true"
           api-version="1.0"
@@ -28,7 +31,7 @@
         </web-chat>
         <button class="chat-button">Talk to an Agent</button>
         {% endif %}
-        
+
         <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.emailTitle | safe }}</p>
         <p class="govuk-body">{{ content.emailIfProblems | safe }}<br>{{ content.responseTime }}</p>
 

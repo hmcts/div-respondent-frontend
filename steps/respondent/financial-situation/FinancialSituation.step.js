@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./FinancialSituation.content');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const constValues = {
   yes: 'Yes',
@@ -67,6 +68,7 @@ class FinancialSituation extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

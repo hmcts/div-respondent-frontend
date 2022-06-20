@@ -54,7 +54,7 @@ module "frontend" {
   common_tags                   = var.common_tags
   asp_name                      = local.asp_name
   asp_rg                        = local.asp_rg
-  appinsights_instrumentation_key = var.appinsights_instrumentation_key
+  appinsights_instrumentation_key = data.azurerm_key_vault_secret.appinsights_secret.value
   instance_size                 = "I3"
   enable_ase                    = var.enable_ase
 
@@ -178,5 +178,10 @@ data "azurerm_key_vault_secret" "post_code_token" {
 
 data "azurerm_key_vault_secret" "launchdarkly_key" {
   name      = "launchdarkly-key"
+  key_vault_id = data.azurerm_key_vault.div_key_vault.id
+}
+
+data "azurerm_key_vault_secret" "appinsights_secret" {
+  name = "AppInsightsInstrumentationKey"
   key_vault_id = data.azurerm_key_vault.div_key_vault.id
 }
