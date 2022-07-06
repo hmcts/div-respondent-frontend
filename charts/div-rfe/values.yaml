@@ -40,6 +40,9 @@ nodejs:
         ANTENNA_WEBCHAT_AVAILABILITY_DEBUG: "false"
         FEATURE_WEBCHAT_AVAILABILITY_TOGGLE: "false"
 
+        COURT_PHONENUMBER_EN: "0300 303 0642"
+        COURT_OPENINGHOURS_EN: 'Monday - Friday - Phones and Webchat are open 8am-6pm. <br>Closed on Saturday and Sunday.'
+
         FEATURE_DYNATRACE: "false"
 
     keyVaults:
