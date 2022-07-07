@@ -300,7 +300,8 @@ languages: ['en', 'cy']
 
 commonProps:
   courtPhoneNumberEn: '0300 303 0642'
-  courtOpeningHourEn: 'Monday - Friday - Phones and Webchat are open 8am-6pm. <br>Closed on Saturday and Sunday.'
+  courtOpeningHourEn: 'Monday - Friday - Phones and Webchat are open 8am-6pm.'
+  courtOpeningHourEn2: 'Closed on Saturday and Sunday.'
 
 featureToggles:
   enabled: false

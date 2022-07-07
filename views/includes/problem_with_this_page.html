@@ -38,7 +38,9 @@
         <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.phoneTitle | safe }}</p>
         <p class="govuk-body">
           {% if i18n.currentLanguage == "en" %}
-            {{ commonProps.en.courtPhoneNumber | safe }}<br>{{ commonProps.en.courtOpeningHours | safe}}
+            {{ commonProps.en.courtPhoneNumber | safe }}<br>
+            {{ commonProps.en.courtOpeningHours | safe}}<br>
+            {{ commonProps.en.courtOpeningHours2 | safe}}
           {% else %}
             {{ content.phoneToCallIfProblems | safe }}
           {% endif %}

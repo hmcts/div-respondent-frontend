@@ -64,7 +64,8 @@ lookAndFeel.configure(app, {
       commonProps: {
         en: {
           courtPhoneNumber: config.commonProps.courtPhoneNumberEn,
-          courtOpeningHours: config.commonProps.courtOpeningHourEn
+          courtOpeningHours: config.commonProps.courtOpeningHourEn,
+          courtOpeningHours2: config.commonProps.courtOpeningHourEn2
         }
       },
       features: {
