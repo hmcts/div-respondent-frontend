@@ -38,7 +38,7 @@
       call {{ commonProps.courtPhoneNumber | safe }} ({{ commonProps.courtOpeningHours | safe }})
     {% else %}
       {{ content.phone | safe }}
-    {% endif %}}
+    {% endif %}
   </li>
 </ul>
 <p class="govuk-body">{{ content.considerYourRequest | safe }}</p>
