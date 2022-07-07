@@ -36,6 +36,12 @@
         <p class="govuk-body">{{ content.emailIfProblems | safe }}<br>{{ content.responseTime }}</p>
 
         <p class="govuk-heading-s govuk-!-margin-bottom-1" >{{ content.phoneTitle | safe }}</p>
-        <p class="govuk-body">{{ commonProps.phoneToCallIfProblems | safe }}</p>
+        <p class="govuk-body">
+          {% if i18n.currentLanguage == "en" %}
+            {{ commonProps.en.courtPhoneNumber | safe }}<br>{{ commonProps.en.courtOpeningHours | safe}}
+          {% else %}
+            {{ content.phoneToCallIfProblems | safe }}
+          {% endif %}}
+        </p>
     </div>
 </details>

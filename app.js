@@ -62,7 +62,10 @@ lookAndFeel.configure(app, {
         version: config.services.antennaWebchat.version
       },
       commonProps: {
-        phoneToCallIfProblems: `${config.commonProps.courtPhoneNumberEn}<br>${config.commonProps.courtOpeningHourEn}`
+        en: {
+          courtPhoneNumber: config.commonProps.courtPhoneNumberEn,
+          courtOpeningHours: config.commonProps.courtOpeningHourEn
+        }
       },
       features: {
         antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute),
