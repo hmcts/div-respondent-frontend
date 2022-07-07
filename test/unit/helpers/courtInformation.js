@@ -46,8 +46,7 @@ module.exports = {
       .and.to.include('NG2 9QN');
 
     if (verifyContactDetails) {
-      expect(html).to.include('divorcecase@justice.gov.uk')
-        .and.to.include('0300 303 0642');
+      expect(html).to.include('divorcecase@justice.gov.uk');
     }
   },
   testDivorceUnitWithStreetDetailsRender(html, verifyContactDetails = true) {

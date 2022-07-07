@@ -56,7 +56,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
     return content(FinancialSituation, {}, { ignoreContent });
   });
