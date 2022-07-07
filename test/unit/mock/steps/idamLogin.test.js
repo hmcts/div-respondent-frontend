@@ -21,7 +21,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ] });
   });
 
