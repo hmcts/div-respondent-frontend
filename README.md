@@ -139,4 +139,4 @@ Please read above in the `Running tests locally against a PR/AAT` section on how
 if you want to run from your local machine but point to AAT or your PR. You will need VPN access for this to work.
 
 ## Licensing
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
