@@ -1,4 +1,4 @@
-# Divorce Respondent Frontend [![License: MIT](https://img.shields.io/github/license/hmcts/div-respondent-frontend)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/github/checks-status/hmcts/div-respondent-frontend/master)](https://github.com/hmcts/div-respondent-frontend)
+# Divorce Respondent Frontend [![License: MIT](https://img.shields.io/github/license/hmcts/div-respondent-frontend)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/github/checks-status/hmcts/div-respondent-frontend/master)](https://github.com/hmcts/div-respondent-frontend).
 
 This repo is the Frontend App for the 'Acknowledgement of Service' stage of the Divorce process and allows the Respondent to respond to the initial Divorce application.
 
