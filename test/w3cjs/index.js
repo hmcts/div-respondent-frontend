@@ -14,7 +14,7 @@ const filePath = path.join(__dirname, '../../resources/mock.json');
 const rawdata = fs.readFileSync(filePath, 'utf8'); // eslint-disable-line no-sync
 const mockedSession = JSON.parse(rawdata);
 
-const maxHtmlValidationRetries = 6;
+const maxHtmlValidationRetries = 3;
 const htmlValidationTimeout = 5000;
 
 // Ignored warnings
