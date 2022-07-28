@@ -153,7 +153,7 @@ steps
       let warnings = [];
 
       before(function beforeTests() {
-        this.timeout(htmlValidationTimeout * maxHtmlValidationRetries);
+        this.timeout(htmlValidationTimeout * (maxHtmlValidationRetries + 1));
 
         sinon.stub(petitionMiddleware, 'loadMiniPetition')
           .callsFake(middleware.nextMock);
