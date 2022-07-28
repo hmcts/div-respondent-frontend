@@ -15,7 +15,7 @@ const rawdata = fs.readFileSync(filePath, 'utf8'); // eslint-disable-line no-syn
 const mockedSession = JSON.parse(rawdata);
 
 const maxHtmlValidationRetries = 3;
-const htmlValidationTimeout = 5000;
+const htmlValidationTimeout = 6500;
 
 // Ignored warnings
 const excludedWarnings = [
@@ -130,12 +130,10 @@ const repeatW3cjsValidate = html => {
 
       // catch timeouted request to w3jcs validate
       setTimeout(() => {
-        retries = retries + 1;
-        if (!promise.done && retries < maxHtmlValidationRetries) {
-          delay(1500).then(() => {
-            doValidation();
-          });
-        } else {
+        retries += 1;
+        if (!promise.done && retries <= maxHtmlValidationRetries) {
+          doValidation();
+        } else if (!promise.done && retries > maxHtmlValidationRetries) {
           reject(new Error('Unable to validate html'));
         }
         // set promise done so it does not resolve/reject after timeout
