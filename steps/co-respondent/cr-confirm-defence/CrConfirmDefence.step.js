@@ -8,6 +8,7 @@ const config = require('config');
 const content = require('./CrConfirmDefence.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const values = {
   confirm: 'confirm',
@@ -66,6 +67,7 @@ class CrConfirmDefence extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('defended-petition-fee')
     ];

@@ -8,6 +8,7 @@ const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
 const commonContent = require('common/content');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 class Respond extends Interstitial {
   get downloadableFiles() {
@@ -43,6 +44,7 @@ class Respond extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       petitionMiddleware.loadMiniPetition,
       redirectMiddleware.redirectOnCondition

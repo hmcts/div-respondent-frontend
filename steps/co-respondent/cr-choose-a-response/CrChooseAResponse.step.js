@@ -9,6 +9,7 @@ const content = require('./CrChooseAResponse.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
 const { constants } = require('../../../core/utils/petitionHelper');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 class CrChooseAResponse extends Question {
   static get path() {
@@ -74,6 +75,7 @@ class CrChooseAResponse extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('defended-petition-fee')
     ];

@@ -61,7 +61,7 @@
     "launchdarkly-node-server-sdk": "^5.13.1",
     "lodash": "^4.17.11",
     "marked": "^4.0.10",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "os": "^0.1.1",
     "paths": "^0.1.1",
     "request": "^2.88.0",
@@ -123,7 +123,7 @@
     "json-schema": "^0.4.0",
     "lodash": "^4.17.11",
     "mem": "^4.0.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "netmask": ">=2.0.1",
     "node-notifier": "^8.0.1",
     "postcss": "^8.2.15",
@@ -142,8 +142,13 @@
     "normalize-url": "^4.5.1",
     "ws": "^5.2.3",
     "node-fetch": "^2.6.7",
+    "node-sass": "^7.0.0",
     "follow-redirects": "^1.14.7",
-    "pac-resolver": "^5.0.0"
+    "pac-resolver": "^5.0.0",
+    "nanoid": "^3.1.31",
+    "async": ">=3.2.2",
+    "redis": "^3.1.1",
+    "tmpl": "^1.0.5"
   },
   "nyc": {
     "report-dir": "coverage",

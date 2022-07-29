@@ -5,6 +5,7 @@ const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddlew
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { documentWhiteList } = require('services/documentHandler');
 const { get } = require('lodash');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const values = {
   yes: 'Yes',
@@ -121,6 +122,7 @@ class CrProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('defended-petition-fee')
     ];

@@ -8,6 +8,7 @@ const Joi = require('joi');
 const content = require('./CheckYourAnswers.content');
 const { parseBool } = require('@hmcts/one-per-page');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const constants = {
   YES_VALUE: 'Yes',
@@ -27,6 +28,7 @@ class CheckYourAnswers extends CYA {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

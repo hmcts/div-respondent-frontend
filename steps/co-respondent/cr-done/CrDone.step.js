@@ -2,6 +2,7 @@ const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 class CrDone extends ExitPoint {
   static get path() {
@@ -27,6 +28,7 @@ class CrDone extends ExitPoint {
     return [
       idam.protect(),
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.logout(),
       getFeeFromFeesAndPayments('defended-petition-fee')
     ];
