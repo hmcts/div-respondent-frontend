@@ -61,7 +61,7 @@
     "launchdarkly-node-server-sdk": "^5.13.1",
     "lodash": "^4.17.11",
     "marked": "^4.0.10",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "os": "^0.1.1",
     "paths": "^0.1.1",
     "request": "^2.88.0",
