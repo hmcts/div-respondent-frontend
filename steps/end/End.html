@@ -17,7 +17,7 @@
     <p class="govuk-body">
       {% if i18n.currentLanguage == "en" %}
         {{ commonProps.en.courtPhoneNumber | safe }}<br>
-        {{ commonProps.en.courtOpeningHours | safe}}
+        {{ commonProps.en.courtOpeningHours | safe }}
       {% else %}
         {{ content.phoneToCallIfProblems | safe }}
       {% endif %}
