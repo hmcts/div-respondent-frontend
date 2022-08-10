@@ -41,8 +41,7 @@ nodejs:
         FEATURE_WEBCHAT_AVAILABILITY_TOGGLE: "false"
 
         COURT_PHONENUMBER_EN: "0300 303 0642"
-        COURT_OPENINGHOURS_EN: 'Monday - Friday - Phones and Webchat are open 8am-6pm.'
-        COURT_OPENINGHOURS_EN_2: 'Closed on Saturday and Sunday.'
+        COURT_OPENINGHOURS_EN: 'Monday to Friday, 8am to 6pm'
 
         FEATURE_DYNATRACE: "false"
 
