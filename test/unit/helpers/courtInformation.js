@@ -14,7 +14,6 @@ module.exports = {
     req.session.divorceCenterCourtCity = courtsList[chosenDivorceCenter].courtCity;
     req.session.divorceCenterPostCode = courtsList[chosenDivorceCenter].postCode;
     req.session.divorceCenterEmail = courtsList[chosenDivorceCenter].email;
-    req.session.divorceCenterPhoneNumber = courtsList[chosenDivorceCenter].phoneNumber;
 
     if (courtsList[chosenDivorceCenter].poBox) {
       req.session.divorceCenterPoBox = courtsList[chosenDivorceCenter].poBox;
@@ -31,8 +30,7 @@ module.exports = {
       .and.to.include('ST4 9NH');
 
     if (verifyContactDetails) {
-      expect(html).to.include('westmidlandsdivorce@hmcts.gsi.gov.uk')
-        .and.to.include('0300 303 0642');
+      expect(html).to.include('westmidlandsdivorce@hmcts.gsi.gov.uk');
     }
 
     expect(html).to.not.include('Courts and Tribunals Service Centre');
@@ -56,8 +54,7 @@ module.exports = {
       .and.to.include('L2 2BX');
 
     if (verifyContactDetails) {
-      expect(html).to.include('family@liverpool.countycourt.gsi.gov.uk')
-        .and.to.include('0300 303 0642');
+      expect(html).to.include('family@liverpool.countycourt.gsi.gov.uk');
     }
     expect(html).to.not.include('Courts and Tribunals Service Centre');
   }
