@@ -4,7 +4,7 @@ name: div-rfe
 version: 2.0.14
 dependencies:
   - name: nodejs
-    version: 2.4.5
+    version: 2.4.6
     repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
   - name: redis
     version: 16.11.3
@@ -12,7 +12,7 @@ dependencies:
     tags:
       - pr
   - name: idam-pr
-    version: 2.2.6
+    version: 2.2.7
     repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
     tags:
       - idam-pr
