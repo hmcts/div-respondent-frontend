@@ -14,7 +14,7 @@
 //
 //      I.retry(amountOfTimesToRetry).createAosCaseForUser(desertionSession);
 //      await I.amOnLoadedPage('/', language);
-// 
+//
 //      await I.retry(amountOfTimesToRetry).createAUser();
 //      I.login(language);
 //      I.seeCaptureCaseAndPinPage(language);
