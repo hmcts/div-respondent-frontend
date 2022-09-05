@@ -9,8 +9,8 @@
         </li>
         <li>
             <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.phone }}</h4>
-            {{ session.divorceCenterPhoneNumber | safe }} <br>
-            {{ content.divorceCenterHours }} <br>
+            {{ commonProps.en.courtPhoneNumber | safe }}<br>
+            {{ commonProps.en.courtOpeningHours | safe }}<br>
         </li>
         <li>
             <h4 class="govuk-heading-xs govuk-!-margin-0">{{ session.serviceCentreName if session.serviceCentreName else content.yourCourt }}</h4>

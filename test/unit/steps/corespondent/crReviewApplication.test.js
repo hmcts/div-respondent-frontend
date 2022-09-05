@@ -313,7 +313,8 @@ describe(modulePath, () => {
       'change',
       'husband',
       'wife',
-      'costDetails'
+      'costDetails',
+      'phoneToCallIfProblems'
     ];
 
     it('all', () => {
