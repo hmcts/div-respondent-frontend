@@ -89,7 +89,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
 
     return content(ChooseAResponse, session, { ignoreContent });
@@ -112,7 +113,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
 
     return content(ChooseAResponse, session, {
@@ -141,7 +143,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
 
     return content(ChooseAResponse, session, {
@@ -170,7 +173,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
 
     return content(ChooseAResponse, session, {
