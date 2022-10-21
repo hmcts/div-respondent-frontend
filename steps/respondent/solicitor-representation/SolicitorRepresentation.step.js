@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const config = require('config');
 const content = require('./SolicitorRepresentation.content');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const values = {
   yes: 'Yes',
@@ -61,6 +62,7 @@ class SolicitorRepresentation extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

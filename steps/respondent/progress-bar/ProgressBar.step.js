@@ -9,6 +9,7 @@ const { get } = require('lodash');
 const { progressStates, values, caseStateMap, caseStatesBeyondAos } = require('./ProgressBar.config');
 const commonContent = require('common/content');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 class ProgressBar extends Interstitial {
   static get path() {
@@ -136,6 +137,7 @@ class ProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

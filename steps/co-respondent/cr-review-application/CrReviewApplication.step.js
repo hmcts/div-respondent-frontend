@@ -8,6 +8,7 @@ const Joi = require('joi');
 const content = require('./CrReviewApplication.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const values = {
   yes: 'Yes',
@@ -71,6 +72,7 @@ class CrReviewApplication extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('petition-issue-fee'),
       getFeeFromFeesAndPayments('general-application-fee'),

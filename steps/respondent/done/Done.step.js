@@ -4,6 +4,7 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const commonContent = require('common/content');
 const i18next = require('i18next');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 class Done extends ExitPoint {
   static get path() {
@@ -32,6 +33,7 @@ class Done extends ExitPoint {
       getFeeFromFeesAndPayments('amend-fee'),
       getFeeFromFeesAndPayments('defended-petition-fee'),
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.logout()
     ];
   }

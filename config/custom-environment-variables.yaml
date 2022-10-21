@@ -82,6 +82,7 @@ services:
   antennaWebchat:
      url: ANTENNA_WEBCHAT_URL
      service: ANTENNA_WEBCHAT_SERVICE
+     version: ANTENNA_WEBCHAT_VERSION
   postcode:
     baseUrl: POST_CODE_URL
     token: POST_CODE_ACCESS_TOKEN
@@ -89,10 +90,20 @@ services:
     url: EQUALITY_URL
     tokenKey: DIV_TOKEN_KEY
 
+webchatAvailability:
+  debug: ANTENNA_WEBCHAT_AVAILABILITY_DEBUG
+  url:
+    hostName: ANTENNA_WEBCHAT_URL
+
+commonProps:
+  courtPhoneNumberEn: COURT_PHONENUMBER_EN
+  courtOpeningHourEn: COURT_OPENINGHOURS_EN
+
 features:
   idam: FEATURE_IDAM
   respSolicitorDetails: FEATURE_RESP_SOLICITOR_DETAILS
   antennaWebchatUserAttribute: FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE
+  antennaWebchatAvailabilityToggle: FEATURE_ANTENNA_WEBCHAT_AVAILABILITY_TOGGLE
   respondentEquality: FEATURE_RESP_EQUALITY
   coRespondentEquality: FEATURE_CORESP_EQUALITY
   dynatrace: FEATURE_DYNATRACE

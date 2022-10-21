@@ -3,6 +3,14 @@ nodejs:
     aadIdentityName: divorce
     image: "hmctspublic.azurecr.io/div/rfe:latest"
     ingressHost: "div-rfe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal" # override in public facing environments
+    memoryLimits: '256Mi'
+    memoryRequests: '256Mi'
+    cpuLimits: '1000m'
+    cpuRequests: '200m'
+    autoscaling:
+      enabled: true
+      maxReplicas: 4
+      targetCPUUtilizationPercentage: 80 # Default is 80% target CPU utilization
     environment:
         GOOGLE_ANALYTICS_ID: ""
         GOOGLE_ANALYTICS_TRACKING_URL: "http://www.google-analytics.com/collect"
@@ -27,6 +35,13 @@ nodejs:
         EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT: "/emclientapi/version/1/download"
         ANTENNA_WEBCHAT_URL: "webchat.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Divorce"
+        ANTENNA_WEBCHAT_VERSION: "1"
+
+        ANTENNA_WEBCHAT_AVAILABILITY_DEBUG: "false"
+        FEATURE_WEBCHAT_AVAILABILITY_TOGGLE: "false"
+
+        COURT_PHONENUMBER_EN: "0300 303 0642"
+        COURT_OPENINGHOURS_EN: 'Monday to Friday, 8am to 6pm'
 
         FEATURE_DYNATRACE: "false"
 

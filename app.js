@@ -58,10 +58,18 @@ lookAndFeel.configure(app, {
       googleAnalyticsId: config.services.googleAnalytics.id,
       antennaWebchat: {
         url: config.services.antennaWebchat.url,
-        service: config.services.antennaWebchat.service
+        service: config.services.antennaWebchat.service,
+        version: config.services.antennaWebchat.version
+      },
+      commonProps: {
+        en: {
+          courtPhoneNumber: config.commonProps.courtPhoneNumberEn,
+          courtOpeningHours: config.commonProps.courtOpeningHourEn
+        }
       },
       features: {
         antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute),
+        antennaWebchatAvailabilityToggle: parseBool(config.features.antennaWebchatAvailabilityToggle),
         // Dynatrace Feature Toggle
         dynatrace: parseBool(config.features.dynatrace)
       }

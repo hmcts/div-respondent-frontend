@@ -9,6 +9,7 @@ const content = require('./ConsentDecree.content');
 const { getFeeFromFeesAndPayments } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../../middleware/getWebchatOpenHours');
 
 const constValues = {
   yes: 'Yes',
@@ -103,6 +104,7 @@ class ConsentDecree extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments('amend-fee')
     ];
