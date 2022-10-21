@@ -147,7 +147,8 @@
     "pac-resolver": "^5.0.0",
     "nanoid": "^3.1.31",
     "async": ">=3.2.2",
-    "tmpl": "^1.0.5"
+    "tmpl": "^1.0.5",
+    "minimatch": "3.0.5"
   },
   "nyc": {
     "report-dir": "coverage",
