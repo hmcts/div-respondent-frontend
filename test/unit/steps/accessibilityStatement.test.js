@@ -23,7 +23,9 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems',
+      'phone'
     ];
     return content(PrivacyPolicy, {}, { ignoreContent });
   });

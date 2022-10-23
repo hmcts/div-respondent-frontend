@@ -53,7 +53,8 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'phoneToCallIfProblems'
     ];
 
     return content(
@@ -115,7 +116,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
     return content(CrChooseAResponse, session, { ignoreContent });
   });

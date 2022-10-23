@@ -772,7 +772,7 @@ describe(modulePath, () => {
         divorceCenterPostCode: 'NG2 9QN',
         divorceCenterStreet: '21 Jump Street',
         divorceCenterEmail: 'eastmidlandsdivorce@hmcts.gsi.gov.uk',
-        divorceCenterPhoneNumber: '0300 303 0642',
+        divorceCenterPhoneNumber: '',
         originalPetition: {
           respEmailAddress: 'simulate-delivered@notifications.service.gov.uk'
         }

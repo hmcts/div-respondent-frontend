@@ -298,8 +298,12 @@ saucelabs:
 
 languages: ['en', 'cy']
 
+commonProps:
+  courtPhoneNumberEn: '0300 303 0642'
+  courtOpeningHourEn: 'Monday to Friday, 8am to 6pm'
+
 featureToggles:
-  enabled: true
+  enabled: false
   launchDarklyKey: 'SDK_KEY'
   launchDarklyUser:
     firstName: 'Divorce'
