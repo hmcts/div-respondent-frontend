@@ -26,6 +26,7 @@ const excludedWarnings = [
   'The “complementary” role is unnecessary for element “aside”.',
   'The “navigation” role is unnecessary for element “nav”.',
   'The “button” role is unnecessary for element “button”.',
+  'Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.',
   'Possible misuse of “aria-label”. (If you disagree with this warning, file an issue report or send e-mail to www-validator@w3.org.)' // eslint-disable-line
 ];
 const filteredWarnings = r => {
