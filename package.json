@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": ">=12.22.0"
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
   },
   "jest": {
     "verbose": true,
@@ -70,14 +70,7 @@
     "tar": ">=4.4.18",
     "uuid": "^8.1.0",
     "y18n": ">=5.0.5||>=4.0.1 <5.0.0||>=3.2.2 <4.0.0",
-    "yargs-parser": ">=13.1.2 <14.0.0 || >=18.1.2",
-    "jsoneditor": "^9.5.6",
-    "ajv": ">=6.12.3",
-    "loader-utils": ">=1.4.1",
-    "scss-tokenizer": ">=0.4.3",
-    "redis": ">=3.1.1",
-    "minimatch": ">=3.0.5",
-    "validator": ">=13.7.0"
+    "yargs-parser": ">=13.1.2 <14.0.0 || >=18.1.2"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.6.0",
@@ -154,7 +147,15 @@
     "pac-resolver": "^5.0.0",
     "nanoid": "^3.1.31",
     "async": ">=3.2.2",
-    "tmpl": "^1.0.5"
+    "tmpl": "^1.0.5",
+    "jsoneditor": "^9.5.6",
+    "ajv": "6.0.0",
+    "ajv-openapi": "2.0.0",
+    "loader-utils": ">=1.4.1",
+    "scss-tokenizer": ">=0.4.3",
+    "redis": ">=3.1.1",
+    "minimatch": ">=3.0.5",
+    "validator": ">=13.7.0"
   },
   "nyc": {
     "report-dir": "coverage",
