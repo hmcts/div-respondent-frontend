@@ -1082,7 +1082,7 @@
   resolved "https://registry.yarnpkg.com/@wdio/types/-/types-7.5.3.tgz#9239b00fd2c2ef75f7a6bda965b5be0855d97f7e"
   integrity sha512-jmumhKBhNDABnpmrshYLEcdE9WoP5tmynsDNbDABlb/W8FFiLySQOejukhYIL9CLys4zXerV3/edks0SCzHOiQ==
   dependencies:
-    got "^11.8.1"
+    got "^11.8.5"
 
 "@wdio/utils@5.23.0":
   version "5.23.0"
@@ -4005,7 +4005,7 @@ degenerator@^3.0.1:
     ast-types "^0.13.2"
     escodegen "^1.8.1"
     esprima "^4.0.0"
-    vm2 "^3.9.8"
+    vm2 "^3.9.11"
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -8359,7 +8359,7 @@ mochawesome-report-generator@^3.0.1:
     react-dom "^16.0.0"
     tcomb "^3.2.17"
     tcomb-validation "^3.3.0"
-    validator "^9.1.2"
+    validator "^13.7.0"
     yargs "^10.0.3"
 
 mochawesome@^3.0.2:
@@ -11624,7 +11624,7 @@ terser-webpack-plugin@^1.4.3:
     schema-utils "^1.0.0"
     serialize-javascript "^4.0.0"
     source-map "^0.6.1"
-    terser "^4.1.2"
+    terser "^4.8.1"
     webpack-sources "^1.4.0"
     worker-farm "^1.7.0"
 
@@ -12175,7 +12175,7 @@ vm-browserify@^1.0.1:
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
 vm2@^3.9.8:
-  version "3.9.9"
+  version "3.9.11"
   resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.9.tgz#c0507bc5fbb99388fad837d228badaaeb499ddc5"
   integrity sha512-xwTm7NLh/uOjARRBs8/95H0e8fT3Ukw5D/JJWhxMbhKzNh1Nu981jQKvkep9iKYNxzlVrdzD0mlBGkDKZWprlw==
   dependencies:
@@ -12253,7 +12253,7 @@ webdriver@7.5.3:
     "@wdio/protocols" "7.5.3"
     "@wdio/types" "7.5.3"
     "@wdio/utils" "7.5.3"
-    got "^11.0.2"
+    got "^11.8.5"
     lodash.merge "^4.6.1"
 
 webdriverio@^5.15.2:
