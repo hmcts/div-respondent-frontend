@@ -150,7 +150,8 @@
     "tmpl": "^1.0.5",
     "minimatch": "^3.0.5",
     "vm2" : "^3.9.11",
-    "scss-tokenizer": "^0.4.3"
+    "scss-tokenizer": "^0.4.3",
+    "loader-utils": "^1.4.1"
   },
   "nyc": {
     "report-dir": "coverage",
