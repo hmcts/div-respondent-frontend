@@ -148,7 +148,8 @@
     "nanoid": "^3.1.31",
     "async": ">=3.2.2",
     "tmpl": "^1.0.5",
-    "minimatch": "^3.0.5"
+    "minimatch": "^3.0.5",
+    "got": "^11.8.5"
   },
   "nyc": {
     "report-dir": "coverage",
