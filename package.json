@@ -153,7 +153,8 @@
     "scss-tokenizer": "^0.4.3",
     "loader-utils": "^1.4.1",
     "got": "^11.8.5",
-    "terser": "^4.8.1"
+    "terser": "^4.8.1",
+    "validator": "^13.7.0"
   },
   "nyc": {
     "report-dir": "coverage",
