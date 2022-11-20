@@ -151,7 +151,8 @@
     "minimatch": "^3.0.5",
     "vm2" : "^3.9.11",
     "scss-tokenizer": "^0.4.3",
-    "loader-utils": "^1.4.1"
+    "loader-utils": "^1.4.1",
+    "got": "^11.8.5"
   },
   "nyc": {
     "report-dir": "coverage",
