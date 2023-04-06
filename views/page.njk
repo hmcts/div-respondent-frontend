@@ -34,6 +34,8 @@
 {% from "includes/phase_banner.html" import divPhaseBanner %}
 {% from "back-link/macro.njk" import govukBackLink %}
 
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
 {% block breadcrumbs %}
   {{ divPhaseBanner(phase, content.feedback, content.languageToggle, session) }}
 
@@ -67,6 +69,15 @@
 {% endblock %}
 
 {% block two_thirds -%}
+  {{ govukWarningText({
+    text: "Please note that due to a technical error some users may have received a copy of an old petition and acknowledgement of service pack. If the same divorce case number has already concluded with a Decree Absolute, or you have already responded to this, please rely on your portal to confirm the latest position.",
+    iconFallbackText: "Information"
+  }) }}
+  {% block title %}
+      {% if (title) %}
+        {{ header(title, size=titleSize) }}
+      {% endif %}
+    {% endblock %}
   {% block title %}
     {% if (title) %}
       {{ header(title, size=titleSize) }}
