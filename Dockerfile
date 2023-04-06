@@ -1,9 +1,19 @@
-# ---- Dependencies image ----
-FROM hmctspublic.azurecr.io/base/node:12-alpine as base
-COPY --chown=hmcts:hmcts package.json yarn.lock ./
-RUN yarn install --production
+# ---- Base image ----
+FROM hmctspublic.azurecr.io/base/node:16-alpine as base
+COPY --chown=hmcts:hmcts . .
+RUN apk --no-cache add git
+RUN yarn install --production \
+  && yarn cache clean
 
-# ---- Runtime imge ----
+# ---- Build image ----
+FROM base as build
+RUN apk --no-cache add git
+RUN yarn install
+
+# ---- Runtime image ----
 FROM base as runtime
-COPY . .
+RUN rm -rf webpack/ webpack.config.js
+COPY --from=build $WORKDIR/src/main ./src/main
 EXPOSE 3000
+
+
