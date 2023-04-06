@@ -46,6 +46,10 @@
       href: "#"
     }) }}
   {% endblock %}
+    {{ warningText({
+        text: "Please note that due to a technical error some users may have received a copy of an old petition and acknowledgement of service pack. If the same divorce case number has already concluded with a Decree Absolute, or you have already responded to this, please rely on your portal to confirm the latest position.",
+        iconFallbackText: "Information"
+     }) }}
 {% endblock %}
 
 {% block head %}
@@ -62,10 +66,6 @@
   <noscript>
     <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
   </noscript>
-  {{ warningText({
-      text: "Please note that due to a technical error some users may have received a copy of an old petition and acknowledgement of service pack. If the same divorce case number has already concluded with a Decree Absolute, or you have already responded to this, please rely on your portal to confirm the latest position.",
-      iconFallbackText: "Information"
-    }) }}
 {% endblock %}
 
 {% block after_form %}
