@@ -34,8 +34,10 @@ acb.yaml
 mochawesome-report
 /config/dev.yaml
 /config/development.yaml
+
 .pnp.*
 .yarn/*
+!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
