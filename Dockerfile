@@ -1,7 +1,6 @@
 # ---- Base image ----
 FROM hmctspublic.azurecr.io/base/node:16-alpine as base
 USER root
-RUN corepack enable
 RUN apk add git
 USER hmcts
 COPY --chown=hmcts:hmcts . .
