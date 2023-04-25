@@ -1350,9 +1350,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:^18.0.0":
-  version: 18.16.0
-  resolution: "@types/node@npm:18.16.0"
-  checksum: 63e0042136663b9e85ce503a4c65406cc6621fdba63ea66c74b4b1364a9aa9bdb57cadcb76696abab177f38a819b0fa6ace9e7f1647dcb990aedb1b4bd01012f
+  version: 18.16.1
+  resolution: "@types/node@npm:18.16.1"
+  checksum: 799026b949a48993cba7c9b81b2eabfdfb34c880744cb44c1c990fbedc9e315f3634d126eb2cf9a6e0795577c01016e2326d98565bef695ada9d363fadeb6946
   languageName: node
   linkType: hard
 
@@ -5494,6 +5494,7 @@ __metadata:
     eslint-plugin-mocha: ^5.0.0
     express: ^4.17.3
     express-limiter: ^1.6.1
+    extract-text-webpack-plugin: next
     glob: ^7.1.6
     govuk-frontend: 4.5.0
     handlebars: ">=4.3.0"
@@ -6537,6 +6538,20 @@ __metadata:
   peerDependencies:
     webpack: ^3.1.0
   checksum: b3a39b58d8827ea09507c2cf3aec4c154bd0ce54d708f9ec4d0d26d3fa0238cc1c62d023bba48ed5df179cebe029fb8ef50dbbb44cc818023f8db3781b65fce7
+  languageName: node
+  linkType: hard
+
+"extract-text-webpack-plugin@npm:next":
+  version: 4.0.0-beta.0
+  resolution: "extract-text-webpack-plugin@npm:4.0.0-beta.0"
+  dependencies:
+    async: ^2.4.1
+    loader-utils: ^1.1.0
+    schema-utils: ^0.4.5
+    webpack-sources: ^1.1.0
+  peerDependencies:
+    webpack: ^3.0.0 || ^4.0.0
+  checksum: 04d13447ac170646e0faed81a37228a27e2c068fab72349419da51c80d7c4fbd9e2da8d6a3914d08df04f57f9fff1cd7fcf21f0817995a990b7e678e6cd7f15f
   languageName: node
   linkType: hard
 
@@ -16443,7 +16458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-sources@npm:^1.0.1, webpack-sources@npm:^1.4.0, webpack-sources@npm:^1.4.1":
+"webpack-sources@npm:^1.0.1, webpack-sources@npm:^1.1.0, webpack-sources@npm:^1.4.0, webpack-sources@npm:^1.4.1":
   version: 1.4.3
   resolution: "webpack-sources@npm:1.4.3"
   dependencies:
