@@ -1,4 +1,3 @@
-@import "govuk-frontend/govuk/all";
 @import '~govuk-frontend/all.scss';
 @import 'look-and-feel/check-your-answers';
 @import 'look-and-feel/add-another';
@@ -11,6 +10,7 @@
 @import 'check-your-answers';
 @import 'phase_banner';
 @import 'web-chat';
+@import "node_modules/govuk-frontend/govuk/all";
 
 .govuk-related-items {
   margin-top: 30px;
