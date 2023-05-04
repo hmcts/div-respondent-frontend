@@ -4,7 +4,7 @@
 {% from "look-and-feel/components/errors.njk" import errorSummary %}
 
 {% from "look-and-feel/components/fields.njk" import selectionButtons, textbox, errorClass, errorsFor, select, textarea %}
-{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "select/macro.njk" import govukSelect %}
 
 {% set defaultAddressContent = {
     pageTitle: pageContent.pageTitle if pageContent.pageTitle else 'What is the address?',
