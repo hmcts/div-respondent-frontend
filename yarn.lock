@@ -121,8 +121,8 @@ __metadata:
   linkType: hard
 
 "@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.7.5":
-  version: 7.21.8
-  resolution: "@babel/core@npm:7.21.8"
+  version: 7.21.5
+  resolution: "@babel/core@npm:7.21.5"
   dependencies:
     "@ampproject/remapping": ^2.2.0
     "@babel/code-frame": ^7.21.4
@@ -130,7 +130,7 @@ __metadata:
     "@babel/helper-compilation-targets": ^7.21.5
     "@babel/helper-module-transforms": ^7.21.5
     "@babel/helpers": ^7.21.5
-    "@babel/parser": ^7.21.8
+    "@babel/parser": ^7.21.5
     "@babel/template": ^7.20.7
     "@babel/traverse": ^7.21.5
     "@babel/types": ^7.21.5
@@ -139,7 +139,7 @@ __metadata:
     gensync: ^1.0.0-beta.2
     json5: ^2.2.2
     semver: ^6.3.0
-  checksum: f28118447355af2a90bd340e2e60699f94c8020517eba9b71bf8ebff62fa9e00d63f076e033f9dfb97548053ad62ada45fafb0d96584b1a90e8aef5a3b8241b1
+  checksum: 77ca0e6493860fb6f91cf441313c0bb464d21f8c6842cf3f1dbb083a910370e37a4c0ada35cf11ef0ebe7d0ee2d6bde2f4ee9b4caa3328e807988aa282787677
   languageName: node
   linkType: hard
 
@@ -289,12 +289,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.5, @babel/parser@npm:^7.21.8, @babel/parser@npm:^7.4.3, @babel/parser@npm:^7.8.3":
-  version: 7.21.8
-  resolution: "@babel/parser@npm:7.21.8"
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.5, @babel/parser@npm:^7.4.3, @babel/parser@npm:^7.8.3":
+  version: 7.21.5
+  resolution: "@babel/parser@npm:7.21.5"
   bin:
     parser: ./bin/babel-parser.js
-  checksum: 1b9a820fedfb6ef179e6ffa1dbc080808882949dec68340a616da2aa354af66ea2886bd68e61bd444d270aa0b24ad6273e3cfaf17d6878c34bf2521becacb353
+  checksum: c7ec0dae795f2a43885fdd5c1c53c7f11b3428628ae82ebe1e1537cb3d13e25e7993549e026662a3e05dcc743b595f82b25f0a49ef9155459a9a424eedb7e2b0
   languageName: node
   linkType: hard
 
@@ -5693,9 +5693,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.47, electron-to-chromium@npm:^1.4.284":
-  version: 1.4.382
-  resolution: "electron-to-chromium@npm:1.4.382"
-  checksum: 553a82840bf8b0f99d298b0ffd2273b04f4e37659126828f95107212f95f571facc750465e20e6df95c988c9950a0c80800d2efd0d3075e15f443e5ae22e5231
+  version: 1.4.379
+  resolution: "electron-to-chromium@npm:1.4.379"
+  checksum: 29997b1cc7f3f3e71229c984b33a6c70e9a356335632a940a67a908c3e157db692ae9e03634475b3074b63dda2ee9d6d638f034529255b1aacff1a5c4f55b37e
   languageName: node
   linkType: hard
 
@@ -11080,6 +11080,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minipass@npm:^4.0.0":
+  version: 4.2.8
+  resolution: "minipass@npm:4.2.8"
+  checksum: 7f4914d5295a9a30807cae5227a37a926e6d910c03f315930fde52332cf0575dfbc20295318f91f0baf0e6bb11a6f668e30cde8027dea7a11b9d159867a3c830
+  languageName: node
+  linkType: hard
+
 "minipass@npm:^5.0.0":
   version: 5.0.0
   resolution: "minipass@npm:5.0.0"
@@ -15390,16 +15397,16 @@ __metadata:
   linkType: hard
 
 "tar@npm:>=4.4.18 <5.0.0 || >=5.0.10 <6.0.0 || >=6.1.9":
-  version: 6.1.14
-  resolution: "tar@npm:6.1.14"
+  version: 6.1.13
+  resolution: "tar@npm:6.1.13"
   dependencies:
     chownr: ^2.0.0
     fs-minipass: ^2.0.0
-    minipass: ^5.0.0
+    minipass: ^4.0.0
     minizlib: ^2.1.1
     mkdirp: ^1.0.3
     yallist: ^4.0.0
-  checksum: a1be0815a9bdc97dfca7c6c2d71d1b836f8ba9314684e2c412832f0f59cc226d4c13da303d6bc30925e82f634cc793f40da79ae72f3e96fb87c23d0f4efd5207
+  checksum: 8a278bed123aa9f53549b256a36b719e317c8b96fe86a63406f3c62887f78267cea9b22dc6f7007009738509800d4a4dccc444abd71d762287c90f35b002eb1c
   languageName: node
   linkType: hard
 
