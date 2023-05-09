@@ -5670,6 +5670,7 @@ __metadata:
     express: ^4.17.3
     express-limiter: ^1.6.1
     glob: ^7.1.6
+    govuk-frontend: 4.5.0
     handlebars: ">=4.3.0"
     helmet: ^3.12.2
     hpkp: ^2.0.0
@@ -7830,6 +7831,13 @@ __metadata:
     p-cancelable: ^2.0.0
     responselike: ^2.0.0
   checksum: bbc783578a8d5030c8164ef7f57ce41b5ad7db2ed13371e1944bef157eeca5a7475530e07c0aaa71610d7085474d0d96222c9f4268d41db333a17e39b463f45d
+  languageName: node
+  linkType: hard
+
+"govuk-frontend@npm:4.5.0":
+  version: 4.5.0
+  resolution: "govuk-frontend@npm:4.5.0"
+  checksum: 7a999ffb49c2f32f9dc3b0b743b698f8385d39cd0213d8aea1d7f2dfcc9f035f597030faac34659e8981d3c4a596379e99f5ea8c4d088cf486340eeaafdc800d
   languageName: node
   linkType: hard
 
