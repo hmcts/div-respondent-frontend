@@ -74,7 +74,7 @@
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.6.0",
     "@hmcts/div-test-harness": "^1.0.4",
-    "@hmcts/one-per-page-test-suite": "^6.0.2",
+    "@hmcts/one-per-page-test-suite": "^5.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
