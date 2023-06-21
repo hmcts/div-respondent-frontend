@@ -23,7 +23,7 @@ variable "env" { }
 variable "ilbIp" { }
 
 variable "deployment_env" {
-  type = "string"
+  type = string
 }
 
 variable "deployment_path" {
@@ -41,12 +41,12 @@ variable "node_config_dir" {
 variable "subscription" { }
 
 variable "vault_section" {
-  type = "string"
+  type = string
 }
 
 // CNP settings
 variable "jenkins_AAD_objectId" {
-  type                        = "string"
+  type                        = string
   description                 = "(Required) The Azure AD object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies."
 }
 
