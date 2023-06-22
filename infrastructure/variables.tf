@@ -20,8 +20,6 @@ variable "location" {
 
 variable "env" { }
 
-variable "ilbIp" { }
-
 variable "deployment_env" {
   type = "string"
 }
