@@ -1,7 +1,7 @@
 // Infrastructural variables
 
 variable "reform_team" {
-  default = "div"
+  default = div
 }
 
 variable "reform_service_name" {
