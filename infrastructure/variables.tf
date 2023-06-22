@@ -15,7 +15,7 @@ variable "raw_product" {
 }
 
 variable "location" {
-  default = UK South
+  default = "UK South"
 }
 
 variable "env" { }
