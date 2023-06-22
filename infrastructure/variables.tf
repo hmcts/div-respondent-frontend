@@ -11,11 +11,11 @@ variable "reform_service_name" {
 variable "product" {}
 
 variable "raw_product" {
-  default = "div"
+  default = div
 }
 
 variable "location" {
-  default = "UK South"
+  default = UK South
 }
 
 variable "env" { }
@@ -128,7 +128,7 @@ variable "hpkp_shas" {
 variable "component" {}
 
 variable "capacity" {
-  default = "1"
+  default = 1
 }
 
 variable "google_analytics_tracking_id" {}
