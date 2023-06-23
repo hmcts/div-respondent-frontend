@@ -52,7 +52,7 @@ nodejs:
                 - redis-secret
                 - idam-secret
                 - os-places-token
-                - rfe-redis-connection-string
+                - redis-connection-string
                 - AppInsightsInstrumentationKey
                 - launchdarkly-key
                 - pcq-token-key
