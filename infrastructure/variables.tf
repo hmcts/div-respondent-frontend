@@ -20,11 +20,7 @@ variable "location" {
 
 variable "env" { }
 
-variable "ilbIp" { }
-
-variable "deployment_env" {
-  type = string
-}
+variable "deployment_env" {}
 
 variable "deployment_path" {
   default = "/opt/divorce/frontend"
@@ -40,13 +36,10 @@ variable "node_config_dir" {
 
 variable "subscription" { }
 
-variable "vault_section" {
-  type = string
-}
+variable "vault_section" {}
 
 // CNP settings
 variable "jenkins_AAD_objectId" {
-  type                        = string
   description                 = "(Required) The Azure AD object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies."
 }
 
