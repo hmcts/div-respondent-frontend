@@ -1,6 +1,6 @@
 #!groovy
 
-@Library("Infrastructure@old-provider")
+@Library("Infrastructure@bump-date-for-xui")
 
 String product = "div"
 String component = "rfe"
