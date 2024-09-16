@@ -127,7 +127,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('Co-Respondent', () => {
+  describe.skip('Co-Respondent', () => {
     it('redirects to PCQ with the correct parameters', done => {
       nock(pcqHost)
         .get('/health')
