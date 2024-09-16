@@ -95,7 +95,7 @@
     "mockserver": "^2.1.1",
     "nock": "^12.0.3",
     "node-dev": "^4.0.0",
-    "node-sass": "8.0.0",
+    "node-sass": "9.0.0",
     "nyc": "^15.0.0",
     "pa11y": "^4.0.1",
     "pre-commit": "^1.2.2",
@@ -157,7 +157,7 @@
     "decode-uri-component": "^0.2.1",
     "qs": "^6.7.3",
     "express": "^4.17.3",
-    "node-sass": "8.0.0"
+    "node-sass": "9.0.0"
   },
   "nyc": {
     "report-dir": "coverage",
