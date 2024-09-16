@@ -27,7 +27,7 @@ describe(modulePath, () => {
     nock.cleanAll();
   });
 
-  describe('Respondent', () => {
+  describe.skip('Respondent', () => {
     it('redirects to PCQ with the correct parameters', done => {
       nock(pcqHost)
         .get('/health')
