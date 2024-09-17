@@ -14,6 +14,7 @@ client.on('connect', () => {
 });
 
 client.on('error', error => {
+  logger.infoWithReq(null, 'redis_error', 'redis=' || config.services.redis.url);
   logger.errorWithReq(null, 'redis_error', 'Error connecting to Redis', error);
 });
 
