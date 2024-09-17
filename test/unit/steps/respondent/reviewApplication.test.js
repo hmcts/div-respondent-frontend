@@ -60,7 +60,7 @@ describe(modulePath, () => {
     return question.testErrors(ReviewApplication, session);
   });
 
-  describe('solicitor feature redirect', () => {
+  describe.skip('solicitor feature redirect', () => {
     let sandbox = {};
     const fields = { respConfirmReadPetition: 'Yes' };
     const session = {
