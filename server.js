@@ -3,6 +3,7 @@ const config = require('@hmcts/properties-volume').addTo(require('config'));
 const setupSecrets = require('services/setupSecrets');
 
 // Setup secrets before loading the app
+logger.infoWithReq(null, 'dev', 'loading secrets');
 setupSecrets();
 
 require('./services/app-insights')();
