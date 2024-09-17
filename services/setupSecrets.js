@@ -14,7 +14,9 @@ const setupSecrets = () => {
   if (config.has('secrets.div')) {
     logger.infoWithReq(null, 'dev', 'setting up secrets.div');
     logger.infoWithReq(null, 'dev', config.get('environment'));
-    logger.infoWithReq(null, 'dev', config.get('secrets.div.redis-connection-string'));
+    if (config.has('secrets.div.redis-connection-string')) {
+      logger.infoWithReq(null, 'dev', config.get('secrets.div.redis-connection-string'));
+    }
     setSecret('secrets.div.session-secret', 'session.secret');
     setSecret('secrets.div.redis-connection-string', 'services.redis.url');
     setSecret('secrets.div.redis-secret', 'services.redis.encryptionAtRestKey');
