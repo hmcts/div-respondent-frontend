@@ -24,7 +24,6 @@ nodejs:
     keyVaults:
         div:
           secrets:
-            - redis-connection-string
             - session-secret
             - redis-secret
             - idam-secret
