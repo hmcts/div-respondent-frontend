@@ -21,7 +21,8 @@ exports.config = {
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
     CaseHelper: { require: './helpers/caseHelper.js' },
-    JSWait: { require: './helpers/JSWait.js' }
+    JSWait: { require: './helpers/JSWait.js' },
+    ElementExist: { require: './helpers/elementExist.js' }
   },
   include: { I: './pages/steps.js' },
   mocha: {
