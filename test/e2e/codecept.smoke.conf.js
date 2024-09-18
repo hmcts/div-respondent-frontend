@@ -13,7 +13,7 @@ exports.config = {
       url: config.tests.e2e.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
-      show: config.tests.e2e.show,
+      show: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
