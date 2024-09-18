@@ -293,8 +293,8 @@ saucelabs:
   browser: 'chrome'
   username: 'username'
   key: 'privatekey'
-  waitForTimeout: 30000
-  smartWait: 30000
+  waitForTimeout: 60000
+  smartWait: 45000
 
 languages: ['en', 'cy']
 
