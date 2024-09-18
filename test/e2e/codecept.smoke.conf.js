@@ -19,7 +19,8 @@ exports.config = {
         args: chromeArgs
       }
     },
-    JSWait: { require: './helpers/JSWait.js' }
+    JSWait: { require: './helpers/JSWait.js' },
+    UrlHelper: { require: './helpers/urlHelper.js' }
   },
   mocha: {
     reporterOptions: {
