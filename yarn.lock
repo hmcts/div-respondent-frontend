@@ -727,7 +727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hmcts/one-per-page@npm:5.4.0, @hmcts/one-per-page@npm:^5.2.3":
+"@hmcts/one-per-page@npm:^5.2.3, @hmcts/one-per-page@npm:^5.4.0":
   version: 5.4.0
   resolution: "@hmcts/one-per-page@npm:5.4.0"
   dependencies:
@@ -5868,7 +5868,7 @@ __metadata:
     "@hmcts/look-and-feel": 4.0.9
     "@hmcts/nodejs-healthcheck": ^1.7.0
     "@hmcts/nodejs-logging": ^3.0.1
-    "@hmcts/one-per-page": 5.4.0
+    "@hmcts/one-per-page": ^5.4.0
     "@hmcts/one-per-page-test-suite": ^5.0.0
     "@hmcts/properties-volume": ^0.0.13
     applicationinsights: ^2.5.0
