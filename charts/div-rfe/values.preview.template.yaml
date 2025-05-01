@@ -31,11 +31,16 @@ nodejs:
             - os-places-token
             - launchdarkly-key
             - pcq-token-key
+
 redis:
   enabled: true
   architecture: standalone
   auth:
     enabled: false
+  serviceAccount:
+    create: false
+    name: "divorce"
+    automountServiceAccountToken: true
 
 tags:
   idam-pr: true
