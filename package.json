@@ -113,7 +113,7 @@
     "zepto-node": "^1.0.0"
   },
   "resolutions": {
-    "axios": "^0.21.2",
+    "axios": "^0.30.0",
     "assign-deep": ">=1.0.1",
     "braces": "^2.3.1",
     "bl": ">=4.0.3",
