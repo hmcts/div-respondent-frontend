@@ -115,7 +115,7 @@
   "resolutions": {
     "axios": "^0.21.2",
     "assign-deep": ">=1.0.1",
-    "braces": "^2.3.1",
+    "braces": "^3.0.0",
     "bl": ">=4.0.3",
     "diff": "^3.5.0",
     "handlebars": ">=4.3.0",
