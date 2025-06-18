@@ -1,18 +1,18 @@
 apiVersion: v2
 description: Divorce - Respondent Frontend
 name: div-rfe
-version: 2.0.22
+version: 2.0.23
 dependencies:
   - name: nodejs
-    version: 2.4.15
-    repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
+    version: 3.2.0
+    repository: 'oci://hmctspublic.azurecr.io/helm'
   - name: redis
-    version: 17.7.2
-    repository: "https://charts.bitnami.com/bitnami"
+    version: 20.13.2
+    repository: 'oci://registry-1.docker.io/bitnamicharts'
     tags:
       - pr
   - name: idam-pr
-    version: 2.2.7
-    repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
+    version: 2.3.0
+    repository: 'oci://hmctspublic.azurecr.io/helm'
     tags:
       - idam-pr

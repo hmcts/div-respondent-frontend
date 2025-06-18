@@ -16,6 +16,7 @@ nodejs:
         ANTENNA_WEBCHAT_AVAILABILITY_DEBUG: "true"
         FEATURE_ANTENNA_WEBCHAT_AVAILABILITY_TOGGLE: "true"
         FEATURE_DYNATRACE: "false"
+        FEATURE_PING_REDIS: "true"
 
     # Don't modify below here
     image: ${IMAGE_NAME}
@@ -30,11 +31,16 @@ nodejs:
             - os-places-token
             - launchdarkly-key
             - pcq-token-key
+
 redis:
   enabled: true
   architecture: standalone
   auth:
     enabled: false
+  serviceAccount:
+    create: false
+    name: "divorce"
+    automountServiceAccountToken: true
 
 tags:
   idam-pr: true

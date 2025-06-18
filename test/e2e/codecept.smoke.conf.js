@@ -14,6 +14,9 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: config.tests.e2e.show,
+      restart: false,
+      keepCookies: false,
+      keepBrowserState: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
